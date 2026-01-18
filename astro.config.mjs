@@ -5,7 +5,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://s-hub.pages.dev',
+  site: 'https://dev-tools-hub.xyz',
   integrations: [
     sitemap({
       changefreq: 'weekly',
