@@ -11,7 +11,7 @@ const extension = {
   chromeUrl: "#", // TODO: Chrome Web Store URL
   category: "生産性向上",
   lang: "JP",
-  icon: "/ext-icons/yahoo-kaiteki-mode.png",
+  icon: "/ext-icons/yahoo-kaiteki-mode.webp",
   rating: 0,
   reviewCount: 0,
 };
@@ -59,8 +59,8 @@ const screenshots = [
 ];
 
 const relatedProducts = [
-  { name: "X Detox", category: "デジタルウェルビーイング", link: "/extensions/x-detox", icon: "/ext-icons/x-detox.png" },
-  { name: "Shorts Killer", category: "デジタルウェルビーイング", link: "/extensions/shorts-killer", icon: "/ext-icons/shorts-killer.png" },
+  { name: "X Detox", category: "デジタルウェルビーイング", link: "/extensions/x-detox", icon: "/ext-icons/x-detox.webp" },
+  { name: "Shorts Killer", category: "デジタルウェルビーイング", link: "/extensions/shorts-killer", icon: "/ext-icons/shorts-killer.webp" },
 ];
 
 const softwareSchema = {
@@ -97,7 +97,7 @@ const softwareSchema = {
   <div class="pt-24 pb-16">
     <!-- Hero Section with CTA -->
     <section class="px-6 py-12 max-w-4xl mx-auto">
-      <a href="/" class="inline-flex items-center text-zinc-400 hover:text-white mb-8 transition-colors">
+      <a href="/" class="inline-flex items-center text-zinc-300 hover:text-white mb-8 transition-colors">
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
         </svg>
@@ -125,7 +125,7 @@ const softwareSchema = {
           <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">
             {extension.name}
           </h1>
-          <p class="text-xl text-zinc-400 mb-4">{extension.subtitle}</p>
+          <p class="text-xl text-zinc-300 mb-4">{extension.subtitle}</p>
 
           <div class="flex items-center gap-4 mb-6">
             <span class="price-badge-free">{extension.price}</span>
@@ -252,7 +252,7 @@ const softwareSchema = {
     <!-- Overview -->
     <section class="px-6 py-12 max-w-4xl mx-auto">
       <h2 class="text-2xl font-bold text-white mb-6">概要</h2>
-      <div class="text-zinc-400 text-lg leading-relaxed whitespace-pre-line">
+      <div class="text-zinc-300 text-lg leading-relaxed whitespace-pre-line">
         {overview}
       </div>
     </section>
@@ -267,7 +267,7 @@ const softwareSchema = {
               <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
               <div>
                 <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
-                <p class="text-zinc-400 text-sm">{feature.desc}</p>
+                <p class="text-zinc-300 text-sm">{feature.desc}</p>
               </div>
             </div>
           </div>
@@ -288,7 +288,7 @@ const softwareSchema = {
               <div class="w-2 h-2 bg-pink-500 rounded-full mt-2 flex-shrink-0"></div>
               <div>
                 <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
-                <p class="text-zinc-400 text-sm">{feature.desc}</p>
+                <p class="text-zinc-300 text-sm">{feature.desc}</p>
               </div>
             </div>
           ))}
@@ -303,7 +303,7 @@ const softwareSchema = {
         {supportedSites.map((site) => (
           <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4 text-center">
             <p class="font-semibold text-white text-sm mb-1">{site.name}</p>
-            <p class="text-zinc-500 text-xs">{site.url}</p>
+            <p class="text-zinc-400 text-xs">{site.url}</p>
           </div>
         ))}
       </div>
@@ -314,7 +314,7 @@ const softwareSchema = {
       <h2 class="text-2xl font-bold text-white mb-6">こんな方におすすめ</h2>
       <ul class="space-y-4">
         {targetUsers.map((user) => (
-          <li class="flex items-start gap-4 text-zinc-400">
+          <li class="flex items-start gap-4 text-zinc-300">
             <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
@@ -331,7 +331,7 @@ const softwareSchema = {
         <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
           <h3 class="text-xl font-bold text-white mb-2">無料版</h3>
           <p class="text-3xl font-bold text-green-400 mb-4">¥0</p>
-          <ul class="space-y-2 text-zinc-400 text-sm">
+          <ul class="space-y-2 text-zinc-300 text-sm">
             <li>✓ キーワードフィルタリング</li>
             <li>✓ ソースブロック（20件まで）</li>
             <li>✓ プリセットフィルター</li>
@@ -340,8 +340,8 @@ const softwareSchema = {
         </div>
         <div class="bg-gradient-to-r from-pink-600/20 to-purple-600/20 border border-pink-500/30 rounded-xl p-6">
           <h3 class="text-xl font-bold text-white mb-2">Pro版</h3>
-          <p class="text-3xl font-bold text-pink-400 mb-4">¥700<span class="text-sm font-normal text-zinc-400">（買い切り）</span></p>
-          <ul class="space-y-2 text-zinc-400 text-sm">
+          <p class="text-3xl font-bold text-pink-400 mb-4">¥700<span class="text-sm font-normal text-zinc-300">（買い切り）</span></p>
+          <ul class="space-y-2 text-zinc-300 text-sm">
             <li>✓ 無料版の全機能</li>
             <li>✓ こたつ記事AI検出</li>
             <li>✓ 無制限ブロックリスト</li>
@@ -356,7 +356,7 @@ const softwareSchema = {
     <section class="px-6 py-12 max-w-4xl mx-auto">
       <div class="bg-gradient-to-r from-blue-600/20 to-green-600/20 border border-zinc-800 rounded-2xl p-8 text-center">
         <h2 class="text-2xl font-bold text-white mb-4">快適なニュース体験を始めよう</h2>
-        <p class="text-zinc-400 mb-8">Yahoo快適モードをインストールして、低品質記事から解放されましょう。</p>
+        <p class="text-zinc-300 mb-8">Yahoo快適モードをインストールして、低品質記事から解放されましょう。</p>
         <div class="flex flex-wrap justify-center gap-4">
           <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-green flex items-center gap-2 px-8 py-4 text-lg">
             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -377,9 +377,9 @@ const softwareSchema = {
             <img src={product.icon} alt={product.name} class="w-12 h-12 rounded-xl bg-zinc-800" />
             <div>
               <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">{product.name}</h3>
-              <p class="text-xs text-zinc-400 uppercase tracking-wider">{product.category}</p>
+              <p class="text-xs text-zinc-300 uppercase tracking-wider">{product.category}</p>
             </div>
-            <svg class="w-5 h-5 text-zinc-400 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-zinc-300 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
             </svg>
           </a>

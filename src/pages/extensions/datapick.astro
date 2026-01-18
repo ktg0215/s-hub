@@ -10,7 +10,7 @@ const extension = {
   chromeUrl: "https://chromewebstore.google.com/detail/datapick/",
   category: "Productivity",
   lang: "EN",
-  icon: "/ext-icons/datapick.png",
+  icon: "/ext-icons/datapick.webp",
   rating: 0,
   reviewCount: 0,
 };
@@ -50,8 +50,8 @@ const screenshots = [
 ];
 
 const relatedProducts = [
-  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash", icon: "/ext-icons/promptstash.png" },
-  { name: "Arbitra", category: "E-Commerce", link: "/extensions/arbitra", icon: "/ext-icons/Arbitra.png" },
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash", icon: "/ext-icons/promptstash.webp" },
+  { name: "Arbitra", category: "E-Commerce", link: "/extensions/arbitra", icon: "/ext-icons/Arbitra.webp" },
 ];
 
 const softwareSchema = {
@@ -89,7 +89,7 @@ const softwareSchema = {
   <div class="pt-24 pb-16">
     <!-- Hero Section with CTA -->
     <section class="px-6 py-12 max-w-4xl mx-auto">
-      <a href="/" class="inline-flex items-center text-zinc-400 hover:text-white mb-8 transition-colors">
+      <a href="/" class="inline-flex items-center text-zinc-300 hover:text-white mb-8 transition-colors">
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
         </svg>
@@ -117,7 +117,7 @@ const softwareSchema = {
           <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">
             {extension.name}
           </h1>
-          <p class="text-xl text-zinc-400 mb-4">{extension.subtitle}</p>
+          <p class="text-xl text-zinc-300 mb-4">{extension.subtitle}</p>
 
           <div class="flex items-center gap-4 mb-6">
             <span class="price-badge-paid">{extension.price} One-time</span>
@@ -129,7 +129,7 @@ const softwareSchema = {
                 <span>{extension.rating.toFixed(1)} ({extension.reviewCount} reviews)</span>
               </div>
             ) : (
-              <span class="text-xs font-bold text-zinc-400 px-3 py-1 bg-zinc-800 rounded-full border border-zinc-700 uppercase tracking-wider">
+              <span class="text-xs font-bold text-zinc-300 px-3 py-1 bg-zinc-800 rounded-full border border-zinc-700 uppercase tracking-wider">
                 New
               </span>
             )}
@@ -244,7 +244,7 @@ const softwareSchema = {
     <!-- Overview -->
     <section class="px-6 py-12 max-w-4xl mx-auto">
       <h2 class="text-2xl font-bold text-white mb-6">Overview</h2>
-      <div class="text-zinc-400 text-lg leading-relaxed space-y-4">
+      <div class="text-zinc-300 text-lg leading-relaxed space-y-4">
         <p>Tired of copying and pasting data from websites one by one? DataPick lets you scrape any website with just a few clicks. Simply click on the data you want, and DataPick automatically finds all similar elements on the page. Export your data to CSV, Excel, or Google Sheets instantly.</p>
         <p>No coding skills required. No complex setup. Just point, click, and export.</p>
       </div>
@@ -260,7 +260,7 @@ const softwareSchema = {
               <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
               <div>
                 <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
-                <p class="text-zinc-400 text-sm">{feature.desc}</p>
+                <p class="text-zinc-300 text-sm">{feature.desc}</p>
               </div>
             </div>
           </div>
@@ -293,7 +293,7 @@ const softwareSchema = {
       <h2 class="text-2xl font-bold text-white mb-6">Recommended For</h2>
       <ul class="space-y-4">
         {targetUsers.map((user) => (
-          <li class="flex items-start gap-4 text-zinc-400">
+          <li class="flex items-start gap-4 text-zinc-300">
             <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
@@ -307,7 +307,7 @@ const softwareSchema = {
     <section class="px-6 py-12 max-w-4xl mx-auto">
       <div class="bg-gradient-to-r from-blue-600/20 to-green-600/20 border border-zinc-800 rounded-2xl p-8 text-center">
         <h2 class="text-2xl font-bold text-white mb-4">Stop Copying Data Manually</h2>
-        <p class="text-zinc-400 mb-8">Get DataPick now and extract website data in seconds.</p>
+        <p class="text-zinc-300 mb-8">Get DataPick now and extract website data in seconds.</p>
         <div class="flex flex-wrap justify-center gap-4">
           <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-blue flex items-center gap-2 px-8 py-4 text-lg">
             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -328,9 +328,9 @@ const softwareSchema = {
             <img src={product.icon} alt={product.name} class="w-12 h-12 rounded-xl bg-zinc-800" />
             <div>
               <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">{product.name}</h3>
-              <p class="text-xs text-zinc-400 uppercase tracking-wider">{product.category}</p>
+              <p class="text-xs text-zinc-300 uppercase tracking-wider">{product.category}</p>
             </div>
-            <svg class="w-5 h-5 text-zinc-400 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-zinc-300 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
             </svg>
           </a>

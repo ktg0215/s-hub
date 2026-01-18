@@ -12,7 +12,7 @@ const extension = {
   edgeUrl: "https://microsoftedge.microsoft.com/addons/detail/arbitra-%E3%81%9B%E3%81%A9%E3%82%8A%E4%BE%A1%E6%A0%BC%E6%AF%94%E8%BC%83%E3%83%84%E3%83%BC%E3%83%AB/lajjanfkakbjmfhklflgdmnbdmdnkiok",
   category: "E-Commerce",
   lang: "JP",
-  icon: "/ext-icons/Arbitra.png",
+  icon: "/ext-icons/Arbitra.webp",
   rating: 5.0,
   reviewCount: 1,
 };
@@ -51,8 +51,8 @@ const screenshots = [
 ];
 
 const relatedProducts = [
-  { name: "Rakuten Sellers Analytics", category: "E-Commerce", link: "/extensions/rakuten-sellers-analytics", icon: "/ext-icons/rakuten-sellers-analytics.png" },
-  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash", icon: "/ext-icons/promptstash.png" },
+  { name: "Rakuten Sellers Analytics", category: "E-Commerce", link: "/extensions/rakuten-sellers-analytics", icon: "/ext-icons/rakuten-sellers-analytics.webp" },
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash", icon: "/ext-icons/promptstash.webp" },
 ];
 
 const softwareSchema = {
@@ -95,7 +95,7 @@ const softwareSchema = {
   <div class="pt-24 pb-16">
     <!-- Hero Section with CTA -->
     <section class="px-6 py-12 max-w-4xl mx-auto">
-      <a href="/" class="inline-flex items-center text-zinc-400 hover:text-white mb-8 transition-colors">
+      <a href="/" class="inline-flex items-center text-zinc-300 hover:text-white mb-8 transition-colors">
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
         </svg>
@@ -123,11 +123,11 @@ const softwareSchema = {
           <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">
             {extension.name}
           </h1>
-          <p class="text-xl text-zinc-400 mb-4">{extension.subtitle}</p>
+          <p class="text-xl text-zinc-300 mb-4">{extension.subtitle}</p>
 
           <div class="flex items-center gap-4 mb-6">
             <span class="price-badge-free">{extension.price}</span>
-            <span class="text-sm text-zinc-400">{extension.pricePro}</span>
+            <span class="text-sm text-zinc-300">{extension.pricePro}</span>
             {extension.rating > 0 && (
               <div class="rating-badge">
                 <svg class="w-4 h-4 fill-yellow-500" viewBox="0 0 24 24">
@@ -254,7 +254,7 @@ const softwareSchema = {
     <!-- Overview -->
     <section class="px-6 py-12 max-w-4xl mx-auto">
       <h2 class="text-2xl font-bold text-white mb-6">概要</h2>
-      <p class="text-zinc-400 text-lg leading-relaxed">
+      <p class="text-zinc-300 text-lg leading-relaxed">
         {overview}
       </p>
     </section>
@@ -269,7 +269,7 @@ const softwareSchema = {
               <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
               <div>
                 <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
-                <p class="text-zinc-400 text-sm">{feature.desc}</p>
+                <p class="text-zinc-300 text-sm">{feature.desc}</p>
               </div>
             </div>
           </div>
@@ -290,7 +290,7 @@ const softwareSchema = {
               <div class="w-2 h-2 bg-pink-500 rounded-full mt-2 flex-shrink-0"></div>
               <div>
                 <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
-                <p class="text-zinc-400 text-sm">{feature.desc}</p>
+                <p class="text-zinc-300 text-sm">{feature.desc}</p>
               </div>
             </div>
           ))}
@@ -303,7 +303,7 @@ const softwareSchema = {
       <h2 class="text-2xl font-bold text-white mb-6">こんな方におすすめ</h2>
       <ul class="space-y-4">
         {targetUsers.map((user) => (
-          <li class="flex items-start gap-4 text-zinc-400">
+          <li class="flex items-start gap-4 text-zinc-300">
             <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
@@ -317,7 +317,7 @@ const softwareSchema = {
     <section class="px-6 py-12 max-w-4xl mx-auto">
       <div class="bg-gradient-to-r from-blue-600/20 to-green-600/20 border border-zinc-800 rounded-2xl p-8 text-center">
         <h2 class="text-2xl font-bold text-white mb-4">利益商品を見つけよう</h2>
-        <p class="text-zinc-400 mb-8">今すぐArbitraをインストールして、日本のマーケットプレイスでアービトラージの機会を発見しましょう。</p>
+        <p class="text-zinc-300 mb-8">今すぐArbitraをインストールして、日本のマーケットプレイスでアービトラージの機会を発見しましょう。</p>
         <div class="flex flex-wrap justify-center gap-4">
           <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-green flex items-center gap-2 px-8 py-4 text-lg">
             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -337,7 +337,7 @@ const softwareSchema = {
 
     <!-- Product Hunt Badge -->
     <section class="px-6 py-12 max-w-4xl mx-auto text-center">
-      <p class="text-zinc-400 text-sm mb-4">Product Huntで紹介されました</p>
+      <p class="text-zinc-300 text-sm mb-4">Product Huntで紹介されました</p>
       <a href="https://www.producthunt.com/products/arbitra-reselling-price-comparison?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-arbitra-reselling-price-comparison" target="_blank" rel="noopener noreferrer" class="inline-block hover:opacity-80 transition-opacity">
         <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1059763&theme=dark" alt="Arbitra - Compare Amazon to Mercari & Yahoo Auctions prices instantly | Product Hunt" width="250" height="54" />
       </a>
@@ -352,9 +352,9 @@ const softwareSchema = {
             <img src={product.icon} alt={product.name} class="w-12 h-12 rounded-xl bg-zinc-800" />
             <div>
               <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">{product.name}</h3>
-              <p class="text-xs text-zinc-400 uppercase tracking-wider">{product.category}</p>
+              <p class="text-xs text-zinc-300 uppercase tracking-wider">{product.category}</p>
             </div>
-            <svg class="w-5 h-5 text-zinc-400 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-zinc-300 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
             </svg>
           </a>

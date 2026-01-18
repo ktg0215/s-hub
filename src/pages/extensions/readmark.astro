@@ -11,7 +11,7 @@ const extension = {
   chromeUrl: "#", // TODO: Chrome Web Store URL
   category: "Productivity",
   lang: "EN",
-  icon: "/ext-icons/ReadMark.png",
+  icon: "/ext-icons/ReadMark.webp",
   rating: 0,
   reviewCount: 0,
 };
@@ -45,8 +45,8 @@ const screenshots = [
 ];
 
 const relatedProducts = [
-  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash", icon: "/ext-icons/promptstash.png" },
-  { name: "DataPick", category: "Productivity", link: "/extensions/datapick", icon: "/ext-icons/datapick.png" },
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash", icon: "/ext-icons/promptstash.webp" },
+  { name: "DataPick", category: "Productivity", link: "/extensions/datapick", icon: "/ext-icons/datapick.webp" },
 ];
 
 const softwareSchema = {
@@ -83,7 +83,7 @@ const softwareSchema = {
   <div class="pt-24 pb-16">
     <!-- Hero Section with CTA -->
     <section class="px-6 py-12 max-w-4xl mx-auto">
-      <a href="/" class="inline-flex items-center text-zinc-400 hover:text-white mb-8 transition-colors">
+      <a href="/" class="inline-flex items-center text-zinc-300 hover:text-white mb-8 transition-colors">
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
         </svg>
@@ -111,7 +111,7 @@ const softwareSchema = {
           <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">
             {extension.name}
           </h1>
-          <p class="text-xl text-zinc-400 mb-4">{extension.subtitle}</p>
+          <p class="text-xl text-zinc-300 mb-4">{extension.subtitle}</p>
 
           <div class="flex items-center gap-4 mb-6">
             <span class="price-badge-free">{extension.price}</span>
@@ -238,7 +238,7 @@ const softwareSchema = {
     <!-- Overview -->
     <section class="px-6 py-12 max-w-4xl mx-auto">
       <h2 class="text-2xl font-bold text-white mb-6">Overview</h2>
-      <div class="text-zinc-400 text-lg leading-relaxed whitespace-pre-line">
+      <div class="text-zinc-300 text-lg leading-relaxed whitespace-pre-line">
         {overview}
       </div>
     </section>
@@ -253,7 +253,7 @@ const softwareSchema = {
               <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
               <div>
                 <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
-                <p class="text-zinc-400 text-sm">{feature.desc}</p>
+                <p class="text-zinc-300 text-sm">{feature.desc}</p>
               </div>
             </div>
           </div>
@@ -268,7 +268,7 @@ const softwareSchema = {
         <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
           <h3 class="text-xl font-bold text-white mb-2">Free</h3>
           <p class="text-3xl font-bold text-green-400 mb-4">$0</p>
-          <ul class="space-y-2 text-zinc-400 text-sm">
+          <ul class="space-y-2 text-zinc-300 text-sm">
             <li class="flex items-center gap-2">
               <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
@@ -297,8 +297,8 @@ const softwareSchema = {
         </div>
         <div class="bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-500/30 rounded-xl p-6">
           <h3 class="text-xl font-bold text-white mb-2">Pro</h3>
-          <p class="text-3xl font-bold text-purple-400 mb-4">$4.99<span class="text-sm font-normal text-zinc-400"> (one-time)</span></p>
-          <ul class="space-y-2 text-zinc-400 text-sm">
+          <p class="text-3xl font-bold text-purple-400 mb-4">$4.99<span class="text-sm font-normal text-zinc-300"> (one-time)</span></p>
+          <ul class="space-y-2 text-zinc-300 text-sm">
             <li class="flex items-center gap-2">
               <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
@@ -339,7 +339,7 @@ const softwareSchema = {
       <h2 class="text-2xl font-bold text-white mb-6">Recommended For</h2>
       <ul class="space-y-4">
         {targetUsers.map((user) => (
-          <li class="flex items-start gap-4 text-zinc-400">
+          <li class="flex items-start gap-4 text-zinc-300">
             <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
@@ -353,7 +353,7 @@ const softwareSchema = {
     <section class="px-6 py-12 max-w-4xl mx-auto">
       <div class="bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-zinc-800 rounded-2xl p-8 text-center">
         <h2 class="text-2xl font-bold text-white mb-4">Ready to Read Smarter?</h2>
-        <p class="text-zinc-400 mb-8">Install ReadMark and never lose your place again.</p>
+        <p class="text-zinc-300 mb-8">Install ReadMark and never lose your place again.</p>
         <div class="flex flex-wrap justify-center gap-4">
           <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-green flex items-center gap-2 px-8 py-4 text-lg">
             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -374,9 +374,9 @@ const softwareSchema = {
             <img src={product.icon} alt={product.name} class="w-12 h-12 rounded-xl bg-zinc-800" />
             <div>
               <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">{product.name}</h3>
-              <p class="text-xs text-zinc-400 uppercase tracking-wider">{product.category}</p>
+              <p class="text-xs text-zinc-300 uppercase tracking-wider">{product.category}</p>
             </div>
-            <svg class="w-5 h-5 text-zinc-400 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-zinc-300 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
             </svg>
           </a>

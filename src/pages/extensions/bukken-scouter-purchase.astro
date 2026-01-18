@@ -10,7 +10,7 @@ const extension = {
   chromeUrl: "https://chromewebstore.google.com/detail/ioboepegcabodocflleblblnknlfpjka",
   category: "Real Estate",
   lang: "JA",
-  icon: "/ext-icons/bukken-scouter-purchase.png",
+  icon: "/ext-icons/bukken-scouter-purchase.webp",
   rating: 0,
   reviewCount: 0,
 };
@@ -45,8 +45,8 @@ const screenshots = [
 ];
 
 const relatedProducts = [
-  { name: "物件スカウター（賃貸版）", category: "Productivity", link: "/extensions/bukken-scouter-rental", icon: "/ext-icons/bukken-scouter-rental.png" },
-  { name: "DataPick", category: "Productivity", link: "/extensions/datapick", icon: "/ext-icons/datapick.png" },
+  { name: "物件スカウター（賃貸版）", category: "Productivity", link: "/extensions/bukken-scouter-rental", icon: "/ext-icons/bukken-scouter-rental.webp" },
+  { name: "DataPick", category: "Productivity", link: "/extensions/datapick", icon: "/ext-icons/datapick.webp" },
 ];
 
 const softwareSchema = {
@@ -83,7 +83,7 @@ const softwareSchema = {
   <div class="pt-24 pb-16">
     <!-- Hero Section with CTA -->
     <section class="px-6 py-12 max-w-4xl mx-auto">
-      <a href="/" class="inline-flex items-center text-zinc-400 hover:text-white mb-8 transition-colors">
+      <a href="/" class="inline-flex items-center text-zinc-300 hover:text-white mb-8 transition-colors">
         <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
         </svg>
@@ -111,7 +111,7 @@ const softwareSchema = {
           <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">
             {extension.name}
           </h1>
-          <p class="text-xl text-zinc-400 mb-4">{extension.subtitle}</p>
+          <p class="text-xl text-zinc-300 mb-4">{extension.subtitle}</p>
 
           <div class="flex items-center gap-4 mb-6">
             <span class="price-badge-free">{extension.price}</span>
@@ -237,7 +237,7 @@ const softwareSchema = {
     <!-- Overview -->
     <section class="px-6 py-12 max-w-4xl mx-auto">
       <h2 class="text-2xl font-bold text-white mb-6">Overview</h2>
-      <p class="text-zinc-400 text-lg leading-relaxed">
+      <p class="text-zinc-300 text-lg leading-relaxed">
         {overview}
       </p>
     </section>
@@ -264,7 +264,7 @@ const softwareSchema = {
               <span class="text-2xl">{feature.icon}</span>
               <div>
                 <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
-                <p class="text-zinc-400 text-sm">{feature.desc}</p>
+                <p class="text-zinc-300 text-sm">{feature.desc}</p>
               </div>
             </div>
           </div>
@@ -277,7 +277,7 @@ const softwareSchema = {
       <h2 class="text-2xl font-bold text-white mb-6">こんな方におすすめ</h2>
       <ul class="space-y-4">
         {targetUsers.map((user) => (
-          <li class="flex items-start gap-4 text-zinc-400">
+          <li class="flex items-start gap-4 text-zinc-300">
             <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
             </svg>
@@ -291,7 +291,7 @@ const softwareSchema = {
     <section class="px-6 py-12 max-w-4xl mx-auto">
       <div class="bg-gradient-to-r from-blue-600/20 to-purple-600/20 border border-zinc-800 rounded-2xl p-8 text-center">
         <h2 class="text-2xl font-bold text-white mb-4">データで選ぶ、賢い物件探し</h2>
-        <p class="text-zinc-400 mb-8">物件スカウターで、坪単価を見ながら効率的に物件を比較しましょう。</p>
+        <p class="text-zinc-300 mb-8">物件スカウターで、坪単価を見ながら効率的に物件を比較しましょう。</p>
         <div class="flex flex-wrap justify-center gap-4">
           <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-blue flex items-center gap-2 px-8 py-4 text-lg">
             <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
@@ -312,9 +312,9 @@ const softwareSchema = {
             <img src={product.icon} alt={product.name} class="w-12 h-12 rounded-xl bg-zinc-800" />
             <div>
               <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">{product.name}</h3>
-              <p class="text-xs text-zinc-400 uppercase tracking-wider">{product.category}</p>
+              <p class="text-xs text-zinc-300 uppercase tracking-wider">{product.category}</p>
             </div>
-            <svg class="w-5 h-5 text-zinc-400 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 text-zinc-300 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
             </svg>
           </a>
@@ -324,7 +324,7 @@ const softwareSchema = {
 
     <!-- Disclaimer -->
     <section class="px-6 py-8 max-w-4xl mx-auto">
-      <div class="text-zinc-500 text-sm space-y-1">
+      <div class="text-zinc-400 text-sm space-y-1">
         <p>※ SUUMOは株式会社リクルートの登録商標です</p>
         <p>※ 本ツールは株式会社リクルートとは関係のない個人開発です</p>
         <p>※ 表示される情報は参考値です</p>
