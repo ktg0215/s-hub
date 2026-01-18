@@ -1,0 +1,11 @@
+/sitemap.xml
+  Content-Type: application/xml
+
+/sitemap-index.xml
+  Content-Type: application/xml
+
+/sitemap-0.xml
+  Content-Type: application/xml
+
+/robots.txt
+  Content-Type: text/plain

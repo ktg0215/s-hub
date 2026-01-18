@@ -1,0 +1,83 @@
+---
+interface Props {
+  name: string;
+  description: string;
+  price: string;
+  priceNote?: string;
+  url: string;
+  icon?: string;
+  status?: 'available' | 'coming-soon';
+}
+
+const { name, description, price, priceNote, url, icon, status = 'available' } = Astro.props;
+
+const isExternal = url.startsWith('http');
+const isComingSoon = status === 'coming-soon';
+---
+
+<div class="card-vivid p-10 flex flex-col h-full group">
+  <!-- Coming Soon Badge -->
+  {isComingSoon && (
+    <div class="mb-4">
+      <span class="coming-soon-badge">Coming Soon</span>
+    </div>
+  )}
+
+  <!-- Header with Icon -->
+  <div class="flex items-start gap-4 mb-6">
+    {icon && (
+      <img
+        src={icon}
+        alt={`${name} icon`}
+        class="w-16 h-16 rounded-xl border-2 border-black shadow-[3px_3px_0px_#000] flex-shrink-0"
+      />
+    )}
+    <div class="flex-1">
+      <h3 class="text-2xl md:text-3xl leading-none font-vivid text-black group-hover:text-pink-500 transition-colors">
+        {name}
+      </h3>
+      <div class="mt-2 flex flex-wrap items-center gap-2">
+        <span class="price-tag text-lg">{price}</span>
+        {priceNote && (
+          <span class="text-sm font-bold text-gray-500">{priceNote}</span>
+        )}
+      </div>
+    </div>
+  </div>
+
+  <!-- Description -->
+  <p class="mb-8 flex-grow font-bold text-gray-700 text-lg leading-relaxed">
+    {description}
+  </p>
+
+  <!-- Action -->
+  <div class="flex justify-end mt-auto">
+    {isComingSoon ? (
+      <button disabled class="btn-disabled flex items-center gap-3">
+        COMING SOON
+      </button>
+    ) : isExternal ? (
+      <a
+        href={url}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-vivid-cyan flex items-center gap-3"
+      >
+        INSTALL
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    ) : (
+      <a
+        href={url}
+        class="btn-vivid-cyan flex items-center gap-3"
+      >
+        VIEW
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="4" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+        </svg>
+      </a>
+    )}
+  </div>
+</div>

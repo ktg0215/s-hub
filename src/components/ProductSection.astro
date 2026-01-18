@@ -1,0 +1,312 @@
+---
+const products = [
+  {
+    id: '1',
+    name: 'Shorts Killer',
+    icon: '/icons/shorts-killer.png',
+    category: 'Wellbeing',
+    lang: 'EN',
+    rating: 5.0,
+    reviewCount: 8,
+    description: 'Block YouTube Shorts with page-specific controls, statistics tracking, and keyboard shortcuts.',
+    priceType: 'Free',
+    priceLabel: '',
+    ctaLink: '/extensions/shorts-killer',
+    storeLink: 'https://chromewebstore.google.com/detail/shorts-killer-hide-youtub/bajebpkjihldiceceompbcjgepnbhnni'
+  },
+  {
+    id: '2',
+    name: 'X Detox',
+    icon: '/icons/x-detox.png',
+    category: 'Wellbeing',
+    lang: 'EN',
+    rating: 4.8,
+    reviewCount: 15,
+    description: 'Clean up your X/Twitter experience by removing ads and unwanted noise.',
+    priceType: 'Free',
+    priceLabel: 'Pro $3',
+    ctaLink: '/extensions/x-detox',
+    storeLink: 'https://chromewebstore.google.com/detail/x-detox-hide-for-you-tren/hlaankalmjmaefkcabjcfagnkfhlkpce'
+  },
+  {
+    id: '3',
+    name: 'PromptStash',
+    icon: '/icons/promptstash.png',
+    category: 'Productivity',
+    lang: 'EN',
+    rating: 4.9,
+    reviewCount: 12,
+    description: 'Save prompts with variable templates, slash commands, and instant insertion. Works with 19+ AI services.',
+    priceType: 'Paid',
+    priceLabel: '$5 One-time',
+    ctaLink: '/extensions/promptstash',
+    storeLink: 'https://chromewebstore.google.com/detail/promptstash-ai-prompt-man/ocgkponbnolpgobllplcamfobolbjbcj'
+  },
+  {
+    id: '4',
+    name: 'Rakuten Sellers Analytics',
+    icon: '/icons/rakuten-sellers-analytics.png',
+    category: 'E-Commerce',
+    lang: 'JP',
+    rating: 4.7,
+    reviewCount: 22,
+    description: '楽天市場セラー向けの本格的な分析ツール。キーワード調査、競合分析、利益計算機能を搭載。',
+    priceType: 'Paid',
+    priceLabel: '$12.99/mo',
+    ctaLink: '/extensions/rakuten-sellers-analytics',
+    storeLink: 'https://chromewebstore.google.com/detail/楽天セラーズ・アナリティクス/dlldcmoekdpakieophgmngnalkiljndc'
+  },
+  {
+    id: '5',
+    name: 'Arbitra',
+    icon: '/icons/Arbitra.png',
+    category: 'E-Commerce',
+    lang: 'JP',
+    rating: 5.0,
+    reviewCount: 1,
+    description: 'Amazon、メルカリ、ヤフオクの価格を一括比較。せどり・転売の利益計算を瞬時に。',
+    priceType: 'Free',
+    priceLabel: 'Pro $9.99/mo',
+    ctaLink: '/extensions/arbitra',
+    storeLink: 'https://chromewebstore.google.com/detail/arbitra-%E3%81%9B%E3%81%A9%E3%82%8A%E4%BE%A1%E6%A0%BC%E6%AF%94%E8%BC%83%E3%83%84%E3%83%BC%E3%83%AB/bincnlodgkpmmihbdoknndbncjfghpcj'
+  },
+  {
+    id: '6',
+    name: 'Japanese Font Finder',
+    icon: '/icons/Japanese Font Finder.png',
+    category: 'Productivity',
+    lang: 'JP',
+    rating: 0,
+    reviewCount: 0,
+    description: 'Webページ上のフォント情報を瞬時に検出。游ゴシック、ヒラギノなど日本語フォントに完全対応。',
+    priceType: 'Free',
+    priceLabel: '',
+    ctaLink: '/extensions/japanese-font-finder',
+    storeLink: ''
+  },
+  {
+    id: '7',
+    name: 'DataPick',
+    icon: '/icons/datapick.png',
+    category: 'Productivity',
+    lang: 'EN',
+    rating: 0,
+    reviewCount: 0,
+    description: 'Extract data from any website with just a few clicks. Export to CSV, Excel, or Google Sheets.',
+    priceType: 'Paid',
+    priceLabel: '$19 One-time',
+    ctaLink: '/extensions/datapick',
+    storeLink: ''
+  },
+  {
+    id: '8',
+    name: '物件スカウター（賃貸版）',
+    icon: '/icons/bukken-scouter-rental.png',
+    category: 'Real Estate',
+    lang: 'JP',
+    rating: 0,
+    reviewCount: 0,
+    description: 'SUUMOの賃貸物件を効率比較。㎡単価・初期費用・年間コストを自動計算、AI賃料判定付き。',
+    priceType: 'Free',
+    priceLabel: '',
+    ctaLink: '/extensions/bukken-scouter-rental',
+    storeLink: 'https://chromewebstore.google.com/detail/hnfccaipmcmbolhpdklolimlnjloknld'
+  },
+  {
+    id: '9',
+    name: '物件スカウター（購入版）',
+    icon: '/icons/bukken-scouter-purchase.png',
+    category: 'Real Estate',
+    lang: 'JP',
+    rating: 0,
+    reviewCount: 0,
+    description: 'SUUMOの購入物件で坪単価・㎡単価を自動計算。築年数ハイライト、お気に入り比較、価格履歴で賢い物件探し。',
+    priceType: 'Free',
+    priceLabel: '',
+    ctaLink: '/extensions/bukken-scouter-purchase',
+    storeLink: 'https://chromewebstore.google.com/detail/ioboepegcabodocflleblblnknlfpjka'
+  },
+  {
+    id: '10',
+    name: 'Yahoo快適モード',
+    icon: '/icons/yahoo-kaiteki-mode.png',
+    category: 'Productivity',
+    lang: 'JP',
+    rating: 0,
+    reviewCount: 0,
+    description: 'Yahoo!ニュースの低品質記事を自動フィルタリング。こたつ記事や炎上記事を非表示にして、快適な閲覧体験を。',
+    priceType: 'Free',
+    priceLabel: 'Pro ¥700',
+    ctaLink: '/extensions/yahoo-kaiteki-mode',
+    storeLink: ''
+  },
+  {
+    id: '11',
+    name: 'ReadMark',
+    icon: '/icons/ReadMark.png',
+    category: 'Productivity',
+    lang: 'EN',
+    rating: 0,
+    reviewCount: 0,
+    description: 'Automatically saves your reading position on any webpage. Never lose your place in long articles again.',
+    priceType: 'Free',
+    priceLabel: 'Pro $4.99',
+    ctaLink: '/extensions/readmark',
+    storeLink: ''
+  }
+];
+
+const categories = ['All', 'Wellbeing', 'Productivity', 'E-Commerce', 'Real Estate'];
+---
+
+<section id="products" class="py-24 px-6 max-w-7xl mx-auto">
+  <!-- Product Hunt -->
+  <div class="flex justify-center mb-16">
+    <a href="https://www.producthunt.com/@ktg0215" target="_blank" rel="noopener noreferrer" class="px-6 py-2 rounded-full border border-[#da552f]/30 bg-[#da552f]/10 flex items-center space-x-3 text-sm font-medium text-[#da552f] hover:bg-[#da552f]/20 transition-colors">
+      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M13.5 10H10v4h3.5c1.103 0 2-.897 2-2s-.897-2-2-2zm0-2c2.206 0 4 1.794 4 4s-1.794 4-4 4H10v4H8V6h5.5z"/>
+      </svg>
+      <span>Featured on Product Hunt</span>
+    </a>
+  </div>
+
+  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
+    <div class="max-w-2xl">
+      <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight text-white">Our Extension Lineup</h2>
+      <p class="text-zinc-400 text-lg">
+        High-utility tools built to solve specific digital friction. Lightweight, private, and powerful.
+      </p>
+    </div>
+
+    <!-- Category Tabs -->
+    <div class="flex flex-wrap gap-2" id="category-tabs">
+      {categories.map((cat, idx) => (
+        <button
+          data-category={cat}
+          class={`category-tab ${idx === 0 ? 'active' : ''}`}
+        >
+          {cat}
+        </button>
+      ))}
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="products-grid">
+    {products.map((product) => {
+      const isComingSoon = product.priceType === 'Coming Soon';
+      return (
+        <div
+          class={`product-card group p-6 flex flex-col h-full ${isComingSoon ? 'coming-soon' : ''}`}
+          data-category={product.category}
+        >
+          <div class="flex items-start justify-between mb-4">
+            <img
+              src={product.icon}
+              alt={`${product.name} Icon`}
+              width="64"
+              height="64"
+              class="w-16 h-16 rounded-xl object-cover bg-zinc-800 shadow-lg"
+              loading="lazy"
+            />
+            {product.reviewCount > 0 && (
+              <div class="rating-badge">
+                <svg class="w-3.5 h-3.5 fill-yellow-500" viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>{product.rating.toFixed(1)} ({product.reviewCount})</span>
+              </div>
+            )}
+          </div>
+
+          <h3 class="text-xl font-bold mb-1 text-white group-hover:text-blue-400 transition-colors">
+            {product.name}
+          </h3>
+          <div class="flex items-center gap-2 mb-3">
+            <span class="text-[10px] text-zinc-400 uppercase tracking-[0.2em] font-bold">
+              {product.category}
+            </span>
+            <span class="text-xs font-bold text-orange-400 px-3 py-1 bg-orange-500/10 rounded-full border border-orange-500/20 uppercase tracking-wider">
+              {product.lang}
+            </span>
+          </div>
+
+          <p class="text-zinc-400 text-sm leading-relaxed mb-8 flex-grow">
+            {product.description}
+          </p>
+
+          <div class="mt-auto flex items-center justify-between border-t border-[#27272a] pt-5">
+            <div class="flex flex-col">
+              {product.priceType === 'Free' ? (
+                <span class="price-badge-free">
+                  {product.priceLabel ? `FREE / ${product.priceLabel}` : 'FREE'}
+                </span>
+              ) : product.priceType === 'Paid' ? (
+                <span class="price-badge-paid">
+                  {product.priceLabel}
+                </span>
+              ) : (
+                <span class="price-badge-coming">
+                  COMING SOON
+                </span>
+              )}
+            </div>
+
+            {isComingSoon ? (
+              <button disabled class="btn-disabled flex items-center space-x-2">
+                <span>Notify Me</span>
+              </button>
+            ) : (
+              <a
+                href={product.ctaLink}
+                class={`${product.priceType === 'Free' ? 'btn-green' : 'btn-blue'} flex items-center space-x-2`}
+              >
+                <span>{product.priceType === 'Free' ? 'Get Free' : 'Get Now'}</span>
+                <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
+            )}
+          </div>
+        </div>
+      );
+    })}
+  </div>
+
+  <div id="empty-state" class="hidden text-center py-24 bg-zinc-900/30 rounded-3xl border border-dashed border-zinc-800">
+    <p class="text-zinc-400 font-medium italic">More tools are being developed in this category...</p>
+  </div>
+</section>
+
+<script>
+  const tabs = document.querySelectorAll('#category-tabs button');
+  const products = document.querySelectorAll('#products-grid > div');
+  const emptyState = document.getElementById('empty-state');
+
+  tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      // Update active tab
+      tabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+
+      const category = tab.dataset.category;
+      let visibleCount = 0;
+
+      products.forEach(product => {
+        const productCategory = product.dataset.category;
+        if (category === 'All' || productCategory === category) {
+          product.classList.remove('hidden');
+          visibleCount++;
+        } else {
+          product.classList.add('hidden');
+        }
+      });
+
+      // Show/hide empty state
+      if (visibleCount === 0) {
+        emptyState?.classList.remove('hidden');
+      } else {
+        emptyState?.classList.add('hidden');
+      }
+    });
+  });
+</script>

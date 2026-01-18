@@ -1,0 +1,365 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const extension = {
+  name: "Arbitra",
+  subtitle: "せどり価格比較ツール",
+  tagline: "Amazon、メルカリ、ヤフオクの価格を一括比較。利益計算を瞬時に。",
+  price: "無料",
+  pricePro: "Pro ¥1,480/月 または ¥4,980買い切り",
+  status: "公開中",
+  chromeUrl: "https://chromewebstore.google.com/detail/arbitra-%E3%81%9B%E3%81%A9%E3%82%8A%E4%BE%A1%E6%A0%BC%E6%AF%94%E8%BC%83%E3%83%84%E3%83%BC%E3%83%AB/bincnlodgkpmmihbdoknndbncjfghpcj",
+  edgeUrl: "https://microsoftedge.microsoft.com/addons/detail/arbitra-%E3%81%9B%E3%81%A9%E3%82%8A%E4%BE%A1%E6%A0%BC%E6%AF%94%E8%BC%83%E3%83%84%E3%83%BC%E3%83%AB/lajjanfkakbjmfhklflgdmnbdmdnkiok",
+  category: "E-Commerce",
+  lang: "JP",
+  icon: "/icons/Arbitra.png",
+  rating: 5.0,
+  reviewCount: 1,
+};
+
+const overview = "Arbitraは、せどらー・転売ヤーのための究極の価格比較ツールです。ワンクリックでAmazon、メルカリ、ヤフオクの価格を一括比較し、利益の出る商品を瞬時に発見できます。プラットフォーム手数料、送料、利益率を自動計算する利益計算機能を搭載。賢い仕入れ判断を数秒で行えます。";
+
+const freeFeatures = [
+  { title: "クロスプラットフォーム価格比較", desc: "Amazon、メルカリ、ヤフオクを一目で比較" },
+  { title: "1日5回まで検索", desc: "カジュアルなせどらーに最適" },
+  { title: "利益計算機能", desc: "手数料・送料込みで自動計算" },
+  { title: "キーワード編集", desc: "検索精度を上げて正確なマッチング" },
+  { title: "価格統計", desc: "最安値・最高値・中央値を表示" },
+  { title: "検索履歴", desc: "直近10件の検索履歴を保存" },
+];
+
+const proFeatures = [
+  { title: "無制限検索", desc: "1日の検索回数制限なし" },
+  { title: "価格下落アラート", desc: "目標価格に下がったら通知" },
+  { title: "無制限の検索履歴", desc: "利益商品を見逃さない" },
+  { title: "CSVエクスポート", desc: "スプレッドシート分析用にデータ出力" },
+  { title: "優先サポート", desc: "迅速なサポート対応" },
+];
+
+const targetUsers = [
+  "利益率を最大化したいせどらー",
+  "日本国内でオンラインアービトラージを行う方",
+  "商品を仕入れるEC事業者",
+  "日本のマーケットプレイスで価格比較したい方",
+  "副業で転売ビジネスを探求する方",
+];
+
+const screenshots = [
+  "/screenshots/arbitra/screenshot-1.png",
+  "/screenshots/arbitra/screenshot-2.png",
+  "/screenshots/arbitra/screenshot-3.png",
+];
+
+const relatedProducts = [
+  { name: "Rakuten Sellers Analytics", category: "E-Commerce", link: "/extensions/rakuten-sellers-analytics", icon: "/icons/rakuten-sellers-analytics.png" },
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash", icon: "/icons/promptstash.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Arbitra",
+  "description": extension.tagline,
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": extension.rating.toString(),
+    "ratingCount": extension.reviewCount.toString()
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "S-Hub",
+    "url": "https://s-hub.pages.dev"
+  },
+  "downloadUrl": extension.chromeUrl,
+  "screenshot": "https://s-hub.pages.dev/screenshots/arbitra/screenshot-1.png"
+};
+---
+
+<Layout
+  title={`${extension.name} - せどり価格比較ツール`}
+  description="Amazon、メルカリ、ヤフオクの価格を一括比較できる無料Chrome拡張機能。利益計算機能搭載で、せどり・転売の仕入れ判断を効率化。"
+  keywords="価格比較, せどりツール, オンラインアービトラージ, amazon, メルカリ, ヤフオク, 転売, chrome拡張機能, 利益計算"
+  ogImage="/images/og-arbitra.png"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+  </Fragment>
+
+  <div class="pt-24 pb-16">
+    <!-- Hero Section with CTA -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <a href="/" class="inline-flex items-center text-zinc-400 hover:text-white mb-8 transition-colors">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        ホームに戻る
+      </a>
+
+      <div class="flex flex-col md:flex-row gap-8 items-start">
+        <img
+          src={extension.icon}
+          alt={`${extension.name} icon`}
+          class="w-24 h-24 rounded-2xl bg-zinc-800 shadow-lg"
+        />
+        <div class="flex-1">
+          <div class="flex flex-wrap items-center gap-3 mb-4">
+            <span class="text-xs font-bold text-blue-400 px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20 uppercase tracking-wider">
+              {extension.category}
+            </span>
+            <span class="text-xs font-bold text-green-400 px-3 py-1 bg-green-500/10 rounded-full border border-green-500/20 uppercase tracking-wider">
+              {extension.status}
+            </span>
+            <span class="text-xs font-bold text-orange-400 px-3 py-1 bg-orange-500/10 rounded-full border border-orange-500/20 uppercase tracking-wider">
+              {extension.lang}
+            </span>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">
+            {extension.name}
+          </h1>
+          <p class="text-xl text-zinc-400 mb-4">{extension.subtitle}</p>
+
+          <div class="flex items-center gap-4 mb-6">
+            <span class="price-badge-free">{extension.price}</span>
+            <span class="text-sm text-zinc-400">{extension.pricePro}</span>
+            {extension.rating > 0 && (
+              <div class="rating-badge">
+                <svg class="w-4 h-4 fill-yellow-500" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>{extension.rating.toFixed(1)} ({extension.reviewCount} レビュー)</span>
+              </div>
+            )}
+          </div>
+
+          <p class="text-zinc-300 mb-8">{extension.tagline}</p>
+
+          <!-- CTA Buttons at Top -->
+          <div class="flex flex-wrap gap-4">
+            <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-green flex items-center gap-2 px-6 py-3">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.229-9.605zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728z"/>
+              </svg>
+              Chromeに追加
+            </a>
+            <a href={extension.edgeUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary flex items-center gap-2 px-6 py-3">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M21.86 17.86q.14 0 .25.12.1.13.1.25t-.11.33l-.32.46-.43.53-.44.5q-.21.25-.38.42l-.22.23q-.58.53-1.34 1.04-.76.51-1.6.91-.86.4-1.74.64t-1.67.24q-.9 0-1.69-.28-.8-.28-1.48-.78-.68-.5-1.22-1.17-.53-.66-.92-1.44-.38-.77-.58-1.6-.2-.83-.2-1.67 0-1 .32-1.96.33-.97.87-1.8.14.95.55 1.77.41.81 1.02 1.49.6.68 1.38 1.21.78.54 1.64.9.86.36 1.77.56.92.2 1.8.2 1.04 0 2-.26.96-.27 1.64-.68zm-9.97-14.15q0 .48-.15 1.07-.14.58-.39 1.11-.24.53-.52.99-.27.45-.53.79-.79-.47-1.75-.98-.95-.51-2.03-.9-1.07-.39-2.24-.64-1.18-.24-2.39-.24-.94 0-1.81.26-.88.27-1.08.39.72-1.42 1.75-2.6 1.02-1.19 2.28-2.03 1.25-.85 2.68-1.32 1.43-.48 2.94-.48.91 0 1.75.23.85.24 1.58.69.72.46 1.26 1.1.54.65.83 1.44.28.8.28 1.68-.25-.04-.46-.04z"/>
+              </svg>
+              Edgeに追加
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Carousel -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">スクリーンショット</h2>
+      <div class="relative">
+        <!-- Carousel Container -->
+        <div class="overflow-hidden rounded-xl border border-zinc-800">
+          <div id="carousel" class="flex transition-transform duration-300 ease-in-out">
+            {screenshots.map((src, i) => (
+              <div class="w-full flex-shrink-0">
+                <img
+                  src={src}
+                  alt={`${extension.name} screenshot ${i + 1}`}
+                  class="w-full"
+                  loading="lazy"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Navigation Buttons -->
+        <button
+          id="prev-btn"
+          class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center text-white transition-colors"
+          aria-label="前へ"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+          </svg>
+        </button>
+        <button
+          id="next-btn"
+          class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center text-white transition-colors"
+          aria-label="次へ"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+
+        <!-- Indicators -->
+        <div class="flex justify-center gap-2 mt-4">
+          {screenshots.map((_, i) => (
+            <button
+              class="carousel-dot w-2 h-2 rounded-full bg-zinc-600 transition-colors"
+              data-index={i}
+              aria-label={`スクリーンショット ${i + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <script>
+      const carousel = document.getElementById('carousel');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const totalSlides = dots.length;
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        if (carousel) {
+          carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('bg-blue-500', i === currentIndex);
+          dot.classList.toggle('bg-zinc-600', i !== currentIndex);
+        });
+      }
+
+      prevBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      });
+
+      nextBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+      });
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          currentIndex = i;
+          updateCarousel();
+        });
+      });
+
+      // Initialize
+      updateCarousel();
+    </script>
+
+    <!-- Overview -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">概要</h2>
+      <p class="text-zinc-400 text-lg leading-relaxed">
+        {overview}
+      </p>
+    </section>
+
+    <!-- Free Features -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">無料機能</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {freeFeatures.map((feature) => (
+          <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
+                <p class="text-zinc-400 text-sm">{feature.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Pro Features -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <div class="bg-gradient-to-r from-pink-600/20 to-purple-600/20 border border-zinc-800 rounded-2xl p-8">
+        <div class="flex flex-wrap items-center gap-4 mb-6">
+          <h2 class="text-2xl font-bold text-white">Pro機能</h2>
+          <span class="price-badge-paid">¥1,480/月 または ¥4,980買い切り</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {proFeatures.map((feature) => (
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-pink-500 rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
+                <p class="text-zinc-400 text-sm">{feature.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Recommended For -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">こんな方におすすめ</h2>
+      <ul class="space-y-4">
+        {targetUsers.map((user) => (
+          <li class="flex items-start gap-4 text-zinc-400">
+            <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span>{user}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Install Section (Main CTA) -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <div class="bg-gradient-to-r from-blue-600/20 to-green-600/20 border border-zinc-800 rounded-2xl p-8 text-center">
+        <h2 class="text-2xl font-bold text-white mb-4">利益商品を見つけよう</h2>
+        <p class="text-zinc-400 mb-8">今すぐArbitraをインストールして、日本のマーケットプレイスでアービトラージの機会を発見しましょう。</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-green flex items-center gap-2 px-8 py-4 text-lg">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.229-9.605zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728z"/>
+            </svg>
+            Chromeに追加 - 無料
+          </a>
+          <a href={extension.edgeUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary flex items-center gap-2 px-8 py-4 text-lg">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M21.86 17.86q.14 0 .25.12.1.13.1.25t-.11.33l-.32.46-.43.53-.44.5q-.21.25-.38.42l-.22.23q-.58.53-1.34 1.04-.76.51-1.6.91-.86.4-1.74.64t-1.67.24q-.9 0-1.69-.28-.8-.28-1.48-.78-.68-.5-1.22-1.17-.53-.66-.92-1.44-.38-.77-.58-1.6-.2-.83-.2-1.67 0-1 .32-1.96.33-.97.87-1.8.14.95.55 1.77.41.81 1.02 1.49.6.68 1.38 1.21.78.54 1.64.9.86.36 1.77.56.92.2 1.8.2 1.04 0 2-.26.96-.27 1.64-.68zm-9.97-14.15q0 .48-.15 1.07-.14.58-.39 1.11-.24.53-.52.99-.27.45-.53.79-.79-.47-1.75-.98-.95-.51-2.03-.9-1.07-.39-2.24-.64-1.18-.24-2.39-.24-.94 0-1.81.26-.88.27-1.08.39.72-1.42 1.75-2.6 1.02-1.19 2.28-2.03 1.25-.85 2.68-1.32 1.43-.48 2.94-.48.91 0 1.75.23.85.24 1.58.69.72.46 1.26 1.1.54.65.83 1.44.28.8.28 1.68-.25-.04-.46-.04z"/>
+            </svg>
+            Edgeに追加
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Product Hunt Badge -->
+    <section class="px-6 py-12 max-w-4xl mx-auto text-center">
+      <p class="text-zinc-400 text-sm mb-4">Product Huntで紹介されました</p>
+      <a href="https://www.producthunt.com/products/arbitra-reselling-price-comparison?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-arbitra-reselling-price-comparison" target="_blank" rel="noopener noreferrer" class="inline-block hover:opacity-80 transition-opacity">
+        <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1059763&theme=dark" alt="Arbitra - Compare Amazon to Mercari & Yahoo Auctions prices instantly | Product Hunt" width="250" height="54" />
+      </a>
+    </section>
+
+    <!-- Related Extensions -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">関連する拡張機能</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {relatedProducts.map((product) => (
+          <a href={product.link} class="product-card group p-6 flex items-center gap-4">
+            <img src={product.icon} alt={product.name} class="w-12 h-12 rounded-xl bg-zinc-800" />
+            <div>
+              <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">{product.name}</h3>
+              <p class="text-xs text-zinc-400 uppercase tracking-wider">{product.category}</p>
+            </div>
+            <svg class="w-5 h-5 text-zinc-400 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,82 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const legalInfo = [
+  { label: 'Seller', value: 'Shota Katogi' },
+  { label: 'Manager', value: 'Shota Katogi' },
+  { label: 'Address', value: '1-5-4 Okusawa, Setagaya-ku, Tokyo' },
+  { label: 'Phone', value: 'Disclosed upon request.' },
+  { label: 'Email', value: 'ktg.shota@gmail.com', isEmail: true },
+  { label: 'Sales URL', value: 'Sold via Chrome Web Store', url: 'https://chromewebstore.google.com/' },
+  {
+    label: 'Pricing',
+    value: `Listed on each product page
+- PromptStash Pro: $5 (tax included)
+- X Detox Pro: $3 (tax included)`
+  },
+  { label: 'Additional Fees', value: 'None' },
+  { label: 'Payment Method', value: 'Credit Card (via Stripe)' },
+  { label: 'Payment Timing', value: 'Immediate payment at purchase' },
+  { label: 'Delivery', value: 'Immediately available after payment.' },
+  {
+    label: 'Refund Policy',
+    value: `Due to the nature of digital content, refunds are generally not accepted. However, exceptions are made for:
+- Products that do not function properly
+- Accidental duplicate purchases
+Please contact us within 7 days of purchase for refund requests.`
+  },
+  {
+    label: 'Requirements',
+    value: `- Google Chrome (latest version recommended)
+- Microsoft Edge (Chromium-based)`
+  },
+];
+---
+
+<Layout
+  title="Commercial Transaction Act"
+  description="Specified Commercial Transaction Act disclosure for S-Hub Chrome extensions. Information about seller, pricing, refund policy, and requirements."
+  lang="en"
+  noindex={true}
+>
+  <div class="container mx-auto px-6 py-32 max-w-4xl min-h-[60vh]">
+    <h1 class="text-5xl md:text-8xl mb-12 font-vivid text-black drop-shadow-[4px_4px_0px_#00FF00]">
+      LEGAL INFO
+    </h1>
+
+    <div class="bg-white p-8 border-4 border-black rounded-[20px] shadow-[8px_8px_0px_#000]">
+      <table class="w-full">
+        <tbody class="divide-y-2 divide-black/10">
+          {legalInfo.map((item) => (
+            <tr class="flex flex-col sm:table-row">
+              <th class="px-4 py-4 text-left text-sm font-vivid sm:w-1/4 sm:align-top text-pink-500 uppercase tracking-wider">
+                {item.label}
+              </th>
+              <td class="px-4 py-4 text-sm text-gray-800 whitespace-pre-line font-bold">
+                {item.isEmail ? (
+                  <a href={`mailto:${item.value}`} class="text-green-500 hover:text-pink-500 transition-colors">
+                    {item.value}
+                  </a>
+                ) : item.url ? (
+                  <>
+                    {item.value}
+                    <br />
+                    <a href={item.url} target="_blank" rel="noopener noreferrer" class="text-green-500 hover:text-pink-500 transition-colors">
+                      {item.url}
+                    </a>
+                  </>
+                ) : (
+                  item.value
+                )}
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+    </div>
+
+    <a href="/" class="mt-12 inline-block font-vivid text-pink-500 text-xl hover:scale-110 transition-transform">
+      &larr; Back to Home
+    </a>
+  </div>
+</Layout>

@@ -1,0 +1,38 @@
+---
+import ExtensionCard from './ExtensionCard.astro';
+import type { Extension } from '../data/extensions';
+
+interface Props {
+  title: string;
+  extensions: Extension[];
+}
+
+const { title, extensions } = Astro.props;
+---
+
+<section id="extensions" class="py-24 px-6 bg-white border-t-8 border-black">
+  <div class="container mx-auto">
+    <!-- Section Header -->
+    <div class="flex flex-col items-center mb-20">
+      <h2 class="text-5xl md:text-8xl font-vivid text-black text-center mb-4">
+        {title.toUpperCase()}
+      </h2>
+      <div class="w-24 h-2 bg-pink-500 rounded-full"></div>
+    </div>
+
+    <!-- Extension Cards Grid -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 lg:gap-16">
+      {extensions.map((extension) => (
+        <ExtensionCard
+          name={extension.name}
+          description={extension.description}
+          price={extension.price}
+          priceNote={extension.priceNote}
+          url={extension.url}
+          icon={extension.icon}
+          status={extension.status}
+        />
+      ))}
+    </div>
+  </div>
+</section>

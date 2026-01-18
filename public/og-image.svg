@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <!-- Background -->
+  <rect width="1200" height="630" fill="#F0F0F0"/>
+
+  <!-- Decorative circles -->
+  <circle cx="100" cy="100" r="150" fill="#FF00FF" opacity="0.3"/>
+  <circle cx="1100" cy="530" r="200" fill="#00FF00" opacity="0.3"/>
+  <circle cx="600" cy="50" r="100" fill="#00FFFF" opacity="0.3"/>
+
+  <!-- Main card -->
+  <rect x="100" y="120" width="1000" height="400" rx="40" fill="white" stroke="#000" stroke-width="8"/>
+  <rect x="115" y="135" width="1000" height="400" rx="40" fill="#000" opacity="0.15"/>
+
+  <!-- S-HUB Title -->
+  <text x="600" y="280" font-family="Arial Black, sans-serif" font-size="140" font-weight="900" fill="#FF00FF" text-anchor="middle">S-HUB</text>
+
+  <!-- Tagline -->
+  <text x="600" y="380" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#000" text-anchor="middle">Chrome Extensions for Better Productivity</text>
+
+  <!-- Subtitle -->
+  <text x="600" y="440" font-family="Arial, sans-serif" font-size="24" font-weight="600" fill="#666" text-anchor="middle">Digital Wellbeing | Productivity | E-commerce Tools</text>
+
+  <!-- Accent bars -->
+  <rect x="0" y="600" width="200" height="30" fill="#00FF00"/>
+  <rect x="1000" y="0" width="200" height="30" fill="#00FFFF"/>
+  <rect x="500" y="0" width="200" height="8" fill="#FF00FF"/>
+</svg>

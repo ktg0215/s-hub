@@ -1,0 +1,167 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Hero from '../components/Hero.astro';
+import TrustBar from '../components/TrustBar.astro';
+import ProductSection from '../components/ProductSection.astro';
+import AboutSection from '../components/AboutSection.astro';
+
+const organizationSchema = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "S-Hub",
+  "url": "https://s-hub.pages.dev",
+  "logo": "https://s-hub.pages.dev/og-image.png",
+  "description": "Chrome extensions for digital wellbeing and productivity",
+  "sameAs": [
+    "https://github.com/ktg0215",
+    "https://bsky.app/profile/shota-dev.bsky.social"
+  ]
+};
+
+const webSiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "S-Hub",
+  "url": "https://s-hub.pages.dev",
+  "description": "Chrome extensions for better productivity"
+};
+
+const softwareListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "Shorts Killer - Hide YouTube Shorts",
+        "description": "Remove YouTube Shorts from your feed. Simple, fast, effective.",
+        "applicationCategory": "BrowserExtension",
+        "operatingSystem": "Chrome, Edge",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "url": "https://chromewebstore.google.com/detail/shorts-killer-hide-youtub/bajebpkjihldiceceompbcjgepnbhnni"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "X Detox - Hide For You & Trends",
+        "description": "Remove algorithmic timeline, trends, and distractions from X/Twitter.",
+        "applicationCategory": "BrowserExtension",
+        "operatingSystem": "Chrome",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "url": "https://chromewebstore.google.com/detail/x-detox-hide-for-you-tren/hlaankalmjmaefkcabjcfagnkfhlkpce"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "PromptStash - AI Prompt Manager",
+        "description": "Save, organize, and instantly insert prompts into ChatGPT, Claude, Gemini, and more.",
+        "applicationCategory": "BrowserExtension",
+        "operatingSystem": "Chrome, Edge",
+        "offers": {
+          "@type": "Offer",
+          "price": "5",
+          "priceCurrency": "USD"
+        },
+        "url": "https://chromewebstore.google.com/detail/promptstash-ai-prompt-man/ocgkponbnolpgobllplcamfobolbjbcj"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 4,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "Rakuten Sellers Analytics",
+        "description": "Keyword research, competitor analysis, and profit calculator for Rakuten sellers.",
+        "applicationCategory": "BrowserExtension",
+        "operatingSystem": "Chrome, Edge",
+        "offers": {
+          "@type": "Offer",
+          "price": "12.99",
+          "priceCurrency": "USD"
+        },
+        "url": "https://chromewebstore.google.com/detail/楽天セラーズ・アナリティクス/dlldcmoekdpakieophgmngnalkiljndc"
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 5,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "Arbitra - Reseller Price Comparison",
+        "description": "Compare prices across Amazon, Mercari, and Yahoo Auctions instantly. Calculate reselling profits with one click.",
+        "applicationCategory": "BrowserExtension",
+        "operatingSystem": "Chrome",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 6,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "Japanese Font Finder",
+        "description": "Instantly detect font information on any webpage. Full support for Japanese fonts.",
+        "applicationCategory": "BrowserExtension",
+        "operatingSystem": "Chrome",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        }
+      }
+    },
+    {
+      "@type": "ListItem",
+      "position": 7,
+      "item": {
+        "@type": "SoftwareApplication",
+        "name": "DataPick",
+        "description": "Extract data from any website with just a few clicks. Export to CSV, Excel, or Google Sheets.",
+        "applicationCategory": "BrowserExtension",
+        "operatingSystem": "Chrome",
+        "offers": {
+          "@type": "Offer",
+          "price": "19",
+          "priceCurrency": "USD"
+        }
+      }
+    }
+  ]
+};
+---
+
+<Layout
+  title="S-Hub - Chrome Extensions for Digital Wellbeing & Productivity"
+  description="Simple Chrome extensions that help you focus, save time, and work smarter. Block YouTube Shorts, clean up X/Twitter, manage AI prompts, and more."
+  keywords="chrome extensions, productivity tools, digital wellbeing, youtube shorts blocker, twitter cleaner, AI prompt manager, browser extensions"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(softwareListSchema)} />
+  </Fragment>
+  <Hero />
+  <TrustBar />
+  <ProductSection />
+  <AboutSection />
+</Layout>

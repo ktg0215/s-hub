@@ -1,0 +1,390 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const extension = {
+  name: "Yahoo快適モード",
+  subtitle: "Yahoo! JAPANニュースフィルター",
+  tagline: "もう「こたつ記事」にイライラしない。Yahoo!ニュースを快適に。",
+  price: "無料",
+  pricePro: "Pro ¥700",
+  status: "Available",
+  chromeUrl: "#", // TODO: Chrome Web Store URL
+  category: "生産性向上",
+  lang: "JP",
+  icon: "/icons/yahoo-kaiteki-mode.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = `Yahoo快適モードは、Yahoo! JAPANのニュース閲覧体験を劇的に改善するChrome拡張機能です。
+
+「ネットで話題」「批判殺到」などの煽りタイトル、SNSのコピペだけで構成された低品質な「こたつ記事」、週刊誌のゴシップ記事。これらにうんざりしていませんか？
+
+Yahoo快適モードを使えば、見たくない記事を自動でフィルタリング。本当に価値のあるニュースだけを読むことができます。`;
+
+const freeFeatures = [
+  { title: "キーワードフィルタリング", desc: "指定したキーワードを含む記事を非表示" },
+  { title: "ソースブロック", desc: "特定メディアの記事を完全ブロック" },
+  { title: "プリセットフィルター", desc: "炎上系/週刊誌系/まとめ系をワンクリックで除外" },
+  { title: "フィルター統計", desc: "今日何件フィルターしたか確認" },
+];
+
+const proFeatures = [
+  { title: "こたつ記事AI検出", desc: "低品質記事を自動で検出・非表示" },
+  { title: "無制限ブロックリスト", desc: "メディアブロックの上限解除" },
+  { title: "詳細統計ダッシュボード", desc: "週間/月間のグラフ表示" },
+  { title: "エクスポート/インポート", desc: "設定のバックアップ・共有" },
+];
+
+const targetUsers = [
+  "Yahoo!ニュースを毎日チェックする方",
+  "煽りタイトルや炎上記事にうんざりしている方",
+  "質の高いニュースだけを読みたい方",
+  "週刊誌やゴシップ記事を見たくない方",
+  "ニュース閲覧の時間を効率化したい方",
+];
+
+const supportedSites = [
+  { name: "Yahoo! JAPAN", url: "www.yahoo.co.jp" },
+  { name: "Yahoo!ニュース", url: "news.yahoo.co.jp" },
+  { name: "Yahoo!スポーツ", url: "sports.yahoo.co.jp" },
+  { name: "Yahoo!ファイナンス", url: "finance.yahoo.co.jp" },
+];
+
+const screenshots = [
+  "/screenshots/yahoo-kaiteki-mode/screenshot-1.png",
+  "/screenshots/yahoo-kaiteki-mode/screenshot-2.png",
+  "/screenshots/yahoo-kaiteki-mode/screenshot-3.png",
+  "/screenshots/yahoo-kaiteki-mode/screenshot-4.png",
+];
+
+const relatedProducts = [
+  { name: "X Detox", category: "デジタルウェルビーイング", link: "/extensions/x-detox", icon: "/icons/x-detox.png" },
+  { name: "Shorts Killer", category: "デジタルウェルビーイング", link: "/extensions/shorts-killer", icon: "/icons/shorts-killer.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Yahoo快適モード",
+  "description": extension.tagline,
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "JPY"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "S-Hub",
+    "url": "https://s-hub.pages.dev"
+  },
+  "screenshot": "https://s-hub.pages.dev/screenshots/yahoo-kaiteki-mode/screenshot-1.png"
+};
+---
+
+<Layout
+  title={`${extension.name} - Yahoo!ニュースを快適に`}
+  description="Yahoo!ニュースの低品質記事を自動フィルタリング。こたつ記事や炎上記事を非表示にして、快適な閲覧体験を提供するChrome拡張機能。"
+  keywords="yahoo 快適モード, yahoo ニュース フィルター, こたつ記事, 炎上記事 ブロック, chrome拡張機能, yahoo japan, ニュース フィルタリング"
+  ogImage="/images/og-yahoo-kaiteki-mode.png"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+  </Fragment>
+
+  <div class="pt-24 pb-16">
+    <!-- Hero Section with CTA -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <a href="/" class="inline-flex items-center text-zinc-400 hover:text-white mb-8 transition-colors">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        ホームに戻る
+      </a>
+
+      <div class="flex flex-col md:flex-row gap-8 items-start">
+        <img
+          src={extension.icon}
+          alt={`${extension.name} icon`}
+          class="w-24 h-24 rounded-2xl bg-zinc-800 shadow-lg"
+        />
+        <div class="flex-1">
+          <div class="flex flex-wrap items-center gap-3 mb-4">
+            <span class="text-xs font-bold text-blue-400 px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20 uppercase tracking-wider">
+              {extension.category}
+            </span>
+            <span class="text-xs font-bold text-green-400 px-3 py-1 bg-green-500/10 rounded-full border border-green-500/20 uppercase tracking-wider">
+              {extension.status}
+            </span>
+            <span class="text-xs font-bold text-orange-400 px-3 py-1 bg-orange-500/10 rounded-full border border-orange-500/20 uppercase tracking-wider">
+              {extension.lang}
+            </span>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">
+            {extension.name}
+          </h1>
+          <p class="text-xl text-zinc-400 mb-4">{extension.subtitle}</p>
+
+          <div class="flex items-center gap-4 mb-6">
+            <span class="price-badge-free">{extension.price}</span>
+            <span class="price-badge-paid">{extension.pricePro}</span>
+            {extension.rating > 0 && (
+              <div class="rating-badge">
+                <svg class="w-4 h-4 fill-yellow-500" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span>{extension.rating.toFixed(1)} ({extension.reviewCount} レビュー)</span>
+              </div>
+            )}
+          </div>
+
+          <p class="text-zinc-300 mb-8">{extension.tagline}</p>
+
+          <!-- CTA Buttons at Top -->
+          <div class="flex flex-wrap gap-4">
+            <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-green flex items-center gap-2 px-6 py-3">
+              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.229-9.605zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728z"/>
+              </svg>
+              無料でインストール
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Carousel -->
+    {screenshots.length > 0 && (
+      <section class="px-6 py-12 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-white mb-6">スクリーンショット</h2>
+        <div class="relative">
+          <div class="overflow-hidden rounded-xl border border-zinc-800">
+            <div id="carousel" class="flex transition-transform duration-300 ease-in-out">
+              {screenshots.map((src, i) => (
+                <div class="w-full flex-shrink-0">
+                  <img
+                    src={src}
+                    alt={`${extension.name} screenshot ${i + 1}`}
+                    class="w-full"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {screenshots.length > 1 && (
+            <>
+              <button
+                id="prev-btn"
+                class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center text-white transition-colors"
+                aria-label="Previous screenshot"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <button
+                id="next-btn"
+                class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center text-white transition-colors"
+                aria-label="Next screenshot"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+
+              <div class="flex justify-center gap-2 mt-4">
+                {screenshots.map((_, i) => (
+                  <button
+                    class="carousel-dot w-2 h-2 rounded-full bg-zinc-600 transition-colors"
+                    data-index={i}
+                    aria-label={`Go to screenshot ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </section>
+    )}
+
+    <script>
+      const carousel = document.getElementById('carousel');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const totalSlides = dots.length;
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        if (carousel) {
+          carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('bg-blue-500', i === currentIndex);
+          dot.classList.toggle('bg-zinc-600', i !== currentIndex);
+        });
+      }
+
+      prevBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      });
+
+      nextBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+      });
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          currentIndex = i;
+          updateCarousel();
+        });
+      });
+
+      updateCarousel();
+    </script>
+
+    <!-- Overview -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">概要</h2>
+      <div class="text-zinc-400 text-lg leading-relaxed whitespace-pre-line">
+        {overview}
+      </div>
+    </section>
+
+    <!-- Free Features -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">無料機能</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {freeFeatures.map((feature) => (
+          <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
+                <p class="text-zinc-400 text-sm">{feature.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Pro Features -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <div class="bg-gradient-to-r from-pink-600/20 to-purple-600/20 border border-zinc-800 rounded-2xl p-8">
+        <div class="flex items-center gap-4 mb-6">
+          <h2 class="text-2xl font-bold text-white">Pro版機能</h2>
+          <span class="price-badge-paid">¥700 買い切り</span>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {proFeatures.map((feature) => (
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-pink-500 rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
+                <p class="text-zinc-400 text-sm">{feature.desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Supported Sites -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">対応サイト</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        {supportedSites.map((site) => (
+          <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-4 text-center">
+            <p class="font-semibold text-white text-sm mb-1">{site.name}</p>
+            <p class="text-zinc-500 text-xs">{site.url}</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Recommended For -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">こんな方におすすめ</h2>
+      <ul class="space-y-4">
+        {targetUsers.map((user) => (
+          <li class="flex items-start gap-4 text-zinc-400">
+            <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span>{user}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Pricing -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">価格</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+          <h3 class="text-xl font-bold text-white mb-2">無料版</h3>
+          <p class="text-3xl font-bold text-green-400 mb-4">¥0</p>
+          <ul class="space-y-2 text-zinc-400 text-sm">
+            <li>✓ キーワードフィルタリング</li>
+            <li>✓ ソースブロック（20件まで）</li>
+            <li>✓ プリセットフィルター</li>
+            <li>✓ 基本統計</li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-r from-pink-600/20 to-purple-600/20 border border-pink-500/30 rounded-xl p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Pro版</h3>
+          <p class="text-3xl font-bold text-pink-400 mb-4">¥700<span class="text-sm font-normal text-zinc-400">（買い切り）</span></p>
+          <ul class="space-y-2 text-zinc-400 text-sm">
+            <li>✓ 無料版の全機能</li>
+            <li>✓ こたつ記事AI検出</li>
+            <li>✓ 無制限ブロックリスト</li>
+            <li>✓ 詳細統計ダッシュボード</li>
+            <li>✓ 設定エクスポート/インポート</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Install Section (Main CTA) -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <div class="bg-gradient-to-r from-blue-600/20 to-green-600/20 border border-zinc-800 rounded-2xl p-8 text-center">
+        <h2 class="text-2xl font-bold text-white mb-4">快適なニュース体験を始めよう</h2>
+        <p class="text-zinc-400 mb-8">Yahoo快適モードをインストールして、低品質記事から解放されましょう。</p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-green flex items-center gap-2 px-8 py-4 text-lg">
+            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
+              <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.229-9.605zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728z"/>
+            </svg>
+            無料でインストール
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Related Extensions -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">関連する拡張機能</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {relatedProducts.map((product) => (
+          <a href={product.link} class="product-card group p-6 flex items-center gap-4">
+            <img src={product.icon} alt={product.name} class="w-12 h-12 rounded-xl bg-zinc-800" />
+            <div>
+              <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">{product.name}</h3>
+              <p class="text-xs text-zinc-400 uppercase tracking-wider">{product.category}</p>
+            </div>
+            <svg class="w-5 h-5 text-zinc-400 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
