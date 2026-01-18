@@ -4,4 +4,4 @@ Allow: /
 # Privacy page should not be indexed
 Disallow: /privacy/
 
-Sitemap: https://s-hub.pages.dev/sitemap.xml
+Sitemap: https://dev-tools-hub.xyz/sitemap-index.xml
