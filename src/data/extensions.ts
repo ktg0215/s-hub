@@ -62,7 +62,7 @@ export const categories: Category[] = [
         description: "Instantly detect font information on any webpage. Full support for Japanese fonts.",
         price: "Free",
         url: "/extensions/japanese-font-finder",
-        icon: "/icons/Japanese Font Finder.png",
+        icon: "/icons/japanese-font-finder.png",
       },
       {
         name: "DataPick",
