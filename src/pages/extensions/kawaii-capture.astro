@@ -1,0 +1,262 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const extension = {
+  name: "Kawaii Capture",
+  subtitle: "The World's Cutest Screenshot Tool",
+  tagline: "Capture screenshots with adorable pastel frames, mascot characters, and cute decorations.",
+  price: "Free",
+  pricePro: "Pro",
+  status: "Coming Soon",
+  chromeUrl: "#",
+  edgeUrl: "#",
+  category: "Productivity",
+  lang: "JA/EN",
+  icon: "/ext-icons/kawaii-capture.webp",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = `世界初のかわいいスクリーンショットツール！パステルカラーのUIで、スクショもかわいくデコレーション。フレーム付きスクリーンショットが簡単に撮影できるChrome拡張機能です。
+
+画面キャプチャ・フルページ・選択範囲の3モードに対応。桜、星、リボン、ハートなど13種類のかわいいフレームでスクリーンショットをデコレーションできます。
+
+マスコットキャラクターがキャプチャ状態をお知らせ。撮影後は自動でクリップボードにコピーされ、SNS共有もワンクリックで可能です。`;
+
+const features = [
+  { title: "3 Capture Modes", desc: "画面キャプチャ・フルページ・選択範囲の3モード" },
+  { title: "13 Cute Frames", desc: "桜、星、リボン、ハート、ユニコーン、猫など13種類" },
+  { title: "Mascot Character", desc: "かわいいマスコットがキャプチャ状態をお知らせ" },
+  { title: "Watermark", desc: "5スタイル×3位置の透かし機能。Pro版ではカスタムテキスト対応" },
+  { title: "Auto Clipboard", desc: "キャプチャ後に自動でクリップボードにコピー" },
+  { title: "SNS Sharing", desc: "撮影した画像をワンクリックでSNSに共有" },
+];
+
+const targetUsers = [
+  "かわいいスクリーンショットを撮りたいブロガー",
+  "SNS投稿用にスクショをデコレーションしたい方",
+  "レビュー記事やチュートリアルを書く方",
+  "プレゼン資料にかわいいキャプチャを使いたい方",
+  "日常的にスクリーンショットを多用する方",
+];
+
+const screenshots = [] as string[];
+
+const relatedProducts = [
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash", icon: "/ext-icons/promptstash.webp" },
+  { name: "DataPick", category: "Productivity", link: "/extensions/datapick", icon: "/ext-icons/datapick.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Kawaii Capture",
+  "description": extension.tagline,
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "S-Hub",
+    "url": "https://dev-tools-hub.xyz"
+  }
+};
+---
+
+<Layout
+  title={`${extension.name} - The World's Cutest Screenshot Tool`}
+  description="Capture screenshots with adorable pastel frames, mascot characters, and cute decorations. Free Chrome extension with 13 frame styles."
+  keywords="kawaii capture, cute screenshot, screenshot tool, chrome extension, pastel frames, screen capture, kawaii, かわいいキャプチャ"
+  ogImage="/images/og-kawaii-capture.png"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+  </Fragment>
+
+  <div class="pt-24 pb-16">
+    <!-- Hero Section -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <a href="/" class="inline-flex items-center text-zinc-300 hover:text-white mb-8 transition-colors">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to Home
+      </a>
+
+      <div class="flex flex-col md:flex-row gap-8 items-start">
+        <div class="w-24 h-24 rounded-2xl bg-gradient-to-br from-pink-400 to-purple-400 shadow-lg flex items-center justify-center text-4xl">
+          📸
+        </div>
+        <div class="flex-1">
+          <div class="flex flex-wrap items-center gap-3 mb-4">
+            <span class="text-xs font-bold text-blue-400 px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20 uppercase tracking-wider">
+              {extension.category}
+            </span>
+            <span class="text-xs font-bold text-yellow-400 px-3 py-1 bg-yellow-500/10 rounded-full border border-yellow-500/20 uppercase tracking-wider">
+              {extension.status}
+            </span>
+            <span class="text-xs font-bold text-orange-400 px-3 py-1 bg-orange-500/10 rounded-full border border-orange-500/20 uppercase tracking-wider">
+              {extension.lang}
+            </span>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">
+            {extension.name}
+          </h1>
+          <p class="text-xl text-zinc-300 mb-4">{extension.subtitle}</p>
+
+          <div class="flex items-center gap-4 mb-6">
+            <span class="price-badge-free">{extension.price}</span>
+            <span class="price-badge-paid">{extension.pricePro}</span>
+          </div>
+
+          <p class="text-zinc-300 mb-8">{extension.tagline}</p>
+
+          <!-- Coming Soon Badge -->
+          <div class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-zinc-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Coming Soon
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Overview -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">Overview</h2>
+      <div class="text-zinc-300 text-lg leading-relaxed whitespace-pre-line">
+        {overview}
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {features.map((feature) => (
+          <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-pink-500 rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
+                <p class="text-zinc-300 text-sm">{feature.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">Pricing</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Free</h3>
+          <p class="text-3xl font-bold text-green-400 mb-4">$0</p>
+          <ul class="space-y-2 text-zinc-300 text-sm">
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Screen capture mode
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              5 free frames
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              PNG format
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Auto clipboard copy
+            </li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-r from-pink-600/20 to-purple-600/20 border border-pink-500/30 rounded-xl p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Pro</h3>
+          <p class="text-3xl font-bold text-pink-400 mb-4">TBD</p>
+          <ul class="space-y-2 text-zinc-300 text-sm">
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              All 3 capture modes
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              All 13 frames
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              PNG/JPEG/WebP formats
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Custom watermark
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-pink-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Keyboard shortcuts
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Recommended For -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">Recommended For</h2>
+      <ul class="space-y-4">
+        {targetUsers.map((user) => (
+          <li class="flex items-start gap-4 text-zinc-300">
+            <svg class="w-5 h-5 text-pink-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span>{user}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Related Extensions -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">You might also like</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {relatedProducts.map((product) => (
+          <a href={product.link} class="product-card group p-6 flex items-center gap-4">
+            {product.icon && <img src={product.icon} alt={product.name} class="w-12 h-12 rounded-xl bg-zinc-800" />}
+            <div>
+              <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">{product.name}</h3>
+              <p class="text-xs text-zinc-300 uppercase tracking-wider">{product.category}</p>
+            </div>
+            <svg class="w-5 h-5 text-zinc-300 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>

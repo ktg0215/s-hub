@@ -1,0 +1,373 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const extension = {
+  name: "PageMemo",
+  subtitle: "URL-Linked Local Notes",
+  tagline: "Take notes linked to any URL. Your memos auto-appear when you revisit the page.",
+  price: "Free",
+  pricePro: "Pro",
+  status: "Coming Soon",
+  chromeUrl: "#",
+  edgeUrl: "#",
+  category: "Productivity",
+  lang: "JA/EN",
+  icon: "/ext-icons/Pagememo.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = `URLに紐づいたメモを自動表示するChrome拡張機能です。Webページを再訪問すると、以前書いたメモがサイドパネルに自動表示されます。
+
+Tiptapベースのリッチテキストエディタで、太字・斜体・見出し・リスト・タスクリストなど豊富な書式に対応。カテゴリ管理、全文検索、テーマ切替も搭載しています。
+
+すべてのメモはローカルに保存され、外部サーバーへの送信はありません。JSON/Markdownでのエクスポート・インポートにも対応しています。`;
+
+const features = [
+  { title: "URL-Linked Notes", desc: "ページURLに紐づけてメモを保存。再訪問時に自動表示" },
+  { title: "Rich Text Editor", desc: "Tiptapベース。太字・見出し・リスト・タスクリスト対応" },
+  { title: "Category Management", desc: "カスタムカテゴリでメモを整理。カラー設定付き" },
+  { title: "Full-Text Search", desc: "メモの内容を全文検索。カテゴリフィルターも対応" },
+  { title: "Theme Support", desc: "ライト・ダーク・システム設定の3テーマ" },
+  { title: "Export/Import", desc: "JSON・Markdownでバックアップ。デバイス間移行対応" },
+];
+
+const targetUsers = [
+  "リサーチ中にWebページごとにメモを取りたい方",
+  "技術ドキュメントに自分用の補足メモを残したい方",
+  "オンライン学習でページごとにノートを取りたい方",
+  "ブックマークだけでは足りない、コンテキスト付きメモが欲しい方",
+  "プライバシーを重視し、ローカル保存のメモツールが欲しい方",
+];
+
+const screenshots = [
+  "/screenshots/Pagememo/pagememo-01 (1).png",
+  "/screenshots/Pagememo/pagememo-02 (1).png",
+  "/screenshots/Pagememo/pagememo-03 (1).png",
+  "/screenshots/Pagememo/pagememo-04.png",
+];
+
+const relatedProducts = [
+  { name: "ReadMark", category: "Productivity", link: "/extensions/readmark", icon: "/ext-icons/ReadMark.webp" },
+  { name: "SnippetVault", category: "Developer Tools", link: "/extensions/snippetvault", icon: "/ext-icons/SnippetVault.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "PageMemo",
+  "description": extension.tagline,
+  "applicationCategory": "BrowserApplication",
+  "operatingSystem": "Chrome",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "S-Hub",
+    "url": "https://dev-tools-hub.xyz"
+  }
+};
+---
+
+<Layout
+  title={`${extension.name} - URL-Linked Local Notes`}
+  description="Take notes linked to any URL. Your memos auto-appear when you revisit the page. Rich text editor with categories and search. All data stored locally."
+  keywords="pagememo, url notes, page notes, chrome extension, web notes, local notes, rich text editor, productivity"
+  ogImage="/images/og-pagememo.png"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+  </Fragment>
+
+  <div class="pt-24 pb-16">
+    <!-- Hero Section -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <a href="/" class="inline-flex items-center text-zinc-300 hover:text-white mb-8 transition-colors">
+        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        Back to Home
+      </a>
+
+      <div class="flex flex-col md:flex-row gap-8 items-start">
+        <img
+          src={extension.icon}
+          alt={`${extension.name} icon`}
+          class="w-24 h-24 rounded-2xl bg-zinc-800 shadow-lg"
+        />
+        <div class="flex-1">
+          <div class="flex flex-wrap items-center gap-3 mb-4">
+            <span class="text-xs font-bold text-blue-400 px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20 uppercase tracking-wider">
+              {extension.category}
+            </span>
+            <span class="text-xs font-bold text-yellow-400 px-3 py-1 bg-yellow-500/10 rounded-full border border-yellow-500/20 uppercase tracking-wider">
+              {extension.status}
+            </span>
+            <span class="text-xs font-bold text-orange-400 px-3 py-1 bg-orange-500/10 rounded-full border border-orange-500/20 uppercase tracking-wider">
+              {extension.lang}
+            </span>
+          </div>
+          <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">
+            {extension.name}
+          </h1>
+          <p class="text-xl text-zinc-300 mb-4">{extension.subtitle}</p>
+
+          <div class="flex items-center gap-4 mb-6">
+            <span class="price-badge-free">{extension.price}</span>
+            <span class="price-badge-paid">{extension.pricePro}</span>
+          </div>
+
+          <p class="text-zinc-300 mb-8">{extension.tagline}</p>
+
+          <!-- Coming Soon Badge -->
+          <div class="inline-flex items-center gap-2 px-6 py-3 bg-zinc-800 border border-zinc-700 rounded-lg text-zinc-400">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+            </svg>
+            Coming Soon
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Carousel -->
+    {screenshots.length > 0 && (
+      <section class="px-6 py-12 max-w-4xl mx-auto">
+        <h2 class="text-2xl font-bold text-white mb-6">Screenshots</h2>
+        <div class="relative">
+          <div class="overflow-hidden rounded-xl border border-zinc-800">
+            <div id="carousel" class="flex transition-transform duration-300 ease-in-out">
+              {screenshots.map((src, i) => (
+                <div class="w-full flex-shrink-0">
+                  <img
+                    src={src}
+                    alt={`${extension.name} screenshot ${i + 1}`}
+                    class="w-full"
+                    loading="lazy"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {screenshots.length > 1 && (
+            <>
+              <button
+                id="prev-btn"
+                class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center text-white transition-colors"
+                aria-label="Previous screenshot"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+                </svg>
+              </button>
+              <button
+                id="next-btn"
+                class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center text-white transition-colors"
+                aria-label="Next screenshot"
+              >
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </button>
+
+              <div class="flex justify-center gap-2 mt-4">
+                {screenshots.map((_, i) => (
+                  <button
+                    class="carousel-dot w-2 h-2 rounded-full bg-zinc-600 transition-colors"
+                    data-index={i}
+                    aria-label={`Go to screenshot ${i + 1}`}
+                  />
+                ))}
+              </div>
+            </>
+          )}
+        </div>
+      </section>
+    )}
+
+    <script>
+      const carousel = document.getElementById('carousel');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const totalSlides = dots.length;
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        if (carousel) {
+          carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('bg-blue-500', i === currentIndex);
+          dot.classList.toggle('bg-zinc-600', i !== currentIndex);
+        });
+      }
+
+      prevBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      });
+
+      nextBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+      });
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          currentIndex = i;
+          updateCarousel();
+        });
+      });
+
+      updateCarousel();
+    </script>
+
+    <!-- Overview -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">Overview</h2>
+      <div class="text-zinc-300 text-lg leading-relaxed whitespace-pre-line">
+        {overview}
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">Features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {features.map((feature) => (
+          <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+            <div class="flex items-start gap-4">
+              <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
+              <div>
+                <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
+                <p class="text-zinc-300 text-sm">{feature.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Pricing -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">Pricing</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Free</h3>
+          <p class="text-3xl font-bold text-green-400 mb-4">$0</p>
+          <ul class="space-y-2 text-zinc-300 text-sm">
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              50 notes
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Rich text editing
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Category management
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Full-text search
+            </li>
+          </ul>
+        </div>
+        <div class="bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-500/30 rounded-xl p-6">
+          <h3 class="text-xl font-bold text-white mb-2">Pro</h3>
+          <p class="text-3xl font-bold text-purple-400 mb-4">TBD</p>
+          <ul class="space-y-2 text-zinc-300 text-sm">
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Everything in Free
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Unlimited notes
+            </li>
+            <li class="flex items-center gap-2">
+              <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+              </svg>
+              Priority support
+            </li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Keyboard Shortcuts -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">Keyboard Shortcuts</h2>
+      <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl overflow-hidden">
+        <table class="w-full text-left">
+          <thead>
+            <tr class="border-b border-zinc-800">
+              <th class="px-6 py-3 text-sm font-semibold text-zinc-300">Shortcut</th>
+              <th class="px-6 py-3 text-sm font-semibold text-zinc-300">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="px-6 py-3"><code class="text-blue-400 text-sm">Ctrl+Shift+S</code></td>
+              <td class="px-6 py-3 text-zinc-300 text-sm">Open side panel</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="text-zinc-500 text-sm mt-3">On Mac, use Cmd instead of Ctrl.</p>
+    </section>
+
+    <!-- Recommended For -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">Recommended For</h2>
+      <ul class="space-y-4">
+        {targetUsers.map((user) => (
+          <li class="flex items-start gap-4 text-zinc-300">
+            <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span>{user}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- Related Extensions -->
+    <section class="px-6 py-12 max-w-4xl mx-auto">
+      <h2 class="text-2xl font-bold text-white mb-6">You might also like</h2>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+        {relatedProducts.map((product) => (
+          <a href={product.link} class="product-card group p-6 flex items-center gap-4">
+            {product.icon && <img src={product.icon} alt={product.name} class="w-12 h-12 rounded-xl bg-zinc-800" />}
+            <div>
+              <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">{product.name}</h3>
+              <p class="text-xs text-zinc-300 uppercase tracking-wider">{product.category}</p>
+            </div>
+            <svg class="w-5 h-5 text-zinc-300 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+            </svg>
+          </a>
+        ))}
+      </div>
+    </section>
+  </div>
+</Layout>
