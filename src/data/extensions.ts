@@ -88,17 +88,10 @@ export const categories: Category[] = [
       },
       {
         name: "PageMemo",
-        description: "URL-linked local notes that auto-appear when you revisit pages. Rich text editor with categories and search.",
+        description: "URL-linked notes that auto-appear when you revisit pages. Rich text editor with categories and full-text search.",
         price: "Free",
         url: "/extensions/pagememo",
         icon: "/ext-icons/Pagememo.png",
-        status: "coming-soon",
-      },
-      {
-        name: "Kawaii Capture",
-        description: "The world's cutest screenshot tool! Capture screens with adorable pastel frames, mascot characters, and decorations.",
-        price: "Free",
-        url: "/extensions/kawaii-capture",
         status: "coming-soon",
       },
     ],

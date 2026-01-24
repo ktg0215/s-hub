@@ -11,33 +11,33 @@ const extension = {
   chromeUrl: "#",
   edgeUrl: "#",
   category: "Productivity",
-  lang: "JA/EN",
+  lang: "EN",
   icon: "/ext-icons/Pagememo.png",
   rating: 0,
   reviewCount: 0,
 };
 
-const overview = `URLに紐づいたメモを自動表示するChrome拡張機能です。Webページを再訪問すると、以前書いたメモがサイドパネルに自動表示されます。
+const overview = `A Chrome extension that automatically displays notes linked to URLs. When you revisit a webpage, your previous notes appear automatically in the side panel.
 
-Tiptapベースのリッチテキストエディタで、太字・斜体・見出し・リスト・タスクリストなど豊富な書式に対応。カテゴリ管理、全文検索、テーマ切替も搭載しています。
+Features a Tiptap-based rich text editor with bold, italic, headings, lists, task lists, and more. Also includes category management, full-text search, and theme switching.
 
-すべてのメモはローカルに保存され、外部サーバーへの送信はありません。JSON/Markdownでのエクスポート・インポートにも対応しています。`;
+All notes are stored locally on your device — nothing is sent to external servers. Export and import via JSON or Markdown is also supported.`;
 
 const features = [
-  { title: "URL-Linked Notes", desc: "ページURLに紐づけてメモを保存。再訪問時に自動表示" },
-  { title: "Rich Text Editor", desc: "Tiptapベース。太字・見出し・リスト・タスクリスト対応" },
-  { title: "Category Management", desc: "カスタムカテゴリでメモを整理。カラー設定付き" },
-  { title: "Full-Text Search", desc: "メモの内容を全文検索。カテゴリフィルターも対応" },
-  { title: "Theme Support", desc: "ライト・ダーク・システム設定の3テーマ" },
-  { title: "Export/Import", desc: "JSON・Markdownでバックアップ。デバイス間移行対応" },
+  { title: "URL-Linked Notes", desc: "Save notes tied to page URLs. Auto-displayed when you revisit the page" },
+  { title: "Rich Text Editor", desc: "Tiptap-based editor with bold, headings, lists, task lists, and more" },
+  { title: "Category Management", desc: "Organize notes with custom categories and color coding" },
+  { title: "Full-Text Search", desc: "Search across all note contents with category filtering" },
+  { title: "Theme Support", desc: "Light, Dark, and System-follow themes" },
+  { title: "Export/Import", desc: "Backup via JSON or Markdown. Easy migration between devices" },
 ];
 
 const targetUsers = [
-  "リサーチ中にWebページごとにメモを取りたい方",
-  "技術ドキュメントに自分用の補足メモを残したい方",
-  "オンライン学習でページごとにノートを取りたい方",
-  "ブックマークだけでは足りない、コンテキスト付きメモが欲しい方",
-  "プライバシーを重視し、ローカル保存のメモツールが欲しい方",
+  "Researchers who want per-page notes while browsing",
+  "Developers adding personal annotations to technical docs",
+  "Online learners taking notes on course pages",
+  "Anyone who needs contextual notes beyond bookmarks",
+  "Privacy-conscious users who prefer local-only storage",
 ];
 
 const screenshots = [
