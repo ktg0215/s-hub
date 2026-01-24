@@ -322,9 +322,15 @@ const categories = ['All', 'Wellbeing', 'Productivity', 'E-Commerce', 'Real Esta
             </div>
 
             {isComingSoon ? (
-              <button disabled class="btn-disabled flex items-center space-x-2">
-                <span>Notify Me</span>
-              </button>
+              <a
+                href={product.ctaLink}
+                class="btn-secondary flex items-center space-x-2"
+              >
+                <span>Details</span>
+                <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                </svg>
+              </a>
             ) : (
               <a
                 href={product.ctaLink}
