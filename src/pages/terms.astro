@@ -32,22 +32,24 @@ const sections = [
   lang="en"
   noindex={true}
 >
-  <div class="container mx-auto px-6 py-32 max-w-4xl min-h-[60vh]">
-    <h1 class="text-5xl md:text-8xl mb-12 font-vivid text-black drop-shadow-[4px_4px_0px_#00FF00]">
-      TERMS
-    </h1>
+  <div class="container mx-auto px-6 py-24 max-w-3xl min-h-[60vh]">
+    <a href="/" class="inline-flex items-center gap-1 text-xs font-mono text-zinc-400 hover:text-sky-500 transition-colors mb-8">
+      ← back
+    </a>
 
-    <div class="bg-white p-8 border-4 border-black rounded-[20px] shadow-[8px_8px_0px_#000] space-y-8">
-      {sections.map((section) => (
-        <div>
-          <h2 class="text-2xl font-vivid text-pink-500 mb-3">
+    <h1 class="font-mono text-[11px] text-zinc-400 mb-6 tracking-wide">// terms of service</h1>
+
+    <div class="product-card p-8 space-y-8">
+      {sections.map((section, idx) => (
+        <div class="fade-in" style={`animation-delay: ${idx * 80}ms`}>
+          <h2 class="text-sm font-semibold text-zinc-900 mb-2">
             {section.title}
           </h2>
-          <p class="text-gray-800 font-bold leading-relaxed">
+          <p class="text-sm text-zinc-600 leading-relaxed">
             {section.hasEmail ? (
               <>
                 Questions? Contact us at{" "}
-                <a href="mailto:ktg.shota@gmail.com" class="text-green-500 hover:text-pink-500 transition-colors">
+                <a href="mailto:ktg.shota@gmail.com" class="text-sky-500 hover:text-sky-600 transition-colors">
                   ktg.shota@gmail.com
                 </a>
               </>
@@ -58,9 +60,5 @@ const sections = [
         </div>
       ))}
     </div>
-
-    <a href="/" class="mt-12 inline-block font-vivid text-pink-500 text-xl hover:scale-110 transition-transform">
-      &larr; Back to Home
-    </a>
   </div>
 </Layout>

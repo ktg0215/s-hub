@@ -1,0 +1,381 @@
+---
+import Layout from './Layout.astro';
+
+interface Feature {
+  title: string;
+  desc: string;
+}
+
+interface RelatedProduct {
+  name: string;
+  category: string;
+  link: string;
+  icon: string;
+}
+
+interface KeyboardShortcut {
+  key: string;
+  desc: string;
+}
+
+interface Props {
+  extension: {
+    name: string;
+    subtitle: string;
+    tagline: string;
+    price: string;
+    status: string;
+    chromeUrl?: string;
+    edgeUrl?: string;
+    category: string;
+    lang: string;
+    icon: string;
+    rating: number;
+    reviewCount: number;
+  };
+  overview: string;
+  features: Feature[];
+  targetUsers: string[];
+  screenshots: string[];
+  relatedProducts: RelatedProduct[];
+  supportedServices?: string[];
+  keyboardShortcuts?: KeyboardShortcut[];
+  productHuntUrl?: string;
+  productHuntImage?: string;
+  seoTitle: string;
+  seoDescription: string;
+  seoKeywords: string;
+  ogImage?: string;
+  softwareSchema: object;
+  ctaTitle?: string;
+  ctaDescription?: string;
+}
+
+const {
+  extension,
+  overview,
+  features,
+  targetUsers,
+  screenshots,
+  relatedProducts,
+  supportedServices,
+  keyboardShortcuts,
+  productHuntUrl,
+  productHuntImage,
+  seoTitle,
+  seoDescription,
+  seoKeywords,
+  ogImage,
+  softwareSchema,
+  ctaTitle = "Ready to Get Started?",
+  ctaDescription = `Install ${extension.name} now.`,
+} = Astro.props;
+
+const isFree = extension.price === 'Free' || extension.price === '無料';
+const isComingSoon = extension.status === 'Coming Soon';
+---
+
+<Layout
+  title={seoTitle}
+  description={seoDescription}
+  keywords={seoKeywords}
+  ogImage={ogImage}
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+  </Fragment>
+
+  <div class="pt-24 pb-16">
+    <!-- Hero Section -->
+    <section class="px-6 py-10 max-w-4xl mx-auto">
+      <a href="/" class="inline-flex items-center text-zinc-400 hover:text-zinc-700 mb-8 transition-colors font-mono text-xs">
+        <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+        </svg>
+        ← back
+      </a>
+
+      <div class="flex flex-col md:flex-row gap-8 items-start">
+        <img
+          src={extension.icon}
+          alt={`${extension.name} icon`}
+          class="w-20 h-20 rounded-2xl shadow-sm"
+        />
+        <div class="flex-1">
+          <div class="flex flex-wrap items-center gap-2 mb-3">
+            <span class="text-[10px] font-mono text-sky-600 px-2.5 py-1 bg-sky-50 rounded-full border border-sky-200 uppercase tracking-wider">
+              {extension.category}
+            </span>
+            <span class={`text-[10px] font-mono px-2.5 py-1 rounded-full border uppercase tracking-wider ${isComingSoon ? 'text-zinc-400 bg-zinc-50 border-zinc-200' : 'text-emerald-600 bg-emerald-50 border-emerald-200'}`}>
+              {extension.status}
+            </span>
+            <span class="text-[10px] font-mono text-amber-600 px-2.5 py-1 bg-amber-50 rounded-full border border-amber-200 uppercase tracking-wider">
+              {extension.lang}
+            </span>
+          </div>
+
+          <h1 class="text-3xl md:text-4xl font-semibold text-zinc-900 mb-1.5">
+            {extension.name}
+          </h1>
+          <p class="text-base text-zinc-500 mb-4">{extension.subtitle}</p>
+
+          <div class="flex items-center gap-4 mb-5">
+            <span class={`font-mono text-sm font-medium ${isFree ? 'text-emerald-600' : 'text-sky-600'}`}>
+              {extension.price}
+            </span>
+            {extension.rating > 0 && (
+              <div class="flex items-center gap-1.5 text-sm text-zinc-500">
+                <svg class="w-4 h-4 fill-amber-400" viewBox="0 0 24 24">
+                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                </svg>
+                <span class="font-mono text-xs">{extension.rating.toFixed(1)} ({extension.reviewCount})</span>
+              </div>
+            )}
+          </div>
+
+          <p class="text-zinc-600 text-sm leading-relaxed mb-6">{extension.tagline}</p>
+
+          {!isComingSoon && (
+            <div class="flex flex-wrap gap-3">
+              {extension.chromeUrl && (
+                <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-primary flex items-center gap-2 text-sm">
+                  <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.229-9.605zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728z"/>
+                  </svg>
+                  Add to Chrome
+                </a>
+              )}
+              {extension.edgeUrl && (
+                <a href={extension.edgeUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary flex items-center gap-2 text-sm font-mono">
+                  Add to Edge
+                </a>
+              )}
+            </div>
+          )}
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    {screenshots.length > 0 && (
+      <section class="px-6 py-8 max-w-4xl mx-auto">
+        <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// screenshots</h2>
+        {screenshots.length === 1 ? (
+          <img
+            src={screenshots[0]}
+            alt={`${extension.name} screenshot`}
+            class="w-full rounded-xl border border-zinc-200 shadow-sm"
+            loading="lazy"
+          />
+        ) : (
+          <div class="relative">
+            <div class="overflow-hidden rounded-xl border border-zinc-200 shadow-sm">
+              <div id="carousel" class="flex transition-transform duration-300 ease-in-out">
+                {screenshots.map((src, i) => (
+                  <div class="w-full flex-shrink-0">
+                    <img
+                      src={src}
+                      alt={`${extension.name} screenshot ${i + 1}`}
+                      class="w-full"
+                      loading="lazy"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
+            <button
+              id="prev-btn"
+              class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 backdrop-blur-sm hover:bg-white rounded-full flex items-center justify-center text-zinc-600 transition-all shadow-sm border border-zinc-200"
+              aria-label="Previous screenshot"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
+              </svg>
+            </button>
+            <button
+              id="next-btn"
+              class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 bg-white/80 backdrop-blur-sm hover:bg-white rounded-full flex items-center justify-center text-zinc-600 transition-all shadow-sm border border-zinc-200"
+              aria-label="Next screenshot"
+            >
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+              </svg>
+            </button>
+            <div class="flex justify-center gap-1.5 mt-4">
+              {screenshots.map((_, i) => (
+                <button
+                  class="carousel-dot w-1.5 h-1.5 rounded-full bg-zinc-300 transition-colors"
+                  data-index={i}
+                  aria-label={`Go to screenshot ${i + 1}`}
+                />
+              ))}
+            </div>
+          </div>
+        )}
+      </section>
+    )}
+
+    <script>
+      const carousel = document.getElementById('carousel');
+      const prevBtn = document.getElementById('prev-btn');
+      const nextBtn = document.getElementById('next-btn');
+      const dots = document.querySelectorAll('.carousel-dot');
+      const totalSlides = dots.length;
+      let currentIndex = 0;
+
+      function updateCarousel() {
+        if (carousel) {
+          carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+        }
+        dots.forEach((dot, i) => {
+          dot.classList.toggle('bg-sky-500', i === currentIndex);
+          dot.classList.toggle('bg-zinc-300', i !== currentIndex);
+        });
+      }
+
+      prevBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
+        updateCarousel();
+      });
+
+      nextBtn?.addEventListener('click', () => {
+        currentIndex = (currentIndex + 1) % totalSlides;
+        updateCarousel();
+      });
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          currentIndex = i;
+          updateCarousel();
+        });
+      });
+
+      updateCarousel();
+    </script>
+
+    <!-- Overview -->
+    <section class="px-6 py-8 max-w-4xl mx-auto">
+      <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// overview</h2>
+      <p class="text-zinc-600 text-sm leading-relaxed">
+        {overview}
+      </p>
+    </section>
+
+    <!-- Supported Services (optional) -->
+    {supportedServices && supportedServices.length > 0 && (
+      <section class="px-6 py-8 max-w-4xl mx-auto">
+        <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// supported services</h2>
+        <div class="flex flex-wrap gap-2">
+          {supportedServices.map((service) => (
+            <span class="text-xs font-mono text-zinc-600 px-3 py-1.5 bg-white border border-zinc-200 rounded-full">
+              {service}
+            </span>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Features -->
+    <section class="px-6 py-8 max-w-4xl mx-auto">
+      <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// features</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+        {features.map((feature, idx) => (
+          <div class="product-card p-4 fade-in" style={`animation-delay: ${idx * 80}ms`}>
+            <div class="flex items-start gap-3">
+              <div class="w-1.5 h-1.5 bg-sky-500 rounded-full mt-1.5 flex-shrink-0"></div>
+              <div>
+                <h3 class="text-[13px] font-medium text-zinc-900 mb-0.5">{feature.title}</h3>
+                <p class="text-zinc-500 text-xs leading-relaxed">{feature.desc}</p>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Keyboard Shortcuts (optional) -->
+    {keyboardShortcuts && keyboardShortcuts.length > 0 && (
+      <section class="px-6 py-8 max-w-4xl mx-auto">
+        <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// keyboard shortcuts</h2>
+        <div class="space-y-2">
+          {keyboardShortcuts.map((shortcut) => (
+            <div class="flex items-center gap-3 py-2">
+              <kbd class="font-mono text-[11px] text-zinc-700 bg-zinc-100 border border-zinc-200 rounded px-2 py-0.5 shadow-sm">
+                {shortcut.key}
+              </kbd>
+              <span class="text-zinc-500 text-xs">{shortcut.desc}</span>
+            </div>
+          ))}
+        </div>
+      </section>
+    )}
+
+    <!-- Recommended For -->
+    <section class="px-6 py-8 max-w-4xl mx-auto">
+      <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// recommended for</h2>
+      <ul class="space-y-2.5">
+        {targetUsers.map((user) => (
+          <li class="flex items-start gap-3 text-zinc-600 text-sm">
+            <svg class="w-4 h-4 text-sky-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+            <span>{user}</span>
+          </li>
+        ))}
+      </ul>
+    </section>
+
+    <!-- CTA Section -->
+    {!isComingSoon && (extension.chromeUrl || extension.edgeUrl) && (
+      <section class="px-6 py-8 max-w-4xl mx-auto">
+        <div class="product-card p-8 text-center">
+          <h2 class="text-xl font-semibold text-zinc-900 mb-2">{ctaTitle}</h2>
+          <p class="text-zinc-500 text-sm mb-6">{ctaDescription}</p>
+          <div class="flex flex-wrap justify-center gap-3">
+            {extension.chromeUrl && (
+              <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-primary flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.229-9.605zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728z"/>
+                </svg>
+                Add to Chrome{isFree ? '' : ` - ${extension.price}`}
+              </a>
+            )}
+            {extension.edgeUrl && (
+              <a href={extension.edgeUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary flex items-center gap-2 text-sm font-mono">
+                Add to Edge
+              </a>
+            )}
+          </div>
+        </div>
+      </section>
+    )}
+
+    <!-- Product Hunt Badge (optional) -->
+    {productHuntUrl && productHuntImage && (
+      <section class="px-6 py-8 max-w-4xl mx-auto text-center">
+        <a href={productHuntUrl} target="_blank" rel="noopener noreferrer" class="inline-block hover:opacity-80 transition-opacity">
+          <img src={productHuntImage} alt={`${extension.name} on Product Hunt`} width="200" height="43" loading="lazy" />
+        </a>
+      </section>
+    )}
+
+    <!-- Related Extensions -->
+    {relatedProducts.length > 0 && (
+      <section class="px-6 py-8 max-w-4xl mx-auto">
+        <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {relatedProducts.map((product) => (
+            <a href={product.link} class="product-card group p-4 flex items-center gap-3">
+              <img src={product.icon} alt={product.name} class="w-9 h-9 rounded-lg" />
+              <div>
+                <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">{product.name}</h3>
+                <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">{product.category}</p>
+              </div>
+              <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    )}
+  </div>
+</Layout>

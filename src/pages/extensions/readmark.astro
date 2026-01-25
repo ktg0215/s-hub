@@ -1,14 +1,12 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
 
 const extension = {
   name: "ReadMark",
   subtitle: "Smart Reading Position Saver",
   tagline: "Never lose your place again. Continue reading exactly where you left off.",
   price: "Free",
-  pricePro: "Pro $4.99",
   status: "Available",
-  chromeUrl: "#", // Chrome版なし
   edgeUrl: "https://microsoftedge.microsoft.com/addons/detail/eplmdgpbmedkiiampconlmmlmjjfaoil",
   category: "Productivity",
   lang: "EN",
@@ -17,11 +15,7 @@ const extension = {
   reviewCount: 0,
 };
 
-const overview = `Ever closed a tab and lost your place in a long article? ReadMark automatically saves your scroll position on every webpage, so you can always pick up right where you left off.
-
-Unlike other bookmark tools that require manual saving, ReadMark works silently in the background. Just read as usual - when you return to any page, you'll be taken back to your exact position automatically.
-
-Share specific passages with friends using our smart link feature, track your reading streaks, and build better reading habits. All data stays on your device - no accounts, no tracking.`;
+const overview = "Ever closed a tab and lost your place in a long article? ReadMark automatically saves your scroll position on every webpage, so you can always pick up right where you left off. Unlike other bookmark tools that require manual saving, ReadMark works silently in the background. Share specific passages with friends using our smart link feature, track your reading streaks, and build better reading habits. All data stays on your device.";
 
 const features = [
   { title: "Auto-Save Positions", desc: "Automatically saves scroll position when you leave any page" },
@@ -36,7 +30,6 @@ const targetUsers = [
   "Researchers reading academic papers and documentation",
   "Students studying online materials and textbooks",
   "Developers consuming technical documentation",
-  "News readers and long-form content enthusiasts",
   "Anyone who reads more than they can finish in one sitting",
 ];
 
@@ -53,336 +46,27 @@ const relatedProducts = [
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "ReadMark",
-  "description": extension.tagline,
-  "applicationCategory": "BrowserApplication",
-  "operatingSystem": "Chrome",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "S-Hub",
-    "url": "https://dev-tools-hub.xyz"
-  },
-  "screenshot": "https://dev-tools-hub.xyz/screenshots/readmark/screenshot-1.png"
+  name: "ReadMark",
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Edge",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  screenshot: "https://dev-tools-hub.xyz/screenshots/readmark/screenshot-1.png"
 };
 ---
 
-<Layout
-  title={`${extension.name} - Smart Reading Position Saver`}
-  description="Automatically saves your reading position on any webpage. Never lose your place in long articles again. Free Chrome extension with smart share links and reading streaks."
-  keywords="readmark, reading position saver, bookmark extension, chrome extension, scroll position, reading tracker, text fragments, productivity"
-  ogImage="/images/og-readmark.png"
->
-  <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
-  </Fragment>
-
-  <div class="pt-24 pb-16">
-    <!-- Hero Section with CTA -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <a href="/" class="inline-flex items-center text-zinc-300 hover:text-white mb-8 transition-colors">
-        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
-        Back to Home
-      </a>
-
-      <div class="flex flex-col md:flex-row gap-8 items-start">
-        <img
-          src={extension.icon}
-          alt={`${extension.name} icon`}
-          class="w-24 h-24 rounded-2xl bg-zinc-800 shadow-lg"
-        />
-        <div class="flex-1">
-          <div class="flex flex-wrap items-center gap-3 mb-4">
-            <span class="text-xs font-bold text-blue-400 px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20 uppercase tracking-wider">
-              {extension.category}
-            </span>
-            <span class="text-xs font-bold text-green-400 px-3 py-1 bg-green-500/10 rounded-full border border-green-500/20 uppercase tracking-wider">
-              {extension.status}
-            </span>
-            <span class="text-xs font-bold text-orange-400 px-3 py-1 bg-orange-500/10 rounded-full border border-orange-500/20 uppercase tracking-wider">
-              {extension.lang}
-            </span>
-          </div>
-          <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">
-            {extension.name}
-          </h1>
-          <p class="text-xl text-zinc-300 mb-4">{extension.subtitle}</p>
-
-          <div class="flex items-center gap-4 mb-6">
-            <span class="price-badge-free">{extension.price}</span>
-            <span class="price-badge-paid">{extension.pricePro}</span>
-            {extension.rating > 0 && (
-              <div class="rating-badge">
-                <svg class="w-4 h-4 fill-yellow-500" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <span>{extension.rating.toFixed(1)} ({extension.reviewCount} reviews)</span>
-              </div>
-            )}
-          </div>
-
-          <p class="text-zinc-300 mb-8">{extension.tagline}</p>
-
-          <!-- CTA Buttons at Top -->
-          <div class="flex flex-wrap gap-4">
-            <a href={extension.edgeUrl} target="_blank" rel="noopener noreferrer" class="btn-green flex items-center gap-2 px-6 py-3">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M21.86 17.86q.14 0 .25.12.1.13.1.25t-.11.33l-.32.46-.43.53-.44.5q-.21.25-.38.42l-.22.23q-.58.53-1.34 1.04-.76.51-1.6.91-.86.4-1.74.64t-1.67.24q-.9 0-1.69-.28-.8-.28-1.48-.78-.68-.5-1.22-1.17-.53-.66-.92-1.44-.38-.77-.58-1.6-.2-.83-.2-1.67 0-1 .32-1.96.33-.97.87-1.8.14.95.55 1.77.41.81 1.02 1.49.6.68 1.38 1.21.78.54 1.64.9.86.36 1.77.56.92.2 1.8.2 1.04 0 2-.26.96-.27 1.64-.68zm-9.97-14.15q0 .48-.15 1.07-.14.58-.39 1.11-.24.53-.52.99-.27.45-.53.79-.79-.47-1.75-.98-.95-.51-2.03-.9-1.07-.39-2.24-.64-1.18-.24-2.39-.24-.94 0-1.81.26-.88.27-1.08.39.72-1.42 1.75-2.6 1.02-1.19 2.28-2.03 1.25-.85 2.68-1.32 1.43-.48 2.94-.48.91 0 1.75.23.85.24 1.58.69.72.46 1.26 1.1.54.65.83 1.44.28.8.28 1.68-.25-.04-.46-.04z"/>
-              </svg>
-              Start Reading Smarter
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Screenshots Carousel -->
-    {screenshots.length > 0 && (
-      <section class="px-6 py-12 max-w-4xl mx-auto">
-        <h2 class="text-2xl font-bold text-white mb-6">Screenshots</h2>
-        <div class="relative">
-          <div class="overflow-hidden rounded-xl border border-zinc-800">
-            <div id="carousel" class="flex transition-transform duration-300 ease-in-out">
-              {screenshots.map((src, i) => (
-                <div class="w-full flex-shrink-0">
-                  <img
-                    src={src}
-                    alt={`${extension.name} screenshot ${i + 1}`}
-                    class="w-full"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {screenshots.length > 1 && (
-            <>
-              <button
-                id="prev-btn"
-                class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center text-white transition-colors"
-                aria-label="Previous screenshot"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                </svg>
-              </button>
-              <button
-                id="next-btn"
-                class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center text-white transition-colors"
-                aria-label="Next screenshot"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </button>
-
-              <div class="flex justify-center gap-2 mt-4">
-                {screenshots.map((_, i) => (
-                  <button
-                    class="carousel-dot w-2 h-2 rounded-full bg-zinc-600 transition-colors"
-                    data-index={i}
-                    aria-label={`Go to screenshot ${i + 1}`}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-      </section>
-    )}
-
-    <script>
-      const carousel = document.getElementById('carousel');
-      const prevBtn = document.getElementById('prev-btn');
-      const nextBtn = document.getElementById('next-btn');
-      const dots = document.querySelectorAll('.carousel-dot');
-      const totalSlides = dots.length;
-      let currentIndex = 0;
-
-      function updateCarousel() {
-        if (carousel) {
-          carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('bg-purple-500', i === currentIndex);
-          dot.classList.toggle('bg-zinc-600', i !== currentIndex);
-        });
-      }
-
-      prevBtn?.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        updateCarousel();
-      });
-
-      nextBtn?.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateCarousel();
-      });
-
-      dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-          currentIndex = i;
-          updateCarousel();
-        });
-      });
-
-      updateCarousel();
-    </script>
-
-    <!-- Overview -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Overview</h2>
-      <div class="text-zinc-300 text-lg leading-relaxed whitespace-pre-line">
-        {overview}
-      </div>
-    </section>
-
-    <!-- Features -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Features</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {features.map((feature) => (
-          <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
-            <div class="flex items-start gap-4">
-              <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-              <div>
-                <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
-                <p class="text-zinc-300 text-sm">{feature.desc}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Pricing</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
-          <h3 class="text-xl font-bold text-white mb-2">Free</h3>
-          <p class="text-3xl font-bold text-green-400 mb-4">$0</p>
-          <ul class="space-y-2 text-zinc-300 text-sm">
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Auto-save positions
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              5 bookmarks
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Share links
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Reading streaks
-            </li>
-          </ul>
-        </div>
-        <div class="bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-500/30 rounded-xl p-6">
-          <h3 class="text-xl font-bold text-white mb-2">Pro</h3>
-          <p class="text-3xl font-bold text-purple-400 mb-4">$4.99<span class="text-sm font-normal text-zinc-300"> (one-time)</span></p>
-          <ul class="space-y-2 text-zinc-300 text-sm">
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Everything in Free
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Unlimited bookmarks
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Detailed statistics
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Export/Import data
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              Keyboard shortcuts
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Recommended For -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Recommended For</h2>
-      <ul class="space-y-4">
-        {targetUsers.map((user) => (
-          <li class="flex items-start gap-4 text-zinc-300">
-            <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-            <span>{user}</span>
-          </li>
-        ))}
-      </ul>
-    </section>
-
-    <!-- Install Section (Main CTA) -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <div class="bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-zinc-800 rounded-2xl p-8 text-center">
-        <h2 class="text-2xl font-bold text-white mb-4">Ready to Read Smarter?</h2>
-        <p class="text-zinc-300 mb-8">Install ReadMark and never lose your place again.</p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href={extension.edgeUrl} target="_blank" rel="noopener noreferrer" class="btn-green flex items-center gap-2 px-8 py-4 text-lg">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M21.86 17.86q.14 0 .25.12.1.13.1.25t-.11.33l-.32.46-.43.53-.44.5q-.21.25-.38.42l-.22.23q-.58.53-1.34 1.04-.76.51-1.6.91-.86.4-1.74.64t-1.67.24q-.9 0-1.69-.28-.8-.28-1.48-.78-.68-.5-1.22-1.17-.53-.66-.92-1.44-.38-.77-.58-1.6-.2-.83-.2-1.67 0-1 .32-1.96.33-.97.87-1.8.14.95.55 1.77.41.81 1.02 1.49.6.68 1.38 1.21.78.54 1.64.9.86.36 1.77.56.92.2 1.8.2 1.04 0 2-.26.96-.27 1.64-.68zm-9.97-14.15q0 .48-.15 1.07-.14.58-.39 1.11-.24.53-.52.99-.27.45-.53.79-.79-.47-1.75-.98-.95-.51-2.03-.9-1.07-.39-2.24-.64-1.18-.24-2.39-.24-.94 0-1.81.26-.88.27-1.08.39.72-1.42 1.75-2.6 1.02-1.19 2.28-2.03 1.25-.85 2.68-1.32 1.43-.48 2.94-.48.91 0 1.75.23.85.24 1.58.69.72.46 1.26 1.1.54.65.83 1.44.28.8.28 1.68-.25-.04-.46-.04z"/>
-            </svg>
-            Start Reading Smarter - It's Free
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Related Extensions -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">You might also like</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {relatedProducts.map((product) => (
-          <a href={product.link} class="product-card group p-6 flex items-center gap-4">
-            <img src={product.icon} alt={product.name} class="w-12 h-12 rounded-xl bg-zinc-800" />
-            <div>
-              <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">{product.name}</h3>
-              <p class="text-xs text-zinc-300 uppercase tracking-wider">{product.category}</p>
-            </div>
-            <svg class="w-5 h-5 text-zinc-300 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </a>
-        ))}
-      </div>
-    </section>
-  </div>
-</Layout>
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle={`${extension.name} - Smart Reading Position Saver`}
+  seoDescription="Automatically saves your reading position on any webpage. Never lose your place in long articles."
+  seoKeywords="reading position, bookmark, scroll saver, chrome extension, productivity"
+  ctaTitle="Never Lose Your Place Again"
+  ctaDescription="ReadMark saves your position automatically."
+/>

@@ -1,12 +1,11 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
 
 const extension = {
   name: "X Detox",
   subtitle: "Hide For You & Trends",
   tagline: "Break free from X (Twitter) algorithms and reclaim your timeline",
   price: "Free",
-  pricePro: "Pro $3",
   status: "Available",
   chromeUrl: "https://chromewebstore.google.com/detail/x-detox-hide-for-you-tren/hlaankalmjmaefkcabjcfagnkfhlkpce",
   category: "Digital Wellbeing",
@@ -18,17 +17,14 @@ const extension = {
 
 const overview = "The 'For You' timeline and trends on X (Twitter) are designed to capture your attention with algorithm-driven content. X Detox removes these distractions, showing only posts from people you actually follow. Take back control of your social media experience.";
 
-const freeFeatures = [
+const features = [
   { title: "Hide 'For You' tab", desc: "Remove the algorithmic timeline completely" },
   { title: "Hide trends section", desc: "No more trending topics distracting you" },
   { title: "Hide 'Who to follow' suggestions", desc: "Stop unwanted follow recommendations" },
   { title: "Reduce promotional posts", desc: "Cleaner, more focused feed" },
-];
-
-const proFeatures = [
-  { title: "Custom filter settings", desc: "Fine-tune exactly what you want to hide" },
-  { title: "Mute specific keywords", desc: "Block content containing certain words" },
-  { title: "Advanced display controls", desc: "Complete control over your X experience" },
+  { title: "Custom filter settings (Pro)", desc: "Fine-tune exactly what you want to hide" },
+  { title: "Mute specific keywords (Pro)", desc: "Block content containing certain words" },
+  { title: "Advanced display controls (Pro)", desc: "Complete control over your X experience" },
 ];
 
 const targetUsers = [
@@ -49,219 +45,32 @@ const relatedProducts = [
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "X Detox",
-  "description": extension.tagline,
-  "applicationCategory": "BrowserApplication",
-  "operatingSystem": "Chrome",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": extension.rating.toString(),
-    "ratingCount": extension.reviewCount.toString()
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "S-Hub",
-    "url": "https://dev-tools-hub.xyz"
-  },
-  "downloadUrl": extension.chromeUrl,
-  "screenshot": "https://dev-tools-hub.xyz/screenshots/x-detox/screenshot-1.png"
+  name: "X Detox",
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), ratingCount: extension.reviewCount.toString() },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  downloadUrl: extension.chromeUrl,
+  screenshot: "https://dev-tools-hub.xyz/screenshots/x-detox/screenshot-1.png"
 };
 ---
 
-<Layout
-  title={`${extension.name} - Clean Up X/Twitter`}
-  description="Free Chrome extension to hide For You tab, trends, and algorithmic content from X (Twitter). See only posts from people you follow."
-  keywords="x detox, twitter cleaner, hide for you tab, hide twitter trends, chrome extension, digital wellbeing, twitter algorithm blocker"
-  ogImage="/images/og-x-detox.png"
->
-  <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
-  </Fragment>
-
-  <div class="pt-24 pb-16">
-    <!-- Hero Section with CTA -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <a href="/" class="inline-flex items-center text-zinc-300 hover:text-white mb-8 transition-colors">
-        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
-        Back to Home
-      </a>
-
-      <div class="flex flex-col md:flex-row gap-8 items-start">
-        <img
-          src={extension.icon}
-          alt={`${extension.name} icon`}
-          class="w-24 h-24 rounded-2xl bg-zinc-800 shadow-lg"
-        />
-        <div class="flex-1">
-          <div class="flex flex-wrap items-center gap-3 mb-4">
-            <span class="text-xs font-bold text-blue-400 px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20 uppercase tracking-wider">
-              {extension.category}
-            </span>
-            <span class="text-xs font-bold text-green-400 px-3 py-1 bg-green-500/10 rounded-full border border-green-500/20 uppercase tracking-wider">
-              {extension.status}
-            </span>
-            <span class="text-xs font-bold text-orange-400 px-3 py-1 bg-orange-500/10 rounded-full border border-orange-500/20 uppercase tracking-wider">
-              {extension.lang}
-            </span>
-          </div>
-          <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">
-            {extension.name}
-          </h1>
-          <p class="text-xl text-zinc-300 mb-4">{extension.subtitle}</p>
-
-          <div class="flex items-center gap-4 mb-6">
-            <span class="price-badge-free">{extension.price}</span>
-            <span class="price-badge-paid">{extension.pricePro}</span>
-            {extension.rating > 0 && (
-              <div class="rating-badge">
-                <svg class="w-4 h-4 fill-yellow-500" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <span>{extension.rating.toFixed(1)} ({extension.reviewCount} reviews)</span>
-              </div>
-            )}
-          </div>
-
-          <p class="text-zinc-300 mb-8">{extension.tagline}</p>
-
-          <!-- CTA Buttons at Top -->
-          <div class="flex flex-wrap gap-4">
-            <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-green flex items-center gap-2 px-6 py-3">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.229-9.605zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728z"/>
-              </svg>
-              Add to Chrome
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Screenshots -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Screenshots</h2>
-      <div class="grid grid-cols-1 gap-6">
-        {screenshots.map((src, i) => (
-          <img
-            src={src}
-            alt={`${extension.name} screenshot ${i + 1}`}
-            class="w-full rounded-xl border border-zinc-800 shadow-lg"
-            loading="lazy"
-          />
-        ))}
-      </div>
-    </section>
-
-    <!-- Overview -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Overview</h2>
-      <p class="text-zinc-300 text-lg leading-relaxed">
-        {overview}
-      </p>
-    </section>
-
-    <!-- Free Features -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Free Features</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {freeFeatures.map((feature) => (
-          <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
-            <div class="flex items-start gap-4">
-              <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-              <div>
-                <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
-                <p class="text-zinc-300 text-sm">{feature.desc}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- Pro Features -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <div class="bg-gradient-to-r from-pink-600/20 to-purple-600/20 border border-zinc-800 rounded-2xl p-8">
-        <div class="flex items-center gap-4 mb-6">
-          <h2 class="text-2xl font-bold text-white">Pro Features</h2>
-          <span class="price-badge-paid">$3 One-time</span>
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {proFeatures.map((feature) => (
-            <div class="flex items-start gap-4">
-              <div class="w-2 h-2 bg-pink-500 rounded-full mt-2 flex-shrink-0"></div>
-              <div>
-                <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
-                <p class="text-zinc-300 text-sm">{feature.desc}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <!-- Recommended For -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Recommended For</h2>
-      <ul class="space-y-4">
-        {targetUsers.map((user) => (
-          <li class="flex items-start gap-4 text-zinc-300">
-            <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-            <span>{user}</span>
-          </li>
-        ))}
-      </ul>
-    </section>
-
-    <!-- Install Section (Main CTA) -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <div class="bg-gradient-to-r from-blue-600/20 to-green-600/20 border border-zinc-800 rounded-2xl p-8 text-center">
-        <h2 class="text-2xl font-bold text-white mb-4">Ready to Detox?</h2>
-        <p class="text-zinc-300 mb-8">Install X Detox now and take back control of your X/Twitter experience.</p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-green flex items-center gap-2 px-8 py-4 text-lg">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.229-9.605zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728z"/>
-            </svg>
-            Add to Chrome - It's Free
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Product Hunt Badge -->
-    <section class="px-6 py-12 max-w-4xl mx-auto text-center">
-      <p class="text-zinc-300 text-sm mb-4">Featured on Product Hunt</p>
-      <a href="https://www.producthunt.com/products/x-detox?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-x-detox" target="_blank" rel="noopener noreferrer" class="inline-block hover:opacity-80 transition-opacity">
-        <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1055385&theme=dark" alt="X Detox - Hide distractions on X and take back your focus | Product Hunt" width="250" height="54" />
-      </a>
-    </section>
-
-    <!-- Related Extensions -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">You might also like</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {relatedProducts.map((product) => (
-          <a href={product.link} class="product-card group p-6 flex items-center gap-4">
-            <img src={product.icon} alt={product.name} class="w-12 h-12 rounded-xl bg-zinc-800" />
-            <div>
-              <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">{product.name}</h3>
-              <p class="text-xs text-zinc-300 uppercase tracking-wider">{product.category}</p>
-            </div>
-            <svg class="w-5 h-5 text-zinc-300 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </a>
-        ))}
-      </div>
-    </section>
-  </div>
-</Layout>
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="X Detox - Clean Up X/Twitter"
+  seoDescription="Free Chrome extension to hide For You tab, trends, and algorithmic content from X (Twitter)."
+  seoKeywords="x detox, twitter cleaner, hide for you tab, chrome extension, digital wellbeing"
+  ogImage="/images/og-x-detox.webp"
+  ctaTitle="Take Back Your Timeline"
+  ctaDescription="Install X Detox and see only what matters."
+  productHuntUrl="https://www.producthunt.com/products/x-detox?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-x-detox"
+  productHuntImage="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1059490&theme=light"
+/>

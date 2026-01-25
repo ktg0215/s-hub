@@ -1,42 +1,43 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
 
 const extension = {
   name: "TVer Plus",
   subtitle: "再生速度変更・PiP・ショートカット強化",
   tagline: "TVerの視聴体験を向上。2倍速以上の再生、ピクチャインピクチャ、便利なキーボードショートカットに対応。",
   price: "Free",
-  pricePro: "Pro ¥700",
   status: "Available",
   chromeUrl: "https://chromewebstore.google.com/detail/ddhjonpmonmjgohicdipicodpmndnjll",
-  edgeUrl: "#",
-  category: "Media & Entertainment",
-  lang: "JA",
+  category: "Media",
+  lang: "JP",
   icon: "/ext-icons/tver-plus.webp",
   rating: 0,
   reviewCount: 0,
 };
 
-const overview = `TVerの視聴体験を向上させるChrome拡張機能です。2倍速以上の再生、ピクチャインピクチャ（PiP）、便利なキーボードショートカットに対応しています。
-
-無料版でも0.75x〜2.0xの速度調整が可能。Pro版では0.25x〜4.0xの細かい速度調整、PiP保護機能、マウスホイール操作、シアターモードなど、充実した視聴機能を利用できます。
-
-広告スキップ機能はありません。すべてのデータはローカルに保存され、外部サーバーへの送信はありません。`;
+const overview = "TVerの視聴体験を向上させるChrome拡張機能です。2倍速以上の再生、ピクチャインピクチャ（PiP）、便利なキーボードショートカットに対応。無料版でも0.75x〜2.0xの速度調整が可能。Pro版では0.25x〜4.0xの細かい速度調整、PiP保護機能、マウスホイール操作、シアターモードなど充実した機能を利用できます。";
 
 const features = [
-  { title: "再生速度変更", desc: "スライダーとボタンで速度調整。Pro版は0.25x〜4.0x（0.1刻み）対応" },
+  { title: "再生速度変更", desc: "スライダーとボタンで速度調整。Pro版は0.25x〜4.0x対応" },
   { title: "ピクチャインピクチャ", desc: "動画を浮遊ウィンドウで表示。PiP保護機能付き（Pro版）" },
   { title: "キーボードショートカット", desc: "S/Dで速度調整、Z/Xで10秒スキップ、Spaceで再生/停止" },
-  { title: "マウスホイール操作", desc: "ホイールで10秒スキップ、Shift+ホイールで音量調整（Pro版）" },
+  { title: "マウスホイール操作 (Pro)", desc: "ホイールで10秒スキップ、Shift+ホイールで音量調整" },
   { title: "速度オーバーレイ", desc: "速度変更時に画面上に現在速度を表示" },
   { title: "クリック操作", desc: "ダブルクリックで全画面切替、クリックで再生/停止" },
+];
+
+const keyboardShortcuts = [
+  { key: "S / D", desc: "再生速度を減速 / 加速" },
+  { key: "Z / X", desc: "10秒巻き戻し / 早送り" },
+  { key: "Space", desc: "再生 / 一時停止" },
+  { key: "P", desc: "ピクチャインピクチャ切替" },
+  { key: "R", desc: "速度をリセット（1.0x）" },
 ];
 
 const targetUsers = [
   "TVerで効率的にドラマ・アニメを視聴したい方",
   "ながら見で作業しながら動画を楽しみたい方",
   "キーボード操作で快適に動画を操作したい方",
-  "再生速度を細かく調整して学習動画を見たい方",
   "PiPで小窓表示しながらマルチタスクしたい方",
 ];
 
@@ -46,334 +47,34 @@ const screenshots = [
 ];
 
 const relatedProducts = [
-  { name: "Shorts Killer", category: "Digital Wellbeing", link: "/extensions/shorts-killer", icon: "/ext-icons/shorts-killer.webp" },
+  { name: "Shorts Killer", category: "Wellbeing", link: "/extensions/shorts-killer", icon: "/ext-icons/shorts-killer.webp" },
   { name: "ZenRead", category: "Productivity", link: "/extensions/zenread", icon: "/ext-icons/ZenRead.webp" },
 ];
 
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "TVer Plus",
-  "description": extension.tagline,
-  "applicationCategory": "BrowserApplication",
-  "operatingSystem": "Chrome",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "JPY"
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "S-Hub",
-    "url": "https://dev-tools-hub.xyz"
-  }
+  name: "TVer Plus",
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "JPY" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
 };
 ---
 
-<Layout
-  title={`${extension.name} - 再生速度変更・PiP・ショートカット強化`}
-  description="TVerの視聴体験を向上させるChrome拡張機能。2倍速以上の再生、ピクチャインピクチャ、キーボードショートカットに対応。無料で利用可能。"
-  keywords="tver plus, tver 倍速, tver 拡張機能, tver pip, tver ショートカット, tver 再生速度, chrome拡張機能"
-  ogImage="/images/og-tver-plus.png"
->
-  <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
-  </Fragment>
-
-  <div class="pt-24 pb-16">
-    <!-- Hero Section with CTA -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <a href="/" class="inline-flex items-center text-zinc-300 hover:text-white mb-8 transition-colors">
-        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
-        Back to Home
-      </a>
-
-      <div class="flex flex-col md:flex-row gap-8 items-start">
-        <img
-          src={extension.icon}
-          alt={`${extension.name} icon`}
-          class="w-24 h-24 rounded-2xl bg-zinc-800 shadow-lg"
-        />
-        <div class="flex-1">
-          <div class="flex flex-wrap items-center gap-3 mb-4">
-            <span class="text-xs font-bold text-blue-400 px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20 uppercase tracking-wider">
-              {extension.category}
-            </span>
-            <span class="text-xs font-bold text-green-400 px-3 py-1 bg-green-500/10 rounded-full border border-green-500/20 uppercase tracking-wider">
-              {extension.status}
-            </span>
-            <span class="text-xs font-bold text-orange-400 px-3 py-1 bg-orange-500/10 rounded-full border border-orange-500/20 uppercase tracking-wider">
-              {extension.lang}
-            </span>
-          </div>
-          <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">
-            {extension.name}
-          </h1>
-          <p class="text-xl text-zinc-300 mb-4">{extension.subtitle}</p>
-
-          <div class="flex items-center gap-4 mb-6">
-            <span class="price-badge-free">{extension.price}</span>
-            <span class="price-badge-paid">{extension.pricePro}</span>
-          </div>
-
-          <p class="text-zinc-300 mb-8">{extension.tagline}</p>
-
-          <!-- CTA Buttons at Top -->
-          <div class="flex flex-wrap gap-4">
-            <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-green flex items-center gap-2 px-6 py-3">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-              </svg>
-              Chrome Web Store
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Screenshots Carousel -->
-    {screenshots.length > 0 && (
-      <section class="px-6 py-12 max-w-4xl mx-auto">
-        <h2 class="text-2xl font-bold text-white mb-6">Screenshots</h2>
-        <div class="relative">
-          <div class="overflow-hidden rounded-xl border border-zinc-800">
-            <div id="carousel" class="flex transition-transform duration-300 ease-in-out">
-              {screenshots.map((src, i) => (
-                <div class="w-full flex-shrink-0">
-                  <img
-                    src={src}
-                    alt={`${extension.name} screenshot ${i + 1}`}
-                    class="w-full"
-                    loading="lazy"
-                  />
-                </div>
-              ))}
-            </div>
-          </div>
-
-          {screenshots.length > 1 && (
-            <>
-              <button
-                id="prev-btn"
-                class="absolute left-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center text-white transition-colors"
-                aria-label="Previous screenshot"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                </svg>
-              </button>
-              <button
-                id="next-btn"
-                class="absolute right-2 top-1/2 -translate-y-1/2 w-10 h-10 bg-black/60 hover:bg-black/80 rounded-full flex items-center justify-center text-white transition-colors"
-                aria-label="Next screenshot"
-              >
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </button>
-
-              <div class="flex justify-center gap-2 mt-4">
-                {screenshots.map((_, i) => (
-                  <button
-                    class="carousel-dot w-2 h-2 rounded-full bg-zinc-600 transition-colors"
-                    data-index={i}
-                    aria-label={`Go to screenshot ${i + 1}`}
-                  />
-                ))}
-              </div>
-            </>
-          )}
-        </div>
-      </section>
-    )}
-
-    <script>
-      const carousel = document.getElementById('carousel');
-      const prevBtn = document.getElementById('prev-btn');
-      const nextBtn = document.getElementById('next-btn');
-      const dots = document.querySelectorAll('.carousel-dot');
-      const totalSlides = dots.length;
-      let currentIndex = 0;
-
-      function updateCarousel() {
-        if (carousel) {
-          carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
-        }
-        dots.forEach((dot, i) => {
-          dot.classList.toggle('bg-purple-500', i === currentIndex);
-          dot.classList.toggle('bg-zinc-600', i !== currentIndex);
-        });
-      }
-
-      prevBtn?.addEventListener('click', () => {
-        currentIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-        updateCarousel();
-      });
-
-      nextBtn?.addEventListener('click', () => {
-        currentIndex = (currentIndex + 1) % totalSlides;
-        updateCarousel();
-      });
-
-      dots.forEach((dot, i) => {
-        dot.addEventListener('click', () => {
-          currentIndex = i;
-          updateCarousel();
-        });
-      });
-
-      updateCarousel();
-    </script>
-
-    <!-- Overview -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Overview</h2>
-      <div class="text-zinc-300 text-lg leading-relaxed whitespace-pre-line">
-        {overview}
-      </div>
-    </section>
-
-    <!-- Features -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Features</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {features.map((feature) => (
-          <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
-            <div class="flex items-start gap-4">
-              <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-              <div>
-                <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
-                <p class="text-zinc-300 text-sm">{feature.desc}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- Pricing -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Pricing</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
-          <h3 class="text-xl font-bold text-white mb-2">Free</h3>
-          <p class="text-3xl font-bold text-green-400 mb-4">¥0</p>
-          <ul class="space-y-2 text-zinc-300 text-sm">
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              再生速度: 0.75x〜2.0x
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              キーボードショートカット（基本）
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              クリック操作
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              速度オーバーレイ
-            </li>
-          </ul>
-        </div>
-        <div class="bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-purple-500/30 rounded-xl p-6">
-          <h3 class="text-xl font-bold text-white mb-2">Pro</h3>
-          <p class="text-3xl font-bold text-purple-400 mb-4">¥700<span class="text-sm font-normal text-zinc-300"> (買い切り)</span></p>
-          <ul class="space-y-2 text-zinc-300 text-sm">
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              再生速度: 0.25x〜4.0x（0.1刻み）
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              ピクチャインピクチャ
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              マウスホイール操作
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              シアターモード
-            </li>
-            <li class="flex items-center gap-2">
-              <svg class="w-4 h-4 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-              </svg>
-              視聴時間トラッカー
-            </li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- Recommended For -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Recommended For</h2>
-      <ul class="space-y-4">
-        {targetUsers.map((user) => (
-          <li class="flex items-start gap-4 text-zinc-300">
-            <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-            <span>{user}</span>
-          </li>
-        ))}
-      </ul>
-    </section>
-
-    <!-- Install Section (Main CTA) -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <div class="bg-gradient-to-r from-purple-600/20 to-blue-600/20 border border-zinc-800 rounded-2xl p-8 text-center">
-        <h2 class="text-2xl font-bold text-white mb-4">TVerをもっと快適に</h2>
-        <p class="text-zinc-300 mb-8">TVer Plusをインストールして、快適な視聴体験を始めましょう。</p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-green flex items-center gap-2 px-8 py-4 text-lg">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 17.93c-3.95-.49-7-3.85-7-7.93 0-.62.08-1.21.21-1.79L9 15v1c0 1.1.9 2 2 2v1.93zm6.9-2.54c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1H8v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41c2.93 1.19 5 4.06 5 7.41 0 2.08-.8 3.97-2.1 5.39z"/>
-            </svg>
-            Chrome Web Store - 無料
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Related Extensions -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">You might also like</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {relatedProducts.map((product) => (
-          <a href={product.link} class="product-card group p-6 flex items-center gap-4">
-            <img src={product.icon} alt={product.name} class="w-12 h-12 rounded-xl bg-zinc-800" />
-            <div>
-              <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">{product.name}</h3>
-              <p class="text-xs text-zinc-300 uppercase tracking-wider">{product.category}</p>
-            </div>
-            <svg class="w-5 h-5 text-zinc-300 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </a>
-        ))}
-      </div>
-    </section>
-  </div>
-</Layout>
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  keyboardShortcuts={keyboardShortcuts}
+  softwareSchema={softwareSchema}
+  seoTitle={`${extension.name} - TVer再生速度変更・PiP対応`}
+  seoDescription="TVerの視聴体験を向上。2倍速以上の再生、PiP、キーボードショートカットに対応。"
+  seoKeywords="TVer, 再生速度, ピクチャインピクチャ, Chrome拡張機能, 動画プレイヤー"
+  ctaTitle="TVerをもっと快適に"
+  ctaDescription="再生速度変更とPiPで、効率的な視聴体験を。"
+/>

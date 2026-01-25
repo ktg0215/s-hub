@@ -1,7 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
-import TrustBar from '../components/TrustBar.astro';
 import ProductSection from '../components/ProductSection.astro';
 import AboutSection from '../components/AboutSection.astro';
 
@@ -161,7 +160,6 @@ const softwareListSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(softwareListSchema)} />
   </Fragment>
   <Hero />
-  <TrustBar />
   <ProductSection />
   <AboutSection />
 </Layout>

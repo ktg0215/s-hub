@@ -229,27 +229,10 @@ const products = [
 const categories = ['All', 'Wellbeing', 'Productivity', 'E-Commerce', 'Real Estate', 'Media', 'Developer Tools'];
 ---
 
-<section id="products" class="py-24 px-6 max-w-7xl mx-auto">
-  <!-- Product Hunt -->
-  <div class="flex justify-center mb-16">
-    <a href="https://www.producthunt.com/@ktg0215" target="_blank" rel="noopener noreferrer" class="px-6 py-2 rounded-full border border-[#da552f]/30 bg-[#da552f]/10 flex items-center space-x-3 text-sm font-medium text-[#da552f] hover:bg-[#da552f]/20 transition-colors">
-      <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-        <path d="M13.5 10H10v4h3.5c1.103 0 2-.897 2-2s-.897-2-2-2zm0-2c2.206 0 4 1.794 4 4s-1.794 4-4 4H10v4H8V6h5.5z"/>
-      </svg>
-      <span>Featured on Product Hunt</span>
-    </a>
-  </div>
-
-  <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
-    <div class="max-w-2xl">
-      <h2 class="text-3xl md:text-5xl font-bold mb-4 tracking-tight text-white">Our Extension Lineup</h2>
-      <p class="text-zinc-300 text-lg">
-        High-utility tools built to solve specific digital friction. Lightweight, private, and powerful.
-      </p>
-    </div>
-
-    <!-- Category Tabs -->
-    <div class="flex flex-wrap gap-2" id="category-tabs">
+<section id="products" class="py-16 px-6 max-w-6xl mx-auto">
+  <div class="flex flex-col md:flex-row md:items-center justify-between gap-4 mb-8">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide">// extensions</h2>
+    <div class="flex flex-wrap gap-1" id="category-tabs">
       {categories.map((cat, idx) => (
         <button
           data-category={cat}
@@ -261,95 +244,70 @@ const categories = ['All', 'Wellbeing', 'Productivity', 'E-Commerce', 'Real Esta
     </div>
   </div>
 
-  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8" id="products-grid">
-    {products.map((product) => {
+  <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3" style="grid-auto-flow: dense" id="products-grid">
+    {products.map((product, idx) => {
       const isComingSoon = product.priceType === 'Coming Soon';
+      const isFeatured = product.reviewCount >= 10;
       return (
         <div
-          class={`product-card group p-6 flex flex-col h-full ${isComingSoon ? 'coming-soon' : ''}`}
+          class={`product-card group p-4 flex flex-col h-full fade-in ${isComingSoon ? 'coming-soon' : ''} ${isFeatured ? 'featured' : ''}`}
           data-category={product.category}
+          style={`animation-delay: ${idx * 60}ms`}
         >
-          <div class="flex items-start justify-between mb-4">
+          <div class="flex items-center gap-2.5 mb-2.5">
             <img
               src={product.icon}
               alt={`${product.name} Icon`}
-              width="64"
-              height="64"
-              class="w-16 h-16 rounded-xl object-cover bg-zinc-800 shadow-lg"
+              width="28"
+              height="28"
+              class="w-7 h-7 rounded-lg object-cover"
               loading="lazy"
             />
-            {product.reviewCount > 0 && (
-              <div class="rating-badge">
-                <svg class="w-3.5 h-3.5 fill-yellow-500" viewBox="0 0 24 24" aria-hidden="true">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <span>{product.rating.toFixed(1)} ({product.reviewCount})</span>
+            <div class="min-w-0">
+              <h3 class="text-[12px] font-medium text-zinc-900 truncate">
+                {product.name}
+              </h3>
+              <div class="flex items-center gap-1.5">
+                <span class="font-mono text-[9px] text-zinc-400">{product.category}</span>
+                {product.rating > 0 && (
+                  <span class="font-mono text-[9px] text-amber-500">★ {product.rating}</span>
+                )}
               </div>
-            )}
+            </div>
           </div>
 
-          <h3 class="text-xl font-bold mb-1 text-white group-hover:text-blue-400 transition-colors">
-            {product.name}
-          </h3>
-          <div class="flex items-center gap-2 mb-3">
-            <span class="text-[10px] text-zinc-300 uppercase tracking-[0.2em] font-bold">
-              {product.category}
-            </span>
-            <span class="text-xs font-bold text-orange-400 px-3 py-1 bg-orange-500/10 rounded-full border border-orange-500/20 uppercase tracking-wider">
-              {product.lang}
-            </span>
-          </div>
-
-          <p class="text-zinc-300 text-sm leading-relaxed mb-8 flex-grow">
+          <p class="text-zinc-500 text-[11px] leading-relaxed mb-3 flex-grow line-clamp-2">
             {product.description}
           </p>
 
-          <div class="mt-auto flex items-center justify-between border-t border-[#27272a] pt-5">
-            <div class="flex flex-col">
-              {product.priceType === 'Free' ? (
-                <span class="price-badge-free">
-                  {product.priceLabel ? `FREE / ${product.priceLabel}` : 'FREE'}
-                </span>
-              ) : product.priceType === 'Paid' ? (
-                <span class="price-badge-paid">
-                  {product.priceLabel}
-                </span>
-              ) : (
-                <span class="price-badge-coming">
-                  COMING SOON
-                </span>
-              )}
-            </div>
-
-            {isComingSoon ? (
-              <a
-                href={product.ctaLink}
-                class="btn-secondary flex items-center space-x-2"
-              >
-                <span>Details</span>
-                <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </a>
+          <div class="mt-auto flex items-center justify-between pt-2.5 border-t border-zinc-100/80">
+            {product.priceType === 'Free' ? (
+              <span class="font-mono text-[10px] text-emerald-600">
+                {product.priceLabel ? `free / ${product.priceLabel.toLowerCase()}` : 'free'}
+              </span>
+            ) : product.priceType === 'Paid' ? (
+              <span class="font-mono text-[10px] text-sky-600">
+                {product.priceLabel.toLowerCase()}
+              </span>
             ) : (
-              <a
-                href={product.ctaLink}
-                class={`${product.priceType === 'Free' ? 'btn-green' : 'btn-blue'} flex items-center space-x-2`}
-              >
-                <span>{product.priceType === 'Free' ? 'Get Free' : 'Get Now'}</span>
-                <svg class="w-3.5 h-3.5 opacity-70" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                </svg>
-              </a>
+              <span class="font-mono text-[10px] text-zinc-300">
+                wip
+              </span>
             )}
+            <a
+              href={product.ctaLink}
+              class="btn-detail"
+            >
+              details →
+            </a>
           </div>
         </div>
       );
     })}
   </div>
 
-  <div id="empty-state" class="hidden text-center py-24 bg-zinc-900/30 rounded-3xl border border-dashed border-zinc-800">
-    <p class="text-zinc-300 font-medium italic">More tools are being developed in this category...</p>
+  <div id="empty-state" class="hidden text-center py-12">
+    <p class="font-mono text-zinc-400 text-xs">// no extensions in this category</p>
   </div>
 </section>
 

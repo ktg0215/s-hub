@@ -1,5 +1,5 @@
 ---
-import Layout from '../../layouts/Layout.astro';
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
 
 const extension = {
   name: "Shorts Killer",
@@ -45,209 +45,32 @@ const relatedProducts = [
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  "name": "Shorts Killer",
-  "description": extension.tagline,
-  "applicationCategory": "BrowserApplication",
-  "operatingSystem": "Chrome, Edge",
-  "offers": {
-    "@type": "Offer",
-    "price": "0",
-    "priceCurrency": "USD"
-  },
-  "aggregateRating": {
-    "@type": "AggregateRating",
-    "ratingValue": extension.rating.toString(),
-    "ratingCount": extension.reviewCount.toString()
-  },
-  "author": {
-    "@type": "Organization",
-    "name": "S-Hub",
-    "url": "https://dev-tools-hub.xyz"
-  },
-  "downloadUrl": extension.chromeUrl,
-  "screenshot": "https://dev-tools-hub.xyz/screenshots/shorts-killer/screenshot-1.png"
+  name: "Shorts Killer",
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome, Edge",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), ratingCount: extension.reviewCount.toString() },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  downloadUrl: extension.chromeUrl,
+  screenshot: "https://dev-tools-hub.xyz/screenshots/shorts-killer/screenshot-1.png"
 };
 ---
 
-<Layout
-  title={`${extension.name} - Hide YouTube Shorts`}
-  description="Free Chrome extension to completely hide YouTube Shorts from your feed. Stop endless scrolling and reclaim your focus. Works on home, search, and subscriptions."
-  keywords="youtube shorts blocker, hide youtube shorts, youtube shorts remover, chrome extension, digital wellbeing, block shorts"
-  ogImage="/images/og-shorts-killer.png"
->
-  <Fragment slot="head">
-    <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
-  </Fragment>
-
-  <div class="pt-24 pb-16">
-    <!-- Hero Section with CTA -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <a href="/" class="inline-flex items-center text-zinc-300 hover:text-white mb-8 transition-colors">
-        <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
-        Back to Home
-      </a>
-
-      <div class="flex flex-col md:flex-row gap-8 items-start">
-        <img
-          src={extension.icon}
-          alt={`${extension.name} icon`}
-          class="w-24 h-24 rounded-2xl bg-zinc-800 shadow-lg"
-        />
-        <div class="flex-1">
-          <div class="flex flex-wrap items-center gap-3 mb-4">
-            <span class="text-xs font-bold text-blue-400 px-3 py-1 bg-blue-500/10 rounded-full border border-blue-500/20 uppercase tracking-wider">
-              {extension.category}
-            </span>
-            <span class="text-xs font-bold text-green-400 px-3 py-1 bg-green-500/10 rounded-full border border-green-500/20 uppercase tracking-wider">
-              {extension.status}
-            </span>
-            <span class="text-xs font-bold text-orange-400 px-3 py-1 bg-orange-500/10 rounded-full border border-orange-500/20 uppercase tracking-wider">
-              {extension.lang}
-            </span>
-          </div>
-          <h1 class="text-4xl md:text-5xl font-bold text-white mb-2">
-            {extension.name}
-          </h1>
-          <p class="text-xl text-zinc-300 mb-4">{extension.subtitle}</p>
-
-          <div class="flex items-center gap-4 mb-6">
-            <span class="price-badge-free">{extension.price}</span>
-            {extension.rating > 0 && (
-              <div class="rating-badge">
-                <svg class="w-4 h-4 fill-yellow-500" viewBox="0 0 24 24">
-                  <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
-                </svg>
-                <span>{extension.rating.toFixed(1)} ({extension.reviewCount} reviews)</span>
-              </div>
-            )}
-          </div>
-
-          <p class="text-zinc-300 mb-8">{extension.tagline}</p>
-
-          <!-- CTA Buttons at Top -->
-          <div class="flex flex-wrap gap-4">
-            <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-green flex items-center gap-2 px-6 py-3">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.229-9.605zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728z"/>
-              </svg>
-              Add to Chrome
-            </a>
-            <a href={extension.edgeUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary flex items-center gap-2 px-6 py-3">
-              <svg class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M21.86 17.86q.14 0 .25.12.1.13.1.25t-.11.33l-.32.46-.43.53-.44.5q-.21.25-.38.42l-.22.23q-.58.53-1.34 1.04-.76.51-1.6.91-.86.4-1.74.64t-1.67.24q-.9 0-1.69-.28-.8-.28-1.48-.78-.68-.5-1.22-1.17-.53-.66-.92-1.44-.38-.77-.58-1.6-.2-.83-.2-1.67 0-1 .32-1.96.33-.97.87-1.8.14.95.55 1.77.41.81 1.02 1.49.6.68 1.38 1.21.78.54 1.64.9.86.36 1.77.56.92.2 1.8.2 1.04 0 2-.26.96-.27 1.64-.68zm-9.97-14.15q0 .48-.15 1.07-.14.58-.39 1.11-.24.53-.52.99-.27.45-.53.79-.79-.47-1.75-.98-.95-.51-2.03-.9-1.07-.39-2.24-.64-1.18-.24-2.39-.24-.94 0-1.81.26-.88.27-1.08.39.72-1.42 1.75-2.6 1.02-1.19 2.28-2.03 1.25-.85 2.68-1.32 1.43-.48 2.94-.48.91 0 1.75.23.85.24 1.58.69.72.46 1.26 1.1.54.65.83 1.44.28.8.28 1.68-.25-.04-.46-.04z"/>
-              </svg>
-              Add to Edge
-            </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Screenshots -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Screenshots</h2>
-      <div class="grid grid-cols-1 gap-6">
-        {screenshots.map((src, i) => (
-          <img
-            src={src}
-            alt={`${extension.name} screenshot ${i + 1}`}
-            class="w-full rounded-xl border border-zinc-800 shadow-lg"
-            loading="lazy"
-          />
-        ))}
-      </div>
-    </section>
-
-    <!-- Overview -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Overview</h2>
-      <p class="text-zinc-300 text-lg leading-relaxed">
-        {overview}
-      </p>
-    </section>
-
-    <!-- Features -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Features</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {features.map((feature) => (
-          <div class="bg-zinc-900/50 border border-zinc-800 rounded-xl p-6">
-            <div class="flex items-start gap-4">
-              <div class="w-2 h-2 bg-green-500 rounded-full mt-2 flex-shrink-0"></div>
-              <div>
-                <h3 class="font-semibold text-white mb-1">{feature.title}</h3>
-                <p class="text-zinc-300 text-sm">{feature.desc}</p>
-              </div>
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-
-    <!-- Recommended For -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">Recommended For</h2>
-      <ul class="space-y-4">
-        {targetUsers.map((user) => (
-          <li class="flex items-start gap-4 text-zinc-300">
-            <svg class="w-5 h-5 text-blue-500 mt-0.5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-            </svg>
-            <span>{user}</span>
-          </li>
-        ))}
-      </ul>
-    </section>
-
-    <!-- Install Section (Main CTA) -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <div class="bg-gradient-to-r from-blue-600/20 to-green-600/20 border border-zinc-800 rounded-2xl p-8 text-center">
-        <h2 class="text-2xl font-bold text-white mb-4">Ready to Focus?</h2>
-        <p class="text-zinc-300 mb-8">Install Shorts Killer now and take back control of your YouTube experience.</p>
-        <div class="flex flex-wrap justify-center gap-4">
-          <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-green flex items-center gap-2 px-8 py-4 text-lg">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.229-9.605zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728z"/>
-            </svg>
-            Add to Chrome - It's Free
-          </a>
-          <a href={extension.edgeUrl} target="_blank" rel="noopener noreferrer" class="btn-secondary flex items-center gap-2 px-8 py-4 text-lg">
-            <svg class="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M21.86 17.86q.14 0 .25.12.1.13.1.25t-.11.33l-.32.46-.43.53-.44.5q-.21.25-.38.42l-.22.23q-.58.53-1.34 1.04-.76.51-1.6.91-.86.4-1.74.64t-1.67.24q-.9 0-1.69-.28-.8-.28-1.48-.78-.68-.5-1.22-1.17-.53-.66-.92-1.44-.38-.77-.58-1.6-.2-.83-.2-1.67 0-1 .32-1.96.33-.97.87-1.8.14.95.55 1.77.41.81 1.02 1.49.6.68 1.38 1.21.78.54 1.64.9.86.36 1.77.56.92.2 1.8.2 1.04 0 2-.26.96-.27 1.64-.68zm-9.97-14.15q0 .48-.15 1.07-.14.58-.39 1.11-.24.53-.52.99-.27.45-.53.79-.79-.47-1.75-.98-.95-.51-2.03-.9-1.07-.39-2.24-.64-1.18-.24-2.39-.24-.94 0-1.81.26-.88.27-1.08.39.72-1.42 1.75-2.6 1.02-1.19 2.28-2.03 1.25-.85 2.68-1.32 1.43-.48 2.94-.48.91 0 1.75.23.85.24 1.58.69.72.46 1.26 1.1.54.65.83 1.44.28.8.28 1.68-.25-.04-.46-.04z"/>
-            </svg>
-            Add to Edge
-          </a>
-        </div>
-      </div>
-    </section>
-
-    <!-- Product Hunt Badge -->
-    <section class="px-6 py-12 max-w-4xl mx-auto text-center">
-      <p class="text-zinc-300 text-sm mb-4">Featured on Product Hunt</p>
-      <a href="https://www.producthunt.com/products/shorts-killer?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-shorts-killer" target="_blank" rel="noopener noreferrer" class="inline-block hover:opacity-80 transition-opacity">
-        <img src="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1054755&theme=dark" alt="Shorts Killer - Hide YouTube Shorts completely and reclaim your focus | Product Hunt" width="250" height="54" />
-      </a>
-    </section>
-
-    <!-- Related Extensions -->
-    <section class="px-6 py-12 max-w-4xl mx-auto">
-      <h2 class="text-2xl font-bold text-white mb-6">You might also like</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-        {relatedProducts.map((product) => (
-          <a href={product.link} class="product-card group p-6 flex items-center gap-4">
-            <img src={product.icon} alt={product.name} class="w-12 h-12 rounded-xl bg-zinc-800" />
-            <div>
-              <h3 class="font-semibold text-white group-hover:text-blue-400 transition-colors">{product.name}</h3>
-              <p class="text-xs text-zinc-300 uppercase tracking-wider">{product.category}</p>
-            </div>
-            <svg class="w-5 h-5 text-zinc-300 ml-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-            </svg>
-          </a>
-        ))}
-      </div>
-    </section>
-  </div>
-</Layout>
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle={`${extension.name} - Hide YouTube Shorts`}
+  seoDescription="Free Chrome extension to completely hide YouTube Shorts from your feed. Stop endless scrolling and reclaim your focus."
+  seoKeywords="youtube shorts blocker, hide youtube shorts, chrome extension, digital wellbeing"
+  ogImage="/images/og-shorts-killer.webp"
+  ctaTitle="Ready to Focus?"
+  ctaDescription="Install Shorts Killer now and take back control of your YouTube experience."
+  productHuntUrl="https://www.producthunt.com/products/shorts-killer?embed=true&utm_source=badge-featured&utm_medium=badge&utm_campaign=badge-shorts-killer"
+  productHuntImage="https://api.producthunt.com/widgets/embed-image/v1/featured.svg?post_id=1054755&theme=light"
+/>

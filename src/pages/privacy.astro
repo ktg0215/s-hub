@@ -39,29 +39,31 @@ Please contact us within 7 days of purchase for refund requests.`
   lang="en"
   noindex={true}
 >
-  <div class="container mx-auto px-6 py-32 max-w-4xl min-h-[60vh]">
-    <h1 class="text-5xl md:text-8xl mb-12 font-vivid text-black drop-shadow-[4px_4px_0px_#00FF00]">
-      LEGAL INFO
-    </h1>
+  <div class="container mx-auto px-6 py-24 max-w-3xl min-h-[60vh]">
+    <a href="/" class="inline-flex items-center gap-1 text-xs font-mono text-zinc-400 hover:text-sky-500 transition-colors mb-8">
+      ← back
+    </a>
 
-    <div class="bg-white p-8 border-4 border-black rounded-[20px] shadow-[8px_8px_0px_#000]">
+    <h1 class="font-mono text-[11px] text-zinc-400 mb-6 tracking-wide">// legal info</h1>
+
+    <div class="product-card p-8">
       <table class="w-full">
-        <tbody class="divide-y-2 divide-black/10">
-          {legalInfo.map((item) => (
-            <tr class="flex flex-col sm:table-row">
-              <th class="px-4 py-4 text-left text-sm font-vivid sm:w-1/4 sm:align-top text-pink-500 uppercase tracking-wider">
+        <tbody class="divide-y divide-zinc-100">
+          {legalInfo.map((item, idx) => (
+            <tr class="fade-in flex flex-col sm:table-row" style={`animation-delay: ${idx * 50}ms`}>
+              <th class="px-2 py-4 text-left text-xs font-mono sm:w-1/4 sm:align-top text-zinc-400 uppercase tracking-wider">
                 {item.label}
               </th>
-              <td class="px-4 py-4 text-sm text-gray-800 whitespace-pre-line font-bold">
+              <td class="px-2 py-4 text-sm text-zinc-700 whitespace-pre-line">
                 {item.isEmail ? (
-                  <a href={`mailto:${item.value}`} class="text-green-500 hover:text-pink-500 transition-colors">
+                  <a href={`mailto:${item.value}`} class="text-sky-500 hover:text-sky-600 transition-colors">
                     {item.value}
                   </a>
                 ) : item.url ? (
                   <>
                     {item.value}
                     <br />
-                    <a href={item.url} target="_blank" rel="noopener noreferrer" class="text-green-500 hover:text-pink-500 transition-colors">
+                    <a href={item.url} target="_blank" rel="noopener noreferrer" class="text-sky-500 hover:text-sky-600 transition-colors">
                       {item.url}
                     </a>
                   </>
@@ -74,9 +76,5 @@ Please contact us within 7 days of purchase for refund requests.`
         </tbody>
       </table>
     </div>
-
-    <a href="/" class="mt-12 inline-block font-vivid text-pink-500 text-xl hover:scale-110 transition-transform">
-      &larr; Back to Home
-    </a>
   </div>
 </Layout>
