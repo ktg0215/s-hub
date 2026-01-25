@@ -1,7 +1,4 @@
 User-agent: *
 Allow: /
 
-# Privacy page should not be indexed
-Disallow: /privacy/
-
 Sitemap: https://dev-tools-hub.xyz/sitemap-index.xml

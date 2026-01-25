@@ -73,6 +73,36 @@ const {
 
 const isFree = extension.price === 'Free' || extension.price === '無料';
 const isComingSoon = extension.status === 'Coming Soon';
+
+// Canonical URL
+const siteUrl = 'https://dev-tools-hub.xyz';
+const canonicalURL = `${siteUrl}${Astro.url.pathname.replace(/\/$/, '')}`;
+
+// BreadcrumbList schema
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": siteUrl
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Extensions",
+      "item": `${siteUrl}/#products`
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": extension.name,
+      "item": canonicalURL
+    }
+  ]
+};
 ---
 
 <Layout
@@ -80,20 +110,32 @@ const isComingSoon = extension.status === 'Coming Soon';
   description={seoDescription}
   keywords={seoKeywords}
   ogImage={ogImage}
+  canonicalURL={canonicalURL}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
   </Fragment>
 
   <div class="pt-24 pb-16">
     <!-- Hero Section -->
     <section class="px-6 py-10 max-w-4xl mx-auto">
-      <a href="/" class="inline-flex items-center text-zinc-400 hover:text-zinc-700 mb-8 transition-colors font-mono text-xs">
-        <svg class="w-3.5 h-3.5 mr-1.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
-        ← back
-      </a>
+      <!-- Breadcrumb -->
+      <nav aria-label="Breadcrumb" class="mb-6">
+        <ol class="flex items-center gap-1.5 text-xs font-mono">
+          <li>
+            <a href="/" class="text-zinc-400 hover:text-zinc-600 transition-colors">Home</a>
+          </li>
+          <li class="text-zinc-300">/</li>
+          <li>
+            <a href="/#products" class="text-zinc-400 hover:text-zinc-600 transition-colors">Extensions</a>
+          </li>
+          <li class="text-zinc-300">/</li>
+          <li>
+            <span class="text-zinc-600">{extension.name}</span>
+          </li>
+        </ol>
+      </nav>
 
       <div class="flex flex-col md:flex-row gap-8 items-start">
         <img
