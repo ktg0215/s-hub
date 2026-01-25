@@ -73,6 +73,7 @@ const {
 
 const isFree = extension.price === 'Free' || extension.price === '無料';
 const isComingSoon = extension.status === 'Coming Soon';
+const pageLang = extension.lang === 'JP' ? 'ja' : 'en';
 
 // Canonical URL
 const siteUrl = 'https://dev-tools-hub.xyz';
@@ -111,6 +112,7 @@ const breadcrumbSchema = {
   keywords={seoKeywords}
   ogImage={ogImage}
   canonicalURL={canonicalURL}
+  lang={pageLang}
 >
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
