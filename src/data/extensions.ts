@@ -19,7 +19,7 @@ export const categories: Category[] = [
     extensions: [
       {
         name: "Shorts Killer",
-        description: "Stop wasting time on YouTube Shorts. Hide them completely from your feed.",
+        description: "Hide YouTube Shorts, track usage time, set daily limits. Take control of your YouTube experience.",
         price: "Free",
         url: "/extensions/shorts-killer",
         icon: "/ext-icons/shorts-killer.webp",
@@ -52,7 +52,7 @@ export const categories: Category[] = [
       },
       {
         name: "PromptStash",
-        description: "Efficiently manage and organize your AI prompts for ChatGPT, Claude, and more.",
+        description: "Save, organize, and reuse AI prompts effortlessly. Works with ChatGPT, Claude, Gemini, and 16+ other AI services.",
         price: "$5",
         url: "/extensions/promptstash",
         icon: "/ext-icons/promptstash.webp",
@@ -113,7 +113,6 @@ export const categories: Category[] = [
         priceNote: "Pro: $9.99/mo or $34 lifetime",
         url: "/extensions/arbitra",
         icon: "/ext-icons/Arbitra.webp",
-        status: "coming-soon",
       },
     ],
   },
@@ -154,11 +153,22 @@ export const categories: Category[] = [
       },
       {
         name: "TabVault",
-        description: "Smart tab session manager for developers. Stash tabs, quick switch sessions, and auto-recover from crashes.",
-        price: "Free",
+        description: "Developer-focused tab session manager with Stash, Quick Switcher, and crash recovery.",
+        price: "Free / Pro $5",
         url: "/extensions/tabvault",
         icon: "/ext-icons/TabVault.png",
-        status: "coming-soon",
+      },
+    ],
+  },
+  {
+    title: "Image Tools",
+    extensions: [
+      {
+        name: "PicFlow",
+        description: "Resize, convert, and optimize images for any platform. Supports all major SNS formats with one click.",
+        price: "Free",
+        url: "https://picflow.dev-tools-hub.xyz",
+        icon: "/ext-icons/picflow.png",
       },
     ],
   },

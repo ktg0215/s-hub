@@ -1,0 +1,84 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "PicFlow",
+  subtitle: "Image Conversion Made Simple",
+  tagline: "Resize, convert, and optimize images for any platform. Supports all major SNS formats with one click.",
+  price: "Free",
+  status: "Available",
+  webAppUrl: "https://picflow.dev-tools-hub.xyz",
+  category: "Image Tools",
+  lang: "EN",
+  icon: "/ext-icons/picflow.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "PicFlow is a powerful yet simple image processing tool that runs entirely in your browser. Convert images to WebP, PNG, or JPEG, resize them for any social media platform, and optimize file sizes - all without uploading to any server. Available as both a web app and Chrome extension for maximum flexibility.";
+
+const features = [
+  { title: "SNS Presets", desc: "One-click sizing for LINE, Instagram, X (Twitter), YouTube, Facebook, LinkedIn, and OGP" },
+  { title: "Smart Aspect Ratio", desc: "Maintain aspect ratio with intelligent cropping or stretch to fit - you choose" },
+  { title: "Multiple Formats", desc: "Convert between WebP, PNG, and JPEG with quality control" },
+  { title: "Batch Processing", desc: "Process multiple images at once, download all with a single click" },
+  { title: "Privacy First", desc: "All processing happens locally in your browser - no server uploads" },
+  { title: "Dark/Light Mode", desc: "Comfortable viewing with theme support that follows your system preference" },
+];
+
+const targetUsers = [
+  "Social media managers who need consistent image sizes across platforms",
+  "Content creators preparing thumbnails for YouTube and other platforms",
+  "Web developers optimizing images for better page performance",
+  "Anyone who wants quick image conversion without installing heavy software",
+  "Privacy-conscious users who prefer local-only processing",
+];
+
+const screenshots = [
+  "/screenshots/picflow/picflow-01.png",
+  "/screenshots/picflow/picflow-02.png",
+];
+
+const relatedProducts = [
+  { name: "DataPick", category: "Productivity", link: "/extensions/datapick", icon: "/ext-icons/datapick.webp" },
+  { name: "Japanese Font Finder", category: "Productivity", link: "/extensions/japanese-font-finder", icon: "/ext-icons/japanese-font-finder.webp" },
+];
+
+const supportedServices = [
+  "LINE Rich Message",
+  "Instagram Feed",
+  "Instagram Story",
+  "X (Twitter) Post",
+  "YouTube Thumbnail",
+  "Facebook Post",
+  "LinkedIn Post",
+  "OGP Images",
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "PicFlow",
+  description: extension.tagline,
+  applicationCategory: "MultimediaApplication",
+  operatingSystem: "Any (Web-based)",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  supportedServices={supportedServices}
+  softwareSchema={softwareSchema}
+  seoTitle="PicFlow - Image Conversion Made Simple"
+  seoDescription="Resize, convert, and optimize images for any platform. Supports all major SNS formats with one click. Free, private, and browser-based."
+  seoKeywords="image converter, image resizer, webp converter, sns image size, instagram size, youtube thumbnail, ogp image"
+  ctaTitle="Try PicFlow Now"
+  ctaDescription="Image conversion made simple. Free, private, and browser-based."
+/>
