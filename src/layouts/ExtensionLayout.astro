@@ -27,6 +27,7 @@ interface Props {
     status: string;
     chromeUrl?: string;
     edgeUrl?: string;
+    webAppUrl?: string;
     category: string;
     lang: string;
     icon: string;
@@ -181,8 +182,16 @@ const breadcrumbSchema = {
 
           {!isComingSoon && (
             <div class="flex flex-wrap gap-3">
+              {extension.webAppUrl && (
+                <a href={extension.webAppUrl} target="_blank" rel="noopener noreferrer" class="btn-primary flex items-center gap-2 text-sm">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                  </svg>
+                  Open Web App
+                </a>
+              )}
               {extension.chromeUrl && (
-                <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-primary flex items-center gap-2 text-sm">
+                <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class={`flex items-center gap-2 text-sm ${extension.webAppUrl ? 'btn-secondary font-mono' : 'btn-primary'}`}>
                   <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.229-9.605zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728z"/>
                   </svg>
@@ -370,14 +379,22 @@ const breadcrumbSchema = {
     </section>
 
     <!-- CTA Section -->
-    {!isComingSoon && (extension.chromeUrl || extension.edgeUrl) && (
+    {!isComingSoon && (extension.chromeUrl || extension.edgeUrl || extension.webAppUrl) && (
       <section class="px-6 py-8 max-w-4xl mx-auto">
         <div class="product-card p-8 text-center">
           <h2 class="text-xl font-semibold text-zinc-900 mb-2">{ctaTitle}</h2>
           <p class="text-zinc-500 text-sm mb-6">{ctaDescription}</p>
           <div class="flex flex-wrap justify-center gap-3">
+            {extension.webAppUrl && (
+              <a href={extension.webAppUrl} target="_blank" rel="noopener noreferrer" class="btn-primary flex items-center gap-2 text-sm">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"/>
+                </svg>
+                Open Web App
+              </a>
+            )}
             {extension.chromeUrl && (
-              <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class="btn-primary flex items-center gap-2 text-sm">
+              <a href={extension.chromeUrl} target="_blank" rel="noopener noreferrer" class={`flex items-center gap-2 text-sm ${extension.webAppUrl ? 'btn-secondary font-mono' : 'btn-primary'}`}>
                 <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor">
                   <path d="M12 0C8.21 0 4.831 1.757 2.632 4.501l3.953 6.848A5.454 5.454 0 0 1 12 6.545h10.691A12 12 0 0 0 12 0zM1.931 5.47A11.943 11.943 0 0 0 0 12c0 6.012 4.42 10.991 10.189 11.864l3.953-6.847a5.45 5.45 0 0 1-6.865-2.29zm13.342 2.166a5.446 5.446 0 0 1 1.45 7.09l.002.001h-.002l-3.952 6.848a12.014 12.014 0 0 0 9.229-9.605zM12 16.364a4.364 4.364 0 1 1 0-8.728 4.364 4.364 0 0 1 0 8.728z"/>
                 </svg>
