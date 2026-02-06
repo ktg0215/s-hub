@@ -167,7 +167,7 @@ export const categories: Category[] = [
         name: "PicFlow",
         description: "Resize, convert, and optimize images for any platform. Supports all major SNS formats with one click.",
         price: "Free",
-        url: "https://picflow.dev-tools-hub.xyz",
+        url: "https://reshapic.dev-tools-hub.xyz",
         icon: "/ext-icons/picflow.png",
       },
     ],
