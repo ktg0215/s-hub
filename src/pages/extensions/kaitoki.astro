@@ -1,0 +1,75 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "Kaitoki",
+  subtitle: "買い得記 - EC価格追跡ツール",
+  tagline: "楽天・Yahoo!・Amazonの価格を自動追跡し、最安値を見逃さない",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  edgeUrl: "",
+  category: "E-Commerce",
+  lang: "JP",
+  icon: "/ext-icons/Kaitoki.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "Kaitoki（買い得記）は、楽天市場・Yahoo!ショッピング・Amazonの3大ECサイトに対応した価格追跡Chrome拡張機能です。商品ページを開くだけで自動的に価格を記録し、履歴グラフで推移を可視化。ポイント還元を加味した実質価格の計算、EC横断での最安値比較、目標価格への値下げアラートなど、賢い買い物に必要な機能をすべて搭載しています。";
+
+const features = [
+  { title: "価格履歴グラフ", desc: "1週間〜全期間の価格推移をChart.jsグラフで可視化。買い時を逃さない" },
+  { title: "3大EC横断比較", desc: "楽天・Yahoo!・AmazonをJANコードで自動マッチング。最安値を一目で確認" },
+  { title: "ポイント実質価格", desc: "楽天SPU、PayPayステップ、Primeポイントを計算し、実質価格で比較" },
+  { title: "値下げアラート", desc: "目標価格を設定して、値下がり・値上がり・価格変動を自動通知" },
+  { title: "自動追跡", desc: "商品ページを開くだけで自動的に価格を記録。手間なく価格を追跡" },
+  { title: "ポイント設定カスタマイズ", desc: "SPU倍率、プレミアム会員、Prime会員など、自分の条件に合わせた設定" },
+];
+
+const targetUsers = [
+  "楽天・Yahoo!・Amazonで頻繁に買い物をする方",
+  "ポイント還元を最大化したいお得買い物マスター",
+  "大型家電やガジェットの買い時を見極めたい方",
+  "EC横断で最安値を常にチェックしたいセイバー",
+];
+
+const screenshots = [
+  "/screenshots/kaitoki/screenshot-01.png",
+  "/screenshots/kaitoki/screenshot-02.png",
+  "/screenshots/kaitoki/screenshot-03.png",
+  "/screenshots/kaitoki/screenshot-04.png",
+  "/screenshots/kaitoki/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "Arbitra", category: "E-Commerce", link: "/extensions/arbitra", icon: "/ext-icons/Arbitra.webp" },
+  { name: "Rakuten Sellers Analytics", category: "E-Commerce", link: "/extensions/rakuten-sellers-analytics", icon: "/ext-icons/rakuten-sellers-analytics.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Kaitoki",
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "JPY" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle={`${extension.name} - 楽天・Yahoo!・Amazon 価格追跡ツール`}
+  seoDescription="楽天・Yahoo!・Amazonの価格を自動追跡し、履歴グラフ・EC横断比較・ポイント実質価格計算・値下げアラートで最安値を見逃さない無料Chrome拡張機能。"
+  seoKeywords="価格比較, 価格追跡, 楽天, Yahoo, Amazon, ポイント計算, 値下げアラート, chrome拡張機能, 買い得記"
+  ctaTitle="賢く買い物、もっとお得に"
+  ctaDescription="Kaitokiで3大ECサイトの最安値を自動追跡。"
+/>

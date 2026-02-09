@@ -1,0 +1,80 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "DataBridge",
+  subtitle: "Visual Data Transfer",
+  tagline: "Transfer data between web pages with visual element mapping. Match elements by number and transfer with one click.",
+  price: "Free / Pro $6/mo or $39 lifetime",
+  status: "Available",
+  chromeUrl: "",
+  category: "Productivity",
+  lang: "Multi",
+  icon: "/ext-icons/databridge.webp",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "DataBridge is a Chrome extension that enables visual data transfer between web pages. Select elements from a source page, match them with target fields using numbered badges, and transfer data with a single click. Perfect for data entry, form filling, and repetitive copy-paste tasks across different systems.";
+
+const features = [
+  { title: "Visual Element Selection", desc: "Click elements on web pages to select them. Blue badges for source, green for target - intuitive visual mapping." },
+  { title: "Number-Based Matching", desc: "Elements are automatically matched by their selection order. Same number = same data transfer." },
+  { title: "One-Click Transfer", desc: "Transfer all mapped data between pages with a single button click. Fast and error-free." },
+  { title: "Template System", desc: "Save your element mappings as templates. Reload them anytime to repeat the same transfer workflow." },
+  { title: "Notepad Mode", desc: "Collect values from multiple elements into a notepad. Copy to clipboard or edit manually." },
+  { title: "Smart Selector Generation", desc: "Generates robust CSS selectors using ID, name, data attributes. Fallback strategies ensure reliability." },
+  { title: "Multi-Language Support", desc: "Available in Japanese, English, Korean, French, Italian, and German." },
+  { title: "Dark Mode", desc: "Eye-friendly dark theme for comfortable use in any lighting condition." },
+];
+
+const targetUsers = [
+  "Data entry professionals handling multiple systems",
+  "Anyone doing repetitive copy-paste between web apps",
+  "Users filling forms with data from other pages",
+  "Teams synchronizing data across different platforms",
+];
+
+const screenshots = [
+  "/screenshots/databridge/screenshot-01.png",
+  "/screenshots/databridge/screenshot-02.png",
+  "/screenshots/databridge/screenshot-03.png",
+  "/screenshots/databridge/screenshot-04.png",
+  "/screenshots/databridge/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "DataPick", category: "Productivity", link: "/extensions/datapick", icon: "/ext-icons/datapick.webp" },
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash", icon: "/ext-icons/promptstash.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "DataBridge",
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), ratingCount: "1" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  downloadUrl: extension.chromeUrl,
+  screenshot: "https://dev-tools-hub.xyz/screenshots/databridge/screenshot-01.png"
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle={`${extension.name} - Visual Data Transfer Between Web Pages`}
+  seoDescription="Transfer data between web pages with visual element mapping. Match source and target elements by number, transfer with one click. Free Chrome extension."
+  seoKeywords="data transfer, web automation, form filler, copy paste, chrome extension, data entry, element mapping"
+  ogImage="/screenshots/databridge/screenshot-01.png"
+  ctaTitle="Simplify Your Data Entry Workflow"
+  ctaDescription="Stop copying and pasting manually. Let DataBridge handle it with visual precision."
+/>

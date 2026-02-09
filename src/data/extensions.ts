@@ -121,6 +121,14 @@ export const categories: Category[] = [
         url: "/extensions/arbitra",
         icon: "/ext-icons/Arbitra.webp",
       },
+      {
+        name: "Kaitoki",
+        description: "楽天・Yahoo!・Amazonの価格を自動追跡。価格履歴グラフ、EC横断比較、ポイント実質価格計算、値下げアラート機能搭載。",
+        price: "Free",
+        url: "/extensions/kaitoki",
+        icon: "/ext-icons/Kaitoki.png",
+        status: "coming-soon",
+      },
     ],
   },
   {
