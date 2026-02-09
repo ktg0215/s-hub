@@ -72,6 +72,13 @@ export const categories: Category[] = [
         icon: "/ext-icons/datapick.webp",
       },
       {
+        name: "DataBridge",
+        description: "Transfer data between web pages with visual element mapping. Match elements by number and transfer with one click.",
+        price: "Free / Pro $6",
+        url: "/extensions/databridge",
+        icon: "/ext-icons/databridge.webp",
+      },
+      {
         name: "ReadMark",
         description: "Automatically saves your reading position on any webpage. Never lose your place in long articles again.",
         price: "Free / Pro $4.99",
@@ -164,11 +171,11 @@ export const categories: Category[] = [
     title: "Image Tools",
     extensions: [
       {
-        name: "PicFlow",
-        description: "Resize, convert, and optimize images for any platform. Supports all major SNS formats with one click.",
-        price: "Free",
-        url: "https://reshapic.dev-tools-hub.xyz",
-        icon: "/ext-icons/picflow.png",
+        name: "ReShapic",
+        description: "Resize, convert, and optimize images for any platform. Chrome extension with batch processing and freemium Pro plan.",
+        price: "Free / Pro $19",
+        url: "/extensions/reshapic",
+        icon: "/ext-icons/reshapic.png",
       },
     ],
   },

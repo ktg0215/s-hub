@@ -1,0 +1,90 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "ReShapic",
+  subtitle: "Image Conversion Chrome Extension",
+  tagline: "Resize, convert, and optimize images right from your browser toolbar. Batch processing, 8 languages, and a freemium Pro plan.",
+  price: "Free / Pro $19",
+  status: "Available",
+  chromeUrl: "",
+  webAppUrl: "https://reshapic.dev-tools-hub.xyz",
+  category: "Image Tools",
+  lang: "EN",
+  icon: "/ext-icons/reshapic.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "ReShapic is a Chrome extension for fast, private image processing. Resize images to preset SNS sizes (OGP, Instagram, X, YouTube, LINE), convert between WebP/PNG/JPEG, and adjust quality — all without uploading to any server. Free users get 5 conversions per day with files up to 5 MB. Pro users ($19 one-time) unlock unlimited conversions, batch processing with ZIP download, and 50 MB file support. Available in 8 languages with a manual language selector.";
+
+const features = [
+  { title: "SNS Presets", desc: "One-click sizing for OGP, Instagram, X (Twitter), YouTube, and LINE" },
+  { title: "Batch Processing (Pro)", desc: "Select up to 20 images, convert them all at once, and download as a single ZIP" },
+  { title: "Smart Crop & AI Crop", desc: "Maintain aspect ratio with position control (top, center, bottom, left, right) or AI-based subject detection" },
+  { title: "8 Languages", desc: "English, Japanese, Korean, Italian, French, German, Spanish, and Portuguese with a manual language selector" },
+  { title: "Freemium Model", desc: "5 free conversions/day (5 MB limit). Pro unlocks unlimited conversions, batch, and 50 MB files" },
+  { title: "Privacy First", desc: "All processing happens locally in your browser — no images are uploaded to any server" },
+  { title: "Dark / Light Mode", desc: "Theme toggle that saves your preference across sessions" },
+  { title: "Context Menu", desc: "Right-click any image on a webpage to open it directly in ReShapic" },
+];
+
+const keyboardShortcuts = [
+  { key: "Ctrl+Shift+P", desc: "Open ReShapic popup" },
+];
+
+const targetUsers = [
+  "Social media managers who need consistent image sizes across platforms",
+  "Content creators preparing thumbnails for YouTube and other platforms",
+  "Web developers optimizing images for better page performance",
+  "Anyone who wants quick image conversion without installing heavy software",
+  "Privacy-conscious users who prefer local-only processing",
+];
+
+const screenshots = [
+  "/screenshots/reshapic/screenshot-01.png",
+  "/screenshots/reshapic/screenshot-02.png",
+  "/screenshots/reshapic/screenshot-03.png",
+  "/screenshots/reshapic/screenshot-04.png",
+  "/screenshots/reshapic/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "DataPick", category: "Productivity", link: "/extensions/datapick", icon: "/ext-icons/datapick.webp" },
+  { name: "Japanese Font Finder", category: "Productivity", link: "/extensions/japanese-font-finder", icon: "/ext-icons/japanese-font-finder.webp" },
+];
+
+const supportedServices = [
+  "OGP (1200x630)",
+  "Instagram Feed (1080x1080)",
+  "X Post (1200x675)",
+  "YouTube Thumbnail (1280x720)",
+  "LINE Rich Message (1040x1040)",
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "ReShapic",
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  supportedServices={supportedServices}
+  keyboardShortcuts={keyboardShortcuts}
+  softwareSchema={softwareSchema}
+  seoTitle="ReShapic - Image Conversion Chrome Extension"
+  seoDescription="Resize, convert, and optimize images right from your browser toolbar. Batch processing, 8 languages, and freemium Pro plan. Free and private."
+  seoKeywords="image converter, image resizer, chrome extension, webp converter, batch image processing, sns image size, instagram size, youtube thumbnail, ogp image"
+/>
