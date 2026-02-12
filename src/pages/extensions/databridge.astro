@@ -15,24 +15,24 @@ const extension = {
   reviewCount: 0,
 };
 
-const overview = "DataBridge is a Chrome extension that enables visual data transfer between web pages. Select elements from a source page, match them with target fields using numbered badges, and transfer data with a single click. Perfect for data entry, form filling, and repetitive copy-paste tasks across different systems.";
+const overview = "DataBridge is a Chrome extension that enables visual data transfer between web pages. Select elements from a source page, match them with target fields using numbered badges, and transfer data with a single click. Perfect for data entry, form filling, and repetitive copy-paste tasks across different systems. Free plan includes 10 templates and 30 actions/month. Pro unlocks unlimited usage.";
 
 const features = [
   { title: "Visual Element Selection", desc: "Click elements on web pages to select them. Blue badges for source, green for target - intuitive visual mapping." },
   { title: "Number-Based Matching", desc: "Elements are automatically matched by their selection order. Same number = same data transfer." },
-  { title: "One-Click Transfer", desc: "Transfer all mapped data between pages with a single button click. Fast and error-free." },
-  { title: "Template System", desc: "Save your element mappings as templates. Reload them anytime to repeat the same transfer workflow." },
-  { title: "Notepad Mode", desc: "Collect values from multiple elements into a notepad. Copy to clipboard or edit manually." },
-  { title: "Smart Selector Generation", desc: "Generates robust CSS selectors using ID, name, data attributes. Fallback strategies ensure reliability." },
-  { title: "Multi-Language Support", desc: "Available in Japanese, English, Korean, French, Italian, and German." },
-  { title: "Dark Mode", desc: "Eye-friendly dark theme for comfortable use in any lighting condition." },
+  { title: "One-Click Transfer", desc: "Transfer all mapped data between pages with a single button click. Supports input fields, textareas, and React/Vue framework forms." },
+  { title: "Template System", desc: "Save your element mappings as templates. Reload them anytime to repeat the same transfer workflow. Free plan allows up to 10 templates." },
+  { title: "Notepad Mode", desc: "Collect values from multiple elements into a notepad. Copy to clipboard or edit manually. Dedicated templates for notepad workflows." },
+  { title: "Smart Selector Generation", desc: "Generates robust CSS selectors using ID, name, data attributes with multiple fallback strategies for reliability." },
+  { title: "Export & Import", desc: "Export your settings and templates as JSON for backup or transfer between devices. Import to restore everything." },
+  { title: "Multi-Language & Dark Mode", desc: "Available in 6 languages (EN, JA, KO, FR, IT, DE) with light and dark theme support." },
 ];
 
 const targetUsers = [
-  "Data entry professionals handling multiple systems",
-  "Anyone doing repetitive copy-paste between web apps",
-  "Users filling forms with data from other pages",
-  "Teams synchronizing data across different platforms",
+  "Office workers transferring data between business systems",
+  "E-commerce sellers copying order details across platforms",
+  "Sales and support teams entering data into CRM systems",
+  "Anyone doing repetitive copy-paste between web applications",
 ];
 
 const screenshots = [
@@ -44,8 +44,8 @@ const screenshots = [
 ];
 
 const relatedProducts = [
-  { name: "DataPick", category: "Productivity", link: "/extensions/datapick", icon: "/ext-icons/datapick.webp" },
-  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash", icon: "/ext-icons/promptstash.webp" },
+  { name: "DataPick", category: "Productivity", link: "/extensions/datapick/", icon: "/ext-icons/datapick.webp" },
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
 ];
 
 const softwareSchema = {
@@ -56,9 +56,7 @@ const softwareSchema = {
   applicationCategory: "BrowserApplication",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-  aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), ratingCount: "1" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
-  downloadUrl: extension.chromeUrl,
   screenshot: "https://dev-tools-hub.xyz/screenshots/databridge/screenshot-01.png"
 };
 ---
