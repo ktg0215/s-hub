@@ -43,8 +43,9 @@ const screenshots = [
 ];
 
 const relatedProducts = [
-  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
+  { name: "DataBridge", category: "Productivity", link: "/extensions/databridge/", icon: "/ext-icons/databridge.webp" },
   { name: "Arbitra", category: "E-Commerce", link: "/extensions/arbitra/", icon: "/ext-icons/Arbitra.webp" },
+  { name: "ReShapic", category: "Image Tools", link: "/extensions/reshapic/", icon: "/ext-icons/reshapic.png" },
 ];
 
 const softwareSchema = {
@@ -56,7 +57,8 @@ const softwareSchema = {
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "19", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
-  screenshot: "https://dev-tools-hub.xyz/screenshots/datapick/screenshot-1.png"
+  downloadUrl: extension.chromeUrl,
+  screenshot: "https://dev-tools-hub.xyz/screenshots/datapick/screenshot-01.png",
 };
 ---
 
@@ -68,9 +70,9 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - No-code Web Scraping`}
-  seoDescription="Extract data from any website with point-and-click. Export to CSV, Excel, or Google Sheets."
-  seoKeywords="web scraping, data extraction, no-code, csv export, chrome extension"
+  seoTitle="DataPick - No-Code Web Scraping Chrome Extension"
+  seoDescription="Extract data from any website without coding. Point-and-click scraping with CSV, Excel, and Google Sheets export. Save scraping recipes and reuse them."
+  seoKeywords="web scraping, data extraction, no-code, csv export, chrome extension, google sheets export, scraping tool"
   ctaTitle="Start Extracting Data"
   ctaDescription="Point, click, and export — web scraping made simple."
 />

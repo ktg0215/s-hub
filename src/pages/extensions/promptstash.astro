@@ -47,8 +47,9 @@ const screenshots = [
 ];
 
 const relatedProducts = [
+  { name: "DataPick", category: "Productivity", link: "/extensions/datapick/", icon: "/ext-icons/datapick.webp" },
+  { name: "SnippetVault", category: "Developer Tools", link: "/extensions/snippetvault/", icon: "/ext-icons/SnippetVault.png" },
   { name: "Shorts Killer", category: "Wellbeing", link: "/extensions/shorts-killer/", icon: "/ext-icons/shorts-killer.webp" },
-  { name: "X Detox", category: "Wellbeing", link: "/extensions/x-detox/", icon: "/ext-icons/x-detox.webp" },
 ];
 
 const softwareSchema = {
@@ -62,7 +63,8 @@ const softwareSchema = {
   aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), ratingCount: extension.reviewCount.toString() },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
   downloadUrl: extension.chromeUrl,
-  screenshot: "https://dev-tools-hub.xyz/screenshots/promptstash/screenshot-1.png"
+  screenshot: "https://dev-tools-hub.xyz/screenshots/promptstash/screenshot-1.png",
+  featureList: "Variable Templates, Prompt Chains, Slash Commands, Context Variables, 19+ AI Services, Tag & Favorites, Import/Export, Keyboard Shortcut",
 };
 ---
 

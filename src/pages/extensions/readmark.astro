@@ -43,6 +43,7 @@ const screenshots = [
 ];
 
 const relatedProducts = [
+  { name: "ZenRead", category: "Productivity", link: "/extensions/zenread/", icon: "/ext-icons/ZenRead.webp" },
   { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
   { name: "DataPick", category: "Productivity", link: "/extensions/datapick/", icon: "/ext-icons/datapick.webp" },
 ];
@@ -53,10 +54,11 @@ const softwareSchema = {
   name: "ReadMark",
   description: extension.tagline,
   applicationCategory: "BrowserApplication",
-  operatingSystem: "Edge",
+  operatingSystem: "Chrome, Edge",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
-  screenshot: "https://dev-tools-hub.xyz/screenshots/readmark/screenshot-1.png"
+  downloadUrl: extension.chromeUrl,
+  screenshot: "https://dev-tools-hub.xyz/screenshots/readmark/screenshot-01.png",
 };
 ---
 

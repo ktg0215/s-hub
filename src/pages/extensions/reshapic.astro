@@ -16,7 +16,7 @@ const extension = {
   reviewCount: 0,
 };
 
-const overview = "ReShapic is a Chrome extension for fast, private image processing. Resize images to preset SNS sizes (OGP, Instagram, X, YouTube, LINE), convert between WebP/PNG/JPEG, and adjust quality — all without uploading to any server. Free users get 5 conversions per day with files up to 5 MB. Pro users ($19 one-time) unlock unlimited conversions, batch processing with ZIP download, and 50 MB file support. Available in 8 languages with a manual language selector.";
+const overview = "ReShapic is a Chrome extension for fast, private image processing. Resize images to preset SNS sizes (OGP, Instagram, X, YouTube, LINE), convert between WebP/PNG/JPEG, and adjust quality — all without uploading to any server. Free users get 5 conversions per day with files up to 5 MB. Pro users ($19 one-time) unlock unlimited conversions, batch processing with ZIP download, and 50 MB file support. Available in 8 languages with a manual language selector. Also available as a web app at reshapic.dev-tools-hub.xyz for quick access without installation.";
 
 const features = [
   { title: "SNS Presets", desc: "One-click sizing for OGP, Instagram, X (Twitter), YouTube, and LINE" },
@@ -52,6 +52,7 @@ const screenshots = [
 const relatedProducts = [
   { name: "DataPick", category: "Productivity", link: "/extensions/datapick/", icon: "/ext-icons/datapick.webp" },
   { name: "Japanese Font Finder", category: "Productivity", link: "/extensions/japanese-font-finder/", icon: "/ext-icons/japanese-font-finder.webp" },
+  { name: "DataBridge", category: "Productivity", link: "/extensions/databridge/", icon: "/ext-icons/databridge.webp" },
 ];
 
 const supportedServices = [
@@ -64,13 +65,30 @@ const supportedServices = [
 
 const softwareSchema = {
   "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "ReShapic",
-  description: extension.tagline,
-  applicationCategory: "BrowserApplication",
-  operatingSystem: "Chrome",
-  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  "@graph": [
+    {
+      "@type": "SoftwareApplication",
+      name: "ReShapic",
+      description: extension.tagline,
+      applicationCategory: "BrowserApplication",
+      operatingSystem: "Chrome",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+      downloadUrl: extension.chromeUrl,
+      screenshot: "https://dev-tools-hub.xyz/screenshots/reshapic/screenshot-01.png",
+      sameAs: ["https://reshapic.dev-tools-hub.xyz"],
+    },
+    {
+      "@type": "WebApplication",
+      name: "ReShapic Web App",
+      url: "https://reshapic.dev-tools-hub.xyz",
+      description: "Online image resizer and converter. Resize, convert, and optimize images directly in your browser.",
+      applicationCategory: "MultimediaApplication",
+      operatingSystem: "Any",
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+    },
+  ],
 };
 ---
 

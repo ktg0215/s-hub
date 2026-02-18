@@ -49,13 +49,15 @@ const relatedProducts = [
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
-  name: "物件スカウター（賃貸版）",
-  description: extension.tagline,
+  name: "賃貸スカウター（物件スカウター賃貸版）",
+  description: "SUUMOの賃貸物件を効率比較できる無料Chrome拡張機能。㎡単価・初期費用・年間コストを自動計算、AI賃料判定で「お得/適正/割高」を判定。",
   applicationCategory: "BrowserApplication",
   operatingSystem: "Chrome, Edge",
   offers: { "@type": "Offer", price: "0", priceCurrency: "JPY" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
   downloadUrl: extension.chromeUrl,
+  featureList: "㎡単価自動計算, 初期費用一括計算, 年間コスト・2年間総コスト, お気に入り保存・比較表, CSV/Excelエクスポート, AI賃料判定",
+  screenshot: "https://dev-tools-hub.xyz/screenshots/bukken-scouter-rental/screenshot-1.png",
 };
 ---
 
@@ -67,9 +69,9 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - SUUMO賃貸物件比較ツール`}
-  seoDescription="SUUMOの賃貸物件を効率比較。㎡単価・初期費用・年間コストを自動計算、AI賃料判定付き。"
-  seoKeywords="SUUMO, 賃貸, 物件比較, Chrome拡張機能, ㎡単価, 初期費用, AI賃料判定"
+  seoTitle="賃貸スカウター - SUUMO物件比較・初期費用計算 Chrome拡張機能"
+  seoDescription="賃貸スカウターはSUUMOの賃貸物件を効率比較できる無料Chrome拡張機能。㎡単価・初期費用・年間コストを自動計算、AI賃料判定で「お得/適正/割高」を判定。"
+  seoKeywords="賃貸スカウター, SUUMO, 賃貸, 物件比較, Chrome拡張機能, ㎡単価, 初期費用, AI賃料判定"
   ogImage="/images/og-bukken-scouter-rental.webp"
   ctaTitle="賢い物件探しを始めよう"
   ctaDescription="物件スカウターで、データに基づいた物件選びを。"

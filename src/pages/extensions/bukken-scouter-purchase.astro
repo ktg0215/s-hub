@@ -50,12 +50,14 @@ const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "物件スカウター（購入版）",
-  description: extension.tagline,
+  description: "SUUMOの購入物件で坪単価・㎡単価を自動計算する無料Chrome拡張機能。築年数ハイライト、お気に入り比較、価格履歴トラッキング搭載。",
   applicationCategory: "BrowserApplication",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "JPY" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
   downloadUrl: extension.chromeUrl,
+  featureList: "坪単価・㎡単価の自動計算, 築年数ハイライト, お気に入り保存, 比較表, 価格履歴トラッキング, CSV/Excelエクスポート, ハザードマップ連携",
+  screenshot: "https://dev-tools-hub.xyz/screenshots/bukken-scouter-purchase/screenshot-1.png",
 };
 ---
 
@@ -67,9 +69,9 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - SUUMO購入物件の坪単価計算ツール`}
-  seoDescription="SUUMOの購入物件で坪単価・㎡単価を自動計算。築年数ハイライト、お気に入り比較、価格履歴で賢い物件探し。"
-  seoKeywords="SUUMO, 購入, 物件比較, Chrome拡張機能, 坪単価, ㎡単価, 不動産"
+  seoTitle="物件スカウター購入版 - 坪単価ツール | SUUMO不動産価格を自動計算"
+  seoDescription="SUUMOの購入物件で坪単価・㎡単価を自動計算する無料Chrome拡張機能。築年数ハイライト、お気に入り比較、価格履歴トラッキング搭載。"
+  seoKeywords="坪単価 ツール, SUUMO, 購入, 物件比較, Chrome拡張機能, 坪単価, ㎡単価, 不動産"
   ogImage="/screenshots/bukken-scouter-purchase/screenshot-1.png"
   ctaTitle="データで物件を選ぼう"
   ctaDescription="坪単価を自動計算し、賢い物件探しをサポート。"

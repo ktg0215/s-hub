@@ -39,6 +39,7 @@ const screenshots = [
 
 const relatedProducts = [
   { name: "Shorts Killer", category: "Wellbeing", link: "/extensions/shorts-killer/", icon: "/ext-icons/shorts-killer.webp" },
+  { name: "Yahoo快適モード", category: "Wellbeing", link: "/extensions/yahoo-kaiteki-mode/", icon: "/ext-icons/yahoo-kaiteki-mode.webp" },
   { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
 ];
 
@@ -53,7 +54,8 @@ const softwareSchema = {
   aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), ratingCount: extension.reviewCount.toString() },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
   downloadUrl: extension.chromeUrl,
-  screenshot: "https://dev-tools-hub.xyz/screenshots/x-detox/screenshot-1.png"
+  screenshot: "https://dev-tools-hub.xyz/screenshots/x-detox/screenshot-1.png",
+  featureList: "Hide For You tab, Hide trends section, Hide Who to follow suggestions, Reduce promotional posts, Custom filter settings, Mute specific keywords",
 };
 ---
 

@@ -43,7 +43,8 @@ const screenshots = [
 
 const relatedProducts = [
   { name: "X Detox", category: "Wellbeing", link: "/extensions/x-detox/", icon: "/ext-icons/x-detox.webp" },
-  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
+  { name: "Yahoo快適モード", category: "Wellbeing", link: "/extensions/yahoo-kaiteki-mode/", icon: "/ext-icons/yahoo-kaiteki-mode.webp" },
+  { name: "TVer Plus", category: "Media", link: "/extensions/tver-plus/", icon: "/ext-icons/tver-plus.webp" },
 ];
 
 const softwareSchema = {
@@ -57,7 +58,8 @@ const softwareSchema = {
   aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), ratingCount: extension.reviewCount.toString() },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
   downloadUrl: extension.chromeUrl,
-  screenshot: "https://dev-tools-hub.xyz/screenshots/shorts-killer/ysk-01.png"
+  screenshot: "https://dev-tools-hub.xyz/screenshots/shorts-killer/ysk-01.png",
+  featureList: "Hide Shorts from home feed, Page-specific controls, Block counter, Keyboard shortcut, Remove Shorts tab from sidebar, Auto-redirect from Shorts pages",
 };
 ---
 
@@ -69,9 +71,9 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - Hide YouTube Shorts`}
-  seoDescription="Free Chrome extension to completely hide YouTube Shorts from your feed. Stop endless scrolling and reclaim your focus."
-  seoKeywords="youtube shorts blocker, hide youtube shorts, chrome extension, digital wellbeing"
+  seoTitle="Shorts Killer - Block & Hide YouTube Shorts | Free Chrome Extension"
+  seoDescription="Free Chrome & Edge extension to block YouTube Shorts completely. Page-specific controls, block counter, keyboard shortcuts. Rated 5.0★ by 10 users."
+  seoKeywords="block youtube shorts, youtube shorts remover, hide youtube shorts, youtube shorts blocker, chrome extension, digital wellbeing"
   ogImage="/images/og-shorts-killer.webp"
   ctaTitle="Ready to Focus?"
   ctaDescription="Install Shorts Killer now and take back control of your YouTube experience."

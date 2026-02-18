@@ -14,6 +14,15 @@ export default defineConfig({
       lastmod: new Date(),
       filter: (page) => !page.includes('/privacy') && !page.includes('/terms'),
       entryLimit: 50000,
+      serialize(item) {
+        if (item.url === 'https://dev-tools-hub.xyz/' || item.url === 'https://dev-tools-hub.xyz') {
+          item.priority = 1.0;
+          item.changefreq = 'daily';
+        } else if (item.url.includes('/extensions/')) {
+          item.priority = 0.8;
+        }
+        return item;
+      },
     }),
   ],
   compressHTML: true,
