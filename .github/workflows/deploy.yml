@@ -8,6 +8,8 @@ on:
 jobs:
   deploy:
     runs-on: ubuntu-latest
+    env:
+      HAS_GSC_KEY: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON != '' }}
 
     steps:
       - name: Checkout
@@ -39,7 +41,7 @@ jobs:
             **/node_modules/**
 
       - name: Submit sitemap to Search Console
-        if: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON != '' }}
+        if: ${{ env.HAS_GSC_KEY == 'true' }}
         run: node scripts/submit-sitemap.mjs
         env:
           GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
