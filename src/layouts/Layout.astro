@@ -99,6 +99,15 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
     <!-- Google Search Console Verification -->
     <meta name="google-site-verification" content="HCU48-rPG74iTw6IFjEFtWWwGzrKRpLDPloJfDbdRys" />
 
+    <!-- Google Analytics 4 -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-FT8LPPR7GM"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FT8LPPR7GM');
+    </script>
+
     <!-- Additional slot for page-specific head content -->
     <slot name="head" />
   </head>
