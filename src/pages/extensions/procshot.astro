@@ -1,0 +1,71 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "Procshot",
+  subtitle: "Auto-Generate Step-by-Step Guides",
+  tagline: "Auto-record browser actions to create step-by-step guides with screenshots. Save 90% documentation time.",
+  price: "Free",
+  chromeUrl: "https://chromewebstore.google.com/detail/%E6%89%8B%E9%A0%86%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3-%E6%89%8B%E9%A0%86%E6%9B%B8%E3%83%BB%E6%93%8D%E4%BD%9C%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB%E8%87%AA%E5%8B%95%E4%BD%9C%E6%88%90/ieblehdloggcpmkncplccjofeoakhkll",
+  category: "Productivity",
+  lang: "EN",
+  icon: "/ext-icons/procshot.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "Procshot automatically records your browser clicks and keystrokes to generate professional step-by-step guides with annotated screenshots. Start capturing, perform your workflow, and get a ready-to-share document. Export as PDF (with Japanese font support), Markdown, or HTML. Built-in annotation tools let you add boxes, arrows, text, and blur effects to screenshots. Ideal for creating onboarding materials, SOPs, and training documents.";
+
+const features = [
+  { title: "Auto-Record Actions", desc: "Automatically capture clicks, inputs, and page navigations with screenshots as you browse" },
+  { title: "Smart Step Descriptions", desc: "Auto-generate step descriptions from DOM elements — no manual writing needed" },
+  { title: "Screenshot Annotations", desc: "Add boxes, arrows, text labels, and blur effects to annotate screenshots" },
+  { title: "Multi-Format Export", desc: "Export guides as PDF (Japanese font supported), Markdown, or HTML with bundled images" },
+  { title: "Guide Management", desc: "Save, organize, duplicate, and edit guides in the sidebar panel" },
+  { title: "Page Navigation Detection", desc: "Automatically detect page transitions and create navigation steps" },
+];
+
+const targetUsers = [
+  "SaaS support teams creating user guides",
+  "Business process documenters writing SOPs",
+  "Training teams building onboarding materials",
+  "Anyone who needs to document browser workflows quickly",
+];
+
+const screenshots = [
+  "/screenshots/procshot/screenshot-01.png",
+  "/screenshots/procshot/screenshot-02.png",
+  "/screenshots/procshot/screenshot-03.png",
+  "/screenshots/procshot/screenshot-04.png",
+  "/screenshots/procshot/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "DataPick", category: "Productivity", link: "/extensions/datapick/", icon: "/ext-icons/datapick.webp" },
+  { name: "DataBridge", category: "Productivity", link: "/extensions/databridge/", icon: "/ext-icons/databridge.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Procshot",
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle={`${extension.name} - Auto-Generate Step-by-Step Guides`}
+  seoDescription="Auto-record browser actions to create step-by-step guides with annotated screenshots. Export as PDF, Markdown, or HTML."
+  seoKeywords="step-by-step guide, screenshot documentation, browser recording, sop creator, chrome extension, workflow documentation"
+/>

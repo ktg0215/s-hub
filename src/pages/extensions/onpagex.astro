@@ -1,0 +1,71 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "OnPageX",
+  subtitle: "SEO Meta Analyzer",
+  tagline: "Analyze SEO meta tags, headings, schemas, images, and links with one click. Score your on-page SEO instantly.",
+  price: "Free / Pro",
+  chromeUrl: "https://chromewebstore.google.com/detail/onpagex-seo-meta-analyzer/bnmkiihgfmmedaikcipkihcpabjbmdcc",
+  category: "SEO Tools",
+  lang: "EN",
+  icon: "/ext-icons/onpagex.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "OnPageX is a comprehensive on-page SEO analysis tool for Chrome. With a single click, it analyzes meta tags, heading structure, structured data (Schema.org), images, and links on any webpage. Get an instant SEO score with actionable recommendations. Features include SERP preview, competitor comparison, bulk page checking, export to PDF/JSON, and a history of analyzed pages. Pro features unlock advanced analysis, custom rules, and bulk operations.";
+
+const features = [
+  { title: "Instant SEO Score", desc: "One-click analysis with an overall SEO score and category breakdowns for meta, headings, images, and links" },
+  { title: "SERP Preview", desc: "See exactly how your page will appear in Google search results before publishing" },
+  { title: "Schema Validation", desc: "Detect and validate structured data (JSON-LD, Microdata) with error reporting" },
+  { title: "Heading Structure", desc: "Visualize your H1-H6 hierarchy and identify missing or improperly nested headings" },
+  { title: "Image & Link Audit", desc: "Check for missing alt text, broken links, nofollow attributes, and redirect chains" },
+  { title: "Export & History", desc: "Export reports as PDF or JSON. Track SEO changes over time with page analysis history" },
+];
+
+const targetUsers = [
+  "SEO professionals analyzing client websites",
+  "Web developers optimizing on-page elements",
+  "Content marketers ensuring SEO best practices",
+  "Freelancers auditing websites for SEO improvements",
+];
+
+const screenshots = [
+  "/screenshots/onpagex/screenshot-01.png",
+  "/screenshots/onpagex/screenshot-02.png",
+  "/screenshots/onpagex/screenshot-03.png",
+  "/screenshots/onpagex/screenshot-04.png",
+  "/screenshots/onpagex/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "DataPick", category: "Productivity", link: "/extensions/datapick/", icon: "/ext-icons/datapick.webp" },
+  { name: "Japanese Font Finder", category: "Productivity", link: "/extensions/japanese-font-finder/", icon: "/ext-icons/japanese-font-finder.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "OnPageX",
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle={`${extension.name} - SEO Meta Analyzer for Chrome`}
+  seoDescription="Analyze SEO meta tags, headings, schemas, images, and links with one click. Get an instant SEO score with actionable recommendations."
+  seoKeywords="seo analyzer, meta tags, chrome extension, on-page seo, schema validation, serp preview"
+/>

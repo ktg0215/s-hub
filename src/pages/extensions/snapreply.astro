@@ -1,0 +1,65 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "SnapReply for Gmail",
+  subtitle: "Quick Email Templates",
+  tagline: "Quick email templates for Gmail. Save, manage, and insert templates with variables in seconds.",
+  price: "Free / Pro",
+  status: "Coming Soon",
+  category: "Productivity",
+  lang: "EN",
+  icon: "/ext-icons/snapreply.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "SnapReply for Gmail lets you create, manage, and insert email templates directly within Gmail. Define reusable templates with variable placeholders like {{name}} and {{company}}, organize them in folders, and insert them with keyboard shortcuts. Track template usage statistics to see which templates save you the most time. Pro features include rich text editing, unlimited templates, and advanced analytics.";
+
+const features = [
+  { title: "Template Variables", desc: "Use {{name}}, {{company}}, etc. as placeholders that get filled in before insertion" },
+  { title: "Shortcut Keywords", desc: "Type /followup or custom shortcuts to quickly find and insert templates" },
+  { title: "Folder Organization", desc: "Group templates into folders for easy management across different use cases" },
+  { title: "Insert Position Control", desc: "Choose to insert at cursor position, top of email, or bottom of email" },
+  { title: "Usage Statistics", desc: "Track how often each template is used and how much time you've saved" },
+  { title: "Import & Export", desc: "Backup and share your template library with JSON import/export" },
+];
+
+const targetUsers = [
+  "Busy professionals handling repetitive email replies",
+  "Customer support teams responding to common inquiries",
+  "Sales representatives sending follow-up emails",
+  "Gmail power users who want to save time on email",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
+  { name: "SnippetVault", category: "Developer Tools", link: "/extensions/snippetvault/", icon: "/ext-icons/SnippetVault.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "SnapReply for Gmail",
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle={`${extension.name} - Quick Email Templates for Gmail`}
+  seoDescription="Quick email templates for Gmail. Save, manage, and insert templates with variable placeholders in seconds."
+  seoKeywords="gmail templates, email templates, chrome extension, gmail productivity, quick reply, email automation"
+/>

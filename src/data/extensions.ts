@@ -86,6 +86,21 @@ export const categories: Category[] = [
         icon: "/ext-icons/ReadMark.webp",
       },
       {
+        name: "Procshot",
+        description: "Auto-record browser actions to create step-by-step guides with screenshots. Export as PDF, Markdown, or HTML.",
+        price: "Free",
+        url: "/extensions/procshot/",
+        icon: "/ext-icons/procshot.png",
+      },
+      {
+        name: "SnapReply for Gmail",
+        description: "Quick email templates for Gmail. Save, manage, and insert templates with variables in seconds.",
+        price: "Free / Pro",
+        url: "/extensions/snapreply/",
+        icon: "/ext-icons/snapreply.png",
+        status: "coming-soon",
+      },
+      {
         name: "ZenRead",
         description: "Distraction-free reader mode for any webpage. Remove ads and sidebars, customize themes and fonts for comfortable reading.",
         price: "Free",
@@ -99,6 +114,15 @@ export const categories: Category[] = [
         price: "Free",
         url: "/extensions/pagememo/",
         icon: "/ext-icons/Pagememo.png",
+        status: "coming-soon",
+      },
+      {
+        name: "PagePilot",
+        description: "Convert web pages to clean, LLM-optimized Markdown with token counting. Works with ChatGPT, Claude, and Gemini.",
+        price: "$5.99/mo",
+        priceNote: "Lifetime: $39.99",
+        url: "/extensions/pagepilot/",
+        icon: "/ext-icons/snapreply.png",
         status: "coming-soon",
       },
     ],
@@ -156,6 +180,31 @@ export const categories: Category[] = [
     ],
   },
   {
+    title: "SEO Tools",
+    extensions: [
+      {
+        name: "OnPageX",
+        description: "Analyze SEO meta tags, headings, schemas, images, and links with one click. Score your on-page SEO instantly.",
+        price: "Free / Pro",
+        url: "/extensions/onpagex/",
+        icon: "/ext-icons/onpagex.png",
+      },
+    ],
+  },
+  {
+    title: "Social Media",
+    extensions: [
+      {
+        name: "SNSCrossPost",
+        description: "Post to X, Threads, Bluesky, and LinkedIn simultaneously. One-click multi-platform publishing.",
+        price: "Free",
+        url: "/extensions/snscrosspost/",
+        icon: "/ext-icons/snscrosspost.png",
+        status: "coming-soon",
+      },
+    ],
+  },
+  {
     title: "Developer Tools",
     extensions: [
       {
@@ -173,6 +222,15 @@ export const categories: Category[] = [
         url: "/extensions/tabvault/",
         icon: "/ext-icons/TabVault.png",
       },
+      {
+        name: "CookieJar",
+        description: "View, edit, create, delete, export and import cookies with ease. Privacy-first cookie editor with smart auto-categorization.",
+        price: "Free / Pro $4.99/mo",
+        priceNote: "Lifetime: $29.99",
+        url: "/extensions/cookiejar/",
+        icon: "/ext-icons/cookiejar.png",
+        status: "coming-soon",
+      },
     ],
   },
   {
@@ -184,6 +242,19 @@ export const categories: Category[] = [
         price: "Free / Pro $19",
         url: "/extensions/reshapic/",
         icon: "/ext-icons/reshapic.png",
+      },
+    ],
+  },
+  {
+    title: "Business Tools",
+    extensions: [
+      {
+        name: "請求書よみとり",
+        description: "PDF請求書をAI-OCRで自動読み取り。金額・日付・取引先・登録番号を抽出し、CSV/Excelにエクスポート。インボイス制度対応。",
+        price: "Free / Pro",
+        url: "/extensions/invoice-reader/",
+        icon: "/ext-icons/invoice-reader.png",
+        status: "coming-soon",
       },
     ],
   },

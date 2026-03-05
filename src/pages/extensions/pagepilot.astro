@@ -1,0 +1,65 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "PagePilot",
+  subtitle: "LLM-Optimized Web Clipper",
+  tagline: "Convert web pages to clean, LLM-optimized Markdown with token counting. Works with ChatGPT, Claude, and Gemini.",
+  price: "$5.99/mo",
+  status: "Coming Soon",
+  category: "Productivity",
+  lang: "EN",
+  icon: "/ext-icons/snapreply.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "PagePilot converts web pages into clean Markdown optimized for LLM input. Unlike traditional web clippers (Evernote, Notion), PagePilot is designed specifically for AI workflows. Features include client-side token counting with budget management, batch processing of multiple tabs into a structured document, LLM-specific templates (Claude XML tags, ChatGPT format), and site-specific extraction for YouTube subtitles, Reddit threads, and Twitter/X threads. Completely client-side with no API required.";
+
+const features = [
+  { title: "One-Click Markdown Conversion", desc: "Convert any webpage to clean, readable Markdown optimized for LLM input" },
+  { title: "Token Count & Budget", desc: "Client-side token counting with budget management — extract within your token limits" },
+  { title: "Batch Processing", desc: "Convert multiple open tabs into a single structured document for comprehensive analysis" },
+  { title: "LLM-Specific Templates", desc: "Output formats tailored for Claude (XML tags), ChatGPT, and Gemini" },
+  { title: "Site-Specific Extraction", desc: "Smart extraction for YouTube subtitles, Reddit threads, Twitter/X threads, and more" },
+  { title: "Searchable Clip Library", desc: "Browse and search your clip history in the side panel with project organization (Pro)" },
+];
+
+const targetUsers = [
+  "ChatGPT/Claude/Gemini power users doing research and analysis",
+  "Knowledge workers collecting and organizing information",
+  "Developers reading and analyzing documentation",
+  "Writers and bloggers gathering source material",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
+  { name: "ReadMark", category: "Productivity", link: "/extensions/readmark/", icon: "/ext-icons/ReadMark.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "PagePilot",
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "5.99", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle={`${extension.name} - LLM-Optimized Web Clipper`}
+  seoDescription="Convert web pages to clean, LLM-optimized Markdown with token counting and batch processing. Works with ChatGPT, Claude, and Gemini."
+  seoKeywords="web clipper, markdown converter, llm, chatgpt, claude, token counter, chrome extension, ai workflow"
+/>

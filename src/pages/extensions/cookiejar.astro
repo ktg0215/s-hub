@@ -1,0 +1,71 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "CookieJar",
+  subtitle: "Cookie Editor & Manager",
+  tagline: "View, edit, create, delete, export and import cookies with ease. Privacy-first cookie editor with smart auto-categorization.",
+  price: "Free / Pro $4.99/mo",
+  status: "Coming Soon",
+  category: "Developer Tools",
+  lang: "EN",
+  icon: "/ext-icons/cookiejar.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "CookieJar is a modern MV3 cookie manager built to fill the gap left by EditThisCookie and Cookie AutoDelete. It provides smart auto-categorization of cookies (Login, Tracking, Analytics, Functional), per-site privacy scores, and multi-format export. Pro features include auto-cleanup schedules, encrypted cookie profile switching for dev/test/production environments, and integrated localStorage/sessionStorage/IndexedDB management. Completely client-side with no external APIs.";
+
+const features = [
+  { title: "Smart Auto-Categorization", desc: "Automatically classify cookies as Login, Tracking, Analytics, or Functional with scoring algorithm" },
+  { title: "Privacy Score", desc: "Per-site privacy score showing how many tracking cookies exist and your overall privacy health" },
+  { title: "Multi-Format Export", desc: "Export cookies as JSON, Netscape, cURL, Puppeteer, HAR, or CSV for any workflow" },
+  { title: "Cookie Profile Switching", desc: "Switch between encrypted cookie profiles for development, testing, and production environments (Pro)" },
+  { title: "Auto-Cleanup Schedules", desc: "Set category-based cleanup schedules to automatically remove unwanted cookies (Pro)" },
+  { title: "Storage Management", desc: "View and manage localStorage, sessionStorage, and IndexedDB alongside cookies (Pro)" },
+];
+
+const targetUsers = [
+  "Web developers debugging cookie-related issues",
+  "QA testers managing test environments and sessions",
+  "Security researchers auditing cookie practices",
+  "Privacy-conscious users wanting control over tracking cookies",
+];
+
+const screenshots = [
+  "/screenshots/cookiejar/screenshot-01.png",
+  "/screenshots/cookiejar/screenshot-02.png",
+  "/screenshots/cookiejar/screenshot-03.png",
+  "/screenshots/cookiejar/screenshot-04.png",
+  "/screenshots/cookiejar/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "TabVault", category: "Developer Tools", link: "/extensions/tabvault/", icon: "/ext-icons/TabVault.png" },
+  { name: "SnippetVault", category: "Developer Tools", link: "/extensions/snippetvault/", icon: "/ext-icons/SnippetVault.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "CookieJar",
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle={`${extension.name} - Cookie Editor & Manager for Chrome`}
+  seoDescription="View, edit, create, delete, export and import cookies. Privacy-first cookie editor with smart auto-categorization and privacy scores."
+  seoKeywords="cookie editor, cookie manager, chrome extension, privacy, developer tools, editthiscookie alternative"
+/>

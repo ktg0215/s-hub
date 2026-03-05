@@ -1,0 +1,73 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "SNSCrossPost",
+  subtitle: "Multi-Platform Social Publisher",
+  tagline: "Post to X, Threads, Bluesky, and LinkedIn simultaneously. One-click multi-platform publishing.",
+  price: "Free",
+  status: "Coming Soon",
+  category: "Social Media",
+  lang: "EN",
+  icon: "/ext-icons/snscrosspost.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "SNSCrossPost lets you compose a single post and publish it to multiple social media platforms at once. Supports X (Twitter), Threads, Bluesky, and LinkedIn. Uses native API integration for Bluesky (AT Protocol) and Threads (Meta Graph API) for reliable posting, with DOM-based posting for X and LinkedIn. Includes per-platform character counters, hashtag template management, and platform-specific formatting. Completely free with no API costs.";
+
+const features = [
+  { title: "4-Platform Publishing", desc: "Post to X, Threads, Bluesky, and LinkedIn simultaneously from a single editor" },
+  { title: "API-Based Reliability", desc: "Native API integration with Bluesky and Threads for stable, reliable posting" },
+  { title: "Character Counter", desc: "Real-time character counting per platform to ensure your posts fit each platform's limits" },
+  { title: "Hashtag Templates", desc: "Save and reuse hashtag groups for different topics or campaigns" },
+  { title: "Connection Status", desc: "Visual indicators showing which platforms are connected and ready to post" },
+  { title: "8-Language Support", desc: "Full localization in English, Japanese, Spanish, French, German, Korean, Italian, and Portuguese" },
+];
+
+const supportedServices = [
+  "X (Twitter)",
+  "Threads",
+  "Bluesky",
+  "LinkedIn",
+];
+
+const targetUsers = [
+  "Content creators posting across multiple platforms",
+  "Social media managers handling multi-channel campaigns",
+  "Indie developers promoting their products",
+  "Anyone tired of copy-pasting the same post to different platforms",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "X Detox", category: "Digital Wellbeing", link: "/extensions/x-detox/", icon: "/ext-icons/x-detox.webp" },
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "SNSCrossPost",
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  supportedServices={supportedServices}
+  softwareSchema={softwareSchema}
+  seoTitle={`${extension.name} - Post to Multiple Social Platforms at Once`}
+  seoDescription="Post to X, Threads, Bluesky, and LinkedIn simultaneously. Free multi-platform social media publishing tool."
+  seoKeywords="cross-post, social media, multi-platform, twitter, threads, bluesky, linkedin, chrome extension"
+/>

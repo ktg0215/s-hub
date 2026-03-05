@@ -1,0 +1,71 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "請求書よみとり",
+  subtitle: "AI-OCR Invoice Data Extraction",
+  tagline: "PDF請求書をAI-OCRで自動読み取り。金額・日付・取引先・登録番号を抽出し、CSV/Excelにエクスポート。インボイス制度対応。",
+  price: "Free / Pro",
+  status: "Coming Soon",
+  category: "Business Tools",
+  lang: "JP",
+  icon: "/ext-icons/invoice-reader.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "請求書よみとりは、PDF請求書をブラウザ上でOCR処理し、構造化データとして抽出するChrome拡張機能です。Tesseract.jsによるクライアントサイドOCRで、金額・日付・取引先名・適格請求書発行事業者登録番号を自動認識。抽出データはCSVまたはExcel形式でエクスポートでき、会計ソフトへの取り込みが容易です。日本のインボイス制度（適格請求書等保存方式）に対応し、登録番号の検証もサポートします。";
+
+const features = [
+  { title: "AI-OCR読み取り", desc: "Tesseract.jsによるクライアントサイドOCRでPDF請求書からテキストを自動抽出" },
+  { title: "構造化データ抽出", desc: "金額・税額・日付・取引先・振込先情報をインテリジェントに認識・構造化" },
+  { title: "インボイス制度対応", desc: "適格請求書発行事業者登録番号（T+13桁）の自動検出・国税庁API検証" },
+  { title: "CSV/Excelエクスポート", desc: "抽出データをCSVまたはExcel形式で出力。会計ソフトへの取り込みに対応" },
+  { title: "バッチ処理", desc: "複数の請求書PDFをまとめてアップロード・一括処理（Pro）" },
+  { title: "フィールドカスタマイズ", desc: "表示・エクスポートするフィールドを自由に設定可能" },
+];
+
+const targetUsers = [
+  "経理担当者の請求書処理業務の効率化に",
+  "フリーランスの確定申告時の請求書整理に",
+  "中小企業の経費精算・支払管理に",
+  "税理士事務所のクライアント請求書管理に",
+];
+
+const screenshots = [
+  "/screenshots/invoice-reader/screenshot-01.png",
+  "/screenshots/invoice-reader/screenshot-02.png",
+  "/screenshots/invoice-reader/screenshot-03.png",
+  "/screenshots/invoice-reader/screenshot-04.png",
+  "/screenshots/invoice-reader/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "DataPick", category: "Productivity", link: "/extensions/datapick/", icon: "/ext-icons/datapick.webp" },
+  { name: "DataBridge", category: "Productivity", link: "/extensions/databridge/", icon: "/ext-icons/databridge.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Invoice Reader",
+  description: "AI-OCR extracts amounts, dates, vendors & registration numbers from PDF invoices. CSV/Excel export. Japan Invoice System ready.",
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="請求書よみとり - AI-OCR PDF請求書データ抽出"
+  seoDescription="PDF請求書をAI-OCRで自動読み取り。金額・日付・取引先・登録番号を抽出しCSV/Excelにエクスポート。インボイス制度対応。"
+  seoKeywords="請求書, OCR, PDF, インボイス制度, 適格請求書, Chrome拡張機能, 経理, 会計, invoice reader"
+/>
