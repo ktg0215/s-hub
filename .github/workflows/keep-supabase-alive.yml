@@ -1,0 +1,31 @@
+name: Keep Supabase Alive
+
+on:
+  schedule:
+    # 毎週月曜と木曜の9:00 UTC (18:00 JST) に実行
+    - cron: '0 9 * * 1,4'
+  workflow_dispatch: # 手動実行も可能
+
+jobs:
+  ping-supabase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Ping Arbitra Supabase
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            "https://abgpnhluuvsmnokknktp.supabase.co/rest/v1/" \
+            -H "apikey: ${{ secrets.ARBITRA_SUPABASE_ANON_KEY }}")
+          echo "Arbitra Supabase response: $STATUS"
+          if [ "$STATUS" -ge 400 ] && [ "$STATUS" -ne 404 ]; then
+            echo "::warning::Arbitra Supabase returned $STATUS"
+          fi
+
+      - name: Ping Rakuten Sellers Analytics Supabase
+        run: |
+          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+            "https://klclgwaommhzawzcrflo.supabase.co/rest/v1/" \
+            -H "apikey: ${{ secrets.RAKUTEN_SUPABASE_ANON_KEY }}")
+          echo "Rakuten Analytics Supabase response: $STATUS"
+          if [ "$STATUS" -ge 400 ] && [ "$STATUS" -ne 404 ]; then
+            echo "::warning::Rakuten Analytics Supabase returned $STATUS"
+          fi
