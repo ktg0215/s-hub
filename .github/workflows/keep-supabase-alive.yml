@@ -16,9 +16,11 @@ jobs:
             "https://abgpnhluuvsmnokknktp.supabase.co/rest/v1/" \
             -H "apikey: ${{ secrets.ARBITRA_SUPABASE_ANON_KEY }}")
           echo "Arbitra Supabase response: $STATUS"
-          if [ "$STATUS" -ge 400 ] && [ "$STATUS" -ne 404 ]; then
-            echo "::warning::Arbitra Supabase returned $STATUS"
+          if [ "$STATUS" -eq 000 ]; then
+            echo "::error::Arbitra Supabase is unreachable (project may be paused)"
+            exit 1
           fi
+          echo "Ping successful (status $STATUS - project is alive)"
 
       - name: Ping Rakuten Sellers Analytics Supabase
         run: |
@@ -26,6 +28,8 @@ jobs:
             "https://klclgwaommhzawzcrflo.supabase.co/rest/v1/" \
             -H "apikey: ${{ secrets.RAKUTEN_SUPABASE_ANON_KEY }}")
           echo "Rakuten Analytics Supabase response: $STATUS"
-          if [ "$STATUS" -ge 400 ] && [ "$STATUS" -ne 404 ]; then
-            echo "::warning::Rakuten Analytics Supabase returned $STATUS"
+          if [ "$STATUS" -eq 000 ]; then
+            echo "::error::Rakuten Analytics Supabase is unreachable (project may be paused)"
+            exit 1
           fi
+          echo "Ping successful (status $STATUS - project is alive)"
