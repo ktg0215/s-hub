@@ -254,7 +254,7 @@ export const categories: Category[] = [
         price: "Free / Pro",
         url: "/extensions/invoice-reader/",
         icon: "/ext-icons/invoice-reader.png",
-        status: "coming-soon",
+        status: "published",
       },
     ],
   },

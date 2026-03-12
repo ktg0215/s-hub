@@ -6,7 +6,7 @@ const extension = {
   subtitle: "AI-OCR Invoice Data Extraction",
   tagline: "PDF請求書をAI-OCRで自動読み取り。金額・日付・取引先・登録番号を抽出し、CSV/Excelにエクスポート。インボイス制度対応。",
   price: "Free / Pro",
-  status: "Coming Soon",
+  status: "Published",
   category: "Business Tools",
   lang: "JP",
   icon: "/ext-icons/invoice-reader.png",
@@ -14,7 +14,7 @@ const extension = {
   reviewCount: 0,
 };
 
-const overview = "請求書よみとりは、PDF請求書をブラウザ上でOCR処理し、構造化データとして抽出するChrome拡張機能です。Tesseract.jsによるクライアントサイドOCRで、金額・日付・取引先名・適格請求書発行事業者登録番号を自動認識。抽出データはCSVまたはExcel形式でエクスポートでき、会計ソフトへの取り込みが容易です。日本のインボイス制度（適格請求書等保存方式）に対応し、登録番号の検証もサポートします。";
+const overview = "請求書よみとりは、PDF請求書をブラウザ上でAI-OCR処理し、構造化データとして抽出するChrome拡張機能です。インストールするだけですぐに使え、アカウント登録は不要。会計ソフトを導入していなくても、金額・日付・取引先名・適格請求書発行事業者登録番号を自動認識し、CSV/Excel形式でエクスポートできます。freee・弥生会計・マネーフォワードなど、お使いの会計ソフトへの取り込みにも対応。日本のインボイス制度（適格請求書等保存方式）・電子帳簿保存法に対応し、登録番号の国税庁API検証もサポートします。フリーランス・個人事業主の確定申告から、中小企業の経理業務まで、請求書の手入力作業を無料で効率化します。";
 
 const features = [
   { title: "AI-OCR読み取り", desc: "Tesseract.jsによるクライアントサイドOCRでPDF請求書からテキストを自動抽出" },
@@ -26,10 +26,10 @@ const features = [
 ];
 
 const targetUsers = [
-  "経理担当者の請求書処理業務の効率化に",
-  "フリーランスの確定申告時の請求書整理に",
-  "中小企業の経費精算・支払管理に",
-  "税理士事務所のクライアント請求書管理に",
+  "会計ソフトなしでExcel手入力している個人事業主に",
+  "確定申告時に請求書を一気にデータ化したいフリーランスに",
+  "月額SaaSは高すぎるが手入力は限界の中小企業の経理担当に",
+  "複数クライアントの請求書をサクッと処理したい税理士・会計事務所に",
 ];
 
 const screenshots = [
@@ -67,5 +67,5 @@ const softwareSchema = {
   softwareSchema={softwareSchema}
   seoTitle="請求書よみとり - AI-OCR PDF請求書データ抽出"
   seoDescription="PDF請求書をAI-OCRで自動読み取り。金額・日付・取引先・登録番号を抽出しCSV/Excelにエクスポート。インボイス制度対応。"
-  seoKeywords="請求書, OCR, PDF, インボイス制度, 適格請求書, Chrome拡張機能, 経理, 会計, invoice reader"
+  seoKeywords="請求書, OCR, PDF, インボイス制度, 適格請求書, Chrome拡張機能, 経理, 会計, invoice reader, フリーランス, 個人事業主, 確定申告, 無料, Excel変換, CSV出力, 電子帳簿保存法, 中小企業, 請求書データ化, PDF変換"
 />
