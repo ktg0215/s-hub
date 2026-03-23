@@ -13,6 +13,7 @@ const extension = {
   icon: "/ext-icons/SnippetVault.png",
   rating: 0,
   reviewCount: 0,
+  userCount: 8,
 };
 
 const overview = "Developer-focused code snippet manager for Chrome. Save, organize, and instantly insert code snippets using slash commands (/) in any text input field on the web. Features syntax highlighting powered by Prism.js, fuzzy search with Fuse.js, and category management. All data is stored locally on your device.";
@@ -54,10 +55,14 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   name: "SnippetVault",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/snippetvault",
+  downloadUrl: extension.chromeUrl,
+  screenshot: "https://dev-tools-hub.xyz/screenshots/SnippetVault/resized_1280x800_25.png",
+  featureList: "Slash Commands, Syntax Highlighting, Fuzzy Search, Category Management, Usage Statistics, Clipboard Integration",
 };
 ---
 
@@ -70,7 +75,7 @@ const softwareSchema = {
   relatedProducts={relatedProducts}
   keyboardShortcuts={keyboardShortcuts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - Code Snippet Manager`}
-  seoDescription="Manage code snippets and insert them with slash commands in any text field. Developer-focused."
-  seoKeywords="code snippets, snippet manager, slash commands, developer tools, chrome extension"
+  seoTitle="SnippetVault - Code Snippet Manager with Slash Commands | Chrome Extension"
+  seoDescription="Developer-focused code snippet manager. Insert snippets instantly with slash commands in any text field. Syntax highlighting and fuzzy search."
+  seoKeywords="code snippets, snippet manager, slash commands, developer tools, chrome extension, code templates"
 />

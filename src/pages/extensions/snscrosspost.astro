@@ -12,6 +12,7 @@ const extension = {
   icon: "/ext-icons/snscrosspost.png",
   rating: 0,
   reviewCount: 0,
+  userCount: 0,
 };
 
 const overview = "SNSCrossPost lets you compose a single post and publish it to multiple social media platforms at once. Supports X (Twitter), Threads, Bluesky, and LinkedIn. Uses native API integration for Bluesky (AT Protocol) and Threads (Meta Graph API) for reliable posting, with DOM-based posting for X and LinkedIn. Includes per-platform character counters, hashtag template management, and platform-specific formatting. Completely free with no API costs.";
@@ -51,10 +52,12 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   name: "SNSCrossPost",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/snscrosspost",
+  featureList: "4-Platform Publishing, API-Based Reliability, Character Counter, Hashtag Templates, Connection Status, 8-Language Support",
 };
 ---
 
@@ -67,7 +70,7 @@ const softwareSchema = {
   relatedProducts={relatedProducts}
   supportedServices={supportedServices}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - Post to Multiple Social Platforms at Once`}
-  seoDescription="Post to X, Threads, Bluesky, and LinkedIn simultaneously. Free multi-platform social media publishing tool."
-  seoKeywords="cross-post, social media, multi-platform, twitter, threads, bluesky, linkedin, chrome extension"
+  seoTitle="SNSCrossPost - Post to X, Threads, Bluesky & LinkedIn at Once"
+  seoDescription="Post to X, Threads, Bluesky, and LinkedIn simultaneously with one click. Free multi-platform social media publishing Chrome extension."
+  seoKeywords="cross-post, social media, multi-platform, twitter, threads, bluesky, linkedin, chrome extension, social media manager"
 />

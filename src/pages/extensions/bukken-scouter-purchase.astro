@@ -13,6 +13,7 @@ const extension = {
   icon: "/ext-icons/bukken-scouter-purchase.webp",
   rating: 0,
   reviewCount: 0,
+  userCount: 10,
 };
 
 const overview = "物件スカウター（購入版）は、SUUMOの購入物件ページで坪単価・㎡単価を自動計算し、物件カードに表示するChrome拡張機能です。数千万円の買い物だからこそ、感覚ではなくデータで判断したい。築年数の色分けハイライト、お気に入り保存、比較表、価格履歴トラッキングなど、効率的な物件探しをサポートする機能を搭載。完全無料、データはローカル保存でプライバシーも安心です。";
@@ -46,15 +47,22 @@ const relatedProducts = [
   { name: "DataPick", category: "Productivity", link: "/extensions/datapick/", icon: "/ext-icons/datapick.webp" },
 ];
 
+const faqItems = [
+  { question: "物件スカウター（購入版）は無料ですか？", answer: "はい、完全無料です。すべての機能が無料で利用できます。" },
+  { question: "賃貸版との違いは？", answer: "購入版はSUUMOの売買物件ページに対応し、坪単価・㎡単価の自動計算、築年数ハイライト、価格履歴トラッキングなど購入検討に特化した機能を搭載しています。" },
+  { question: "データは外部に送信されますか？", answer: "いいえ。すべてのデータはブラウザにローカル保存されます。外部サーバーへの送信は一切ありません。" },
+];
+
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "物件スカウター（購入版）",
   description: "SUUMOの購入物件で坪単価・㎡単価を自動計算する無料Chrome拡張機能。築年数ハイライト、お気に入り比較、価格履歴トラッキング搭載。",
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "JPY" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/bukken-scouter-purchase",
   downloadUrl: extension.chromeUrl,
   featureList: "坪単価・㎡単価の自動計算, 築年数ハイライト, お気に入り保存, 比較表, 価格履歴トラッキング, CSV/Excelエクスポート, ハザードマップ連携",
   screenshot: "https://dev-tools-hub.xyz/screenshots/bukken-scouter-purchase/screenshot-1.png",
@@ -69,9 +77,10 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle="物件スカウター購入版 - 坪単価ツール | SUUMO不動産価格を自動計算"
+  faqItems={faqItems}
+  seoTitle="物件スカウター購入版 - SUUMO坪単価自動計算 | 無料Chrome拡張機能"
   seoDescription="SUUMOの購入物件で坪単価・㎡単価を自動計算する無料Chrome拡張機能。築年数ハイライト、お気に入り比較、価格履歴トラッキング搭載。"
-  seoKeywords="坪単価 ツール, SUUMO, 購入, 物件比較, Chrome拡張機能, 坪単価, ㎡単価, 不動産"
+  seoKeywords="坪単価 ツール, SUUMO, 購入, 物件比較, Chrome拡張機能, 坪単価, ㎡単価, 不動産, マンション, 中古物件"
   ogImage="/screenshots/bukken-scouter-purchase/screenshot-1.png"
   ctaTitle="データで物件を選ぼう"
   ctaDescription="坪単価を自動計算し、賢い物件探しをサポート。"

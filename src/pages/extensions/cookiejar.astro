@@ -6,12 +6,14 @@ const extension = {
   subtitle: "Cookie Editor & Manager",
   tagline: "View, edit, create, delete, export and import cookies with ease. Privacy-first cookie editor with smart auto-categorization.",
   price: "Free / Pro $4.99/mo",
-  status: "Coming Soon",
+  status: "Available",
+  chromeUrl: "https://chromewebstore.google.com/detail/cookiejar/lhngfkchfepfjdfhimconagoejemofg",
   category: "Developer Tools",
   lang: "EN",
   icon: "/ext-icons/cookiejar.png",
-  rating: 0,
+  rating: 5.0,
   reviewCount: 0,
+  userCount: 0,
 };
 
 const overview = "CookieJar is a modern MV3 cookie manager built to fill the gap left by EditThisCookie and Cookie AutoDelete. It provides smart auto-categorization of cookies (Login, Tracking, Analytics, Functional), per-site privacy scores, and multi-format export. Pro features include auto-cleanup schedules, encrypted cookie profile switching for dev/test/production environments, and integrated localStorage/sessionStorage/IndexedDB management. Completely client-side with no external APIs.";
@@ -50,10 +52,14 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   name: "CookieJar",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/cookiejar",
+  downloadUrl: extension.chromeUrl,
+  screenshot: "https://dev-tools-hub.xyz/screenshots/cookiejar/screenshot-01.png",
+  featureList: "Smart Auto-Categorization, Privacy Score, Multi-Format Export, Cookie Profile Switching, Auto-Cleanup Schedules, Storage Management",
 };
 ---
 
@@ -65,7 +71,7 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - Cookie Editor & Manager for Chrome`}
-  seoDescription="View, edit, create, delete, export and import cookies. Privacy-first cookie editor with smart auto-categorization and privacy scores."
-  seoKeywords="cookie editor, cookie manager, chrome extension, privacy, developer tools, editthiscookie alternative"
+  seoTitle="CookieJar - Cookie Editor & Manager | EditThisCookie Alternative"
+  seoDescription="View, edit, create, delete, export and import cookies. MV3 cookie editor with smart auto-categorization, privacy scores, and multi-format export."
+  seoKeywords="cookie editor, cookie manager, chrome extension, privacy, developer tools, editthiscookie alternative, mv3 cookie editor"
 />

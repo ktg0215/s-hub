@@ -13,6 +13,7 @@ const extension = {
   icon: "/ext-icons/ZenRead.webp",
   rating: 0,
   reviewCount: 0,
+  userCount: 6,
 };
 
 const overview = "Webページの記事を読みやすいリーダーモードで表示するChrome拡張機能です。広告やサイドバーを除去し、カスタマイズ可能なテーマ・フォント設定で快適な読書体験を提供します。Readability.jsベースの高精度な記事抽出で、本文のみをクリーンに表示。Web Speech APIによるテキスト読み上げ機能も搭載。";
@@ -51,10 +52,14 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   name: "ZenRead",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/zenread",
+  downloadUrl: extension.chromeUrl,
+  screenshot: "https://dev-tools-hub.xyz/screenshots/zenread/screenshot-01.png",
+  featureList: "Reader Mode, 3 Themes, Font Customization, Text-to-Speech, Highlights, Reading Stats",
 };
 ---
 
@@ -66,7 +71,7 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - Distraction-Free Reader Mode`}
-  seoDescription="Remove ads and clutter for distraction-free reading. Customizable themes, fonts, and text-to-speech."
-  seoKeywords="reader mode, distraction-free, text-to-speech, chrome extension, reading"
+  seoTitle="ZenRead - Distraction-Free Reader Mode | Chrome Extension"
+  seoDescription="Remove ads and clutter for distraction-free reading. Customizable themes, fonts, and text-to-speech. Free Chrome extension."
+  seoKeywords="reader mode, distraction-free reading, text-to-speech, chrome extension, reading, ad-free reading"
 />

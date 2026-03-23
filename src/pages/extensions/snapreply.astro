@@ -6,12 +6,14 @@ const extension = {
   subtitle: "Quick Email Templates",
   tagline: "Quick email templates for Gmail. Save, manage, and insert templates with variables in seconds.",
   price: "Free / Pro",
-  status: "Coming Soon",
+  status: "Available",
+  chromeUrl: "https://chromewebstore.google.com/detail/snapreply-for-gmail/pijandokkbhdejnoienhjmoicjapgpmk",
   category: "Productivity",
   lang: "EN",
   icon: "/ext-icons/snapreply.png",
   rating: 0,
   reviewCount: 0,
+  userCount: 0,
 };
 
 const overview = "SnapReply for Gmail lets you create, manage, and insert email templates directly within Gmail. Define reusable templates with variable placeholders like {{name}} and {{company}}, organize them in folders, and insert them with keyboard shortcuts. Track template usage statistics to see which templates save you the most time. Pro features include rich text editing, unlimited templates, and advanced analytics.";
@@ -32,7 +34,13 @@ const targetUsers = [
   "Gmail power users who want to save time on email",
 ];
 
-const screenshots: string[] = [];
+const screenshots = [
+  "/screenshots/snapreply/screenshot-01.png",
+  "/screenshots/snapreply/screenshot-02.png",
+  "/screenshots/snapreply/screenshot-03.png",
+  "/screenshots/snapreply/screenshot-04.png",
+  "/screenshots/snapreply/screenshot-05.png",
+];
 
 const relatedProducts = [
   { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
@@ -44,10 +52,14 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   name: "SnapReply for Gmail",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/snapreply",
+  downloadUrl: extension.chromeUrl,
+  screenshot: "https://dev-tools-hub.xyz/screenshots/snapreply/screenshot-01.png",
+  featureList: "Template Variables, Shortcut Keywords, Folder Organization, Insert Position Control, Usage Statistics, Import & Export",
 };
 ---
 
@@ -59,7 +71,7 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - Quick Email Templates for Gmail`}
-  seoDescription="Quick email templates for Gmail. Save, manage, and insert templates with variable placeholders in seconds."
-  seoKeywords="gmail templates, email templates, chrome extension, gmail productivity, quick reply, email automation"
+  seoTitle="SnapReply for Gmail - Quick Email Templates | Chrome Extension"
+  seoDescription="Quick email templates for Gmail with variable placeholders. Save, manage, and insert templates with keyboard shortcuts. Track usage statistics."
+  seoKeywords="gmail templates, email templates, chrome extension, gmail productivity, quick reply, email automation, gmail shortcuts"
 />

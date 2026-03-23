@@ -6,11 +6,13 @@ const extension = {
   subtitle: "Smart Tab Session Manager",
   tagline: "Stash tabs, quick switch sessions, and auto-recover from browser crashes. Built for developers.",
   price: "Free / Pro $5",
+  status: "Available",
   category: "Developer Tools",
   lang: "EN",
   icon: "/ext-icons/TabVault.png",
   rating: 0,
   reviewCount: 0,
+  userCount: 0,
 };
 
 const overview = "Developer-focused tab session manager for Chrome. Stash your current tabs with one shortcut, switch between saved sessions instantly with Quick Switcher, and never lose tabs to browser crashes again. Features automatic backups, tab group preservation, lazy loading for memory efficiency, and keyboard-driven Quick Switcher with fuzzy search.";
@@ -55,10 +57,13 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   name: "TabVault",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/tabvault",
+  screenshot: "https://dev-tools-hub.xyz/screenshots/TabVault/screenshot-01.png",
+  featureList: "Stash (Quick Save), Quick Switcher, Crash Recovery, Auto Backup, Tab Group Preservation, Lazy Loading",
 };
 ---
 
@@ -71,7 +76,7 @@ const softwareSchema = {
   relatedProducts={relatedProducts}
   keyboardShortcuts={keyboardShortcuts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - Smart Tab Session Manager`}
-  seoDescription="Stash tabs, switch sessions, and recover from crashes. Developer-focused tab manager."
-  seoKeywords="tab manager, session manager, chrome extension, developer tools, tab groups"
+  seoTitle="TabVault - Smart Tab Session Manager | Chrome Extension for Developers"
+  seoDescription="Stash tabs, switch sessions instantly, and auto-recover from browser crashes. Developer-focused tab session manager with Quick Switcher and tab group support."
+  seoKeywords="tab manager, session manager, chrome extension, developer tools, tab groups, tab stash, crash recovery"
 />

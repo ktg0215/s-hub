@@ -14,6 +14,7 @@ const extension = {
   icon: "/ext-icons/reshapic.png",
   rating: 0,
   reviewCount: 0,
+  userCount: 0,
 };
 
 const overview = "ReShapic is a Chrome extension for fast, private image processing. Resize images to preset SNS sizes (OGP, Instagram, X, YouTube, LINE), convert between WebP/PNG/JPEG, and adjust quality — all without uploading to any server. Free users get 5 conversions per day with files up to 5 MB. Pro users ($19 one-time) unlock unlimited conversions, batch processing with ZIP download, and 50 MB file support. Available in 8 languages with a manual language selector. Also available as a web app at reshapic.dev-tools-hub.xyz for quick access without installation.";
@@ -63,6 +64,13 @@ const supportedServices = [
   "LINE Rich Message (1040x1040)",
 ];
 
+const faqItems = [
+  { question: "Is ReShapic free?", answer: "Yes, the free plan includes 5 conversions per day with files up to 5 MB. The Pro plan ($19 one-time) unlocks unlimited conversions, batch processing, and 50 MB file support." },
+  { question: "Are my images uploaded to any server?", answer: "No. All image processing happens locally in your browser. No images are ever uploaded to external servers." },
+  { question: "What image formats are supported?", answer: "ReShapic supports WebP, PNG, and JPEG formats for both input and output." },
+  { question: "Is there a web app version?", answer: "Yes. You can use ReShapic at reshapic.dev-tools-hub.xyz without installing the Chrome extension." },
+];
+
 const softwareSchema = {
   "@context": "https://schema.org",
   "@graph": [
@@ -70,12 +78,14 @@ const softwareSchema = {
       "@type": "SoftwareApplication",
       name: "ReShapic",
       description: extension.tagline,
-      applicationCategory: "BrowserApplication",
+      applicationCategory: "BrowserExtension",
       operatingSystem: "Chrome",
       offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
       author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+      url: "https://dev-tools-hub.xyz/extensions/reshapic",
       downloadUrl: extension.chromeUrl,
       screenshot: "https://dev-tools-hub.xyz/screenshots/reshapic/screenshot-01.png",
+      featureList: "SNS Presets, Batch Processing, Smart Crop & AI Crop, 8 Languages, Freemium Model, Privacy First, Dark/Light Mode, Context Menu",
       sameAs: ["https://reshapic.dev-tools-hub.xyz"],
     },
     {
@@ -102,7 +112,8 @@ const softwareSchema = {
   supportedServices={supportedServices}
   keyboardShortcuts={keyboardShortcuts}
   softwareSchema={softwareSchema}
-  seoTitle="ReShapic - Image Conversion Chrome Extension"
-  seoDescription="Resize, convert, and optimize images right from your browser toolbar. Batch processing, 8 languages, and freemium Pro plan. Free and private."
-  seoKeywords="image converter, image resizer, chrome extension, webp converter, batch image processing, sns image size, instagram size, youtube thumbnail, ogp image"
+  faqItems={faqItems}
+  seoTitle="ReShapic - Image Resizer & Converter | Free Chrome Extension"
+  seoDescription="Resize, convert, and optimize images right from your browser. SNS presets for Instagram, X, YouTube, OGP. Batch processing, 8 languages. Free and private."
+  seoKeywords="image converter, image resizer, chrome extension, webp converter, batch image processing, sns image size, instagram size, youtube thumbnail, ogp image, online image resizer"
 />

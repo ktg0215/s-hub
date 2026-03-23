@@ -13,6 +13,7 @@ const extension = {
   icon: "/ext-icons/invoice-reader.png",
   rating: 0,
   reviewCount: 0,
+  userCount: 0,
 };
 
 const overview = "請求書よみとりは、PDF請求書をブラウザ上でAI-OCR処理し、構造化データとして抽出するChrome拡張機能です。インストールするだけですぐに使え、アカウント登録は不要。会計ソフトを導入していなくても、金額・日付・取引先名・適格請求書発行事業者登録番号を自動認識し、CSV/Excel形式でエクスポートできます。freee・弥生会計・マネーフォワードなど、お使いの会計ソフトへの取り込みにも対応。日本のインボイス制度（適格請求書等保存方式）・電子帳簿保存法に対応し、登録番号の国税庁API検証もサポートします。フリーランス・個人事業主の確定申告から、中小企業の経理業務まで、請求書の手入力作業を無料で効率化します。";
@@ -51,11 +52,22 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   name: "Invoice Reader",
   description: "AI-OCR extracts amounts, dates, vendors & registration numbers from PDF invoices. CSV/Excel export. Japan Invoice System ready.",
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/invoice-reader",
+  downloadUrl: extension.chromeUrl,
+  screenshot: "https://dev-tools-hub.xyz/screenshots/invoice-reader/screenshot-01.png",
+  featureList: "AI-OCR読み取り, 構造化データ抽出, インボイス制度対応, CSV/Excelエクスポート, バッチ処理, フィールドカスタマイズ",
 };
+
+const faqItems = [
+  { question: "請求書よみとりは無料ですか？", answer: "基本機能は無料です。複数PDF一括処理などの高度な機能はPro版で利用可能です。" },
+  { question: "インボイス制度に対応していますか？", answer: "はい。適格請求書発行事業者登録番号（T+13桁）の自動検出・国税庁API検証に対応しています。" },
+  { question: "データは外部に送信されますか？", answer: "OCR処理はTesseract.jsを使用してブラウザ上で完結します。PDFデータが外部サーバーに送信されることはありません。" },
+  { question: "どの会計ソフトに対応していますか？", answer: "CSV/Excel形式でエクスポートするため、freee・弥生会計・マネーフォワードなど主要な会計ソフトへの取り込みに対応しています。" },
+];
 ---
 
 <ExtensionLayout
@@ -66,7 +78,8 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle="請求書よみとり - AI-OCR PDF請求書データ抽出"
-  seoDescription="PDF請求書をAI-OCRで自動読み取り。金額・日付・取引先・登録番号を抽出しCSV/Excelにエクスポート。インボイス制度対応。"
-  seoKeywords="請求書, OCR, PDF, インボイス制度, 適格請求書, Chrome拡張機能, 経理, 会計, invoice reader, フリーランス, 個人事業主, 確定申告, 無料, Excel変換, CSV出力, 電子帳簿保存法, 中小企業, 請求書データ化, PDF変換"
+  faqItems={faqItems}
+  seoTitle="請求書よみとり - AI-OCR PDF請求書データ抽出 | 無料Chrome拡張機能"
+  seoDescription="PDF請求書をAI-OCRで自動読み取り。金額・日付・取引先・登録番号を抽出しCSV/Excelにエクスポート。インボイス制度対応の無料Chrome拡張機能。"
+  seoKeywords="請求書, OCR, PDF, インボイス制度, 適格請求書, Chrome拡張機能, 経理, 会計, invoice reader, フリーランス, 個人事業主, 確定申告, 無料, Excel変換, CSV出力, 電子帳簿保存法"
 />

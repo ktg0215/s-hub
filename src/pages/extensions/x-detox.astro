@@ -13,6 +13,7 @@ const extension = {
   icon: "/ext-icons/x-detox.webp",
   rating: 4.8,
   reviewCount: 15,
+  userCount: 34,
 };
 
 const overview = "The 'For You' timeline and trends on X (Twitter) are designed to capture your attention with algorithm-driven content. X Detox removes these distractions, showing only posts from people you actually follow. Take back control of your social media experience.";
@@ -43,16 +44,23 @@ const relatedProducts = [
   { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
 ];
 
+const faqItems = [
+  { question: "What does X Detox hide?", answer: "X Detox removes the 'For You' algorithmic tab, trending topics, 'Who to follow' suggestions, and promotional posts from your X (Twitter) feed." },
+  { question: "Is X Detox free?", answer: "The basic version is free. A Pro version with custom filter settings and keyword muting is also available." },
+  { question: "Will X Detox break if X/Twitter changes their layout?", answer: "X Detox is regularly updated to keep up with X/Twitter's interface changes. Updates are delivered automatically through the Chrome Web Store." },
+];
+
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "X Detox",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-  aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), ratingCount: extension.reviewCount.toString() },
+  aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), reviewCount: extension.reviewCount.toString() },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/x-detox",
   downloadUrl: extension.chromeUrl,
   screenshot: "https://dev-tools-hub.xyz/screenshots/x-detox/screenshot-1.png",
   featureList: "Hide For You tab, Hide trends section, Hide Who to follow suggestions, Reduce promotional posts, Custom filter settings, Mute specific keywords",
@@ -67,9 +75,10 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle="X Detox - Clean Up X/Twitter"
-  seoDescription="Free Chrome extension to hide For You tab, trends, and algorithmic content from X (Twitter)."
-  seoKeywords="x detox, twitter cleaner, hide for you tab, chrome extension, digital wellbeing"
+  faqItems={faqItems}
+  seoTitle="X Detox - Clean Up X/Twitter | Free Chrome Extension"
+  seoDescription="Free Chrome extension to hide the For You tab, trends, and algorithmic content from X (Twitter). Take back your timeline."
+  seoKeywords="x detox, twitter cleaner, hide for you tab, hide twitter trends, remove twitter algorithm, chrome extension, digital wellbeing"
   ogImage="/images/og-x-detox.webp"
   ctaTitle="Take Back Your Timeline"
   ctaDescription="Install X Detox and see only what matters."

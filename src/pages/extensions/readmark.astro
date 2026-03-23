@@ -14,6 +14,7 @@ const extension = {
   icon: "/ext-icons/ReadMark.webp",
   rating: 0,
   reviewCount: 0,
+  userCount: 8,
 };
 
 const overview = "Ever closed a tab and lost your place in a long article? ReadMark automatically saves your scroll position on every webpage, so you can always pick up right where you left off. Unlike other bookmark tools that require manual saving, ReadMark works silently in the background. Share specific passages with friends using our smart link feature, track your reading streaks, and build better reading habits. All data stays on your device.";
@@ -53,12 +54,14 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   name: "ReadMark",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome, Edge",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/readmark",
   downloadUrl: extension.chromeUrl,
   screenshot: "https://dev-tools-hub.xyz/screenshots/readmark/screenshot-01.png",
+  featureList: "Auto-Save Positions, One-Click Restore, Smart Share Links, Reading Streaks, Cross-Device Sync, Privacy First",
 };
 ---
 
@@ -70,9 +73,9 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - Smart Reading Position Saver`}
-  seoDescription="Automatically saves your reading position on any webpage. Never lose your place in long articles."
-  seoKeywords="reading position, bookmark, scroll saver, chrome extension, productivity"
+  seoTitle="ReadMark - Smart Reading Position Saver | Free Chrome Extension"
+  seoDescription="Automatically saves your reading position on any webpage. Never lose your place in long articles. Free Chrome and Edge extension with cross-device sync."
+  seoKeywords="reading position saver, bookmark, scroll position, chrome extension, productivity, reading tracker"
   ctaTitle="Never Lose Your Place Again"
   ctaDescription="ReadMark saves your position automatically."
 />

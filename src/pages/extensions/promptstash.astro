@@ -14,6 +14,7 @@ const extension = {
   icon: "/ext-icons/promptstash.webp",
   rating: 4.9,
   reviewCount: 12,
+  userCount: 31,
 };
 
 const overview = "Using multiple AI services like ChatGPT, Claude, and Gemini, do you ever find yourself thinking 'Where was that prompt?' PromptStash v2.0 lets you save your favorite prompts and instantly recall them with slash commands, variable templates, and context-aware insertions. Works with 19+ AI services.";
@@ -52,16 +53,24 @@ const relatedProducts = [
   { name: "Shorts Killer", category: "Wellbeing", link: "/extensions/shorts-killer/", icon: "/ext-icons/shorts-killer.webp" },
 ];
 
+const faqItems = [
+  { question: "Which AI services does PromptStash support?", answer: "PromptStash works with 19+ AI services including ChatGPT, Claude, Gemini, Perplexity, DeepSeek, Grok, Copilot, Poe, Mistral, HuggingChat, and more." },
+  { question: "Is PromptStash a subscription?", answer: "No. PromptStash is a one-time purchase of $5. There are no recurring fees or subscriptions." },
+  { question: "How do slash commands work?", answer: "Type '/' in any supported AI chat input to open a search overlay. Start typing to filter your saved prompts, then select one to insert it instantly." },
+  { question: "Can I use variables in my prompts?", answer: "Yes. Use {{variableName}} syntax to create dynamic prompts. PromptStash supports text, dropdown, number, and date variable types." },
+];
+
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "PromptStash",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome, Edge",
   offers: { "@type": "Offer", price: "5", priceCurrency: "USD" },
-  aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), ratingCount: extension.reviewCount.toString() },
+  aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), reviewCount: extension.reviewCount.toString() },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/promptstash",
   downloadUrl: extension.chromeUrl,
   screenshot: "https://dev-tools-hub.xyz/screenshots/promptstash/screenshot-1.png",
   featureList: "Variable Templates, Prompt Chains, Slash Commands, Context Variables, 19+ AI Services, Tag & Favorites, Import/Export, Keyboard Shortcut",
@@ -77,9 +86,10 @@ const softwareSchema = {
   relatedProducts={relatedProducts}
   supportedServices={supportedServices}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - AI Prompt Manager`}
-  seoDescription="Save, organize, and instantly insert your AI prompts into ChatGPT, Claude, Gemini and more. One-time purchase."
-  seoKeywords="ai prompt manager, chatgpt prompts, claude prompts, prompt library, chrome extension"
+  faqItems={faqItems}
+  seoTitle="PromptStash - AI Prompt Manager for ChatGPT, Claude & Gemini"
+  seoDescription="Save, organize, and instantly insert AI prompts with slash commands and variables. Works with ChatGPT, Claude, Gemini and 16+ more. One-time $5."
+  seoKeywords="ai prompt manager, chatgpt prompts, claude prompts, gemini prompts, prompt library, prompt templates, chrome extension, ai productivity"
   ogImage="/images/og-promptstash.webp"
   ctaTitle="Supercharge Your AI Workflow"
   ctaDescription="Get PromptStash now and never lose a great prompt again."

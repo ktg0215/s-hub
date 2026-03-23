@@ -14,6 +14,7 @@ const extension = {
   icon: "/ext-icons/shorts-killer.webp",
   rating: 5.0,
   reviewCount: 10,
+  userCount: 163,
 };
 
 const overview = "YouTube Shorts are highly addictive, and before you know it, hours have slipped away. Shorts Killer v1.1 completely removes Shorts from YouTube with page-specific controls, block statistics, and keyboard shortcuts. Take back control of your viewing experience.";
@@ -47,16 +48,24 @@ const relatedProducts = [
   { name: "TVer Plus", category: "Media", link: "/extensions/tver-plus/", icon: "/ext-icons/tver-plus.webp" },
 ];
 
+const faqItems = [
+  { question: "Does Shorts Killer completely remove YouTube Shorts?", answer: "Yes. Shorts Killer hides Shorts from your Home feed, Search results, Channel pages, and the sidebar. It also auto-redirects you away from Shorts URLs." },
+  { question: "Is Shorts Killer free?", answer: "Yes, Shorts Killer is completely free with no ads or in-app purchases." },
+  { question: "Does it work on Microsoft Edge?", answer: "Yes, Shorts Killer is available for both Chrome and Microsoft Edge browsers." },
+  { question: "Can I toggle Shorts blocking on specific pages?", answer: "Yes, you can control blocking per page type (Home, Search, Channel, Video) individually from the popup." },
+];
+
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Shorts Killer",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome, Edge",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-  aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), ratingCount: extension.reviewCount.toString() },
+  aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), reviewCount: extension.reviewCount.toString() },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/shorts-killer",
   downloadUrl: extension.chromeUrl,
   screenshot: "https://dev-tools-hub.xyz/screenshots/shorts-killer/ysk-01.png",
   featureList: "Hide Shorts from home feed, Page-specific controls, Block counter, Keyboard shortcut, Remove Shorts tab from sidebar, Auto-redirect from Shorts pages",
@@ -71,8 +80,9 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
   seoTitle="Shorts Killer - Block & Hide YouTube Shorts | Free Chrome Extension"
-  seoDescription="Free Chrome & Edge extension to block YouTube Shorts completely. Page-specific controls, block counter, keyboard shortcuts. Rated 5.0★ by 10 users."
+  seoDescription="Free Chrome & Edge extension to block YouTube Shorts completely. Page-specific controls, block counter, keyboard shortcuts. Rated 5.0 by 10+ users."
   seoKeywords="block youtube shorts, youtube shorts remover, hide youtube shorts, youtube shorts blocker, chrome extension, digital wellbeing"
   ogImage="/images/og-shorts-killer.webp"
   ctaTitle="Ready to Focus?"

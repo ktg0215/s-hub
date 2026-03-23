@@ -14,6 +14,7 @@ const extension = {
   icon: "/ext-icons/Arbitra.webp",
   rating: 5.0,
   reviewCount: 1,
+  userCount: 26,
 };
 
 const overview = "Arbitraは、せどらー・転売ヤーのための究極の価格比較ツールです。ワンクリックでAmazon、メルカリ、ヤフオクの価格を一括比較し、利益の出る商品を瞬時に発見できます。プラットフォーム手数料、送料、利益率を自動計算する利益計算機能を搭載。賢い仕入れ判断を数秒で行えます。";
@@ -51,18 +52,26 @@ const relatedProducts = [
   { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
 ];
 
+const faqItems = [
+  { question: "Arbitraは無料ですか？", answer: "基本機能は無料です。1日5回までの検索が可能。Pro版では無制限検索、価格下落アラート、CSVエクスポートが利用できます。" },
+  { question: "どのECサイトに対応していますか？", answer: "Amazon、メルカリ、ヤフオクの3つのプラットフォームに対応しています。" },
+  { question: "利益計算は手数料込みですか？", answer: "はい。各プラットフォームの手数料と送料を含めた正確な利益計算を自動で行います。" },
+];
+
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Arbitra",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome, Edge",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
-  aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), ratingCount: extension.reviewCount.toString() },
+  aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), reviewCount: extension.reviewCount.toString() },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/arbitra",
   downloadUrl: extension.chromeUrl,
-  screenshot: "https://dev-tools-hub.xyz/screenshots/arbitra/screenshot-1.png"
+  screenshot: "https://dev-tools-hub.xyz/screenshots/arbitra/screenshot-01.png",
+  featureList: "クロスプラットフォーム価格比較, 利益計算機能, キーワード編集, 価格統計, 検索履歴, 無制限検索, 価格下落アラート, CSVエクスポート",
 };
 ---
 
@@ -74,9 +83,10 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - せどり価格比較ツール`}
-  seoDescription="Amazon、メルカリ、ヤフオクの価格を一括比較できる無料Chrome拡張機能。利益計算機能搭載。"
-  seoKeywords="価格比較, せどりツール, amazon, メルカリ, ヤフオク, 転売, chrome拡張機能"
+  faqItems={faqItems}
+  seoTitle="Arbitra - せどり価格比較ツール | Amazon・メルカリ・ヤフオク一括比較"
+  seoDescription="Amazon、メルカリ、ヤフオクの価格を一括比較できる無料Chrome拡張機能。利益計算機能搭載で、手数料・送料込みの正確な利益をワンクリックで計算。"
+  seoKeywords="価格比較, せどりツール, amazon, メルカリ, ヤフオク, 転売, chrome拡張機能, 利益計算, せどり"
   ogImage="/images/og-arbitra.webp"
   ctaTitle="せどりを効率化しよう"
   ctaDescription="Arbitraで利益の出る商品を瞬時に発見。"

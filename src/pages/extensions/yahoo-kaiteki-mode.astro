@@ -14,6 +14,7 @@ const extension = {
   icon: "/ext-icons/yahoo-kaiteki-mode.webp",
   rating: 0,
   reviewCount: 0,
+  userCount: 14,
 };
 
 const overview = "Yahoo快適モードは、Yahoo! JAPANのニュース閲覧体験を劇的に改善するChrome拡張機能です。「ネットで話題」「批判殺到」などの煽りタイトル、SNSのコピペだけで構成された低品質な「こたつ記事」、週刊誌のゴシップ記事をフィルタリング。本当に価値のあるニュースだけを読むことができます。";
@@ -48,15 +49,25 @@ const relatedProducts = [
   { name: "Shorts Killer", category: "Wellbeing", link: "/extensions/shorts-killer/", icon: "/ext-icons/shorts-killer.webp" },
 ];
 
+const faqItems = [
+  { question: "Yahoo快適モードは無料ですか？", answer: "基本機能は無料で利用できます。AI検出や無制限ブロックリストなどの高度な機能はPro版（¥700）で利用可能です。" },
+  { question: "どのような記事がフィルタリングされますか？", answer: "煽りタイトルの記事、週刊誌のゴシップ記事、SNSコピペの低品質な「こたつ記事」などがフィルタリング対象です。プリセットフィルターでワンクリック設定できます。" },
+  { question: "Edgeブラウザでも使えますか？", answer: "はい、Chrome版とEdge版の両方を提供しています。" },
+];
+
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Yahoo快適モード",
-  description: extension.tagline,
-  applicationCategory: "BrowserApplication",
-  operatingSystem: "Edge",
+  description: "Yahoo!ニュースの低品質記事を自動フィルタリング。煽り記事やこたつ記事を非表示にして快適なニュース閲覧体験を実現するChrome拡張機能。",
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome, Edge",
   offers: { "@type": "Offer", price: "0", priceCurrency: "JPY" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/yahoo-kaiteki-mode",
+  downloadUrl: extension.chromeUrl,
+  screenshot: "https://dev-tools-hub.xyz/screenshots/yahoo-kaiteki-mode/screenshot-01.png",
+  featureList: "キーワードフィルタリング, ソースブロック, プリセットフィルター, フィルター統計, こたつ記事AI検出, 無制限ブロックリスト, 詳細統計ダッシュボード",
 };
 ---
 
@@ -68,9 +79,10 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - Yahoo!ニュース快適フィルター`}
-  seoDescription="Yahoo!ニュースの低品質記事を自動フィルタリング。煽り記事やこたつ記事を非表示に。"
-  seoKeywords="Yahoo ニュース, フィルター, こたつ記事, 炎上, Chrome拡張機能, ニュースブロック"
+  faqItems={faqItems}
+  seoTitle="Yahoo快適モード - Yahoo!ニュースフィルター | 煽り記事・こたつ記事を非表示"
+  seoDescription="Yahoo!ニュースの低品質記事を自動フィルタリングする無料Chrome拡張機能。煽り記事・こたつ記事・週刊誌ゴシップを非表示にして快適閲覧。"
+  seoKeywords="Yahoo ニュース, フィルター, こたつ記事, 炎上, Chrome拡張機能, ニュースブロック, 煽り記事, Yahoo快適モード"
   ctaTitle="快適なニュース体験を"
   ctaDescription="質の高いニュースだけを読む、新しい習慣を。"
 />

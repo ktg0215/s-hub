@@ -13,6 +13,7 @@ const extension = {
   icon: "/ext-icons/tver-plus.webp",
   rating: 0,
   reviewCount: 0,
+  userCount: 19,
 };
 
 const overview = "TVerの視聴体験を向上させるChrome拡張機能です。2倍速以上の再生、ピクチャインピクチャ（PiP）、便利なキーボードショートカットに対応。無料版でも0.75x〜2.0xの速度調整が可能。Pro版では0.25x〜4.0xの細かい速度調整、PiP保護機能、マウスホイール操作、シアターモードなど充実した機能を利用できます。";
@@ -54,15 +55,25 @@ const relatedProducts = [
   { name: "ZenRead", category: "Productivity", link: "/extensions/zenread/", icon: "/ext-icons/ZenRead.webp" },
 ];
 
+const faqItems = [
+  { question: "TVer Plusは無料ですか？", answer: "基本機能（0.75x〜2.0xの速度調整、PiP、キーボードショートカット）は無料です。Pro版（¥700）で0.25x〜4.0xの速度調整やマウスホイール操作が利用可能。" },
+  { question: "TVerの広告は非表示にできますか？", answer: "TVer Plusは再生操作の強化に特化した拡張機能です。広告ブロック機能は含まれていません。" },
+  { question: "キーボードショートカットはカスタマイズできますか？", answer: "S/Dで速度調整、Z/Xで10秒スキップ、Spaceで再生/停止、Pでピクチャインピクチャなど、あらかじめ設定されたショートカットをご利用いただけます。" },
+];
+
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "TVer Plus",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "JPY" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/tver-plus",
+  downloadUrl: extension.chromeUrl,
+  screenshot: "https://dev-tools-hub.xyz/screenshots/tver-plus/screenshot-01.png",
+  featureList: "再生速度変更, ピクチャインピクチャ, キーボードショートカット, マウスホイール操作, 速度オーバーレイ, クリック操作",
 };
 ---
 
@@ -75,9 +86,10 @@ const softwareSchema = {
   relatedProducts={relatedProducts}
   keyboardShortcuts={keyboardShortcuts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - TVer再生速度変更・PiP対応`}
-  seoDescription="TVerの視聴体験を向上。2倍速以上の再生、PiP、キーボードショートカットに対応。"
-  seoKeywords="TVer, 再生速度, ピクチャインピクチャ, Chrome拡張機能, 動画プレイヤー"
+  faqItems={faqItems}
+  seoTitle="TVer Plus - TVer再生速度変更・PiP対応 | 無料Chrome拡張機能"
+  seoDescription="TVerの視聴体験を向上させる無料Chrome拡張機能。2倍速以上の再生、ピクチャインピクチャ（PiP）、便利なキーボードショートカットに対応。"
+  seoKeywords="TVer, 再生速度, ピクチャインピクチャ, PiP, Chrome拡張機能, 動画プレイヤー, TVer倍速, TVer Plus"
   ctaTitle="TVerをもっと快適に"
   ctaDescription="再生速度変更とPiPで、効率的な視聴体験を。"
 />

@@ -14,6 +14,7 @@ const extension = {
   icon: "/ext-icons/rakuten-sellers-analytics.webp",
   rating: 4.7,
   reviewCount: 22,
+  userCount: 33,
 };
 
 const overview = "楽天市場で成功するために必要なすべてのデータを、一つの拡張機能で。キーワードリサーチ、競合分析、利益計算を統合した楽天出店者向け分析ツール。データに基づいた意思決定でビジネスを成長させましょう。";
@@ -44,18 +45,26 @@ const relatedProducts = [
   { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
 ];
 
+const faqItems = [
+  { question: "Rakuten Sellers Analyticsの料金は？", answer: "月額¥1,980（約$12.99/月）です。すべての分析機能をご利用いただけます。" },
+  { question: "楽天市場以外のECサイトにも対応していますか？", answer: "現在は楽天市場専用です。楽天市場のデータに特化した精度の高い分析を提供しています。" },
+  { question: "無料トライアルはありますか？", answer: "Chrome Web Storeからインストール後、基本機能をお試しいただけます。" },
+];
+
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "Rakuten Sellers Analytics",
-  description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  description: "楽天市場出店者のためのプロフェッショナル分析ツール。キーワードリサーチ、競合分析、利益計算機能搭載。",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome, Edge",
   offers: { "@type": "Offer", price: "12.99", priceCurrency: "USD" },
-  aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), ratingCount: extension.reviewCount.toString() },
+  aggregateRating: { "@type": "AggregateRating", ratingValue: extension.rating.toString(), reviewCount: extension.reviewCount.toString() },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/rakuten-sellers-analytics",
   downloadUrl: extension.chromeUrl,
-  screenshot: "https://dev-tools-hub.xyz/screenshots/rakuten-sellers-analytics/screenshot-1.png"
+  screenshot: "https://dev-tools-hub.xyz/screenshots/rakuten-sellers-analytics/screenshot-1.png",
+  featureList: "キーワードリサーチ, 競合分析, 利益計算機能, 市場分析",
 };
 ---
 
@@ -67,9 +76,10 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - 楽天市場分析ツール`}
-  seoDescription="楽天市場出店者向けプロフェッショナル分析ツール。キーワードリサーチ、競合分析、利益計算機能搭載。"
-  seoKeywords="楽天 分析, 楽天 出店者ツール, 楽天 キーワードリサーチ, EC分析, chrome拡張機能"
+  faqItems={faqItems}
+  seoTitle="Rakuten Sellers Analytics - 楽天市場分析ツール | 出店者向けChrome拡張"
+  seoDescription="楽天市場出店者向けプロフェッショナル分析Chrome拡張機能。キーワードリサーチ、競合分析、利益計算機能搭載。データで売上アップ。"
+  seoKeywords="楽天 分析, 楽天 出店者ツール, 楽天 キーワードリサーチ, EC分析, chrome拡張機能, 楽天市場, 競合分析"
   ogImage="/images/og-rakuten-sellers-analytics.webp"
   ctaTitle="楽天市場で成功しよう"
   ctaDescription="データドリブンな意思決定を今すぐ始めましょう。"

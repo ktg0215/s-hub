@@ -12,6 +12,7 @@ const extension = {
   icon: "/ext-icons/Pagememo.png",
   rating: 0,
   reviewCount: 0,
+  userCount: 6,
 };
 
 const overview = "A Chrome extension that automatically displays notes linked to URLs. When you revisit a webpage, your previous notes appear automatically in the side panel. Features a Tiptap-based rich text editor with bold, italic, headings, lists, task lists, and more. All notes are stored locally on your device.";
@@ -56,10 +57,13 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   name: "PageMemo",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/pagememo",
+  screenshot: "https://dev-tools-hub.xyz/screenshots/Pagememo/screenshot-01.png",
+  featureList: "URL-Linked Notes, Rich Text Editor, Category Management, Full-Text Search, Theme Support, Export/Import",
 };
 ---
 
@@ -72,7 +76,7 @@ const softwareSchema = {
   relatedProducts={relatedProducts}
   keyboardShortcuts={keyboardShortcuts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - URL-Linked Local Notes`}
-  seoDescription="Take notes linked to any URL. Auto-appear when you revisit pages. Rich text editor, local storage."
-  seoKeywords="page notes, url notes, web annotations, chrome extension, productivity"
+  seoTitle="PageMemo - URL-Linked Local Notes | Chrome Extension"
+  seoDescription="Take notes linked to any URL that auto-appear when you revisit pages. Rich text editor with categories and full-text search. All data stored locally."
+  seoKeywords="page notes, url notes, web annotations, chrome extension, productivity, local notes, web notes"
 />

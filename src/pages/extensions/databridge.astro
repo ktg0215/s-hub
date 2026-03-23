@@ -13,6 +13,7 @@ const extension = {
   icon: "/ext-icons/databridge.webp",
   rating: 0,
   reviewCount: 0,
+  userCount: 0,
 };
 
 const overview = "DataBridge is a Chrome extension that enables visual data transfer between web pages. Select elements from a source page, match them with target fields using numbered badges, and transfer data with a single click. Perfect for data entry, form filling, and repetitive copy-paste tasks across different systems. Free plan includes 10 templates and 30 actions/month. Pro unlocks unlimited usage.";
@@ -53,11 +54,13 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   name: "DataBridge",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
-  screenshot: "https://dev-tools-hub.xyz/screenshots/databridge/screenshot-01.png"
+  url: "https://dev-tools-hub.xyz/extensions/databridge",
+  screenshot: "https://dev-tools-hub.xyz/screenshots/databridge/screenshot-01.png",
+  featureList: "Visual Element Selection, Number-Based Matching, One-Click Transfer, Template System, Notepad Mode, Smart Selector Generation, Export & Import, Multi-Language & Dark Mode",
 };
 ---
 
@@ -69,9 +72,9 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - Visual Data Transfer Between Web Pages`}
+  seoTitle="DataBridge - Visual Data Transfer Between Web Pages | Chrome Extension"
   seoDescription="Transfer data between web pages with visual element mapping. Match source and target elements by number, transfer with one click. Free Chrome extension."
-  seoKeywords="data transfer, web automation, form filler, copy paste, chrome extension, data entry, element mapping"
+  seoKeywords="data transfer, web automation, form filler, copy paste, chrome extension, data entry, element mapping, web data transfer"
   ogImage="/screenshots/databridge/screenshot-01.png"
   ctaTitle="Simplify Your Data Entry Workflow"
   ctaDescription="Stop copying and pasting manually. Let DataBridge handle it with visual precision."

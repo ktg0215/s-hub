@@ -6,12 +6,14 @@ const extension = {
   subtitle: "SEO Meta Analyzer",
   tagline: "Analyze SEO meta tags, headings, schemas, images, and links with one click. Score your on-page SEO instantly.",
   price: "Free / Pro",
+  status: "Available",
   chromeUrl: "https://chromewebstore.google.com/detail/onpagex-seo-meta-analyzer/bnmkiihgfmmedaikcipkihcpabjbmdcc",
   category: "SEO Tools",
   lang: "EN",
   icon: "/ext-icons/onpagex.png",
   rating: 0,
   reviewCount: 0,
+  userCount: 0,
 };
 
 const overview = "OnPageX is a comprehensive on-page SEO analysis tool for Chrome. With a single click, it analyzes meta tags, heading structure, structured data (Schema.org), images, and links on any webpage. Get an instant SEO score with actionable recommendations. Features include SERP preview, competitor comparison, bulk page checking, export to PDF/JSON, and a history of analyzed pages. Pro features unlock advanced analysis, custom rules, and bulk operations.";
@@ -50,10 +52,14 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   name: "OnPageX",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/onpagex",
+  downloadUrl: extension.chromeUrl,
+  screenshot: "https://dev-tools-hub.xyz/screenshots/onpagex/screenshot-01.png",
+  featureList: "Instant SEO Score, SERP Preview, Schema Validation, Heading Structure, Image & Link Audit, Export & History",
 };
 ---
 
@@ -65,7 +71,7 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - SEO Meta Analyzer for Chrome`}
-  seoDescription="Analyze SEO meta tags, headings, schemas, images, and links with one click. Get an instant SEO score with actionable recommendations."
-  seoKeywords="seo analyzer, meta tags, chrome extension, on-page seo, schema validation, serp preview"
+  seoTitle="OnPageX - SEO Meta Analyzer & On-Page Audit | Chrome Extension"
+  seoDescription="Analyze SEO meta tags, headings, schemas, images, and links with one click. Get an instant SEO score with SERP preview and actionable recommendations."
+  seoKeywords="seo analyzer, meta tags, chrome extension, on-page seo, schema validation, serp preview, seo audit, heading structure"
 />

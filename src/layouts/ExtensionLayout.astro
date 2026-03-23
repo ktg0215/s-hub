@@ -33,6 +33,7 @@ interface Props {
     icon: string;
     rating: number;
     reviewCount: number;
+    userCount?: number;
   };
   overview: string;
   features: Feature[];
@@ -48,6 +49,7 @@ interface Props {
   seoKeywords: string;
   ogImage?: string;
   softwareSchema: object;
+  faqItems?: { question: string; answer: string }[];
   ctaTitle?: string;
   ctaDescription?: string;
 }
@@ -68,6 +70,7 @@ const {
   seoKeywords,
   ogImage,
   softwareSchema,
+  faqItems,
   ctaTitle = "Ready to Get Started?",
   ctaDescription = `Install ${extension.name} now.`,
 } = Astro.props;
@@ -105,6 +108,20 @@ const breadcrumbSchema = {
     }
   ]
 };
+
+// FAQPage schema (optional)
+const faqSchema = faqItems && faqItems.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqItems.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": item.answer
+    }
+  }))
+} : null;
 ---
 
 <Layout
@@ -118,6 +135,9 @@ const breadcrumbSchema = {
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(softwareSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    {faqSchema && (
+      <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+    )}
   </Fragment>
 
   <div class="pt-24 pb-16">
@@ -174,6 +194,14 @@ const breadcrumbSchema = {
                   <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                 </svg>
                 <span class="font-mono text-xs">{extension.rating.toFixed(1)} ({extension.reviewCount})</span>
+              </div>
+            )}
+            {extension.userCount != null && extension.userCount > 0 && (
+              <div class="flex items-center gap-1.5 text-sm text-zinc-500">
+                <svg class="w-4 h-4 text-zinc-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+                <span class="font-mono text-xs">{extension.userCount}+ users</span>
               </div>
             )}
           </div>
@@ -377,6 +405,26 @@ const breadcrumbSchema = {
         ))}
       </ul>
     </section>
+
+    <!-- FAQ Section (optional) -->
+    {faqItems && faqItems.length > 0 && (
+      <section class="px-6 py-8 max-w-4xl mx-auto">
+        <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// faq</h2>
+        <div class="space-y-3">
+          {faqItems.map((item) => (
+            <details class="product-card p-4 group">
+              <summary class="flex items-center justify-between cursor-pointer text-[13px] font-medium text-zinc-900">
+                <span>{item.question}</span>
+                <svg class="w-4 h-4 text-zinc-400 group-open:rotate-180 transition-transform flex-shrink-0 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </summary>
+              <p class="text-zinc-500 text-xs leading-relaxed mt-2">{item.answer}</p>
+            </details>
+          ))}
+        </div>
+      </section>
+    )}
 
     <!-- CTA Section -->
     {!isComingSoon && (extension.chromeUrl || extension.edgeUrl || extension.webAppUrl) && (

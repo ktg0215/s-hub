@@ -6,12 +6,14 @@ const extension = {
   subtitle: "Auto-Generate Step-by-Step Guides",
   tagline: "Auto-record browser actions to create step-by-step guides with screenshots. Save 90% documentation time.",
   price: "Free",
+  status: "Available",
   chromeUrl: "https://chromewebstore.google.com/detail/%E6%89%8B%E9%A0%86%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3-%E6%89%8B%E9%A0%86%E6%9B%B8%E3%83%BB%E6%93%8D%E4%BD%9C%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB%E8%87%AA%E5%8B%95%E4%BD%9C%E6%88%90/ieblehdloggcpmkncplccjofeoakhkll",
   category: "Productivity",
   lang: "EN",
   icon: "/ext-icons/procshot.png",
   rating: 0,
   reviewCount: 0,
+  userCount: 0,
 };
 
 const overview = "Procshot automatically records your browser clicks and keystrokes to generate professional step-by-step guides with annotated screenshots. Start capturing, perform your workflow, and get a ready-to-share document. Export as PDF (with Japanese font support), Markdown, or HTML. Built-in annotation tools let you add boxes, arrows, text, and blur effects to screenshots. Ideal for creating onboarding materials, SOPs, and training documents.";
@@ -50,10 +52,14 @@ const softwareSchema = {
   "@type": "SoftwareApplication",
   name: "Procshot",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/procshot",
+  downloadUrl: extension.chromeUrl,
+  screenshot: "https://dev-tools-hub.xyz/screenshots/procshot/screenshot-01.png",
+  featureList: "Auto-Record Actions, Smart Step Descriptions, Screenshot Annotations, Multi-Format Export, Guide Management, Page Navigation Detection",
 };
 ---
 
@@ -65,7 +71,7 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle={`${extension.name} - Auto-Generate Step-by-Step Guides`}
-  seoDescription="Auto-record browser actions to create step-by-step guides with annotated screenshots. Export as PDF, Markdown, or HTML."
-  seoKeywords="step-by-step guide, screenshot documentation, browser recording, sop creator, chrome extension, workflow documentation"
+  seoTitle="Procshot - Auto-Generate Step-by-Step Guides | Free Chrome Extension"
+  seoDescription="Auto-record browser actions to create step-by-step guides with annotated screenshots. Export as PDF, Markdown, or HTML. Save 90% documentation time."
+  seoKeywords="step-by-step guide, screenshot documentation, browser recording, sop creator, chrome extension, workflow documentation, process documentation"
 />

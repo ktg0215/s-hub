@@ -13,6 +13,7 @@ const extension = {
   icon: "/ext-icons/datapick.webp",
   rating: 0,
   reviewCount: 0,
+  userCount: 66,
 };
 
 const overview = "Tired of copying and pasting data from websites one by one? DataPick lets you scrape any website with just a few clicks. Simply click on the data you want, and DataPick automatically finds all similar elements on the page. Export your data to CSV, Excel, or Google Sheets instantly. No coding skills required.";
@@ -48,17 +49,26 @@ const relatedProducts = [
   { name: "ReShapic", category: "Image Tools", link: "/extensions/reshapic/", icon: "/ext-icons/reshapic.png" },
 ];
 
+const faqItems = [
+  { question: "Do I need coding skills to use DataPick?", answer: "No. DataPick uses a point-and-click interface. Simply click on the data you want, and DataPick automatically finds all similar elements on the page." },
+  { question: "What formats can I export to?", answer: "DataPick supports CSV, Excel (XLSX), JSON, and Google Sheets export." },
+  { question: "Is DataPick a subscription?", answer: "No. DataPick is a one-time purchase of $19 with no recurring fees." },
+  { question: "Can I scrape multiple pages automatically?", answer: "Yes, the Pro version includes multi-page scraping that automatically follows pagination links." },
+];
+
 const softwareSchema = {
   "@context": "https://schema.org",
   "@type": "SoftwareApplication",
   name: "DataPick",
   description: extension.tagline,
-  applicationCategory: "BrowserApplication",
+  applicationCategory: "BrowserExtension",
   operatingSystem: "Chrome",
   offers: { "@type": "Offer", price: "19", priceCurrency: "USD" },
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/datapick",
   downloadUrl: extension.chromeUrl,
   screenshot: "https://dev-tools-hub.xyz/screenshots/datapick/screenshot-01.png",
+  featureList: "Point & Click Selection, Smart Element Detection, Multiple Export Options, Live Data Preview, Save Scraping Recipes, Multi-page Scraping, Duplicate Detection",
 };
 ---
 
@@ -70,9 +80,10 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
-  seoTitle="DataPick - No-Code Web Scraping Chrome Extension"
+  faqItems={faqItems}
+  seoTitle="DataPick - No-Code Web Scraping Tool | Chrome Extension"
   seoDescription="Extract data from any website without coding. Point-and-click scraping with CSV, Excel, and Google Sheets export. Save scraping recipes and reuse them."
-  seoKeywords="web scraping, data extraction, no-code, csv export, chrome extension, google sheets export, scraping tool"
+  seoKeywords="web scraping, data extraction, no-code scraper, csv export, chrome extension, google sheets export, scraping tool, web data"
   ctaTitle="Start Extracting Data"
   ctaDescription="Point, click, and export — web scraping made simple."
 />
