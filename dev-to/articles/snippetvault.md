@@ -194,4 +194,4 @@ If you spend time writing code in browser-based tools -- whether it is GitHub, o
 
 The extension supports 18 programming languages, smart variables, fuzzy search, and one-click copy. It is free to install and use.
 
-**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/snippetvault/gnnmjklohcoaiheikefoifiekcnndcdi)**
+{% embed https://chromewebstore.google.com/detail/snippetvault/gnnmjklohcoaiheikefoifiekcnndcdi %}

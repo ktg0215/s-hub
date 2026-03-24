@@ -277,6 +277,6 @@ After building SnapReply, here are the principles I'd share with anyone building
 
 If you spend any amount of time replying to emails, give SnapReply a try. The free tier includes 10 templates with slash-command shortcuts, variable support, and folder organization — enough to cover most people's daily reply patterns.
 
-**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/snapreply-for-gmail/pijandokkbhdejnoienhjmoicjapgpmk)**
+{% embed https://chromewebstore.google.com/detail/snapreply-for-gmail/pijandokkbhdejnoienhjmoicjapgpmk %}
 
 If you've built a Gmail extension yourself, I'd love to hear what traps you fell into. Drop a comment below — misery loves company when it comes to Gmail's DOM.

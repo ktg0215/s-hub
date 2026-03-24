@@ -189,7 +189,7 @@ The extension supports 8 languages: English, Japanese, Spanish, Portuguese (BR),
 If you're migrating from EditThisCookie, the transition is straightforward — CookieJar reads the same Chrome cookies API, so all your existing cookies are visible immediately after installation. There's nothing to import or configure.
 
 **Install CookieJar from the Chrome Web Store:**
-**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/cookiejar/hcbehagiigcdjgphhdnmmfdgnbaolhpc)**
+{% embed https://chromewebstore.google.com/detail/cookiejar/hcbehagiigcdjgphhdnmmfdgnbaolhpc %}
 
 ---
 

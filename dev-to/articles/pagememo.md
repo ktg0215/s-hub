@@ -240,4 +240,4 @@ The side panel can use ES modules, dynamic imports, and all the features you wou
 
 If you are the kind of person who keeps mental notes about web pages -- and then forgets them -- PageMemo might change your workflow. Open the side panel, type your thoughts, navigate away, come back, and the note is there. No account required, no setup, no friction.
 
-**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/jmpmfbheoclfmceceihjpcjlabakkdde)**
+{% embed https://chromewebstore.google.com/detail/jmpmfbheoclfmceceihjpcjlabakkdde %}

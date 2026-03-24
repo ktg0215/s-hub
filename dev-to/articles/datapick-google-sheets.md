@@ -175,4 +175,4 @@ It handles JavaScript-rendered pages, authenticated sessions, and structural cha
 
 Give it a try and see how it fits into your data collection workflow.
 
-**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf)**
+{% embed https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf %}

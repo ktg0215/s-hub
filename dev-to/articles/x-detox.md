@@ -340,6 +340,6 @@ The entire extension is lightweight by design. No React in the content script, n
 
 If you're tired of X's algorithmic feed deciding what you see, give X Detox a try. It's free for the core features and works instantly -- no account linking, no configuration required. Install it, and your timeline becomes chronological.
 
-**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/x-detox-hide-for-you-tren/hlaankalmjmaefkcabjcfagnkfhlkpce)**
+{% embed https://chromewebstore.google.com/detail/x-detox-hide-for-you-tren/hlaankalmjmaefkcabjcfagnkfhlkpce %}
 
 If you have questions about the implementation or want to share your own experience with algorithmic feed detox, drop a comment below.

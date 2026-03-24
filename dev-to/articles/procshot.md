@@ -283,4 +283,4 @@ If you have ever spent an afternoon screenshotting and annotating a step-by-step
 
 The free tier gives you 5 guides per month with HTML and Markdown export. Pro adds unlimited guides, PDF export, and screenshot annotations with highlight boxes, arrows, text labels, and blur for sensitive data.
 
-**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/ieblehdloggcpmkncplccjofeoakhkll)**
+{% embed https://dev-tools-hub.xyz/extensions/procshot %}

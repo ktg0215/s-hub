@@ -302,4 +302,4 @@ Building this extension taught me a few things about working with content script
 
 If you use Yahoo! JAPAN and want a cleaner news experience, give it a try.
 
-**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/oeinpjbbingpakilcejimbibfcbbfkkg)**
+{% embed https://dev-tools-hub.xyz/extensions/yahoo-kaiteki-mode %}

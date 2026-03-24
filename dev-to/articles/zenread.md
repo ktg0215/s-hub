@@ -16,7 +16,7 @@ So I built my own.
 
 **ZenRead** is a Chrome extension that gives you a proper reader mode with accessibility features, bionic reading, text-to-speech, and site-specific content extraction rules. It started as a weekend project to scratch my own itch, and it turned into something I use every single day.
 
-**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/zenread/adoiakplckmoahmiainobfpmdomnhomj)**
+{% embed https://chromewebstore.google.com/detail/zenread/adoiakplckmoahmiainobfpmdomnhomj %}
 
 ## The Core: Extracting Content with Readability.js
 
@@ -297,6 +297,6 @@ Building a reader mode extension taught me a few things:
 
 If you read a lot of articles in Chrome and wish it had a proper reader mode, give ZenRead a try. I built it for myself, but I'd love to hear what you think.
 
-**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/zenread/adoiakplckmoahmiainobfpmdomnhomj)**
+{% embed https://chromewebstore.google.com/detail/zenread/adoiakplckmoahmiainobfpmdomnhomj %}
 
 If you have questions about the implementation or run into any issues, drop a comment below. I'm happy to dig into the technical details.

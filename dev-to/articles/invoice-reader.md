@@ -237,7 +237,7 @@ Each preset maps the extracted fields to the specific column format expected by 
 
 The extension is free on the Chrome Web Store:
 
-**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/kdlmfhdnnpbiogcbajgjheobihhanpae)**
+{% embed https://dev-tools-hub.xyz/extensions/invoice-reader %}
 
 It works on any Chromium-based browser (Chrome, Edge, Brave, Arc). Open a PDF invoice in your browser, click the extension icon to open the side panel, and it extracts the data automatically. No account creation, no cloud upload, no subscription.
 
