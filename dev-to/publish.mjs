@@ -95,7 +95,8 @@ async function apiCall(method, endpoint, data, retries = 3) {
   for (let attempt = 1; attempt <= retries; attempt++) {
     const res = await fetch(url, opts);
     if (res.status === 429) {
-      const wait = attempt * 30;
+      const retryAfter = res.headers.get("retry-after");
+      const wait = retryAfter ? parseInt(retryAfter, 10) : attempt * 30;
       console.log(`    [RATE LIMIT] Waiting ${wait}s before retry ${attempt}/${retries}...`);
       await sleep(wait * 1000);
       continue;
@@ -143,12 +144,14 @@ async function main() {
   const today = new Date().toISOString().slice(0, 10);
   console.log(`[${today}] Dev.to Scheduled Publisher started`);
 
-  const files = fs.readdirSync(ARTICLES_DIR).filter(f => f.endsWith(".md"));
+  const files = fs.readdirSync(ARTICLES_DIR).filter(f => f.endsWith(".md")).sort();
   console.log(`Found ${files.length} article(s)`);
 
   let published = 0;
   let synced = 0;
   let skipped = 0;
+  let errors = 0;
+  let changed = false;
 
   for (let i = 0; i < files.length; i++) {
     const file = files[i];
@@ -170,38 +173,49 @@ async function main() {
     console.log(`    devto_id: ${meta.devto_id || "none"}`);
     console.log(`    published: ${meta.published}`);
 
-    // Step 1: Create draft if no devto_id
-    if (!meta.devto_id) {
-      console.log("    -> Creating draft on Dev.to...");
-      const result = await createArticle(meta, body);
-      meta.devto_id = result.id;
-      writeFrontmatter(filePath, meta, body);
-      console.log(`    -> Created draft (id: ${result.id})`);
-      synced++;
-    }
+    try {
+      // Step 1: Create draft if no devto_id
+      if (!meta.devto_id) {
+        console.log("    -> Creating draft on Dev.to...");
+        const result = await createArticle(meta, body);
+        meta.devto_id = result.id;
+        writeFrontmatter(filePath, meta, body);
+        changed = true;
+        console.log(`    -> Created draft (id: ${result.id})`);
+        synced++;
+      }
 
-    // Step 2: Publish if publish_date has arrived and not yet published
-    if (meta.publish_date && meta.publish_date <= today && !meta.published) {
-      console.log("    -> Publishing...");
-      await updateArticle(meta.devto_id, meta, body, true);
-      meta.published = true;
-      writeFrontmatter(filePath, meta, body);
-      console.log(`    -> Published!`);
-      published++;
-    } else if (meta.published) {
-      // Sync content update for already published articles
-      console.log("    -> Already published, syncing content...");
-      await updateArticle(meta.devto_id, meta, body, true);
-      synced++;
-    } else {
-      // Update draft content
-      console.log(`    -> Draft updated (publishes on ${meta.publish_date})`);
-      await updateArticle(meta.devto_id, meta, body, false);
-      skipped++;
+      // Step 2: Publish if publish_date has arrived and not yet published
+      if (meta.publish_date && meta.publish_date <= today && !meta.published) {
+        console.log("    -> Publishing...");
+        await updateArticle(meta.devto_id, meta, body, true);
+        meta.published = true;
+        writeFrontmatter(filePath, meta, body);
+        changed = true;
+        console.log(`    -> Published!`);
+        published++;
+      } else if (meta.published) {
+        // Already published, skip (no need to sync every day)
+        console.log("    -> Already published, skipping.");
+        skipped++;
+      } else {
+        // Not yet time to publish, skip draft update
+        console.log(`    -> Scheduled for ${meta.publish_date}, skipping.`);
+        skipped++;
+      }
+    } catch (err) {
+      console.error(`    [ERROR] ${file}: ${err.message}`);
+      errors++;
     }
   }
 
-  console.log(`\nDone: ${published} published, ${synced} synced, ${skipped} skipped`);
+  console.log(`\nDone: ${published} published, ${synced} synced, ${skipped} skipped, ${errors} errors`);
+  if (changed) {
+    console.log("FILES_CHANGED=true");
+  }
+  if (errors > 0) {
+    process.exit(1);
+  }
 }
 
 main().catch(e => {

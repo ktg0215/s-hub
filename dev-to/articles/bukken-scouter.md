@@ -344,6 +344,6 @@ The purchase version renders a panel with tsubo price, building age (color-coded
 
 Both extensions are free and available on the Chrome Web Store. Even if you're not apartment hunting in Japan, the codebase is a practical example of building a content-script-heavy Chrome extension that does real-time DOM analysis and data enrichment on a third-party site.
 
-**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/hnfccaipmcmbolhpdklolimlnjloknld)**
+**[Install Rental Version from Chrome Web Store](https://chromewebstore.google.com/detail/hnfccaipmcmbolhpdklolimlnjloknld)**
 
-**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/ioboepegcabodocflleblblnknlfpjka)**
+**[Install Purchase Version from Chrome Web Store](https://chromewebstore.google.com/detail/ioboepegcabodocflleblblnknlfpjka)**
