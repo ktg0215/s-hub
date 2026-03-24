@@ -303,3 +303,11 @@ Building this extension taught me a few things about working with content script
 If you use Yahoo! JAPAN and want a cleaner news experience, give it a try.
 
 {% embed https://dev-tools-hub.xyz/extensions/yahoo-kaiteki-mode %}
+
+---
+
+*Other tools I've built:*
+
+{% embed https://chromewebstore.google.com/detail/x-detox-hide-for-you-tren/hlaankalmjmaefkcabjcfagnkfhlkpce %}
+
+{% embed https://chromewebstore.google.com/detail/zenread/adoiakplckmoahmiainobfpmdomnhomj %}

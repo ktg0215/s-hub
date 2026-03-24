@@ -343,3 +343,11 @@ If you're tired of X's algorithmic feed deciding what you see, give X Detox a tr
 {% embed https://chromewebstore.google.com/detail/x-detox-hide-for-you-tren/hlaankalmjmaefkcabjcfagnkfhlkpce %}
 
 If you have questions about the implementation or want to share your own experience with algorithmic feed detox, drop a comment below.
+
+---
+
+*Other tools I've built:*
+
+{% embed https://dev-tools-hub.xyz/extensions/yahoo-kaiteki-mode %}
+
+{% embed https://chromewebstore.google.com/detail/zenread/adoiakplckmoahmiainobfpmdomnhomj %}

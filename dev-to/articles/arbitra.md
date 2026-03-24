@@ -255,3 +255,11 @@ The extension is also available on [Microsoft Edge Add-ons](https://microsoftedg
 ---
 
 *If this was useful, I'd appreciate a like or a bookmark. Got questions about building Chrome extensions or scraping product pages? Drop a comment below.*
+
+---
+
+*Other tools I've built:*
+
+{% embed https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf %}
+
+{% embed https://chromewebstore.google.com/detail/gbjklhkdilhnnfgikfcnahaijacnhfce %}

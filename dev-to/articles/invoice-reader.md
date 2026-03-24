@@ -244,3 +244,11 @@ It works on any Chromium-based browser (Chrome, Edge, Brave, Arc). Open a PDF in
 If you are building Chrome extensions that process documents, I hope the patterns described here -- offscreen document communication, quality-based fallback pipelines, spatial text reconstruction -- are useful starting points.
 
 Questions or feedback? Drop a comment below or open an issue on the project.
+
+---
+
+*Other tools I've built:*
+
+{% embed https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf %}
+
+{% embed https://chromewebstore.google.com/detail/gbjklhkdilhnnfgikfcnahaijacnhfce %}

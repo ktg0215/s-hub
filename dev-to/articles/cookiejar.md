@@ -194,3 +194,11 @@ If you're migrating from EditThisCookie, the transition is straightforward — C
 ---
 
 *If you found this useful, I'd appreciate a like or a bookmark. Questions or feature requests? Drop a comment below or open an issue on the extension's support page.*
+
+---
+
+*Other tools I've built:*
+
+{% embed https://chromewebstore.google.com/detail/onpagex-seo-meta-analyzer/bnmkiihgfmmedaikcipkihcpabjbmdcc %}
+
+{% embed https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf %}

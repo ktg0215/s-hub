@@ -269,3 +269,11 @@ The CRXJS Vite plugin deserves a mention. It makes Chrome extension development 
 If you regularly copy data between web pages -- filling invoices from CRMs, transferring spreadsheet data to admin panels, populating forms from other forms -- DataBridge eliminates the repetitive copy-paste cycle. Select your source elements, select your target fields, and transfer. Save templates for workflows you repeat.
 
 {% embed https://chromewebstore.google.com/detail/gbjklhkdilhnnfgikfcnahaijacnhfce %}
+
+---
+
+*Other tools I've built:*
+
+{% embed https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf %}
+
+{% embed https://chromewebstore.google.com/detail/onpagex-seo-meta-analyzer/bnmkiihgfmmedaikcipkihcpabjbmdcc %}

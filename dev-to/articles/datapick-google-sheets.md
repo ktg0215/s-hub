@@ -176,3 +176,11 @@ It handles JavaScript-rendered pages, authenticated sessions, and structural cha
 Give it a try and see how it fits into your data collection workflow.
 
 {% embed https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf %}
+
+---
+
+*Other tools I've built:*
+
+{% embed https://chromewebstore.google.com/detail/gbjklhkdilhnnfgikfcnahaijacnhfce %}
+
+{% embed https://chromewebstore.google.com/detail/onpagex-seo-meta-analyzer/bnmkiihgfmmedaikcipkihcpabjbmdcc %}

@@ -300,3 +300,11 @@ If you read a lot of articles in Chrome and wish it had a proper reader mode, gi
 {% embed https://chromewebstore.google.com/detail/zenread/adoiakplckmoahmiainobfpmdomnhomj %}
 
 If you have questions about the implementation or run into any issues, drop a comment below. I'm happy to dig into the technical details.
+
+---
+
+*Other tools I've built:*
+
+{% embed https://chromewebstore.google.com/detail/jmpmfbheoclfmceceihjpcjlabakkdde %}
+
+{% embed https://chromewebstore.google.com/detail/ageolfjmheacenbkgiahlkhkogcnocip %}

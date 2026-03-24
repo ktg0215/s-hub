@@ -406,3 +406,11 @@ Building a font inspection tool for Japanese web content revealed some interesti
 If you work with Japanese websites -- whether as a designer, developer, or typographer -- give it a try.
 
 {% embed https://chromewebstore.google.com/detail/ageolfjmheacenbkgiahlkhkogcnocip %}
+
+---
+
+*Other tools I've built:*
+
+{% embed https://chromewebstore.google.com/detail/onpagex-seo-meta-analyzer/bnmkiihgfmmedaikcipkihcpabjbmdcc %}
+
+{% embed https://chromewebstore.google.com/detail/zenread/adoiakplckmoahmiainobfpmdomnhomj %}

@@ -280,3 +280,11 @@ If you spend any amount of time replying to emails, give SnapReply a try. The fr
 {% embed https://chromewebstore.google.com/detail/snapreply-for-gmail/pijandokkbhdejnoienhjmoicjapgpmk %}
 
 If you've built a Gmail extension yourself, I'd love to hear what traps you fell into. Drop a comment below — misery loves company when it comes to Gmail's DOM.
+
+---
+
+*Other tools I've built:*
+
+{% embed https://chromewebstore.google.com/detail/snippetvault/gnnmjklohcoaiheikefoifiekcnndcdi %}
+
+{% embed https://chromewebstore.google.com/detail/jmpmfbheoclfmceceihjpcjlabakkdde %}

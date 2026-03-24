@@ -409,3 +409,11 @@ I initially considered building this with a raw Vite setup and the CRXJS plugin,
 If you do SEO work -- whether for your own sites or for clients -- and you want instant page-level analysis without leaving your browser, give OnPageX a try.
 
 {% embed https://chromewebstore.google.com/detail/onpagex-seo-meta-analyzer/bnmkiihgfmmedaikcipkihcpabjbmdcc %}
+
+---
+
+*Other tools I've built:*
+
+{% embed https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf %}
+
+{% embed https://chromewebstore.google.com/detail/ageolfjmheacenbkgiahlkhkogcnocip %}

@@ -347,3 +347,11 @@ Both extensions are free and available on the Chrome Web Store. Even if you're n
 {% embed https://dev-tools-hub.xyz/extensions/bukken-scouter-rental %}
 
 {% embed https://dev-tools-hub.xyz/extensions/bukken-scouter-purchase %}
+
+---
+
+*Other tools I've built:*
+
+{% embed https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf %}
+
+{% embed https://dev-tools-hub.xyz/extensions/arbitra %}
