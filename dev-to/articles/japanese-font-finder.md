@@ -1,11 +1,11 @@
 ---
 title: "I Built a Chrome Extension That Identifies Japanese Fonts on Any Web Page"
 published: false
-tags: ["chromeextension", "fonts", "css", "webdev"]
+tags: ["chromeextension","fonts","css","webdev"]
 series: null
 canonical_url: null
 publish_date: "2026-04-12"
-devto_id: null
+devto_id: "3392101"
 ---
 
 If you have ever inspected a Japanese website and tried to figure out which font is being used, you know the pain. You open DevTools, find the element, look at the computed `font-family`, and see something like `"Hiragino Kaku Gothic ProN", "Yu Gothic", "Meiryo", sans-serif`. That tells you the CSS declaration, but not which font is actually rendering on screen. And even if you figure that out, you might not know whether it is a system font, a Google Font, or a commercial font from Morisawa or Fontworks.
@@ -405,4 +405,4 @@ Building a font inspection tool for Japanese web content revealed some interesti
 
 If you work with Japanese websites -- whether as a designer, developer, or typographer -- give it a try.
 
-{% embed https://chromewebstore.google.com/detail/ageolfjmheacenbkgiahlkhkogcnocip %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/ageolfjmheacenbkgiahlkhkogcnocip)**

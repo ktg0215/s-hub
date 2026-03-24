@@ -1,11 +1,11 @@
 ---
 title: "I Built a Chrome Extension That Lets You Leave Notes on Any Webpage"
 published: false
-tags: ["chromeextension", "notes", "productivity", "webdev"]
+tags: ["chromeextension","notes","productivity","webdev"]
 series: null
 canonical_url: null
 publish_date: "2026-04-15"
-devto_id: null
+devto_id: "3392103"
 ---
 
 I have a problem with web pages. I visit a page, find something important, make a mental note about it, and then completely forget what I was thinking when I return to that page three days later. Maybe it was a documentation page where I figured out a tricky configuration. Maybe it was a Stack Overflow answer that almost solved my problem but needed a small tweak. Maybe it was a product page where I noted the price was too high and wanted to check back later.
@@ -240,4 +240,4 @@ The side panel can use ES modules, dynamic imports, and all the features you wou
 
 If you are the kind of person who keeps mental notes about web pages -- and then forgets them -- PageMemo might change your workflow. Open the side panel, type your thoughts, navigate away, come back, and the note is there. No account required, no setup, no friction.
 
-{% embed https://chromewebstore.google.com/detail/jmpmfbheoclfmceceihjpcjlabakkdde %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/jmpmfbheoclfmceceihjpcjlabakkdde)**

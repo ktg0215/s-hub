@@ -1,11 +1,11 @@
 ---
 title: "I Built a Gmail Template Extension — Here's What I Learned Fighting Gmail's DOM"
 published: false
-tags: ["chromeextension", "gmail", "productivity", "javascript"]
+tags: ["chromeextension","gmail","productivity","javascript"]
 series: null
 canonical_url: null
 publish_date: "2026-04-02"
-devto_id: null
+devto_id: "3392116"
 ---
 
 If you've ever built a Chrome extension that touches Gmail's UI, you know the pain. Obfuscated class names, aggressive keyboard event capturing, mutation storms that freeze your tab — Gmail is a hostile environment for extension developers.
@@ -277,6 +277,6 @@ After building SnapReply, here are the principles I'd share with anyone building
 
 If you spend any amount of time replying to emails, give SnapReply a try. The free tier includes 10 templates with slash-command shortcuts, variable support, and folder organization — enough to cover most people's daily reply patterns.
 
-{% embed https://chromewebstore.google.com/detail/snapreply-for-gmail/pijandokkbhdejnoienhjmoicjapgpmk %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/snapreply-for-gmail/pijandokkbhdejnoienhjmoicjapgpmk)**
 
 If you've built a Gmail extension yourself, I'd love to hear what traps you fell into. Drop a comment below — misery loves company when it comes to Gmail's DOM.

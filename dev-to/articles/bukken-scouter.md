@@ -1,11 +1,11 @@
 ---
 title: "Scraping Japan's Largest Real Estate Site with a Chrome Extension: Building an Automated Property Scoring Engine"
 published: false
-tags: ["chromeextension", "realestate", "javascript", "webdev"]
+tags: ["chromeextension","realestate","javascript","webdev"]
 series: null
 canonical_url: null
 publish_date: "2026-04-10"
-devto_id: null
+devto_id: "3392098"
 ---
 
 If you've ever apartment-hunted in Japan, you know the drill. You open SUUMO -- the country's dominant real estate portal, think Zillow but with near-monopoly status -- and you're immediately staring at dozens of property listings. Each card shows rent, area, station distance, building age. But the numbers that actually matter for making a decision? Those aren't there. You have to calculate them yourself, mentally, for every single listing.
@@ -344,6 +344,6 @@ The purchase version renders a panel with tsubo price, building age (color-coded
 
 Both extensions are free and available on the Chrome Web Store. Even if you're not apartment hunting in Japan, the codebase is a practical example of building a content-script-heavy Chrome extension that does real-time DOM analysis and data enrichment on a third-party site.
 
-{% embed https://chromewebstore.google.com/detail/hnfccaipmcmbolhpdklolimlnjloknld %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/hnfccaipmcmbolhpdklolimlnjloknld)**
 
-{% embed https://chromewebstore.google.com/detail/ioboepegcabodocflleblblnknlfpjka %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/ioboepegcabodocflleblblnknlfpjka)**

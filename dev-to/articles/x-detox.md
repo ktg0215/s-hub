@@ -1,11 +1,11 @@
 ---
 title: "I Built a Chrome Extension to Remove X/Twitter's Algorithmic Feed and Reclaim My Timeline"
 published: false
-tags: ["chromeextension", "twitter", "productivity", "mentalhealth"]
+tags: ["chromeextension","twitter","productivity","mentalhealth"]
 series: null
 canonical_url: null
 publish_date: "2026-04-09"
-devto_id: null
+devto_id: "3392106"
 ---
 
 I used to open Twitter to check what the people I follow were saying. Somewhere along the way, that stopped being what Twitter showed me.
@@ -340,6 +340,6 @@ The entire extension is lightweight by design. No React in the content script, n
 
 If you're tired of X's algorithmic feed deciding what you see, give X Detox a try. It's free for the core features and works instantly -- no account linking, no configuration required. Install it, and your timeline becomes chronological.
 
-{% embed https://chromewebstore.google.com/detail/x-detox-hide-for-you-tren/hlaankalmjmaefkcabjcfagnkfhlkpce %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/x-detox-hide-for-you-tren/hlaankalmjmaefkcabjcfagnkfhlkpce)**
 
 If you have questions about the implementation or want to share your own experience with algorithmic feed detox, drop a comment below.

@@ -1,11 +1,11 @@
 ---
 title: "I Built a One-Click SEO Analyzer Chrome Extension with Scoring, Schema Detection, and SERP Preview"
 published: false
-tags: ["chromeextension", "seo", "webdev", "html"]
+tags: ["chromeextension","seo","webdev","html"]
 series: null
 canonical_url: null
 publish_date: "2026-04-13"
-devto_id: null
+devto_id: "3392102"
 ---
 
 Every time I published a new page, I would open the browser DevTools, dig through the `<head>` section, manually check if I had a title, meta description, canonical URL, Open Graph tags, Twitter Card tags, structured data, and proper heading hierarchy. Then I would check the images for alt attributes. Then the links. Every. Single. Time.
@@ -408,4 +408,4 @@ I initially considered building this with a raw Vite setup and the CRXJS plugin,
 
 If you do SEO work -- whether for your own sites or for clients -- and you want instant page-level analysis without leaving your browser, give OnPageX a try.
 
-{% embed https://chromewebstore.google.com/detail/onpagex-seo-meta-analyzer/bnmkiihgfmmedaikcipkihcpabjbmdcc %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/onpagex-seo-meta-analyzer/bnmkiihgfmmedaikcipkihcpabjbmdcc)**

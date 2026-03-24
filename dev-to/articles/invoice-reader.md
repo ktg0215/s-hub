@@ -1,11 +1,11 @@
 ---
 title: "I Built a Free Invoice OCR Chrome Extension — No Cloud, No Signup"
 published: false
-tags: ["chromeextension", "ocr", "pdf", "productivity"]
+tags: ["chromeextension","ocr","pdf","productivity"]
 series: null
 canonical_url: null
 publish_date: "2026-04-04"
-devto_id: null
+devto_id: "3392112"
 ---
 
 Every freelancer knows the drill. A PDF invoice arrives. You open it, squint at the numbers, then manually type the vendor name, amounts, tax breakdowns, and registration IDs into a spreadsheet or accounting app. Repeat twenty times a month.
@@ -237,7 +237,7 @@ Each preset maps the extracted fields to the specific column format expected by 
 
 The extension is free on the Chrome Web Store:
 
-{% embed https://chromewebstore.google.com/detail/kdlmfhdnnpbiogcbajgjheobihhanpae %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/kdlmfhdnnpbiogcbajgjheobihhanpae)**
 
 It works on any Chromium-based browser (Chrome, Edge, Brave, Arc). Open a PDF invoice in your browser, click the extension icon to open the side panel, and it extracts the data automatically. No account creation, no cloud upload, no subscription.
 

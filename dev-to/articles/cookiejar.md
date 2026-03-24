@@ -1,11 +1,11 @@
 ---
 title: "EditThisCookie Got Removed — So I Built a Modern Cookie Editor for Chrome"
 published: false
-tags: ["chromeextension", "webdev", "privacy", "testing"]
+tags: ["chromeextension","webdev","privacy","testing"]
 series: null
 canonical_url: null
 publish_date: "2026-03-31"
-devto_id: null
+devto_id: "3392110"
 ---
 
 If you've ever worked with cookies during web development, you probably used EditThisCookie. It was the go-to Chrome extension for inspecting, editing, and deleting cookies. Over 3 million users relied on it daily.
@@ -189,7 +189,7 @@ The extension supports 8 languages: English, Japanese, Spanish, Portuguese (BR),
 If you're migrating from EditThisCookie, the transition is straightforward — CookieJar reads the same Chrome cookies API, so all your existing cookies are visible immediately after installation. There's nothing to import or configure.
 
 **Install CookieJar from the Chrome Web Store:**
-{% embed https://chromewebstore.google.com/detail/cookiejar/hcbehagiigcdjgphhdnmmfdgnbaolhpc %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/cookiejar/hcbehagiigcdjgphhdnmmfdgnbaolhpc)**
 
 ---
 

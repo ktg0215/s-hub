@@ -1,11 +1,11 @@
 ---
 title: "I Built a Chrome Extension That Transfers Data Between Web Pages Visually"
 published: false
-tags: ["chromeextension", "automation", "productivity", "forms"]
+tags: ["chromeextension","automation","productivity","forms"]
 series: null
 canonical_url: null
 publish_date: "2026-04-16"
-devto_id: null
+devto_id: "3392099"
 ---
 
 Here is a workflow I used to do ten times a day: open a CRM page, find a customer's name, address, and email, switch to an invoice generator, type all three fields manually. Or: open a spreadsheet export in the browser, copy a cell value, switch to an admin panel form, paste it, go back, copy the next cell, switch again, paste again. Repeat for every row.
@@ -268,4 +268,4 @@ The CRXJS Vite plugin deserves a mention. It makes Chrome extension development 
 
 If you regularly copy data between web pages -- filling invoices from CRMs, transferring spreadsheet data to admin panels, populating forms from other forms -- DataBridge eliminates the repetitive copy-paste cycle. Select your source elements, select your target fields, and transfer. Save templates for workflows you repeat.
 
-{% embed https://chromewebstore.google.com/detail/gbjklhkdilhnnfgikfcnahaijacnhfce %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/gbjklhkdilhnnfgikfcnahaijacnhfce)**

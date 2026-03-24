@@ -1,11 +1,11 @@
 ---
 title: "I Built a Cross-Platform Price Comparison Tool for Retail Arbitrage"
 published: false
-tags: ["chromeextension", "ecommerce", "productivity", "javascript"]
+tags: ["chromeextension","ecommerce","productivity","javascript"]
 series: null
 canonical_url: null
 publish_date: "2026-04-08"
-devto_id: null
+devto_id: "3392093"
 ---
 
 Retail arbitrage is conceptually simple: buy a product on one platform where it's cheap, sell it on another where it's expensive, and pocket the difference. In practice, it's death by browser tabs.
@@ -16,7 +16,7 @@ I went through this cycle hundreds of times before I decided to automate it. The
 
 This article covers the technical architecture, the scraping challenges I ran into, and the scoring algorithm that makes buy/pass decisions.
 
-{% embed https://chromewebstore.google.com/detail/arbitra/bincnlodgkpmmihbdoknndbncjfghpcj %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/arbitra/bincnlodgkpmmihbdoknndbncjfghpcj)**
 
 ## The Architecture: Content Scripts, Background Worker, and a Side Panel
 
@@ -248,7 +248,7 @@ The daily limit is tracked in Chrome's local storage with a simple date-count st
 
 If you do retail arbitrage between Japanese marketplaces, or if you're just curious about price differences across Amazon, Mercari, and Yahoo Auctions, give Arbitra a try. The free tier is enough to evaluate whether it fits your workflow.
 
-{% embed https://chromewebstore.google.com/detail/arbitra/bincnlodgkpmmihbdoknndbncjfghpcj %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/arbitra/bincnlodgkpmmihbdoknndbncjfghpcj)**
 
 The extension is also available on [Microsoft Edge Add-ons](https://microsoftedge.microsoft.com/addons/detail/arbitra-%E3%81%9B%E3%81%A9%E3%82%8A%E4%BE%A1%E6%A0%BC%E6%AF%94%E8%BC%83%E3%83%84%E3%83%BC%E3%83%AB/lajjanfkakbjmfhklflgdmnbdmdnkiok) for Edge users.
 

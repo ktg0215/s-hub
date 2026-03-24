@@ -1,11 +1,11 @@
 ---
 title: "I Built a Reader Mode Extension for Chrome Because It Still Doesn't Have One"
 published: false
-tags: ["chromeextension", "reading", "productivity", "webdev"]
+tags: ["chromeextension","reading","productivity","webdev"]
 series: null
 canonical_url: null
 publish_date: "2026-03-29"
-devto_id: null
+devto_id: "3392118"
 ---
 
 You know that feeling when you open a long article in Chrome, and the actual content is drowning in sidebar ads, navigation menus, newsletter popups, and "recommended for you" widgets? You just want to read the article. That's it. Just the words.
@@ -16,7 +16,7 @@ So I built my own.
 
 **ZenRead** is a Chrome extension that gives you a proper reader mode with accessibility features, bionic reading, text-to-speech, and site-specific content extraction rules. It started as a weekend project to scratch my own itch, and it turned into something I use every single day.
 
-{% embed https://chromewebstore.google.com/detail/zenread/adoiakplckmoahmiainobfpmdomnhomj %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/zenread/adoiakplckmoahmiainobfpmdomnhomj)**
 
 ## The Core: Extracting Content with Readability.js
 
@@ -297,6 +297,6 @@ Building a reader mode extension taught me a few things:
 
 If you read a lot of articles in Chrome and wish it had a proper reader mode, give ZenRead a try. I built it for myself, but I'd love to hear what you think.
 
-{% embed https://chromewebstore.google.com/detail/zenread/adoiakplckmoahmiainobfpmdomnhomj %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/zenread/adoiakplckmoahmiainobfpmdomnhomj)**
 
 If you have questions about the implementation or run into any issues, drop a comment below. I'm happy to dig into the technical details.

@@ -1,11 +1,11 @@
 ---
 title: "I Built a Chrome Extension to Filter Low-Quality News on Yahoo Japan"
 published: false
-tags: ["chromeextension", "japan", "productivity", "ux"]
+tags: ["chromeextension","japan","productivity","ux"]
 series: null
 canonical_url: null
 publish_date: "2026-04-11"
-devto_id: null
+devto_id: "3392107"
 ---
 
 If you live in Japan or read Japanese news online, you probably use Yahoo! JAPAN. It is the most visited website in the country, and its news portal aggregates stories from hundreds of sources. The problem is that a large percentage of those stories are what Japanese internet culture calls "kotatsu articles" -- low-effort content written without any original reporting, usually assembled by rewriting social media posts or celebrity gossip into clickbait headlines.
@@ -302,4 +302,4 @@ Building this extension taught me a few things about working with content script
 
 If you use Yahoo! JAPAN and want a cleaner news experience, give it a try.
 
-{% embed https://chromewebstore.google.com/detail/oeinpjbbingpakilcejimbibfcbbfkkg %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/oeinpjbbingpakilcejimbibfcbbfkkg)**

@@ -1,11 +1,11 @@
 ---
 title: "I Built a VS Code-Style Snippet Manager That Lives in Your Browser"
 published: false
-tags: ["chromeextension", "snippets", "productivity", "webdev"]
+tags: ["chromeextension","snippets","productivity","webdev"]
 series: null
 canonical_url: null
 publish_date: "2026-04-14"
-devto_id: null
+devto_id: "3392105"
 ---
 
 Every developer has a folder of code snippets somewhere. Maybe it is a Notion page, a GitHub Gist collection, a random `.txt` file on the desktop, or a pile of sticky notes in the back of your IDE. The problem is not saving snippets -- it is finding them again when you need them. And more importantly, getting them into the place where you actually write code: the browser.
@@ -194,4 +194,4 @@ If you spend time writing code in browser-based tools -- whether it is GitHub, o
 
 The extension supports 18 programming languages, smart variables, fuzzy search, and one-click copy. It is free to install and use.
 
-{% embed https://chromewebstore.google.com/detail/snippetvault/gnnmjklohcoaiheikefoifiekcnndcdi %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/snippetvault/gnnmjklohcoaiheikefoifiekcnndcdi)**

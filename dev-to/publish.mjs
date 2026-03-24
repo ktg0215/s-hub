@@ -31,6 +31,8 @@ if (!API_KEY) {
 }
 
 function parseFrontmatter(content) {
+  // Normalize line endings to \n
+  content = content.replace(/\r\n/g, "\n");
   const match = content.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/);
   if (!match) return null;
 
@@ -77,7 +79,9 @@ function writeFrontmatter(filePath, meta, body) {
   fs.writeFileSync(filePath, lines.join("\n"), "utf-8");
 }
 
-async function apiCall(method, endpoint, data) {
+const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+
+async function apiCall(method, endpoint, data, retries = 3) {
   const url = endpoint.startsWith("http") ? endpoint : `${API_BASE}${endpoint}`;
   const opts = {
     method,
@@ -88,12 +92,21 @@ async function apiCall(method, endpoint, data) {
   };
   if (data) opts.body = JSON.stringify(data);
 
-  const res = await fetch(url, opts);
-  if (!res.ok) {
-    const text = await res.text();
-    throw new Error(`API ${method} ${url} failed (${res.status}): ${text}`);
+  for (let attempt = 1; attempt <= retries; attempt++) {
+    const res = await fetch(url, opts);
+    if (res.status === 429) {
+      const wait = attempt * 30;
+      console.log(`    [RATE LIMIT] Waiting ${wait}s before retry ${attempt}/${retries}...`);
+      await sleep(wait * 1000);
+      continue;
+    }
+    if (!res.ok) {
+      const text = await res.text();
+      throw new Error(`API ${method} ${url} failed (${res.status}): ${text}`);
+    }
+    return res.json();
   }
-  return res.json();
+  throw new Error(`API ${method} ${url} failed after ${retries} retries (rate limited)`);
 }
 
 async function createArticle(meta, body) {
@@ -137,7 +150,9 @@ async function main() {
   let synced = 0;
   let skipped = 0;
 
-  for (const file of files) {
+  for (let i = 0; i < files.length; i++) {
+    const file = files[i];
+    if (i > 0) await sleep(5000); // 5s delay between articles
     const filePath = path.join(ARTICLES_DIR, file);
     const content = fs.readFileSync(filePath, "utf-8");
     const parsed = parseFrontmatter(content);

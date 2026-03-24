@@ -1,11 +1,11 @@
 ---
 title: "Send Web Data Directly to Google Sheets — No Code, No Python, No IMPORTXML"
 published: false
-tags: ["chromeextension", "googlesheets", "webscraping", "nocode"]
+tags: ["chromeextension","googlesheets","webscraping","nocode"]
 series: null
 canonical_url: null
 publish_date: "2026-04-06"
-devto_id: null
+devto_id: "3392111"
 ---
 
 You need competitive pricing data in a spreadsheet. Or a list of job postings filtered by location. Or metadata from dozens of blog articles.
@@ -175,4 +175,4 @@ It handles JavaScript-rendered pages, authenticated sessions, and structural cha
 
 Give it a try and see how it fits into your data collection workflow.
 
-{% embed https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf)**

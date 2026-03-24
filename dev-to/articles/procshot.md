@@ -1,11 +1,11 @@
 ---
 title: "I Built a Chrome Extension That Automatically Creates Step-by-Step Guides from Your Browser Actions"
 published: false
-tags: ["chromeextension", "documentation", "productivity", "tutorial"]
+tags: ["chromeextension","documentation","productivity","tutorial"]
 series: null
 canonical_url: null
 publish_date: "2026-04-17"
-devto_id: null
+devto_id: "3392104"
 ---
 
 Documentation is the thing everyone agrees is important and nobody wants to write. Especially step-by-step guides. You know the type -- those internal wiki pages that show new team members how to configure the CI pipeline, or the customer support articles that walk users through a multi-step process with screenshots at every turn.
@@ -283,4 +283,4 @@ If you have ever spent an afternoon screenshotting and annotating a step-by-step
 
 The free tier gives you 5 guides per month with HTML and Markdown export. Pro adds unlimited guides, PDF export, and screenshot annotations with highlight boxes, arrows, text labels, and blur for sensitive data.
 
-{% embed https://chromewebstore.google.com/detail/ieblehdloggcpmkncplccjofeoakhkll %}
+**[Install from Chrome Web Store](https://chromewebstore.google.com/detail/ieblehdloggcpmkncplccjofeoakhkll)**
