@@ -98,7 +98,6 @@ export const categories: Category[] = [
         price: "Free / Pro",
         url: "/extensions/snapreply/",
         icon: "/ext-icons/snapreply.png",
-        status: "coming-soon",
       },
       {
         name: "ZenRead",
@@ -106,7 +105,6 @@ export const categories: Category[] = [
         price: "Free",
         url: "/extensions/zenread/",
         icon: "/ext-icons/ZenRead.webp",
-        status: "coming-soon",
       },
       {
         name: "PageMemo",
@@ -224,12 +222,11 @@ export const categories: Category[] = [
       },
       {
         name: "CookieJar",
-        description: "View, edit, create, delete, export and import cookies with ease. Privacy-first cookie editor with smart auto-categorization.",
+        description: "EditThisCookie alternative for MV3. Edit, delete, export & import cookies. Privacy-first with smart auto-categorization and privacy scores.",
         price: "Free / Pro $4.99/mo",
         priceNote: "Lifetime: $29.99",
         url: "/extensions/cookiejar/",
         icon: "/ext-icons/cookiejar.png",
-        status: "coming-soon",
       },
     ],
   },
@@ -250,7 +247,7 @@ export const categories: Category[] = [
     extensions: [
       {
         name: "請求書よみとり",
-        description: "PDF請求書をAI-OCRで自動読み取り。金額・日付・取引先・登録番号を抽出し、CSV/Excelにエクスポート。インボイス制度対応。",
+        description: "PDF請求書をAI-OCRで自動読み取り。金額・日付・取引先・登録番号を抽出し、CSV/Excelにエクスポート。インボイス制度・電帳法対応。2026年10月改正対応。",
         price: "Free / Pro",
         url: "/extensions/invoice-reader/",
         icon: "/ext-icons/invoice-reader.png",
