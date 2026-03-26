@@ -1,6 +1,6 @@
 ---
 title: "I Built a Reader Mode Extension for Chrome Because It Still Doesn't Have One"
-published: false
+published: true
 tags: ["chromeextension","reading","productivity","webdev"]
 series: null
 canonical_url: null
