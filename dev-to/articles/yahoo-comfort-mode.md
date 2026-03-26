@@ -4,7 +4,7 @@ published: false
 tags: ["chromeextension","japan","productivity","ux"]
 series: null
 canonical_url: null
-publish_date: "2026-04-11"
+publish_date: "2026-04-08"
 devto_id: "3392107"
 ---
 

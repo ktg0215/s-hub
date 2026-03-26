@@ -4,7 +4,7 @@ published: false
 tags: ["chromeextension","reading","productivity","webdev"]
 series: null
 canonical_url: null
-publish_date: "2026-03-29"
+publish_date: "2026-03-26"
 devto_id: "3392118"
 ---
 

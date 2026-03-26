@@ -4,7 +4,7 @@ published: false
 tags: ["chromeextension","realestate","javascript","webdev"]
 series: null
 canonical_url: null
-publish_date: "2026-04-10"
+publish_date: "2026-04-07"
 devto_id: "3392098"
 ---
 

@@ -4,7 +4,7 @@ published: false
 tags: ["chromeextension","seo","webdev","html"]
 series: null
 canonical_url: null
-publish_date: "2026-04-13"
+publish_date: "2026-04-10"
 devto_id: "3392102"
 ---
 

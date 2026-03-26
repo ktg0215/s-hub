@@ -4,7 +4,7 @@ published: false
 tags: ["chromeextension","googlesheets","webscraping","nocode"]
 series: null
 canonical_url: null
-publish_date: "2026-04-06"
+publish_date: "2026-04-03"
 devto_id: "3392111"
 ---
 

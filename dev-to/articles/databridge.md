@@ -4,7 +4,7 @@ published: false
 tags: ["chromeextension","automation","productivity","forms"]
 series: null
 canonical_url: null
-publish_date: "2026-04-16"
+publish_date: "2026-04-13"
 devto_id: "3392099"
 ---
 

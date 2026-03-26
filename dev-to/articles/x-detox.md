@@ -4,7 +4,7 @@ published: false
 tags: ["chromeextension","twitter","productivity","mentalhealth"]
 series: null
 canonical_url: null
-publish_date: "2026-04-09"
+publish_date: "2026-04-06"
 devto_id: "3392106"
 ---
 

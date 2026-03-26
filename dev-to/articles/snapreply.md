@@ -4,7 +4,7 @@ published: false
 tags: ["chromeextension","gmail","productivity","javascript"]
 series: null
 canonical_url: null
-publish_date: "2026-04-02"
+publish_date: "2026-03-30"
 devto_id: "3392116"
 ---
 

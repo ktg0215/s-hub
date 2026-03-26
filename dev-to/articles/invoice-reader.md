@@ -4,7 +4,7 @@ published: false
 tags: ["chromeextension","ocr","pdf","productivity"]
 series: null
 canonical_url: null
-publish_date: "2026-04-04"
+publish_date: "2026-04-01"
 devto_id: "3392112"
 ---
 

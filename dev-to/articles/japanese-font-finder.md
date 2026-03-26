@@ -4,7 +4,7 @@ published: false
 tags: ["chromeextension","fonts","css","webdev"]
 series: null
 canonical_url: null
-publish_date: "2026-04-12"
+publish_date: "2026-04-09"
 devto_id: "3392101"
 ---
 

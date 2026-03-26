@@ -4,7 +4,7 @@ published: false
 tags: ["chromeextension","webdev","privacy","testing"]
 series: null
 canonical_url: null
-publish_date: "2026-03-31"
+publish_date: "2026-03-28"
 devto_id: "3392110"
 ---
 
