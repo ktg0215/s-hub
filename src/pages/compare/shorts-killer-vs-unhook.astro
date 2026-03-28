@@ -1,0 +1,105 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "Shorts Killer",
+  icon: "/ext-icons/shorts-killer.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/shorts-killer-hide-youtub/bajebpkjihldiceceompbcjgepnbhnni",
+  users: "New",
+  rating: "5.0 (2)",
+  price: "Free",
+  extensionPageUrl: "/extensions/shorts-killer/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Unhook",
+  icon: "/ext-icons/compare/unhook.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/unhook-remove-youtube-rec/khncfooichmfjbepaaaebmommgaepoid",
+  users: "1,000,000+",
+  rating: "4.9 (4,100)",
+  price: "Free (donation-based)",
+  badge: "Featured · Created by owner",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Hide YouTube Shorts", ours: "Yes", theirs: "Yes" },
+  { feature: "Screen Time Tracking", ours: "Yes (built-in)", theirs: "No", highlight: true },
+  { feature: "Daily Time Limits", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Shorts → Full Video Redirect", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Languages Supported", ours: "8 (DE, EN, ES, FR, IT, PT, JA, KO)", theirs: "1 (English)", highlight: true },
+  { feature: "Hide Homepage Feed", ours: "No (Shorts-focused)", theirs: "Yes" },
+  { feature: "Hide Comments", ours: "No", theirs: "Yes" },
+  { feature: "Hide Sidebar Recommendations", ours: "No", theirs: "Yes" },
+  { feature: "Hide End Screen", ours: "No", theirs: "Yes" },
+  { feature: "Extension Size", ours: "27 KiB", theirs: "37 KiB", highlight: true },
+  { feature: "Digital Wellbeing Focus", ours: "Core feature", theirs: "Side feature", highlight: true },
+  { feature: "Configuration Options", ours: "Focused (5 toggles)", theirs: "Extensive (20+ toggles)" },
+  { feature: "Price", ours: "Free", theirs: "Free" },
+  { feature: "Firefox / Edge Support", ours: "Edge", theirs: "Firefox + Edge" },
+];
+
+const ourAdvantages = [
+  { title: "Screen Time Tracking", desc: "Built-in usage tracking shows how much time you spend on YouTube. Set daily limits to stay productive — Unhook doesn't track screen time at all." },
+  { title: "Shorts-to-Video Redirect", desc: "Instead of just hiding Shorts, Shorts Killer can redirect them to full-length videos. Watch the full content without the addictive short-form format." },
+  { title: "8-Language Support", desc: "Available in German, English, Spanish, French, Italian, Portuguese, Japanese, and Korean. Unhook is English-only." },
+  { title: "Lighter & Focused", desc: "At 27 KiB, Shorts Killer is 27% smaller than Unhook. It does one thing well: remove Shorts and promote digital wellbeing." },
+  { title: "Digital Wellbeing First", desc: "Designed from the ground up around digital wellbeing — not just hiding UI elements, but actively helping you manage your YouTube habits." },
+];
+
+const theirAdvantages = [
+  { title: "Comprehensive YouTube Cleanup", desc: "Unhook controls 20+ YouTube elements: homepage feed, comments, sidebar, trending, end screens, chat, and more. It's a full YouTube de-cluttering tool." },
+  { title: "Massive Community", desc: "1M+ users and 4,100 reviews. Proven, battle-tested, and actively maintained." },
+  { title: "Multi-Browser Support", desc: "Available on Chrome, Firefox, and Edge. Shorts Killer currently supports Chrome and Edge." },
+  { title: "Granular Control", desc: "Toggle individual YouTube elements on/off. If you want to hide specific parts of YouTube beyond just Shorts, Unhook offers more control." },
+];
+
+const verdict = "Unhook is the Swiss army knife for YouTube cleanup — it can hide almost every distracting element on the platform. But if your main goal is specifically to eliminate YouTube Shorts and build healthier viewing habits, Shorts Killer is purpose-built for that. Its screen time tracking, daily limits, and Shorts-to-video redirect are features Unhook simply doesn't have. For non-English speakers, Shorts Killer's 8-language support is a clear advantage.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Can I use both Shorts Killer and Unhook together?", answer: "Technically yes, but it's not recommended as they may conflict when trying to modify the same YouTube elements. Choose the one that fits your needs better." },
+  { question: "Does Shorts Killer block Shorts on YouTube Music?", answer: "Shorts Killer focuses on youtube.com. It hides Shorts from the homepage, subscriptions, search results, and sidebar across the site." },
+  { question: "Will hiding Shorts affect my YouTube recommendations?", answer: "Hiding Shorts with either extension only affects what you see in the browser. YouTube's algorithm isn't aware of the extension, so your recommendations aren't directly affected." },
+  { question: "Is Shorts Killer available in Japanese?", answer: "Yes. Shorts Killer supports Japanese (日本語), Korean (한국어), and 6 other languages with full UI translation." },
+  { question: "Does Shorts Killer slow down YouTube?", answer: "No. At only 27 KiB, Shorts Killer is extremely lightweight and has negligible impact on page load times." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="Shorts Killer vs Unhook — Best YouTube Shorts Blocker in 2026"
+  seoDescription="Compare Shorts Killer and Unhook for hiding YouTube Shorts. See which extension offers screen time tracking, daily limits, and multi-language support."
+  seoKeywords="shorts killer vs unhook, unhook alternative, hide youtube shorts, block youtube shorts chrome extension, youtube shorts blocker 2026"
+  h1="Shorts Killer vs Unhook"
+  intro="Both extensions hide YouTube Shorts, but they take very different approaches. One focuses on digital wellbeing, the other on full YouTube cleanup."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-03-28"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/extensions/shorts-killer/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/shorts-killer.webp" alt="Shorts Killer" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Shorts Killer — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/x-detox/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/x-detox.webp" alt="X Detox" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">X Detox — Clean Up X/Twitter</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Digital Wellbeing</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

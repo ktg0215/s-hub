@@ -1,0 +1,104 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "DataPick",
+  icon: "/ext-icons/datapick.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf",
+  users: "80+",
+  rating: "5.0 (1)",
+  price: "Free",
+  extensionPageUrl: "/extensions/datapick/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Instant Data Scraper",
+  icon: "/ext-icons/compare/instant-data-scraper.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/instant-data-scraper/ofaokhiedipichpaobibbnahnkdoiiah",
+  users: "1,000,000+",
+  rating: "4.9 (7,100)",
+  price: "Free",
+  badge: "Featured · Recommended practices",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Data Detection Method", ours: "Point & Click (manual selection)", theirs: "AI Heuristic (auto-detection)", highlight: true },
+  { feature: "Accuracy", ours: "High — you choose exactly what to extract", theirs: "Medium — AI may misdetect elements", highlight: true },
+  { feature: "Recipe / Preset Saving", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Google Sheets Export", ours: "Yes (direct)", theirs: "No", highlight: true },
+  { feature: "CSV Export", ours: "Yes", theirs: "Yes" },
+  { feature: "Excel Export", ours: "Yes", theirs: "Yes" },
+  { feature: "Pagination Support", ours: "Yes (auto)", theirs: "Yes (buttons, links, infinite scroll)" },
+  { feature: "Column Rename / Filter", ours: "Yes", theirs: "Yes" },
+  { feature: "Japanese Language", ours: "Yes", theirs: "No (English only)", highlight: true },
+  { feature: "Extension Size", ours: "Lightweight", theirs: "944 KiB" },
+  { feature: "Setup Required", ours: "None — just click", theirs: "None — auto-detects" },
+  { feature: "Learning Curve", ours: "Zero", theirs: "Zero" },
+  { feature: "Price", ours: "Free", theirs: "Free" },
+];
+
+const ourAdvantages = [
+  { title: "Recipe Saving", desc: "Save your scraping setup as reusable recipes. Re-run the same extraction on the same site with one click — Instant Data Scraper doesn't offer this." },
+  { title: "Google Sheets Integration", desc: "Export directly to Google Sheets without downloading a file first. Perfect for teams sharing live data." },
+  { title: "Precision over Guesswork", desc: "You select exactly which elements to extract. No AI guessing means no incorrect columns or missing data." },
+  { title: "Japanese Language Support", desc: "Full Japanese UI for non-English users. Instant Data Scraper is English-only." },
+  { title: "Lightweight", desc: "Smaller extension footprint means faster browser performance and less memory usage." },
+];
+
+const theirAdvantages = [
+  { title: "Zero-Click Detection", desc: "AI automatically detects tabular data on any page. No element selection needed — great for quick one-off scrapes." },
+  { title: "Massive User Base", desc: "1M+ users and 7,100 reviews provide strong social proof and a proven track record." },
+  { title: "Advanced Pagination", desc: "Handles buttons, next-page links, and infinite scroll pagination out of the box." },
+  { title: "Featured Badge", desc: "Chrome Web Store Featured status and Recommended Practices badge signal quality and trust." },
+];
+
+const verdict = "If you need quick, one-time data extraction and don't mind AI occasionally getting things wrong, Instant Data Scraper is convenient. But if you want precise control over what you extract, the ability to save and reuse recipes, and direct Google Sheets integration, DataPick is the better choice — especially for recurring scraping tasks. DataPick is also the only option with Japanese language support.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Is DataPick really free?", answer: "Yes. DataPick's core features — point & click extraction, CSV/Excel/Google Sheets export, and recipe saving — are completely free. A Pro plan is available for advanced features like multi-page scraping." },
+  { question: "Can I switch from Instant Data Scraper to DataPick?", answer: "Absolutely. Both extensions work independently. Install DataPick, try it on your target site, and uninstall Instant Data Scraper if you prefer the experience." },
+  { question: "Which is better for large-scale scraping?", answer: "For recurring scrapes of the same site, DataPick's recipe feature saves significant time. For one-off bulk extractions, Instant Data Scraper's auto-detection can be faster." },
+  { question: "Does DataPick work on any website?", answer: "Yes. DataPick works on any website with visible data. Simply click on elements to define your extraction pattern." },
+  { question: "Is my data safe with DataPick?", answer: "DataPick processes everything locally in your browser. No data is sent to external servers." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="DataPick vs Instant Data Scraper — Which Web Scraper is Better in 2026?"
+  seoDescription="Compare DataPick and Instant Data Scraper side by side. See which Chrome web scraping extension offers better accuracy, Google Sheets integration, and recipe saving."
+  seoKeywords="datapick vs instant data scraper, instant data scraper alternative, best web scraping chrome extension 2026, no code web scraper"
+  h1="DataPick vs Instant Data Scraper"
+  intro="Two popular approaches to web scraping: AI auto-detection vs precise point-and-click. Here's how they compare in 2026."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-03-28"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/shorts-killer-vs-unhook/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/shorts-killer.webp" alt="Shorts Killer" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Shorts Killer vs Unhook</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Digital Wellbeing comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/datapick/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>
