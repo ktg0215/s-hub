@@ -13,6 +13,9 @@ const SITES = [
   },
 ];
 
+// Note: Each sitemap is submitted only to its own domain property.
+// Do NOT add cross-domain sitemaps (e.g. reshapic sitemap to dev-tools-hub.xyz).
+
 async function main() {
   const keyJson = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
   if (!keyJson) {
