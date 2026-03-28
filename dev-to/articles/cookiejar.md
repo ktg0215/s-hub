@@ -1,6 +1,6 @@
 ---
 title: "EditThisCookie Got Removed — So I Built a Modern Cookie Editor for Chrome"
-published: false
+published: true
 tags: ["chromeextension","webdev","privacy","testing"]
 series: null
 canonical_url: null
