@@ -1,6 +1,6 @@
 ---
 title: "I Built a Gmail Template Extension — Here's What I Learned Fighting Gmail's DOM"
-published: false
+published: true
 tags: ["chromeextension","gmail","productivity","javascript"]
 series: null
 canonical_url: null
