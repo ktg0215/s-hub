@@ -1,0 +1,102 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "SnapReply for Gmail",
+  icon: "/ext-icons/snapreply.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/snapreply-for-gmail/edgmflknpjqbmgpbkpnlgfmkjpnfooaj",
+  users: "50+",
+  rating: "5.0 (2)",
+  price: "Free / Pro",
+  extensionPageUrl: "/extensions/snapreply/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Gmail Built-in Templates",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://support.google.com/a/users/answer/9308990",
+  users: "Built into Gmail",
+  rating: "N/A",
+  price: "Free (with Gmail)",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Variable Interpolation", ours: "Yes — {{name}}, {{company}}, etc.", theirs: "No", highlight: true },
+  { feature: "Folder Organization", ours: "Yes — unlimited folders", theirs: "No (flat list only)", highlight: true },
+  { feature: "Usage Statistics", ours: "Yes — track which templates are used most", theirs: "No", highlight: true },
+  { feature: "Template Limit", ours: "Unlimited", theirs: "50 templates max", highlight: true },
+  { feature: "Keyboard Shortcuts", ours: "Yes — quick insert via shortcut", theirs: "No", highlight: true },
+  { feature: "Import / Export", ours: "Yes — share templates across accounts", theirs: "No", highlight: true },
+  { feature: "Setup Required", ours: "Install extension — ready to use", theirs: "Settings → Advanced → Enable Templates", highlight: true },
+  { feature: "Rich Text Support", ours: "Yes", theirs: "Yes" },
+  { feature: "Works in Gmail", ours: "Yes", theirs: "Yes" },
+  { feature: "Price", ours: "Free / Pro", theirs: "Free (with Gmail)" },
+  { feature: "Offline Access", ours: "Yes (stored locally)", theirs: "Requires Gmail connection" },
+  { feature: "Multi-language UI", ours: "Yes (EN, JA, and more)", theirs: "Follows Gmail language" },
+];
+
+const ourAdvantages = [
+  { title: "Variable Interpolation", desc: "Insert dynamic placeholders like {{name}} or {{company}} that auto-fill when you use a template. Gmail's native templates are completely static text." },
+  { title: "Folder Organization", desc: "Organize templates into folders by category — sales, support, recruiting, etc. Gmail's templates are a flat, unsorted list that gets unwieldy at scale." },
+  { title: "Usage Statistics", desc: "Track which templates your team uses most and optimize your workflow. Gmail offers zero analytics on template usage." },
+  { title: "No Template Limit", desc: "Create as many templates as you need. Gmail caps you at 50 — a real problem for sales and support teams." },
+  { title: "One-Click Setup", desc: "Install the extension and start creating templates immediately. Gmail requires navigating Settings → Advanced → Templates to enable the feature." },
+];
+
+const theirAdvantages = [
+  { title: "No Extension Required", desc: "Built directly into Gmail — no installation, no third-party dependencies. Works everywhere Gmail works." },
+  { title: "Google Workspace Integration", desc: "Part of the official Google Workspace suite, with enterprise-grade security and compliance." },
+  { title: "Zero Learning Curve for Basics", desc: "Simple save/insert workflow that most Gmail users already know about." },
+  { title: "Always Up-to-Date", desc: "Maintained by Google as part of Gmail — no separate updates or compatibility concerns." },
+];
+
+const verdict = "Gmail's built-in templates work fine for occasional use with a small number of static responses. But if you send personalized emails at scale — sales outreach, customer support, recruiting — you'll quickly hit Gmail's 50-template limit and miss features like variables, folders, and analytics. SnapReply fills every gap Gmail templates leave open, with zero setup friction.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Can SnapReply use my existing Gmail templates?", answer: "SnapReply uses its own template system with more powerful features like variables and folders. You can recreate your Gmail templates in SnapReply in minutes, and the import/export feature makes backup easy." },
+  { question: "Is SnapReply free?", answer: "Yes. Core features including template creation, folders, and keyboard shortcuts are free. A Pro upgrade unlocks advanced features like usage statistics and unlimited variables." },
+  { question: "Does SnapReply work with Google Workspace accounts?", answer: "Yes. SnapReply works with both personal Gmail and Google Workspace (business) accounts." },
+  { question: "Will SnapReply slow down Gmail?", answer: "No. SnapReply is lightweight and only activates when you're composing an email. It has no impact on Gmail's loading speed or performance." },
+  { question: "What happens to my templates if I uninstall SnapReply?", answer: "You can export all your templates before uninstalling. SnapReply stores templates locally in your browser, so exporting ensures you never lose your work." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="SnapReply vs Gmail Templates — Compared (2026)"
+  seoDescription="Compare SnapReply and Gmail built-in templates. Variables, folders, and usage stats for better email productivity."
+  seoKeywords="gmail template alternative, gmail template with variables, best gmail template extension, gmail canned response replacement"
+  h1="SnapReply for Gmail vs Gmail Built-in Templates"
+  intro="Gmail's native templates cover the basics, but power users need variables, organization, and analytics. Here's how SnapReply compares to Gmail's built-in option."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-03-29"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/datapick-vs-instant-data-scraper/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Instant Data Scraper</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Web scraping comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+      <a href="/compare/shorts-killer-vs-unhook/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/shorts-killer.webp" alt="Shorts Killer" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Shorts Killer vs Unhook</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Digital wellbeing comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

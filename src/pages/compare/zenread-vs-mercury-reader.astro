@@ -1,0 +1,103 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "ZenRead",
+  icon: "/ext-icons/ZenRead.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/zenread/adoiakplckmoahmiainobfpmdomnhomj",
+  users: "7+",
+  rating: "5.0 (1)",
+  price: "Free",
+  extensionPageUrl: "/extensions/zenread/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Mercury Reader (Postlight)",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/postlight-reader/oknpjjbmpnndlpmnhmekjpocelpnlfdi",
+  users: "300,000+",
+  rating: "3.9 (1,700+)",
+  price: "Free",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Theme Options", ours: "Light / Dark / Sepia", theirs: "Light / Dark only", highlight: true },
+  { feature: "Font Customization", ours: "Family, size, line height, content width", theirs: "Typeface & text size only", highlight: true },
+  { feature: "Ad & Sidebar Removal", ours: "Yes (Readability.js)", theirs: "Yes (Mercury Parser)", highlight: false },
+  { feature: "Text-to-Speech", ours: "Yes — speed & language controls", theirs: "No", highlight: true },
+  { feature: "Highlights / Annotations", ours: "Yes — 5 colors (Pro)", theirs: "No", highlight: true },
+  { feature: "Reading Statistics", ours: "Yes — articles read, time, streaks (Pro)", theirs: "No", highlight: true },
+  { feature: "Send to Kindle", ours: "No", theirs: "Yes" },
+  { feature: "Keyboard Shortcut", ours: "Yes", theirs: "Yes (Cmd/Ctrl + Esc)" },
+  { feature: "Dyslexia-Friendly Font", ours: "Yes (OpenDyslexic)", theirs: "No", highlight: true },
+  { feature: "Markdown Export", ours: "Yes (Pro)", theirs: "No", highlight: true },
+  { feature: "Privacy", ours: "All data stored locally", theirs: "Reads browsing history via tabs API" },
+  { feature: "Active Development", ours: "Yes — actively maintained", theirs: "Minimal updates since 2019", highlight: true },
+  { feature: "Price", ours: "Free (Pro: $4.99/mo)", theirs: "Free" },
+];
+
+const ourAdvantages = [
+  { title: "Full Theme Customization", desc: "Three themes (Light, Dark, Sepia) plus granular control over font family, size, line height, and content width. Mercury Reader only offers light/dark and basic text size adjustments." },
+  { title: "Built-in Text-to-Speech", desc: "Listen to articles with adjustable speed and language selection via Web Speech API. Perfect for multitasking or accessibility needs — Mercury Reader has no audio feature." },
+  { title: "Highlighting & Annotations", desc: "Mark important passages with 5 highlight colors. Mercury Reader offers no annotation capabilities, so you need a separate tool to save key points." },
+  { title: "Reading Stats & Streaks", desc: "Track articles read, total reading time, and maintain reading streaks for motivation. Mercury Reader provides no reading analytics." },
+  { title: "Actively Maintained", desc: "ZenRead receives regular updates with new features and bug fixes. Mercury Reader (Postlight Reader) has had minimal updates since 2019, and users frequently report broken functionality." },
+];
+
+const theirAdvantages = [
+  { title: "Send to Kindle", desc: "One-click Kindle delivery for offline reading on your e-reader. ZenRead currently does not support Kindle integration." },
+  { title: "Massive User Base", desc: "300,000+ users and 1,700+ reviews provide a proven track record and established community trust." },
+  { title: "Brand Recognition", desc: "Built by Postlight (now NTT DATA), Mercury Reader is one of the most well-known reader extensions with years of history." },
+  { title: "Social Sharing", desc: "Built-in sharing to Facebook, Twitter, and Email directly from the reader view." },
+];
+
+const verdict = "Mercury Reader (Postlight Reader) was once the gold standard for distraction-free reading, but development has stalled since 2019 and many users report it no longer works reliably on modern websites. ZenRead offers everything Mercury Reader does — and more: customizable themes, text-to-speech, highlighting, reading statistics, and dyslexia-friendly fonts. If you want a reader mode extension that's actively maintained and packed with modern features, ZenRead is the clear upgrade. The only reason to stick with Mercury Reader is its Send to Kindle feature.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Is ZenRead a free Mercury Reader alternative?", answer: "Yes. ZenRead's core features — reader mode, three themes, font customization, and ad removal — are completely free. Pro features like text-to-speech, highlights, and reading stats are available for $4.99/month." },
+  { question: "Can I switch from Mercury Reader to ZenRead?", answer: "Absolutely. Install ZenRead, try it on your favorite articles, and uninstall Mercury Reader if you prefer the experience. Both extensions work independently." },
+  { question: "Does ZenRead work on the same sites as Mercury Reader?", answer: "Yes. ZenRead uses Readability.js (the same library behind Firefox Reader View) to extract article content. It works on virtually any article page — news, blogs, documentation, and more." },
+  { question: "Is Mercury Reader still maintained?", answer: "Mercury Reader was rebranded to Postlight Reader but has received minimal updates since 2019. Many users report it no longer works on modern websites. ZenRead is actively developed with regular updates." },
+  { question: "Does ZenRead collect my data?", answer: "No. ZenRead stores all data locally in your browser. No browsing data is sent to external servers. Mercury Reader's tabs API permission allows it to read your browsing history." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="ZenRead vs Mercury Reader — Reader Mode Compared"
+  seoDescription="Compare ZenRead and Mercury Reader. Customization, text-to-speech, and distraction-free reading features compared."
+  seoKeywords="mercury reader alternative, best reader mode extension, distraction free reading chrome, reader view extension 2026, postlight reader alternative"
+  h1="ZenRead vs Mercury Reader"
+  intro="Mercury Reader defined distraction-free reading for years — but is it still the best choice in 2026? Here's how ZenRead's modern feature set compares."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-03-29"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/shorts-killer-vs-unhook/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/shorts-killer.webp" alt="Shorts Killer" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Shorts Killer vs Unhook</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Digital Wellbeing comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+      <a href="/extensions/zenread/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ZenRead.webp" alt="ZenRead" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ZenRead — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

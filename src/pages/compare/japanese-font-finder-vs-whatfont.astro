@@ -1,0 +1,103 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "Japanese Font Finder",
+  icon: "/ext-icons/japanese-font-finder.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/japanese-font-finder/ageolfjmheacenbkgiahlkhkogcnocip",
+  users: "30+",
+  rating: "5.0 (1)",
+  price: "Free",
+  extensionPageUrl: "/extensions/japanese-font-finder/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "WhatFont",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/whatfont/jabopobgcpjmedljpbcaablpmlmfcogm",
+  users: "2,000,000+",
+  rating: "4.2 (1,100+)",
+  price: "Free",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Japanese Font Detection", ours: "Yes — 150+ fonts (Gothic / Mincho)", theirs: "Limited — basic name only", highlight: true },
+  { feature: "Font Weight Display", ours: "Yes (exact weight value)", theirs: "No", highlight: true },
+  { feature: "Full CSS Information", ours: "Yes — font-family, size, weight, line-height, letter-spacing", theirs: "Partial — font-family, size, weight only", highlight: true },
+  { feature: "Color Information", ours: "Yes (HEX, RGB, HSL)", theirs: "No", highlight: true },
+  { feature: "Font Detection Method", ours: "Hover / Click", theirs: "Hover / Click" },
+  { feature: "Web Font Service Detection", ours: "Yes — Google Fonts, Adobe Fonts, TypeSquare, FONTPLUS", theirs: "Yes — Typekit, Google Fonts", highlight: true },
+  { feature: "Copy CSS to Clipboard", ours: "Yes (one-click)", theirs: "No", highlight: true },
+  { feature: "Font Bookmarking", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Export (JSON / CSV)", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Japanese UI", ours: "Yes", theirs: "No (English only)", highlight: true },
+  { feature: "Privacy", ours: "100% local — no data sent", theirs: "Local processing" },
+  { feature: "Extension Size", ours: "Lightweight", theirs: "Lightweight" },
+  { feature: "Price", ours: "Free", theirs: "Free" },
+];
+
+const ourAdvantages = [
+  { title: "Complete Japanese Font Support", desc: "Detects and correctly identifies 150+ Japanese fonts including Yu Gothic, Yu Mincho, Hiragino, Meiryo, MS Gothic, Noto Sans JP, and Noto Serif JP. WhatFont often shows only the generic fallback name for CJK fonts." },
+  { title: "Full CSS Details at a Glance", desc: "Shows font-family, size, weight, line-height, letter-spacing, and color in one overlay. WhatFont only shows font name, size, and weight — missing critical design details." },
+  { title: "Color Information", desc: "Displays text color in HEX, RGB, and HSL formats. WhatFont has no color detection, forcing designers to open DevTools separately." },
+  { title: "One-Click CSS Copy", desc: "Copy complete CSS font declarations to clipboard with a single click. No manual typing or switching to DevTools required." },
+  { title: "Font Bookmarking & Export", desc: "Save discovered fonts to a collection and export as JSON or CSV. Perfect for building design system documentation or font audits across multiple sites." },
+];
+
+const theirAdvantages = [
+  { title: "Massive User Base", desc: "2M+ users and years of proven reliability make WhatFont a well-known industry standard for font identification." },
+  { title: "Typekit / Adobe Fonts Detection", desc: "Long-standing integration with Typekit (now Adobe Fonts) provides accurate web font service detection for Western typography workflows." },
+  { title: "Minimal UI", desc: "Extremely simple tooltip interface with zero learning curve. Hover and see the font name — nothing more, nothing less." },
+  { title: "Wide Browser Support", desc: "Available on Chrome, Firefox, and Safari, plus a bookmarklet version for other browsers." },
+];
+
+const verdict = "WhatFont is a proven, lightweight tool that works well for quickly identifying Western fonts. But if you work with Japanese typography — or need more than just the font name — Japanese Font Finder is the clear winner. It correctly identifies Gothic, Mincho, and other Japanese font families that WhatFont struggles with, and provides complete CSS information including color, weight, and spacing. For designers and developers working on Japanese web projects, Japanese Font Finder eliminates the need to open DevTools entirely.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Does Japanese Font Finder work with non-Japanese fonts too?", answer: "Yes. Japanese Font Finder detects all fonts — English, Chinese, Korean, and any other language. The Japanese-specific feature is its ability to correctly identify and categorize Japanese font families (Gothic, Mincho, etc.) that other tools miss." },
+  { question: "Why does WhatFont show the wrong name for Japanese fonts?", answer: "WhatFont was designed primarily for Western typography. Japanese fonts often have complex font-family declarations with multiple fallbacks, and WhatFont may display the generic fallback (e.g., 'sans-serif') instead of the actual Japanese font name like 'Yu Gothic'." },
+  { question: "Can I use both extensions at the same time?", answer: "Yes, but there's no need. Japanese Font Finder provides everything WhatFont does plus Japanese font support, CSS details, color info, and export features. Install Japanese Font Finder and try it — you can always keep WhatFont as a backup." },
+  { question: "Is Japanese Font Finder really free?", answer: "Yes, completely free with no premium tier. All features — font detection, CSS copying, bookmarking, and export — are included at no cost." },
+  { question: "Does Japanese Font Finder collect my browsing data?", answer: "No. All processing happens locally in your browser. No data is sent to external servers, no analytics are collected, and no permissions beyond the active tab are required." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="Japanese Font Finder vs WhatFont — Compared"
+  seoDescription="Compare Japanese Font Finder and WhatFont. Which offers better Japanese font support, CSS details, and color detection?"
+  seoKeywords="whatfont alternative, japanese font identifier, best font detector chrome extension, identify font on webpage, japanese font chrome extension"
+  h1="Japanese Font Finder vs WhatFont"
+  intro="Two font identification tools for Chrome: the industry standard vs the Japanese typography specialist. Here's how they compare in 2026."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-03-29"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/snapreply-vs-gmail-templates/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/snapreply.webp" alt="SnapReply" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">SnapReply vs Gmail Templates</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Productivity comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/japanese-font-finder/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/japanese-font-finder.webp" alt="Japanese Font Finder" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Japanese Font Finder — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

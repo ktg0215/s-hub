@@ -1,17 +1,19 @@
 #!/usr/bin/env node
 /**
  * Chrome Web Store レビュー情報更新スクリプト
- * ProductSection.astro の rating と reviewCount を最新のストア情報で更新する
+ * ProductSection.astro の rating, reviewCount, userCount を最新のストア情報で更新する
+ * 各拡張機能の詳細ページ（pages/extensions/*.astro）も同時に更新する
  *
  * 使い方: node scripts/update-reviews.mjs
  */
 
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { resolve, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const PRODUCT_FILE = resolve(__dirname, '../src/components/ProductSection.astro');
+const EXTENSIONS_DIR = resolve(__dirname, '../src/pages/extensions');
 
 // storeLink から拡張機能IDを抽出
 function extractExtensionId(storeLink) {
@@ -39,9 +41,9 @@ async function fetchStoreData(extensionId) {
     }
     const html = await res.text();
 
-    // 評価を抽出 (JSON-LD or meta tags)
     let rating = null;
     let reviewCount = null;
+    let userCount = null;
 
     // Method 1: JSON-LD structured data
     const jsonLdMatch = html.match(/<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/i);
@@ -52,12 +54,20 @@ async function fetchStoreData(extensionId) {
           rating = parseFloat(jsonLd.aggregateRating.ratingValue);
           reviewCount = parseInt(jsonLd.aggregateRating.ratingCount || jsonLd.aggregateRating.reviewCount, 10);
         }
+        // interactionStatistic for user count
+        if (jsonLd.interactionStatistic) {
+          const installs = Array.isArray(jsonLd.interactionStatistic)
+            ? jsonLd.interactionStatistic.find(s => s.interactionType?.['@type'] === 'InstallAction' || s['@type'] === 'InteractionCounter')
+            : jsonLd.interactionStatistic;
+          if (installs?.userInteractionCount) {
+            userCount = parseInt(installs.userInteractionCount, 10);
+          }
+        }
       } catch {}
     }
 
-    // Method 2: HTML パターンマッチ (backup)
+    // Method 2: HTML パターンマッチ (backup for rating)
     if (rating === null) {
-      // 評価値を探す
       const ratingMatch = html.match(/(\d+\.?\d*)\s*(?:out of 5|\/5|\u2605)/);
       if (ratingMatch) {
         rating = parseFloat(ratingMatch[1]);
@@ -65,10 +75,18 @@ async function fetchStoreData(extensionId) {
     }
 
     if (reviewCount === null) {
-      // レビュー数を探す
       const reviewMatch = html.match(/(\d+)\s*(?:ratings?|reviews?)/i);
       if (reviewMatch) {
         reviewCount = parseInt(reviewMatch[1], 10);
+      }
+    }
+
+    // User count from HTML patterns
+    if (userCount === null) {
+      // Pattern: "10,000+ users" or "1,000 users"
+      const userMatch = html.match(/([\d,]+)\+?\s*users/i);
+      if (userMatch) {
+        userCount = parseInt(userMatch[1].replace(/,/g, ''), 10);
       }
     }
 
@@ -87,15 +105,105 @@ async function fetchStoreData(extensionId) {
       }
     }
 
-    return { rating, reviewCount };
+    return { rating, reviewCount, userCount };
   } catch (err) {
     console.warn(`  ⚠ Fetch error for ${extensionId}: ${err.message}`);
     return null;
   }
 }
 
+// 拡張機能名からファイル名を推測
+function guessDetailPageFile(name) {
+  const mapping = {
+    'Shorts Killer': 'shorts-killer.astro',
+    'X Detox': 'x-detox.astro',
+    'PromptStash': 'promptstash.astro',
+    'Rakuten Sellers Analytics': 'rakuten-sellers-analytics.astro',
+    'Arbitra': 'arbitra.astro',
+    'Japanese Font Finder': 'japanese-font-finder.astro',
+    'DataPick': 'datapick.astro',
+    '物件スカウター（賃貸版）': 'bukken-scouter-rental.astro',
+    '物件スカウター（購入版）': 'bukken-scouter-purchase.astro',
+    'Yahoo快適モード': 'yahoo-kaiteki-mode.astro',
+    'ReadMark': 'readmark.astro',
+    'TVer Plus': 'tver-plus.astro',
+    'ZenRead': 'zenread.astro',
+    'PageMemo': 'pagememo.astro',
+    'SnippetVault': 'snippetvault.astro',
+    'TabVault': 'tabvault.astro',
+    'ReShapic': 'reshapic.astro',
+    'DataBridge': 'databridge.astro',
+    'Kaitoki': 'kaitoki.astro',
+    'OnPageX': 'onpagex.astro',
+    'Procshot': 'procshot.astro',
+    'SnapReply for Gmail': 'snapreply.astro',
+    'SNSCrossPost': 'snscrosspost.astro',
+    'CookieJar': 'cookiejar.astro',
+    'PagePilot': 'pagepilot.astro',
+    '請求書よみとり': 'invoice-reader.astro',
+  };
+  return mapping[name] || null;
+}
+
+// 詳細ページを更新
+function updateDetailPage(name, data) {
+  const fileName = guessDetailPageFile(name);
+  if (!fileName) return false;
+
+  const filePath = resolve(EXTENSIONS_DIR, fileName);
+  let content;
+  try {
+    content = readFileSync(filePath, 'utf-8');
+  } catch {
+    return false;
+  }
+
+  let changed = false;
+
+  if (data.rating !== null) {
+    const newContent = content.replace(
+      /(extension\s*=\s*\{[\s\S]*?)rating:\s*[\d.]+/,
+      (match, prefix) => `${prefix}rating: ${data.rating}`
+    );
+    if (newContent !== content) {
+      content = newContent;
+      changed = true;
+    }
+  }
+
+  if (data.reviewCount !== null) {
+    const newContent = content.replace(
+      /(extension\s*=\s*\{[\s\S]*?)reviewCount:\s*\d+/,
+      (match, prefix) => `${prefix}reviewCount: ${data.reviewCount}`
+    );
+    if (newContent !== content) {
+      content = newContent;
+      changed = true;
+    }
+  }
+
+  if (data.userCount !== null) {
+    if (content.includes('userCount:')) {
+      const newContent = content.replace(
+        /(extension\s*=\s*\{[\s\S]*?)userCount:\s*\d+/,
+        (match, prefix) => `${prefix}userCount: ${data.userCount}`
+      );
+      if (newContent !== content) {
+        content = newContent;
+        changed = true;
+      }
+    }
+  }
+
+  if (changed) {
+    writeFileSync(filePath, content, 'utf-8');
+  }
+
+  return changed;
+}
+
 async function main() {
-  console.log('📦 Chrome Web Store レビュー情報を更新中...\n');
+  console.log('Chrome Web Store review data update starting...\n');
 
   let content = readFileSync(PRODUCT_FILE, 'utf-8');
 
@@ -107,14 +215,15 @@ async function main() {
     links.push({ url: match[1], index: match.index });
   }
 
-  console.log(`${links.length} 個の拡張機能を確認中...\n`);
+  console.log(`${links.length} extensions to check...\n`);
 
-  let updated = 0;
+  let updatedProducts = 0;
+  let updatedPages = 0;
 
   for (const link of links) {
     const extensionId = extractExtensionId(link.url);
     if (!extensionId) {
-      console.log(`  ✗ IDを抽出できません: ${link.url}`);
+      console.log(`  x Cannot extract ID: ${link.url}`);
       continue;
     }
 
@@ -122,17 +231,16 @@ async function main() {
     const nameMatch = content.substring(Math.max(0, link.index - 300), link.index).match(/name:\s*'([^']+)'/);
     const name = nameMatch ? nameMatch[1] : extensionId;
 
-    console.log(`  → ${name} (${extensionId})`);
+    console.log(`  -> ${name} (${extensionId})`);
 
     const data = await fetchStoreData(extensionId);
     if (!data) {
-      console.log(`    スキップ（データ取得失敗）`);
+      console.log(`    Skipped (fetch failed)`);
       continue;
     }
 
-    if (data.rating !== null || data.reviewCount !== null) {
-      // この製品のブロックを見つけて rating/reviewCount を更新
-      // storeLink の位置から逆方向に rating と reviewCount を探す
+    if (data.rating !== null || data.reviewCount !== null || data.userCount !== null) {
+      // この製品のブロックを見つけて rating/reviewCount/userCount を更新
       const blockStart = content.lastIndexOf('{', link.index);
       const blockEnd = content.indexOf('}', link.index);
       let block = content.substring(blockStart, blockEnd + 1);
@@ -143,12 +251,21 @@ async function main() {
       if (data.reviewCount !== null) {
         block = block.replace(/reviewCount:\s*\d+/, `reviewCount: ${data.reviewCount}`);
       }
+      if (data.userCount !== null) {
+        block = block.replace(/userCount:\s*\d+/, `userCount: ${data.userCount}`);
+      }
 
       content = content.substring(0, blockStart) + block + content.substring(blockEnd + 1);
-      console.log(`    ✓ rating: ${data.rating ?? '—'}, reviews: ${data.reviewCount ?? '—'}`);
-      updated++;
+      console.log(`    v rating: ${data.rating ?? '-'}, reviews: ${data.reviewCount ?? '-'}, users: ${data.userCount ?? '-'}`);
+      updatedProducts++;
+
+      // 詳細ページも更新
+      if (updateDetailPage(name, data)) {
+        console.log(`    v Detail page updated`);
+        updatedPages++;
+      }
     } else {
-      console.log(`    データ見つからず`);
+      console.log(`    No data found`);
     }
 
     // レート制限対策
@@ -156,7 +273,7 @@ async function main() {
   }
 
   writeFileSync(PRODUCT_FILE, content, 'utf-8');
-  console.log(`\n✅ ${updated} 個の拡張機能を更新しました`);
+  console.log(`\nDone: ${updatedProducts} products updated, ${updatedPages} detail pages updated`);
 }
 
 main().catch(err => {

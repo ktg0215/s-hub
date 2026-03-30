@@ -1,0 +1,102 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "CookieJar",
+  icon: "/ext-icons/cookiejar.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/cookiejar-cookie-editor-m/lhngfkchfepfjjdfhimconagoejemofg",
+  users: "200+",
+  rating: "5.0",
+  price: "Free / Pro $4.99/mo",
+  extensionPageUrl: "/extensions/cookiejar/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "EditThisCookie",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/editthiscookie-v3/ojfebgpkimhlhcblbalbfjblapadhbol",
+  users: "3,000,000+ (original, now removed)",
+  rating: "N/A (original removed from CWS)",
+  price: "Free",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Manifest V3 Support", ours: "Yes — built from scratch for MV3", theirs: "No — original removed from Chrome Web Store", highlight: true },
+  { feature: "Works in Chrome (2026)", ours: "Yes", theirs: "No (original); unofficial V3 fork exists", highlight: true },
+  { feature: "Privacy Score", ours: "Yes — per-site cookie privacy rating", theirs: "No", highlight: true },
+  { feature: "Auto Cookie Categorization", ours: "Yes — Login, Tracking, Analytics, Functional", theirs: "No", highlight: true },
+  { feature: "Cookie Profiles", ours: "Yes — save/restore cookie sets with one click", theirs: "No", highlight: true },
+  { feature: "Bulk Delete by Category", ours: "Yes", theirs: "No (delete all or one-by-one)" },
+  { feature: "Import / Export", ours: "JSON + Netscape (cookies.txt)", theirs: "JSON only" },
+  { feature: "Search & Filter", ours: "Yes — by name, domain, value", theirs: "Yes — basic search" },
+  { feature: "Create / Edit / Delete", ours: "Yes", theirs: "Yes" },
+  { feature: "View Current Tab Cookies", ours: "Yes", theirs: "Yes" },
+  { feature: "Data Privacy", ours: "100% local — no external calls", theirs: "Local processing" },
+  { feature: "Price", ours: "Free / Pro $4.99/mo", theirs: "Free" },
+];
+
+const ourAdvantages = [
+  { title: "Actually Works in Chrome", desc: "The original EditThisCookie was removed from Chrome Web Store for failing to migrate to Manifest V3. CookieJar was built from the ground up for MV3 and works today." },
+  { title: "Privacy Score", desc: "Get an instant privacy rating for every site based on its cookies. See at a glance how aggressively a site tracks you. EditThisCookie never offered privacy insights." },
+  { title: "Smart Cookie Categorization", desc: "CookieJar automatically classifies cookies as Login, Tracking, Analytics, or Functional — no manual sorting required." },
+  { title: "Cookie Profiles", desc: "Save your entire cookie state as a named profile and restore it with one click. Perfect for developers switching between test accounts." },
+  { title: "Bulk Category Deletion", desc: "Delete all tracking cookies while keeping login cookies intact. EditThisCookie only offered all-or-nothing deletion." },
+];
+
+const theirAdvantages = [
+  { title: "Legacy Reputation", desc: "EditThisCookie was the most popular cookie editor for over a decade with 3M+ users and extensive documentation." },
+  { title: "Community Resources", desc: "Years of blog posts, tutorials, and Stack Overflow answers reference EditThisCookie's interface." },
+  { title: "Simplicity", desc: "EditThisCookie's interface was straightforward — view, edit, delete. No categories or scores to learn." },
+  { title: "Completely Free", desc: "All features were free. CookieJar's advanced features (profiles, bulk operations) require a Pro subscription." },
+];
+
+const verdict = "EditThisCookie was the gold standard for cookie management — until Chrome removed it for not supporting Manifest V3. If you're searching for 'EditThisCookie not working' or 'EditThisCookie alternative,' CookieJar is the modern replacement built specifically for Chrome's current architecture. It does everything EditThisCookie did, plus privacy scoring, smart categorization, and cookie profiles that the original never offered.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Why was EditThisCookie removed from Chrome?", answer: "Google removed the original EditThisCookie because it was not updated to support Manifest V3, Chrome's new extension platform. Extensions using the older Manifest V2 are no longer allowed on the Chrome Web Store." },
+  { question: "Is EditThisCookie V3 the same as the original?", answer: "No. EditThisCookie V3 is an unofficial fork by a different developer. It's not maintained by the original EditThisCookie team." },
+  { question: "Can CookieJar import my old EditThisCookie data?", answer: "CookieJar supports JSON import, so if you exported your cookies from EditThisCookie before it was removed, you can import them into CookieJar." },
+  { question: "Is CookieJar safe to use?", answer: "Yes. CookieJar processes everything locally in your browser. No cookie data is sent to external servers. The extension requires no sensitive permissions beyond cookie access." },
+  { question: "Do I need Pro for basic cookie editing?", answer: "No. Viewing, creating, editing, deleting, searching, and filtering cookies are all free. Pro adds advanced features like cookie profiles, bulk category deletion, and priority support." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="CookieJar vs EditThisCookie — Cookie Manager Compared"
+  seoDescription="EditThisCookie removed from Chrome (no MV3). Compare CookieJar with privacy scoring, auto-categorization, and cookie profiles."
+  seoKeywords="editthiscookie alternative, editthiscookie not working, mv3 cookie editor chrome, best cookie manager extension 2026"
+  h1="CookieJar vs EditThisCookie"
+  intro="EditThisCookie was Chrome's most popular cookie editor — until it was removed for not supporting Manifest V3. Here's how CookieJar, built from scratch for modern Chrome, compares."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-03-29"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/x-detox-vs-control-panel-for-twitter/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/x-detox.webp" alt="X Detox" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">X Detox vs Control Panel for Twitter</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Social media cleanup comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+      <a href="/extensions/cookiejar/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

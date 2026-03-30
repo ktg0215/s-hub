@@ -1,0 +1,102 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "PromptStash",
+  icon: "/ext-icons/promptstash.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/promptstash-ai-prompt-man/ocgkponbnolpgobllplcamfobolbjbcj",
+  users: "50+",
+  rating: "5.0",
+  price: "$5 one-time",
+  extensionPageUrl: "/extensions/promptstash/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "PromptBox",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/promptbox/pcedkilncfbbndbmlfnpkfolecmkmlpc",
+  users: "30,000+",
+  rating: "4.2",
+  price: "Free / Pro $6.99/mo",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Supported AI Services", ours: "16+ (ChatGPT, Claude, Gemini, Grok, Perplexity, etc.)", theirs: "ChatGPT focused", highlight: true },
+  { feature: "Variable Interpolation", ours: "Yes — {{goal}}, {{topic}}, dynamic placeholders", theirs: "No", highlight: true },
+  { feature: "Folder Organization", ours: "Yes — unlimited nested folders", theirs: "Yes — collections" },
+  { feature: "Offline Access", ours: "Yes — works without internet", theirs: "No — requires cloud connection", highlight: true },
+  { feature: "Data Storage", ours: "100% local (Chrome storage)", theirs: "Cloud-based (their servers)", highlight: true },
+  { feature: "Pin Favorites", ours: "Yes — pin up to 10 templates", theirs: "No" },
+  { feature: "Tag-Based Search", ours: "Yes — search by name or tags", theirs: "Yes — search by text" },
+  { feature: "Quick Insert", ours: "Yes — inject directly into AI chat", theirs: "Yes — copy/paste" },
+  { feature: "Import / Export", ours: "Yes — JSON backup", theirs: "No" },
+  { feature: "Pricing Model", ours: "$5 one-time — own it forever", theirs: "$6.99/month subscription", highlight: true },
+  { feature: "Privacy", ours: "No data leaves your browser", theirs: "Prompts stored on their servers" },
+  { feature: "Customer Support", ours: "Responsive", theirs: "Users report unanswered emails", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "16+ AI Platform Support", desc: "Works across ChatGPT, Claude, Gemini, Grok, Perplexity, Copilot, Google AI Studio, and more. PromptBox primarily targets ChatGPT." },
+  { title: "Variable Placeholders", desc: "Create dynamic templates with {{variables}} that prompt you for values at insert time. Build one template, customize it for every use. PromptBox has no variable system." },
+  { title: "100% Local & Private", desc: "Your prompts never leave your browser. PromptBox stores everything on their cloud servers, raising privacy concerns for sensitive or proprietary prompts." },
+  { title: "One-Time $5 Payment", desc: "Pay once, use forever. PromptBox charges $6.99 every month — that's $84/year for features PromptStash includes at a fraction of the price." },
+  { title: "Offline Access", desc: "PromptStash works without internet because everything is stored locally. PromptBox requires a cloud connection to access your prompts." },
+];
+
+const theirAdvantages = [
+  { title: "Larger User Base", desc: "30,000+ users provide more community-tested workflows and a longer track record." },
+  { title: "Cloud Sync", desc: "Access your prompts from any device by logging in. PromptStash's local storage means prompts live on one browser." },
+  { title: "Web Dashboard", desc: "PromptBox offers a web app at promptbox.ai for managing prompts outside the browser." },
+  { title: "Free Tier", desc: "PromptBox has a free plan for basic use. PromptStash is a paid extension with no free tier." },
+];
+
+const verdict = "If you use multiple AI platforms and care about privacy, PromptStash is the clear choice. Variable interpolation alone makes it worth the one-time $5 — a feature PromptBox doesn't offer at any price. PromptBox's cloud sync is useful if you switch devices often, but the $6.99/month subscription adds up fast, and storing prompts on external servers is a dealbreaker for teams working with proprietary content. For the vast majority of AI power users, PromptStash offers more value at a lower lifetime cost.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Does PromptStash work with Claude?", answer: "Yes. PromptStash supports 16+ AI platforms including Claude, ChatGPT, Gemini, Grok, Perplexity, Copilot, and Google AI Studio. Prompts can be inserted directly into any supported chat interface." },
+  { question: "Can I sync PromptStash across devices?", answer: "PromptStash stores data locally for maximum privacy. You can use the JSON export/import feature to manually transfer prompts between devices." },
+  { question: "Is $5 a subscription?", answer: "No. PromptStash is a one-time $5 purchase. You get lifetime access to all current and future features with no recurring charges." },
+  { question: "What are variable placeholders?", answer: "Variables like {{goal}} or {{topic}} are dynamic fields in your prompt templates. When you insert a template, PromptStash asks you to fill in each variable — so one template can serve hundreds of different use cases." },
+  { question: "Are my prompts safe with PromptStash?", answer: "Yes. PromptStash stores everything in your browser's local storage. No data is sent to external servers. Your prompts are as private as files on your computer." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="PromptStash vs PromptBox — Best AI Prompt Manager in 2026"
+  seoDescription="Compare PromptStash and PromptBox side by side. 16+ AI platforms, variable placeholders, local privacy, and one-time pricing vs monthly subscription."
+  seoKeywords="promptbox alternative, best prompt manager extension, chatgpt prompt saver, ai prompt organizer chrome"
+  h1="PromptStash vs PromptBox"
+  intro="Two prompt managers for AI power users. One stores your prompts in the cloud for $7/month, the other keeps them private and local for a one-time $5. Here's the full comparison."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-03-29"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/snapreply-vs-gmail-templates/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/snapreply.webp" alt="SnapReply" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">SnapReply vs Gmail Templates</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Email template comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+      <a href="/extensions/promptstash/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

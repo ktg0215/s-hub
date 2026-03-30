@@ -81,7 +81,22 @@ const pageLang = extension.lang === 'JP' ? 'ja' : 'en';
 
 // Canonical URL
 const siteUrl = 'https://dev-tools-hub.xyz';
-const canonicalURL = `${siteUrl}${Astro.url.pathname.replace(/\/$/, '')}`;
+const canonicalURL = `${siteUrl}${Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`}`;
+
+// Enrich softwareSchema with aggregateRating if available
+if (extension.rating > 0 && extension.reviewCount > 0) {
+  (softwareSchema as Record<string, unknown>).aggregateRating = {
+    "@type": "AggregateRating",
+    "ratingValue": extension.rating,
+    "reviewCount": extension.reviewCount,
+    "bestRating": 5,
+    "worstRating": 1
+  };
+}
+// Add image to schema if icon provided
+if (extension.icon) {
+  (softwareSchema as Record<string, unknown>).image = extension.icon.startsWith('http') ? extension.icon : `${siteUrl}${extension.icon}`;
+}
 
 // BreadcrumbList schema
 const breadcrumbSchema = {

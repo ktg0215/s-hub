@@ -1,0 +1,94 @@
+---
+import Layout from '../../layouts/Layout.astro';
+
+const categories = [
+  {
+    name: "Web Scraping & Data",
+    items: [
+      { slug: "datapick-vs-instant-data-scraper", ours: "DataPick", theirs: "Instant Data Scraper", icon: "/ext-icons/datapick.webp", desc: "Point-and-click vs AI auto-detection" },
+      { slug: "datapick-vs-web-scraper", ours: "DataPick", theirs: "Web Scraper", icon: "/ext-icons/datapick.webp", desc: "No-code vs CSS selectors" },
+      { slug: "datapick-vs-listly", ours: "DataPick", theirs: "Listly", icon: "/ext-icons/datapick.webp", desc: "Privacy-first vs cloud scraping" },
+    ],
+  },
+  {
+    name: "E-Commerce & Price Tracking",
+    items: [
+      { slug: "arbitra-vs-keepa", ours: "Arbitra", theirs: "Keepa", icon: "/ext-icons/Arbitra.webp", desc: "Multi-marketplace arbitrage vs Amazon-only tracking" },
+    ],
+  },
+  {
+    name: "Digital Wellbeing",
+    items: [
+      { slug: "shorts-killer-vs-unhook", ours: "Shorts Killer", theirs: "Unhook", icon: "/ext-icons/shorts-killer.webp", desc: "Screen time tracking vs UI element removal" },
+      { slug: "x-detox-vs-control-panel-for-twitter", ours: "X Detox", theirs: "Control Panel for Twitter", icon: "/ext-icons/x-detox.webp", desc: "Timeline cleanup tools compared" },
+      { slug: "zenread-vs-mercury-reader", ours: "ZenRead", theirs: "Mercury Reader", icon: "/ext-icons/ZenRead.webp", desc: "Reader mode with TTS vs classic simplicity" },
+    ],
+  },
+  {
+    name: "Productivity & Email",
+    items: [
+      { slug: "snapreply-vs-gmail-templates", ours: "SnapReply", theirs: "Gmail Templates", icon: "/ext-icons/snapreply.webp", desc: "Variables and folders vs basic templates" },
+      { slug: "promptstash-vs-promptbox", ours: "PromptStash", theirs: "PromptBox", icon: "/ext-icons/promptstash.webp", desc: "One-time pricing vs monthly subscription" },
+      { slug: "readmark-vs-liner", ours: "ReadMark", theirs: "Liner", icon: "/ext-icons/ReadMark.webp", desc: "Reading progress vs AI highlighting" },
+      { slug: "tabvault-vs-onetab", ours: "TabVault", theirs: "OneTab", icon: "/ext-icons/TabVault.png", desc: "Developer workspaces vs simple tab saving" },
+    ],
+  },
+  {
+    name: "Developer & SEO Tools",
+    items: [
+      { slug: "onpagex-vs-detailed-seo-extension", ours: "OnPageX", theirs: "Detailed SEO Extension", icon: "/ext-icons/onpagex.png", desc: "Scoring system vs raw meta data" },
+      { slug: "japanese-font-finder-vs-whatfont", ours: "Japanese Font Finder", theirs: "WhatFont", icon: "/ext-icons/japanese-font-finder.webp", desc: "Japanese font support vs Western-only" },
+      { slug: "procshot-vs-scribe", ours: "Procshot", theirs: "Scribe", icon: "/ext-icons/procshot.png", desc: "Free exports vs $23/month" },
+      { slug: "cookiejar-vs-editthiscookie", ours: "CookieJar", theirs: "EditThisCookie", icon: "/ext-icons/cookiejar.png", desc: "MV3-ready vs removed from Chrome" },
+    ],
+  },
+  {
+    name: "Image Tools",
+    items: [
+      { slug: "reshapic-vs-image-resizer", ours: "ReShapic", theirs: "Image Resizer", icon: "/ext-icons/reshapic.png", desc: "WebP/AVIF conversion vs basic resizing" },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Extension Comparisons — S-Hub vs Alternatives"
+  description="Side-by-side comparisons of S-Hub Chrome extensions vs popular alternatives. Find the right tool for web scraping, productivity, digital wellbeing, and more."
+  keywords="chrome extension comparison, best chrome extensions 2026, extension alternatives"
+>
+  <main class="max-w-4xl mx-auto px-6 py-16">
+    <header class="mb-12">
+      <p class="font-mono text-[11px] text-zinc-400 tracking-wider uppercase mb-2">// comparisons</p>
+      <h1 class="text-3xl font-bold text-zinc-900 mb-3">Extension Comparisons</h1>
+      <p class="text-zinc-500 text-[15px] leading-relaxed max-w-2xl">
+        Honest, side-by-side feature comparisons between S-Hub extensions and popular alternatives. We show both strengths and limitations.
+      </p>
+    </header>
+
+    {categories.map((cat) => (
+      <section class="mb-10">
+        <h2 class="font-mono text-[11px] text-zinc-400 tracking-wider uppercase mb-4">// {cat.name.toLowerCase()}</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {cat.items.map((item) => (
+            <a href={`/compare/${item.slug}/`} class="group border border-zinc-200 rounded-lg p-4 flex items-center gap-3 hover:border-zinc-300 hover:bg-zinc-50/50 transition-all">
+              <img src={item.icon} alt={item.ours} class="w-9 h-9 rounded-lg shrink-0" loading="lazy" />
+              <div class="min-w-0">
+                <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors truncate">
+                  {item.ours} vs {item.theirs}
+                </h3>
+                <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider truncate">{item.desc}</p>
+              </div>
+              <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors shrink-0">→</span>
+            </a>
+          ))}
+        </div>
+      </section>
+    ))}
+
+    <footer class="mt-16 pt-8 border-t border-zinc-100">
+      <p class="text-zinc-400 text-[13px] text-center">
+        {categories.reduce((sum, cat) => sum + cat.items.length, 0)} comparisons across {categories.length} categories — updated March 2026
+      </p>
+    </footer>
+  </main>
+</Layout>

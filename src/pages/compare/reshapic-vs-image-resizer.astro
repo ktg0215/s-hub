@@ -1,0 +1,103 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "ReShapic",
+  icon: "/ext-icons/reshapic.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/mfehdgaamdffedekhdonlaoodgooimkp",
+  users: "50+",
+  rating: "5.0",
+  price: "Free / Pro $19",
+  extensionPageUrl: "/extensions/reshapic/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Image Resizer",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/image-resizer-extension/pjfbjgmjonkfdjkgplflnaeojcjeoimn",
+  users: "200,000+",
+  rating: "3.9 (400+)",
+  price: "Free / Pro",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Batch Processing", ours: "Yes — unlimited files", theirs: "Limited (5 free, then Pro)", highlight: true },
+  { feature: "WebP Output", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "AVIF Output", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Platform Presets", ours: "Yes — Instagram, Twitter, YouTube, etc.", theirs: "No", highlight: true },
+  { feature: "Aspect Ratio Lock", ours: "Yes", theirs: "Yes" },
+  { feature: "Quality Control", ours: "Yes (slider)", theirs: "Basic" },
+  { feature: "Live Preview", ours: "Yes", theirs: "Yes" },
+  { feature: "Drag & Drop", ours: "Yes", theirs: "Yes" },
+  { feature: "Web App Available", ours: "Yes (reshapic.dev-tools-hub.xyz)", theirs: "No", highlight: true },
+  { feature: "Local Processing", ours: "Yes — nothing leaves your browser", theirs: "Yes", highlight: true },
+  { feature: "PNG/JPEG Support", ours: "Yes", theirs: "Yes" },
+  { feature: "File Size Optimization", ours: "Yes (auto-compression)", theirs: "Basic resize only" },
+  { feature: "Japanese Language", ours: "Yes", theirs: "No (English only)", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Modern Format Support", desc: "Export to WebP and AVIF — the formats that actually reduce file size by 30-50% compared to JPEG. Image Resizer only outputs traditional formats." },
+  { title: "Social Media Presets", desc: "One-click presets for Instagram (1080×1080), Twitter header (1500×500), YouTube thumbnail (1280×720), and more. No need to memorize dimensions." },
+  { title: "Unlimited Batch Processing", desc: "Process as many images as you need on the free tier. Image Resizer limits you to 5 free resizes before requiring a paid upgrade." },
+  { title: "Web App + Extension", desc: "Use ReShapic as a Chrome extension or visit the web app — your choice. Image Resizer is extension-only." },
+  { title: "Privacy-First Architecture", desc: "All processing happens locally in your browser using WebAssembly. Your images never leave your device — no server uploads, no data collection." },
+];
+
+const theirAdvantages = [
+  { title: "Side Panel Integration", desc: "Image Resizer opens in Chrome's side panel, letting you resize while browsing. Convenient for quick single-image edits." },
+  { title: "Larger User Base", desc: "200,000+ users provide broader community feedback and proven reliability across many use cases." },
+  { title: "Simple Interface", desc: "Minimal UI focused solely on resizing. If all you need is width/height adjustment, the simplicity is a plus." },
+  { title: "Longer Track Record", desc: "Established extension with years of updates and a known workflow that many users rely on daily." },
+];
+
+const verdict = "If you only need basic width/height resizing for a few images, Image Resizer's side panel is convenient. But for anything beyond that — batch processing, WebP/AVIF conversion, social media presets, or file size optimization — ReShapic is the more capable tool. The unlimited free tier and modern format support make it the better choice for content creators, designers, and developers who work with images regularly.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Is ReShapic really free for batch processing?", answer: "Yes. ReShapic's free tier includes unlimited batch resizing and format conversion. Pro adds advanced features like custom watermarks and priority processing." },
+  { question: "How much smaller are WebP/AVIF files compared to JPEG?", answer: "WebP is typically 25-35% smaller than JPEG at equivalent quality. AVIF can be 30-50% smaller. ReShapic lets you convert to both formats with a single click." },
+  { question: "Does ReShapic upload my images to a server?", answer: "No. All processing happens locally in your browser using WebAssembly. Your images never leave your device." },
+  { question: "Can I use ReShapic without installing the extension?", answer: "Yes. ReShapic is also available as a web app at reshapic.dev-tools-hub.xyz. No installation required." },
+  { question: "What social media presets does ReShapic include?", answer: "Instagram post (1080×1080), Instagram story (1080×1920), Twitter header (1500×500), YouTube thumbnail (1280×720), Facebook cover (820×312), and more. All presets are one-click." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="ReShapic vs Image Resizer — Optimizer Compared"
+  seoDescription="Compare ReShapic and Image Resizer. Batch processing, WebP/AVIF conversion, social media presets, and file optimization."
+  seoKeywords="squoosh alternative, best image resizer chrome extension, batch image optimizer, image converter chrome extension 2026, webp converter, avif converter"
+  h1="ReShapic vs Image Resizer"
+  intro="Basic resizing vs full image optimization pipeline. Here's how these Chrome extensions compare for image processing in 2026."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-03-29"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/tabvault-vs-onetab/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/TabVault.png" alt="TabVault" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">TabVault vs OneTab</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Tab management comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/reshapic/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/reshapic.png" alt="ReShapic" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReShapic — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

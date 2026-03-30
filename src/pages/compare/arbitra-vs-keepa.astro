@@ -1,0 +1,104 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "Arbitra",
+  icon: "/ext-icons/Arbitra.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/arbitra-%E3%81%9B%E3%81%A9%E3%82%8A%E4%BE%A1%E6%A0%BC%E6%AF%94%E8%BC%83%E3%83%84%E3%83%BC%E3%83%AB/bincnlodgkpmmihbdoknndbncjfghpcj",
+  users: "50+",
+  rating: "5.0",
+  price: "Free / Pro $9.99/mo",
+  extensionPageUrl: "/extensions/arbitra/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Keepa",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/keepa-amazon-price-tracke/neebplgakaahbhdphmkckjjcegoiijjo",
+  users: "4,000,000+",
+  rating: "4.5 (28,000+)",
+  price: "Free / Premium €19/mo",
+  badge: "Featured",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Amazon Price Tracking", ours: "Yes", theirs: "Yes" },
+  { feature: "Mercari Support", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Yahoo! Auctions Support", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Rakuten Support", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Cross-Platform Price Comparison", ours: "Yes — Amazon + Mercari + Yahoo", theirs: "Amazon only", highlight: true },
+  { feature: "Reselling Profit Calculator", ours: "Yes (fees, shipping, margin)", theirs: "No", highlight: true },
+  { feature: "Price History Charts", ours: "Yes", theirs: "Yes (detailed)" },
+  { feature: "Price Drop Alerts", ours: "Basic", theirs: "Yes (advanced)" },
+  { feature: "Sales Rank Tracking", ours: "No", theirs: "Yes" },
+  { feature: "Japanese EC Optimization", ours: "Yes — built for Japan market", theirs: "Limited (US/EU focus)", highlight: true },
+  { feature: "Browser Performance Impact", ours: "Lightweight", theirs: "Heavier (injects on all Amazon pages)" },
+  { feature: "Language", ours: "Japanese / English", theirs: "Multi-language" },
+  { feature: "Free Tier", ours: "Full features with limits", theirs: "Basic charts only" },
+];
+
+const ourAdvantages = [
+  { title: "Multi-Platform Arbitrage", desc: "Compare prices across Amazon, Mercari, and Yahoo! Auctions simultaneously. Keepa only tracks Amazon, so you miss cross-platform profit opportunities." },
+  { title: "Built-in Profit Calculator", desc: "Instantly see reselling margins after fees and shipping. No need for a separate spreadsheet or calculator — Arbitra does the math for you." },
+  { title: "Japanese EC Specialization", desc: "Deep integration with Japan's biggest marketplaces. Keepa's Japan support is minimal compared to its US and EU coverage." },
+  { title: "Lightweight Footprint", desc: "Arbitra only activates on product pages you visit. Keepa injects scripts across all Amazon pages, which can slow down browsing." },
+  { title: "Reseller-Focused Workflow", desc: "Designed specifically for the reselling (sedori) workflow — from finding deals to calculating margins to tracking inventory." },
+];
+
+const theirAdvantages = [
+  { title: "Unmatched Price History", desc: "Keepa has years of Amazon price history data across millions of products. The depth and breadth of their historical data is unparalleled." },
+  { title: "Advanced Alerts", desc: "Highly configurable price drop alerts with filters for deal type, price range, and category. Supports email and Telegram notifications." },
+  { title: "Sales Rank & Buy Box Tracking", desc: "Keepa tracks sales rank, Buy Box statistics, and seller counts — essential data for serious Amazon sellers." },
+  { title: "Massive User Base", desc: "4M+ users and 28,000+ reviews provide strong social proof. Keepa is the industry standard for Amazon price tracking." },
+];
+
+const verdict = "Keepa is the gold standard for Amazon-only price tracking with deep historical data and advanced alerts. But if you're doing cross-platform reselling between Amazon, Mercari, and Yahoo! Auctions — especially in the Japanese market — Arbitra is purpose-built for that workflow. The integrated profit calculator and multi-marketplace comparison give resellers an edge that Keepa simply doesn't offer.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Can I use Arbitra and Keepa together?", answer: "Yes. Many resellers use Keepa for Amazon price history and Arbitra for cross-platform arbitrage. The two extensions complement each other well." },
+  { question: "Is Arbitra good for beginners in reselling?", answer: "Absolutely. Arbitra's profit calculator makes it easy to understand margins before you buy. You don't need spreadsheets or manual fee calculations." },
+  { question: "Does Keepa work on Japanese Amazon?", answer: "Keepa does support amazon.co.jp, but its data coverage and features are more limited compared to US/EU Amazon. Arbitra is specifically optimized for the Japanese market." },
+  { question: "What marketplaces does Arbitra support?", answer: "Arbitra supports Amazon (JP), Mercari, and Yahoo! Auctions. It compares prices across all three to find the best arbitrage opportunities." },
+  { question: "Is Arbitra's free plan enough to get started?", answer: "Yes. The free plan includes cross-platform price comparison and basic profit calculations. Pro unlocks unlimited searches, advanced filters, and historical data." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="Arbitra vs Keepa — Best Price Tracker for Resellers in 2026?"
+  seoDescription="Compare Arbitra and Keepa side by side. Cross-platform price tracking, reselling profit calculation, and Japanese marketplace support."
+  seoKeywords="keepa alternative, amazon price tracker alternative, best price comparison extension, reselling profit calculator chrome, sedori tool, arbitra vs keepa"
+  h1="Arbitra vs Keepa"
+  intro="Amazon-only tracking vs multi-marketplace arbitrage. Here's how these price tracking extensions compare for resellers in 2026."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-03-29"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/datapick-vs-instant-data-scraper/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Instant Data Scraper</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Web scraping comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/arbitra/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/Arbitra.webp" alt="Arbitra" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Arbitra — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

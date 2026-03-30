@@ -1,0 +1,103 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "DataPick",
+  icon: "/ext-icons/datapick.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf",
+  users: "80+",
+  rating: "5.0 (1)",
+  price: "Free",
+  extensionPageUrl: "/extensions/datapick/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Web Scraper",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/web-scraper-free-web-scra/jnhgnonknehpejjnehehllkliplmbmhn",
+  users: "800,000+",
+  rating: "4.0 (1,000+)",
+  price: "Free (Cloud plans from $50/mo)",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Data Selection Method", ours: "Point & Click (visual)", theirs: "CSS Selectors (manual)", highlight: true },
+  { feature: "Learning Curve", ours: "Zero — just click elements", theirs: "Medium-High — requires selector knowledge", highlight: true },
+  { feature: "Google Sheets Export", ours: "Yes (direct)", theirs: "No", highlight: true },
+  { feature: "User Rating", ours: "5.0", theirs: "4.0", highlight: true },
+  { feature: "Cloud Dependency", ours: "None — fully local", theirs: "Cloud required for full features", highlight: true },
+  { feature: "CSV Export", ours: "Yes", theirs: "Yes" },
+  { feature: "Excel Export", ours: "Yes", theirs: "No (CSV only)" },
+  { feature: "Recipe / Sitemap Saving", ours: "Yes (Recipes)", theirs: "Yes (Sitemaps)" },
+  { feature: "Pagination Support", ours: "Yes (auto)", theirs: "Yes (manual config)" },
+  { feature: "Scheduled Scraping", ours: "No", theirs: "Yes (Cloud, paid)" },
+  { feature: "Multi-tab Scraping", ours: "No", theirs: "Yes" },
+  { feature: "Japanese Language", ours: "Yes", theirs: "No (English only)", highlight: true },
+  { feature: "Price", ours: "Free", theirs: "Free (Cloud from $50/mo)" },
+];
+
+const ourAdvantages = [
+  { title: "Zero Learning Curve", desc: "Click on page elements to select data — no CSS selectors, no XPath, no technical knowledge required. Web Scraper demands understanding of selectors and sitemap trees." },
+  { title: "Google Sheets Integration", desc: "Export scraped data directly to Google Sheets with one click. Web Scraper only supports CSV export, requiring manual import to Sheets." },
+  { title: "Higher User Rating", desc: "DataPick holds a perfect 5.0 rating, while Web Scraper sits at 4.0 — reflecting a smoother, more reliable user experience." },
+  { title: "No Cloud Required", desc: "Everything runs locally in your browser. Web Scraper's advanced features (scheduling, cloud scraping) require a paid Cloud subscription starting at $50/month." },
+  { title: "Japanese Language Support", desc: "Full Japanese UI for non-English users. Web Scraper is English-only." },
+];
+
+const theirAdvantages = [
+  { title: "Massive User Base", desc: "800,000+ users and years of development provide a proven track record and extensive community resources." },
+  { title: "Cloud Scraping", desc: "Web Scraper Cloud can run scrapes on a schedule without your browser being open — useful for monitoring tasks." },
+  { title: "Multi-tab Support", desc: "Can scrape across multiple browser tabs simultaneously for complex, multi-page data collection." },
+  { title: "Advanced Selectors", desc: "CSS selector-based approach offers fine-grained control for users comfortable with web development concepts." },
+];
+
+const verdict = "Web Scraper is a powerful tool for developers who are comfortable with CSS selectors and need cloud-based scheduling. But for most users who simply want to grab data from a website without a learning curve, DataPick is the clear winner. Point-and-click beats writing selectors, direct Google Sheets export beats manual CSV import, and free-with-no-cloud beats $50/month. If you don't need Web Scraper's cloud features, DataPick does more with less friction.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Do I need to know CSS selectors to use DataPick?", answer: "No. DataPick uses a visual point-and-click interface. Just click on the data you want to extract — no coding or selector knowledge needed." },
+  { question: "Can DataPick handle pagination like Web Scraper?", answer: "Yes. DataPick supports automatic pagination. Web Scraper also supports pagination but requires manual configuration of navigation selectors." },
+  { question: "Is Web Scraper's Cloud worth the $50/month?", answer: "If you need scheduled, automated scraping that runs without your browser open, Web Scraper Cloud may be worth it. For on-demand scraping, DataPick covers everything for free." },
+  { question: "Can I switch from Web Scraper to DataPick?", answer: "Yes. Both extensions work independently. Install DataPick, try it on your target site, and you'll likely find the visual approach faster for most tasks." },
+  { question: "Is my scraped data private with DataPick?", answer: "Yes. DataPick processes everything locally in your browser. No data is sent to external servers, unlike Web Scraper Cloud which processes data on their servers." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="DataPick vs Web Scraper — No-Code Scraping Compared"
+  seoDescription="Compare DataPick and Web Scraper. Point-and-click vs CSS selectors, Google Sheets integration, pricing, and more."
+  seoKeywords="web scraper chrome extension alternative, webscraper.io alternative, web scraper vs datapick, no code web scraper 2026"
+  h1="DataPick vs Web Scraper"
+  intro="Two approaches to web scraping: visual point-and-click vs CSS selector trees. Here's how DataPick and Web Scraper (webscraper.io) compare in 2026."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-03-29"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/datapick-vs-instant-data-scraper/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Instant Data Scraper</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">AI auto-detection comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+      <a href="/extensions/datapick/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

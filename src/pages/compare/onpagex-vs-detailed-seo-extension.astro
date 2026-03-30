@@ -1,0 +1,105 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "OnPageX",
+  icon: "/ext-icons/onpagex.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/onpagex-seo-meta-analyzer/bnmkiihgfmmedaikcipkihcpabjbmdcc",
+  users: "100+",
+  rating: "5.0",
+  price: "Free / Pro $9.99",
+  extensionPageUrl: "/extensions/onpagex/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Detailed SEO Extension",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/detailed-seo-extension/pfjdepjjfjjahkjfpkcgfmfhmnakjfba",
+  users: "450,000+",
+  rating: "4.9 (7,000+)",
+  price: "Free",
+  badge: "Featured",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "SERP Preview", ours: "Yes (Pro) — see how your page appears in Google", theirs: "No", highlight: true },
+  { feature: "Competitor Comparison", ours: "Yes (Pro) — compare two pages side by side", theirs: "No", highlight: true },
+  { feature: "Bulk Page Analysis", ours: "Yes (Pro) — analyze multiple pages at once", theirs: "No", highlight: true },
+  { feature: "Analysis History", ours: "Yes (Pro) — track changes over time", theirs: "No", highlight: true },
+  { feature: "PDF / CSV Export", ours: "Yes (Pro)", theirs: "No", highlight: true },
+  { feature: "Schema.org Detection", ours: "Yes — visual JSON-LD tree", theirs: "Yes — basic detection" },
+  { feature: "Meta Tag Analysis", ours: "Yes — with character count & scoring", theirs: "Yes — with character count" },
+  { feature: "Header Structure (H1-H6)", ours: "Yes — hierarchy check", theirs: "Yes" },
+  { feature: "Image Alt Audit", ours: "Yes — missing alt detection", theirs: "Yes" },
+  { feature: "Link Analysis", ours: "Yes — internal, external, nofollow", theirs: "Yes — link counts" },
+  { feature: "Color-Coded Scoring", ours: "Yes — 9 categories (Good/Attention/Critical)", theirs: "No (data only)", highlight: true },
+  { feature: "Japanese Language", ours: "Yes", theirs: "No (English only)", highlight: true },
+  { feature: "Open Graph / Twitter Card", ours: "Yes", theirs: "Yes" },
+  { feature: "Price", ours: "Free / Pro $9.99 one-time", theirs: "Free" },
+];
+
+const ourAdvantages = [
+  { title: "SERP Preview", desc: "See exactly how your page will appear in Google search results before publishing. Detailed SEO Extension doesn't offer any preview functionality." },
+  { title: "Competitor Page Comparison", desc: "Compare the SEO profile of two pages side by side — perfect for analyzing why a competitor outranks you. A unique Pro feature not found in Detailed." },
+  { title: "Bulk Analysis", desc: "Analyze multiple pages at once to find site-wide SEO issues. Detailed only works one page at a time." },
+  { title: "Actionable Scoring System", desc: "OnPageX scores 9 SEO categories with color-coded indicators (Good/Attention/Critical). Detailed shows raw data without prioritization." },
+  { title: "Analysis History", desc: "Track your SEO improvements over time. Re-check a page next week and see what changed. Detailed has no history feature." },
+];
+
+const theirAdvantages = [
+  { title: "Massive User Base", desc: "450,000+ users and years of development provide extensive community trust and a proven track record." },
+  { title: "Completely Free", desc: "All features are free with no Pro tier. OnPageX's advanced features (SERP preview, comparison, bulk) require a $9.99 one-time purchase." },
+  { title: "Featured Badge", desc: "Chrome Web Store Featured status signals quality verification by Google." },
+  { title: "Lightweight Core", desc: "Focused on displaying metadata quickly without complex scoring or analysis layers." },
+];
+
+const verdict = "Detailed SEO Extension is a solid free tool for quickly viewing meta tags and basic SEO data. But if you need actionable insights — SERP previews, competitor comparisons, bulk analysis, and historical tracking — OnPageX goes significantly further. The one-time $9.99 Pro upgrade pays for itself the first time you catch a ranking issue that Detailed would have missed. For SEO professionals and serious site owners, OnPageX is the more complete toolkit.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Is OnPageX free?", answer: "Yes. OnPageX's core features — meta analysis, header structure, schema detection, image audits, and link analysis — are completely free. Pro features like SERP preview and competitor comparison are a one-time $9.99 purchase." },
+  { question: "Can I use both extensions at the same time?", answer: "Yes. Both extensions work independently and don't conflict. Many SEO professionals use multiple tools to cross-reference data." },
+  { question: "Does OnPageX slow down page loading?", answer: "No. OnPageX only activates when you click the extension icon. It doesn't inject scripts or monitor pages in the background." },
+  { question: "Is the $9.99 Pro a subscription?", answer: "No. It's a one-time purchase that unlocks all Pro features permanently, including future updates." },
+  { question: "Which is better for SEO beginners?", answer: "OnPageX's color-coded scoring system (Good/Attention/Critical) makes it easier for beginners to understand what needs fixing. Detailed shows raw data that requires more SEO knowledge to interpret." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="OnPageX vs Detailed SEO Extension — Compared (2026)"
+  seoDescription="Compare OnPageX and Detailed SEO Extension. SERP preview, competitor comparison, bulk analysis, and scoring."
+  seoKeywords="detailed seo extension alternative, best seo chrome extension 2026, free seo analysis chrome extension, on page seo checker chrome"
+  h1="OnPageX vs Detailed SEO Extension"
+  intro="Two popular one-click SEO analyzers for Chrome. One shows data, the other turns it into action. Here's how they compare in 2026."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-03-29"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/datapick-vs-instant-data-scraper/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Instant Data Scraper</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Web scraping comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+      <a href="/extensions/onpagex/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/onpagex.png" alt="OnPageX" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">OnPageX — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

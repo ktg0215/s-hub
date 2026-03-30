@@ -1,0 +1,105 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "Procshot",
+  icon: "/ext-icons/procshot.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/%E6%89%8B%E9%A0%86%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3-%E6%89%8B%E9%A0%86%E6%9B%B8%E3%83%BB%E6%93%8D%E4%BD%9C%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB%E8%87%AA%E5%8B%95%E4%BD%9C%E6%88%90/ieblehdloggcpmkncplccjofeoakhkll",
+  users: "100+",
+  rating: "New",
+  price: "Free",
+  extensionPageUrl: "/extensions/procshot/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Scribe",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/scribe-ai-documentation-s/okfkdaglfjjjfefdcppliegebpoegaii",
+  users: "5,000,000+",
+  rating: "4.8 (825+)",
+  price: "Free / Pro $23/mo",
+  badge: "Featured · Editor's Pick",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Price", ours: "100% Free — all features included", theirs: "Free tier limited; Pro from $23/seat/mo", highlight: true },
+  { feature: "PDF Export", ours: "Yes (free, Japanese font supported)", theirs: "Pro plan only ($23/mo)", highlight: true },
+  { feature: "Markdown Export", ours: "Yes (free)", theirs: "Pro plan only", highlight: true },
+  { feature: "HTML Export", ours: "Yes (free, bundled images)", theirs: "Pro plan only", highlight: true },
+  { feature: "Data Processing", ours: "100% local — nothing leaves your browser", theirs: "Cloud-based (data uploaded to Scribe servers)", highlight: true },
+  { feature: "Screenshot Annotations", ours: "Built-in: boxes, arrows, text, blur", theirs: "Basic editing; advanced redaction on Pro", highlight: true },
+  { feature: "Auto-Record Actions", ours: "Yes", theirs: "Yes" },
+  { feature: "Auto-Generated Descriptions", ours: "Yes (DOM-based)", theirs: "Yes (AI-powered)" },
+  { feature: "Desktop App Capture", ours: "Browser only", theirs: "Pro plan only" },
+  { feature: "Team Sharing / Collaboration", ours: "Export & share files manually", theirs: "Built-in team workspace (Pro Team $12/seat/mo)" },
+  { feature: "Custom Branding", ours: "No", theirs: "Pro plan only" },
+  { feature: "Guide Management", ours: "Save, organize, duplicate in sidebar", theirs: "Cloud library with search" },
+  { feature: "Japanese Language", ours: "Yes (UI & PDF export)", theirs: "No", highlight: true },
+  { feature: "Extension Size", ours: "Lightweight", theirs: "Larger footprint" },
+];
+
+const ourAdvantages = [
+  { title: "Completely Free", desc: "Every feature — PDF, Markdown, HTML export, annotations, guide management — is free with no hidden paywalls. Scribe locks exports and advanced editing behind a $23/month Pro plan." },
+  { title: "Local-First Privacy", desc: "All data processing happens in your browser. Screenshots, steps, and guide content never leave your machine. Scribe uploads everything to their cloud servers." },
+  { title: "Full Export Freedom", desc: "Export to PDF (with Japanese font support), Markdown, or self-contained HTML bundles at no cost. With Scribe free tier, you can only share via link — no downloads." },
+  { title: "Built-In Annotation Tools", desc: "Add boxes, arrows, text labels, and blur effects directly to screenshots without leaving the extension. Scribe's free tier offers only basic text editing." },
+  { title: "Japanese Language Support", desc: "Full Japanese UI and PDF export with proper font rendering. Ideal for Japanese-speaking teams creating bilingual documentation." },
+];
+
+const theirAdvantages = [
+  { title: "Massive User Base & Trust", desc: "5M+ users and trusted by 94% of Fortune 500 companies. Proven at enterprise scale with established support infrastructure." },
+  { title: "AI-Powered Descriptions", desc: "Uses AI to generate polished step descriptions automatically. Can produce more natural-sounding text than DOM-based extraction." },
+  { title: "Desktop App Capture", desc: "Pro plan captures workflows in desktop applications beyond the browser — useful for documenting Photoshop, Excel, or other native software." },
+  { title: "Team Collaboration", desc: "Built-in cloud workspace for teams to share, organize, and maintain a central library of guides with access controls and analytics." },
+];
+
+const verdict = "If your organization needs enterprise-grade collaboration, desktop app capture, and AI-polished descriptions, Scribe's paid plans deliver. But for individuals, small teams, and anyone who values privacy, Procshot is the clear winner — you get full export capabilities (PDF, Markdown, HTML), built-in annotation tools, and complete data privacy, all without paying a cent. Scribe's free tier is severely limited: no exports, no advanced editing, no offline access. Procshot gives you everything Scribe charges $23/month for, completely free.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Is Procshot really free with no limits?", answer: "Yes. Procshot includes all features — auto-recording, screenshot annotations, PDF/Markdown/HTML export, and guide management — completely free. There are no premium tiers, seat limits, or hidden paywalls." },
+  { question: "Can I switch from Scribe to Procshot?", answer: "Absolutely. Install Procshot, start recording your workflows, and export guides in your preferred format. Since Procshot stores everything locally, your existing Scribe guides won't transfer automatically, but re-recording a workflow takes minutes." },
+  { question: "Is my data safe with Procshot?", answer: "Yes. Procshot processes everything locally in your browser. No screenshots, step descriptions, or guide content is ever sent to external servers. This makes it ideal for documenting workflows involving sensitive or confidential information." },
+  { question: "Does Procshot work for desktop applications?", answer: "Procshot currently captures browser-based workflows only. If you need to document desktop applications like Photoshop or Excel, Scribe's Pro plan supports desktop capture. For browser-based documentation, Procshot is the more cost-effective choice." },
+  { question: "Which is better for team documentation?", answer: "For large teams needing a shared cloud library with access controls, Scribe's paid plans are purpose-built. For individuals and small teams who can share exported files via email, Slack, or shared drives, Procshot delivers the same documentation quality at zero cost." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="Procshot vs Scribe — Documentation Tools Compared"
+  seoDescription="Compare Procshot and Scribe. Free PDF, Markdown, and HTML exports with local privacy vs Scribe at $23/month."
+  seoKeywords="scribe alternative, free step by step guide creator, auto screenshot documentation tool, process documentation chrome extension, procshot vs scribe"
+  h1="Procshot vs Scribe"
+  intro="Two approaches to automatic process documentation: fully free with local privacy vs freemium with cloud-powered AI. Here's how they compare in 2026."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-03-29"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/snapreply-vs-gmail-templates/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/snapreply.png" alt="SnapReply" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">SnapReply vs Gmail Templates</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Productivity comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/procshot/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

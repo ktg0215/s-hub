@@ -1,0 +1,104 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "ReadMark",
+  icon: "/ext-icons/ReadMark.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/readmark-save-reading-pos/inejhohffndeacbihghjcobndpoejdfn",
+  users: "30+",
+  rating: "5.0 (1)",
+  price: "Free / Pro $4.99",
+  extensionPageUrl: "/extensions/readmark/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Liner",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/liner-chatgpt-ai-copilot/bmhcbmnbenmcecpmpepghooflbehcack",
+  users: "300,000+",
+  rating: "4.5 (5,600+)",
+  price: "Free / Premium $9.99/mo",
+  badge: "Recommended practices",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Auto-Save Reading Position", ours: "Yes — saves automatically", theirs: "No", highlight: true },
+  { feature: "One-Click Resume Reading", ours: "Yes — jump back instantly", theirs: "No", highlight: true },
+  { feature: "Web Highlighting", ours: "No", theirs: "Yes" },
+  { feature: "AI Summary / Copilot", ours: "No (focused tool)", theirs: "Yes (ChatGPT-powered)" },
+  { feature: "YouTube Summary", ours: "No", theirs: "Yes" },
+  { feature: "PDF Support", ours: "No", theirs: "Yes" },
+  { feature: "Data Storage", ours: "100% local (browser)", theirs: "Cloud (account required)", highlight: true },
+  { feature: "Account Required", ours: "No", theirs: "Yes", highlight: true },
+  { feature: "Multi-Page Tracking", ours: "Yes — unlimited URLs", theirs: "No (highlights only)", highlight: true },
+  { feature: "Visual Position Marker", ours: "Yes — customizable", theirs: "No" , highlight: true },
+  { feature: "Extension Size", ours: "Lightweight (~50 KB)", theirs: "Heavy (AI-powered)", highlight: true },
+  { feature: "Privacy", ours: "No data leaves your browser", theirs: "Data synced to cloud servers", highlight: true },
+  { feature: "Price", ours: "Free / Pro $4.99 (one-time)", theirs: "Free / $9.99/month" },
+];
+
+const ourAdvantages = [
+  { title: "Automatic Reading Position Saving", desc: "ReadMark's core feature — it remembers exactly where you stopped on every page. No manual action needed. Liner has no equivalent; it focuses on highlighting, not reading progress." },
+  { title: "One-Click Resume", desc: "Return to any article and instantly jump back to your last reading position. Perfect for long-form articles, documentation, and research papers you read over multiple sessions." },
+  { title: "100% Local & Private", desc: "All data stays in your browser. No account, no cloud sync, no tracking. Liner requires an account and sends data to their servers." },
+  { title: "Lightweight & Fast", desc: "ReadMark is a tiny, focused extension that won't slow down your browser. Liner's AI features add significant overhead to every page load." },
+  { title: "One-Time Pricing", desc: "ReadMark Pro is a one-time $4.99 purchase. Liner Premium costs $9.99 every month — that's $120/year for features you may not need." },
+];
+
+const theirAdvantages = [
+  { title: "AI-Powered Highlighting & Summary", desc: "Liner offers ChatGPT-powered summaries for web pages, PDFs, and YouTube videos — a completely different workflow for research-heavy users." },
+  { title: "Cross-Platform Sync", desc: "Cloud-based storage means your highlights sync across devices. Useful if you work on multiple computers." },
+  { title: "Large User Community", desc: "300K+ Chrome users and 10M+ total users provide strong social proof and a mature product ecosystem." },
+  { title: "PDF & YouTube Support", desc: "Liner works across web pages, PDFs, and YouTube, making it a multi-format research tool." },
+];
+
+const verdict = "ReadMark and Liner solve fundamentally different problems. If you need to save your reading position and pick up long articles where you left off, ReadMark is the only choice — Liner simply doesn't offer this. ReadMark is also lighter, more private, and far cheaper. However, if you need AI-powered highlighting, PDF annotation, and YouTube summaries, Liner covers those use cases. Many users install both: ReadMark for reading progress tracking and Liner (or a simpler highlighter) for annotation.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Can Liner save my reading position like ReadMark?", answer: "No. Liner focuses on highlighting and AI summaries. It has no feature to remember where you stopped reading on a page. ReadMark is purpose-built for this — it automatically saves your scroll position and lets you resume with one click." },
+  { question: "Is ReadMark really free?", answer: "Yes. ReadMark's core features — automatic position saving, one-click resume, and multi-page tracking — are completely free. The optional Pro upgrade ($4.99 one-time) adds advanced features like custom markers and export." },
+  { question: "Can I use ReadMark and Liner together?", answer: "Absolutely. They serve different purposes and don't conflict. Use ReadMark to track your reading progress and Liner (or any highlighter) to annotate and highlight text." },
+  { question: "Does ReadMark work on long documentation sites?", answer: "Yes. ReadMark works on any web page — technical docs, blog posts, news articles, online novels, and research papers. It tracks each URL separately, so you can maintain reading positions across hundreds of pages." },
+  { question: "Why would I choose ReadMark over Liner if Liner has more features?", answer: "More features isn't always better. Liner's AI tools add bloat, require an account, and cost $9.99/month. If your main need is 'remember where I stopped reading,' ReadMark does that perfectly with zero setup, zero accounts, and zero recurring fees — all while keeping your data private and local." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="ReadMark vs Liner — Best Reading Progress Extension in 2026?"
+  seoDescription="Compare ReadMark and Liner. ReadMark auto-saves reading position while Liner focuses on AI highlighting. Which fits your workflow?"
+  seoKeywords="liner alternative, reading progress chrome extension, save reading position, bookmark reading progress extension, readmark vs liner"
+  h1="ReadMark vs Liner"
+  intro="One saves your reading position automatically; the other highlights and summarizes with AI. Two different tools for readers — here's how they compare in 2026."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-03-29"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/snapreply-vs-gmail-templates/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/snapreply.webp" alt="SnapReply" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">SnapReply vs Gmail Templates</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Productivity comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/readmark/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

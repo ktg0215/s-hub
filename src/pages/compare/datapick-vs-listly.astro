@@ -1,0 +1,105 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "DataPick",
+  icon: "/ext-icons/datapick.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf",
+  users: "80+",
+  rating: "5.0 (1)",
+  price: "Free",
+  extensionPageUrl: "/extensions/datapick/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Listly",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/listly-free-data-scraper/ihljmnfgkkmoikgkdkjejbkpdpbmcgeh",
+  users: "200,000+",
+  rating: "4.7 (860)",
+  price: "Free (有料プランあり)",
+  badge: "Featured · Recommended practices",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Data Detection Method", ours: "Point & Click (manual selection)", theirs: "Auto-detect + manual adjustment", highlight: true },
+  { feature: "Accuracy", ours: "High — you choose exactly what to extract", theirs: "Medium — auto-detection can miss or misread elements", highlight: true },
+  { feature: "Privacy", ours: "100% local processing — no data leaves your browser", theirs: "Server-side processing — data sent to Listly servers", highlight: true },
+  { feature: "Recipe / Preset Saving", ours: "Yes", theirs: "No (uses scheduling instead)" },
+  { feature: "Google Sheets Export", ours: "Yes (direct)", theirs: "Yes" },
+  { feature: "CSV Export", ours: "Yes", theirs: "No (Excel or Google Sheets only)" },
+  { feature: "Excel Export", ours: "Yes", theirs: "Yes" },
+  { feature: "Multi-tab Scraping", ours: "No", theirs: "Yes" },
+  { feature: "Scheduled Scraping", ours: "No (manual re-run via recipes)", theirs: "Yes (paid plan only)" },
+  { feature: "Pagination Support", ours: "Yes (auto)", theirs: "Yes" },
+  { feature: "Japanese Language", ours: "Yes", theirs: "Yes", highlight: false },
+  { feature: "Pricing Model", ours: "Completely free — all features included", theirs: "Free tier with limits — paid plans from $29/mo", highlight: true },
+  { feature: "Setup Required", ours: "None — just click", theirs: "None — auto-detects" },
+  { feature: "Learning Curve", ours: "Zero", theirs: "Low" },
+];
+
+const ourAdvantages = [
+  { title: "100% Free — No Hidden Limits", desc: "Every DataPick feature is free. Listly restricts advanced features like scheduling and multi-tab scraping behind paid plans starting at $29/month." },
+  { title: "Complete Privacy", desc: "DataPick processes everything locally in your browser. Listly sends your scraped data to their servers for processing — a real concern if you're handling sensitive or proprietary information." },
+  { title: "Precision over Auto-Detection", desc: "You select exactly which elements to extract with point-and-click. Listly's auto-detection is convenient but often includes unwanted data or misses key fields." },
+  { title: "Reusable Recipes", desc: "Save your scraping setup as reusable recipes. Re-run the same extraction with one click — Listly doesn't offer client-side presets." },
+  { title: "CSV Export", desc: "DataPick exports to CSV, Excel, and Google Sheets. Listly only supports Excel and Google Sheets — no CSV option." },
+];
+
+const theirAdvantages = [
+  { title: "Multi-Tab Scraping", desc: "Scrape data from multiple browser tabs simultaneously. Useful for large-scale data collection across many pages." },
+  { title: "Scheduled Scraping", desc: "Set up automated scraping on a schedule (paid feature). Ideal for monitoring prices or tracking changes over time." },
+  { title: "Massive User Base", desc: "200,000+ users and 860 reviews provide strong social proof and an established track record." },
+  { title: "Featured Badge", desc: "Chrome Web Store Featured status and Recommended Practices badge signal quality and trust." },
+];
+
+const verdict = "Listly is a solid choice if you need multi-tab scraping or scheduled automation — but those features require a paid plan. If you value privacy, want precise control over what you extract, and prefer a tool that's completely free with no limits, DataPick is the better fit. DataPick keeps all data local in your browser, while Listly routes data through external servers. For recurring scraping tasks, DataPick's recipe feature offers a lightweight alternative to Listly's paid scheduling.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Is DataPick really completely free?", answer: "Yes. Every feature in DataPick — point & click extraction, CSV/Excel/Google Sheets export, and recipe saving — is free with no usage limits. Listly offers a free tier but locks advanced features behind paid plans starting at $29/month." },
+  { question: "Is my data safe with DataPick compared to Listly?", answer: "DataPick processes everything locally in your browser. No data is ever sent to external servers. Listly uses server-side processing, meaning your scraped data passes through their infrastructure." },
+  { question: "Can I switch from Listly to DataPick easily?", answer: "Absolutely. Both extensions work independently. Install DataPick, try it on your target site, and uninstall Listly if you prefer the experience. No migration needed." },
+  { question: "Which is better for large-scale scraping?", answer: "Listly's multi-tab and scheduling features (paid) are designed for scale. DataPick is ideal for precise, recurring scrapes using its recipe feature — especially when you need exact control over which data is extracted." },
+  { question: "Does DataPick support auto-detection like Listly?", answer: "DataPick uses a point-and-click approach instead of auto-detection. This means slightly more initial setup, but significantly higher accuracy — you never get unwanted columns or missing data." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="DataPick vs Listly — Free Web Scrapers Compared"
+  seoDescription="Compare DataPick and Listly side by side. See which Chrome web scraping extension offers better privacy, accuracy, and truly free features in 2026."
+  seoKeywords="listly alternative, listly vs datapick, best free web scraper extension, privacy web scraper chrome"
+  h1="DataPick vs Listly"
+  intro="Two popular web scraping extensions with different philosophies: local-first privacy vs cloud-powered automation. Here's how they compare in 2026."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-03-29"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/datapick-vs-instant-data-scraper/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Instant Data Scraper</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">AI auto-detect comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+      <a href="/extensions/datapick/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

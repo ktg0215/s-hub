@@ -1,4 +1,6 @@
 User-agent: *
 Allow: /
+Disallow: /_astro/
+Disallow: /dashboard/
 
 Sitemap: https://dev-tools-hub.xyz/sitemap-index.xml

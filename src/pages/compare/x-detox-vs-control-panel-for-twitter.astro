@@ -1,0 +1,102 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "X Detox",
+  icon: "/ext-icons/x-detox.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/x-detox-hide-for-you-tren/hlaankalmjmaefkcabjcfagnkfhlkpce",
+  users: "100+",
+  rating: "5.0",
+  price: "Free / Pro $3",
+  extensionPageUrl: "/extensions/x-detox/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Control Panel for Twitter",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/control-panel-for-twitter/kpmjjdhbcfebfjgdnpjagcndoelnidfj",
+  users: "200,000+",
+  rating: "4.7 (476)",
+  price: "Free",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Hide For You Tab", ours: "Yes — completely removed", theirs: "Yes — but users report it breaks frequently", highlight: true },
+  { feature: "Reliability", ours: "Stable — consistent behavior", theirs: "Inconsistent — settings stop applying after X updates", highlight: true },
+  { feature: "Hide Trending Sidebar", ours: "Yes", theirs: "Yes" },
+  { feature: "Hide Promoted Tweets / Ads", ours: "Yes", theirs: "Yes" },
+  { feature: "Hide Who to Follow", ours: "Yes", theirs: "Yes" },
+  { feature: "Custom CSS Injection", ours: "Yes (Pro) — fully customize X appearance", theirs: "No", highlight: true },
+  { feature: "Metric Hiding", ours: "Yes — hide likes, retweets, reply counts", theirs: "Yes — similar options" },
+  { feature: "Extension Size", ours: "21 KiB — ultra lightweight", theirs: "Larger footprint", highlight: true },
+  { feature: "Setup Complexity", ours: "Simple toggles — works immediately", theirs: "Many options — can be overwhelming" },
+  { feature: "Firefox Support", ours: "Chrome only", theirs: "Yes — Chrome + Firefox + Safari" },
+  { feature: "Open Source", ours: "No", theirs: "Yes (GitHub)" },
+  { feature: "Price", ours: "Free / Pro $3 one-time", theirs: "Free" },
+];
+
+const ourAdvantages = [
+  { title: "Reliability", desc: "X Detox consistently hides the For You tab and algorithmic content. Control Panel for Twitter users frequently report that settings stop working after X platform updates." },
+  { title: "Custom CSS Injection", desc: "Go beyond toggles — inject your own CSS to fully customize X's appearance. Change fonts, colors, spacing, hide any element. Control Panel doesn't offer this." },
+  { title: "Ultra Lightweight", desc: "At just 21 KiB, X Detox is one of the smallest X/Twitter extensions available. It won't slow down your browser or affect page load times." },
+  { title: "Simple & Focused", desc: "X Detox does one thing well: remove algorithmic noise. No overwhelming settings panel — just clean toggles that work." },
+  { title: "One-Time Pro Price", desc: "Unlock all Pro features for a single $3 payment. No subscription, no recurring charges." },
+];
+
+const theirAdvantages = [
+  { title: "Massive User Base", desc: "200,000+ users across browsers provide extensive testing coverage and community feedback." },
+  { title: "Multi-Browser Support", desc: "Works on Chrome, Firefox, and Safari. X Detox is currently Chrome-only." },
+  { title: "Open Source", desc: "Fully open source on GitHub, allowing community contributions and code transparency." },
+  { title: "Completely Free", desc: "All features are free with no Pro tier. X Detox's custom CSS feature requires a $3 one-time purchase." },
+];
+
+const verdict = "Control Panel for Twitter has the larger user base and cross-browser support, but reliability has become a real issue — many users report settings randomly breaking after X platform updates. X Detox takes a focused, lightweight approach that prioritizes stability. If you want a tool that reliably removes the For You tab, hides trends and ads, and just works every time you open X, X Detox is the more dependable choice. The optional $3 Pro upgrade adds custom CSS for users who want full visual control.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Why do users say Control Panel for Twitter breaks frequently?", answer: "X (formerly Twitter) regularly updates its DOM structure and class names. Control Panel for Twitter has a larger feature surface that is more vulnerable to these changes. X Detox's focused approach with fewer moving parts tends to recover faster from platform updates." },
+  { question: "Can X Detox completely remove the algorithmic timeline?", answer: "Yes. X Detox forces the Following (chronological) timeline and completely removes the For You tab, so you only see tweets from accounts you follow." },
+  { question: "What can I do with Custom CSS?", answer: "Custom CSS lets you change X's appearance however you want — adjust fonts, colors, spacing, hide specific UI elements, or create a completely custom theme. It's like having a personal designer for X." },
+  { question: "Does X Detox work on mobile X?", answer: "X Detox is a browser extension and works on the desktop web version of X (x.com). It does not affect the X mobile app." },
+  { question: "Is X Detox safe to use?", answer: "Yes. X Detox only modifies the visual appearance of X in your browser. It doesn't access your account, read your DMs, or send any data externally." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="X Detox vs Control Panel for Twitter — Compared"
+  seoDescription="Compare X Detox and Control Panel for Twitter. Reliability, For You removal, custom CSS, and more. Find the best extension to detox your X experience."
+  seoKeywords="control panel for twitter alternative, clean twitter extension, remove twitter algorithm, x detox extension"
+  h1="X Detox vs Control Panel for Twitter"
+  intro="Both extensions promise to clean up your X (Twitter) experience. But reliability matters more than feature count. Here's how they compare in 2026."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-03-29"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/shorts-killer-vs-unhook/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/shorts-killer.webp" alt="Shorts Killer" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Shorts Killer vs Unhook</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">YouTube digital wellbeing comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+      <a href="/extensions/x-detox/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/x-detox.webp" alt="X Detox" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">X Detox — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">&rarr;</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>
