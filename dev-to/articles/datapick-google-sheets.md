@@ -1,6 +1,6 @@
 ---
 title: "Send Web Data Directly to Google Sheets — No Code, No Python, No IMPORTXML"
-published: false
+published: true
 tags: ["chromeextension","googlesheets","webscraping","nocode"]
 series: null
 canonical_url: null
