@@ -1,6 +1,6 @@
 ---
 title: "I Built a Cross-Platform Price Comparison Tool for Retail Arbitrage"
-published: false
+published: true
 tags: ["chromeextension","ecommerce","productivity","javascript"]
 series: null
 canonical_url: null
