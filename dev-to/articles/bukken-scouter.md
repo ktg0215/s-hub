@@ -1,6 +1,6 @@
 ---
 title: "Scraping Japan's Largest Real Estate Site with a Chrome Extension: Building an Automated Property Scoring Engine"
-published: false
+published: true
 tags: ["chromeextension","realestate","javascript","webdev"]
 series: null
 canonical_url: null
