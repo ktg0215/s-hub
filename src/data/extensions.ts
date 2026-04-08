@@ -27,9 +27,16 @@ export const categories: Category[] = [
       {
         name: "X Detox",
         description: "Clean up your X (Twitter) experience by removing algorithms and distractions.",
-        price: "Free / Pro $3",
+        price: "Free Trial / $3.99/mo",
         url: "/extensions/x-detox/",
-        icon: "/ext-icons/x-detox.webp",
+        icon: "/ext-icons/x-detox.png",
+      },
+      {
+        name: "FocusGuard",
+        description: "Block distracting sites and boost productivity with a Pomodoro timer. Gentle but effective site blocking.",
+        price: "Free Trial / $3.99/mo",
+        url: "/extensions/focusguard/",
+        icon: "/ext-icons/focusguard.png",
       },
     ],
   },
@@ -53,7 +60,7 @@ export const categories: Category[] = [
       {
         name: "PromptStash",
         description: "Save, organize, and reuse AI prompts effortlessly. Works with ChatGPT, Claude, Gemini, and 16+ other AI services.",
-        price: "$5",
+        price: "Free Trial / $3.99/mo",
         url: "/extensions/promptstash/",
         icon: "/ext-icons/promptstash.webp",
       },
@@ -67,7 +74,7 @@ export const categories: Category[] = [
       {
         name: "DataPick",
         description: "Extract data from any website with just a few clicks. Export to CSV, Excel, or Google Sheets.",
-        price: "$19",
+        price: "Free Trial / $3.99/mo",
         url: "/extensions/datapick/",
         icon: "/ext-icons/datapick.webp",
       },
@@ -81,14 +88,14 @@ export const categories: Category[] = [
       {
         name: "ReadMark",
         description: "Automatically saves your reading position on any webpage. Never lose your place in long articles again.",
-        price: "Free / Pro $4.99",
+        price: "Free Trial / $3.99/mo",
         url: "/extensions/readmark/",
         icon: "/ext-icons/ReadMark.webp",
       },
       {
         name: "Procshot",
         description: "Auto-record browser actions to create step-by-step guides with screenshots. Export as PDF, Markdown, or HTML.",
-        price: "Free",
+        price: "Free Trial / $3.99/mo",
         url: "/extensions/procshot/",
         icon: "/ext-icons/procshot.png",
       },

@@ -1,0 +1,86 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "FocusGuard",
+  subtitle: "Website Blocker & Focus Timer",
+  tagline: "Block distracting sites and boost productivity with a Pomodoro timer. Stay focused with gentle but effective site blocking.",
+  price: "Free Trial / Pro $3.99/mo",
+  status: "Available",
+  chromeUrl: "https://chromewebstore.google.com/detail/focusguard/lcfccmlmcckjdngonemjdhhbmmgbhead",
+  category: "Digital Wellbeing",
+  lang: "EN",
+  icon: "/ext-icons/focusguard.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "FocusGuard helps you stay productive by blocking distracting websites during focus sessions. Set up your block list with YouTube, Reddit, social media, or any custom URL — then start a Pomodoro timer to enter deep focus mode. During focus time, blocked sites redirect automatically. After your session, review your focus stats and build better habits over time.";
+
+const features = [
+  { title: "Smart Site Blocking", desc: "Block any website during focus mode — YouTube, Reddit, social media, or custom URLs" },
+  { title: "Pomodoro Timer", desc: "Built-in focus timer with customizable work and break intervals" },
+  { title: "Redirect on Block", desc: "Blocked sites redirect to a motivational focus page instead of showing an error" },
+  { title: "Focus Statistics", desc: "Track your daily and weekly focus time to build consistent habits" },
+  { title: "Whitelist & Schedule (Pro)", desc: "Set allowed hours, whitelist specific pages, and create custom focus schedules" },
+  { title: "Block Bypass Prevention (Pro)", desc: "Strict mode prevents easily disabling blocks during active focus sessions" },
+  { title: "Multiple Block Lists (Pro)", desc: "Create different profiles for work, study, and personal focus sessions" },
+];
+
+const targetUsers = [
+  "Remote workers and freelancers who get distracted by social media",
+  "Students trying to study without checking YouTube or Reddit",
+  "Anyone who wants to build a deep work habit with Pomodoro technique",
+];
+
+const screenshots = [
+  "/screenshots/focusguard/screenshot-01.png",
+  "/screenshots/focusguard/screenshot-02.png",
+  "/screenshots/focusguard/screenshot-03.png",
+  "/screenshots/focusguard/screenshot-04.png",
+  "/screenshots/focusguard/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "X Detox", category: "Wellbeing", link: "/extensions/x-detox/", icon: "/ext-icons/x-detox.png" },
+  { name: "Shorts Killer", category: "Wellbeing", link: "/extensions/shorts-killer/", icon: "/ext-icons/shorts-killer.webp" },
+  { name: "ZenRead", category: "Productivity", link: "/extensions/zenread/", icon: "/ext-icons/ZenRead.webp" },
+];
+
+const faqItems = [
+  { question: "Which sites can I block?", answer: "Any website — YouTube, Reddit, Twitter/X, Instagram, TikTok, news sites, or custom URLs. You can also block entire domains or specific subpages." },
+  { question: "What is the Pomodoro technique?", answer: "The Pomodoro technique uses timed work sessions (typically 25 minutes) followed by short breaks. FocusGuard's built-in timer guides you through these intervals to maximize focus." },
+  { question: "Can I still access blocked sites in an emergency?", answer: "Yes. The free version allows easy unblocking anytime. Pro's strict mode makes it harder to bypass blocks during active sessions — ideal if you need extra self-discipline." },
+  { question: "Is my browsing data private?", answer: "FocusGuard works entirely locally. Your block list and focus stats never leave your device." },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "FocusGuard",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/focusguard",
+  downloadUrl: extension.chromeUrl,
+  screenshot: "https://dev-tools-hub.xyz/screenshots/focusguard/screenshot-01.png",
+  featureList: "Smart Site Blocking, Pomodoro Timer, Redirect on Block, Focus Statistics, Whitelist & Schedule, Block Bypass Prevention, Multiple Block Lists",
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  faqItems={faqItems}
+  softwareSchema={softwareSchema}
+  seoTitle="FocusGuard - Website Blocker & Focus Timer | Chrome Extension"
+  seoDescription="Block distracting sites like YouTube and Reddit during Pomodoro focus sessions. Build deep work habits with smart site blocking and focus statistics."
+  seoKeywords="website blocker, focus timer, pomodoro, site blocker, productivity, block youtube, block reddit, chrome extension, deep work"
+/>
