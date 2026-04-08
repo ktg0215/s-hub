@@ -5,6 +5,7 @@ tags: ["chromeextension","japan","productivity","ux"]
 series: null
 canonical_url: null
 publish_date: "2026-04-08"
+main_image: "https://dev-tools-hub.xyz/screenshots/yahoo-kaiteki-mode/screenshot-01.png"
 devto_id: "3392107"
 ---
 

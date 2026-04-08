@@ -5,6 +5,7 @@ tags: ["chromeextension","googlesheets","webscraping","nocode"]
 series: null
 canonical_url: null
 publish_date: "2026-04-03"
+main_image: "https://dev-tools-hub.xyz/screenshots/datapick/screenshot-01.png"
 devto_id: "3392111"
 ---
 

@@ -5,6 +5,7 @@ tags: ["chromeextension","notes","productivity","webdev"]
 series: null
 canonical_url: null
 publish_date: "2026-04-12"
+main_image: "https://dev-tools-hub.xyz/screenshots/Pagememo/screenshot-01.png"
 devto_id: "3392103"
 ---
 

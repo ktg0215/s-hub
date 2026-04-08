@@ -5,6 +5,7 @@ tags: ["chromeextension","fonts","css","webdev"]
 series: null
 canonical_url: null
 publish_date: "2026-04-09"
+main_image: "https://dev-tools-hub.xyz/screenshots/japanese-font-finder/screenshot-01.png"
 devto_id: "3392101"
 ---
 

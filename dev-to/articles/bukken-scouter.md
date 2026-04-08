@@ -5,6 +5,7 @@ tags: ["chromeextension","realestate","javascript","webdev"]
 series: null
 canonical_url: null
 publish_date: "2026-04-07"
+main_image: "https://dev-tools-hub.xyz/screenshots/bukken-scouter-purchase/screenshot-01.png"
 devto_id: "3392098"
 ---
 

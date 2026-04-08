@@ -5,6 +5,7 @@ tags: ["chromeextension","webdev","privacy","testing"]
 series: null
 canonical_url: null
 publish_date: "2026-03-28"
+main_image: "https://dev-tools-hub.xyz/screenshots/cookiejar/screenshot-01.png"
 devto_id: "3392110"
 ---
 

@@ -110,34 +110,51 @@ async function apiCall(method, endpoint, data, retries = 3) {
   throw new Error(`API ${method} ${url} failed after ${retries} retries (rate limited)`);
 }
 
-async function createArticle(meta, body) {
-  const payload = {
-    article: {
-      title: meta.title,
-      body_markdown: body,
-      published: false, // Always create as draft first
-      tags: meta.tags || [],
-    },
+function buildArticlePayload(meta, body, published) {
+  const article = {
+    title: meta.title,
+    body_markdown: body,
+    published,
+    tags: meta.tags || [],
   };
-  if (meta.series) payload.article.series = meta.series;
-  if (meta.canonical_url) payload.article.canonical_url = meta.canonical_url;
+  // Featured section requires main_image — always set if available
+  if (meta.main_image) article.main_image = meta.main_image;
+  // description shown in feed cards and search results (max 150 chars)
+  if (meta.description) article.description = meta.description;
+  if (meta.series) article.series = meta.series;
+  if (meta.canonical_url) article.canonical_url = meta.canonical_url;
+  return { article };
+}
 
-  return apiCall("POST", "", payload);
+async function createArticle(meta, body) {
+  return apiCall("POST", "", buildArticlePayload(meta, body, false));
 }
 
 async function updateArticle(id, meta, body, publish) {
-  const payload = {
-    article: {
-      title: meta.title,
-      body_markdown: body,
-      tags: meta.tags || [],
-      published: publish,
-    },
-  };
-  if (meta.series) payload.article.series = meta.series;
-  if (meta.canonical_url) payload.article.canonical_url = meta.canonical_url;
+  return apiCall("PUT", `/${id}`, buildArticlePayload(meta, body, publish));
+}
 
-  return apiCall("PUT", `/${id}`, payload);
+/**
+ * 記事公開時にBluesky/Threads向けのSNS投稿下書きをコンソールに出力
+ * タイトル + リンク + タグをスレッド形式に変換
+ */
+function generateSnsPost(title, url, tags) {
+  // Bluesky向け（EN、300文字制限、ハッシュタグあり）
+  const blueskyTags = tags.slice(0, 3).map(t => `#${t}`).join(" ");
+  const bluesky = `${title}\n\n${url}\n\n${blueskyTags} #buildinpublic`.slice(0, 300);
+
+  // Threads向け（JP、500文字制限、トピックタグ1個）
+  const jpTitle = `新記事を公開しました 📝\n\n「${title}」\n\nChrome拡張を作った実体験と技術的な詳細をまとめました。\n\n${url}\n\n#個人開発`;
+  const threads = jpTitle.slice(0, 500);
+
+  console.log("\n" + "=".repeat(50));
+  console.log("📣 SNS投稿下書き（手動で投稿してください）");
+  console.log("=".repeat(50));
+  console.log("\n【Bluesky (EN)】");
+  console.log(bluesky);
+  console.log("\n【Threads (JP)】");
+  console.log(threads);
+  console.log("=".repeat(50) + "\n");
 }
 
 async function main() {
@@ -188,12 +205,16 @@ async function main() {
       // Step 2: Publish if publish_date has arrived and not yet published
       if (meta.publish_date && meta.publish_date <= today && !meta.published) {
         console.log("    -> Publishing...");
-        await updateArticle(meta.devto_id, meta, body, true);
+        const result = await updateArticle(meta.devto_id, meta, body, true);
         meta.published = true;
         writeFrontmatter(filePath, meta, body);
         changed = true;
         console.log(`    -> Published!`);
         published++;
+
+        // SNS投稿下書き自動生成
+        const devtoUrl = result?.url || `https://dev.to/ktg/${meta.devto_id}`;
+        generateSnsPost(meta.title, devtoUrl, meta.tags || []);
       } else if (meta.published) {
         // Already published, skip (no need to sync every day)
         console.log("    -> Already published, skipping.");

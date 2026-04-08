@@ -5,6 +5,7 @@ tags: ["chromeextension","ecommerce","productivity","javascript"]
 series: null
 canonical_url: null
 publish_date: "2026-04-05"
+main_image: "https://dev-tools-hub.xyz/screenshots/arbitra/screenshot-01.png"
 devto_id: "3392093"
 ---
 
