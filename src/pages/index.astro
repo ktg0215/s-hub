@@ -3,6 +3,7 @@ import Layout from '../layouts/Layout.astro';
 import Hero from '../components/Hero.astro';
 import ProductSection from '../components/ProductSection.astro';
 import AboutSection from '../components/AboutSection.astro';
+import { popularComparisons } from '../data/comparison-links';
 
 const organizationSchema = {
   "@context": "https://schema.org",
@@ -78,5 +79,30 @@ const softwareListSchema = {
   </Fragment>
   <Hero />
   <ProductSection />
+
+  <!-- Popular Comparisons -->
+  <section class="py-16 px-6 max-w-6xl mx-auto">
+    <div class="flex items-center justify-between mb-6">
+      <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide">// popular comparisons</h2>
+      <a href="/compare/" class="font-mono text-[11px] text-zinc-400 hover:text-zinc-700 transition-colors">
+        view all →
+      </a>
+    </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
+      {popularComparisons.map((cmp) => (
+        <a href={`/compare/${cmp.slug}/`} class="product-card group p-4 flex items-center gap-3">
+          <img src={cmp.icon} alt={cmp.ours} class="w-9 h-9 rounded-lg shrink-0" loading="lazy" />
+          <div class="min-w-0">
+            <h3 class="text-[12px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors truncate">
+              {cmp.ours} vs {cmp.theirs}
+            </h3>
+            <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">side-by-side comparison</p>
+          </div>
+          <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors shrink-0">→</span>
+        </a>
+      ))}
+    </div>
+  </section>
+
   <AboutSection />
 </Layout>

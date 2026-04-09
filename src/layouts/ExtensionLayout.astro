@@ -1,5 +1,6 @@
 ---
 import Layout from './Layout.astro';
+import { comparisonsByExtension } from '../data/comparison-links';
 
 interface Feature {
   title: string;
@@ -78,6 +79,11 @@ const {
 const isFree = extension.price === 'Free' || extension.price === '無料';
 const isComingSoon = extension.status === 'Coming Soon';
 const pageLang = extension.lang === 'JP' ? 'ja' : 'en';
+
+// Look up comparison pages for this extension
+const pathSegments = Astro.url.pathname.replace(/\/$/, '').split('/');
+const extensionSlug = pathSegments[pathSegments.length - 1];
+const comparisons = comparisonsByExtension[extensionSlug] || [];
 
 // Canonical URL
 const siteUrl = 'https://dev-tools-hub.xyz';
@@ -480,6 +486,27 @@ const faqSchema = faqItems && faqItems.length > 0 ? {
         <a href={productHuntUrl} target="_blank" rel="noopener noreferrer" class="inline-block hover:opacity-80 transition-opacity">
           <img src={productHuntImage} alt={`${extension.name} on Product Hunt`} width="200" height="43" loading="lazy" />
         </a>
+      </section>
+    )}
+
+    <!-- Comparisons -->
+    {comparisons.length > 0 && (
+      <section class="px-6 py-8 max-w-4xl mx-auto">
+        <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// see how it compares</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          {comparisons.map((cmp) => (
+            <a href={`/compare/${cmp.slug}/`} class="product-card group p-4 flex items-center gap-3">
+              <div class="w-9 h-9 rounded-lg bg-zinc-100 flex items-center justify-center text-zinc-400 text-xs font-mono shrink-0">vs</div>
+              <div class="min-w-0">
+                <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors truncate">
+                  {extension.name} vs {cmp.theirs}
+                </h3>
+                <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider truncate">{cmp.desc}</p>
+              </div>
+              <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors shrink-0">→</span>
+            </a>
+          ))}
+        </div>
       </section>
     )}
 
