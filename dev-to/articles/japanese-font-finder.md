@@ -1,6 +1,6 @@
 ---
 title: "I Built a Chrome Extension That Identifies Japanese Fonts on Any Web Page"
-published: false
+published: true
 tags: ["chromeextension","fonts","css","webdev"]
 series: null
 canonical_url: null
