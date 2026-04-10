@@ -1,0 +1,74 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const sections = [
+  {
+    title: "1. Data Collection",
+    content: "Our Chrome extensions collect minimal, anonymous usage data through Google Analytics 4 (GA4) to improve functionality. This includes: extension install/update events, feature usage counts, and error reports. No personally identifiable information (PII) is collected."
+  },
+  {
+    title: "2. Local Storage",
+    content: "Extension settings and user preferences are stored locally on your device using Chrome's storage API. This data never leaves your browser unless you explicitly choose to export it."
+  },
+  {
+    title: "3. No Account Required",
+    content: "Our extensions do not require account creation, login, or any personal information to function. Premium features are managed through ExtensionPay, which handles payment processing separately."
+  },
+  {
+    title: "4. Third-Party Services",
+    content: "Some extensions may interact with third-party websites (e.g., SUUMO, Amazon, Gmail) to provide functionality. We do not collect, store, or transmit any data from these services to our servers."
+  },
+  {
+    title: "5. Data Sharing",
+    content: "We do not sell, trade, or share any user data with third parties. Anonymous analytics data is used solely for improving our extensions."
+  },
+  {
+    title: "6. Changes",
+    content: "We may update this Privacy Policy from time to time. Continued use of our extensions after changes constitutes acceptance of the updated policy."
+  },
+  {
+    title: "7. Contact",
+    content: "Questions about this Privacy Policy? Contact us at ktg.shota@gmail.com",
+    hasEmail: true
+  }
+];
+---
+
+<Layout
+  title="Privacy Policy — S-Hub Chrome Extensions"
+  description="Privacy policy for S-Hub Chrome extensions. Learn how we handle your data with minimal collection and maximum transparency."
+  lang="en"
+  noindex={true}
+>
+  <div class="container mx-auto px-6 py-24 max-w-3xl min-h-[60vh]">
+    <a href="/" class="inline-flex items-center gap-1 text-xs font-mono text-zinc-400 hover:text-sky-500 transition-colors mb-8">
+      &larr; back
+    </a>
+
+    <h1 class="font-mono text-[11px] text-zinc-400 mb-6 tracking-wide">// privacy policy</h1>
+
+    <div class="product-card p-8 space-y-8">
+      <p class="text-sm text-zinc-500">Last updated: April 10, 2026</p>
+
+      {sections.map((section, idx) => (
+        <div class="fade-in" style={`animation-delay: ${idx * 80}ms`}>
+          <h2 class="text-sm font-semibold text-zinc-900 mb-2">
+            {section.title}
+          </h2>
+          <p class="text-sm text-zinc-600 leading-relaxed">
+            {section.hasEmail ? (
+              <>
+                Questions about this Privacy Policy? Contact us at{" "}
+                <a href="mailto:ktg.shota@gmail.com" class="text-sky-500 hover:text-sky-600 transition-colors">
+                  ktg.shota@gmail.com
+                </a>
+              </>
+            ) : (
+              section.content
+            )}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+</Layout>
