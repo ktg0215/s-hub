@@ -1,0 +1,122 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "FocusGuard",
+  icon: "/ext-icons/focusguard.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/focusguard/lcfccmlmcckjdngonemjdhhbmmgbhead",
+  users: "New",
+  rating: "5.0",
+  price: "Free Trial / Pro $3.99/mo",
+  extensionPageUrl: "/extensions/focusguard/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "LeechBlock NG",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/leechblock-ng/blaaajhemilngeeffpbfkdjjoefldkok",
+  users: "300,000+",
+  rating: "4.6 (3,000+)",
+  price: "Free — open source",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Setup Complexity", ours: "Simple — add sites, start session, done", theirs: "Complex — 30+ configuration options per block set", highlight: true },
+  { feature: "Pomodoro / Focus Timer", ours: "Yes — built-in with session history", theirs: "No — time-window based, no session timer", highlight: true },
+  { feature: "Focus Statistics", ours: "Yes — daily and weekly session tracking", theirs: "No — no focus session history", highlight: true },
+  { feature: "Blocking Approach", ours: "Gentle — motivational redirect page", theirs: "Configurable — blank, custom URL, or message", highlight: true },
+  { feature: "Multiple Block Sets / Profiles", ours: "Yes — named profiles (Pro)", theirs: "Yes — up to 30 block sets", },
+  { feature: "Schedule-Based Blocking", ours: "Yes — allowed hours setting (Pro)", theirs: "Yes — highly configurable time windows", },
+  { feature: "Allowance Time (X minutes/day)", ours: "No — session-based model", theirs: "Yes — time allowance per block set", },
+  { feature: "Countdown Warning", ours: "No", theirs: "Yes — warns before allowance runs out", },
+  { feature: "Random Delay / Access Challenge", ours: "No", theirs: "Yes — delay or type words before access", },
+  { feature: "Regex / Wildcard Site Matching", ours: "Domain-based blocking", theirs: "Yes — regex patterns for precise URL matching", highlight: true },
+  { feature: "Open Source", ours: "No", theirs: "Yes — GPL licensed", highlight: true },
+  { feature: "Firefox Support", ours: "Chrome only", theirs: "Chrome and Firefox", },
+  { feature: "Lockdown Mode", ours: "Strict mode (Pro)", theirs: "Yes — lockdown prevents settings changes", },
+  { feature: "Data Privacy", ours: "100% local — no external calls", theirs: "100% local — open source verifiable", },
+  { feature: "Price", ours: "Free Trial / Pro $3.99/mo", theirs: "Free — all features", highlight: true },
+  { feature: "Best For", ours: "Users who want to start blocking in 5 minutes", theirs: "Power users who want precise rule-based control", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Set Up in 5 Minutes — LeechBlock Takes an Hour to Configure", desc: "FocusGuard's setup is three steps: install, add your distracting sites, start a session. The interface is intentionally simple. LeechBlock NG has 30+ configuration options per block set: time windows, allowance minutes, access delay, random delay, custom block URLs, regex patterns, day-of-week settings, and more. LeechBlock's depth is a strength for power users — but for anyone who wants to start blocking today without reading documentation, FocusGuard's simplicity is the right starting point." },
+  { title: "Built-In Pomodoro Timer — LeechBlock Has No Session Concept", desc: "FocusGuard's Pomodoro timer creates structured focus sessions: work for 25 minutes, break for 5, repeat. Blocking is synced to sessions — active during focus, relaxed during breaks. LeechBlock uses a time-window model (block during certain hours, allow X minutes per day) with no concept of a focus session or timer. For users who want to work in structured intervals rather than just enforce hourly rules, FocusGuard's session approach is a meaningfully different model." },
+  { title: "Focus Statistics That LeechBlock Doesn't Provide", desc: "FocusGuard records every focus session and shows daily and weekly summaries — total focus time, session counts, trends over time. LeechBlock logs when it blocks you (a prevention count) but doesn't track your productive sessions. For users building a focus habit, the positive reinforcement of watching your focused hours accumulate is different from auditing how many times you were blocked." },
+  { title: "Motivational Redirect — LeechBlock Shows a Configurable Block Page", desc: "FocusGuard's blocked-site redirect is a focus page designed to refocus you on your work session. LeechBlock lets you configure any block page — a custom URL, blank page, or message — but the default experience is a technical block message. FocusGuard's motivational approach is intentional UX for habit formation; LeechBlock's configurability gives you control but no default motivation layer." },
+  { title: "Modern Interface — LeechBlock's UI Is Utilitarian", desc: "FocusGuard has a clean, minimal modern interface. LeechBlock NG's settings panel is functional and comprehensive, but reflects its origins as a feature-dense power user tool. For users who interact with their focus app daily, FocusGuard's UI is designed for a better daily experience. LeechBlock's interface is designed for configuring rules — not for pleasant regular interaction." },
+];
+
+const theirAdvantages = [
+  { title: "30 Block Sets — Power-User Rule Configuration", desc: "LeechBlock NG supports up to 30 separate block sets, each with completely independent time windows, allowances, site lists, and blocking behaviors. This level of configuration far exceeds FocusGuard's profile system. For users with complex blocking needs — different rules for different days, different allowances for different site categories — LeechBlock's depth is genuinely useful." },
+  { title: "Regex and Wildcard Site Matching", desc: "LeechBlock supports regular expressions for site matching — block specific subdomains, URL patterns, or paths with precision that domain-level blocking can't achieve. For users who want to block YouTube's feed but allow specific channels, or block Reddit frontpage but allow specific subreddits, regex matching enables granular control FocusGuard doesn't offer." },
+  { title: "Access Challenge — Type Words Before Visiting", desc: "LeechBlock can require you to type a specific word or phrase before accessing a blocked site — forcing a conscious decision rather than impulsive clicking. This friction mechanism is unique and effective for users who find themselves opening blocked sites automatically without thinking. FocusGuard's redirect is passive motivation; LeechBlock's access challenge is active friction." },
+  { title: "Open Source — Code Is Auditable", desc: "LeechBlock NG is GPL-licensed open source. Anyone can read, audit, or fork the code. For privacy-conscious users who want to verify exactly what a browser extension does, open source provides a level of assurance that closed-source extensions can't match." },
+  { title: "Completely Free — All 30 Block Sets, All Features", desc: "LeechBlock NG is free with all features. FocusGuard's Pro features — multiple profiles, scheduling, strict mode — require $3.99/month. For users who want maximum blocking configurability at zero cost, LeechBlock's free model is compelling." },
+];
+
+const verdict = "LeechBlock NG and FocusGuard are the right tools for different stages of the focus habit journey. LeechBlock suits power users who know exactly what rules they need, want regex-level precision, and are comfortable spending time in a configuration panel. FocusGuard suits users who want to start blocking quickly, work in Pomodoro-structured sessions, and see their focus habit build over time in clean statistics. Neither is objectively better — they optimize for different priorities. If you've tried simpler blockers and found them too limited, LeechBlock's depth gives you the control to handle any scenario. If you're starting your focus practice or have found complex blockers overwhelming, FocusGuard's simplicity is the gentler on-ramp.";
+
+const faq: ComparisonFaq[] = [
+  { question: "What is LeechBlock NG?", answer: "LeechBlock NG is an open-source Chrome and Firefox extension for blocking distracting websites. It supports up to 30 block sets with extensive configuration: time windows, daily allowances, regex URL matching, access challenges, and lockdown mode. It's the most configurable free site blocker available for browsers." },
+  { question: "Is LeechBlock NG better than FocusGuard for advanced users?", answer: "For users who need complex rules — regex URL patterns, multiple time windows per day, per-day-of-week configurations, access challenges — LeechBlock NG's depth exceeds what FocusGuard offers. FocusGuard's strength is its Pomodoro session model, focus statistics, and simpler setup for users who want to start blocking quickly." },
+  { question: "Does LeechBlock NG have a Pomodoro timer?", answer: "No. LeechBlock is time-window based — it enforces rules about when and how long you can access sites. It doesn't have a focus session timer or Pomodoro interface. FocusGuard's built-in Pomodoro timer and session tracking are features LeechBlock doesn't offer." },
+  { question: "Can I use LeechBlock NG on Firefox and Chrome?", answer: "Yes. LeechBlock NG supports both Chrome and Firefox. FocusGuard is Chrome-only. If you use both browsers and want consistent blocking across them, LeechBlock covers both." },
+  { question: "Does FocusGuard have regex URL blocking like LeechBlock?", answer: "FocusGuard uses domain-level blocking — you add a domain and all pages under it are blocked. LeechBlock NG supports regex patterns for precise URL matching, allowing rules like 'block YouTube but allow /watch?v=specific-video'. For sub-domain precision blocking, LeechBlock has more granular control." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="FocusGuard vs LeechBlock NG — Simple Pomodoro Blocker vs 30-Set Power-User Configuration (2026)"
+  seoDescription="FocusGuard sets up in 5 minutes with Pomodoro sessions and focus stats. LeechBlock NG offers 30 block sets, regex matching, and open-source auditable code."
+  seoKeywords="leechblock ng alternative, leechblock vs focusguard, site blocker chrome simple setup, open source site blocker chrome, focus extension chrome 2026"
+  h1="FocusGuard vs LeechBlock NG"
+  intro="LeechBlock NG is the power-user's site blocker — 30 block sets, regex URL matching, access challenges, and open-source code. FocusGuard takes the opposite approach: simple setup, Pomodoro sessions, and focus statistics for building habits."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/focusguard-vs-stayfocusd/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard vs StayFocusd</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Gentle sessions vs hard stop blocker</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/focusguard-vs-cold-turkey/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard vs Cold Turkey</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Gentle sessions vs hardcore blocking</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/focusguard-vs-forest/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard vs Forest</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Chrome extension vs mobile-first app</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/focusguard/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, Pomodoro timer, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

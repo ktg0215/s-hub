@@ -1,0 +1,120 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "ReadMark",
+  icon: "/ext-icons/ReadMark.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/readmark-save-reading-pos/inejhohffndeacbihghjcobndpoejdfn",
+  users: "30+",
+  rating: "5.0 (1)",
+  price: "Free / Pro $4.99 one-time",
+  extensionPageUrl: "/extensions/readmark/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Instapaper",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/instapaper/ldjkgaaoikpmhmkelcgkgacicjfbofhh",
+  users: "100,000+",
+  rating: "3.9 (1,200+)",
+  price: "Free / Premium $2.99/mo",
+  badge: "",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Primary Function", ours: "Save reading position on any URL", theirs: "Archive public articles in clean reading view", highlight: true },
+  { feature: "Works on Private / Internal URLs", ours: "Yes — any URL your browser can open", theirs: "No — public articles only", highlight: true },
+  { feature: "Exact Scroll Position Saved", ours: "Yes — auto-saved per URL", theirs: "No — marks article as read/unread only", highlight: true },
+  { feature: "Account Required", ours: "No", theirs: "Yes (email account)", highlight: true },
+  { feature: "Data Storage", ours: "100% local (browser only)", theirs: "Cloud (Instapaper servers)", highlight: true },
+  { feature: "Price", ours: "Free / $4.99 one-time Pro", theirs: "Free / $2.99/month Premium", highlight: true },
+  { feature: "Clean Article Reading View", ours: "No — opens original page", theirs: "Yes — stripped, typography-focused view", },
+  { feature: "Highlights & Notes", ours: "No (planned v2.0)", theirs: "Yes — free tier included", },
+  { feature: "Speed Read Mode", ours: "No", theirs: "Yes (Premium)", },
+  { feature: "Cross-Device Sync", ours: "No (local only)", theirs: "Yes — cloud sync across devices", },
+  { feature: "Offline Reading", ours: "Position saved; page needs browser cache", theirs: "Yes — full article cached offline", },
+  { feature: "Active Development (2026)", ours: "Yes — actively maintained", theirs: "Minimal — slow update cadence since 2016", highlight: true },
+  { feature: "Works on Confluence / Notion / Wikis", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Open Source", ours: "No", theirs: "No", },
+];
+
+const ourAdvantages = [
+  { title: "Actively Maintained in 2026", desc: "Instapaper's development has been minimal since its acquisition in 2016. The iOS app and core features work, but meaningful product updates are rare. ReadMark is actively developed — new versions ship regularly. If you're choosing a reading companion in 2026, you want a tool that responds to how the web has changed." },
+  { title: "Works on Private and Internal URLs", desc: "Instapaper works by sending your article's URL to its server, which fetches and archives the content. This means it only works on publicly accessible pages. ReadMark doesn't fetch content at all — it saves your scroll position locally. Confluence wikis, private Notion pages, GitHub repositories, company intranets: ReadMark handles all of them. Instapaper cannot." },
+  { title: "No Account Required", desc: "ReadMark works immediately after installation — no email, no password, no onboarding. Instapaper requires account creation before you can save anything. For a tool you use dozens of times a day, the friction of account management adds up." },
+  { title: "One-Time Payment vs Monthly Subscription", desc: "ReadMark Pro costs $4.99 once. Instapaper Premium costs $2.99 every month — $35.88 per year. Over two years, ReadMark costs 72% less. The Instapaper Premium features (speed read, full search, notes) are compelling, but for pure reading position tracking, the price-to-value ratio favors ReadMark significantly." },
+  { title: "100% Local — No Server Dependency Risk", desc: "Instapaper's value depends entirely on their servers staying online and their service remaining active. ReadMark stores everything in chrome.storage.local. There are no servers to go down, no company to get acquired, no service to shut down — your reading positions are yours." },
+];
+
+const theirAdvantages = [
+  { title: "Clean Typography-Focused Reading View", desc: "Instapaper's reader mode is one of the best in the industry — it strips ads, sidebars, and distractions to deliver clean, typographically excellent article reading. This was their original innovation and it remains excellent." },
+  { title: "Highlights and Notes — Free", desc: "Instapaper offers text highlighting and notes in the free tier. ReadMark doesn't have highlighting yet (planned for v2.0). For readers who annotate as they read, Instapaper has a clear advantage." },
+  { title: "Cross-Device Sync", desc: "Instapaper syncs your article library across iOS, Android, and web. If you read on multiple devices, this is a significant practical advantage over ReadMark's single-browser local storage." },
+  { title: "Proven Offline Reading", desc: "Instapaper caches full article text for offline reading — genuinely useful for commutes and travel where connectivity is spotty." },
+];
+
+const verdict = "Instapaper and ReadMark represent two different eras of reading tools. Instapaper (launched 2008) solved the problem of saving public articles for clean, distraction-free reading. ReadMark (2025) solves the problem of picking up exactly where you left off across any URL — including the internal tools and wikis that define modern knowledge work. If you highlight articles and need a beautiful reading environment, Instapaper's free tier is still solid. If your reading includes private docs, developer wikis, or long-form content you consume over multiple sessions, ReadMark's position tracking fills a gap that Instapaper was never designed to address.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Is Instapaper still actively maintained in 2026?", answer: "Instapaper received limited updates since its 2016 acquisition by Pinterest and subsequent independence in 2018. The core functionality works, but feature development has been slow compared to newer tools. ReadMark is actively developed with regular updates." },
+  { question: "Can Instapaper remember where I stopped reading?", answer: "No. Instapaper marks articles as read or unread, but it doesn't save your scroll position within an article. If you were two-thirds through a long piece, you'll reopen it from the top. ReadMark auto-saves your exact position and restores it when you revisit the URL." },
+  { question: "Can I use ReadMark and Instapaper together?", answer: "Yes, and it's a reasonable combination. Use Instapaper to save and clean public articles you want to read later. Use ReadMark to track your position on articles you're actively reading across multiple sessions — or on private pages that Instapaper can't access." },
+  { question: "Does ReadMark have highlighting like Instapaper?", answer: "Not yet. Text highlighting and annotation is planned for ReadMark v2.0. The current version (v1.x) focuses on scroll position tracking. Instapaper's free-tier highlighting is a genuine advantage for annotation-heavy readers." },
+  { question: "What if Instapaper shuts down like Omnivore did?", answer: "It's a real risk. Instapaper has changed ownership multiple times and development is slow. If Instapaper shuts down, your saved articles and notes (in cloud storage) could become inaccessible. ReadMark stores data locally — it cannot shut down in the same way, because there's no server to turn off." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="ReadMark vs Instapaper — Modern Reading Position Tracker vs Classic Read-Later App (2026)"
+  seoDescription="ReadMark vs Instapaper: auto-saves scroll position on any URL vs archives public articles. No account required, $4.99 one-time vs $2.99/month. Which fits your reading in 2026?"
+  seoKeywords="instapaper alternative, reading position tracker chrome, save reading progress extension, instapaper vs readmark 2026, read later chrome extension no account"
+  h1="ReadMark vs Instapaper"
+  intro="Instapaper launched in 2008 to save public articles for clean reading. ReadMark launched in 2025 to save your exact place in any article or doc — including private pages Instapaper can't reach. Here's how they compare in 2026."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/readmark-vs-pocket/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Pocket</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">No ads, no account, one-time price</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/readmark-vs-matter/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Matter</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Lightweight vs AI-powered reading</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/readmark-vs-omnivore/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Omnivore</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Omnivore shut down — what's next?</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/readmark/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

@@ -1,0 +1,121 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "ReadMark",
+  icon: "/ext-icons/ReadMark.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/readmark-save-reading-pos/inejhohffndeacbihghjcobndpoejdfn",
+  users: "30+",
+  rating: "5.0 (1)",
+  price: "Free / Pro $4.99 one-time",
+  extensionPageUrl: "/extensions/readmark/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Pocket",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/save-to-pocket/niloccemoadcdkdjlinkgdfekeahmflj",
+  users: "2,000,000+",
+  rating: "4.1 (8,000+)",
+  price: "Free (ads) / Premium $4.99/mo",
+  badge: "Mozilla",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Primary Function", ours: "Save reading position (scroll) on any URL", theirs: "Archive public articles for later reading", highlight: true },
+  { feature: "Works on Private / Internal URLs", ours: "Yes — any URL your browser can open", theirs: "No — public articles only", highlight: true },
+  { feature: "Reading Position Tracking", ours: "Yes — auto-saves scroll position", theirs: "No — only marks articles as read/unread", highlight: true },
+  { feature: "Account Required", ours: "No", theirs: "Yes (Mozilla account)", highlight: true },
+  { feature: "Data Storage", ours: "100% local (chrome.storage.local)", theirs: "Cloud (Mozilla servers)", highlight: true },
+  { feature: "Ads in Free Tier", ours: "None", theirs: "Yes — sponsored content in reading list", highlight: true },
+  { feature: "Price", ours: "Free / $4.99 one-time (Pro)", theirs: "Free (ads) / $4.99/month Premium", highlight: true },
+  { feature: "Article Clean Reading View", ours: "No — opens original page", theirs: "Yes — Pocket Reader removes clutter", },
+  { feature: "Highlights & Annotations", ours: "No (planned v2.0)", theirs: "Yes (Premium only)", },
+  { feature: "Text-to-Speech", ours: "No", theirs: "Yes (Premium)", },
+  { feature: "Cross-Device Sync", ours: "No (local only)", theirs: "Yes — via Mozilla cloud", },
+  { feature: "Works on Confluence / Notion / Wikis", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Offline Reading", ours: "Position saved; page needs browser cache", theirs: "Yes — full article cached offline (Premium)", },
+  { feature: "Open Source", ours: "No", theirs: "No", },
+];
+
+const ourAdvantages = [
+  { title: "Works on Any URL — Including Private Pages", desc: "This is ReadMark's defining advantage. Pocket only saves public articles that can be fetched and archived by their server. ReadMark saves your scroll position on any URL your browser can open — internal Confluence wikis, private Notion pages, company dashboards, paywalled articles, GitHub documentation. Pocket cannot touch any of these." },
+  { title: "One-Time Payment vs Monthly Subscription", desc: "ReadMark Pro is a $4.99 one-time purchase. Pocket Premium costs $4.99 every month — that's $59.88 per year versus a single $4.99 payment. For reading position tracking, the ongoing subscription model is hard to justify." },
+  { title: "No Account, No Data on Mozilla's Servers", desc: "ReadMark requires no account and stores everything in your browser's local storage. Pocket requires a Mozilla account and sends your reading list — including article content and reading habits — to Mozilla's cloud. Since Mozilla's 2024 acquisition of Pocket, data policies have evolved. With ReadMark, there's nothing to worry about: your data never leaves your machine." },
+  { title: "No Ads, Ever", desc: "Pocket's free tier includes sponsored articles (ads) mixed into your reading list. ReadMark has no ads, no sponsored content, and no upsells beyond the optional one-time Pro upgrade." },
+  { title: "Actual Position Tracking, Not Just 'Saved'", desc: "Pocket marks articles as saved or read — a binary state. It doesn't remember that you were 73% through a 6,000-word piece. ReadMark saves your exact scroll position and returns you to that paragraph when you reopen the page." },
+];
+
+const theirAdvantages = [
+  { title: "Article Archiving and Clean Reading View", desc: "Pocket fetches and stores a clean version of articles for distraction-free reading. This is Pocket's core strength and ReadMark has no equivalent — ReadMark opens the original page, not a cleaned copy." },
+  { title: "Cross-Device Sync", desc: "Pocket syncs your reading list across all your devices via Mozilla's cloud. ReadMark stores data locally in Chrome — it's on one browser only, with no cross-device sync." },
+  { title: "Text-to-Speech (Premium)", desc: "Pocket Premium includes text-to-speech for hands-free listening. ReadMark does not have audio features." },
+  { title: "Offline Full-Article Reading (Premium)", desc: "Pocket Premium caches full article text for offline reading. ReadMark saves your position but requires the original page to be accessible." },
+  { title: "Large, Mature Platform", desc: "2M+ Chrome users and an established discovery feed make Pocket a recognized brand with robust support infrastructure." },
+];
+
+const verdict = "Pocket and ReadMark serve fundamentally different reading workflows. Pocket is an article archiver: save public content, read it later in a clean view, possibly offline. ReadMark is a position tracker: mark where you are in anything — including private pages that Pocket can't touch — and return to exactly that spot. If you read long-form content across many different sites and URLs (including internal ones), ReadMark solves a problem Pocket was never designed for. If you want to archive public articles for distraction-free offline reading, Pocket's clean reading view is the right tool. Many readers benefit from both.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Can Pocket save my reading position like ReadMark?", answer: "No. Pocket tracks whether you've saved or read an article, but it doesn't remember your scroll position within an article. If you were halfway through a 5,000-word piece, Pocket will reopen the article from the top. ReadMark saves your exact scroll position and returns you to that paragraph automatically." },
+  { question: "Can ReadMark work with private or internal pages?", answer: "Yes — and this is ReadMark's key advantage over Pocket. ReadMark saves scroll position on any URL your browser can open: internal Confluence wikis, Notion pages, company intranets, GitHub documentation, paywalled articles. Pocket only works on public articles that its server can fetch and archive." },
+  { question: "Is Pocket free?", answer: "Pocket has a free tier that includes ads (sponsored articles in your reading list). Premium at $4.99/month removes ads and adds highlighting and text-to-speech. ReadMark's free tier has no ads. ReadMark Pro ($4.99 one-time) unlocks advanced features without any ongoing payment." },
+  { question: "Does ReadMark replace Pocket?", answer: "Not if you use Pocket for article archiving, clean reading view, or offline reading. Those are features ReadMark doesn't offer. ReadMark replaces Pocket if your primary use was tracking where you were in long articles — ReadMark does that better, for any URL, with no account required." },
+  { question: "Is my reading data private with ReadMark?", answer: "Completely. ReadMark stores all data in chrome.storage.local — it never leaves your browser. There's no server, no account, no data retention policy to worry about. Your reading habits, positions, and URLs are only on your machine." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="ReadMark vs Pocket — Local Reading Position Tracker vs Article Archiver (2026)"
+  seoDescription="ReadMark vs Pocket: save your reading position on any URL vs archive public articles. No account, no ads, $4.99 one-time vs $4.99/month. Compare features and use cases."
+  seoKeywords="pocket alternative, reading position chrome extension, save reading progress, pocket vs readmark, local reading tracker no account"
+  h1="ReadMark vs Pocket"
+  intro="Pocket archives public articles for later reading. ReadMark saves your scroll position on any page — including private wikis and internal docs that Pocket can't touch. Same reading problem, fundamentally different tools."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/readmark-vs-instapaper/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Instapaper</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">2026 tool vs classic service</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/readmark-vs-readwise-reader/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Readwise Reader</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$4.99 one-time vs $7.99/mo</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/readmark-vs-omnivore/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Omnivore</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Omnivore shut down — what's next?</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/readmark/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

@@ -1,0 +1,119 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "CookieJar",
+  icon: "/ext-icons/cookiejar.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/cookiejar-cookie-editor-m/lhngfkchfepfjjdfhimconagoejemofg",
+  users: "200+",
+  rating: "5.0",
+  price: "Free / Pro $4.99/mo",
+  extensionPageUrl: "/extensions/cookiejar/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Cookie Quick Manager",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "",
+  users: "Firefox Add-ons (100,000+)",
+  rating: "4.4 (Firefox)",
+  price: "Free",
+  badge: "Firefox-first — limited Chrome support",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Primary Browser", ours: "Chrome (MV3, actively maintained)", theirs: "Firefox — Chrome support limited/legacy", highlight: true },
+  { feature: "Manifest V3 (Chrome)", ours: "Yes — built from scratch for MV3", theirs: "Not a Chrome-first extension", highlight: true },
+  { feature: "Privacy Score (per-site)", ours: "Yes — tracking/analytics breakdown", theirs: "No", highlight: true },
+  { feature: "Auto Cookie Categorization", ours: "Yes — Login, Tracking, Analytics, Functional", theirs: "No — manual inspection", highlight: true },
+  { feature: "Cookie Profiles", ours: "Yes — encrypted profile switching (Pro)", theirs: "Yes — profile system (Firefox)", highlight: true },
+  { feature: "Export Formats", ours: "JSON, Netscape, cURL, Puppeteer, HAR, CSV", theirs: "JSON, Netscape (Firefox)", },
+  { feature: "Bulk Delete by Category", ours: "Yes — category-aware deletion", theirs: "Limited", },
+  { feature: "Auto-Cleanup Schedules", ours: "Yes (Pro)", theirs: "No", },
+  { feature: "localStorage / sessionStorage Management", ours: "Yes (Pro)", theirs: "No", },
+  { feature: "Search / Filter", ours: "Yes — by name, domain, value", theirs: "Yes (Firefox)", },
+  { feature: "Create / Edit / Delete", ours: "Yes", theirs: "Yes (Firefox)", },
+  { feature: "Data Privacy", ours: "100% local — no external calls", theirs: "Local (Firefox)", },
+  { feature: "Price", ours: "Free / Pro $4.99/mo", theirs: "Free", },
+  { feature: "Active Chrome Development", ours: "Yes — regularly updated for Chrome", theirs: "No — Firefox-first project", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Built for Chrome — Cookie Quick Manager Is a Firefox Tool", desc: "Cookie Quick Manager is a Firefox-first extension with strong adoption on Firefox Add-ons. Its Chrome presence is secondary to its Firefox development. CookieJar was built specifically for Chrome's Manifest V3 architecture from the ground up. For Chrome users, CookieJar is the purpose-built choice; Cookie Quick Manager's primary development focus and community is on the Firefox ecosystem." },
+  { title: "Privacy Score — Instantly Understand What Sites Track", desc: "CookieJar analyzes every cookie on a page and produces a per-site privacy score showing the breakdown of tracking, analytics, functional, and login cookies. Cookie Quick Manager displays raw cookie data without classification. For Chrome users wanting to understand a site's tracking practices without manually researching every cookie name, CookieJar's analysis layer is a unique capability." },
+  { title: "Auto-Categorization — Smart Cookie Classification", desc: "CookieJar automatically identifies cookies as Tracking, Analytics, Functional, or Login using a built-in classification database covering hundreds of known cookie names. Cookie Quick Manager shows cookies without categorization. For developers auditing cookie inventories, automatic classification eliminates manual research time." },
+  { title: "Developer Export Formats — cURL, Puppeteer, HAR", desc: "CookieJar exports cookies in formats designed for development workflows: cURL commands for API testing, Puppeteer scripts for automation, HAR files for debugging, plus JSON, Netscape, and CSV. Cookie Quick Manager's export options are primarily for Firefox-based workflows." },
+  { title: "MV3 Architecture — Chrome Compliance Guaranteed", desc: "Chrome's Manifest V3 requirement applies to all Chrome extensions. CookieJar was built for MV3 from scratch. Cookie Quick Manager's Chrome compatibility depends on its Firefox-first development roadmap. For long-term Chrome reliability, a Chrome-native MV3 extension is the safer choice." },
+];
+
+const theirAdvantages = [
+  { title: "Firefox Support — The Stronger Platform for This Extension", desc: "Cookie Quick Manager is a mature, well-regarded Firefox extension with 100,000+ users on Firefox Add-ons. If your primary browser is Firefox, Cookie Quick Manager has a larger community, more reviews, and a development team focused on the Firefox ecosystem." },
+  { title: "Profile System on Firefox", desc: "Cookie Quick Manager has a cookie profile system for Firefox users — save and restore complete cookie states. CookieJar's profile system (Pro) serves the same need for Chrome users." },
+  { title: "Completely Free", desc: "Cookie Quick Manager is free with no paid tier. CookieJar's Pro features (profiles, auto-cleanup, storage management) require $4.99/month." },
+];
+
+const verdict = "Cookie Quick Manager and CookieJar serve different browser ecosystems. Cookie Quick Manager is a capable Firefox-first extension — if Firefox is your primary browser, it's a solid choice with an established user base. For Chrome users, CookieJar is the right tool: purpose-built for Chrome's Manifest V3, actively maintained for Chrome's extension platform, and adding privacy scoring and auto-categorization that give developers a meaningful analytical layer on top of basic cookie management. These tools don't really compete — they serve different browsers.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Is Cookie Quick Manager available for Chrome?", answer: "Cookie Quick Manager is primarily a Firefox extension. Its Chrome availability is limited compared to its Firefox presence. CookieJar is the Chrome-native alternative, built specifically for Chrome's Manifest V3 architecture." },
+  { question: "Does Cookie Quick Manager work in Chrome with Manifest V3?", answer: "Cookie Quick Manager is developed primarily for Firefox's extension architecture. Chrome's Manifest V3 requirements differ significantly. CookieJar was built from scratch for Chrome MV3 and is the actively maintained Chrome option." },
+  { question: "Does CookieJar work on Firefox?", answer: "No. CookieJar is a Chrome-only extension built for Manifest V3. For Firefox cookie management, Cookie Quick Manager or Cookie-Editor (which supports both browsers) are the appropriate choices." },
+  { question: "What's the privacy score feature in CookieJar?", answer: "CookieJar analyzes every cookie on a page and produces a per-site privacy score showing what percentage of cookies are tracking, analytics, functional, or login-related. This gives developers and privacy-conscious users an instant view of a site's tracking practices. Cookie Quick Manager doesn't offer this analysis." },
+  { question: "Which is better for Chrome developers?", answer: "CookieJar. It's built specifically for Chrome MV3, actively maintained for the Chrome ecosystem, and adds privacy scoring, auto-categorization, and developer-focused exports (cURL, Puppeteer, HAR) that Cookie Quick Manager doesn't offer for Chrome." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="CookieJar vs Cookie Quick Manager — Chrome MV3 vs Firefox-First Cookie Editor (2026)"
+  seoDescription="Cookie Quick Manager is a Firefox-first extension. CookieJar is built for Chrome MV3 with privacy scoring and auto-categorization. Different browsers, different tools."
+  seoKeywords="cookie quick manager chrome, cookie manager chrome mv3 2026, firefox cookie editor vs chrome, cookiejar vs cookie quick manager, chrome cookie editor 2026"
+  h1="CookieJar vs Cookie Quick Manager"
+  intro="Cookie Quick Manager is a mature Firefox cookie manager with strong add-on adoption. CookieJar is built for Chrome's Manifest V3 with privacy scoring and auto-categorization. They serve different browsers — here's what sets them apart."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/cookiejar-vs-cookie-editor/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar vs Cookie-Editor</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Privacy scoring vs simple editor</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/cookiejar-vs-editthiscookie/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar vs EditThisCookie</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">MV3 replacement for removed extension</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/cookiejar-vs-cookiebro/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar vs CookieBRO</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Cookie management vs tracker blocking</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/cookiejar/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, privacy score, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

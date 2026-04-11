@@ -1,0 +1,120 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "PromptStash",
+  icon: "/ext-icons/promptstash.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/promptstash-ai-prompt-man/ocgkponbnolpgobllplcamfobolbjbcj",
+  users: "50+",
+  rating: "4.9 (12)",
+  price: "$5 one-time",
+  extensionPageUrl: "/extensions/promptstash/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "PromptBase",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "",
+  users: "Web platform",
+  rating: "Marketplace platform",
+  price: "Free browse / Prompts $1.99–$9.99 each",
+  badge: "AI prompt marketplace",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Product Type", ours: "Chrome extension — personal prompt manager", theirs: "Web marketplace — buy/sell prompts", highlight: true },
+  { feature: "Personal Prompt Library", ours: "Yes — core feature", theirs: "No — purchases stored, not managed", highlight: true },
+  { feature: "Slash Command Insert (in AI chat)", ours: "Yes — type '/' to insert instantly", theirs: "No — copy from website, paste manually", highlight: true },
+  { feature: "Variable Templates", ours: "Yes — dynamic {{placeholders}}", theirs: "No — static prompt text", highlight: true },
+  { feature: "Prompt Chains", ours: "Yes — sequential workflow execution", theirs: "No", highlight: true },
+  { feature: "Supported AI Services", ours: "19+ (ChatGPT, Claude, Gemini, etc.)", theirs: "Works with any — manual copy required", },
+  { feature: "Build Your Own Prompts", ours: "Yes — purpose-built for this", theirs: "Yes — list them for sale", },
+  { feature: "Community Prompts to Buy", ours: "No", theirs: "Yes — thousands of prompts for purchase", },
+  { feature: "Sell Your Prompts", ours: "No", theirs: "Yes — earn revenue from prompts", },
+  { feature: "Data Storage", ours: "100% local (browser only)", theirs: "PromptBase cloud account", highlight: true },
+  { feature: "Price to Manage Prompts", ours: "$5 one-time", theirs: "Free account + per-prompt purchases ($1.99–$9.99 each)", highlight: true },
+  { feature: "Keyboard Shortcut", ours: "Yes — Ctrl+Shift+P", theirs: "No", },
+  { feature: "Offline Access", ours: "Yes", theirs: "No — web platform requires internet", highlight: true },
+  { feature: "Chrome Extension", ours: "Yes — native browser integration", theirs: "No — website only", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Built for Managing Your Prompts — PromptBase Is a Store", desc: "These tools serve fundamentally different purposes. PromptStash is a personal prompt manager: organize, search, and instantly insert your own prompts across 19+ AI services. PromptBase is a marketplace: browse and purchase prompts created by others, or sell your own. If the goal is organizing and rapidly deploying prompts you've created, PromptBase isn't the right tool." },
+  { title: "Instant In-Chat Insert — PromptBase Requires Tab Switching", desc: "PromptStash's slash commands let you insert prompts directly in any AI chat without leaving the conversation. PromptBase is a website — to use a purchased prompt, you navigate to promptbase.com, find the prompt, copy it, switch back to your AI tab, and paste. For frequent use, the workflow difference is substantial." },
+  { title: "Variable Templates — PromptBase Has None", desc: "PromptStash's {{variable}} system makes your prompts dynamic. PromptBase sells static prompt text. Even the most expensive PromptBase prompts are static strings that you paste as-is. PromptStash's template system is more flexible for adapting prompts to different subjects and contexts." },
+  { title: "$5 Once vs Ongoing Per-Prompt Purchases", desc: "PromptBase charges per prompt: typically $1.99–$9.99 each. If you purchase 10 prompts, you've spent $20–$100 on top of the free account. PromptStash costs $5 once and manages an unlimited personal library. The cost comparison depends on how many prompts you'd buy — but for users who develop their own prompts, PromptBase's marketplace model is irrelevant." },
+  { title: "Works Offline — PromptBase Requires Internet", desc: "PromptStash stores your prompts locally. You can access your entire prompt library without an internet connection. PromptBase is a web platform that requires online access to view your purchased prompts." },
+];
+
+const theirAdvantages = [
+  { title: "Thousands of Expert-Crafted Prompts to Buy", desc: "PromptBase's marketplace contains thousands of prompts across categories: image generation (Midjourney, DALL-E), writing, marketing, SEO, coding, and more. For users who want professionally crafted prompts for specific use cases without building their own, PromptBase's catalog is extensive." },
+  { title: "Sell Your Prompts and Earn Revenue", desc: "PromptBase lets you list your prompts for sale to other users. If you've developed effective prompts for specific workflows, PromptBase provides a monetization channel. PromptStash has no marketplace or selling capability." },
+  { title: "Image Generation Prompts (Midjourney, DALL-E)", desc: "PromptBase includes prompts for image generation models — not just text AI services. If you need high-quality Midjourney or DALL-E prompts, PromptBase's catalog covers this category extensively. PromptStash's slash commands don't integrate with image generation interfaces." },
+  { title: "No Installation Required", desc: "PromptBase is a website — no extension installation needed. Browse, purchase, and copy prompts from any browser on any device." },
+];
+
+const verdict = "PromptStash and PromptBase are complementary rather than competitive. PromptBase is a marketplace for discovering and purchasing high-quality prompts — useful when you need expert-crafted prompts for specific use cases like image generation, copywriting frameworks, or structured research. PromptStash is where you manage, organize, and deploy your own prompts (including ones you purchased from PromptBase) across all your AI tools with minimal friction. Many users do both: buy a few reference prompts from PromptBase, refine them into their own templates, and manage everything in PromptStash for rapid access across all AI services.";
+
+const faq: ComparisonFaq[] = [
+  { question: "What is PromptBase?", answer: "PromptBase is a web-based marketplace for buying and selling AI prompts. Users can browse thousands of prompts across categories (writing, marketing, image generation, coding), purchase individual prompts, and also list their own prompts for sale to earn revenue. It's not a prompt management tool — it's a store." },
+  { question: "Can I use PromptBase to manage my own prompts?", answer: "PromptBase allows you to save purchased prompts to your account, but it's primarily a marketplace, not a personal prompt manager. It has no slash command insertion, no variable templates, and no Chrome extension integration. For managing your own prompt library, PromptStash is the purpose-built tool." },
+  { question: "Can I import PromptBase prompts into PromptStash?", answer: "Yes. Copy any prompt from PromptBase and paste it into PromptStash as a new prompt entry. You can then add variable placeholders, assign tags, and insert it via slash commands in any AI service. PromptBase is a source; PromptStash is where you deploy." },
+  { question: "Does PromptStash have prompts I can browse?", answer: "No. PromptStash is a personal prompt manager — it manages prompts you create or import. It has no community library or marketplace. For discovering expert-crafted prompts, AIPRM (free, ChatGPT-specific) or PromptBase (paid, any AI) are better sources." },
+  { question: "Is it worth buying prompts from PromptBase?", answer: "Depends on the use case. For image generation (Midjourney, DALL-E prompts), PromptBase has a strong catalog that saves significant trial-and-error. For text AI prompts (ChatGPT, Claude), the quality varies widely and many high-quality prompts are available for free on Reddit, GitHub, and AIPRM. Evaluate individual prompts before purchasing." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="PromptStash vs PromptBase — Personal Prompt Manager vs AI Prompt Marketplace (2026)"
+  seoDescription="PromptStash manages your personal prompts across 19+ AI services with slash commands. PromptBase is a marketplace to buy and sell AI prompts. Different tools, different use cases."
+  seoKeywords="promptbase alternative, ai prompt manager vs marketplace, personal prompt library chrome extension, manage bought prompts, promptstash vs promptbase"
+  h1="PromptStash vs PromptBase"
+  intro="PromptBase is a marketplace where you buy and sell AI prompts. PromptStash is where you manage, organize, and instantly insert your own prompts across 19+ AI services. They solve different problems — and work well together."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/promptstash-vs-aiprm/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs AIPRM</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Personal library vs free community prompts</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/promptstash-vs-chatgpt-saved-prompts/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs ChatGPT Saved Prompts</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Cross-platform vs ChatGPT-only</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/promptstash-vs-prompt-vault/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs Prompt Vault</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Slash commands vs copy-paste</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/promptstash/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, 19+ services, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

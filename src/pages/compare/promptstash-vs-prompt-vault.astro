@@ -1,0 +1,119 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "PromptStash",
+  icon: "/ext-icons/promptstash.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/promptstash-ai-prompt-man/ocgkponbnolpgobllplcamfobolbjbcj",
+  users: "50+",
+  rating: "4.9 (12)",
+  price: "$5 one-time",
+  extensionPageUrl: "/extensions/promptstash/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Prompt Vault",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/prompt-vault-save-and-man/kkedhfohjnbfdhkiifiihghfofidkpij",
+  users: "10,000+",
+  rating: "4.3 (200+)",
+  price: "Free / Pro varies",
+  badge: "Dedicated prompt manager",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Slash Command Insert (in AI chat)", ours: "Yes — type '/' to search & insert", theirs: "No — copy then paste manually", highlight: true },
+  { feature: "Variable Templates ({{placeholders}})", ours: "Yes — text, dropdown, number, date", theirs: "No — static text only", highlight: true },
+  { feature: "Prompt Chains", ours: "Yes — sequential workflow execution", theirs: "No", highlight: true },
+  { feature: "Context Variables (URL, date, selected text)", ours: "Yes — auto-injected", theirs: "No", highlight: true },
+  { feature: "Keyboard Shortcut", ours: "Yes — Ctrl+Shift+P", theirs: "No", highlight: true },
+  { feature: "Supported AI Services", ours: "19+ (ChatGPT, Claude, Gemini, etc.)", theirs: "Works alongside any — manual copy", },
+  { feature: "Inline Insert (stays in current tab)", ours: "Yes — no tab switching", theirs: "No — must switch to the extension popup", highlight: true },
+  { feature: "Folder Organization", ours: "Yes — nested folders + tags", theirs: "Yes — folder system", },
+  { feature: "Search by Name / Tag", ours: "Yes", theirs: "Yes", },
+  { feature: "Data Storage", ours: "100% local (browser only)", theirs: "Local storage", },
+  { feature: "Import / Export", ours: "Yes — JSON", theirs: "Yes", },
+  { feature: "Price", ours: "$5 one-time", theirs: "Free / Pro pricing varies", highlight: true },
+  { feature: "Pin / Favorite Prompts", ours: "Yes — up to 10 pins", theirs: "Yes", },
+  { feature: "Offline Access", ours: "Yes", theirs: "Yes", },
+];
+
+const ourAdvantages = [
+  { title: "Slash Commands — Insert Without Leaving the Conversation", desc: "This is PromptStash's defining workflow advantage over Prompt Vault. In any AI chat, type '/' and PromptStash opens an inline search overlay. Select your prompt and it inserts directly into the text field — without switching tabs, without clicking the extension icon, without breaking your flow. Prompt Vault requires opening the extension popup, finding the prompt, and manually copying it before returning to the AI chat." },
+  { title: "Variable Templates — Prompt Vault Has None", desc: "PromptStash's {{variable}} system makes prompts dynamic: fill in {{topic}}, {{audience}}, {{tone}} at insert time and one template serves hundreds of use cases. Prompt Vault stores static text. For users who reuse prompts across many different subjects, PromptStash's template system eliminates the need to maintain dozens of nearly-identical prompts." },
+  { title: "Prompt Chains for Sequential Workflows", desc: "PromptStash lets you define a sequence of prompts — run them one after another in a structured workflow. Useful for consistent multi-step processes like 'Brainstorm → Outline → Draft → Review' without manually copying each step. Prompt Vault has no chain execution feature." },
+  { title: "Context Variables — Auto-Insert Page URL, Date, Selected Text", desc: "PromptStash can automatically inject the current page URL, today's date, or text you've selected on the page into your prompt at insert time. These context-aware injections make prompts more specific without manual typing. Prompt Vault doesn't offer auto-populated context variables." },
+  { title: "Keyboard Shortcut for Instant Access", desc: "Press Ctrl+Shift+P (Cmd+Shift+P on Mac) to open PromptStash from anywhere without clicking the extension icon. Prompt Vault doesn't offer a global keyboard shortcut. For high-frequency prompt users, this keyboard-first access is a significant speed advantage." },
+];
+
+const theirAdvantages = [
+  { title: "Free Tier Available", desc: "Prompt Vault has a free tier for basic prompt storage. PromptStash is a paid extension at $5 one-time — there's no free version. For users who want to evaluate before paying, Prompt Vault's free tier reduces the commitment barrier." },
+  { title: "Larger Established User Base", desc: "10,000+ users and more reviews indicate a longer track record and more community testing across different workflows and use cases." },
+  { title: "Works Without AI Platform Context", desc: "Prompt Vault's copy-based approach works with any tool — AI services, email clients, documents, anywhere you paste text. PromptStash's slash command injection is specifically integrated with supported AI chat services." },
+];
+
+const verdict = "Prompt Vault and PromptStash both manage prompt libraries effectively, but PromptStash's slash command system fundamentally changes how quickly you can use a saved prompt. The difference between 'open popup, find prompt, copy, switch back to chat, paste' and 'type /, search, press enter' adds up across dozens of daily prompt insertions. Add variable templates and prompt chains that Prompt Vault lacks, and PromptStash is the more capable tool for users who use prompts frequently. At $5 one-time, it's a small investment for a meaningfully faster daily workflow.";
+
+const faq: ComparisonFaq[] = [
+  { question: "What is Prompt Vault?", answer: "Prompt Vault is a Chrome extension for saving, organizing, and retrieving AI prompts. It offers folder organization, search, and a copy-to-clipboard workflow for inserting prompts into AI services. It has a free tier and a paid Pro plan." },
+  { question: "What's the biggest difference between PromptStash and Prompt Vault?", answer: "The slash command system. PromptStash lets you type '/' inside any AI chat to instantly search and insert prompts without leaving the conversation. Prompt Vault requires opening the extension popup and manually copying text. For frequent prompt users, this difference in workflow friction is significant." },
+  { question: "Does Prompt Vault have variable templates like PromptStash?", answer: "No. Prompt Vault stores static prompt text. PromptStash's {{variable}} system creates dynamic templates where you fill in values at insert time — allowing one template to cover many variations of a prompt." },
+  { question: "Is PromptStash worth $5 if Prompt Vault has a free tier?", answer: "For occasional prompt users who don't mind the copy-paste workflow, Prompt Vault's free tier may be sufficient. For users who insert prompts many times per day, PromptStash's slash commands, variable templates, and prompt chains save meaningful time daily. At $5 once, the payback period is measured in hours of use." },
+  { question: "Can I import my prompts from Prompt Vault into PromptStash?", answer: "Not directly — the two extensions use different storage formats. You would need to manually copy prompts from Prompt Vault and recreate them in PromptStash, or export from Prompt Vault and restructure the data for PromptStash's JSON import format." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="PromptStash vs Prompt Vault — Slash Command Insert vs Copy-Paste Prompt Manager (2026)"
+  seoDescription="PromptStash vs Prompt Vault: slash commands insert prompts instantly in any AI chat vs manual copy-paste. Variable templates, prompt chains, and $5 one-time pricing."
+  seoKeywords="prompt vault alternative, ai prompt manager slash command, prompt manager chrome extension 2026, best prompt organizer chatgpt, promptstash vs prompt vault"
+  h1="PromptStash vs Prompt Vault"
+  intro="Both manage AI prompt libraries — but PromptStash's slash command system inserts prompts directly in the chat without switching tabs. Plus variable templates and prompt chains that Prompt Vault doesn't offer. Here's the comparison."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/promptstash-vs-chatgpt-saved-prompts/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs ChatGPT Saved Prompts</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Cross-platform vs ChatGPT-only</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/promptstash-vs-aiprm/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs AIPRM</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Personal library vs community prompts</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/promptstash-vs-promptbox/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs PromptBox</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$5 one-time vs $6.99/month</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/promptstash/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, 19+ services, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

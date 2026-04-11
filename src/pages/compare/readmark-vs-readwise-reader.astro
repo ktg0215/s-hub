@@ -1,0 +1,121 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "ReadMark",
+  icon: "/ext-icons/ReadMark.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/readmark-save-reading-pos/inejhohffndeacbihghjcobndpoejdfn",
+  users: "30+",
+  rating: "5.0 (1)",
+  price: "Free / Pro $4.99 one-time",
+  extensionPageUrl: "/extensions/readmark/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Readwise Reader",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/readwise-highlighter/jjhefcfhmnkfepgmphehkdoijgcaiggn",
+  users: "200,000+",
+  rating: "4.7 (1,500+)",
+  price: "Free (trial) / Full $7.99/mo",
+  badge: "Best-in-class PKM integration",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Primary Function", ours: "Save reading position on any URL", theirs: "Read-later + highlights + PKM integration", highlight: true },
+  { feature: "Price", ours: "Free / $4.99 one-time", theirs: "$7.99/month (no annual discount)", highlight: true },
+  { feature: "Exact Scroll Position Saved", ours: "Yes — auto-saved per URL", theirs: "No — reading progress tracked differently", highlight: true },
+  { feature: "Works on Private / Internal URLs", ours: "Yes — any URL your browser can open", theirs: "No — public articles and saved content only", highlight: true },
+  { feature: "Account Required", ours: "No", theirs: "Yes", highlight: true },
+  { feature: "Data Storage", ours: "100% local (browser only)", theirs: "Cloud (Readwise servers)", highlight: true },
+  { feature: "Highlights & Annotations", ours: "No (planned v2.0)", theirs: "Yes — best-in-class", },
+  { feature: "Obsidian / Logseq / Notion Sync", ours: "No", theirs: "Yes — native integrations", },
+  { feature: "RSS / Newsletter Integration", ours: "No", theirs: "Yes — full reader with inbox", },
+  { feature: "Daily Review (Spaced Repetition)", ours: "No", theirs: "Yes — Readwise classic feature", },
+  { feature: "Twitter/X Thread Saving", ours: "No", theirs: "Yes", },
+  { feature: "PDF & EPUB Support", ours: "No", theirs: "Yes", },
+  { feature: "Works on Confluence / Notion / Wikis", ours: "Yes", theirs: "No — public content only", highlight: true },
+  { feature: "Chrome Extension Size", ours: "Lightweight (~50KB)", theirs: "Heavier (feature-rich)", },
+];
+
+const ourAdvantages = [
+  { title: "One-Time $4.99 vs $7.99 Every Month", desc: "This is the starkest difference. ReadMark Pro costs $4.99 once. Readwise Reader costs $7.99 every month — $95.88 per year. Over 12 months, Readwise costs 19× more than ReadMark. If your use case is reading position tracking and not the full PKM ecosystem, ReadMark delivers the specific feature you need at a fraction of the cost." },
+  { title: "Works on Private and Internal URLs", desc: "Readwise Reader archives content it can fetch publicly. Your company's Confluence wiki, private Notion docs, internal dashboards, GitHub repos you're exploring — these don't exist to Readwise Reader. ReadMark saves your position on any URL your browser can open, making it the only option for developers and knowledge workers who read heavily from internal tools." },
+  { title: "No Account, No Data in Readwise's Cloud", desc: "ReadMark has no account, no sign-in, and no data leaving your browser. All reading positions are stored locally in chrome.storage.local. Readwise Reader requires an account and syncs your highlights, reading history, and article content to their servers. For sensitive internal documentation, ReadMark's local-first architecture is the safer choice." },
+  { title: "Exact Position Restoration — URL-by-URL", desc: "ReadMark's position tracking is URL-specific and automatic — every URL you revisit returns to exactly where you bookmarked. Readwise Reader tracks reading progress within its own reading view but doesn't restore your position on the original web page. For reading you do outside of a read-later app (documentation, forums, wikis), ReadMark provides continuity that Readwise doesn't." },
+  { title: "Lightweight and Non-Intrusive", desc: "ReadMark is a small, focused extension that adds no overhead to your regular browsing. Readwise Reader's highlighter extension is more complex. If you want position tracking without adding a full reading platform to your workflow, ReadMark is the lighter tool." },
+];
+
+const theirAdvantages = [
+  { title: "Best-in-Class Highlights and Annotations", desc: "Readwise Reader's highlighting is widely considered the best in the category — elegant selection, note-taking, and tag organization. If annotations are core to your reading workflow, Readwise is the clear winner and ReadMark has no equivalent." },
+  { title: "Native PKM Integration (Obsidian, Logseq, Notion)", desc: "Readwise's main value proposition for many users is syncing highlights to PKM tools. If your reading feeds into an Obsidian vault or Logseq graph, Readwise is purpose-built for this workflow. ReadMark has no PKM integration." },
+  { title: "Full Reading Platform: RSS, Newsletters, Twitter, PDF, EPUB", desc: "Readwise Reader is a complete reading environment — it aggregates RSS feeds, newsletters, Twitter threads, PDFs, and EPUBs alongside saved articles. ReadMark is a single-purpose position tracker with no content aggregation." },
+  { title: "Daily Review with Spaced Repetition", desc: "Readwise's signature feature — surfacing past highlights for daily review — is powerful for knowledge retention. There's nothing comparable in ReadMark." },
+  { title: "Large Community and Active Development", desc: "Readwise has a vocal, engaged user community and ships frequently. The product roadmap is public and the team is responsive. ReadMark is a newer, solo-developed product." },
+];
+
+const verdict = "Readwise Reader is the most complete read-later and reading research platform available in 2026. If you highlight, annotate, build a PKM, consume newsletters, or want spaced repetition for your reading notes — Readwise Reader is worth the $7.99/month for the right user. ReadMark is not a Readwise replacement. It solves a narrower problem: exactly where you were in an article or document, on any URL, with no account and no ongoing cost. The comparison matters most for people who were paying for Readwise Reader primarily for position tracking — ReadMark delivers that specific feature for $4.99 total. Many users will find that ReadMark covers the 20% of Readwise they actually use daily, at 5% of the annual cost.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Is ReadMark a Readwise Reader replacement?", answer: "Not if you use Readwise for its core features: highlights, PKM sync, newsletters, spaced repetition. ReadMark is a position tracker, not a reading platform. However, if you were using Readwise primarily to remember where you left off in long articles, ReadMark covers that specific use case at $4.99 once vs $95.88/year." },
+  { question: "Can Readwise Reader track my position on a private Confluence page?", answer: "No. Readwise Reader works with content it can fetch and archive publicly. Your company's Confluence wiki, private Notion pages, or any URL behind an employee login is outside Readwise's reach. ReadMark saves your position on any URL your browser can open, including all private and internal pages." },
+  { question: "Do I need both ReadMark and Readwise Reader?", answer: "Possibly, if your reading spans both public articles (Readwise's strength) and internal documentation (ReadMark's unique territory). Many knowledge workers use Readwise for public content with highlights and use ReadMark for the internal wikis, GitHub docs, and long-form content outside Readwise's scope." },
+  { question: "Is $7.99/month worth it for Readwise Reader?", answer: "For power users who highlight extensively, build a Obsidian/Logseq knowledge base from their reading, and want a unified inbox for newsletters and RSS — yes, Readwise Reader is arguably the best tool in the category at that price. For readers who primarily need position tracking across many different sites (including private ones), ReadMark is more cost-effective." },
+  { question: "Does ReadMark plan to add highlights like Readwise?", answer: "Text highlighting and annotation is planned for ReadMark v2.0. However, ReadMark is not designed to compete with Readwise's deep PKM ecosystem. The planned features are basic annotations tied to saved positions — useful for most readers, but not a replacement for Readwise's highlight + spaced repetition workflow." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="ReadMark vs Readwise Reader — $4.99 One-Time vs $7.99/Month Reading Tools (2026)"
+  seoDescription="ReadMark vs Readwise Reader: local position tracking on any URL vs full PKM reading platform. Compare pricing, privacy, and features to find your fit in 2026."
+  seoKeywords="readwise reader alternative, cheap read later app, reading position chrome extension, readwise vs readmark, one-time payment reading app"
+  h1="ReadMark vs Readwise Reader"
+  intro="Readwise Reader is the most feature-complete reading platform available — highlights, PKM sync, newsletters, spaced repetition. ReadMark is a focused position tracker that costs $4.99 once. Here's how to choose."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/readmark-vs-pocket/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Pocket</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">No ads, no account, one-time price</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/readmark-vs-matter/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Matter</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Lightweight vs AI-powered reading</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/readmark-vs-omnivore/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Omnivore</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Omnivore shut down — what's next?</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/readmark/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

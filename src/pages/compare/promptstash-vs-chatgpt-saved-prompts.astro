@@ -1,0 +1,119 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "PromptStash",
+  icon: "/ext-icons/promptstash.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/promptstash-ai-prompt-man/ocgkponbnolpgobllplcamfobolbjbcj",
+  users: "50+",
+  rating: "4.9 (12)",
+  price: "$5 one-time",
+  extensionPageUrl: "/extensions/promptstash/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "ChatGPT Saved Prompts",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "",
+  users: "Built into ChatGPT",
+  rating: "Native feature",
+  price: "Free (limited) / ChatGPT Plus $20/mo",
+  badge: "ChatGPT native feature",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Works Outside ChatGPT", ours: "Yes — Claude, Gemini, Perplexity, 16+ more", theirs: "No — ChatGPT only", highlight: true },
+  { feature: "Supported AI Services", ours: "19+ (ChatGPT, Claude, Gemini, Grok, Perplexity, Copilot, etc.)", theirs: "1 (ChatGPT only)", highlight: true },
+  { feature: "Variable Templates ({{placeholders}})", ours: "Yes — text, dropdown, number, date variables", theirs: "No — static text only", highlight: true },
+  { feature: "Slash Command Insert", ours: "Yes — type '/' to search & insert", theirs: "No — manual copy/paste", highlight: true },
+  { feature: "Prompt Chains", ours: "Yes — run prompts in sequence", theirs: "No", highlight: true },
+  { feature: "Folder / Tag Organization", ours: "Yes — nested folders + tags", theirs: "No — flat list only", },
+  { feature: "Keyboard Shortcut", ours: "Yes — Ctrl+Shift+P", theirs: "No", },
+  { feature: "Price", ours: "$5 one-time", theirs: "Free / requires $20/mo ChatGPT Plus for full features", highlight: true },
+  { feature: "Data Storage", ours: "100% local (browser only)", theirs: "OpenAI cloud", highlight: true },
+  { feature: "Import / Export (JSON)", ours: "Yes", theirs: "No", },
+  { feature: "Offline Access", ours: "Yes — prompts available without internet", theirs: "No — requires ChatGPT connection", highlight: true },
+  { feature: "Context Variables (URL, date, selected text)", ours: "Yes — built-in auto variables", theirs: "No", highlight: true },
+  { feature: "Pin / Favorite Prompts", ours: "Yes", theirs: "No", },
+  { feature: "Works on Claude.ai", ours: "Yes", theirs: "No", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Works Across All Your AI Tools — Not Just ChatGPT", desc: "This is the fundamental difference. ChatGPT's Saved Prompts feature only appears inside ChatGPT. If you also use Claude for writing, Gemini for research, Perplexity for search, or DeepSeek for coding — your prompts are siloed in ChatGPT and unavailable everywhere else. PromptStash brings your entire prompt library to all 19+ AI services you use, with one-click insert on every platform." },
+  { title: "Variable Templates — ChatGPT Has None", desc: "PromptStash's {{variable}} system transforms static prompts into dynamic templates. A single 'Blog post outline for {{topic}} targeting {{audience}}' template replaces hundreds of slightly different prompts. When you insert the template, PromptStash asks you to fill in each variable. ChatGPT's Saved Prompts stores static text — no variable substitution at any tier." },
+  { title: "Slash Command Insert — Frictionless in Every Chat", desc: "Type '/' in any AI chat to instantly search and insert your saved prompts without leaving the conversation. ChatGPT's feature requires navigating to a separate menu. PromptStash's slash commands work inside ChatGPT, Claude, Gemini, and all other supported services simultaneously." },
+  { title: "Prompt Chains for Multi-Step Workflows", desc: "PromptStash lets you define chains of prompts to run in sequence — 'Analyze → Draft → Refine' or 'Requirements → Architecture → Code review.' ChatGPT's native feature has no concept of chained prompt execution." },
+  { title: "$5 Once vs $20 Every Month (Plus Required)", desc: "ChatGPT's Saved Prompts is free in the basic tier but limited. Full access requires ChatGPT Plus at $20/month — $240/year — which is primarily paid for the GPT-4 model access, not the prompt management feature. PromptStash costs $5 once and works alongside whatever ChatGPT tier you have." },
+];
+
+const theirAdvantages = [
+  { title: "Zero Setup — Already Built In", desc: "ChatGPT's Saved Prompts requires no installation. If you're a ChatGPT user, the feature is already in your account. PromptStash requires installing a Chrome extension." },
+  { title: "Deep ChatGPT Integration", desc: "As a native ChatGPT feature, Saved Prompts integrates seamlessly with custom GPTs, memory, and other ChatGPT-specific features. PromptStash integrates with ChatGPT's input area but not with platform-specific features like GPT configuration." },
+  { title: "No Extension Required on Mobile", desc: "ChatGPT's Saved Prompts works in the ChatGPT mobile app. PromptStash is a Chrome extension — it doesn't work on mobile browsers or the ChatGPT app." },
+];
+
+const verdict = "ChatGPT's Saved Prompts is a convenient built-in feature for ChatGPT-exclusive users. But if your workflow involves more than one AI service — and for most power users in 2026, it does — the feature's ChatGPT lock-in is a critical limitation. PromptStash is the cross-platform layer that makes your prompts available everywhere: ChatGPT, Claude, Gemini, Perplexity, and 15 more services, with variable templates and slash commands that ChatGPT's native feature doesn't offer at any price tier.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Can PromptStash replace ChatGPT's Saved Prompts?", answer: "Yes — and it extends well beyond it. PromptStash does everything ChatGPT's Saved Prompts does (save and insert prompts) plus adds variable templates, slash command search, prompt chains, and support for 18 additional AI services that ChatGPT's native feature can't reach." },
+  { question: "Do I need ChatGPT Plus to use PromptStash with ChatGPT?", answer: "No. PromptStash works with the free ChatGPT tier. It injects prompts into ChatGPT's input area regardless of your subscription level. PromptStash itself costs $5 once — there's no subscription required." },
+  { question: "What AI services does PromptStash support besides ChatGPT?", answer: "PromptStash supports 19+ services: Claude, Gemini, Perplexity, DeepSeek, Grok, Copilot, Poe, Mistral, HuggingChat, You.com, Phind, Character.AI, Pi, Cohere, Notion AI, Google AI Studio, and more. New services are added regularly." },
+  { question: "Are my prompts safe with PromptStash?", answer: "Yes. PromptStash stores all prompts in chrome.storage.local — they never leave your browser. ChatGPT's Saved Prompts stores your prompts on OpenAI's servers. For sensitive prompts (proprietary processes, business workflows), local storage is meaningfully more private." },
+  { question: "Does PromptStash work if I switch from ChatGPT to Claude?", answer: "Yes — this is exactly the use case PromptStash is built for. Your entire prompt library works identically on Claude. Use the same slash commands, the same variable templates, the same folder organization. Switching AI services doesn't mean rebuilding your prompt library." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="PromptStash vs ChatGPT Saved Prompts — Cross-Platform AI Prompt Manager (2026)"
+  seoDescription="ChatGPT Saved Prompts only works in ChatGPT. PromptStash works across 19+ AI services with variable templates, slash commands, and $5 one-time pricing."
+  seoKeywords="chatgpt saved prompts alternative, ai prompt manager all services, prompt manager chrome extension, chatgpt prompt organizer cross platform, promptstash vs chatgpt"
+  h1="PromptStash vs ChatGPT Saved Prompts"
+  intro="ChatGPT's built-in Saved Prompts feature is convenient — if ChatGPT is the only AI you use. PromptStash brings your prompts to 19+ AI services with variable templates and slash commands that ChatGPT's native feature can't match."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/promptstash-vs-anthropic-projects/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs Anthropic Projects</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Claude-only vs 19+ AI services</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/promptstash-vs-aiprm/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs AIPRM</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Personal library vs community prompts</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/promptstash-vs-promptbox/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs PromptBox</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$5 one-time vs $6.99/month</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/promptstash/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, 19+ services, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

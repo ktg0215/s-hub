@@ -1,0 +1,120 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "PromptStash",
+  icon: "/ext-icons/promptstash.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/promptstash-ai-prompt-man/ocgkponbnolpgobllplcamfobolbjbcj",
+  users: "50+",
+  rating: "4.9 (12)",
+  price: "$5 one-time",
+  extensionPageUrl: "/extensions/promptstash/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Anthropic Projects (Claude)",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "",
+  users: "Claude.ai feature",
+  rating: "Native feature",
+  price: "Free (Claude.ai) / Claude Pro $20/mo for extended use",
+  badge: "Claude.ai native feature",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Works Outside Claude", ours: "Yes — ChatGPT, Gemini, Perplexity, 16+ more", theirs: "No — Claude.ai only", highlight: true },
+  { feature: "Supported AI Services", ours: "19+ AI services", theirs: "1 (Claude only)", highlight: true },
+  { feature: "Variable Templates ({{placeholders}})", ours: "Yes — text, dropdown, number, date types", theirs: "No — static instructions only", highlight: true },
+  { feature: "Slash Command Insert", ours: "Yes — type '/' to search & insert in any chat", theirs: "No — system prompts applied per-project", highlight: true },
+  { feature: "Prompt Chains", ours: "Yes — sequential prompt workflows", theirs: "No", highlight: true },
+  { feature: "Individual Prompt Library", ours: "Yes — manage hundreds of individual prompts", theirs: "No — project-level instructions only", highlight: true },
+  { feature: "Persistent Context / Documents", ours: "No (prompt insertion only)", theirs: "Yes — upload documents, store context per project", },
+  { feature: "Keyboard Shortcut", ours: "Yes — Ctrl+Shift+P", theirs: "No", },
+  { feature: "Price", ours: "$5 one-time", theirs: "Free / Claude Pro $20/mo for higher limits", highlight: true },
+  { feature: "Data Storage", ours: "100% local (browser only)", theirs: "Anthropic cloud", highlight: true },
+  { feature: "Works on ChatGPT", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Import / Export", ours: "Yes — JSON backup", theirs: "No", },
+  { feature: "Tag / Folder Organization", ours: "Yes", theirs: "No — project-based grouping only", },
+  { feature: "Offline Access", ours: "Yes", theirs: "No — requires Claude.ai connection", },
+];
+
+const ourAdvantages = [
+  { title: "Your Prompts Work on Every AI Service", desc: "Anthropic Projects is a Claude-specific feature — your project instructions and context live inside Claude.ai and cannot be used with ChatGPT, Gemini, Perplexity, or any other service. PromptStash makes your prompt library available across all 19+ AI services you use, with the same slash commands and variable templates everywhere." },
+  { title: "Individual Prompt Management — Not Just Project Instructions", desc: "Claude Projects is designed for setting persistent context at the project level: upload documents, set system instructions, maintain conversation history within a project. It's not a prompt library. PromptStash manages hundreds of individual prompts — each independently searchable, taggable, and insertable in any conversation on any platform." },
+  { title: "Variable Templates That Projects Don't Have", desc: "PromptStash's {{variable}} placeholders turn static prompts into dynamic templates that ask you for values at insert time. 'Summarize {{content_type}} for {{target_audience}} in {{word_count}} words' becomes a reusable template that adapts to each use. Claude Projects' system instructions are static text — no variable substitution." },
+  { title: "Slash Commands in the Chat Input — Projects Don't Have This", desc: "Type '/' in any AI chat and instantly search your prompt library by name or tag. Claude Projects doesn't offer this kind of in-conversation prompt search. To use your project instructions, you work within a specific project conversation — you can't freely insert individual prompts mid-conversation on demand." },
+  { title: "Local Storage — Prompts Never Leave Your Browser", desc: "PromptStash stores prompts in chrome.storage.local. Claude Projects stores your project instructions and uploaded documents on Anthropic's servers. For sensitive business workflows, proprietary processes, or confidential writing templates, local storage is the more privacy-preserving option." },
+];
+
+const theirAdvantages = [
+  { title: "Persistent Document Context Across Conversations", desc: "Claude Projects lets you upload documents, code files, or reference materials that persist across all conversations in that project. Claude 'knows' your codebase, your style guide, or your product documentation without you pasting it every time. PromptStash inserts prompt text — it doesn't maintain persistent document context." },
+  { title: "Zero Installation — Part of Claude.ai", desc: "Anthropic Projects is built into Claude.ai. No extension installation required. If you use Claude.ai, Projects is already available in your account." },
+  { title: "Conversation History Within Projects", desc: "Claude Projects maintains a searchable history of all conversations within each project. This is useful for ongoing work (a codebase, a research topic, a writing project) where continuity matters. PromptStash manages prompts, not conversation history." },
+  { title: "Ideal for Long-Running Structured Workflows", desc: "For work that spans many sessions — debugging a codebase, writing a book chapter by chapter, researching a topic over weeks — Claude Projects' persistent context is purpose-built. PromptStash is optimized for recurring prompt patterns, not long-running project continuity." },
+];
+
+const verdict = "Anthropic Projects and PromptStash solve different problems at the Claude.ai layer — but only PromptStash extends beyond Claude. Projects is excellent for long-running workflows that need persistent document context within Claude: upload your codebase, your research notes, your style guide, and every conversation in the project benefits. PromptStash is for managing a library of prompt templates that you reuse across all your AI tools — Claude, ChatGPT, Gemini, Perplexity, and more. Many users benefit from both: Claude Projects for structured ongoing work, PromptStash for quickly inserting your best prompts across every AI service.";
+
+const faq: ComparisonFaq[] = [
+  { question: "What is Anthropic Projects?", answer: "Anthropic Projects is a feature in Claude.ai that lets you group conversations by topic, upload documents or files as persistent context, and set custom instructions for all conversations within that project. It's designed for ongoing, structured work within Claude — not for managing individual reusable prompts." },
+  { question: "Can PromptStash replace Claude Projects?", answer: "No — they have different purposes. Claude Projects maintains long-running context (uploaded documents, conversation history) within Claude. PromptStash manages a library of reusable prompt templates that you insert on demand across all AI services. PromptStash can't maintain document context; Claude Projects can't insert prompts into ChatGPT or Gemini." },
+  { question: "Do I need Claude Pro for Anthropic Projects?", answer: "The basic Projects feature is available in Claude's free tier. Claude Pro ($20/month) provides higher usage limits, longer context windows, and priority access. PromptStash costs $5 once and works alongside any Claude tier." },
+  { question: "Can I use PromptStash inside Claude.ai?", answer: "Yes. PromptStash works on claude.ai — type '/' in Claude's chat input to search and insert your saved prompts. PromptStash and Claude Projects can be used together: use Projects for document context, use PromptStash for quickly inserting your best prompt templates." },
+  { question: "Which is better for a developer using multiple AI tools?", answer: "PromptStash. If you use Claude for some tasks, ChatGPT for others, and Gemini or Perplexity for research — PromptStash maintains a single prompt library that works across all of them. Claude Projects only helps within Claude.ai." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="PromptStash vs Anthropic Projects — Cross-Platform vs Claude-Only Prompt Management (2026)"
+  seoDescription="Anthropic Projects keeps context within Claude. PromptStash brings your prompts to 19+ AI services with variable templates, slash commands, and $5 one-time pricing."
+  seoKeywords="claude projects alternative, anthropic projects vs promptstash, ai prompt manager cross platform, claude prompt library chrome extension, prompt manager claude chatgpt"
+  h1="PromptStash vs Anthropic Projects (Claude)"
+  intro="Anthropic Projects stores persistent context within Claude.ai. PromptStash manages a reusable prompt library that works across Claude, ChatGPT, Gemini, and 16 more AI services. Two tools, two distinct problems — here's how to choose."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/promptstash-vs-chatgpt-saved-prompts/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs ChatGPT Saved Prompts</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">ChatGPT-only vs 19+ services</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/promptstash-vs-aiprm/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs AIPRM</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Personal library vs community prompts</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/promptstash-vs-prompt-vault/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs Prompt Vault</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Chrome extension vs web app</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/promptstash/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, 19+ services, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

@@ -1,0 +1,129 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "DataPick",
+  icon: "/ext-icons/datapick.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/datapick/epoehadeccangbpjldlbkapnakndbpkf",
+  users: "80+",
+  rating: "5.0 (1)",
+  price: "Free / Pro $19 one-time",
+  extensionPageUrl: "/extensions/datapick/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Data Miner",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/data-miner/hemfnkibjijggcfkdfehmofbocpfkfhp",
+  users: "300,000+",
+  rating: "4.4 (1,800+)",
+  price: "Free (limited) / Pro $9.99/mo",
+  badge: "⚠️ Last updated May 2024 — 11+ months ago",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Actively Maintained (2026)", ours: "Yes — regular updates", theirs: "⚠️ No — last update May 2024 (11+ months)", highlight: true },
+  { feature: "Price", ours: "Free (3 exports/day) / $19 one-time", theirs: "Free (500 rows/day) / $9.99/month", highlight: true },
+  { feature: "Annual Cost", ours: "$19 total (one-time Pro)", theirs: "$119.88/year (Pro subscription)", highlight: true },
+  { feature: "Google Sheets Export", ours: "Yes — direct write (Pro)", theirs: "Yes (Pro)", },
+  { feature: "Pre-Built Templates (Japan EC)", ours: "12 templates — Rakuten, Mercari, SUUMO, etc.", theirs: "Community recipes (not Japan EC specific)", highlight: true },
+  { feature: "Point & Click Selection", ours: "Yes — visual element picker", theirs: "Yes — CSS selector based", },
+  { feature: "Recipe / Preset Saving", ours: "Yes", theirs: "Yes — community recipe library", },
+  { feature: "CSV / Excel Export", ours: "Yes", theirs: "Yes", },
+  { feature: "Japanese Language UI", ours: "Yes", theirs: "No (English only)", highlight: true },
+  { feature: "Data Processing", ours: "100% local — no server", theirs: "Local processing", },
+  { feature: "Diff Detection (Price Monitoring)", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Pagination Support", ours: "Yes", theirs: "Yes", },
+  { feature: "Support / Bug Fixes", ours: "Active — current issues addressed", theirs: "Minimal — abandoned since May 2024", highlight: true },
+  { feature: "UX Design Era", ours: "Modern (2025 design)", theirs: "Legacy UI (circa 2018)", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "One-Time $19 vs $9.99 Every Month", desc: "This is the most direct financial comparison. Data Miner Pro costs $9.99/month — $119.88/year. DataPick Pro is a one-time $19 purchase. Within two months, DataPick is cheaper. By the end of the year, DataPick costs 84% less than maintaining a Data Miner Pro subscription. For individual researchers and small teams, this is a significant difference." },
+  { title: "Actively Maintained — Data Miner Is Not", desc: "Data Miner's last Chrome Web Store update was May 2024 — over 11 months ago. An extension that isn't maintained accumulates breakages from Chrome updates, website structure changes, and API changes. DataPick ships regular updates. When Chrome releases a new version or a site restructures its data, DataPick is fixed. Data Miner may not be." },
+  { title: "12 Pre-Built Japan EC Templates", desc: "DataPick includes ready-to-use templates for Rakuten, Mercari, Amazon JP, Yahoo! Shopping, SUUMO, HOMES, Tabelog, Indeed JP, Kakaku.com, and more. Data Miner has a community recipe library but no templates purpose-built for Japanese EC sites. For Japan-based data collection workflows, DataPick has a structural advantage." },
+  { title: "Modern UX vs Legacy Interface", desc: "Data Miner's interface reflects its development era (circa 2018). The CSS selector approach requires some technical knowledge to use effectively. DataPick's visual point-and-click selector was designed for non-technical users with a clean, modern interface. The learning curve for DataPick is significantly lower." },
+  { title: "Diff Detection for Recurring Monitoring", desc: "DataPick includes built-in diff detection — run the same scrape twice and see what changed. This is essential for price monitoring, inventory tracking, and competitive research. Data Miner has no equivalent diff or change-tracking functionality." },
+];
+
+const theirAdvantages = [
+  { title: "Large Community Recipe Library", desc: "Data Miner's established community has contributed thousands of pre-built recipes for common sites. This community knowledge base is valuable for sites that require specific selectors. DataPick's template library covers 12 Japan EC sites; Data Miner's community recipes cover a broader range of international sites." },
+  { title: "CSS Selector Power Users", desc: "Data Miner exposes CSS selectors directly, giving technical users fine-grained control over exactly what data they extract. DataPick's visual picker is more accessible but may be less flexible for complex nested data structures." },
+  { title: "Free Tier with 500 Rows/Day", desc: "Data Miner's free tier allows up to 500 rows per export per day — more permissive than DataPick's 3 exports per day free limit. For lightweight use cases within those limits, Data Miner's free access is more generous." },
+];
+
+const verdict = "For users who need web scraping in 2026 and are evaluating these two tools: DataPick costs $19 once versus Data Miner's $119.88/year, DataPick is actively maintained versus Data Miner's 11-month update gap, and DataPick includes purpose-built Japan EC templates that Data Miner's community has never prioritized. The subscription model made more sense when Data Miner was actively developed and supported — in its current maintenance state, the ongoing cost is hard to justify against a one-time $19 alternative that ships regular updates.";
+
+const faq: ComparisonFaq[] = [
+  { question: "How much cheaper is DataPick than Data Miner over time?", answer: "DataPick Pro is $19 one-time. Data Miner Pro is $9.99/month — $119.88/year. Over 12 months, DataPick costs 84% less. Over 24 months, DataPick costs 92% less. The break-even point is approximately 2 months of Data Miner usage." },
+  { question: "Does DataPick have as many site recipes as Data Miner?", answer: "Data Miner has a larger community recipe library for international sites. DataPick has 12 purpose-built templates for Japanese EC sites (Rakuten, Mercari, SUUMO, Amazon JP, etc.) plus point-and-click configuration for any other site. For Japan-based workflows, DataPick's templates are more relevant than Data Miner's community library." },
+  { question: "Is Data Miner's CSS selector approach better than DataPick's visual picker?", answer: "For technical users who know CSS, Data Miner's direct selector control offers flexibility for complex extractions. DataPick's visual point-and-click picker is more accessible for non-technical users. DataPick also supports AI field suggestions internally, which bridges the gap for common data patterns." },
+  { question: "Can I migrate my Data Miner recipes to DataPick?", answer: "Not directly — the recipe formats are different. However, for sites with DataPick templates (Japan EC sites), migration is straightforward: install DataPick, select the template for your site, and run. For other sites, you'll need to recreate your extraction setup using DataPick's visual picker." },
+  { question: "What happens if Data Miner starts receiving updates again?", answer: "DataPick's price advantage ($19 one-time vs ongoing subscription) and Japan EC template library remain regardless of Data Miner's maintenance status. If Data Miner resumes updates, it becomes a reasonable option again for users who prefer CSS selector control — but the cost comparison stays the same." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="DataPick vs Data Miner — $19 One-Time vs $9.99/Month Web Scraper (2026)"
+  seoDescription="Data Miner hasn't been updated since May 2024. DataPick is the actively-maintained alternative at $19 one-time vs $119.88/year. Includes Japan EC templates and Google Sheets export."
+  seoKeywords="data miner alternative, data miner chrome extension alternative, web scraper one time payment, datapick vs data miner 2026, cheap web scraper chrome extension"
+  h1="DataPick vs Data Miner"
+  intro="Data Miner has 300,000 users and has not received an update since May 2024 — over 11 months. DataPick costs $19 once (vs $9.99/month), is actively maintained, and includes 12 pre-built Japan EC templates. Here's the full comparison."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <!-- Abandonment callout -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <div class="border border-amber-200 bg-amber-50 rounded-lg p-5 mb-8">
+      <p class="font-mono text-[10px] text-amber-700 uppercase tracking-wider mb-2">// data miner update status</p>
+      <p class="text-[13px] text-zinc-700 leading-relaxed">
+        Data Miner's last Chrome Web Store update was <strong>May 2024</strong>. As of April 2026, the extension has been unmaintained for 11+ months. At $9.99/month, you're paying for a service that is no longer actively developed. DataPick is actively maintained with regular updates.
+      </p>
+    </div>
+  </section>
+
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/datapick-vs-instant-data-scraper/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Instant Data Scraper</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">14 months abandoned — 1M users</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/datapick-vs-bardeen/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Bardeen</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$19 once vs $144/year AI workflow</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/datapick-vs-simplescraper/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Simplescraper</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$19 one-time vs $19/month</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/datapick/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, templates, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

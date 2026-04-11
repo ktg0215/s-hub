@@ -1,0 +1,121 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "Procshot",
+  icon: "/ext-icons/procshot.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/%E6%89%8B%E9%A0%86%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3-%E6%89%8B%E9%A0%86%E6%9B%B8%E3%83%BB%E6%93%8D%E4%BD%9C%E3%83%9E%E3%83%8B%E3%82%A2%E3%83%AB%E8%87%AA%E5%8B%95%E4%BD%9C%E6%88%90/ieblehdloggcpmkncplccjofeoakhkll",
+  users: "100+",
+  rating: "New",
+  price: "Free / Pro $3.99/mo",
+  extensionPageUrl: "/extensions/procshot/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Loom",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/loom-–-screen-recorder-sc/liecbddmkiiihnedobmlmillhodjkdmb",
+  users: "10,000,000+",
+  rating: "4.6 (25,000+)",
+  price: "Free (25 videos) / Business $12.50/user/mo",
+  badge: "Featured · Editor's Pick",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Output Format", ours: "Step-by-step text guide + screenshots", theirs: "Screen recording video", highlight: true },
+  { feature: "Searchable / Indexable", ours: "Yes — text-based, fully searchable", theirs: "No — video requires watching", highlight: true },
+  { feature: "PDF Export", ours: "Yes — free", theirs: "No", highlight: true },
+  { feature: "Markdown Export", ours: "Yes — free", theirs: "No", highlight: true },
+  { feature: "Time to Consume", ours: "Scan in 30 seconds", theirs: "Watch full video (same duration as task)", highlight: true },
+  { feature: "Price", ours: "Free (5 guides/mo) + $3.99/mo Pro", theirs: "Free (25 videos total); Business $12.50/user/mo", highlight: true },
+  { feature: "Account Required", ours: "No", theirs: "Yes", highlight: true },
+  { feature: "Data Storage", ours: "100% local — browser only", theirs: "Cloud-hosted on Loom servers", highlight: true },
+  { feature: "Voice / Video Narration", ours: "No", theirs: "Yes — screen + camera + mic", },
+  { feature: "AI Transcript", ours: "No", theirs: "Yes (auto-transcript from audio)", },
+  { feature: "Screenshot Annotations", ours: "Yes — boxes, arrows, text, blur", theirs: "No (video only)", },
+  { feature: "Async Team Communication", ours: "Static docs via export", theirs: "Video messaging purpose-built", },
+  { feature: "Skimmable at a Glance", ours: "Yes — scroll and scan", theirs: "No — must watch sequentially", highlight: true },
+  { feature: "Translate / Localize Easily", ours: "Yes — text can be translated", theirs: "Requires re-recording or subtitles", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Text Guides Are Searchable and Skimmable", desc: "A Procshot guide can be scanned in 30 seconds. A Loom video requires watching in real time — at 5 minutes per video, a 10-video SOP library takes nearly an hour to review. Text-based guides are searchable, copyable, and scannable without commitment." },
+  { title: "PDF and Markdown — Portable by Design", desc: "Procshot exports to PDF (printable, archivable), Markdown (developer-friendly), and self-contained HTML. Loom recordings live on Loom's servers. If Loom's pricing changes or you cancel your plan, your video library may become inaccessible." },
+  { title: "No Account, No Cloud, No Video Storage", desc: "Procshot stores guides locally in your browser. No Loom account, no storage limit, no concern about video data leaving your machine. Loom requires sign-in and stores all recordings in the cloud." },
+  { title: "Easier to Update and Maintain", desc: "When a workflow changes, updating a Procshot guide means re-recording a few steps and replacing screenshots. Updating a Loom video means re-recording the entire thing, often with new narration." },
+  { title: "Works for Non-Native Speakers", desc: "Text guides remove the language barrier that video narration creates. A Procshot guide in English is equally useful to someone who reads English but struggles with audio. No captions or subtitles required." },
+];
+
+const theirAdvantages = [
+  { title: "Voice and Face Narration", desc: "Loom captures your screen with your voice and optionally your face — adding personality and tone that text guides can't replicate. For async communication where nuance matters, video is often clearer." },
+  { title: "Ideal for Async Team Communication", desc: "Loom is purpose-built for async video messaging: quick explainers, feedback recordings, team updates. Procshot's output is documentation, not communication." },
+  { title: "AI Transcript and Summaries", desc: "Loom automatically transcribes recorded audio, generates summaries, and creates chapters — making longer videos more navigable. This is a strong feature for knowledge management teams." },
+  { title: "Massive Adoption and Integration", desc: "10M+ Chrome users and native integrations with Notion, Jira, Slack, and other tools make Loom a standard in many team workflows." },
+];
+
+const verdict = "Procshot and Loom are complementary rather than competitive. Loom records video for async communication; Procshot generates text guides for documentation. The choice depends on the use case: if the goal is 'watch me do this once,' Loom is better. If the goal is 'follow these steps yourself, repeatedly,' Procshot is better. Many teams benefit from both — use Loom for quick explainers and feedback, use Procshot for SOPs, onboarding docs, and reference guides that need to be searchable and skimmable.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Is Procshot a replacement for Loom?", answer: "Not directly — they produce different outputs. Loom records video for one-time async communication. Procshot generates step-by-step text guides for reusable documentation. If your use case is 'show someone how to do something they'll repeat regularly,' Procshot's text guide is more practical. If it's 'record a quick explanation to send to a colleague,' Loom is better suited." },
+  { question: "Can Procshot export video like Loom?", answer: "No. Procshot captures browser actions and outputs structured text guides with screenshots — not video. It does not record screen video or audio." },
+  { question: "Which is better for onboarding new team members?", answer: "Both work for onboarding, in different ways. Procshot is better for step-by-step process documentation that new members follow on their own — like an interactive SOP. Loom is better for personal walkthroughs where context, tone, and nuance matter. Many onboarding programs use both." },
+  { question: "Is Loom free?", answer: "Loom has a free plan limited to 25 videos (5 minutes each). After that, Business plan is $12.50/user/month. Procshot's free tier allows 5 guides per month with no video duration limit on the documentation process." },
+  { question: "Can I use Procshot to create documentation from an existing Loom video?", answer: "Not directly — Procshot records live browser workflows, not video playback. However, you can watch a Loom video, then re-execute the workflow in your browser with Procshot recording to generate a text guide from the same process." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="Procshot vs Loom — Step-by-Step Guide vs Screen Recorder in 2026"
+  seoDescription="Procshot vs Loom: text guides with screenshots vs video screen recording. Compare use cases, pricing, and output formats to choose the right documentation tool."
+  seoKeywords="loom alternative, screen recorder vs guide maker, step by step guide chrome extension, process documentation without video, procshot vs loom"
+  h1="Procshot vs Loom"
+  intro="Loom records your screen as video. Procshot captures your workflow as a step-by-step text guide. Same workflow, fundamentally different outputs — here's which format your team actually needs."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/procshot-vs-scribe/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot vs Scribe</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Free vs $23/mo comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/procshot-vs-tango/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot vs Tango</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">AI features vs local-first</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/procshot-vs-clickup-clips/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot vs ClickUp Clips</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Standalone vs platform-locked</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/procshot/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

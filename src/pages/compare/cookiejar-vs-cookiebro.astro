@@ -1,0 +1,122 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "CookieJar",
+  icon: "/ext-icons/cookiejar.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/cookiejar-cookie-editor-m/lhngfkchfepfjjdfhimconagoejemofg",
+  users: "200+",
+  rating: "5.0",
+  price: "Free / Pro $4.99/mo",
+  extensionPageUrl: "/extensions/cookiejar/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "CookieBRO",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/cookiebro/lpmockibdemkdckkieodbhkjbfcaaafe",
+  users: "200,000+",
+  rating: "4.4 (1,000+)",
+  price: "Free",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Primary Purpose", ours: "Cookie management & editing", theirs: "Cookie blocking & tracker prevention", highlight: true },
+  { feature: "Create / Edit Cookies", ours: "Yes — full CRUD", theirs: "Limited — blocker-focused, not editor", highlight: true },
+  { feature: "Privacy Score (per-site)", ours: "Yes — tracking/analytics/functional breakdown", theirs: "No — blocks trackers automatically", highlight: true },
+  { feature: "Auto Cookie Categorization", ours: "Yes — Login, Tracking, Analytics, Functional", theirs: "No", highlight: true },
+  { feature: "Cookie Profiles (dev/test/prod)", ours: "Yes — encrypted profile switching (Pro)", theirs: "No", highlight: true },
+  { feature: "Export Formats", ours: "JSON, Netscape, cURL, Puppeteer, HAR, CSV", theirs: "No export", highlight: true },
+  { feature: "Tracker Blocking / Auto-Deny", ours: "No — analysis only, not blocking", theirs: "Yes — blocks tracking cookies automatically", },
+  { feature: "Cookie Whitelist / Blacklist", ours: "Category-based delete", theirs: "Yes — per-domain allow/block rules", },
+  { feature: "Bulk Delete by Category", ours: "Yes — delete tracking, keep login", theirs: "Via blocker rules", },
+  { feature: "Auto-Cleanup Schedules", ours: "Yes (Pro)", theirs: "Via blocking rules", },
+  { feature: "localStorage / sessionStorage Management", ours: "Yes (Pro)", theirs: "No", },
+  { feature: "Search / Filter", ours: "Yes — by name, domain, value", theirs: "Limited", },
+  { feature: "Import Cookies", ours: "Yes — JSON, Netscape", theirs: "No", },
+  { feature: "Manifest V3", ours: "Yes — MV3 compliant", theirs: "Yes — MV3 compliant", },
+  { feature: "Data Privacy", ours: "100% local — no external calls", theirs: "Local — uses filter lists", },
+  { feature: "Price", ours: "Free / Pro $4.99/mo", theirs: "Free — all features", },
+  { feature: "Best For", ours: "Developers, power users, QA testers", theirs: "Privacy-conscious casual users", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Full Cookie Editor — CookieBRO Is a Blocker", desc: "These tools have fundamentally different purposes. CookieJar is a full-featured cookie editor: create, edit, delete, import, export, and analyze cookies at a granular level. CookieBRO is primarily a cookie blocker that automatically prevents tracking cookies from being set. If you need to inspect, modify, or export specific cookies — for debugging, test automation, or session management — CookieJar is the tool built for that workflow. CookieBRO blocks trackers; it doesn't give you a development-grade editing interface." },
+  { title: "Privacy Score — Understand Before Blocking", desc: "CookieJar's per-site privacy score shows you the breakdown of tracking, analytics, functional, and login cookies currently on a page with percentage data. This gives you analytical visibility into what a site is doing. CookieBRO's approach is automatic blocking — it acts on tracker cookies before you see them. For developers who need to understand a site's full cookie inventory (including trackers) for debugging or auditing, CookieJar's analysis-first approach preserves visibility that CookieBRO's blocking removes." },
+  { title: "Developer Exports — No Export in CookieBRO", desc: "CookieJar exports cookies to JSON, Netscape, cURL, Puppeteer, HAR, and CSV formats. CookieBRO has no cookie export feature. For developers building test automation, debugging API sessions, or sharing cookie states with teammates, CookieJar's export formats are essential workflow tools that CookieBRO doesn't offer." },
+  { title: "Cookie Profiles for Development Workflows", desc: "CookieJar Pro saves your complete cookie state as a named, encrypted profile — switch between development, staging, and production environments without re-authenticating. CookieBRO has no profile system. For developers who need reproducible cookie states across environments, CookieJar's profiles are the feature that makes this possible." },
+  { title: "Targeted Category Deletion — Delete Tracking, Keep Login", desc: "CookieJar lets you delete all tracking and analytics cookies while preserving your login session in one action. CookieBRO's blocking approach prevents cookies from being set in the first place rather than offering granular deletion of existing cookies. For users who accumulate tracking cookies and periodically want to clear them without losing authenticated sessions, CookieJar's category-aware deletion is more precise." },
+];
+
+const theirAdvantages = [
+  { title: "Automatic Tracker Blocking — Passive Protection", desc: "CookieBRO automatically blocks tracking cookies from being set in the first place. No manual action required — set your rules once and CookieBRO handles tracker prevention in the background. CookieJar is an active tool (you use it when you choose to); CookieBRO is passive protection." },
+  { title: "Whitelist / Blacklist Rule System", desc: "CookieBRO offers per-domain cookie allow and block rules, giving users fine-grained control over which cookies are permitted on which sites. CookieJar's approach is analysis and manual deletion rather than rules-based prevention." },
+  { title: "Larger Established User Base", desc: "200,000+ users indicate broad real-world testing and community validation across different sites and use cases." },
+  { title: "Completely Free", desc: "CookieBRO is free with all features included. CookieJar's Pro features (profiles, auto-cleanup, storage management) require $4.99/month." },
+];
+
+const verdict = "CookieJar and CookieBRO solve different problems. CookieBRO is a passive tracker blocker: install it, set your rules, and it prevents tracking cookies from being set without any ongoing interaction. CookieJar is an active cookie management tool: inspect what cookies exist, understand what they do through privacy scoring, export them for development workflows, and delete by category. Many developers use both: CookieBRO for background tracking prevention, CookieJar for active cookie inspection and development workflows. If you only want passive tracking prevention without cookie editing capabilities, CookieBRO's free all-in-one approach is compelling. If your use case includes cookie inspection, modification, or development workflows, CookieJar is the specialized tool.";
+
+const faq: ComparisonFaq[] = [
+  { question: "What is CookieBRO?", answer: "CookieBRO is a Chrome extension focused on blocking tracking cookies and protecting privacy through automatic cookie prevention. It uses filter lists similar to ad blockers to prevent tracking cookies from being set. It's a passive privacy tool rather than a cookie editor." },
+  { question: "Can CookieBRO edit cookies like CookieJar?", answer: "CookieBRO's primary function is blocking tracking cookies automatically. It has limited cookie editing capabilities compared to a dedicated editor like CookieJar, which provides full CRUD operations, export formats, and developer-focused tooling." },
+  { question: "Do CookieJar and CookieBRO conflict if used together?", answer: "Not necessarily. CookieBRO prevents tracking cookies from being set, while CookieJar analyzes and manages cookies that are present. Using both means CookieBRO reduces the tracking cookies CookieJar would see, but CookieJar still functions normally for managing the cookies that are set." },
+  { question: "Does CookieJar block tracking cookies?", answer: "CookieJar doesn't block cookies — it analyzes, categorizes, and lets you manage them. You can delete all tracking cookies with one action, but this happens on-demand rather than automatically. CookieBRO's blocking happens passively before cookies are set." },
+  { question: "Which should I use for privacy?", answer: "For passive, automatic tracking prevention: CookieBRO. For understanding what cookies a site uses, inspecting them for development, and selectively deleting categories: CookieJar. Many privacy-conscious developers use both." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="CookieJar vs CookieBRO — Cookie Management vs Tracker Blocking (2026)"
+  seoDescription="CookieJar edits, analyzes, and exports cookies with privacy scoring. CookieBRO automatically blocks tracking cookies. Different tools for different goals."
+  seoKeywords="cookiebro alternative, cookie blocker vs cookie editor, track cookie manager chrome 2026, cookiejar vs cookiebro, privacy cookie extension chrome"
+  h1="CookieJar vs CookieBRO"
+  intro="CookieBRO blocks tracking cookies automatically in the background. CookieJar gives you a full cookie editor with privacy scoring, auto-categorization, and developer export formats. Different tools built for different goals."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/cookiejar-vs-cookie-editor/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar vs Cookie-Editor</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Privacy scoring vs simple editor</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/cookiejar-vs-editthiscookie/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar vs EditThisCookie</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">MV3 replacement for removed extension</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/cookiejar-vs-edit-this-cookie-v3/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar vs EditThisCookie V3</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Official vs unofficial fork</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/cookiejar/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, privacy score, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

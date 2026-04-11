@@ -5,10 +5,10 @@ import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data
 const ours: ComparisonProduct = {
   name: "DataPick",
   icon: "/ext-icons/datapick.webp",
-  chromeUrl: "https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf",
+  chromeUrl: "https://chromewebstore.google.com/detail/datapick/epoehadeccangbpjldlbkapnakndbpkf",
   users: "80+",
   rating: "5.0 (1)",
-  price: "Free",
+  price: "Free / Pro $19 one-time",
   extensionPageUrl: "/extensions/datapick/",
 };
 
@@ -17,59 +17,59 @@ const theirs: ComparisonProduct = {
   icon: "/ext-icons/compare/placeholder.svg",
   chromeUrl: "https://chromewebstore.google.com/detail/instant-data-scraper/ofaokhiedipichpaobibbnahnkdoiiah",
   users: "1,000,000+",
-  rating: "4.9 (7,100)",
+  rating: "4.9 (7,100+)",
   price: "Free",
-  badge: "Featured · Recommended practices",
+  badge: "⚠️ Last updated February 2024 — 14+ months ago",
 };
 
 const rows: ComparisonRow[] = [
-  { feature: "Data Detection Method", ours: "Point & Click (manual selection)", theirs: "AI Heuristic (auto-detection)", highlight: true },
-  { feature: "Accuracy", ours: "High — you choose exactly what to extract", theirs: "Medium — AI may misdetect elements", highlight: true },
-  { feature: "Recipe / Preset Saving", ours: "Yes", theirs: "No", highlight: true },
-  { feature: "Google Sheets Export", ours: "Yes (direct)", theirs: "No", highlight: true },
-  { feature: "CSV Export", ours: "Yes", theirs: "Yes" },
-  { feature: "Excel Export", ours: "Yes", theirs: "Yes" },
-  { feature: "Pagination Support", ours: "Yes (auto)", theirs: "Yes (buttons, links, infinite scroll)" },
-  { feature: "Column Rename / Filter", ours: "Yes", theirs: "Yes" },
-  { feature: "Japanese Language", ours: "Yes", theirs: "No (English only)", highlight: true },
-  { feature: "Extension Size", ours: "Lightweight", theirs: "944 KiB" },
-  { feature: "Setup Required", ours: "None — just click", theirs: "None — auto-detects" },
-  { feature: "Learning Curve", ours: "Zero", theirs: "Zero" },
-  { feature: "Price", ours: "Free", theirs: "Free" },
+  { feature: "Actively Maintained (2026)", ours: "Yes — regular updates", theirs: "⚠️ No — last update Feb 2024 (14+ months)", highlight: true },
+  { feature: "Google Sheets Export", ours: "Yes — direct write (Pro)", theirs: "No", highlight: true },
+  { feature: "Pre-Built Templates (Japan EC)", ours: "12 templates — Rakuten, Mercari, SUUMO, Amazon JP, etc.", theirs: "None", highlight: true },
+  { feature: "Data Detection Method", ours: "Point & click (precise manual selection)", theirs: "AI heuristic (auto-detection)", },
+  { feature: "Recipe / Preset Saving", ours: "Yes — reuse scrape configs", theirs: "No", highlight: true },
+  { feature: "Price", ours: "Free (3 exports/day) / $19 one-time Pro", theirs: "Free", highlight: true },
+  { feature: "CSV Export", ours: "Yes", theirs: "Yes", },
+  { feature: "Excel Export", ours: "Yes", theirs: "Yes", },
+  { feature: "Pagination Support", ours: "Yes — auto multi-page", theirs: "Yes", },
+  { feature: "Japanese Language UI", ours: "Yes", theirs: "No (English only)", highlight: true },
+  { feature: "Data Processing", ours: "100% local — no server", theirs: "Local — no server", },
+  { feature: "Diff Detection (Price Monitoring)", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Extension Size", ours: "Lightweight", theirs: "944 KiB", },
+  { feature: "Support / Bug Fixes", ours: "Active — current issues addressed", theirs: "None — abandoned", highlight: true },
 ];
 
 const ourAdvantages = [
-  { title: "Recipe Saving", desc: "Save your scraping setup as reusable recipes. Re-run the same extraction on the same site with one click — Instant Data Scraper doesn't offer this." },
-  { title: "Google Sheets Integration", desc: "Export directly to Google Sheets without downloading a file first. Perfect for teams sharing live data." },
-  { title: "Precision over Guesswork", desc: "You select exactly which elements to extract. No AI guessing means no incorrect columns or missing data." },
-  { title: "Japanese Language Support", desc: "Full Japanese UI for non-English users. Instant Data Scraper is English-only." },
-  { title: "Lightweight", desc: "Smaller extension footprint means faster browser performance and less memory usage." },
+  { title: "Actively Maintained — Instant Data Scraper Is Not", desc: "This is the most important difference in 2026. Instant Data Scraper has not received an update since February 2024 — over 14 months. Every Chrome update, every website redesign, every change to Google Sheets APIs is a potential breakage with no fix coming. DataPick ships regular updates. When something breaks, it gets fixed." },
+  { title: "Google Sheets Direct Export — IDS Has None", desc: "DataPick Pro ($19 one-time) writes directly to Google Sheets via OAuth. No downloading a CSV and then uploading it to Sheets manually. Instant Data Scraper has never offered Sheets integration. For any recurring research workflow that ends up in a spreadsheet, this single feature eliminates significant repetitive work." },
+  { title: "12 Pre-Built Templates for Japanese EC Sites", desc: "DataPick includes point-and-click templates pre-configured for Rakuten, Mercari, Amazon JP, Yahoo! Shopping, SUUMO, HOMES, Tabelog, Indeed JP, Kakaku.com, and Etsy. These templates auto-recognize the site's data structure — no manual element selection needed. Instant Data Scraper has no templates for Japanese EC sites." },
+  { title: "Recipe Saving for Recurring Scrapes", desc: "DataPick lets you save your scraping setup as a reusable recipe. Come back a week later, open the recipe, run it again. Instant Data Scraper has no recipe system — every scrape starts from scratch." },
+  { title: "Diff Detection for Price Monitoring", desc: "DataPick includes built-in diff detection that highlights what changed between scrape runs — essential for monitoring product prices, competitor listings, or real estate availability. Instant Data Scraper has no diff or monitoring capability." },
 ];
 
 const theirAdvantages = [
-  { title: "Zero-Click Detection", desc: "AI automatically detects tabular data on any page. No element selection needed — great for quick one-off scrapes." },
-  { title: "Massive User Base", desc: "1M+ users and 7,100 reviews provide strong social proof and a proven track record." },
-  { title: "Advanced Pagination", desc: "Handles buttons, next-page links, and infinite scroll pagination out of the box." },
-  { title: "Featured Badge", desc: "Chrome Web Store Featured status and Recommended Practices badge signal quality and trust." },
+  { title: "Completely Free — No Upgrade Required", desc: "Instant Data Scraper has no paid tier. Every feature is free, forever. DataPick's free tier limits exports to 3 per day; the Pro plan is $19 one-time. For truly occasional one-off scrapes, IDS's free access is hard to argue against — if it still works." },
+  { title: "Zero-Click AI Auto-Detection", desc: "IDS's defining feature is AI heuristic detection — it automatically identifies tabular data on any page without requiring you to click on elements. For quick, one-time scrapes of structured pages, this convenience is real." },
+  { title: "Massive Proven User Base", desc: "1 million+ users and 7,100+ reviews represent years of real-world validation on thousands of site types. The extension's track record (when it was maintained) is excellent." },
 ];
 
-const verdict = "If you need quick, one-time data extraction and don't mind AI occasionally getting things wrong, Instant Data Scraper is convenient. But if you want precise control over what you extract, the ability to save and reuse recipes, and direct Google Sheets integration, DataPick is the better choice — especially for recurring scraping tasks. DataPick is also the only option with Japanese language support.";
+const verdict = "In early 2024, this comparison was closer. In 2026, it's decisively in DataPick's favor for any recurring use. Instant Data Scraper has been functionally abandoned for 14+ months — with no updates, no bug fixes, and no Google Sheets integration on the roadmap. If IDS still works for your specific use case today, it may stop working after any Chrome or site update. DataPick is the actively-maintained alternative with native Google Sheets export, pre-built Japan EC templates, recipe saving, and diff detection. The $19 one-time Pro upgrade is the cost of two months of any competing subscription — and it covers you indefinitely.";
 
 const faq: ComparisonFaq[] = [
-  { question: "Is DataPick really free?", answer: "Yes. DataPick's core features — point & click extraction, CSV/Excel/Google Sheets export, and recipe saving — are completely free. A Pro plan is available for advanced features like multi-page scraping." },
-  { question: "Can I switch from Instant Data Scraper to DataPick?", answer: "Absolutely. Both extensions work independently. Install DataPick, try it on your target site, and uninstall Instant Data Scraper if you prefer the experience." },
-  { question: "Which is better for large-scale scraping?", answer: "For recurring scrapes of the same site, DataPick's recipe feature saves significant time. For one-off bulk extractions, Instant Data Scraper's auto-detection can be faster." },
-  { question: "Does DataPick work on any website?", answer: "Yes. DataPick works on any website with visible data. Simply click on elements to define your extraction pattern." },
-  { question: "Is my data safe with DataPick?", answer: "DataPick processes everything locally in your browser. No data is sent to external servers." },
+  { question: "Why hasn't Instant Data Scraper been updated in 14+ months?", answer: "The developer has not publicly announced a reason for the development pause. As of April 2026, the last CWS update was February 2024. The extension continues to work on many sites, but compatibility with Chrome updates and site changes is not being maintained. Users report increasing breakage in reviews." },
+  { question: "Is DataPick a direct replacement for Instant Data Scraper?", answer: "For most use cases, yes. DataPick uses point-and-click selection instead of IDS's AI auto-detection — meaning you explicitly choose which elements to extract rather than letting the extension guess. This requires slightly more initial setup but produces more reliable output. DataPick also adds Google Sheets export, recipe saving, and Japan EC templates that IDS never had." },
+  { question: "How much does DataPick cost vs Instant Data Scraper?", answer: "Instant Data Scraper is completely free. DataPick is free for up to 3 exports per day. DataPick Pro ($19 one-time) unlocks unlimited exports, Google Sheets direct export, and advanced features. If you export data more than 3 times per day or need Google Sheets integration, the $19 one-time upgrade is the comparison to make against IDS's free (but unmaintained) access." },
+  { question: "Does DataPick work on the same sites as Instant Data Scraper?", answer: "DataPick works on any website with visible data — any page your browser can open. It also includes 12 pre-built templates for Japanese EC sites (Rakuten, Mercari, SUUMO, Amazon JP, etc.) that auto-configure the extraction. For sites without a template, you select elements manually." },
+  { question: "What if Instant Data Scraper starts getting updates again?", answer: "DataPick's advantages — Google Sheets direct export, recipe saving, Japan EC templates, diff detection — are not dependent on whether IDS is maintained. These features don't exist in IDS regardless of update status. The maintenance gap makes the switch timely; DataPick's feature set makes it permanent." },
 ];
 ---
 
 <ComparisonLayout
-  seoTitle="DataPick vs Instant Data Scraper — Compared (2026)"
-  seoDescription="Compare DataPick and Instant Data Scraper. Which Chrome scraper offers better accuracy, Google Sheets integration, and recipe saving?"
-  seoKeywords="datapick vs instant data scraper, instant data scraper alternative, best web scraping chrome extension 2026, no code web scraper"
+  seoTitle="DataPick vs Instant Data Scraper — Actively Maintained Alternative (2026)"
+  seoDescription="Instant Data Scraper hasn't been updated since February 2024. DataPick is the actively-maintained alternative with Google Sheets export, Japan EC templates, and recipe saving. Free to try."
+  seoKeywords="instant data scraper alternative, instant data scraper not working, instant data scraper abandoned, web scraper google sheets chrome extension, datapick vs instant data scraper 2026"
   h1="DataPick vs Instant Data Scraper"
-  intro="Two popular approaches to web scraping: AI auto-detection vs precise point-and-click. Here's how they compare in 2026."
+  intro="Instant Data Scraper has 1 million users and has not received an update since February 2024 — over 14 months. DataPick is the actively-maintained alternative with Google Sheets direct export and pre-built Japanese EC templates. Here's the full comparison."
   ours={ours}
   theirs={theirs}
   rows={rows}
@@ -77,17 +77,42 @@ const faq: ComparisonFaq[] = [
   theirAdvantages={theirAdvantages}
   verdict={verdict}
   faq={faq}
-  publishDate="2026-03-28"
+  publishDate="2026-04-11"
 >
-  <!-- Related Comparisons -->
+  <!-- Abandonment callout -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <div class="border border-amber-200 bg-amber-50 rounded-lg p-5 mb-8">
+      <p class="font-mono text-[10px] text-amber-700 uppercase tracking-wider mb-2">// instant data scraper update status</p>
+      <p class="text-[13px] text-zinc-700 leading-relaxed">
+        Instant Data Scraper's last Chrome Web Store update was <strong>February 2024</strong>. As of April 2026, the extension has gone 14+ months without maintenance. Chrome API changes and website redesigns that break functionality are not being patched. DataPick is actively maintained with regular updates.
+      </p>
+    </div>
+  </section>
+
   <section class="px-6 py-8 max-w-4xl mx-auto">
     <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-      <a href="/compare/shorts-killer-vs-unhook/" class="product-card group p-4 flex items-center gap-3">
-        <img src="/ext-icons/shorts-killer.webp" alt="Shorts Killer" class="w-9 h-9 rounded-lg" />
+      <a href="/compare/datapick-vs-data-miner/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
         <div>
-          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Shorts Killer vs Unhook</h3>
-          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Digital Wellbeing comparison</p>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Data Miner</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">11 months abandoned — $9.99/mo vs $19 one-time</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/datapick-vs-bardeen/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Bardeen</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$19 once vs $144/year</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/datapick-vs-webscraper-io/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Webscraper.io</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Simple vs enterprise-grade</p>
         </div>
         <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
       </a>
@@ -95,7 +120,7 @@ const faq: ComparisonFaq[] = [
         <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
         <div>
           <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick — Full Details</h3>
-          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, templates, FAQ</p>
         </div>
         <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
       </a>

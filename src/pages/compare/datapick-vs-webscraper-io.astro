@@ -1,0 +1,120 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "DataPick",
+  icon: "/ext-icons/datapick.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/datapick/epoehadeccangbpjldlbkapnakndbpkf",
+  users: "80+",
+  rating: "5.0 (1)",
+  price: "Free / Pro $19 one-time",
+  extensionPageUrl: "/extensions/datapick/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Web Scraper (webscraper.io)",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/web-scraper-free-web-scra/jnhgnonkiipp/",
+  users: "3,000,000+",
+  rating: "4.5 (12,000+)",
+  price: "Free (extension) / Cloud $50–100/mo",
+  badge: "Featured · 3M+ users",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Price (full-featured)", ours: "$19 one-time", theirs: "Free extension / $50–100/mo Cloud", highlight: true },
+  { feature: "Setup Time", ours: "Minutes — visual point & click", theirs: "Hours — sitemap configuration required", highlight: true },
+  { feature: "Learning Curve", ours: "Low — designed for non-technical users", theirs: "High — requires sitemap concept mastery", highlight: true },
+  { feature: "Pre-Built Japan EC Templates", ours: "12 templates (Rakuten, Mercari, SUUMO, etc.)", theirs: "None", highlight: true },
+  { feature: "Google Sheets Export", ours: "Yes — direct write (Pro)", theirs: "Cloud plan only ($50+/mo)", highlight: true },
+  { feature: "Scheduled / Automated Scraping", ours: "No (manual trigger)", theirs: "Yes (Cloud plan)", },
+  { feature: "Cloud / Server Processing", ours: "No — 100% local", theirs: "Optional — Cloud plan uses webscraper.io servers", highlight: true },
+  { feature: "Pagination Handling", ours: "Yes — auto multi-page", theirs: "Yes — extensive pagination types", },
+  { feature: "JavaScript-Heavy Sites", ours: "Yes (browser-native)", theirs: "Yes (Cloud uses headless browser)", },
+  { feature: "Recipe / Preset Saving", ours: "Yes", theirs: "Yes (sitemaps)", },
+  { feature: "CSV / Excel Export", ours: "Yes", theirs: "Yes", },
+  { feature: "Japanese Language UI", ours: "Yes", theirs: "No (English only)", highlight: true },
+  { feature: "Data Processing Privacy", ours: "100% local — no server", theirs: "Cloud plan sends data to webscraper.io", highlight: true },
+  { feature: "Actively Maintained", ours: "Yes", theirs: "Yes", },
+];
+
+const ourAdvantages = [
+  { title: "Dramatically Lower Price for Individual Use", desc: "Web Scraper's Chrome extension is free, but its meaningful features — scheduled scraping, cloud storage, Google Sheets export — require the Cloud plan at $50–100/month. DataPick Pro includes Google Sheets direct export for $19 one-time. For individual researchers and small teams who don't need server-based scheduled scraping, the price gap is enormous: $19 total vs $600–1,200/year." },
+  { title: "Minutes to Start, Not Hours", desc: "Web Scraper's sitemap-based approach requires learning a unique mental model: you define a 'sitemap' of selectors before scraping, then run the sitemap. This is powerful for complex multi-page scraping but genuinely requires time to learn. DataPick is point-and-click: you see data on a page, you click on what you want, you export. Most users scrape their first page within minutes of installing." },
+  { title: "Pre-Built Japan EC Templates — Zero Configuration", desc: "DataPick's 12 templates for Rakuten, Mercari, SUUMO, Amazon JP, Yahoo! Shopping, Tabelog, and other Japanese sites require no configuration. Open the template, navigate to the site, click run. Web Scraper has no Japan EC templates — you build sitemaps from scratch for each site." },
+  { title: "Fully Local — No Data Leaves Your Browser", desc: "DataPick processes all data locally in your browser. There are no webscraper.io servers involved, no data uploaded to a third party. Web Scraper's Cloud plan sends your scraped data through their servers for storage and scheduling. For research involving competitive pricing, proprietary product data, or any sensitive business information, local processing is the more private option." },
+  { title: "Diff Detection for Monitoring Workflows", desc: "DataPick's built-in diff detection highlights what changed between two scrapes — essential for price monitoring, inventory tracking, and competitive research. Web Scraper has no change-detection feature; each scrape is independent." },
+];
+
+const theirAdvantages = [
+  { title: "Enterprise-Grade Scheduled Scraping", desc: "Web Scraper Cloud runs scheduled scrapes automatically — daily, hourly, or on custom intervals — without requiring your browser to be open. This is the feature DataPick fundamentally cannot match: DataPick requires manual triggering in your browser. For automated data pipelines and monitoring at scale, Web Scraper Cloud is the right tool." },
+  { title: "Massive Community and Documentation", desc: "With 3M+ users, Web Scraper has extensive community tutorials, YouTube walkthroughs, and third-party guides covering nearly every scraping scenario. DataPick is newer with a smaller user base and less community content." },
+  { title: "Complex Multi-Level Scraping", desc: "Web Scraper's sitemap system handles sophisticated nested scraping scenarios: scrape a category page, follow each product link, extract product details. These multi-level, multi-page scrapes are Web Scraper's strength. DataPick handles pagination but is not designed for complex sitemap-style traversal." },
+  { title: "API and Integration Options", desc: "Web Scraper Cloud offers API access for programmatic data retrieval. For teams building data pipelines or integrating scraped data into downstream systems, this is a meaningful advantage over DataPick's manual export workflow." },
+];
+
+const verdict = "Web Scraper (webscraper.io) is genuinely powerful for complex, automated, enterprise-grade scraping — but that power comes with a steep learning curve and $50–100/month for its useful Cloud features. DataPick solves a different problem: quick, precise, browser-based data extraction for individual users and small teams who need data in CSV or Google Sheets without infrastructure overhead. If you need scheduled automation and complex multi-level scraping, Web Scraper Cloud is the right tool. If you need to extract data from a site today — especially Japanese EC sites — and get it into Google Sheets without spending hours on configuration, DataPick is the more practical choice at $19 total.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Is Web Scraper's extension free?", answer: "The Chrome extension is free, but it has significant limitations without the Cloud plan. Google Sheets export, scheduled scraping, and data storage require the Cloud plan at $50–100/month. DataPick's $19 one-time Pro includes Google Sheets direct export." },
+  { question: "Can DataPick do what Web Scraper does?", answer: "DataPick covers the most common use cases: extract structured data from any web page, handle pagination, save configurations, export to CSV/Excel/Google Sheets. Web Scraper's unique strengths — scheduled cloud scraping, complex multi-level sitemaps, API access — are not available in DataPick. If your use case requires automation without manual browser interaction, Web Scraper Cloud is necessary." },
+  { question: "Which is easier to learn?", answer: "DataPick is significantly easier. Most users can extract their first dataset within minutes using the visual point-and-click picker. Web Scraper requires understanding its sitemap concept, selector types, and pagination configuration — typically 1–3 hours of learning before being productive. Web Scraper has excellent documentation that helps, but the learning investment is real." },
+  { question: "Does Web Scraper work on Japanese EC sites?", answer: "Web Scraper works on any site that your browser can open, including Japanese EC sites. However, it has no pre-built templates for Rakuten, Mercari, SUUMO, or other Japanese platforms — you build sitemaps from scratch. DataPick's 12 pre-built Japan EC templates require no configuration." },
+  { question: "What if I need both DataPick's simplicity and Web Scraper's scheduling?", answer: "Some teams use DataPick for ad-hoc manual extraction and a lighter scheduling tool (like Make or Zapier with a HTTP request trigger) for automation. Web Scraper Cloud is the more integrated solution for scheduled scraping, but the cost is significantly higher. Evaluate based on how frequently you need automated runs versus manual extraction." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="DataPick vs Web Scraper (webscraper.io) — Simple Scraper vs Enterprise Cloud Tool (2026)"
+  seoDescription="DataPick vs webscraper.io: $19 one-time point-and-click scraper vs $50–100/month Cloud scraping platform. Compare use cases, pricing, and learning curves."
+  seoKeywords="webscraper io alternative, web scraper chrome extension alternative, simple web scraper no code, datapick vs webscraper, cheap web scraper google sheets"
+  h1="DataPick vs Web Scraper (webscraper.io)"
+  intro="Web Scraper is the most-used Chrome scraping extension with 3M+ users — but its full feature set costs $50–100/month and takes hours to learn. DataPick is $19 one-time, works in minutes, and has Japan EC templates built in. Here's how to choose."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/datapick-vs-instant-data-scraper/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Instant Data Scraper</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">14 months abandoned — actively switching</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/datapick-vs-bardeen/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Bardeen</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$19 once vs $144/year AI workflow</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/datapick-vs-data-miner/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Data Miner</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$19 one-time vs $119.88/year</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/datapick/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, templates, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

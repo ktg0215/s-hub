@@ -1,0 +1,120 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "PromptStash",
+  icon: "/ext-icons/promptstash.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/promptstash-ai-prompt-man/ocgkponbnolpgobllplcamfobolbjbcj",
+  users: "50+",
+  rating: "4.9 (12)",
+  price: "$5 one-time",
+  extensionPageUrl: "/extensions/promptstash/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "AIPRM",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/aiprm-for-chatgpt/ojnbohmppadfgpejeebfnmnknjdlckgj",
+  users: "1,000,000+",
+  rating: "4.7 (16,000+)",
+  price: "Free (public prompts) / Plus $9/mo / Pro $29/mo",
+  badge: "Featured · Community prompt library",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Works Outside ChatGPT", ours: "Yes — Claude, Gemini, Perplexity, 16+ more", theirs: "No — ChatGPT only", highlight: true },
+  { feature: "Personal Prompt Library (your own prompts)", ours: "Yes — core feature", theirs: "Limited (private prompts in paid tiers)", highlight: true },
+  { feature: "Community Prompt Library", ours: "No — personal prompts only", theirs: "Yes — 5,000+ curated public prompts", },
+  { feature: "Variable Templates ({{placeholders}})", ours: "Yes — text, dropdown, number, date types", theirs: "Yes — AIPRM uses variables too", },
+  { feature: "Slash Command Insert", ours: "Yes — type '/' for instant search & insert", theirs: "No — sidebar-based UI", highlight: true },
+  { feature: "Prompt Chains", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Supported AI Services", ours: "19+ (ChatGPT, Claude, Gemini, etc.)", theirs: "1 (ChatGPT only)", highlight: true },
+  { feature: "Data Storage", ours: "100% local (browser only)", theirs: "Cloud account required", highlight: true },
+  { feature: "Price (personal prompts)", ours: "$5 one-time", theirs: "Plus $9/mo or Pro $29/mo for private prompts", highlight: true },
+  { feature: "Account Required", ours: "No", theirs: "Yes — AIPRM account", highlight: true },
+  { feature: "Keyboard Shortcut", ours: "Yes — Ctrl+Shift+P", theirs: "No", },
+  { feature: "Import / Export", ours: "Yes — JSON", theirs: "Limited", },
+  { feature: "Offline Access", ours: "Yes", theirs: "No — requires AIPRM cloud", highlight: true },
+  { feature: "Context Variables (URL, date, selected text)", ours: "Yes", theirs: "No", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Works on Claude, Gemini, Perplexity — AIPRM Is ChatGPT Only", desc: "AIPRM's 1 million users and 5,000+ community prompts are exclusively for ChatGPT. Every prompt in AIPRM's library is designed for ChatGPT's interface and cannot be accessed on Claude, Gemini, Perplexity, or any other AI service. PromptStash works across 19+ AI services. If your workflow involves more than ChatGPT, AIPRM's library is inaccessible where you need it most." },
+  { title: "Your Personal Prompts — AIPRM Requires Paid Plan", desc: "AIPRM's free tier gives access to public community prompts, but saving your own private prompts requires the Plus plan ($9/month) or Pro plan ($29/month). Personal prompt management — the core use case for storing your own workflows — costs $108–$348/year on AIPRM. PromptStash's $5 one-time purchase includes personal prompt management as its primary feature." },
+  { title: "No Account, No Cloud, No Data to AIPRM Servers", desc: "AIPRM requires account creation and stores your saved prompts and usage in their cloud. PromptStash requires no account and stores everything locally in your browser. For proprietary workflows, confidential processes, or sensitive prompt engineering, local storage is meaningfully more private." },
+  { title: "Slash Commands — AIPRM Uses a Sidebar", desc: "AIPRM adds a sidebar to ChatGPT's interface for browsing and selecting prompts. PromptStash uses a slash command overlay that appears directly in the chat input when you type '/'. For users who know their prompts well and want to insert them without navigating a sidebar, PromptStash's slash command approach is faster." },
+  { title: "Prompt Chains Not Available in AIPRM", desc: "PromptStash's prompt chain feature lets you define a sequence of prompts to run in order — essential for structured multi-step workflows. AIPRM has no equivalent chain execution feature." },
+];
+
+const theirAdvantages = [
+  { title: "5,000+ Curated Community Prompts — Free", desc: "AIPRM's biggest advantage is its community library: thousands of high-quality, voted-on prompts for SEO, copywriting, coding, marketing, and dozens of other categories. These community prompts have been tested and refined by millions of users. PromptStash has no community prompt library — it's for managing your own prompts." },
+  { title: "Prompt Expertise Built In — No Starting From Scratch", desc: "For users new to prompt engineering, AIPRM's library provides immediately usable, expert-crafted prompts. You can start generating high-quality outputs in ChatGPT without having to build your own prompt library. PromptStash requires you to supply your own prompts." },
+  { title: "Massive User Base and Validation", desc: "1 million+ users and 16,000+ reviews provide strong social proof and extensive testing across real-world use cases." },
+  { title: "Community Ratings and Discovery", desc: "AIPRM prompts are rated by the community — you can sort by votes, usage, or category to find the most effective prompts. This curation doesn't exist in a personal prompt manager like PromptStash." },
+];
+
+const verdict = "AIPRM and PromptStash serve fundamentally different prompt management philosophies. AIPRM is a community-curated prompt marketplace for ChatGPT users who want ready-made, expert-crafted prompts without building their own library. PromptStash is a personal prompt manager for users who want to organize, rapidly access, and insert their own prompts across all AI services they use. If you primarily need ChatGPT and want access to a large library of community-tested prompts for common tasks, AIPRM's free tier is compelling. If you work across multiple AI services and want your own prompts available everywhere with slash commands and variable templates, PromptStash is the tool built for that workflow.";
+
+const faq: ComparisonFaq[] = [
+  { question: "What is AIPRM?", answer: "AIPRM is a Chrome extension that adds a community prompt library to ChatGPT. Users can browse 5,000+ public prompts organized by category, use them directly in ChatGPT, and (in paid tiers) save their own private prompts. It has 1M+ Chrome users." },
+  { question: "Can AIPRM work on Claude or Gemini?", answer: "No. AIPRM exclusively integrates with ChatGPT. Its sidebar, community library, and prompt insertion features are built specifically for ChatGPT's interface. PromptStash works across 19+ AI services including Claude, Gemini, Perplexity, and more." },
+  { question: "Is AIPRM free?", answer: "AIPRM's free tier provides access to public community prompts in ChatGPT. Saving your own private prompts and accessing AIPRM's more advanced features requires the Plus plan ($9/month) or Pro plan ($29/month). PromptStash costs $5 once for personal prompt management." },
+  { question: "Do I need AIPRM if I have my own well-developed prompt library?", answer: "AIPRM's core value is its community library — it's most useful for users who want to borrow proven prompts rather than build their own. If you've developed your own effective prompt workflows, PromptStash's personal library management, cross-platform support, and slash commands serve that use case better." },
+  { question: "Can I use both AIPRM and PromptStash?", answer: "Yes — they don't conflict. AIPRM adds ChatGPT-specific community prompts in ChatGPT. PromptStash manages your personal prompts across all AI services. Some users use AIPRM for discovering new prompt techniques in ChatGPT and PromptStash for deploying their refined personal workflows everywhere." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="PromptStash vs AIPRM — Personal Prompt Library vs Community Prompt Marketplace (2026)"
+  seoDescription="AIPRM is a ChatGPT-only community prompt library. PromptStash manages your personal prompts across 19+ AI services with slash commands and $5 one-time pricing."
+  seoKeywords="aiprm alternative, aiprm for claude, aiprm for gemini, personal ai prompt manager, prompt manager all ai services chrome extension, promptstash vs aiprm"
+  h1="PromptStash vs AIPRM"
+  intro="AIPRM gives you 5,000+ community-curated prompts inside ChatGPT. PromptStash manages your personal prompts across 19+ AI services with slash commands and variable templates. Here's which fits your workflow."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/promptstash-vs-chatgpt-saved-prompts/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs ChatGPT Saved Prompts</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Cross-platform vs ChatGPT-only</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/promptstash-vs-promptbase/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs PromptBase</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Personal library vs prompt marketplace</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/promptstash-vs-prompt-vault/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs Prompt Vault</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Slash commands vs copy-paste</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/promptstash/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, 19+ services, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

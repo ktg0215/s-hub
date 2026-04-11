@@ -1,0 +1,132 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "CookieJar",
+  icon: "/ext-icons/cookiejar.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/cookiejar-cookie-editor-m/lhngfkchfepfjjdfhimconagoejemofg",
+  users: "200+",
+  rating: "5.0",
+  price: "Free / Pro $4.99/mo",
+  extensionPageUrl: "/extensions/cookiejar/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "EditThisCookie V3 (Unofficial Fork)",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/editthiscookie-v3/ojfebgpkimhlhecloejhfnhohpclolfa",
+  users: "500,000+",
+  rating: "3.8 (1,000+)",
+  price: "Free",
+  badge: "⚠️ Unofficial fork — not affiliated with original EditThisCookie team",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Origin", ours: "Purpose-built MV3 extension", theirs: "Unofficial fork of removed EditThisCookie", highlight: true },
+  { feature: "Developer", ours: "Original, independent development team", theirs: "Third-party developer — not original EditThisCookie author", highlight: true },
+  { feature: "Code Verifiability", ours: "Purpose-built, auditable codebase", theirs: "Forked from abandoned extension — lineage unclear", highlight: true },
+  { feature: "Privacy Score (per-site)", ours: "Yes — tracking/analytics/functional breakdown", theirs: "No", highlight: true },
+  { feature: "Auto Cookie Categorization", ours: "Yes — Login, Tracking, Analytics, Functional", theirs: "No — raw data only", highlight: true },
+  { feature: "Cookie Profiles (dev/test/prod)", ours: "Yes — encrypted profile switching (Pro)", theirs: "No", highlight: true },
+  { feature: "Export Formats", ours: "JSON, Netscape, cURL, Puppeteer, HAR, CSV", theirs: "JSON", highlight: true },
+  { feature: "Bulk Delete by Category", ours: "Yes — delete tracking, keep login", theirs: "No", },
+  { feature: "Auto-Cleanup Schedules", ours: "Yes (Pro)", theirs: "No", },
+  { feature: "localStorage / sessionStorage Management", ours: "Yes (Pro)", theirs: "No", },
+  { feature: "Search / Filter", ours: "Yes — by name, domain, value", theirs: "Basic search", },
+  { feature: "Create / Edit / Delete", ours: "Yes", theirs: "Yes", },
+  { feature: "Import Cookies", ours: "Yes — JSON, Netscape", theirs: "JSON only", },
+  { feature: "Manifest V3", ours: "Yes — built for MV3", theirs: "Yes — MV3 fork", },
+  { feature: "Rating", ours: "5.0", theirs: "3.8 — below average for cookie editors", highlight: true },
+  { feature: "Active Development", ours: "Yes — original developer roadmap", theirs: "Unknown — unofficial fork, no stated roadmap", highlight: true },
+  { feature: "Price", ours: "Free / Pro $4.99/mo", theirs: "Free", },
+];
+
+const ourAdvantages = [
+  { title: "Purpose-Built vs Unofficial Fork — Know What You're Installing", desc: "EditThisCookie V3 is not affiliated with the original EditThisCookie developer or team. It's an unofficial fork created by a third-party developer after the original was removed from the Chrome Web Store. The code originated from an extension that was abandoned and removed for non-compliance. CookieJar was built from scratch as an independent MV3 extension with a clear development history. When you install a Chrome extension, you're granting it cookie access to every site you visit — the provenance of that extension's code matters." },
+  { title: "Privacy Score — A Feature V3 Fork Never Added", desc: "CookieJar provides a per-site privacy score breaking down cookies into tracking, analytics, functional, and login categories with percentage data. EditThisCookie V3 mimics the original's interface — which means it replicated the 2013-era feature set without adding modern capabilities. Privacy scoring, auto-categorization, and developer export formats are entirely absent from the V3 fork." },
+  { title: "5.0 vs 3.8 Rating — User Experience Gap", desc: "CookieJar has a 5.0 rating. EditThisCookie V3 has a 3.8 rating — below the average for cookie management extensions. Reviews of V3 frequently cite interface issues, missing features compared to the original, and questions about its relationship to the original EditThisCookie. A 3.8 rating on a security-sensitive extension is meaningful signal." },
+  { title: "6 Export Formats vs JSON Only", desc: "CookieJar exports to JSON, Netscape, cURL, Puppeteer, HAR, and CSV. EditThisCookie V3 replicates the original's JSON-only export. For developers who need cookies in formats for test automation, API debugging, or HAR inspection, CookieJar's export flexibility is the practical difference." },
+  { title: "Encrypted Cookie Profiles — No Profile System in V3 Fork", desc: "CookieJar Pro's encrypted profile system lets you save and restore complete cookie states across environments. EditThisCookie V3 has no profile system — it replicated the original's feature set, which didn't include profiles. For developers who need reproducible cookie states across dev/staging/production, CookieJar is the tool that offers this." },
+];
+
+const theirAdvantages = [
+  { title: "Familiar EditThisCookie Interface", desc: "Users who spent years with the original EditThisCookie will recognize V3's interface immediately — it's designed to match the original's layout. If muscle memory from the original EditThisCookie is important, V3 provides continuity." },
+  { title: "Large User Base from EditThisCookie Refugees", desc: "500,000+ users installed V3 primarily because they were searching for the original EditThisCookie after it was removed. That install count reflects name recognition rather than independently-earned trust, but indicates the interface is functional for basic operations." },
+  { title: "Completely Free", desc: "EditThisCookie V3 is free with no paid tier. CookieJar's Pro features require $4.99/month." },
+];
+
+const verdict = "EditThisCookie V3 fills the search intent gap left by the original's removal — users searching for 'EditThisCookie' find it and install it for the familiar name. But it's an unofficial fork with a 3.8 rating, no stated development roadmap, and a feature set that replicates a 2013-era extension without adding anything new. CookieJar is the purpose-built MV3 alternative: independently developed, 5.0 rated, with privacy scoring, auto-categorization, and six export formats that EditThisCookie never offered in its decade of operation. If the choice is between an unofficial fork of an abandoned extension and a purpose-built replacement, the security calculus for an extension with cookie access to every site you visit favors the tool with a clear development origin and a verified codebase.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Is EditThisCookie V3 made by the original EditThisCookie developer?", answer: "No. EditThisCookie V3 is an unofficial fork created by a third-party developer. It is not affiliated with the original EditThisCookie team. The original EditThisCookie was removed from the Chrome Web Store for failing to migrate to Manifest V3 and has not been updated since." },
+  { question: "Why does EditThisCookie V3 have a 3.8 rating?", answer: "User reviews of EditThisCookie V3 frequently cite missing features compared to the original, interface issues, and questions about whether it's genuinely maintained or just a name-capture fork. A 3.8 rating is below average for cookie management extensions." },
+  { question: "Is it safe to install EditThisCookie V3?", answer: "Cookie editors require broad cookie access permissions — they can read and modify cookies for every site you visit. When evaluating any cookie editor, the provenance and verifiability of its code matters. EditThisCookie V3's code originated from an abandoned extension with an unclear maintenance history. CookieJar is a purpose-built extension with an independent development origin. Evaluate the permissions you're granting against the trust level of each extension's development." },
+  { question: "Can CookieJar import my old EditThisCookie exports?", answer: "Yes. CookieJar supports JSON import, which is the format the original EditThisCookie (and V3 fork) used for cookie export. If you have JSON exports from either version, they can be imported directly into CookieJar." },
+  { question: "What does CookieJar offer that EditThisCookie V3 doesn't?", answer: "Privacy scoring (per-site tracking percentage), auto-categorization (Login/Tracking/Analytics/Functional), 5 additional export formats (Netscape, cURL, Puppeteer, HAR, CSV beyond JSON), encrypted cookie profiles (Pro), bulk category delete, auto-cleanup schedules (Pro), and localStorage/sessionStorage management (Pro). EditThisCookie V3 replicates the original's basic interface without adding any of these capabilities." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="CookieJar vs EditThisCookie V3 — Official MV3 Extension vs Unofficial Fork (2026)"
+  seoDescription="EditThisCookie V3 is an unofficial fork by a third-party developer. CookieJar is a purpose-built MV3 alternative with privacy scoring, 6 export formats, and a 5.0 rating."
+  seoKeywords="editthiscookie v3 alternative, editthiscookie v3 review, unofficial editthiscookie fork, mv3 cookie editor 2026, cookiejar vs editthiscookie v3"
+  h1="CookieJar vs EditThisCookie V3"
+  intro="EditThisCookie V3 is an unofficial third-party fork that appeared after the original EditThisCookie was removed from Chrome Web Store. CookieJar is a purpose-built MV3 alternative with privacy scoring, auto-categorization, and a 5.0 rating. Here's why the distinction matters."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <!-- V3 fork warning -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <div class="border border-amber-200 bg-amber-50 rounded-lg p-5 mb-8">
+      <p class="font-mono text-[10px] text-amber-700 uppercase tracking-wider mb-2">// editthiscookie v3 provenance note</p>
+      <p class="text-[13px] text-zinc-700 leading-relaxed">
+        <strong>EditThisCookie V3 is not made by the original EditThisCookie developer.</strong> It's an unofficial fork created by a third-party after the original was removed from the Chrome Web Store for MV3 non-compliance. Cookie editors have access to cookies on every site you visit — verify the provenance of any extension you install with that level of access.
+      </p>
+    </div>
+  </section>
+
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/cookiejar-vs-editthiscookie/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar vs EditThisCookie (Original)</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">MV3 replacement for removed extension</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/cookiejar-vs-cookie-editor/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar vs Cookie-Editor</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Privacy scoring vs simple editor</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/cookiejar-vs-cookiebro/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar vs CookieBRO</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Cookie management vs tracker blocking</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/cookiejar/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, privacy score, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

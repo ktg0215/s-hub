@@ -1,0 +1,120 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "CookieJar",
+  icon: "/ext-icons/cookiejar.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/cookiejar-cookie-editor-m/lhngfkchfepfjjdfhimconagoejemofg",
+  users: "200+",
+  rating: "5.0",
+  price: "Free / Pro $4.99/mo",
+  extensionPageUrl: "/extensions/cookiejar/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Cookie-Editor",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/cookie-editor/hlkenndednhfkekhgcdicdfddnkalmdm",
+  users: "900,000+",
+  rating: "4.6 (2,000+)",
+  price: "Free",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Privacy Score (per-site)", ours: "Yes — tracking/analytics/functional breakdown", theirs: "No", highlight: true },
+  { feature: "Auto Cookie Categorization", ours: "Yes — Login, Tracking, Analytics, Functional", theirs: "No — manual inspection only", highlight: true },
+  { feature: "Cookie Profiles (dev/test/prod)", ours: "Yes — encrypted profile switching (Pro)", theirs: "No", highlight: true },
+  { feature: "Export Formats", ours: "JSON, Netscape, cURL, Puppeteer, HAR, CSV", theirs: "JSON, Netscape", highlight: true },
+  { feature: "Bulk Delete by Category", ours: "Yes — delete tracking, keep login", theirs: "No — all-or-nothing", },
+  { feature: "Auto-Cleanup Schedules", ours: "Yes (Pro)", theirs: "No", },
+  { feature: "localStorage / sessionStorage Management", ours: "Yes (Pro)", theirs: "No", },
+  { feature: "Firefox Support", ours: "Chrome only (MV3)", theirs: "Yes — Chrome and Firefox", },
+  { feature: "Search / Filter", ours: "Yes — by name, domain, value", theirs: "Yes — basic search", },
+  { feature: "Create / Edit / Delete", ours: "Yes", theirs: "Yes", },
+  { feature: "Import Cookies", ours: "Yes — JSON, Netscape", theirs: "Yes — JSON, Netscape", },
+  { feature: "Data Privacy", ours: "100% local — no external calls", theirs: "100% local", },
+  { feature: "Manifest V3", ours: "Yes — built for MV3", theirs: "Yes — MV3 compatible", },
+  { feature: "Price", ours: "Free / Pro $4.99/mo", theirs: "Free — all features", highlight: true },
+  { feature: "Active Development", ours: "Yes — regularly updated", theirs: "Yes — actively maintained", },
+];
+
+const ourAdvantages = [
+  { title: "Privacy Score — Instant Per-Site Tracking Audit", desc: "CookieJar's signature feature is a per-site privacy score that breaks down cookies into tracking, analytics, functional, and login categories with a percentage score. Open any site and immediately see how aggressively it tracks you. Cookie-Editor shows raw cookie data with no interpretation — you'd need to manually research every cookie name to understand what it does." },
+  { title: "Smart Auto-Categorization — No Manual Cookie Research", desc: "CookieJar automatically classifies cookies using a built-in scoring algorithm. Cookies named _fbp, _ga, _gid, NID, and hundreds of others are automatically tagged as Tracking or Analytics. Cookie-Editor displays the raw cookie data: name, value, domain, path, expiry. For developers auditing a site's tracking practices, auto-categorization eliminates the manual lookup step." },
+  { title: "6 Export Formats vs 2 in Cookie-Editor", desc: "CookieJar exports to JSON, Netscape (cookies.txt), cURL, Puppeteer, HAR, and CSV. Cookie-Editor supports JSON and Netscape. For developers who need cURL commands for API testing, Puppeteer scripts for test automation, or HAR for debugging sessions, CookieJar's additional formats eliminate conversion steps." },
+  { title: "Cookie Profiles for Dev/Test/Production Switching", desc: "CookieJar Pro lets you save your entire cookie state as a named, encrypted profile and restore it in one click. Essential for developers switching between development, staging, and production environments without re-authenticating each time. Cookie-Editor has no profile system." },
+  { title: "Bulk Delete by Category — Target Tracking, Preserve Login", desc: "CookieJar lets you delete all tracking cookies while keeping your login session intact. Cookie-Editor's bulk operations work on all-or-nothing basis. For users who regularly clear tracking cookies without losing authenticated sessions, CookieJar's category-aware deletion is the key difference." },
+];
+
+const theirAdvantages = [
+  { title: "Firefox Support — Works on Both Browsers", desc: "Cookie-Editor is available for both Chrome and Firefox. CookieJar is Chrome-only. If you switch between browsers or need cookie management in Firefox, Cookie-Editor covers both environments with a consistent interface." },
+  { title: "Completely Free — All Features", desc: "Cookie-Editor is free with no paid tier. Advanced CookieJar features — cookie profiles, auto-cleanup schedules, localStorage/sessionStorage management — require the $4.99/month Pro subscription." },
+  { title: "Larger Established User Base", desc: "900,000+ users and 2,000+ reviews provide a longer track record and more community-tested workflows across different development scenarios." },
+  { title: "Simplicity — No Extra Features to Learn", desc: "Cookie-Editor's interface focuses on viewing, creating, editing, deleting, and importing/exporting. No categories, scores, or profiles. For developers who want a clean, focused cookie editor without additional tooling, that simplicity is intentional." },
+];
+
+const verdict = "Cookie-Editor is one of the best free cookie editors available — actively maintained, MV3 compatible, and cross-browser. If you need basic cookie management in Firefox, Cookie-Editor is the clear choice since CookieJar doesn't support Firefox. The meaningful difference is CookieJar's privacy scoring and auto-categorization: for developers who regularly audit cookie practices or want to understand what a site is tracking without manually researching every cookie name, these features save real time. Cookie-Editor shows you the raw data; CookieJar tells you what that data means. At $4.99/month, Pro features are relevant for developers whose workflow involves regular profile switching or automated cleanup — otherwise CookieJar's free tier and Cookie-Editor are comparable for basic operations.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Does Cookie-Editor work on Firefox?", answer: "Yes. Cookie-Editor is available for both Chrome and Firefox. CookieJar is Chrome-only (Manifest V3). If you need cookie management in Firefox, Cookie-Editor is the right choice." },
+  { question: "What is Cookie-Editor's privacy score?", answer: "Cookie-Editor doesn't have a privacy score. It displays raw cookie data — name, value, domain, path, expiry, and flags. CookieJar's privacy score is a unique feature that analyzes cookies against a classification database and produces a per-site tracking percentage." },
+  { question: "Can I import Cookie-Editor exports into CookieJar?", answer: "Yes. Both extensions support JSON and Netscape (cookies.txt) formats for import and export. Cookie exports from Cookie-Editor can be imported directly into CookieJar using either format." },
+  { question: "Is CookieJar's free tier comparable to Cookie-Editor?", answer: "For basic operations — viewing, creating, editing, deleting, searching, and JSON/Netscape export — yes. CookieJar's free tier and Cookie-Editor cover the same core functionality. CookieJar adds privacy scoring and auto-categorization in the free tier, which Cookie-Editor doesn't offer. Pro features (profiles, auto-cleanup, storage management) require the $4.99/month subscription." },
+  { question: "Which cookie editor is better for privacy auditing?", answer: "CookieJar. The privacy score and auto-categorization features are specifically built for understanding what cookies do and how much a site tracks you. Cookie-Editor is better for raw cookie manipulation. If auditing tracking practices is your primary use case, CookieJar's analysis layer is the key differentiator." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="CookieJar vs Cookie-Editor — Privacy Score vs Simple Cookie Editor (2026)"
+  seoDescription="CookieJar adds privacy scoring and auto-categorization to cookie management. Cookie-Editor covers Chrome and Firefox with a clean free interface. Full comparison."
+  seoKeywords="cookie-editor alternative, cookie editor chrome 2026, mv3 cookie manager chrome, privacy score cookies, cookiejar vs cookie-editor"
+  h1="CookieJar vs Cookie-Editor"
+  intro="Both are actively maintained MV3 cookie editors. Cookie-Editor works on Chrome and Firefox for free. CookieJar adds privacy scoring, auto-categorization, and developer-focused export formats. Here's the full comparison."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/cookiejar-vs-editthiscookie/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar vs EditThisCookie</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">MV3 replacement for removed extension</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/cookiejar-vs-edit-this-cookie-v3/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar vs EditThisCookie V3</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Official vs unofficial fork</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/cookiejar-vs-cookiebro/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar vs CookieBRO</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Cookie management vs tracker blocking</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/cookiejar/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/cookiejar.png" alt="CookieJar" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">CookieJar — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, privacy score, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

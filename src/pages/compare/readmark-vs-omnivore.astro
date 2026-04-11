@@ -1,0 +1,131 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "ReadMark",
+  icon: "/ext-icons/ReadMark.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/readmark-save-reading-pos/inejhohffndeacbihghjcobndpoejdfn",
+  users: "30+",
+  rating: "5.0 (1)",
+  price: "Free / Pro $4.99 one-time",
+  extensionPageUrl: "/extensions/readmark/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Omnivore",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/omnivore/blkggjdmcfjdbmmmlfcpplkchpeaiiab",
+  users: "40,000+ (at shutdown)",
+  rating: "4.5 (800+) — archived",
+  price: "Was free / self-hostable — now shut down",
+  badge: "⚠️ Service shut down in late 2024",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Service Status", ours: "Active — maintained in 2026", theirs: "⚠️ Shut down in late 2024", highlight: true },
+  { feature: "Data Export Available", ours: "N/A (local storage, always accessible)", theirs: "Export window was limited — now closed", highlight: true },
+  { feature: "Reading Position Tracking", ours: "Yes — auto-saves scroll position per URL", theirs: "Yes — tracked within Omnivore's reader", highlight: true },
+  { feature: "Works on Private / Internal URLs", ours: "Yes — any URL your browser can open", theirs: "No — public articles only", highlight: true },
+  { feature: "Account Required", ours: "No", theirs: "Was required (now defunct)", highlight: true },
+  { feature: "Data Storage", ours: "100% local (browser only)", theirs: "Was cloud-based — data at risk on shutdown", highlight: true },
+  { feature: "Highlights & Annotations", ours: "No (planned v2.0)", theirs: "Yes (was a core feature)", },
+  { feature: "Obsidian / Logseq Integration", ours: "No", theirs: "Yes (was excellent — now broken)", },
+  { feature: "RSS / Newsletter Integration", ours: "No", theirs: "Yes (was included — now offline)", },
+  { feature: "Self-Hostable", ours: "No (Chrome extension)", theirs: "Yes (repo still available on GitHub)", },
+  { feature: "Open Source", ours: "No", theirs: "Yes — MIT license (repo archived)", },
+  { feature: "Omnivore JSON Import", ours: "Planned for v2.0", theirs: "N/A", highlight: true },
+  { feature: "Price to Use Today", ours: "Free (no account)", theirs: "Cannot be used (service offline)", highlight: true },
+  { feature: "Long-Term Reliability", ours: "Local-first — no server dependency", theirs: "Cloud dependency proved fatal", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "ReadMark Is Actually Available in 2026", desc: "This is the foundational difference: Omnivore shut down in late 2024, following its acquisition by ElevenLabs. The hosted service is offline. For users who did not export their data within the limited window — or who simply need a working tool today — Omnivore is no longer an option. ReadMark is actively maintained, free to install, and works immediately." },
+  { title: "Local-First Architecture Prevents This From Happening Again", desc: "Omnivore's shutdown was made possible by its cloud architecture: all reading data lived on their servers, and when the servers went offline, the service disappeared. ReadMark stores everything in chrome.storage.local — your browser, your data. There are no servers to shut down. ReadMark cannot be 'acquired and discontinued' in the way Omnivore was." },
+  { title: "Works on Private and Internal URLs", desc: "Omnivore, like most read-later apps, required public URLs to archive content. ReadMark saves your position on any URL your browser can open — company Confluence pages, private Notion documents, internal GitHub repositories. The use case Omnivore couldn't serve, ReadMark covers natively." },
+  { title: "No Account Required — No Trust Required", desc: "Omnivore required an account and trust that the service would remain online. ReadMark requires neither. It installs without sign-up and stores reading positions locally. The Omnivore situation demonstrated the risks of entrusting reading data to a service that can be acquired and shut down with weeks of notice." },
+  { title: "Omnivore Import in Development (v2.0)", desc: "If you exported your Omnivore reading data before the shutdown, you still have your history. ReadMark v2.0 is planned to include an Omnivore JSON importer — allowing you to restore your saved positions from your export file. If you have your Omnivore export, hold onto it." },
+];
+
+const theirAdvantages = [
+  { title: "Omnivore Had Superior Highlight and Annotation Features", desc: "Omnivore's highlighting and annotation system was one of the best in the open-source read-later space. ReadMark v1.x has no highlighting — this is planned for v2.0 but not yet available. For annotation-heavy reading workflows, Omnivore's feature set was genuinely superior." },
+  { title: "Deep PKM Integration (Obsidian, Logseq)", desc: "Omnivore's native integration with Obsidian and Logseq was exceptional — bidirectional sync of highlights and notes made it a core part of many knowledge workers' PKM workflow. ReadMark has no PKM integration." },
+  { title: "Full Article Archiving", desc: "Omnivore archived the full content of public articles for reading in a clean interface — offline capable, with its own reading environment. ReadMark doesn't archive content; it saves positions on the original pages." },
+  { title: "Open Source and Self-Hostable", desc: "Omnivore was MIT-licensed and self-hostable. Technical users can still run their own Omnivore instance from the GitHub repository. ReadMark is a closed-source Chrome extension." },
+  { title: "RSS and Newsletter Integration", desc: "Omnivore aggregated RSS feeds and newsletters alongside saved articles, functioning as a complete reading hub. ReadMark is focused solely on position tracking." },
+];
+
+const verdict = "Omnivore was an exceptional product. For the users who relied on it — particularly those who built PKM workflows around its Obsidian and Logseq integrations — its shutdown was a significant loss, and no single tool fully replaces what it offered. ReadMark is not a complete Omnivore replacement. It covers one specific part of what Omnivore did: tracking where you are in long-form content across multiple reading sessions. For that specific use case — especially for content on private URLs that Omnivore couldn't archive — ReadMark is a practical, privacy-respecting, always-available alternative. For the full Omnivore feature set (highlights, PKM sync, newsletters, clean reading view), Readwise Reader is currently the closest paid alternative.";
+
+const faq: ComparisonFaq[] = [
+  { question: "What happened to Omnivore?", answer: "Omnivore was acquired by ElevenLabs (the AI audio company) in October 2024. The hosted service was shut down shortly after the acquisition. Users were given a short window to export their data as JSON. The open-source repository remains on GitHub and technically-minded users can self-host — but the managed service is no longer available." },
+  { question: "I have my Omnivore export. Can I import it into ReadMark?", answer: "Not yet. Omnivore JSON import is planned for ReadMark v2.0, currently in development. If you exported your Omnivore data before the shutdown, hold onto the JSON file — the importer will allow you to restore your saved reading positions from that export when it ships." },
+  { question: "Is ReadMark a complete Omnivore replacement?", answer: "No — and it's important to be honest about this. Omnivore had highlights, annotations, a clean reading view, Obsidian/Logseq sync, RSS feeds, and newsletter support. ReadMark tracks reading position (scroll location) on any URL, stores data locally, and requires no account. These overlap on the 'where was I in this article?' use case but not on highlights, PKM, or content aggregation." },
+  { question: "What's the best Omnivore alternative for the full feature set?", answer: "For the complete Omnivore experience — highlights, PKM integration, newsletters — Readwise Reader ($7.99/month) is currently the most complete alternative. For the specific use case of tracking reading position across many URLs (especially private ones), ReadMark is the closest local-first option. Many former Omnivore users are using both." },
+  { question: "Can I self-host Omnivore instead of switching to ReadMark?", answer: "Technically yes — Omnivore's source code is on GitHub under MIT license. However, self-hosting requires infrastructure setup, maintenance, and technical expertise. For most users, this is not a realistic ongoing option. ReadMark works immediately after installation with no infrastructure required." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="ReadMark vs Omnivore — After Omnivore's Shutdown, What's the Best Alternative? (2026)"
+  seoDescription="Omnivore shut down in late 2024 after ElevenLabs acquisition. ReadMark is a local-first, privacy-respecting alternative for reading position tracking. No account, free to try, Omnivore import planned for v2.0."
+  seoKeywords="omnivore alternative, omnivore shut down, omnivore replacement 2024, reading position tracker after omnivore, local read later app no account"
+  h1="ReadMark vs Omnivore"
+  intro="Omnivore was acquired by ElevenLabs and shut down in late 2024. If you're looking for a reading companion that can't disappear the same way, ReadMark is local-first, account-free, and always available. Here's an honest comparison — and what ReadMark can and can't replace."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <!-- Omnivore refugee callout block -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <div class="border border-amber-200 bg-amber-50 rounded-lg p-5 mb-8">
+      <p class="font-mono text-[10px] text-amber-700 uppercase tracking-wider mb-2">// if you exported your omnivore data</p>
+      <p class="text-[13px] text-zinc-700 leading-relaxed">
+        If you downloaded your Omnivore reading history before the shutdown, <strong>hold onto that JSON file</strong>. ReadMark v2.0 is planned to include an Omnivore import tool that will restore your saved reading positions from the export. The importer is in development — we'll announce when it ships.
+      </p>
+    </div>
+  </section>
+
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/readmark-vs-pocket/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Pocket</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">No ads, no account, one-time price</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/readmark-vs-readwise-reader/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Readwise Reader</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Full Omnivore feature set alternative</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/readmark-vs-instapaper/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Instapaper</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">2026 tool vs classic service</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/readmark/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

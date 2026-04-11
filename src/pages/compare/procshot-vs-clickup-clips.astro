@@ -1,0 +1,121 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "Procshot",
+  icon: "/ext-icons/procshot.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/%E6%89%8B%E9%A0%86%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3-%E6%89%8B%E9%A0%86%E6%9B%B8%E3%83%BB%E6%93%8D%E4%BD%9C%E3%83%9E%E3%83%8B%E3%82%A2%E3%83%AB%E8%87%AA%E5%8B%95%E4%BD%9C%E6%88%90/ieblehdloggcpmkncplccjofeoakhkll",
+  users: "100+",
+  rating: "New",
+  price: "Free / Pro $3.99/mo",
+  extensionPageUrl: "/extensions/procshot/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "ClickUp Clips",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/clickup-tasks-screenshots/pliibjocnfmkagafnbkfcimonlnlpghj",
+  users: "600,000+",
+  rating: "4.3 (3,400+)",
+  price: "Included in ClickUp plan ($7–$19/user/mo)",
+  badge: "ClickUp integration",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Standalone Tool (no platform lock-in)", ours: "Yes — works independently", theirs: "No — requires ClickUp subscription", highlight: true },
+  { feature: "Price (standalone)", ours: "Free (5 guides/mo) + $3.99/mo Pro", theirs: "N/A — bundled at $7–$19/user/mo", highlight: true },
+  { feature: "Output Type", ours: "Step-by-step text guide + screenshots", theirs: "Screen recording video (Clips)", highlight: true },
+  { feature: "PDF Export", ours: "Yes — free", theirs: "No", highlight: true },
+  { feature: "Markdown Export", ours: "Yes — free", theirs: "No", highlight: true },
+  { feature: "HTML Export", ours: "Yes — bundled images", theirs: "No", highlight: true },
+  { feature: "Account Required", ours: "No", theirs: "Yes — ClickUp account", highlight: true },
+  { feature: "Data Storage", ours: "100% local — browser only", theirs: "ClickUp cloud storage", highlight: true },
+  { feature: "Searchable Text Output", ours: "Yes — fully indexed text", theirs: "No — video only", highlight: true },
+  { feature: "Screenshot Annotations", ours: "Yes — boxes, arrows, text, blur", theirs: "No (screen video only)", },
+  { feature: "Works Outside ClickUp", ours: "Yes — any browser workflow", theirs: "Primarily ClickUp-context tools", },
+  { feature: "AI Transcription", ours: "No", theirs: "Yes (Clips AI transcript)", },
+  { feature: "Task Integration", ours: "No (export and attach manually)", theirs: "Native — clips attach to tasks", },
+  { feature: "Offline Use", ours: "Yes", theirs: "No", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "No Platform Lock-In", desc: "Procshot is a standalone Chrome extension that works for any browser workflow — regardless of which project management tool your team uses. ClickUp Clips is only useful if your team is already paying for ClickUp. Switch tools, and your Clips library doesn't come with you." },
+  { title: "Text Guides Are Searchable and Skimmable", desc: "Procshot's output is structured text with screenshots — you can search a guide for a specific step, copy a step's text, or share a single screenshot. ClickUp Clips records video, which must be watched sequentially and cannot be full-text searched." },
+  { title: "Free Without a Subscription", desc: "Procshot has a genuinely free tier with 5 guides per month. ClickUp Clips is bundled into ClickUp's paid plans ($7–$19/user/month). There is no way to use ClickUp Clips without a ClickUp subscription." },
+  { title: "Portable Exports for Any Team", desc: "PDF, Markdown, and HTML exports work in any tool: Notion, Confluence, Slack, email, Git repositories. ClickUp Clips are stored in ClickUp and aren't easily portable to teams using different platforms." },
+  { title: "Privacy by Default", desc: "Procshot stores everything locally. No workflow data, screenshots, or step content leaves your browser. ClickUp stores Clips in their cloud, subject to their data retention and privacy policies." },
+];
+
+const theirAdvantages = [
+  { title: "Native ClickUp Task Integration", desc: "Clips attach directly to ClickUp tasks, making it frictionless to add a 'watch me do this' recording to a task comment or subtask. For ClickUp-native teams, this is a significant workflow advantage." },
+  { title: "AI Transcript and Summary", desc: "ClickUp Clips can auto-transcribe recordings and generate AI summaries, making longer walkthroughs easier to reference without re-watching." },
+  { title: "Screen + Camera Recording", desc: "Like Loom, ClickUp Clips records your screen with optional webcam and audio — adding personal context to async communication in ways text guides cannot." },
+  { title: "Part of an Integrated Platform", desc: "If your team is already on ClickUp, Clips adds no additional cost and requires no new tool adoption. The value-per-dollar calculation changes significantly in an existing ClickUp environment." },
+];
+
+const verdict = "For ClickUp teams who need async video communication within their existing workflow, ClickUp Clips is a natural zero-friction addition. But Procshot wins on every dimension that matters for documentation: it's standalone, free, produces searchable text output, exports to portable formats, and works without a subscription or platform commitment. The comparison is less about which tool is 'better' and more about what you're trying to create: a video message or a reusable, searchable, portable document.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Can I use ClickUp Clips without a ClickUp subscription?", answer: "No. ClickUp Clips is a feature within ClickUp's paid plans, starting at $7/user/month. There is no standalone free version of ClickUp Clips. Procshot is a standalone Chrome extension with a free tier — no ClickUp account or subscription required." },
+  { question: "Does ClickUp Clips generate step-by-step guides like Procshot?", answer: "No. ClickUp Clips records screen video (with optional audio and webcam). It does not auto-generate structured step-by-step guides with annotated screenshots. For documentation rather than video recording, Procshot is the appropriate tool." },
+  { question: "My team uses ClickUp — should I use Clips or Procshot?", answer: "Both can coexist. Use ClickUp Clips for quick async video updates attached to tasks. Use Procshot when you need a reusable, searchable SOP that team members can follow themselves — then attach the exported PDF or Markdown to the ClickUp task description." },
+  { question: "Is Procshot free if I'm not a ClickUp customer?", answer: "Yes. Procshot is completely free for up to 5 guides per month, with no account required. The optional Pro tier at $3.99/month unlocks unlimited guides and additional features." },
+  { question: "Can Procshot attach guides directly to ClickUp tasks?", answer: "Not natively — but you can export a Procshot guide as PDF or HTML and attach it to a ClickUp task as a file attachment. The workflow is slightly manual, but the output (a structured, searchable document) is often more useful than a video clip for recurring processes." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="Procshot vs ClickUp Clips — Free Alternative to Platform-Locked Screen Recording"
+  seoDescription="Procshot vs ClickUp Clips: standalone free guide maker vs ClickUp-integrated screen recorder. No subscription needed with Procshot — export to PDF, Markdown, or HTML."
+  seoKeywords="clickup clips alternative, free screen recorder alternative, step by step guide chrome extension, process documentation without clickup, procshot vs clickup"
+  h1="Procshot vs ClickUp Clips"
+  intro="ClickUp Clips records screen video inside your ClickUp workspace. Procshot generates portable text guides from browser workflows — no platform subscription required. Here's how they compare."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/procshot-vs-loom/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot vs Loom</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Text guides vs video recording</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/procshot-vs-scribe/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot vs Scribe</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Free vs $23/mo comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/procshot-vs-guideflow/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot vs Guideflow</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Static guides vs interactive demos</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/procshot/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

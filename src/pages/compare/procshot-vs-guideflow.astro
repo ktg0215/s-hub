@@ -1,0 +1,120 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "Procshot",
+  icon: "/ext-icons/procshot.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/%E6%89%8B%E9%A0%86%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3-%E6%89%8B%E9%A0%86%E6%9B%B8%E3%83%BB%E6%93%8D%E4%BD%9C%E3%83%9E%E3%83%8B%E3%82%A2%E3%83%AB%E8%87%AA%E5%8B%95%E4%BD%9C%E6%88%90/ieblehdloggcpmkncplccjofeoakhkll",
+  users: "100+",
+  rating: "New",
+  price: "Free / Pro $3.99/mo",
+  extensionPageUrl: "/extensions/procshot/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Guideflow",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/guideflow-interactive-dem/klokgoeihimjkonepnpblaepifanolfd",
+  users: "20,000+",
+  rating: "4.6 (80+)",
+  price: "Free (3 demos) / Starter $20/mo",
+  badge: "",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Price", ours: "Free (5 guides/mo) + $3.99/mo Pro", theirs: "Free (3 demos total); Starter $20/mo", highlight: true },
+  { feature: "Output Type", ours: "Step-by-step static guide (PDF/MD/HTML)", theirs: "Interactive clickable demo", highlight: true },
+  { feature: "PDF Export", ours: "Yes — free", theirs: "No", highlight: true },
+  { feature: "Markdown Export", ours: "Yes — free", theirs: "No", highlight: true },
+  { feature: "HTML Export", ours: "Yes — free, bundled images", theirs: "Hosted link only", highlight: true },
+  { feature: "Data Storage", ours: "100% local — browser only", theirs: "Cloud-hosted (Guideflow servers)", highlight: true },
+  { feature: "Account Required", ours: "No", theirs: "Yes", highlight: true },
+  { feature: "Interactive Walkthrough", ours: "No — static screenshots", theirs: "Yes — clickable product tour", },
+  { feature: "Embed in Website", ours: "Via HTML export", theirs: "Native embed / iframe", },
+  { feature: "Analytics (view tracking)", ours: "No", theirs: "Yes (Starter+)", },
+  { feature: "Screenshot Annotations", ours: "Yes — boxes, arrows, text, blur", theirs: "Auto step indicators only", },
+  { feature: "Japanese Language", ours: "Yes (UI & PDF)", theirs: "English only", highlight: true },
+  { feature: "Offline Use", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Free Guide / Demo Limit", ours: "5 per month", theirs: "3 total (then must upgrade)", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Static Guides You Actually Own", desc: "Procshot exports to PDF, Markdown, and self-contained HTML files that live on your machine. Guideflow hosts demos on their servers — when your plan lapses or the service changes, your demos may become inaccessible." },
+  { title: "Far More Affordable", desc: "Procshot Pro is $3.99/month. Guideflow's Starter plan is $20/month — 5× the price. For documentation that doesn't require interactive walkthroughs, Procshot covers the same job at a fraction of the cost." },
+  { title: "No Account, No Cloud", desc: "Procshot requires no sign-in and sends no data externally. This matters when documenting internal tools, sensitive dashboards, or proprietary workflows. Guideflow requires account creation and cloud storage by design." },
+  { title: "More Generous Free Tier", desc: "Guideflow allows 3 demos for life on the free plan before forcing an upgrade. Procshot allows 5 guides per month on the free plan — enough for regular ongoing use without a subscription." },
+  { title: "Portable Formats for Any Team", desc: "PDF and Markdown guides can be sent via email, uploaded to Confluence, embedded in Notion (via Markdown import), or committed to a Git repository. Guideflow's output is a hosted link, not a transferable file." },
+];
+
+const theirAdvantages = [
+  { title: "Interactive Clickable Demos", desc: "Guideflow's output is a fully interactive product tour — users can click through the steps as if using the real product. This is fundamentally more engaging than a static screenshot guide and ideal for onboarding new users or showcasing features to prospects." },
+  { title: "Analytics & View Tracking", desc: "Guideflow tracks how many people view each demo and where they drop off, giving insight into guide effectiveness. Procshot has no analytics." },
+  { title: "Native Embed for Sales & Marketing", desc: "Guideflow demos embed directly into product pages, landing pages, or help docs via iframe — a clear advantage for teams using documentation to drive conversions or support." },
+];
+
+const verdict = "Procshot and Guideflow solve related but distinct problems. If you're creating internal SOPs, how-to documentation for your team, or reference guides for yourself — Procshot is the right tool: free exports, local storage, and no subscription required. If you're creating customer-facing interactive product tours that embed on a website and track engagement, Guideflow's interactive format is the better fit. The $20/month difference is significant — Guideflow is built for marketing and sales workflows, not personal or team documentation.";
+
+const faq: ComparisonFaq[] = [
+  { question: "What's the main difference between Procshot and Guideflow?", answer: "Procshot creates static step-by-step guides with screenshots — like a formatted PDF or Markdown document. Guideflow creates interactive clickable demos that users can walk through as if using the real product. Both auto-capture browser workflows, but the output and intended use case are different." },
+  { question: "Can Guideflow export to PDF like Procshot?", answer: "No. Guideflow's output is a hosted interactive demo, not a downloadable document. There is no PDF or Markdown export option in any Guideflow plan. Procshot's PDF, Markdown, and HTML exports are available on the free plan." },
+  { question: "Is Procshot good for customer onboarding?", answer: "Procshot is best for internal documentation, SOPs, and how-to guides. For customer-facing onboarding that embeds on your website or product dashboard, Guideflow's interactive format creates a better user experience." },
+  { question: "How many guides can I create for free?", answer: "Procshot allows 5 guides per month on the free plan. Guideflow allows 3 demos total across the lifetime of the free account — after that, the Starter plan at $20/month is required." },
+  { question: "Can I use Procshot and Guideflow together?", answer: "Yes. A common workflow: use Procshot to create internal documentation (PDF/Markdown for your team), and use Guideflow to create an interactive demo for your website or sales team. They serve different audiences and don't conflict." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="Procshot vs Guideflow — Free Chrome Extension Alternative in 2026"
+  seoDescription="Procshot vs Guideflow: static PDF/Markdown guides vs interactive demos. Procshot is free with local storage. Guideflow starts at $20/mo for interactive product tours."
+  seoKeywords="guideflow alternative, free guide maker chrome extension, interactive demo alternative, step by step guide creator free, procshot vs guideflow"
+  h1="Procshot vs Guideflow"
+  intro="Procshot generates downloadable step-by-step guides. Guideflow creates interactive clickable demos. Same source (your browser workflow), very different outputs — here's which fits your use case."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/procshot-vs-scribe/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot vs Scribe</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Free vs $23/mo comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/procshot-vs-tango/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot vs Tango</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">AI features vs local-first</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/procshot-vs-loom/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot vs Loom</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Text guides vs video recording</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/procshot/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

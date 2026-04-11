@@ -1,0 +1,121 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "Procshot",
+  icon: "/ext-icons/procshot.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/%E6%89%8B%E9%A0%86%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3-%E6%89%8B%E9%A0%86%E6%9B%B8%E3%83%BB%E6%93%8D%E4%BD%9C%E3%83%9E%E3%83%8B%E3%82%A2%E3%83%AB%E8%87%AA%E5%8B%95%E4%BD%9C%E6%88%90/ieblehdloggcpmkncplccjofeoakhkll",
+  users: "100+",
+  rating: "New",
+  price: "Free / Pro $3.99/mo",
+  extensionPageUrl: "/extensions/procshot/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Tango",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/tango-how-to-guides-train/lggdbpblkekjjbobadliahffoaobaknh",
+  users: "500,000+",
+  rating: "4.7 (1,200+)",
+  price: "Free / Pro $16/user/mo",
+  badge: "Editor's Pick",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Price", ours: "Free tier + $3.99/mo Pro", theirs: "Free tier (5 guides); Pro from $16/user/mo", highlight: true },
+  { feature: "PDF Export", ours: "Yes — free", theirs: "Pro plan only", highlight: true },
+  { feature: "Markdown Export", ours: "Yes — free", theirs: "No", highlight: true },
+  { feature: "HTML Export", ours: "Yes — free, bundled images", theirs: "No", highlight: true },
+  { feature: "Data Processing", ours: "100% local — nothing leaves your browser", theirs: "Cloud-based — guides stored on Tango servers", highlight: true },
+  { feature: "Account Required", ours: "No", theirs: "Yes (Google/Email sign-in)", highlight: true },
+  { feature: "AI Step Descriptions", ours: "DOM-based (structured, no AI)", theirs: "AI-generated (GPT-powered)", },
+  { feature: "Screenshot Annotations", ours: "Built-in: boxes, arrows, text, blur", theirs: "Auto highlight + click indicators" },
+  { feature: "Auto-Record Actions", ours: "Yes", theirs: "Yes" },
+  { feature: "Team Workspace", ours: "Export & share files", theirs: "Built-in (Pro)", },
+  { feature: "Embed in Notion / Confluence", ours: "Via HTML or Markdown export", theirs: "Native embed support (Pro)", },
+  { feature: "Guide Limit (Free)", ours: "5 guides/month", theirs: "5 guides total", highlight: true },
+  { feature: "Japanese Language", ours: "Yes (UI & PDF export)", theirs: "UI only (English output)", highlight: true },
+  { feature: "Offline Use", ours: "Yes — all processing local", theirs: "No — requires internet connection", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Truly Local — No Account, No Cloud", desc: "Procshot processes everything inside your browser. No sign-in, no cloud upload, no third-party server receives your workflow data. Tango requires an account and stores all guides in their cloud, which matters if you're documenting internal or confidential workflows." },
+  { title: "Full Export in the Free Tier", desc: "PDF, Markdown, and self-contained HTML exports are all free in Procshot. Tango's free tier caps you at 5 guides total and withholds PDF export entirely — a hard limit that forces a Pro upgrade for any ongoing use." },
+  { title: "More Affordable Pro Tier", desc: "Procshot Pro is $3.99/month. Tango Pro runs $16/user/month — more than 4× the price for comparable single-user documentation workflows." },
+  { title: "Markdown & HTML Export", desc: "Procshot exports to Markdown (ideal for developer wikis, GitHub Pages, or Obsidian) and self-contained HTML. Tango does not offer Markdown export at any price tier." },
+  { title: "Works Offline", desc: "Because Procshot is entirely local, it works without an internet connection. Tango's cloud dependency means it cannot record or access guides offline." },
+];
+
+const theirAdvantages = [
+  { title: "AI-Generated Step Descriptions", desc: "Tango uses AI to write natural, polished step descriptions automatically. The output is generally more readable than DOM-extracted text, especially for non-technical users who share guides with varied audiences." },
+  { title: "Native Confluence & Notion Embed", desc: "Tango Pro supports direct embed into Confluence, Notion, and other platforms via an iframe or native integration. Procshot requires manual export and upload." },
+  { title: "Large, Established User Base", desc: "500K+ Chrome users and significant enterprise adoption provide strong social proof and a mature support ecosystem." },
+  { title: "Team Collaboration", desc: "Tango's Pro plan includes a shared workspace where teams can organize, update, and version-control guides centrally." },
+];
+
+const verdict = "If AI-generated step text and native Confluence embeds are priorities, Tango's Pro plan is purpose-built for team documentation workflows. But for individual users, small teams, and anyone who needs PDF or Markdown export without a subscription — or who is documenting sensitive internal workflows that should never leave the browser — Procshot is the stronger choice. The free tier difference is stark: Tango's free tier caps at 5 guides for life, while Procshot allows 5 per month with full export capabilities.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Does Tango have a free plan?", answer: "Tango has a free tier limited to 5 guides total (not per month) with restricted export options. After 5 guides, you must upgrade to Pro at $16/user/month. Procshot's free tier allows 5 guides per month." },
+  { question: "Can Procshot replace Tango for team documentation?", answer: "For individual use and small teams who share files externally, yes. Procshot lacks Tango's built-in team workspace, but PDF, HTML, and Markdown exports can be shared via Slack, email, or any file storage tool. For large teams needing a centralized guide library with version control, Tango's Pro tier has advantages." },
+  { question: "Does Procshot use AI like Tango?", answer: "Procshot uses DOM-based text extraction to generate step descriptions — it reads the page structure to identify actions. Tango uses AI (GPT-powered) to generate more natural-sounding text. Procshot's output is accurate and structured; Tango's may read more naturally for non-technical audiences." },
+  { question: "Is my data private with Procshot?", answer: "Yes. All processing happens locally in your browser. No guide content, screenshots, or workflow data is sent to any server. This makes Procshot suitable for documenting internal tools, private dashboards, and confidential workflows." },
+  { question: "Which is better for developer documentation?", answer: "Procshot's Markdown export makes it the better fit for developer workflows — you can export directly to GitHub, Notion (via Markdown import), or static site generators. Tango does not offer Markdown export at any tier." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="Procshot vs Tango — Free Chrome Extension Alternative in 2026"
+  seoDescription="Procshot vs Tango: compare pricing, privacy, and export options. Procshot offers free PDF and Markdown export with 100% local storage. Tango charges $16/user/mo."
+  seoKeywords="tango alternative, free step by step guide maker chrome extension, tango chrome extension alternative, process documentation free, procshot vs tango"
+  h1="Procshot vs Tango"
+  intro="Both auto-generate step-by-step guides from browser actions — but they diverge sharply on price, privacy, and export options. Here's the full comparison for 2026."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/procshot-vs-scribe/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot vs Scribe</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Free vs $23/mo comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/procshot-vs-guideflow/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot vs Guideflow</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Static guides vs interactive demos</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/procshot-vs-loom/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot vs Loom</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Text guides vs video recording</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/procshot/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

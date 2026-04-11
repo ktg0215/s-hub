@@ -1,0 +1,119 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "FocusGuard",
+  icon: "/ext-icons/focusguard.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/focusguard/lcfccmlmcckjdngonemjdhhbmmgbhead",
+  users: "New",
+  rating: "5.0",
+  price: "Free Trial / Pro $3.99/mo",
+  extensionPageUrl: "/extensions/focusguard/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "StayFocusd",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/stayfocusd/laankejkbhbdhmipfmgcngdelahlfoji",
+  users: "1,000,000+",
+  rating: "4.3 (15,000+)",
+  price: "Free",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Blocking Approach", ours: "Gentle — redirect to motivational focus page", theirs: "Hard stop — shows blocked page error", highlight: true },
+  { feature: "Pomodoro / Focus Timer", ours: "Yes — built-in with customizable intervals", theirs: "No — time allowance only (max minutes/day)", highlight: true },
+  { feature: "Focus Statistics", ours: "Yes — daily and weekly session tracking", theirs: "No — no focus history", highlight: true },
+  { feature: "Multiple Block Profiles", ours: "Yes — work, study, personal profiles (Pro)", theirs: "One block list — no profiles", highlight: true },
+  { feature: "Schedule-Based Blocking", ours: "Yes — allowed hours per day (Pro)", theirs: "Yes — active hours setting", },
+  { feature: "Strict Mode / Bypass Prevention", ours: "Yes — strict mode during sessions (Pro)", theirs: "Yes — Nuclear Option (hard lock)", },
+  { feature: "Block Entire Domains", ours: "Yes", theirs: "Yes", },
+  { feature: "Allowlist Specific Pages", ours: "Yes (Pro)", theirs: "Yes — allowed pages within blocked domains", },
+  { feature: "User Interface", ours: "Modern — clean, minimal design", theirs: "Dated — original 2011 interface", highlight: true },
+  { feature: "Mobile Support", ours: "Chrome desktop only", theirs: "Chrome desktop only", },
+  { feature: "Data Privacy", ours: "100% local — no external calls", theirs: "100% local", },
+  { feature: "Open Source", ours: "No", theirs: "No", },
+  { feature: "Price", ours: "Free Trial / Pro $3.99/mo", theirs: "Free — all features", highlight: true },
+  { feature: "Active Development", ours: "Yes — modern codebase", theirs: "Minimal updates since 2011", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Gentle Blocking Builds Sustainable Habits", desc: "When you hit a blocked site, FocusGuard redirects you to a motivational focus page rather than a dead-end error. This friction-with-purpose approach reminds you why you're blocking instead of just punishing you. StayFocusd's hard stop — a stark 'This site is blocked' message — triggers frustration rather than refocus. Over weeks of use, the motivational redirect approach builds awareness of distraction patterns; StayFocusd's approach builds resentment toward the blocker." },
+  { title: "Built-In Pomodoro Timer — StayFocusd Has None", desc: "FocusGuard's Pomodoro timer structures your work into timed focus sessions with breaks, synced to your block list. Blocking is active during focus time; your blocked sites become accessible during breaks — a natural rhythm that makes blocking feel enabling rather than restrictive. StayFocusd uses a daily time allowance model (max X minutes per day on blocked sites) with no session-based timer. For users who work in structured intervals, FocusGuard's session approach fits the workflow; StayFocusd's allowance model requires manual tracking." },
+  { title: "Focus Statistics — Track What StayFocusd Can't", desc: "FocusGuard logs every focus session with daily and weekly summaries — total focused time, sessions completed, streaks. This data lets you see your productivity trends and build the habit consciously. StayFocusd shows you how much of your daily allowance you've consumed on blocked sites, but records no focus history. After a week of focused work, StayFocusd has no record; FocusGuard shows you exactly what you built." },
+  { title: "Multiple Block Profiles — StayFocusd Has One List", desc: "FocusGuard Pro lets you create separate block profiles for different contexts: a work profile blocking social media and news, a study profile adding YouTube and entertainment, a writing profile blocking everything except reference sites. StayFocusd maintains a single block list with a single daily allowance — switching between work and study modes requires manually editing the same list." },
+  { title: "Modern Interface — StayFocusd's UI Is From 2011", desc: "StayFocusd's interface hasn't changed substantially since its original release. Its settings panel and Nuclear Option flow reflect early Chrome extension design conventions. FocusGuard was built with a clean, minimal modern UI. For users who spend time in their focus app every day, the interface quality affects how the tool feels to use long-term." },
+];
+
+const theirAdvantages = [
+  { title: "1 Million+ Users and Decade of Proven Reliability", desc: "StayFocusd has been the default recommendation for Chrome site blocking for over a decade. Its 1M+ users and 15,000+ reviews represent extensive real-world testing. For users who want a tool with a long track record, StayFocusd's longevity is hard to argue with." },
+  { title: "Nuclear Option — The Strictest Blocker Available", desc: "StayFocusd's Nuclear Option locks down your entire browsing experience for a set duration — you cannot disable it until the timer runs out. It's the hardest-core blocking available in a Chrome extension. FocusGuard's strict mode is firm but not as absolute. For users who know they'll rationalize their way around softer blocks, Nuclear Option is uniquely effective." },
+  { title: "Completely Free — All Features", desc: "StayFocusd is free with all features. FocusGuard's Pro features — multiple profiles, scheduling, strict mode — require $3.99/month." },
+  { title: "Allowlist Pages Within Blocked Domains", desc: "StayFocusd lets you block YouTube while allowing specific YouTube channels or playlists. This granular sub-domain allowlisting is useful for researchers who need selective access within a blocked domain." },
+];
+
+const verdict = "StayFocusd is the established choice if you need maximum strictness (Nuclear Option) and want a proven free tool with no subscription. FocusGuard is the better choice if you want sustainable habit-building: the gentle redirect keeps you aware of why you're blocking, the Pomodoro timer structures your work into natural sessions, and focus statistics show your progress over time. These differences sound minor but compound significantly across weeks of daily use — hard stops breed workarounds, gentle friction builds awareness. If you've tried StayFocusd and found yourself regularly disabling it or using the Nuclear Option, FocusGuard's structured session approach may suit you better.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Is StayFocusd still being actively developed?", answer: "StayFocusd has seen minimal updates since its original release. It's stable and functional but hasn't added new features in years. FocusGuard is actively developed with a modern codebase built for current Chrome extension standards." },
+  { question: "What is FocusGuard's 'gentle blocking' approach?", answer: "When you visit a blocked site during a focus session, FocusGuard redirects you to a motivational focus page instead of showing a plain error. The page reminds you of your focus goal, helping you refocus rather than just feeling stopped. StayFocusd shows a hard block page with no motivational context." },
+  { question: "Does FocusGuard have a Nuclear Option like StayFocusd?", answer: "FocusGuard has strict mode (Pro) that prevents easily bypassing blocks during active sessions. It's firm but doesn't lock you out as absolutely as StayFocusd's Nuclear Option. If maximum unbreakable blocking is your primary need, StayFocusd's Nuclear Option is the stronger implementation." },
+  { question: "Can I track my focus time in StayFocusd?", answer: "No. StayFocusd tracks how much time you've spent on blocked sites (toward your daily allowance) but doesn't record focus session history. FocusGuard's statistics show daily and weekly focused time, session counts, and streaks." },
+  { question: "Does FocusGuard have a free version?", answer: "Yes. FocusGuard offers a free trial with core blocking and Pomodoro features. Pro ($3.99/month) adds multiple block profiles, schedule-based blocking, and strict mode. StayFocusd is completely free with all features." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="FocusGuard vs StayFocusd — Gentle Blocking with Pomodoro vs Hard Stop Site Blocker (2026)"
+  seoDescription="FocusGuard redirects to motivational pages, tracks focus sessions, and includes a Pomodoro timer. StayFocusd has a Nuclear Option and 1M+ users. Full comparison."
+  seoKeywords="stayfocusd alternative, focusguard vs stayfocusd, site blocker chrome 2026, pomodoro site blocker, focus timer extension chrome"
+  h1="FocusGuard vs StayFocusd"
+  intro="StayFocusd has blocked distracting sites for 1 million+ Chrome users since 2011. FocusGuard takes a gentler approach: motivational redirects, a built-in Pomodoro timer, and focus statistics to build habits rather than just enforce limits."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/focusguard-vs-cold-turkey/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard vs Cold Turkey</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Gentle sessions vs hardcore blocking</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/focusguard-vs-forest/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard vs Forest</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Chrome extension vs mobile-first app</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/focusguard-vs-leechblock-ng/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard vs LeechBlock NG</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Simple setup vs deep configuration</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/focusguard/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, Pomodoro timer, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

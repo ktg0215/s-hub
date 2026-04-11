@@ -1,0 +1,121 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "ReadMark",
+  icon: "/ext-icons/ReadMark.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/readmark-save-reading-pos/inejhohffndeacbihghjcobndpoejdfn",
+  users: "30+",
+  rating: "5.0 (1)",
+  price: "Free / Pro $4.99 one-time",
+  extensionPageUrl: "/extensions/readmark/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Matter",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/matter-save-articles-pdfs/knjbgabkeojmfdhindppcmhhfiembkeb",
+  users: "40,000+",
+  rating: "4.3 (400+)",
+  price: "Free (limited) / Plus $7.99/mo",
+  badge: "",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Primary Function", ours: "Save reading position on any URL", theirs: "Read-later app with AI summaries + audio", highlight: true },
+  { feature: "Exact Scroll Position Saved", ours: "Yes — auto-saved per URL", theirs: "No — marks as read/unread only", highlight: true },
+  { feature: "Works on Private / Internal URLs", ours: "Yes — any URL your browser can open", theirs: "No — public articles only", highlight: true },
+  { feature: "Account Required", ours: "No", theirs: "Yes", highlight: true },
+  { feature: "Data Storage", ours: "100% local (browser only)", theirs: "Cloud (Matter servers)", highlight: true },
+  { feature: "Price", ours: "Free / $4.99 one-time", theirs: "Free (limited) / $7.99/month Plus", highlight: true },
+  { feature: "AI Article Summary", ours: "No", theirs: "Yes — AI-generated summaries", },
+  { feature: "Text-to-Speech / Audio", ours: "No", theirs: "Yes — listen to articles", },
+  { feature: "Newsletter Inbox", ours: "No", theirs: "Yes — dedicated @matterapp.com address", },
+  { feature: "Highlights & Annotations", ours: "No (planned v2.0)", theirs: "Yes", },
+  { feature: "RSS Feed Integration", ours: "No", theirs: "Yes", },
+  { feature: "Works on Confluence / Wikis", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Extension Size", ours: "Lightweight (~50KB)", theirs: "Heavier footprint", highlight: true },
+  { feature: "Offline Access", ours: "Position saved; page needs browser cache", theirs: "Yes — cached article reading", },
+];
+
+const ourAdvantages = [
+  { title: "Position Tracking — The Gap Matter Doesn't Fill", desc: "Matter is a sophisticated read-later app, but it doesn't track where you are within an article. If you were halfway through a 7,000-word essay and closed the app, Matter will return you to the beginning. ReadMark saves your exact scroll position and restores it — across sessions, across days. This is the one thing Matter users commonly miss." },
+  { title: "Works on Private URLs and Internal Docs", desc: "Matter's core mechanism — save an article, Matter fetches and stores it — only works for publicly accessible content. ReadMark saves your position on any URL your browser can open: internal Confluence wikis, Notion pages, GitHub specs, paywalled content you're already subscribed to. If you work with internal documentation, ReadMark covers the gap." },
+  { title: "No Account, No Cloud Dependency", desc: "ReadMark is installed and immediately useful — no account creation, no email address, no onboarding flow. Matter requires account creation. ReadMark stores data locally in your browser; if Matter's service changes, your library and notes in their cloud could be affected." },
+  { title: "Significantly Cheaper", desc: "Matter Plus costs $7.99/month — $95.88/year. ReadMark Pro is a $4.99 one-time purchase. If all you need is reading position tracking, the price difference is decisive." },
+  { title: "Lightweight and Fast", desc: "ReadMark is a small, focused extension (~50KB) that doesn't add processing overhead to your browsing. Matter's AI-powered features require more background resources. If you value browser performance, ReadMark's lightweight footprint is a clear advantage." },
+];
+
+const theirAdvantages = [
+  { title: "AI-Generated Article Summaries", desc: "Matter's standout feature is AI-powered summaries of saved articles — read the key points in 30 seconds before deciding whether to read the full piece. This is a fundamentally different reading workflow that ReadMark doesn't attempt." },
+  { title: "Text-to-Speech Audio Narration", desc: "Matter converts articles to audio for hands-free listening during commutes or exercise. This is one of the most distinctive features in the read-later space and ReadMark has no equivalent." },
+  { title: "Newsletter Inbox Integration", desc: "Matter provides a dedicated email address for newsletter subscriptions, bringing newsletters into your reading queue alongside articles. ReadMark has no newsletter support." },
+  { title: "RSS and Feed Management", desc: "Matter aggregates RSS feeds and curated content alongside saved articles — functioning as a full reading hub. ReadMark is single-purpose: position tracking only." },
+  { title: "Cross-Device Reading Experience", desc: "Matter's iOS and Android apps provide a consistent reading experience across devices with synced highlights and progress. ReadMark is Chrome-only with no mobile app." },
+];
+
+const verdict = "Matter and ReadMark serve readers with different priorities. Matter is a full reading platform: AI summaries, audio playback, newsletters, highlights — designed to help you consume public content more efficiently across devices. ReadMark is a single-purpose position tracker: remember exactly where you are in any article or document, including private URLs that no read-later app can archive. The choice comes down to what you read: if you consume primarily public articles and want AI assistance and audio, Matter is excellent. If you work with internal docs, developer wikis, or long-form content across many different sites and sessions, ReadMark's position tracking is the gap that Matter doesn't fill.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Does Matter save reading position within articles?", answer: "Matter tracks whether you've read an article and supports some progress indicators within its own reading view. However, it does not save your scroll position on the original web page. ReadMark saves your exact browser scroll position and restores it when you revisit any URL — inside or outside a read-later app." },
+  { question: "Can Matter work on private or internal pages?", answer: "No. Matter works by saving public articles to their server for reading within the Matter app. Internal Confluence pages, private Notion documents, or any URL behind a login cannot be accessed by Matter's server. ReadMark saves position locally and works on any URL your browser can open." },
+  { question: "Is Matter's free tier useful?", answer: "Matter's free tier has limits on saves per month and restricts AI summary features. The full experience requires the Plus plan at $7.99/month. ReadMark's free tier allows 5 bookmarks per month with core position tracking features included." },
+  { question: "Can I use ReadMark alongside Matter?", answer: "Yes, and this is a practical combination. Use Matter for public articles you want to read in a clean environment with AI summaries. Use ReadMark for any content you're actively reading across multiple sessions — especially private pages and internal tools that Matter can't access." },
+  { question: "Does ReadMark have AI features like Matter?", answer: "No. ReadMark is deliberately simple: it saves scroll positions, not article content or metadata. There's no AI processing, no summary generation, and no audio playback. ReadMark's advantage is its simplicity, privacy, and ability to work on any URL." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="ReadMark vs Matter — Reading Position Tracker vs AI Read-Later App (2026)"
+  seoDescription="ReadMark vs Matter: local position tracking on any URL vs AI summaries and audio playback. $4.99 one-time vs $7.99/month. Which reading tool fits your workflow?"
+  seoKeywords="matter app alternative, reading position chrome extension, matter vs readmark, read later app alternative, local reading tracker no subscription"
+  h1="ReadMark vs Matter"
+  intro="Matter brings AI summaries, audio playback, and newsletters to your reading queue. ReadMark saves your exact reading position on any URL — including private pages Matter can't access. Two tools, two different reading problems."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/readmark-vs-pocket/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Pocket</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">No ads, no account, one-time price</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/readmark-vs-readwise-reader/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Readwise Reader</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$4.99 one-time vs $7.99/mo</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/readmark-vs-omnivore/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Omnivore</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Omnivore shut down — what's next?</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/readmark/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

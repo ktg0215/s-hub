@@ -1,0 +1,120 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "DataPick",
+  icon: "/ext-icons/datapick.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/datapick/epoehadeccangbpjldlbkapnakndbpkf",
+  users: "80+",
+  rating: "5.0 (1)",
+  price: "Free / Pro $19 one-time",
+  extensionPageUrl: "/extensions/datapick/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Simplescraper",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/simplescraper-%E2%80%94-scrape-web/lnddbhdmiciimpkbilgpklcglkdegdkg",
+  users: "30,000+",
+  rating: "4.4 (300+)",
+  price: "Free (limited) / Pro $19/mo",
+  badge: "Cloud scraping + Airtable integration",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Price", ours: "Free (3 exports/day) / $19 one-time", theirs: "Free (limited) / $19/month", highlight: true },
+  { feature: "Annual Cost (paid)", ours: "$19 total", theirs: "$228/year", highlight: true },
+  { feature: "Data Processing", ours: "100% local — no server", theirs: "Cloud-based (Simplescraper servers)", highlight: true },
+  { feature: "Account Required", ours: "No", theirs: "Yes", highlight: true },
+  { feature: "Google Sheets Export", ours: "Yes — direct write (Pro)", theirs: "Via webhook / Zapier integration", },
+  { feature: "Airtable Direct Integration", ours: "No (CSV import)", theirs: "Yes — native (Pro)", },
+  { feature: "Pre-Built Japan EC Templates", ours: "12 templates (Rakuten, Mercari, SUUMO, etc.)", theirs: "None", highlight: true },
+  { feature: "Point & Click Selection", ours: "Yes — visual element picker", theirs: "Yes — side panel UI", },
+  { feature: "Scheduled Scraping", ours: "No (manual trigger)", theirs: "Yes (Pro — runs in cloud)", },
+  { feature: "CSV / Excel Export", ours: "Yes", theirs: "Yes", },
+  { feature: "Japanese Language UI", ours: "Yes", theirs: "No (English only)", highlight: true },
+  { feature: "Diff Detection", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Recipe / Preset Saving", ours: "Yes", theirs: "Yes — saved scrapers", },
+  { feature: "Offline Use", ours: "Yes — local processing", theirs: "No — requires cloud connection", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "$19 Once vs $228 Every Year", desc: "Simplescraper Pro costs $19/month — $228/year. DataPick Pro is a one-time $19 purchase. The break-even is exactly one month: after your first month of Simplescraper, DataPick would have been cheaper for life. Over two years, DataPick costs 96% less than maintaining a Simplescraper Pro subscription." },
+  { title: "No Account, No Cloud, No Server", desc: "Simplescraper requires account creation and routes data through their cloud servers. DataPick requires no sign-in and processes all extraction locally in your browser. For scraping competitive pricing, internal research, or any data where privacy matters, local processing is the safer default. There's also no server dependency — DataPick works offline, Simplescraper does not." },
+  { title: "12 Pre-Built Japan EC Templates", desc: "DataPick includes pre-configured templates for Rakuten, Mercari, Amazon JP, SUUMO, Yahoo! Shopping, Tabelog, and more — open the template and run. Simplescraper has no Japan EC templates; every scrape requires manual element selection. For Japanese market research workflows, DataPick removes a significant configuration step." },
+  { title: "Diff Detection Built-In", desc: "DataPick can compare two scrape runs and highlight what changed — essential for price monitoring, inventory tracking, or competitive research that involves checking the same pages repeatedly. Simplescraper has no change-detection feature." },
+  { title: "Zero Platform Lock-In", desc: "Simplescraper stores your saved scrapers in their cloud account. If Simplescraper's pricing changes or the service becomes unavailable, your saved configurations could be lost. DataPick recipes are stored locally in your browser — there's no account to lose access to and no cloud dependency." },
+];
+
+const theirAdvantages = [
+  { title: "Airtable Direct Integration (Pro)", desc: "Simplescraper Pro connects natively to Airtable — scraped data lands directly in your Airtable base without export/import steps. DataPick requires CSV export and manual Airtable import. For teams with Airtable-centric workflows, this is a meaningful convenience." },
+  { title: "Scheduled Cloud Scraping", desc: "Simplescraper Pro runs scheduled scrapes in the cloud, without requiring your browser to be open. DataPick is manual-trigger only. For recurring automated data collection, Simplescraper's scheduling is a genuine advantage DataPick doesn't offer." },
+  { title: "Side Panel UI", desc: "Simplescraper's side panel interface keeps the scraping controls visible while you interact with the page. Some users find this more intuitive than DataPick's popup-based UI for configuring element selection." },
+  { title: "Webhook Support", desc: "Simplescraper Pro can send scraped data to webhooks, enabling integration with Make, Zapier, and other automation platforms. DataPick's exports are file-based, requiring manual upload to downstream tools." },
+];
+
+const verdict = "Simplescraper and DataPick are the most directly comparable tools in this comparison set — both focus on simple, visual web scraping without requiring technical knowledge. The critical differences are price (DataPick at $19 once vs Simplescraper at $228/year), data privacy (DataPick is local; Simplescraper uses cloud servers), and Japan EC templates (DataPick has 12; Simplescraper has none). If you need Airtable direct sync or cloud-based scheduled scraping, Simplescraper's Pro plan is worth evaluating. For everything else — especially if you're doing Japan EC market research — DataPick delivers the same core extraction experience for a fraction of the cost.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Is Simplescraper really $19/month like DataPick Pro is $19 one-time?", answer: "Yes. Simplescraper Pro is $19 per month — $228 per year. DataPick Pro is a one-time $19 payment. After one month of Simplescraper Pro, DataPick would have been cheaper for life. The identical price number makes the comparison particularly striking." },
+  { question: "Does Simplescraper require an account?", answer: "Yes. Simplescraper requires account creation to save scrapers and access Pro features. DataPick requires no account — install it and use it immediately, with all configurations stored locally." },
+  { question: "Can DataPick do scheduled scraping like Simplescraper?", answer: "No. DataPick requires manual triggering — you open the extension and run the scrape when needed. Simplescraper Pro can run scheduled scrapes in the cloud without your browser being open. If your workflow requires automation without manual intervention, Simplescraper's scheduling is a capability DataPick doesn't have." },
+  { question: "Does Simplescraper work on Japanese EC sites?", answer: "Simplescraper works on any site your browser can open, including Japanese EC sites. However, it has no pre-built templates for Rakuten, Mercari, SUUMO, or other Japanese platforms. DataPick's 12 Japan EC templates are pre-configured and require no manual element selection." },
+  { question: "Which is better for a solo freelancer or researcher?", answer: "DataPick is almost always the better choice for individual users. The $19 one-time cost is dramatically lower than Simplescraper's ongoing subscription, there's no account to manage, data stays local, and the Japan EC templates cover the most common research use cases. Simplescraper's advantages (Airtable sync, scheduling) are most useful in team workflows with recurring automated pipelines." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="DataPick vs Simplescraper — $19 One-Time vs $19/Month Web Scraper (2026)"
+  seoDescription="DataPick vs Simplescraper: same starting price, completely different cost over time. DataPick is $19 once; Simplescraper is $228/year. Compare privacy, Japan EC templates, and features."
+  seoKeywords="simplescraper alternative, cheap web scraper no subscription, simplescraper vs datapick, web scraper one time payment chrome extension, japan ec web scraper"
+  h1="DataPick vs Simplescraper"
+  intro="DataPick Pro and Simplescraper Pro both start at $19 — but DataPick is a one-time payment and Simplescraper is $19 every month. That's $19 total vs $228/year. Here's the full comparison of what you get at each price."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/datapick-vs-instant-data-scraper/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Instant Data Scraper</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">14 months abandoned — 1M users</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/datapick-vs-bardeen/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Bardeen</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$19 once vs $144/year AI workflow</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/datapick-vs-webscraper-io/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick vs Webscraper.io</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Simple vs enterprise-grade</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/datapick/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/datapick.webp" alt="DataPick" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">DataPick — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, templates, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

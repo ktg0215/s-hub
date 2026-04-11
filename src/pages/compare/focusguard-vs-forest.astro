@@ -1,0 +1,121 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "FocusGuard",
+  icon: "/ext-icons/focusguard.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/focusguard/lcfccmlmcckjdngonemjdhhbmmgbhead",
+  users: "New",
+  rating: "5.0",
+  price: "Free Trial / Pro $3.99/mo",
+  extensionPageUrl: "/extensions/focusguard/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Forest",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/forest-stay-focused-be-pr/kjacjjdnoddnpbbcjilcajfhhbdhkpgk",
+  users: "10,000,000+ (app) / 4,000,000+ (Chrome)",
+  rating: "4.8 (50,000+)",
+  price: "Free (limited) / $1.99 app purchase",
+  badge: "Mobile-first — Chrome extension is secondary product",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Primary Platform", ours: "Chrome extension — desktop-native", theirs: "Mobile app (iOS/Android) — Chrome extension secondary", highlight: true },
+  { feature: "Pomodoro / Focus Timer", ours: "Yes — built-in with session tracking", theirs: "Yes — core feature (grow a tree)", highlight: true },
+  { feature: "Site Blocking (Chrome)", ours: "Yes — active block list, redirect on attempt", theirs: "Limited — Chrome extension blocks sites while timer runs", },
+  { feature: "Blocking Approach", ours: "Gentle — motivational redirect page", theirs: "Gamified — tree dies if you leave", highlight: true },
+  { feature: "Focus Statistics", ours: "Yes — daily and weekly session history", theirs: "Yes — forest/tree collection history", },
+  { feature: "Multiple Block Profiles", ours: "Yes — work, study, personal (Pro)", theirs: "No — single block list per session", highlight: true },
+  { feature: "Schedule-Based Blocking", ours: "Yes (Pro)", theirs: "No — manual session start only", highlight: true },
+  { feature: "Gamification / Rewards", ours: "No — stats-based habit tracking", theirs: "Yes — virtual tree, forest, real tree planting", highlight: true },
+  { feature: "Team / Friends Mode", ours: "No", theirs: "Yes — plant forest with friends (app)", },
+  { feature: "Real Tree Planting (with coins)", ours: "No", theirs: "Yes — earned coins fund real tree planting", },
+  { feature: "Deep Chrome Integration", ours: "Yes — native extension, session-synced blocking", theirs: "Limited — Chrome extension is not the core product", highlight: true },
+  { feature: "Offline Use", ours: "Yes — fully local", theirs: "App: yes / Chrome extension: requires active session", },
+  { feature: "Data Privacy", ours: "100% local — no external calls", theirs: "Account-synced — data stored on Forest servers", highlight: true },
+  { feature: "Price", ours: "Free Trial / Pro $3.99/mo", theirs: "Free (limited) / $1.99 app one-time + Chrome free", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Built for Chrome — Forest's Extension Is a Secondary Product", desc: "Forest was built as a mobile app. Its iOS and Android apps are its core product, with 10M+ downloads. The Chrome extension was added later to extend the mobile experience to desktop. FocusGuard was built specifically as a Chrome extension — the blocking logic, session tracking, and interface are all designed for desktop browser workflows. For users whose primary distraction happens in the browser, a Chrome-native tool integrates more deeply than a mobile app's browser companion." },
+  { title: "Persistent Block Lists vs Per-Session Setup", desc: "FocusGuard maintains a configured block list that's active whenever you start a session — your sites are always ready. Forest's Chrome extension blocks sites during an active timer but doesn't maintain a persistent configured list in the same way. For users who block the same sites every day (YouTube, Reddit, social media), FocusGuard's configured list approach eliminates per-session setup." },
+  { title: "Multiple Block Profiles for Different Contexts", desc: "FocusGuard Pro lets you create separate block profiles for work, study, and personal focus sessions with different site lists per context. Forest uses a single site list per session with no profile switching. For users who need different blocking configurations for different work types — a writer blocking everything, a developer blocking social media but needing Stack Overflow — FocusGuard's profiles serve this need." },
+  { title: "Schedule-Based Automatic Blocking", desc: "FocusGuard Pro lets you set which hours of the day blocking is active — automatically enforced without starting a manual session. Forest requires you to manually start each focus session. For users who want blocking on during work hours without remembering to start a timer, FocusGuard's schedule support automates the habit." },
+  { title: "100% Local — Forest Syncs Data to Their Servers", desc: "FocusGuard stores all session data locally. Forest requires an account and syncs your focus history, forest, and coins to Forest's servers. For users who prefer not to create an account or share productivity data with a third-party service, FocusGuard's local-only approach is meaningfully different." },
+];
+
+const theirAdvantages = [
+  { title: "Gamification That Actually Motivates — Virtual and Real Trees", desc: "Forest's tree metaphor is compelling: plant a virtual tree when you start a session, and it dies if you leave to browse distracting sites. Accumulated coins fund real tree planting through their environmental partner. The combination of virtual consequence (dead tree) and real-world impact (actual trees planted) motivates differently than statistics. For users who respond to gamification, Forest's design is thoughtfully effective." },
+  { title: "Cross-Platform — Mobile + Desktop Together", desc: "Forest's mobile app and Chrome extension sync your forest and focus history across devices. If your distraction problem spans both your phone and your laptop, Forest's cross-platform approach addresses both. FocusGuard is Chrome-only — it doesn't help with phone distraction." },
+  { title: "Friends and Team Focus Mode", desc: "Forest's app lets you plant a forest with friends — everyone's tree dies if any member leaves. This social accountability layer is unique to Forest. For students or teams who want shared focus sessions with external accountability, Forest's social mode has no equivalent in FocusGuard." },
+  { title: "4.8 Rating with 50,000+ Reviews — Proven at Scale", desc: "Forest's Chrome extension has 4.8 stars across 50,000+ reviews and the app has 10M+ downloads. This scale of validation across diverse users confirms the concept works reliably." },
+  { title: "Environmental Impact — Real Trees Planted", desc: "Forest's partnership with tree-planting organizations means your earned coins fund actual reforestation. This purpose layer adds meaning to focus sessions beyond productivity statistics. Users who care about environmental impact find genuine motivation here." },
+];
+
+const verdict = "Forest and FocusGuard represent different psychological approaches to the same problem. Forest makes focus feel like a game with real-world stakes — you're growing something tangible, and your coins plant real trees. FocusGuard makes focus feel like a habit system — sessions logged, trends visible, blocks enforced. The choice between them often comes down to whether gamification or structured habit-tracking resonates more with you. Forest is also notably better if your distraction spans your phone, since its mobile app is its core product. FocusGuard is better if your distraction is exclusively in Chrome and you want deeper browser integration, configurable profiles, and schedule-based blocking. Both are worth trying; neither is objectively superior — they're different design philosophies applied to the same problem.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Is Forest's Chrome extension as good as the mobile app?", answer: "Forest's mobile app is its core product — the Chrome extension is a companion for existing Forest app users. For pure Chrome-based focus blocking, FocusGuard is built specifically for this use case. Forest's Chrome extension is best suited for users who already use the Forest mobile app and want desktop continuity." },
+  { question: "Does FocusGuard have any gamification like Forest's trees?", answer: "No. FocusGuard is a stats-based habit tracker — it shows focus session history, time totals, and streaks. It doesn't have visual gamification like Forest's growing trees. If gamification is a key motivator for you, Forest's approach is distinctive." },
+  { question: "Does Forest block websites in Chrome?", answer: "Yes, but differently from FocusGuard. Forest's Chrome extension blocks sites while a timer session is active and the extension is running. FocusGuard maintains a persistent configured block list active across sessions with scheduling options. The depth of browser integration differs." },
+  { question: "Can FocusGuard work alongside Forest?", answer: "Yes, they don't conflict. Some users use Forest's mobile app for phone focus and FocusGuard for desktop Chrome blocking — complementary tools for different platforms." },
+  { question: "Does FocusGuard plant real trees?", answer: "No. FocusGuard doesn't have an environmental partnership. Forest's real tree planting through earned coins is a unique feature — if environmental impact is a meaningful motivator for you, Forest offers this; FocusGuard doesn't." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="FocusGuard vs Forest — Chrome-Native Focus Sessions vs Gamified Tree-Growing App (2026)"
+  seoDescription="FocusGuard is a Chrome-native blocker with Pomodoro sessions and profiles. Forest grows virtual trees and plants real ones — with a mobile app as its primary platform."
+  seoKeywords="forest app alternative, forest vs chrome extension, focus app vs site blocker, gamified productivity chrome, focusguard vs forest"
+  h1="FocusGuard vs Forest"
+  intro="Forest grows virtual trees while you focus — and plants real ones with your earned coins. FocusGuard blocks distracting sites with a Pomodoro timer, session statistics, and a motivational redirect. Different philosophies for the same problem."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/focusguard-vs-stayfocusd/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard vs StayFocusd</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Gentle sessions vs hard stop blocker</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/focusguard-vs-cold-turkey/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard vs Cold Turkey</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Gentle sessions vs hardcore blocking</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/focusguard-vs-leechblock-ng/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard vs LeechBlock NG</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Simple setup vs deep configuration</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/focusguard/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, Pomodoro timer, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

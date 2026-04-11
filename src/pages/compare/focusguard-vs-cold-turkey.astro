@@ -1,0 +1,120 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "FocusGuard",
+  icon: "/ext-icons/focusguard.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/focusguard/lcfccmlmcckjdngonemjdhhbmmgbhead",
+  users: "New",
+  rating: "5.0",
+  price: "Free Trial / Pro $3.99/mo",
+  extensionPageUrl: "/extensions/focusguard/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Cold Turkey Blocker",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "",
+  users: "Desktop app — no CWS listing",
+  rating: "4.5 (app store)",
+  price: "Free / Pro $39 one-time",
+  badge: "Desktop app — requires installation beyond Chrome",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Platform", ours: "Chrome extension — no extra install", theirs: "Desktop app + browser extension (Windows/Mac)", highlight: true },
+  { feature: "Blocking Approach", ours: "Gentle — motivational redirect with focus page", theirs: "Extreme — blocks at OS level, survives restarts", highlight: true },
+  { feature: "Can Be Disabled During Block", ours: "Strict mode (Pro) — firm but flexible", theirs: "No — locked until timer ends, cannot be bypassed", highlight: true },
+  { feature: "Pomodoro / Focus Timer", ours: "Yes — built-in with session tracking", theirs: "Yes — scheduled block timers", },
+  { feature: "Focus Statistics", ours: "Yes — daily and weekly session history", theirs: "Limited — tracks blocks, not sessions", highlight: true },
+  { feature: "Blocks Desktop Apps", ours: "No — browser only", theirs: "Yes — blocks Steam, games, any app", highlight: true },
+  { feature: "Blocks at OS Level", ours: "No — browser redirect only", theirs: "Yes — survives browser restart, VPN bypass", highlight: true },
+  { feature: "Multiple Block Profiles", ours: "Yes (Pro)", theirs: "Yes — multiple lists (Pro)", },
+  { feature: "Schedule-Based Blocking", ours: "Yes (Pro)", theirs: "Yes — extensive scheduling", },
+  { feature: "Motivational Redirect Page", ours: "Yes — focus page with session context", theirs: "No — blank block or basic message", highlight: true },
+  { feature: "Setup Complexity", ours: "Simple — add sites, start session", theirs: "Moderate — app install, settings migration", highlight: true },
+  { feature: "Data Privacy", ours: "100% local — no external calls", theirs: "Local — desktop app", },
+  { feature: "Price", ours: "Free Trial / Pro $3.99/mo", theirs: "Free (basic) / Pro $39 one-time", highlight: true },
+  { feature: "Best For", ours: "Habit-building, sustainable focus sessions", theirs: "Extreme self-discipline, cannot-trust-yourself users", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Gentle Blocking Builds Habits — Cold Turkey Enforces Them", desc: "FocusGuard's design philosophy is that sustainable focus comes from awareness, not just restriction. When you hit a blocked site, you see a motivational redirect that reminds you of your focus goal. You're choosing to refocus. Cold Turkey's approach is the opposite: blocks are absolute, unbypassable, and survive reboots. Both philosophies work — but for different people. Gentle blocking through FocusGuard builds conscious habit formation; Cold Turkey works for users who don't trust themselves to choose correctly and need the choice removed entirely." },
+  { title: "No Desktop App Install Required", desc: "FocusGuard is a Chrome extension — install it in 30 seconds from the Chrome Web Store, add your sites, and start a session. Cold Turkey is a desktop application that requires download and installation on your operating system. For users who don't want to install system-level software, or who use managed/work computers where software installation is restricted, FocusGuard is immediately accessible where Cold Turkey isn't." },
+  { title: "Focus Session Statistics — Cold Turkey Tracks Blocks, Not Sessions", desc: "FocusGuard records every focus session with time logged, session counts, daily and weekly summaries. Watching your focused hours accumulate provides positive reinforcement for building the habit. Cold Turkey logs what you blocked, not your productive output. For users who want to see their focus habit grow over time rather than just audit their block activity, FocusGuard's session history is the meaningful metric." },
+  { title: "Motivational Redirect — Cold Turkey Shows a Blank Block", desc: "FocusGuard's blocked-site redirect is a focus page with session context — a reminder of what you're working toward. Cold Turkey's block pages are minimal by design. The difference matters for the psychological experience of being blocked: FocusGuard turns the block into a prompt to refocus; Cold Turkey turns it into a wall." },
+  { title: "$3.99/mo vs $39 One-Time — Different Cost Models for Different Commitments", desc: "Cold Turkey Pro costs $39 once. FocusGuard Pro costs $3.99/month. Over a year, FocusGuard costs $47.88 vs Cold Turkey's $39 — slightly more annually, but FocusGuard requires less upfront commitment and includes ongoing updates. For users who want to try a focus tool before committing, FocusGuard's trial lowers the barrier. For users certain they'll use it long-term, Cold Turkey's one-time fee is economical." },
+];
+
+const theirAdvantages = [
+  { title: "OS-Level Blocking — Truly Unbypassable", desc: "Cold Turkey blocks at the operating system level. Restarting Chrome, using a different browser, using a VPN, or even rebooting your computer doesn't defeat a Cold Turkey block. No browser extension can match this — Chrome extensions only control Chrome. For users who find themselves switching browsers to bypass blocks, Cold Turkey's OS-level enforcement is uniquely effective." },
+  { title: "Blocks Desktop Applications, Not Just Websites", desc: "Cold Turkey can block Steam, games, Discord, Slack, or any desktop application — not just websites. For users whose distraction comes from local apps rather than websites, this capability is beyond what any browser extension can offer." },
+  { title: "Frozen Turkey — Lock Your Settings for Days", desc: "Cold Turkey's 'Frozen Turkey' feature locks your block settings for a specified duration — days or weeks — with no way to change them. This extreme commitment device is unique to Cold Turkey. It's not for everyone, but for users who need to enforce a significant behavior change (exam period, deadline crunch), nothing else offers this level of commitment." },
+  { title: "One-Time Payment — No Subscription", desc: "Cold Turkey Pro is $39 once with no recurring charges. FocusGuard Pro is $3.99/month ($47.88/year). For long-term use, Cold Turkey's one-time model is more economical." },
+];
+
+const verdict = "Cold Turkey and FocusGuard represent opposite ends of the focus tool spectrum. Cold Turkey is the choice for users who need maximum unbypassability — it blocks at the OS level, blocks desktop apps, and cannot be defeated by switching browsers or rebooting. FocusGuard is the choice for users building a sustainable focus habit — gentle redirects, Pomodoro sessions, and statistics that show your progress over time. These tools aren't in competition for the same user: Cold Turkey suits users who've tried softer approaches and need absolute enforcement; FocusGuard suits users who want structure and positive reinforcement without locking themselves down. If you've never tried a site blocker before, start with FocusGuard's gentler approach. If you've already disabled softer blockers mid-session and know you need something unbreakable, Cold Turkey is the right escalation.";
+
+const faq: ComparisonFaq[] = [
+  { question: "What is Cold Turkey Blocker?", answer: "Cold Turkey is a desktop application (Windows and Mac) that blocks websites and desktop applications at the operating system level. It's one of the strictest focus tools available — blocks survive browser restarts, VPNs, and even computer reboots. A browser extension cannot offer OS-level blocking." },
+  { question: "Can FocusGuard match Cold Turkey's strictness?", answer: "No. FocusGuard is a Chrome extension and can only block within Chrome. Cold Turkey blocks at the OS level across all browsers and applications. FocusGuard's strict mode (Pro) prevents easy bypass within Chrome, but switching to Firefox or another browser would circumvent it. Cold Turkey cannot be bypassed this way." },
+  { question: "Does Cold Turkey have a Pomodoro timer?", answer: "Cold Turkey includes scheduled blocking features that can approximate Pomodoro intervals, but it doesn't have a native Pomodoro interface with session tracking. FocusGuard has a built-in Pomodoro timer with focus session history." },
+  { question: "Is Cold Turkey worth the $39 one-time cost?", answer: "Cold Turkey Pro at $39 one-time is economical for long-term use. If you genuinely need OS-level blocking that survives browser switching and need to block desktop apps, the $39 provides unique value that browser extensions can't match. If your distraction is website-based and within Chrome, FocusGuard provides comparable web blocking at a lower initial cost." },
+  { question: "Can I use FocusGuard on a work computer where I can't install apps?", answer: "Yes. FocusGuard is a Chrome extension and doesn't require OS-level installation. Cold Turkey is a desktop application that may require administrator permissions to install on managed work computers. For users with restricted machines, FocusGuard is the accessible option." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="FocusGuard vs Cold Turkey — Gentle Browser Blocker vs OS-Level Unbypassable Blocker (2026)"
+  seoDescription="FocusGuard blocks sites in Chrome with motivational redirects and Pomodoro sessions. Cold Turkey blocks at the OS level across all browsers and desktop apps."
+  seoKeywords="cold turkey alternative, cold turkey blocker vs chrome extension, site blocker that cant be bypassed, focusguard vs cold turkey, focus app chrome 2026"
+  h1="FocusGuard vs Cold Turkey"
+  intro="Cold Turkey blocks at the OS level — surviving browser restarts, VPNs, and computer reboots. FocusGuard takes the opposite approach: gentle redirects, Pomodoro sessions, and focus statistics to build habits rather than enforce lockdowns."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-11"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/focusguard-vs-stayfocusd/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard vs StayFocusd</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Gentle sessions vs hard stop blocker</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/focusguard-vs-forest/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard vs Forest</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Chrome extension vs mobile-first app</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/compare/focusguard-vs-leechblock-ng/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard vs LeechBlock NG</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Simple setup vs deep configuration</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/focusguard/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/focusguard.png" alt="FocusGuard" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FocusGuard — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, Pomodoro timer, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>
