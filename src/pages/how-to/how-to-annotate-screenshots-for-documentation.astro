@@ -1,0 +1,169 @@
+---
+import HowToLayout from '../../layouts/HowToLayout.astro';
+
+const tldr = [
+  "Procshot's built-in annotation tools let you add arrows, boxes, text labels, and blur effects directly to captured screenshots.",
+  "Annotations are applied before export — the annotated screenshots appear in all export formats (PDF, Markdown, HTML).",
+  "Effective annotations direct reader attention and protect sensitive data without requiring a separate image editor.",
+];
+
+const whyMatters = "A screenshot without annotation is often ambiguous. On a complex dashboard with 20 buttons, 'click the Settings button' is useless without a visual indicator of which button. Annotations — arrows, boxes, text labels — translate the screenshot from a general image of the UI into a specific instruction. They reduce reader confusion, cut the number of 'where is that?' questions for documentation, and allow you to produce guides that work without back-and-forth clarification. For documentation used in onboarding, training, or customer support, annotation quality is the difference between a guide someone can follow independently and one that requires a person to walk them through it. Procshot includes annotation tools directly in the workflow, so screenshots are annotated before export rather than in a separate image editing step.";
+
+const steps = [
+  {
+    step: 1,
+    title: "Complete your Procshot recording",
+    desc: "Record your workflow as normal. Procshot captures a screenshot at every click action and page navigation. Once you click Stop Recording, the draft guide with all screenshots is ready to annotate.",
+  },
+  {
+    step: 2,
+    title: "Open the annotation editor for a step",
+    desc: "In the Procshot guide editor, click on any screenshot to open the annotation editor for that step. The annotation toolbar appears with the available tools: box, arrow, text, and blur.",
+  },
+  {
+    step: 3,
+    title: "Add a box or arrow to highlight the key element",
+    desc: "Use the box tool to draw a rectangle around the primary UI element for that step — the button, field, or area the reader needs to interact with. Use the arrow tool to draw a directional pointer toward the element if the box would cover important context. For most steps, one box or arrow is sufficient.",
+    tip: "Less is more — annotate the one most important element per step. Multiple boxes on one screenshot dilutes attention rather than focusing it.",
+  },
+  {
+    step: 4,
+    title: "Add text labels for additional context",
+    desc: "Use the text tool to add a short label when the element's visual position or function isn't self-evident from the step description alone. Good text labels are 2-5 words: 'Save changes here', 'Select your role', 'Required field'. Avoid long text in annotations — that belongs in the step description.",
+  },
+  {
+    step: 5,
+    title: "Apply blur effects to sensitive data",
+    desc: "Use the blur tool to obscure any sensitive data visible in the screenshot: user credentials, API keys, email addresses, names, or internal data. Draw the blur area over the sensitive region. The blur is applied to the screenshot before export and cannot be removed from the exported file.",
+    tip: "Apply blur conservatively — blur only the specific data that is sensitive, not the entire form or interface area. Blurring too much reduces the screenshot's usefulness.",
+  },
+  {
+    step: 6,
+    title: "Review annotations across all steps before exporting",
+    desc: "Scroll through all steps and verify: every step has an annotation directing attention to the right element, blur is applied to all sensitive data, text labels are brief and accurate. This review pass takes 1-2 minutes for a typical 10-step guide and prevents re-exporting after finding missed annotations.",
+  },
+  {
+    step: 7,
+    title: "Export the annotated guide",
+    desc: "Once annotations are complete, export in your preferred format: PDF, Markdown, or HTML. Annotations are baked into the screenshots in all export formats — they cannot be edited after export. The exported guide shows each screenshot with its annotations exactly as you see them in the editor.",
+  },
+];
+
+const useCases = [
+  {
+    title: "Complex Dashboards with Many Controls",
+    desc: "When documenting admin interfaces or analytics dashboards with dense UIs, arrows pointing to the specific button or dropdown direct readers immediately — eliminating the scanning that comes from a plain screenshot.",
+  },
+  {
+    title: "Bug Reports with Visual Evidence",
+    desc: "QA teams add a red box around the broken element in the bug manifestation screenshot. The annotated screenshot makes the problem immediately visible to engineers without reading the full description.",
+  },
+  {
+    title: "Sensitive Process Documentation",
+    desc: "IT admins document admin processes involving real credentials or user data. Blur effects on sensitive fields allow the guide to be shared with a broader audience without data exposure risk.",
+  },
+];
+
+const tips = [
+  "Use red or orange box colors for 'action required here' and blue for 'information to read' — consistent color coding builds annotation literacy in your documentation library.",
+  "Arrow annotations work better than box annotations when the target element is at the edge of the screenshot, where a box would be cut off.",
+  "For multi-step forms where the same field appears across steps, annotate differently each time to indicate which specific field is the focus of that step.",
+  "Test your annotated guide with a fresh reader before publishing — if they hesitate at any step to find the element, that step needs a clearer annotation.",
+  "For error screenshots, annotate the error message AND the area of the UI that caused it — both locations matter for the reader's understanding.",
+  "Keep blur areas tight around the specific sensitive data — blurring an entire screenshot section makes the guide less useful than blurring just the sensitive value.",
+];
+
+const pitfalls = [
+  {
+    title: "Over-annotating every step",
+    desc: "Adding arrows, boxes, and text labels to every screenshot creates visual noise that trains readers to ignore the annotations. Reserve annotations for steps where the relevant element isn't immediately obvious — typically 30-50% of steps in a well-designed UI. If every step needs an arrow, the guide's step descriptions may need improvement first.",
+  },
+  {
+    title: "Using blur inconsistently across a guide",
+    desc: "If you blur email addresses in some screenshots but not others, the inconsistency creates a false sense of security for the unblurred instances. Establish a consistent rule: any PII, credential, or internal data is blurred, always. Apply it uniformly across the entire guide during the review pass.",
+  },
+  {
+    title: "Annotating after exporting",
+    desc: "Procshot's annotations are applied to screenshots within the editor before export. If you export and then realize annotations are missing or incorrectly placed, you need to return to Procshot and re-export. The exported files are not editable back in Procshot. Do the annotation review pass before export, not after.",
+  },
+];
+
+const faq = [
+  { question: "Are annotations included in all three export formats?", answer: "Yes. Annotations (boxes, arrows, text labels, blur effects) are baked into the screenshot images before export. All three formats — PDF, Markdown, and HTML — include the annotated screenshots. The annotations cannot be removed from exported files." },
+  { question: "Can I change the color of annotation elements?", answer: "Procshot's annotation tools include standard color options for boxes, arrows, and text labels. The specific color options available are within the annotation editor. For documentation teams with brand color requirements, use the closest available color in the editor." },
+  { question: "Can I annotate screenshots after exporting?", answer: "Not within Procshot — annotations must be applied before export. If you need to annotate after exporting, use an image editor on the individual screenshot files (available in the Markdown or HTML export package), then re-import or replace the images in the exported document." },
+  { question: "Does the blur tool completely hide sensitive data?", answer: "Procshot's blur applies a visual obfuscation to the screenshot. It is sufficient for human viewers — the blurred content is not readable. It is not a cryptographic redaction. For highly sensitive regulatory or legal documents, verify the blur is sufficient for your compliance requirements." },
+  { question: "Can I add annotations to screenshots I didn't capture with Procshot?", answer: "Procshot's annotation tools work on screenshots captured during Procshot recordings. You cannot import external screenshots into Procshot for annotation. For annotating external screenshots, use a dedicated image editor like Preview (Mac), Paint (Windows), or a browser-based annotation tool." },
+];
+
+const relatedTools = [
+  { name: "Skitch", desc: "Dedicated screenshot annotation tool for Mac with extensive markup options. Useful for complex annotations beyond Procshot's built-in tools." },
+  { name: "Snagit", desc: "Screen capture and annotation desktop application. More annotation types than Procshot but requires a separate recording and annotation workflow." },
+  { name: "CleanShot X", desc: "Mac screenshot tool with annotation, scrolling capture, and blur features. Complementary to Procshot for individual screenshots outside of guide workflows." },
+  { name: "Preview (Mac)", desc: "Built-in Mac tool for PDF and image annotation. Can be used to add additional annotations to Procshot PDF exports." },
+];
+---
+
+<HowToLayout
+  seoTitle="How to Annotate Screenshots for Documentation with Procshot (2026)"
+  seoDescription="Procshot's built-in annotation tools add arrows, boxes, text labels, and blur to documentation screenshots before export. No separate image editor needed."
+  seoKeywords="how to annotate screenshots documentation, screenshot annotation chrome extension, blur sensitive data screenshots, annotate tutorial screenshots, procshot annotations"
+  h1="How to Annotate Screenshots for Documentation"
+  tldr={tldr}
+  whyMatters={whyMatters}
+  steps={steps}
+  useCases={useCases}
+  faq={faq}
+  tips={tips}
+  pitfalls={pitfalls}
+  relatedTools={relatedTools}
+  publishDate="2026-04-11"
+  timeEstimate="5 minutes"
+  difficulty="Beginner"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto border-t border-zinc-100">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related guides</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/how-to/how-to-create-step-by-step-tutorials-chrome-extension/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Create Step-by-Step Tutorials</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Chrome extension tutorial guide</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-document-software-processes-instantly/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Document Software Processes</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">SOPs and onboarding materials</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-create-bug-reports-with-screenshots/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Create Bug Reports with Screenshots</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">QA and developer workflows</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-export-tutorials-to-pdf-markdown/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Export Tutorials to PDF or Markdown</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Format guide for technical writers</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+    <div class="mt-4 pt-4 border-t border-zinc-100">
+      <p class="font-mono text-[10px] text-zinc-400 uppercase tracking-wider mb-3">// compare procshot</p>
+      <div class="flex flex-wrap gap-2">
+        <a href="/compare/procshot-vs-scribe/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Scribe →</a>
+        <a href="/compare/procshot-vs-tango/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Tango →</a>
+        <a href="/compare/procshot-vs-loom/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Loom →</a>
+      </div>
+    </div>
+  </section>
+</HowToLayout>

@@ -1,0 +1,170 @@
+---
+import HowToLayout from '../../layouts/HowToLayout.astro';
+
+const tldr = [
+  "Procshot exports recorded guides to PDF, Markdown, and HTML — each format serves a different distribution use case.",
+  "PDF for sharing and printing, Markdown for wikis and developer docs, HTML for web-based help centers.",
+  "Choose format based on where the guide will live — the same recording can be exported in all three formats.",
+];
+
+const whyMatters = "Exporting a tutorial in the wrong format creates unnecessary friction: a Markdown file emailed to a non-technical manager, a PDF pasted into a GitHub repository, HTML sent when Notion was expecting Markdown. The format isn't a technical detail — it's a distribution decision. Procshot supports PDF, Markdown, and HTML from the same recording, so the choice is about where the guide is going and who will use it. Understanding when to use each format saves the downstream step of converting between them, which often degrades image quality or formatting.";
+
+const steps = [
+  {
+    step: 1,
+    title: "Complete your recording and review the guide",
+    desc: "Finish recording your workflow in Procshot and review all step descriptions and annotations. Edit any descriptions that need improvement. Apply blur effects to any sensitive data. The content is the same regardless of export format — finalize it before choosing a format.",
+    tip: "The same guide can be exported in all three formats. If you're unsure which your audience needs, start with Markdown — it's the most flexible and can be converted to PDF or HTML later.",
+  },
+  {
+    step: 2,
+    title: "Open the Export panel in Procshot",
+    desc: "In the Procshot guide editor, locate the Export button. The export panel shows the three available formats: PDF, Markdown, and HTML. Each format has a brief description of what it produces.",
+  },
+  {
+    step: 3,
+    title: "Choose PDF for print, email, or standalone documents",
+    desc: "Select PDF when the guide will be emailed as an attachment, printed, attached to a ticket or issue, or shared as a standalone document that doesn't live in a platform. PDF preserves layout exactly as shown — all annotations, formatting, and images are embedded. Procshot's PDF export includes Japanese font support for CJK characters.",
+    tip: "PDF is the safest format for sharing with non-technical recipients — it opens in any browser or PDF viewer with no rendering variation.",
+  },
+  {
+    step: 4,
+    title: "Choose Markdown for wikis, GitHub, and developer documentation",
+    desc: "Select Markdown when the guide will be pasted into Notion, GitHub Issues, GitHub Wiki, a README, Linear, or any Markdown-compatible editor. Markdown exports include step descriptions and image references in standard Markdown syntax. Images are bundled in the export package.",
+    tip: "Markdown is ideal for documentation that will be version-controlled or edited by multiple people over time.",
+  },
+  {
+    step: 5,
+    title: "Choose HTML for help centers and web embedding",
+    desc: "Select HTML when the guide will be embedded in a web-based help center (HelpScout, Zendesk, Intercom), a wiki system, or any platform that accepts HTML content. HTML exports include all images bundled inline or as referenced files. The output renders directly in browsers without additional styling needed.",
+  },
+  {
+    step: 6,
+    title: "Click Export and save the output",
+    desc: "Click the Export button for your chosen format. Procshot generates the file and prompts you to save it. For Markdown exports, the output may include a zip archive with the Markdown file and an images folder — keep these together when moving the files.",
+  },
+  {
+    step: 7,
+    title: "Distribute the guide to its destination",
+    desc: "Place the exported guide in its intended location: attach to an email, upload to a help center, paste Markdown into your wiki, commit to a repository. For Markdown, paste the text content directly; for PDF and HTML, upload as a file attachment or embed as appropriate to the platform.",
+  },
+];
+
+const useCases = [
+  {
+    title: "Technical Writers Publishing to GitHub",
+    desc: "Technical writers export guides as Markdown and commit them to the repository's docs/ folder. The format renders natively in GitHub's markdown preview and integrates with documentation site generators like MkDocs or Docusaurus.",
+  },
+  {
+    title: "CS Teams Sending Welcome Email Attachments",
+    desc: "Customer success managers export onboarding guides as PDF and attach them to welcome emails or calendar invites for new customer kickoff calls. PDF's universal compatibility ensures every recipient can open it without a platform account.",
+  },
+  {
+    title: "Support Teams Publishing to Help Centers",
+    desc: "Support teams export guides as HTML and embed them in HelpScout or Zendesk help articles. The HTML output includes screenshots inline, making the guide self-contained without managing separate image uploads.",
+  },
+];
+
+const tips = [
+  "For Notion: paste Markdown content directly into a Notion page — Notion converts Markdown formatting on paste automatically.",
+  "For Confluence: HTML export works better than Markdown since Confluence uses its own markup language.",
+  "For GitHub README or Wiki: Markdown export renders natively. Keep the images folder alongside the .md file in the repository.",
+  "For email attachments: PDF is universally compatible. Markdown in an email body is readable but loses formatting in most email clients.",
+  "For documentation that will be translated: Markdown is the best base format — the text is easily editable and the image references are preserved.",
+  "Export in all three formats from the same recording if you need flexibility — the additional exports take seconds and you may need different formats for different audiences.",
+];
+
+const pitfalls = [
+  {
+    title: "Separating the Markdown file from its images folder",
+    desc: "Procshot's Markdown export produces a .md file and an images folder (or a zip containing both). If you move only the .md file to a new location and leave the images folder behind, the images will not render. Keep the file and folder together, or use the zip archive for transfers.",
+  },
+  {
+    title: "Pasting HTML into a Markdown editor",
+    desc: "HTML export is for HTML-native platforms. If you paste HTML into a Markdown editor like Notion or GitHub, it will show raw HTML tags rather than formatted content. Match the export format to the target platform's supported input format.",
+  },
+  {
+    title: "Exporting before finalizing annotations",
+    desc: "Annotations (blur effects, arrows, text boxes) are applied to screenshots in Procshot before export. If you export and then realize a sensitive field wasn't blurred, you need to go back to Procshot and re-export. Do a final annotation review pass before exporting — especially for external-facing guides.",
+  },
+];
+
+const faq = [
+  { question: "Can I export the same guide in multiple formats?", answer: "Yes. You can export a guide in PDF, Markdown, and HTML from the same recording. Each export is independent. If you need the guide in multiple formats for different audiences, export all three from the finished guide." },
+  { question: "Does the PDF export support languages other than English?", answer: "Yes. Procshot's PDF export includes Japanese font support, making it suitable for guides with CJK characters. Screenshots capture whatever is displayed in the browser regardless of language." },
+  { question: "What's included in the Markdown export?", answer: "The Markdown export includes the guide title, all step descriptions in Markdown-formatted text, and image references pointing to an accompanying images folder. The images folder contains all screenshots captured during recording. Both the .md file and images folder are typically packaged together as a zip archive." },
+  { question: "Can I customize the PDF layout or add branding?", answer: "Procshot doesn't include PDF customization options like custom headers, footers, or logo insertion. The PDF output uses Procshot's standard layout. For branded PDFs, you can add a cover page or header using a PDF editor after export." },
+  { question: "Which format works best for Notion?", answer: "Markdown. Notion accepts Markdown on paste and converts it to Notion blocks automatically. The text formatting and structure are preserved. Images referenced in the Markdown will need to be uploaded to Notion separately — paste the text first, then upload and replace the image placeholders." },
+];
+
+const relatedTools = [
+  { name: "Notion", desc: "Accepts Markdown imports on paste. Best destination for Procshot Markdown exports in team documentation contexts." },
+  { name: "HelpScout", desc: "Help center platform that accepts HTML. Procshot HTML exports integrate well with HelpScout knowledge base articles." },
+  { name: "MkDocs / Docusaurus", desc: "Documentation site generators that use Markdown files. Procshot Markdown exports can be used directly as source files for these generators." },
+  { name: "Acrobat / PDF editors", desc: "For adding custom branding, cover pages, or headers to Procshot PDF exports before external distribution." },
+];
+---
+
+<HowToLayout
+  seoTitle="How to Export Tutorials to PDF, Markdown, or HTML with Procshot (2026)"
+  seoDescription="Procshot exports recorded guides to PDF, Markdown, and HTML. Learn which format to use for email attachments, GitHub docs, help centers, and Notion wikis."
+  seoKeywords="export tutorial pdf markdown, procshot export formats, documentation export chrome extension, tutorial pdf creator, markdown documentation export"
+  h1="How to Export Tutorials to PDF, Markdown, or HTML"
+  tldr={tldr}
+  whyMatters={whyMatters}
+  steps={steps}
+  useCases={useCases}
+  faq={faq}
+  tips={tips}
+  pitfalls={pitfalls}
+  relatedTools={relatedTools}
+  publishDate="2026-04-11"
+  timeEstimate="2 minutes"
+  difficulty="Beginner"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto border-t border-zinc-100">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related guides</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/how-to/how-to-create-step-by-step-tutorials-chrome-extension/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Create Step-by-Step Tutorials</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Chrome extension tutorial guide</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-document-software-processes-instantly/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Document Software Processes</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">SOPs and onboarding materials</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-create-bug-reports-with-screenshots/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Create Bug Reports with Screenshots</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">QA and developer workflows</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-make-onboarding-guides-for-saas/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Make Onboarding Guides for SaaS</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Customer success workflows</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+    <div class="mt-4 pt-4 border-t border-zinc-100">
+      <p class="font-mono text-[10px] text-zinc-400 uppercase tracking-wider mb-3">// compare procshot</p>
+      <div class="flex flex-wrap gap-2">
+        <a href="/compare/procshot-vs-scribe/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Scribe →</a>
+        <a href="/compare/procshot-vs-loom/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Loom →</a>
+        <a href="/compare/procshot-vs-clickup-clips/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs ClickUp Clips →</a>
+      </div>
+    </div>
+  </section>
+</HowToLayout>

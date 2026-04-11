@@ -1,0 +1,174 @@
+---
+import HowToLayout from '../../layouts/HowToLayout.astro';
+
+const tldr = [
+  "Record the steps to reproduce a bug while Procshot auto-captures annotated screenshots at each click.",
+  "Export as Markdown or PDF and paste directly into GitHub Issues, Linear, or Jira.",
+  "Reduces the time from bug discovery to filed report from 15 minutes to under 3 minutes.",
+];
+
+const whyMatters = "A bug report without reproduction steps is nearly useless. Engineers need to reproduce the bug before they can fix it — which means they need to know exactly where it occurred, what was clicked, what data was entered, and in what sequence. Writing this out manually after discovering a bug is tedious and error-prone: you try to recall the steps, take screenshots separately, number them, paste them into your issue tracker. Under time pressure, bug reports end up incomplete. Recording the reproduction steps as you discover the bug — before you close the tab — produces a precise, screenshot-annotated report with zero additional effort. For QA teams and developers who file multiple bugs per day, this is a meaningful workflow change.";
+
+const steps = [
+  {
+    step: 1,
+    title: "When you discover a bug, immediately open Procshot",
+    desc: "Before closing the tab or navigating away, open the Procshot extension panel. Starting the recording at the point of discovery lets you document the state the bug occurred in, which is often the most important context.",
+    tip: "Don't try to reproduce it from memory first — record it on the spot. The first reproduction is the most accurate.",
+  },
+  {
+    step: 2,
+    title: "Navigate to the start of the reproduction path",
+    desc: "Go back to the beginning of the sequence that leads to the bug. For a form submission bug, this might be opening the form. For a navigation bug, returning to the page before the problematic link. Start from a clean, reproducible state.",
+  },
+  {
+    step: 3,
+    title: "Start Recording and reproduce the bug step by step",
+    desc: "Click Start Recording in Procshot and then perform every action that leads to the bug: click each element, fill each field with the exact data that triggers the issue, navigate each page in sequence. Procshot captures a screenshot at every click.",
+  },
+  {
+    step: 4,
+    title: "Capture the bug state — the broken or unexpected UI",
+    desc: "When you reach the point where the bug manifests — the error message, the broken layout, the unexpected behavior — make sure to interact with it so Procshot captures that state. If the bug is a console error or a blank screen, note this in the step description after stopping.",
+  },
+  {
+    step: 5,
+    title: "Stop Recording",
+    desc: "Click Stop Recording. Procshot generates a draft bug report with all reproduction steps as sequential annotated screenshots.",
+  },
+  {
+    step: 6,
+    title: "Edit step descriptions to add context",
+    desc: "Review each auto-generated description. For bug reports, add context beyond what the UI element name conveys: 'Clicked Submit with the Date field empty — triggering the bug' is more useful than 'Clicked Submit'. Describe expected vs actual behavior in the final step.",
+    tip: "Add a clear 'Expected:' and 'Actual:' note in the last step description — most issue trackers expect this format.",
+  },
+  {
+    step: 7,
+    title: "Annotate the bug state screenshot",
+    desc: "On the screenshot that shows the bug (the error message, broken element, or unexpected state), use Procshot's annotation tools to draw a box or arrow pointing to the specific problem area. Engineers scanning multiple bug reports will immediately see the issue.",
+  },
+  {
+    step: 8,
+    title: "Export as Markdown and paste into your issue tracker",
+    desc: "Export the guide as Markdown. Open your issue tracker (GitHub Issues, Linear, Jira) and create a new issue. Paste the Markdown content into the description field — the steps, descriptions, and screenshots are included. Add environment details (browser version, OS) and severity label.",
+  },
+];
+
+const useCases = [
+  {
+    title: "QA Teams Filing Regression Bugs",
+    desc: "QA engineers record the exact reproduction path for each regression bug during test cycles. Reproducible reports with screenshots cut engineer triage time and eliminate the back-and-forth of 'can you reproduce it?'",
+  },
+  {
+    title: "Customer Support Escalating User-Reported Issues",
+    desc: "Support agents who can reproduce a customer-reported bug record the steps and file a precise engineering ticket, reducing the ambiguity between support and engineering about what the actual issue is.",
+  },
+  {
+    title: "Developer Self-Reporting During Development",
+    desc: "Developers who discover bugs in neighboring code areas record and file them immediately rather than adding them to mental backlogs — reducing forgotten bugs and knowledge loss at the point of discovery.",
+  },
+];
+
+const tips = [
+  "Include environment details in the issue title or first line: browser version, OS, and app version if relevant — these aren't captured by Procshot.",
+  "If the bug is intermittent, note that in the description and record multiple reproduction attempts if you can replicate it again.",
+  "Use the blur tool on any personal user data visible in screenshots before filing in a shared issue tracker.",
+  "For form-related bugs, include the exact data entered in each field in the step description — the screenshot shows what was entered, but the description should make it text-searchable.",
+  "Add severity and priority labels in the issue tracker after pasting — Procshot's export doesn't include issue metadata.",
+  "Duplicate the guide before editing if you want to preserve the raw recording alongside the polished report.",
+];
+
+const pitfalls = [
+  {
+    title: "Recording only the bug manifestation, not the full reproduction path",
+    desc: "A screenshot of the error is not a bug report. Engineers need the complete sequence from a clean state to the error. Start recording at the beginning of the reproduction path, not at the point where the bug appears. If the path starts at login, include the login steps.",
+  },
+  {
+    title: "Not describing expected vs actual behavior",
+    desc: "Procshot captures what happened, not what should have happened. Without an 'Expected:' and 'Actual:' note in the final step, engineers have to infer what the correct behavior should be. Always add this context — it's the most important part of any bug report.",
+  },
+  {
+    title: "Filing a bug report without environment information",
+    desc: "Procshot captures UI interactions but not environment context: browser version, OS, screen resolution, user role, or data state. Browser-specific or role-specific bugs that lack this information are hard to prioritize. Add environment details manually as the first line of the issue.",
+  },
+];
+
+const faq = [
+  { question: "Can I attach Procshot exports directly to Jira or GitHub Issues?", answer: "Yes, with one manual step. Export as Markdown from Procshot, then paste the content into the issue description in your tracker. Most trackers (GitHub Issues, Linear, Notion) render Markdown natively including image references. Jira uses a different markup language — for Jira, the PDF export may be easier to attach as a file." },
+  { question: "Does Procshot capture browser console errors?", answer: "No. Procshot captures visual UI state through screenshots — it doesn't access the browser console. For bugs that involve console errors, add a separate screenshot of the console (using the browser's built-in screenshot or DevTools) and reference it in the step description." },
+  { question: "What if the bug only happens occasionally?", answer: "For intermittent bugs, record every reproduction attempt you can. Note in the description that it's intermittent and include frequency observations ('happens approximately 1 in 3 attempts with this data'). A recording of a successful reproduction is more useful than a written description of an intermittent one." },
+  { question: "Can I include expected vs actual behavior in the Procshot export?", answer: "Yes — edit the final step description to include 'Expected: [what should happen]' and 'Actual: [what happens instead]'. This text is included in all export formats (PDF, Markdown, HTML)." },
+  { question: "How do I share the bug report if my team uses a tool other than GitHub or Jira?", answer: "Procshot exports to PDF (for email or attachment), Markdown (for most text-based platforms), or HTML (for web-based systems). If your team uses Linear, paste the Markdown. For Confluence, HTML export works well. For Notion, Markdown renders natively." },
+];
+
+const relatedTools = [
+  { name: "GitHub Issues", desc: "Accepts Markdown exports from Procshot natively. Paste the exported content directly into the issue description." },
+  { name: "Linear", desc: "Modern issue tracker. Markdown-compatible description field accepts Procshot Markdown exports." },
+  { name: "Jira", desc: "Enterprise issue tracker. Supports file attachments — attach Procshot's PDF export. The description field uses Jira markup rather than Markdown." },
+  { name: "Loom", desc: "Screen recorder for video-based bug reports. Useful for bugs that involve animations or timing issues that static screenshots can't capture." },
+];
+---
+
+<HowToLayout
+  seoTitle="How to Create Bug Reports with Screenshots in Minutes (2026)"
+  seoDescription="Record reproduction steps as you discover bugs — Procshot auto-captures annotated screenshots at each click. Export as Markdown and paste into GitHub, Linear, or Jira."
+  seoKeywords="how to create bug report with screenshots, bug report chrome extension, screenshot bug report tool, reproduce bug documentation, qa screenshot tool"
+  h1="How to Create Bug Reports with Screenshots"
+  tldr={tldr}
+  whyMatters={whyMatters}
+  steps={steps}
+  useCases={useCases}
+  faq={faq}
+  tips={tips}
+  pitfalls={pitfalls}
+  relatedTools={relatedTools}
+  publishDate="2026-04-11"
+  timeEstimate="3 minutes"
+  difficulty="Beginner"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto border-t border-zinc-100">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related guides</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/how-to/how-to-create-step-by-step-tutorials-chrome-extension/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Create Step-by-Step Tutorials</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Chrome extension tutorial guide</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-document-software-processes-instantly/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Document Software Processes</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">SOPs and onboarding materials</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-make-onboarding-guides-for-saas/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Make Onboarding Guides for SaaS</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Customer success workflows</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-export-tutorials-to-pdf-markdown/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Export Tutorials to PDF or Markdown</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Format guide for technical writers</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+    <div class="mt-4 pt-4 border-t border-zinc-100">
+      <p class="font-mono text-[10px] text-zinc-400 uppercase tracking-wider mb-3">// compare procshot</p>
+      <div class="flex flex-wrap gap-2">
+        <a href="/compare/procshot-vs-scribe/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Scribe →</a>
+        <a href="/compare/procshot-vs-loom/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Loom →</a>
+        <a href="/compare/procshot-vs-tango/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Tango →</a>
+      </div>
+    </div>
+  </section>
+</HowToLayout>

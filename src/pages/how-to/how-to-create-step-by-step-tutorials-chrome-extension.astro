@@ -1,0 +1,175 @@
+---
+import HowToLayout from '../../layouts/HowToLayout.astro';
+
+const tldr = [
+  "Use a Chrome extension to auto-record your browser actions and generate annotated step-by-step guides.",
+  "No manual screenshot-taking or writing required — the extension captures clicks and descriptions automatically.",
+  "Export as PDF, Markdown, or HTML in under 5 minutes.",
+];
+
+const whyMatters = "Writing step-by-step tutorials manually is slow. Taking screenshots one-by-one, numbering them, writing descriptions, assembling them into a document — for a 10-step workflow, that's easily 30 to 45 minutes of work. A documentation Chrome extension like Procshot collapses that process: you perform the workflow once while the extension records your clicks and generates step descriptions automatically. The result is a structured, annotated guide ready to export. For teams that regularly produce tutorials — onboarding docs, SOPs, training materials, customer guides — the time savings compound across every document created.";
+
+const steps = [
+  {
+    step: 1,
+    title: "Install Procshot from the Chrome Web Store",
+    desc: "Add Procshot to Chrome from the Chrome Web Store. It's free with no account required. Once installed, pin it to your toolbar for easy access.",
+    tip: "Pin the extension icon so it's visible in your toolbar — you'll use it to start and stop recording.",
+  },
+  {
+    step: 2,
+    title: "Open the page or app you want to document",
+    desc: "Navigate to the starting point of the workflow you want to turn into a tutorial. Make sure you're at step 0 — the beginning of the process a user would follow.",
+  },
+  {
+    step: 3,
+    title: "Click 'Start Recording' in the Procshot sidebar",
+    desc: "Open the Procshot extension panel and click 'Start Recording'. A recording indicator will appear. From this point, every click, form input, and page navigation is captured with a screenshot.",
+    tip: "Perform the workflow at a natural pace — no need to pause for screenshots. Procshot captures continuously.",
+  },
+  {
+    step: 4,
+    title: "Perform your workflow from start to finish",
+    desc: "Complete the entire process you want to document: click buttons, fill in fields, navigate between pages. Procshot automatically detects page transitions and creates navigation steps. Each click generates a screenshot with the action highlighted.",
+  },
+  {
+    step: 5,
+    title: "Click 'Stop Recording'",
+    desc: "When you've completed the workflow, click 'Stop Recording' in the Procshot panel. The extension generates a draft guide with all steps, auto-generated descriptions, and screenshots.",
+  },
+  {
+    step: 6,
+    title: "Review and edit step descriptions",
+    desc: "Procshot auto-generates step descriptions from DOM elements (button labels, link text, field names). Review each description and edit where the auto-generated text needs clarification. Most steps need minimal editing.",
+    tip: "Focus edits on steps where the context isn't obvious from the interface — navigation steps and confirmation steps often need a sentence of context.",
+  },
+  {
+    step: 7,
+    title: "Annotate screenshots",
+    desc: "Use the built-in annotation tools to add boxes, arrows, text labels, or blur effects to individual screenshots. Highlight the key element in each step to direct the reader's attention.",
+  },
+  {
+    step: 8,
+    title: "Export in your preferred format",
+    desc: "Choose your export format: PDF for sharing or printing (with Japanese font support), Markdown for documentation systems like GitHub or Notion, or HTML for embedding on websites or help centers. Click Export and your guide is ready.",
+  },
+];
+
+const useCases = [
+  {
+    title: "Customer Support Documentation",
+    desc: "Support teams document product workflows once and share the guide across help articles, email responses, and onboarding sequences — without maintaining separate screenshots.",
+  },
+  {
+    title: "Internal SOPs and Training",
+    desc: "HR and operations teams record software processes for new hire training materials. Guides are exportable as PDFs and distributed immediately without additional formatting.",
+  },
+  {
+    title: "Developer API and Integration Guides",
+    desc: "Developers document multi-step API configuration flows (OAuth setups, webhook configurations) by recording the process in the browser and exporting as Markdown for technical documentation.",
+  },
+];
+
+const tips = [
+  "Record in a clean browser session — close unrelated tabs to avoid visual noise in screenshots.",
+  "Use blur effects on any sensitive data (credentials, personal information) before sharing.",
+  "Duplicate a guide before editing — preserves the original recording in case you want to start edits again.",
+  "For multi-page workflows, Procshot detects page navigations automatically — no need to mark them manually.",
+  "Export to Markdown first if you plan to paste into Notion or GitHub — Markdown preserves structure better than copy-pasting from PDF.",
+  "Add a numbered title to each guide on creation for easier retrieval in the Guide Management panel.",
+];
+
+const pitfalls = [
+  {
+    title: "Starting the recording on the wrong page",
+    desc: "Procshot begins capturing from the moment you click Start Recording. If you've already clicked partway through the workflow before starting, the resulting guide will be missing early steps. Always return to the starting point of the workflow before hitting record.",
+  },
+  {
+    title: "Skipping annotation on sensitive fields",
+    desc: "If your workflow involves entering passwords, API keys, or personal data, those fields will be captured in screenshots. Use Procshot's blur tool on those fields before exporting. Don't share guides with unblurred sensitive data.",
+  },
+  {
+    title: "Exporting before reviewing auto-generated descriptions",
+    desc: "Procshot's auto-generated step descriptions are accurate for most UI elements but may be generic for complex or custom interfaces. Review every step description before exporting — a 5-minute review pass prevents distributing unclear guides.",
+  },
+];
+
+const faq = [
+  { question: "Does Procshot record video?", answer: "No. Procshot captures individual screenshots at each click action and generates a step-by-step guide. It does not record video. This makes the output a structured document rather than a screen recording — easier to search, edit, and translate." },
+  { question: "Can I create tutorials for desktop apps, not just browser apps?", answer: "Procshot records browser-based workflows only. It captures actions within Chrome tabs. For desktop application documentation, the recording would need to be done in a browser-accessible version of the app, or you would need a separate desktop recording tool." },
+  { question: "How accurate are the auto-generated step descriptions?", answer: "Accuracy depends on how well-labeled the UI elements are. Apps with clear button labels (Save, Submit, Continue) generate very accurate descriptions. Apps with icon-only buttons or unlabeled inputs generate generic descriptions that need manual editing. The description reads the accessible name of the element you clicked." },
+  { question: "Can I share a Procshot guide directly without exporting?", answer: "Procshot stores guides locally in your browser. To share, you need to export to PDF, Markdown, or HTML and then share the resulting file. There's no direct cloud share link." },
+  { question: "How long can a recorded workflow be?", answer: "There's no hard step limit. Procshot handles multi-page workflows and long processes. For very long guides (30+ steps), consider whether the tutorial should be split into shorter sections for readability — guides that exceed 15-20 steps are often better as a series." },
+];
+
+const relatedTools = [
+  { name: "Scribe", desc: "Web-based documentation tool with auto-recording similar to Procshot. Cloud-hosted with team sharing. Free tier limits guides per month." },
+  { name: "Tango", desc: "Chrome extension for creating how-to guides with screenshot capture. Focused on team documentation. Paid plans start at $16/user/month." },
+  { name: "Loom", desc: "Screen video recorder for Chrome and desktop. Video-first rather than step-by-step guides. Better for walkthroughs where audio narration adds context." },
+  { name: "Notion", desc: "Documentation platform that accepts Markdown imports. Procshot's Markdown export pairs well with Notion for organizing documentation libraries." },
+];
+---
+
+<HowToLayout
+  seoTitle="How to Create Step-by-Step Tutorials with a Chrome Extension (2026)"
+  seoDescription="Auto-record browser actions to create annotated step-by-step tutorials in minutes. No manual screenshots needed. Export as PDF, Markdown, or HTML."
+  seoKeywords="how to create tutorial chrome extension, step by step guide creator, auto screenshot documentation, browser workflow recording, procshot tutorial"
+  h1="How to Create Step-by-Step Tutorials with a Chrome Extension"
+  tldr={tldr}
+  whyMatters={whyMatters}
+  steps={steps}
+  useCases={useCases}
+  faq={faq}
+  tips={tips}
+  pitfalls={pitfalls}
+  relatedTools={relatedTools}
+  publishDate="2026-04-11"
+  timeEstimate="5 minutes"
+  difficulty="Beginner"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto border-t border-zinc-100">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related guides</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/how-to/how-to-document-software-processes-instantly/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Document Software Processes Instantly</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">SOPs and onboarding materials</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-create-bug-reports-with-screenshots/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Create Bug Reports with Screenshots</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">QA and developer workflows</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-make-onboarding-guides-for-saas/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Make Onboarding Guides for SaaS</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Customer success and PM workflows</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-export-tutorials-to-pdf-markdown/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Export Tutorials to PDF or Markdown</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Format guide for technical writers</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+    <div class="mt-4 pt-4 border-t border-zinc-100">
+      <p class="font-mono text-[10px] text-zinc-400 uppercase tracking-wider mb-3">// compare procshot</p>
+      <div class="flex flex-wrap gap-2">
+        <a href="/compare/procshot-vs-scribe/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Scribe →</a>
+        <a href="/compare/procshot-vs-tango/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Tango →</a>
+        <a href="/compare/procshot-vs-loom/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Loom →</a>
+      </div>
+    </div>
+  </section>
+</HowToLayout>

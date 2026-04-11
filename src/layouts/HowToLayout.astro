@@ -1,0 +1,265 @@
+---
+import Layout from './Layout.astro';
+
+interface Step {
+  step: number;
+  title: string;
+  desc: string;
+  tip?: string;
+}
+
+interface UseCase {
+  title: string;
+  desc: string;
+}
+
+interface Faq {
+  question: string;
+  answer: string;
+}
+
+interface Pitfall {
+  title: string;
+  desc: string;
+}
+
+interface RelatedTool {
+  name: string;
+  desc: string;
+  url?: string;
+}
+
+interface Props {
+  seoTitle: string;
+  seoDescription: string;
+  seoKeywords: string;
+  h1: string;
+  tldr: string[];
+  whyMatters: string;
+  steps: Step[];
+  useCases: UseCase[];
+  faq: Faq[];
+  tips: string[];
+  pitfalls: Pitfall[];
+  relatedTools: RelatedTool[];
+  publishDate?: string;
+  timeEstimate?: string;
+  difficulty?: 'Beginner' | 'Intermediate' | 'Advanced';
+}
+
+const {
+  seoTitle,
+  seoDescription,
+  seoKeywords,
+  h1,
+  tldr,
+  whyMatters,
+  steps,
+  useCases,
+  faq,
+  tips,
+  pitfalls,
+  relatedTools,
+  publishDate = '2026-04-11',
+  timeEstimate = '5 minutes',
+  difficulty = 'Beginner',
+} = Astro.props;
+
+const siteUrl = 'https://dev-tools-hub.xyz';
+const pathname = Astro.url.pathname.endsWith('/') ? Astro.url.pathname : `${Astro.url.pathname}/`;
+const canonicalURL = `${siteUrl}${pathname}`;
+
+const faqSchema = faq.length > 0 ? {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map(item => ({
+    "@type": "Question",
+    "name": item.question,
+    "acceptedAnswer": { "@type": "Answer", "text": item.answer }
+  }))
+} : null;
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": h1,
+  "description": seoDescription,
+  "totalTime": `PT${timeEstimate.replace(' minutes', 'M').replace(' minute', 'M')}`,
+  "step": steps.map(s => ({
+    "@type": "HowToStep",
+    "position": s.step,
+    "name": s.title,
+    "text": s.desc,
+  })),
+  "author": { "@type": "Organization", "name": "S-Hub", "url": siteUrl },
+  "datePublished": publishDate,
+};
+
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": siteUrl },
+    { "@type": "ListItem", "position": 2, "name": "How-To Guides", "item": `${siteUrl}/how-to/` },
+    { "@type": "ListItem", "position": 3, "name": h1, "item": canonicalURL },
+  ]
+};
+---
+
+<Layout
+  title={seoTitle}
+  description={seoDescription}
+  keywords={seoKeywords}
+  ogType="article"
+>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(howToSchema)} />
+    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+  </Fragment>
+
+  <!-- Hero -->
+  <section class="px-6 pt-12 pb-6 max-w-4xl mx-auto">
+    <p class="font-mono text-[10px] text-zinc-400 uppercase tracking-wider mb-3">
+      <a href="/" class="hover:text-zinc-600 transition-colors">S-Hub</a>
+      <span class="mx-2">/</span>
+      <a href="/how-to/" class="hover:text-zinc-600 transition-colors">How-To</a>
+      <span class="mx-2">/</span>
+      <span class="text-zinc-500">Guide</span>
+    </p>
+    <h1 class="text-2xl font-semibold text-zinc-900 leading-snug mb-4">{h1}</h1>
+    <div class="flex items-center gap-4 text-[11px] font-mono text-zinc-400 mb-6">
+      <span>⏱ {timeEstimate}</span>
+      <span>· {difficulty}</span>
+      <span>· Updated {publishDate}</span>
+    </div>
+
+    <!-- TL;DR -->
+    <div class="border border-zinc-200 rounded-lg p-5 mb-8 bg-zinc-50">
+      <p class="font-mono text-[10px] text-zinc-400 uppercase tracking-wider mb-3">// tl;dr</p>
+      <ul class="space-y-1.5">
+        {tldr.map(item => (
+          <li class="text-[13px] text-zinc-700 flex gap-2">
+            <span class="text-zinc-400 shrink-0 font-mono">—</span>
+            <span>{item}</span>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </section>
+
+  <!-- Why this matters -->
+  <section class="px-6 pb-6 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-3">// why this matters</h2>
+    <p class="text-[14px] text-zinc-700 leading-relaxed">{whyMatters}</p>
+  </section>
+
+  <!-- Steps -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="text-lg font-semibold text-zinc-900 mb-6">Step-by-Step Guide</h2>
+    <ol class="space-y-6">
+      {steps.map(s => (
+        <li class="flex gap-4">
+          <div class="shrink-0 w-7 h-7 rounded-full bg-zinc-900 text-white font-mono text-[11px] flex items-center justify-center mt-0.5">{s.step}</div>
+          <div class="flex-1 min-w-0">
+            <h3 class="text-[14px] font-medium text-zinc-900 mb-1">{s.title}</h3>
+            <p class="text-[13px] text-zinc-600 leading-relaxed">{s.desc}</p>
+            {s.tip && (
+              <p class="mt-2 text-[12px] text-zinc-500 font-mono bg-zinc-50 border border-zinc-200 rounded px-3 py-2">
+                <span class="text-zinc-400">tip: </span>{s.tip}
+              </p>
+            )}
+          </div>
+        </li>
+      ))}
+    </ol>
+  </section>
+
+  <!-- Use Cases -->
+  <section class="px-6 py-8 max-w-4xl mx-auto border-t border-zinc-100">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// use cases</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+      {useCases.map(uc => (
+        <div class="border border-zinc-200 rounded-lg p-4">
+          <h3 class="text-[13px] font-medium text-zinc-900 mb-2">{uc.title}</h3>
+          <p class="text-[12px] text-zinc-500 leading-relaxed">{uc.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Tips -->
+  <section class="px-6 py-8 max-w-4xl mx-auto border-t border-zinc-100">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// tips & best practices</h2>
+    <ul class="space-y-2">
+      {tips.map(tip => (
+        <li class="flex gap-2 text-[13px] text-zinc-700">
+          <span class="text-zinc-300 font-mono shrink-0">›</span>
+          <span>{tip}</span>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <!-- Common Pitfalls -->
+  <section class="px-6 py-8 max-w-4xl mx-auto border-t border-zinc-100">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// common pitfalls</h2>
+    <div class="space-y-4">
+      {pitfalls.map(p => (
+        <div class="border border-red-100 bg-red-50 rounded-lg p-4">
+          <h3 class="text-[13px] font-medium text-red-800 mb-1">{p.title}</h3>
+          <p class="text-[12px] text-red-700 leading-relaxed">{p.desc}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="px-6 py-8 max-w-4xl mx-auto border-t border-zinc-100">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// faq</h2>
+    <div class="space-y-5">
+      {faq.map(item => (
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 mb-1.5">{item.question}</h3>
+          <p class="text-[13px] text-zinc-600 leading-relaxed">{item.answer}</p>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- Related Tools -->
+  <section class="px-6 py-8 max-w-4xl mx-auto border-t border-zinc-100">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related tools</h2>
+    <div class="space-y-3">
+      {relatedTools.map(tool => (
+        <div class="flex gap-3 text-[13px]">
+          <span class="font-medium text-zinc-900 shrink-0">{tool.name}</span>
+          <span class="text-zinc-400">—</span>
+          <span class="text-zinc-600">{tool.desc}</span>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="px-6 py-10 max-w-4xl mx-auto border-t border-zinc-100">
+    <div class="border border-zinc-200 rounded-lg p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
+      <img src="/ext-icons/procshot.png" alt="Procshot" class="w-10 h-10 rounded-lg shrink-0" />
+      <div class="flex-1 min-w-0">
+        <h3 class="text-[14px] font-medium text-zinc-900 mb-1">Procshot — Free Chrome Extension</h3>
+        <p class="text-[12px] text-zinc-500">Auto-record browser actions to create step-by-step guides with annotated screenshots.</p>
+      </div>
+      <a
+        href="https://chromewebstore.google.com/detail/%E6%89%8B%E9%A0%86%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3-%E6%89%8B%E9%A0%86%E6%9B%B8%E3%83%BB%E6%93%8D%E4%BD%9C%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB%E8%87%AA%E5%8B%95%E4%BD%9C%E6%88%90/ieblehdloggcpmkncplccjofeoakhkll"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="shrink-0 bg-zinc-900 text-white text-[12px] font-medium px-4 py-2 rounded-md hover:bg-zinc-700 transition-colors whitespace-nowrap"
+      >
+        Add to Chrome — Free
+      </a>
+    </div>
+  </section>
+
+  <!-- Slot for related links -->
+  <slot />
+</Layout>

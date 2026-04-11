@@ -1,0 +1,174 @@
+---
+import HowToLayout from '../../layouts/HowToLayout.astro';
+
+const tldr = [
+  "Record any browser-based software workflow once and get a formatted process document with annotated screenshots automatically.",
+  "Ideal for IT admins, team leads, and operations teams creating SOPs and onboarding materials.",
+  "From recording to shareable PDF or Markdown in under 10 minutes for a typical 10-step process.",
+];
+
+const whyMatters = "Software process documentation has a well-known problem: it goes out of date. Screenshots become stale when the UI changes, written steps drift from the actual workflow, and documentation sprints get skipped because the process is too slow. The core bottleneck is manual screenshot collection — capturing each step, organizing files, writing descriptions, assembling a document. Auto-recording tools eliminate this bottleneck. You perform the process once while the tool records, then spend a few minutes reviewing the output instead of hours creating it. For teams that maintain documentation for onboarding, compliance, or IT support, this changes documentation from a quarterly effort to something that can happen whenever a process changes.";
+
+const steps = [
+  {
+    step: 1,
+    title: "Install Procshot and open the process starting point",
+    desc: "Install Procshot from the Chrome Web Store (free, no account required). Navigate to the first screen of the process you want to document — the exact starting state a new user or team member would see.",
+    tip: "If the process requires logging in, start recording after login to keep credentials out of the guide.",
+  },
+  {
+    step: 2,
+    title: "Open the Procshot panel and name your guide",
+    desc: "Click the Procshot extension icon to open the sidebar. Give the guide a descriptive name before starting — 'New Employee Slack Setup', 'CRM Lead Import Process', or similar. Descriptive names make the guide findable later in the Guide Management panel.",
+  },
+  {
+    step: 3,
+    title: "Click 'Start Recording' and perform the process",
+    desc: "Click Start Recording and then execute the full workflow at a normal pace. Click every button, fill every field, and navigate every page that's part of the process. Procshot captures a screenshot at each action and auto-generates a step description from the UI element you interacted with.",
+  },
+  {
+    step: 4,
+    title: "Stop recording when the process is complete",
+    desc: "When you've reached the end of the process (the successful completion state — a confirmation screen, a saved record, a completed form), click Stop Recording. Procshot assembles all captured steps into a draft guide.",
+  },
+  {
+    step: 5,
+    title: "Review auto-generated step descriptions",
+    desc: "Go through each step's description. Procshot reads the accessible name of the UI element you clicked, which is accurate for well-labeled interfaces. Edit any steps where the description is ambiguous — particularly for icon-only buttons or steps where the reason for the action needs context.",
+    tip: "Add context sentences for 'why' steps, not just 'what' steps — 'Click Save to commit the record before navigating away' is more useful than 'Click Save'.",
+  },
+  {
+    step: 6,
+    title: "Annotate screenshots for clarity",
+    desc: "Use Procshot's annotation tools to add arrows pointing to the relevant UI element, boxes highlighting the key area, or blur effects on any sensitive data visible in screenshots. For process documents, arrows and highlights significantly improve clarity for new readers.",
+  },
+  {
+    step: 7,
+    title: "Blur sensitive information",
+    desc: "Before exporting, review every screenshot for sensitive data: account credentials, API keys, personal user information, internal data. Apply the blur tool to any such content. This is especially important for IT admin processes that may involve system credentials.",
+  },
+  {
+    step: 8,
+    title: "Export in the format your team uses",
+    desc: "Choose the output format: PDF for distributing via email or attaching to tickets, Markdown for wikis and documentation platforms like Notion or Confluence, HTML for web-based help portals. Click Export and the file is ready to share.",
+  },
+];
+
+const useCases = [
+  {
+    title: "New Hire IT Onboarding",
+    desc: "IT admins document setup sequences (VPN configuration, SSO login, tool access requests) once as Procshot guides and distribute them to every new hire, eliminating repetitive walk-throughs.",
+  },
+  {
+    title: "SOP Creation for Compliance",
+    desc: "Operations teams document regulated processes (data entry procedures, approval workflows) with step-by-step annotated guides that serve as evidence of process adherence for audits.",
+  },
+  {
+    title: "Knowledge Transfer for Team Changes",
+    desc: "Team leads capture process knowledge before team member departures, creating guides that successors can follow without needing hand-holding from the outgoing employee.",
+  },
+];
+
+const tips = [
+  "Document processes immediately after they're established — documentation debt compounds quickly when workflows evolve undocumented.",
+  "Use the duplicate feature to create process variants — duplicate a base guide and edit it for role-specific variations rather than re-recording.",
+  "Break long processes (15+ steps) into multiple shorter guides organized by phase — easier to maintain and navigate than one 25-step document.",
+  "Include a 'Prerequisites' note at the beginning of complex guides listing required access levels, tools, or prior steps.",
+  "Date the guide in the filename or title — when reviewing a documentation library, version dates tell you immediately if a guide might be stale.",
+  "For processes that change frequently, keep the Markdown export in version control so changes are trackable.",
+];
+
+const pitfalls = [
+  {
+    title: "Documenting the exception path instead of the standard path",
+    desc: "When performing a workflow for documentation, take the most common path — not the path you happened to take that day. If you recover from an error mid-recording, delete that step from the guide before exporting. Process documents should show the standard flow.",
+  },
+  {
+    title: "Leaving sensitive data visible in screenshots",
+    desc: "Process documentation often involves admin interfaces with real data. Every screenshot captured during recording should be reviewed for PII, credentials, or internal data before sharing. Use the blur tool proactively — it's faster than re-recording.",
+  },
+  {
+    title: "Creating documentation and never updating it",
+    desc: "A documented process with outdated screenshots creates confusion — users follow the guide and the UI doesn't match. Build a review schedule: set a calendar reminder to re-record guides when the underlying software has a major UI update. With Procshot, re-recording takes minutes rather than hours.",
+  },
+];
+
+const faq = [
+  { question: "Can Procshot document processes in desktop applications?", answer: "No. Procshot records browser-based workflows within Chrome tabs. For desktop application processes, you need a screen capture tool that works outside the browser. Procshot is specifically for web-based tools and SaaS applications." },
+  { question: "How do I organize multiple process guides for a team?", answer: "Procshot's Guide Management panel lets you save, name, and organize guides locally. For team sharing, export guides to your preferred format (PDF or Markdown) and store them in your existing documentation system — Notion, Confluence, Google Drive, or a shared folder. Procshot doesn't include cloud storage or team workspaces." },
+  { question: "What if I make a mistake mid-recording?", answer: "If you take a wrong action mid-recording, you can stop recording and delete individual steps from the generated guide before exporting. You can also re-record the process from the beginning — re-recording a 10-step process takes 2 to 3 minutes." },
+  { question: "Can I add introductory text or context to the guide?", answer: "Yes. After recording, you can edit each step's description and add context to any step. You can also add a guide title and introductory notes before exporting. The PDF and Markdown exports include the title and all step descriptions." },
+  { question: "Does Procshot support non-English documentation?", answer: "Yes. The PDF export includes Japanese font support. Step descriptions can be edited in any language. The UI you're documenting can be in any language — Procshot captures what's on screen regardless of language." },
+];
+
+const relatedTools = [
+  { name: "Confluence", desc: "Team documentation platform. Accepts HTML imports. A common destination for Procshot guides exported as HTML." },
+  { name: "Notion", desc: "Flexible documentation workspace. Accepts Markdown imports. Procshot's Markdown export integrates cleanly with Notion pages." },
+  { name: "Google Drive", desc: "Accessible storage for PDF exports. Suitable for teams that don't have a dedicated documentation platform." },
+  { name: "Scribe", desc: "Web-based documentation tool with similar auto-recording capability. Cloud-hosted with team sharing features. Free tier limits monthly guides." },
+];
+---
+
+<HowToLayout
+  seoTitle="How to Document Software Processes Instantly with Auto-Recording (2026)"
+  seoDescription="Auto-record browser workflows to create process documentation with annotated screenshots. SOPs, onboarding guides, and IT procedures in minutes instead of hours."
+  seoKeywords="how to document software processes, sop creator chrome extension, auto screenshot documentation, process documentation tool, onboarding guide creator"
+  h1="How to Document Software Processes Instantly"
+  tldr={tldr}
+  whyMatters={whyMatters}
+  steps={steps}
+  useCases={useCases}
+  faq={faq}
+  tips={tips}
+  pitfalls={pitfalls}
+  relatedTools={relatedTools}
+  publishDate="2026-04-11"
+  timeEstimate="10 minutes"
+  difficulty="Beginner"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto border-t border-zinc-100">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related guides</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/how-to/how-to-create-step-by-step-tutorials-chrome-extension/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Create Step-by-Step Tutorials</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Chrome extension tutorial guide</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-make-onboarding-guides-for-saas/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Make Onboarding Guides for SaaS</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Customer success workflows</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-create-bug-reports-with-screenshots/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Create Bug Reports with Screenshots</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">QA and developer workflows</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-export-tutorials-to-pdf-markdown/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Export Tutorials to PDF or Markdown</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Format guide for technical writers</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+    <div class="mt-4 pt-4 border-t border-zinc-100">
+      <p class="font-mono text-[10px] text-zinc-400 uppercase tracking-wider mb-3">// compare procshot</p>
+      <div class="flex flex-wrap gap-2">
+        <a href="/compare/procshot-vs-scribe/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Scribe →</a>
+        <a href="/compare/procshot-vs-tango/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Tango →</a>
+        <a href="/compare/procshot-vs-guideflow/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Guideflow →</a>
+      </div>
+    </div>
+  </section>
+</HowToLayout>

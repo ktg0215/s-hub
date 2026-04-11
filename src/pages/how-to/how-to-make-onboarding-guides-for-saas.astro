@@ -1,0 +1,175 @@
+---
+import HowToLayout from '../../layouts/HowToLayout.astro';
+
+const tldr = [
+  "Record your SaaS product's core workflows once — Procshot generates annotated onboarding guides automatically.",
+  "Ideal for customer success teams, product managers, and support teams who need to scale user education.",
+  "Export as PDF, Markdown, or HTML and distribute through your existing help center or onboarding sequence.",
+];
+
+const whyMatters = "New user activation is one of the most important metrics in SaaS — and poor onboarding documentation is a consistent failure point. Users who can't understand the product in their first session churn before reaching the value moment. The problem for customer success and product teams is that creating good onboarding guides takes time: writing step-by-step instructions, coordinating screenshot captures, assembling formatted documents. When the product changes, those guides go stale. Auto-recording documentation tools change the economics: a customer success manager can record the exact workflow that turns new users into activated users, get an annotated guide instantly, and re-record it in minutes when the product UI changes. The bottleneck shifts from 'creating documentation' to 'deciding what to document' — which is the right problem to focus on.";
+
+const steps = [
+  {
+    step: 1,
+    title: "Identify the core activation workflow to document",
+    desc: "Decide which workflow produces the 'aha moment' for new users — the first time they see the core value of your product. This is usually the workflow that correlates with long-term retention. Document this first. Common examples: creating a first project, inviting a teammate, completing a key configuration.",
+    tip: "If you're not sure which workflow to document first, look at where users drop off in your onboarding analytics. The step with the highest dropout is often the one that needs documentation most.",
+  },
+  {
+    step: 2,
+    title: "Install Procshot and navigate to the starting state",
+    desc: "Install Procshot (free Chrome extension, no account required). Open the SaaS product you're documenting and navigate to the exact starting state a new user would see after signing up — typically the empty dashboard or the new user landing state.",
+  },
+  {
+    step: 3,
+    title: "Open Procshot and name the guide",
+    desc: "Open the Procshot panel and name the guide clearly — 'Getting Started: Create Your First Project' or 'Onboarding: Connect Your First Integration'. Descriptive names matter when managing a library of guides for different user segments.",
+  },
+  {
+    step: 4,
+    title: "Start Recording and complete the activation workflow",
+    desc: "Click Start Recording and perform the exact workflow you want new users to follow. Click every button, fill every field with realistic example data (not placeholder text like 'asdf'), and navigate every page. Use the same data a real user would enter — it makes the guide immediately relatable.",
+    tip: "Use realistic example data in form fields — 'My First Campaign' reads better than 'test123' in the final guide.",
+  },
+  {
+    step: 5,
+    title: "Stop Recording at the success state",
+    desc: "Stop recording when you've reached the outcome — the first project created, the integration connected, the team invited. End on the confirmation or success screen. This is the 'aha moment' screenshot that should be the final frame of the guide.",
+  },
+  {
+    step: 6,
+    title: "Edit step descriptions for new user context",
+    desc: "Review each auto-generated step description. New users need more context than power users — add 'why' sentences to steps that might not be obvious. 'Click Invite Team Member to give colleagues access to this workspace' is better than 'Click Invite Team Member' for someone seeing the interface for the first time.",
+  },
+  {
+    step: 7,
+    title: "Annotate screenshots to guide attention",
+    desc: "Use Procshot's annotation tools to add arrows or boxes highlighting the key element in each screenshot. For complex interfaces with many buttons, annotations help new users locate the right element quickly. Add text labels for any steps where the interface element's visual prominence doesn't match its importance.",
+  },
+  {
+    step: 8,
+    title: "Export and integrate into your onboarding stack",
+    desc: "Choose your export format: PDF for attaching to welcome emails or help articles, Markdown for documentation platforms like Notion or Intercom, HTML for embedding in help centers like HelpScout or Zendesk. Place the guide at the point in the user journey where users are most likely to need it — triggered by the first time they reach that feature area.",
+  },
+];
+
+const useCases = [
+  {
+    title: "New User Welcome Email Attachment",
+    desc: "Customer success teams attach a 'Getting Started' PDF guide to the automated welcome email sent after signup. Users have a reference document before their first login that reduces support tickets in the first week.",
+  },
+  {
+    title: "Help Center Article with Step Screenshots",
+    desc: "Product teams export onboarding guides as HTML and embed them in help center articles, making search-discoverable documentation with annotated screenshots available to users at the moment they search for help.",
+  },
+  {
+    title: "Customer Success Handoff Guides",
+    desc: "CS managers create workflow-specific guides for enterprise customers being onboarded to specific use cases. Guides are customized with relevant example data and distributed to admin users for internal rollout.",
+  },
+];
+
+const tips = [
+  "Create separate guides for different user roles — an admin onboarding guide and an end-user onboarding guide for the same product are often completely different workflows.",
+  "Keep individual guides to one 'job' — a guide that tries to cover account setup AND first project creation AND team invitations is too long. Split them into three separate guides.",
+  "Update guides immediately after a product UI change — re-recording a 10-step workflow takes less time than the support tickets that a stale guide generates.",
+  "Use the duplicate feature to create locale-specific versions — duplicate the base guide and edit step descriptions for different language markets.",
+  "Test the guide with a real new user or colleague before publishing — have them follow the guide on a fresh account without your guidance.",
+  "For complex enterprise products, create a 'Quick Start' guide (3-5 essential steps) alongside a comprehensive guide — new users often need the short version first.",
+];
+
+const pitfalls = [
+  {
+    title: "Using power-user shortcuts that new users won't know",
+    desc: "When recording as an experienced user, you instinctively take efficient paths — keyboard shortcuts, context menus, advanced features. New users follow the primary navigation path. Record the guide the way a new user would interact with the product, not the way you use it after months of experience.",
+  },
+  {
+    title: "Documenting features before users reach them in the journey",
+    desc: "Onboarding guides work best when placed at the moment of need — when a user is trying to do a specific thing. Documenting advanced configuration features in the initial welcome guide creates cognitive overload. Map your guides to specific trigger points in the user journey.",
+  },
+  {
+    title: "Stale guides in a rapidly changing product",
+    desc: "SaaS products change frequently. An onboarding guide with screenshots that don't match the current UI creates confusion and distrust. Assign guide maintenance to the product or CS team with a clear update trigger: any UI change to a documented flow requires a guide re-recording within 2 weeks.",
+  },
+];
+
+const faq = [
+  { question: "Can I create onboarding guides in multiple languages with Procshot?", answer: "Procshot captures screenshots of the UI as-is — if your product supports multiple languages, switch the UI to the target language before recording. Edit step descriptions in that language. The PDF export includes Japanese font support. You'll need to create a separate recording for each language." },
+  { question: "Can I embed the Procshot guide in an in-app tooltip or modal?", answer: "Procshot exports to PDF, Markdown, and HTML. HTML exports can be embedded in web-based help centers. For in-app tooltips or modals within your SaaS product, you'd need to integrate with a dedicated in-app guidance platform (Intercom Product Tours, Appcues) — Procshot generates the content, but those platforms handle delivery within the app." },
+  { question: "How do I keep onboarding guides up to date when the product changes?", answer: "Re-recording a workflow in Procshot takes 2-3 minutes for most processes. Build re-recording into your release process: whenever a UI change affects a documented workflow, re-record the guide and replace the old export in your distribution channel. The speed of re-recording is what makes this sustainable." },
+  { question: "Can I add my company branding to Procshot exports?", answer: "Procshot doesn't include white-labeling or custom branding in exports. The PDF and HTML exports include the guide title and step content but don't add custom logos or color schemes. For branded customer-facing guides, you can add a cover page or header to the exported PDF using a PDF editor after export." },
+  { question: "Is Procshot suitable for documenting complex enterprise SaaS with many user roles?", answer: "Yes, with planning. Create separate guides for each significant user role — admin, manager, end user — since their workflows are often different. Use Procshot's Guide Management panel to organize guides by role. For very complex products with dozens of workflows, prioritize documenting the highest-impact flows first." },
+];
+
+const relatedTools = [
+  { name: "Intercom", desc: "Customer messaging platform with product tours. Accepts Markdown content. Procshot guides can inform the content of Intercom message sequences." },
+  { name: "HelpScout", desc: "Help center platform. Accepts HTML content for knowledge base articles. Procshot's HTML export integrates with HelpScout article pages." },
+  { name: "Notion", desc: "Documentation workspace used by many CS teams. Accepts Markdown imports from Procshot natively." },
+  { name: "Scribe", desc: "Web-based documentation tool with similar auto-recording. Includes team sharing and public guide links. Cloud-hosted with monthly guide limits on free tier." },
+  { name: "Tango", desc: "Chrome extension for user guide creation. Offers guide embedding and team collaboration. Paid plans at $16/user/month." },
+];
+---
+
+<HowToLayout
+  seoTitle="How to Make Onboarding Guides for SaaS Products (2026)"
+  seoDescription="Auto-record your SaaS product workflows to create annotated onboarding guides. Export as PDF, Markdown, or HTML for help centers, welcome emails, and CS teams."
+  seoKeywords="how to make onboarding guide saas, customer success documentation, saas user guide creator, onboarding documentation tool chrome, step by step onboarding guide"
+  h1="How to Make Onboarding Guides for SaaS Products"
+  tldr={tldr}
+  whyMatters={whyMatters}
+  steps={steps}
+  useCases={useCases}
+  faq={faq}
+  tips={tips}
+  pitfalls={pitfalls}
+  relatedTools={relatedTools}
+  publishDate="2026-04-11"
+  timeEstimate="10 minutes"
+  difficulty="Beginner"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto border-t border-zinc-100">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related guides</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/how-to/how-to-create-step-by-step-tutorials-chrome-extension/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Create Step-by-Step Tutorials</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Chrome extension tutorial guide</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-document-software-processes-instantly/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Document Software Processes</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">SOPs and onboarding materials</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-create-bug-reports-with-screenshots/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Create Bug Reports with Screenshots</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">QA and developer workflows</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/how-to/how-to-export-tutorials-to-pdf-markdown/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">How to Export Tutorials to PDF or Markdown</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Format guide for technical writers</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+    <div class="mt-4 pt-4 border-t border-zinc-100">
+      <p class="font-mono text-[10px] text-zinc-400 uppercase tracking-wider mb-3">// compare procshot</p>
+      <div class="flex flex-wrap gap-2">
+        <a href="/compare/procshot-vs-scribe/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Scribe →</a>
+        <a href="/compare/procshot-vs-guideflow/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Guideflow →</a>
+        <a href="/compare/procshot-vs-tango/" class="text-[12px] text-zinc-600 hover:text-sky-600 transition-colors font-mono">Procshot vs Tango →</a>
+      </div>
+    </div>
+  </section>
+</HowToLayout>
