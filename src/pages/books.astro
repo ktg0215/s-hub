@@ -1,0 +1,203 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { books } from '../data/books';
+
+const faq = [
+  {
+    q: 'シリーズの読む順番はありますか？',
+    a: 'Book 1（無料）から読むのが最もスムーズですが、各冊は独立しているため、興味のある本から読み始めても問題ありません。',
+  },
+  {
+    q: 'Zennアカウントがないと読めませんか？',
+    a: '無料のBook 1・4はZennアカウントなしでサンプルを読めます。有料のBook 2・3の購入にはZennアカウントが必要です。',
+  },
+  {
+    q: '電子書籍リーダー（Kindle等）で読めますか？',
+    a: 'Zennはブラウザ・スマートフォンで読めます。現在Kindle版は予定していませんが、将来的に検討中です。',
+  },
+  {
+    q: '購入後に内容が更新されたら追加費用がかかりますか？',
+    a: 'Zennの購入は「コンテンツへのアクセス権」のため、購入後の更新は無料で読めます。',
+  },
+  {
+    q: '技術書と非技術書が混在していますが、全冊購入すべきですか？',
+    a: 'Book 1（入門）とBook 4（マインドセット）は無料なので全員におすすめです。Book 2・3は拡張を公開済みの方・技術スキルを高めたい方向けです。',
+  },
+];
+
+const totalPaid = books.filter((b) => b.price > 0).reduce((sum, b) => sum + b.price, 0);
+const colorMap: Record<string, string> = {
+  sky: 'bg-sky-50 border-sky-200 text-sky-700',
+  amber: 'bg-amber-50 border-amber-200 text-amber-700',
+  emerald: 'bg-emerald-50 border-emerald-200 text-emerald-700',
+  rose: 'bg-rose-50 border-rose-200 text-rose-700',
+};
+const dotMap: Record<string, string> = {
+  sky: 'bg-sky-400',
+  amber: 'bg-amber-400',
+  emerald: 'bg-emerald-400',
+  rose: 'bg-rose-400',
+};
+---
+
+<Layout
+  title="Zenn Books — Chrome拡張・個人開発の全知見を4冊に"
+  description="18本のChrome拡張開発から得た知見を体系化した4冊シリーズ。入門・収益化戦略・開発技術大全・マインドセット。無料2冊、有料2冊。"
+  keywords="Chrome拡張 本, 個人開発 書籍, Zenn books, Chrome extension 入門, 個人開発 収益化"
+  lang="ja"
+>
+  <div class="max-w-4xl mx-auto px-6 py-16">
+
+    <!-- Hero -->
+    <header class="mb-16">
+      <p class="font-mono text-[11px] text-zinc-400 tracking-wider uppercase mb-3">// books</p>
+      <h1 class="text-3xl font-bold text-zinc-900 mb-4 leading-snug">
+        Chrome拡張・個人開発の<br class="sm:hidden" />全知見を4冊に体系化
+      </h1>
+      <p class="text-zinc-500 text-[15px] leading-relaxed max-w-2xl mb-6">
+        18本のChrome拡張を開発・公開して得た実践的な知見を、入門からマインドセットまで4冊のシリーズにまとめました。無料2冊・有料2冊のシリーズ構成です。
+      </p>
+      <div class="flex flex-wrap gap-3 text-[13px]">
+        <span class="inline-flex items-center gap-1.5 text-zinc-500">
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
+          4冊シリーズ
+        </span>
+        <span class="inline-flex items-center gap-1.5 text-zinc-500">
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
+          総字数 約116,500字
+        </span>
+        <span class="inline-flex items-center gap-1.5 text-zinc-500">
+          <span class="w-1.5 h-1.5 rounded-full bg-zinc-400"></span>
+          Zenn Books で公開
+        </span>
+      </div>
+    </header>
+
+    <!-- Book Cards -->
+    <section class="mb-16">
+      <p class="font-mono text-[11px] text-zinc-400 tracking-wider uppercase mb-6">// series</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+        {books.map((book, i) => (
+          <a
+            href={`/books/${book.slug}/`}
+            class="group border border-zinc-200 rounded-xl p-5 flex flex-col hover:border-zinc-300 hover:shadow-sm transition-all"
+          >
+            <!-- Number + price badge -->
+            <div class="flex items-start justify-between mb-4">
+              <span class="font-mono text-[11px] text-zinc-400">Book {i + 1}</span>
+              <span class={`inline-flex items-center text-[11px] font-medium border rounded-full px-2.5 py-0.5 ${colorMap[book.color]}`}>
+                {book.priceLabel}
+              </span>
+            </div>
+
+            <!-- Cover placeholder + title -->
+            <div class="flex gap-4 mb-4">
+              <div class={`w-16 h-[86px] rounded-lg shrink-0 flex items-center justify-center border ${colorMap[book.color]}`}>
+                <span class="font-mono text-xs font-bold">{i + 1}</span>
+              </div>
+              <div class="min-w-0">
+                <h2 class="text-[15px] font-semibold text-zinc-900 leading-snug mb-1 group-hover:text-zinc-700 transition-colors">
+                  {book.title}
+                </h2>
+                <p class="text-[12px] text-zinc-400">{book.subtitle}</p>
+              </div>
+            </div>
+
+            <!-- Tagline -->
+            <p class="text-[13px] text-zinc-500 leading-relaxed mb-4 flex-1">
+              {book.tagline}
+            </p>
+
+            <!-- Footer -->
+            <div class="flex items-center justify-between mt-auto pt-4 border-t border-zinc-100">
+              <span class="text-[12px] text-zinc-400 font-mono">
+                {book.status === 'coming-soon' ? book.releaseLabel : '公開中'}
+              </span>
+              <span class="font-mono text-xs text-zinc-300 group-hover:text-zinc-500 transition-colors">→</span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </section>
+
+    <!-- Value section -->
+    <section class="mb-16 border border-zinc-100 rounded-xl p-8 bg-zinc-50/50">
+      <p class="font-mono text-[11px] text-zinc-400 tracking-wider uppercase mb-4">// value</p>
+      <h2 class="text-xl font-bold text-zinc-900 mb-3">シリーズを読む価値</h2>
+      <p class="text-[14px] text-zinc-500 leading-relaxed mb-6">
+        4冊すべて読むと、Chrome拡張の「作り方→売り方→設計品質→継続する心構え」まで一気通貫で学べます。有料2冊の合計は <strong class="text-zinc-800">¥{totalPaid.toLocaleString()}</strong>。無料2冊と合わせて、約116,500字のコンテンツが揃います。
+      </p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-4">
+        {books.map((book, i) => (
+          <div class="text-center">
+            <div class={`w-3 h-3 rounded-full mx-auto mb-2 ${dotMap[book.color]}`}></div>
+            <p class="text-[11px] font-mono text-zinc-400 mb-1">Book {i + 1}</p>
+            <p class="text-[13px] font-medium text-zinc-700">{book.priceLabel}</p>
+            <p class="text-[11px] text-zinc-400 mt-1">{(book.totalWords / 1000).toFixed(1)}万字</p>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- Author -->
+    <section class="mb-16">
+      <p class="font-mono text-[11px] text-zinc-400 tracking-wider uppercase mb-4">// author</p>
+      <div class="flex gap-5 items-start">
+        <div class="w-12 h-12 rounded-full bg-zinc-200 shrink-0 flex items-center justify-center">
+          <span class="font-mono text-[11px] text-zinc-500">ktg</span>
+        </div>
+        <div>
+          <p class="text-[14px] font-semibold text-zinc-900 mb-1">ktg（S-Hub 運営）</p>
+          <p class="text-[13px] text-zinc-500 leading-relaxed max-w-xl">
+            会社員のかたわら個人開発でChrome拡張を18本公開。累計インストール数数千件。開発・収益化・マーケティングまで一人で回す中で得た実践知見を、このシリーズにまとめました。
+          </p>
+          <p class="font-mono text-[11px] text-zinc-400 mt-2">
+            <a href="https://zenn.dev/ktg" target="_blank" rel="noopener noreferrer" class="hover:text-zinc-600 transition-colors">zenn.dev/ktg</a>
+            &nbsp;·&nbsp;
+            <a href="/" class="hover:text-zinc-600 transition-colors">dev-tools-hub.xyz</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="mb-16">
+      <p class="font-mono text-[11px] text-zinc-400 tracking-wider uppercase mb-6">// faq</p>
+      <div class="space-y-0 divide-y divide-zinc-100 border border-zinc-100 rounded-xl overflow-hidden">
+        {faq.map((item) => (
+          <details class="group">
+            <summary class="flex items-center justify-between px-5 py-4 cursor-pointer list-none select-none hover:bg-zinc-50/80 transition-colors">
+              <span class="text-[14px] font-medium text-zinc-800">{item.q}</span>
+              <span class="font-mono text-[11px] text-zinc-300 group-open:rotate-180 transition-transform ml-4 shrink-0">▾</span>
+            </summary>
+            <p class="px-5 pb-4 text-[13px] text-zinc-500 leading-relaxed">{item.a}</p>
+          </details>
+        ))}
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="border border-zinc-200 rounded-xl p-8 text-center">
+      <p class="font-mono text-[11px] text-zinc-400 tracking-wider uppercase mb-3">// start reading</p>
+      <h2 class="text-xl font-bold text-zinc-900 mb-3">まず無料の2冊から始める</h2>
+      <p class="text-[14px] text-zinc-500 mb-6 max-w-md mx-auto">
+        Book 1（Chrome拡張入門）とBook 4（マインドセット）は完全無料。どちらから読んでも大丈夫です。
+      </p>
+      <div class="flex flex-col sm:flex-row gap-3 justify-center">
+        <a
+          href={`/books/ai-chrome-extension-intro/`}
+          class="inline-flex items-center justify-center gap-2 bg-zinc-900 text-white text-[13px] font-medium px-5 py-2.5 rounded-lg hover:bg-zinc-700 transition-colors"
+        >
+          Book 1 を読む — 無料
+        </a>
+        <a
+          href={`/books/indie-dev-mindset/`}
+          class="inline-flex items-center justify-center gap-2 border border-zinc-200 text-zinc-700 text-[13px] font-medium px-5 py-2.5 rounded-lg hover:border-zinc-300 hover:bg-zinc-50 transition-colors"
+        >
+          Book 4 を読む — 無料
+        </a>
+      </div>
+    </section>
+
+  </div>
+</Layout>
