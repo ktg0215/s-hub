@@ -41,6 +41,18 @@ export const categories: Category[] = [
     ],
   },
   {
+    title: "Design Tools",
+    extensions: [
+      {
+        name: "PaletteGrab",
+        description: "MV3 color picker & palette manager. Pick colors with Chrome's EyeDropper API, build named palettes, export to CSS variables, Tailwind config, or Figma JSON.",
+        price: "Free / Pro $3.99",
+        url: "/extensions/palettegrab/",
+        icon: "/ext-icons/palettegrab.png",
+      },
+    ],
+  },
+  {
     title: "Productivity",
     extensions: [
       {
@@ -56,6 +68,13 @@ export const categories: Category[] = [
         price: "Free",
         url: "/extensions/bukken-scouter-rental/",
         icon: "/ext-icons/bukken-scouter-rental.webp",
+      },
+      {
+        name: "ClipStack",
+        description: "Auto-save clipboard history with fuzzy search powered by Fuse.js. Pin clips, recopy in one click. Free: 20 items. Pro: unlimited + export.",
+        price: "Free / Pro $3.99",
+        url: "/extensions/clipstack/",
+        icon: "/ext-icons/clipstack.png",
       },
       {
         name: "PromptStash",

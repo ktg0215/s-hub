@@ -1,0 +1,72 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "ClipStack",
+  subtitle: "Clipboard History Manager",
+  tagline: "Auto-save every copy. Fuzzy search with Fuse.js, pin your most-used clips, and recopy in one click. Free: 20 items. Pro: unlimited history + export.",
+  price: "Free / Pro $3.99",
+  status: "Available",
+  category: "Productivity",
+  lang: "EN/JA",
+  icon: "/ext-icons/clipstack.png",
+  rating: 5.0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "ClipStack automatically captures everything you copy and makes it instantly searchable. Powered by Fuse.js incremental fuzzy search, you can find any past clip by typing a few characters — no exact match needed. Pin frequently reused clips like templates, code snippets, or addresses so they stay at the top of your list. Recopy any item in one click. All data is stored locally with chrome.storage.local — nothing is sent to any server. Free plan keeps your last 20 clips. Pro unlocks unlimited history, bulk export as TXT or JSON, and keyboard shortcuts.";
+
+const features = [
+  { title: "Auto-Save Clipboard", desc: "Every copy is captured automatically in the background — no manual save required" },
+  { title: "Fuzzy Search (Fuse.js)", desc: "Incremental search finds clips as you type, even with partial or approximate matches" },
+  { title: "Pin Clips", desc: "Pin your most-used snippets so they always stay at the top, regardless of recency" },
+  { title: "One-Click Recopy", desc: "Click any clip to instantly copy it back to the clipboard, ready to paste" },
+  { title: "Unlimited History + Export (Pro)", desc: "Pro removes the 20-item cap and lets you export your full history as TXT or JSON" },
+  { title: "Fully Local Storage", desc: "All clipboard data lives in chrome.storage.local — no server, no account, complete privacy" },
+];
+
+const targetUsers = [
+  "Developers copying code snippets, error messages, and commands repeatedly",
+  "Writers and content creators reusing phrases, links, or references",
+  "Customer support agents with frequently copied templates and responses",
+  "Anyone who has lost a copy by accidentally overwriting the clipboard",
+];
+
+const screenshots = [
+  "/screenshots/clipstack/screenshot-01.png",
+  "/screenshots/clipstack/screenshot-02.png",
+  "/screenshots/clipstack/screenshot-03.png",
+];
+
+const relatedProducts = [
+  { name: "PaletteGrab", category: "Design Tools", link: "/extensions/palettegrab/", icon: "/ext-icons/palettegrab.png" },
+  { name: "SnippetVault", category: "Developer Tools", link: "/extensions/snippetvault/", icon: "/ext-icons/SnippetVault.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "ClipStack",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/clipstack",
+  featureList: "Auto-Save Clipboard, Fuzzy Search, Pin Clips, One-Click Recopy, Unlimited History, Export TXT/JSON",
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="ClipStack - Clipboard History Manager | Fuzzy Search & Pin Clips"
+  seoDescription="Auto-save clipboard history with fuzzy search powered by Fuse.js. Pin clips, recopy in one click. Free: 20 items. Pro: unlimited + export. Privacy-first."
+  seoKeywords="clipboard history manager, clipboard extension, copy history, fuzzy search clipboard, pin clipboard, clipboard manager chrome"
+/>

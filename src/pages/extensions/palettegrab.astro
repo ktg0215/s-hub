@@ -1,0 +1,72 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "PaletteGrab",
+  subtitle: "Color Picker & Palette Manager",
+  tagline: "MV3 color picker for designers & developers. Pick any color with Chrome's native EyeDropper API, build named palettes, export to CSS variables, Tailwind config, or Figma JSON.",
+  price: "Free / Pro $3.99",
+  status: "Available",
+  category: "Design Tools",
+  lang: "EN/JA",
+  icon: "/ext-icons/palettegrab.png",
+  rating: 5.0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "PaletteGrab is a modern MV3 color picker built for web designers and developers who need more than a basic eyedropper. It uses Chrome's native EyeDropper API to capture any color from any webpage — pixel-perfect, no canvas hacks. Picked colors land in your color tray with instant HEX, RGB, and HSL copy. Organize colors into named palettes, browse your pick history, and export directly to CSS custom properties, Tailwind config, SCSS variables, or Figma JSON. Fully local storage — no account, no server, no tracking.";
+
+const features = [
+  { title: "Chrome EyeDropper API", desc: "Pick any pixel from any webpage using Chrome's native eyedropper — more accurate than canvas-based pickers" },
+  { title: "HEX / RGB / HSL Copy", desc: "One-click copy in any format. Tap a color swatch to cycle between HEX, RGB, and HSL" },
+  { title: "Color Tray", desc: "Recent picks appear in your tray for quick reuse. Free tier holds up to 10 colors" },
+  { title: "Named Palettes", desc: "Create unlimited named palettes to organize project colors (Pro)" },
+  { title: "Multi-Format Export", desc: "Export any palette to CSS custom properties, Tailwind config, SCSS variables, or Figma JSON (Pro)" },
+  { title: "Pick History", desc: "Browse your full color pick history and add any past color back to a palette (Pro)" },
+];
+
+const targetUsers = [
+  "Web designers building design systems or style guides",
+  "Frontend developers implementing CSS variables or Tailwind themes",
+  "Figma users who want to grab browser colors and bring them into their designs",
+  "ColorZilla users looking for an actively maintained MV3 alternative",
+];
+
+const screenshots = [
+  "/screenshots/palettegrab/screenshot-01.png",
+  "/screenshots/palettegrab/screenshot-02.png",
+  "/screenshots/palettegrab/screenshot-03.png",
+];
+
+const relatedProducts = [
+  { name: "CookieJar", category: "Developer Tools", link: "/extensions/cookiejar/", icon: "/ext-icons/cookiejar.png" },
+  { name: "ClipStack", category: "Productivity", link: "/extensions/clipstack/", icon: "/ext-icons/clipstack.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "PaletteGrab",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/palettegrab",
+  featureList: "EyeDropper API, HEX/RGB/HSL Copy, Color Tray, Named Palettes, CSS/Tailwind/Figma Export, Pick History",
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="PaletteGrab - Color Picker & Palette Manager | ColorZilla MV3 Alternative"
+  seoDescription="Pick any color from any webpage with Chrome's EyeDropper API. Build named palettes. Export to CSS variables, Tailwind config, or Figma JSON. MV3 color picker."
+  seoKeywords="color picker chrome extension, eyedropper, palette manager, css variables, tailwind colors, figma export, mv3 color picker, colorzilla alternative"
+/>
