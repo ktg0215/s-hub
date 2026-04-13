@@ -1,0 +1,104 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "PaletteGrab",
+  icon: "/ext-icons/palettegrab.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/palettegrab",
+  users: "New",
+  rating: "—",
+  price: "Free / Pro $3.99",
+  extensionPageUrl: "/extensions/palettegrab/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "ColorZilla",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/colorzilla/bhlhnicpbhignbdhedgjhgdocnmhomnp",
+  users: "4,000,000+",
+  rating: "4.5 (10,000+)",
+  price: "Free",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Manifest Version", ours: "MV3 — actively maintained", theirs: "MV2 — no longer receiving updates", highlight: true },
+  { feature: "EyeDropper API", ours: "Yes — Chrome native EyeDropper, full browser window", theirs: "Yes — custom eyedropper implementation", highlight: true },
+  { feature: "Color Formats", ours: "HEX / RGB / HSL — one-click copy each", theirs: "HEX / RGB / HSL / HVS / LAB", },
+  { feature: "Color History", ours: "Yes — last 20 picks", theirs: "Yes — browser page color history", },
+  { feature: "Named Palettes", ours: "Yes — unlimited (Pro)", theirs: "No palette management", highlight: true },
+  { feature: "CSS Custom Properties Export", ours: "Yes — --color-primary: #3B82F6; (Pro)", theirs: "No", highlight: true },
+  { feature: "Tailwind Config Export", ours: "Yes — colors: { primary: '#3B82F6' } (Pro)", theirs: "No", highlight: true },
+  { feature: "SCSS Variables Export", ours: "Yes — $color-primary: #3B82F6; (Pro)", theirs: "No", highlight: true },
+  { feature: "Figma JSON Export", ours: "Yes — compatible with Figma token import (Pro)", theirs: "No", highlight: true },
+  { feature: "Image Color Extraction", ours: "Yes — 5 dominant colors from image URL (Pro)", theirs: "No", },
+  { feature: "DOM Color Analyzer", ours: "No", theirs: "Yes — full page color breakdown", },
+  { feature: "Gradient Analyzer", ours: "No", theirs: "Yes — CSS gradient inspector", },
+  { feature: "Color Tray", ours: "Yes — 10 recent colors", theirs: "Yes — recent colors list", },
+  { feature: "Privacy", ours: "100% local — no external calls", theirs: "Local — no external calls", },
+  { feature: "Price", ours: "Free / Pro $3.99 one-time", theirs: "Free — all features", },
+  { feature: "Best For", ours: "Frontend developers, designers needing CSS/Tailwind/Figma export", theirs: "Users who need DOM analysis and gradient inspection", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "MV3 Native — ColorZilla Is MV2 and No Longer Updated", desc: "This is the most important difference for long-term reliability. ColorZilla is built on Manifest V2, which Chrome is deprecating. As of 2024, Chrome has been disabling MV2 extensions in certain channels, and the MV2 support timeline is shortening. ColorZilla's last significant update predates the MV3 transition, and there is no public MV3 version. PaletteGrab is built from the ground up on MV3 — it works with Chrome's current extension system and will continue to do so as MV2 support ends. For users who rely on a color picker as a daily tool, picking an actively maintained MV3 extension is the forward-looking choice." },
+  { title: "Developer Export Formats — CSS, Tailwind, SCSS, Figma", desc: "ColorZilla lets you copy a color code. PaletteGrab Pro lets you export an entire palette directly to the format your project uses. CSS custom properties export produces ready-to-paste variable declarations. Tailwind config export produces a colors block you can paste straight into tailwind.config.js. SCSS variables export produces $variable: value declarations. Figma JSON export produces a format compatible with Figma's color token import — bring your web colors directly into your design file without manual entry. These export formats close the gap between \"I picked a color\" and \"the color is in my codebase or design file.\"" },
+  { title: "Named Palette Management", desc: "ColorZilla has no palette management. You can see recent colors in a history list, but there's no way to group colors into a named set, save a project's palette, or share it with a teammate. PaletteGrab Pro lets you create unlimited named palettes and organize colors by project, client, or design system — then export the entire palette to CSS, Tailwind, SCSS, or Figma in one step." },
+  { title: "Image Color Extraction", desc: "PaletteGrab Pro can extract the 5 dominant colors from any image by URL. Paste a product photo, hero image, or brand asset URL and get an instant palette that you can export to CSS or Figma. ColorZilla has no image color extraction — it works only on colors already rendered on the current browser page." },
+];
+
+const theirAdvantages = [
+  { title: "DOM Color Analyzer — Full Page Breakdown", desc: "ColorZilla's DOM analyzer shows you all colors used on a page, organized by element type. This is useful for auditing a site's color palette comprehensively rather than picking individual colors by hovering. PaletteGrab focuses on individual color capture and palette export — it doesn't have a DOM-level analysis view." },
+  { title: "Gradient Analyzer", desc: "ColorZilla can inspect CSS gradients on a page and show their color stops. This is useful for understanding or reproducing complex backgrounds. PaletteGrab doesn't have a gradient inspector — it captures single pixel colors." },
+  { title: "Additional Color Models", desc: "ColorZilla displays HSV (Hue-Saturation-Value) and LAB color values in addition to HEX/RGB/HSL. PaletteGrab covers HEX, RGB, and HSL — the three formats most commonly used in web development." },
+  { title: "Established User Base and Review History", desc: "ColorZilla has 4 million users and thousands of reviews representing years of real-world testing across different sites, operating systems, and workflows. PaletteGrab is new. The established user base also means more community resources, tutorials, and known workarounds for edge cases." },
+];
+
+const verdict = "ColorZilla and PaletteGrab serve overlapping but distinct audiences. ColorZilla is the more comprehensive color analysis tool — its DOM analyzer, gradient inspector, and multiple color models are genuinely useful features that PaletteGrab doesn't have. The critical caveat is that ColorZilla is MV2. If you need those analysis features, ColorZilla works today, but its long-term compatibility is uncertain as Chrome continues the MV3 migration. If your primary use case is picking colors and integrating them into a codebase or Figma file, PaletteGrab Pro's export formats (Tailwind, CSS, SCSS, Figma) are features ColorZilla has never had. For frontend developers who spend time manually retyping color values into config files or design tools, PaletteGrab's exports reduce that friction. For users who need DOM-level color auditing or gradient inspection, ColorZilla remains the more capable tool — for as long as MV2 remains functional.";
+
+const faq: ComparisonFaq[] = [
+  { question: "What is ColorZilla?", answer: "ColorZilla is one of the most popular Chrome color picker extensions, with 4 million+ users. It includes an eyedropper, color history, DOM color analyzer, and gradient inspector. It is a Manifest V2 extension and has not been updated to MV3." },
+  { question: "Is ColorZilla still working in 2026?", answer: "ColorZilla may still function in most Chrome configurations, but it is built on Manifest V2. Chrome has been progressively restricting MV2 extensions, and the long-term support timeline is uncertain. PaletteGrab is Manifest V3 and is actively maintained." },
+  { question: "Does PaletteGrab replace ColorZilla's DOM analyzer?", answer: "No. PaletteGrab is focused on color picking and palette management — it doesn't have a full DOM color analyzer or gradient inspector. If those features are central to your workflow, they exist in ColorZilla. PaletteGrab replaces ColorZilla's core eyedropper and adds developer export workflows." },
+  { question: "Can PaletteGrab export to Tailwind CSS?", answer: "Yes. PaletteGrab Pro exports palettes as a Tailwind CSS colors configuration block that you can paste directly into tailwind.config.js. This is a feature ColorZilla doesn't have." },
+  { question: "Is PaletteGrab free?", answer: "Yes — the eyedropper, HEX/RGB/HSL copy, 10-color tray, and 20-pick history are free with no time limit. Pro ($3.99 one-time) adds named palettes, CSS/Tailwind/SCSS/Figma exports, and image color extraction." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="PaletteGrab vs ColorZilla — MV3 Color Picker vs MV2 Classic (2026)"
+  seoDescription="ColorZilla is MV2 with no MV3 update. PaletteGrab is MV3-native with Tailwind, CSS, SCSS & Figma export. Compare features, use cases, and long-term viability."
+  seoKeywords="colorzilla alternative, colorzilla mv3 replacement, color picker chrome extension 2026, palettegrab vs colorzilla, tailwind color picker chrome"
+  h1="PaletteGrab vs ColorZilla"
+  intro="ColorZilla is the most popular color picker extension with 4M+ users — and it's Manifest V2 with no MV3 update planned. PaletteGrab is an MV3-native alternative built for developers who need to export colors directly to Tailwind config, CSS variables, SCSS, or Figma."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-13"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/palettegrab-vs-colorpick-eyedropper/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/palettegrab.png" alt="PaletteGrab" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PaletteGrab vs ColorPick Eyedropper</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Simple picker vs palette management</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/palettegrab/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/palettegrab.png" alt="PaletteGrab" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PaletteGrab — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, exports, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

@@ -1,0 +1,100 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "ClipStack",
+  icon: "/ext-icons/clipstack.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/clipstack",
+  users: "New",
+  rating: "—",
+  price: "Free / Pro $3.99",
+  extensionPageUrl: "/extensions/clipstack/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Clipboardy",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/clipboardy/eljdmlddnnbnmdpncjbajhcohbldhpfo",
+  users: "20,000+",
+  rating: "3.8 (500+)",
+  price: "Free",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Auto-Capture (text)", ours: "Yes — saves on every Ctrl+C automatically", theirs: "Yes — auto-saves clipboard content", highlight: true },
+  { feature: "Fuzzy Search", ours: "Yes — real-time Fuse.js incremental search", theirs: "No fuzzy search — basic text match only", highlight: true },
+  { feature: "Pin Clips", ours: "Yes — 5 Free / Unlimited Pro", theirs: "No pinning feature", highlight: true },
+  { feature: "History Limit", ours: "20 items Free / Unlimited Pro", theirs: "Limited history", },
+  { feature: "Categories / Tags", ours: "Yes — Pro", theirs: "No", },
+  { feature: "Export (JSON / TXT)", ours: "Yes — Pro", theirs: "No", },
+  { feature: "Dark Mode", ours: "Yes — system preference or manual toggle", theirs: "Limited", },
+  { feature: "Language", ours: "English + Japanese", theirs: "English", },
+  { feature: "Global Shortcut", ours: "Ctrl+Shift+V — Pro", theirs: "Varies", },
+  { feature: "Privacy", ours: "100% local — chrome.storage.local, no external calls", theirs: "Local storage", },
+  { feature: "Manifest Version", ours: "MV3", theirs: "MV3", },
+  { feature: "Price", ours: "Free / Pro $3.99 one-time", theirs: "Free", },
+  { feature: "Best For", ours: "Users who need search, pinning, and organized clipboard history", theirs: "Basic clipboard recall with minimal configuration", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Fuzzy Search — Find Clips Without Scrolling", desc: "Clipboardy stores clipboard history in a list but provides only basic text matching or no real search at all. When your history contains dozens of clips from a full workday, finding a specific item means scrolling through everything until you spot it. ClipStack's Fuse.js fuzzy search updates the list as you type — partial matches, approximate wording, and fragments all work. You can find a clip in under a second regardless of how many items are in history. For users who copy frequently and accumulate history throughout the day, search changes clipboard history from a scroll-through list into something actually useful for retrieval." },
+  { title: "Pinning — Keep Critical Clips Always Available", desc: "Clipboardy has no pinning feature. In any list-based clipboard history without pinning, frequently used text gets displaced as new copies push it down. Standard replies, boilerplate code, addresses you type repeatedly, and commonly pasted reference data all need to be re-found each time. ClipStack's pin feature keeps selected clips permanently at the top of the list — they don't move when new items are added, and they persist across browser sessions and restarts. The free plan includes 5 pins; Pro includes unlimited." },
+  { title: "Modern Interface with Japanese Language Support", desc: "ClipStack was built with a current design approach — minimal layout, Geist Sans typography, clean hierarchy — and includes both English and Japanese language support. For Japanese-speaking users or those working in multilingual environments, Japanese UI is included in both Free and Pro tiers. Clipboardy is English-only." },
+  { title: "Category Organization for High-Volume Users", desc: "Clipboardy presents clipboard history as a flat chronological list with no organization. ClipStack Pro adds categories and tags — useful for users who copy different types of content throughout the day (code, research text, client-specific phrases, addresses) and want them grouped rather than interleaved in a single timeline." },
+  { title: "Export to JSON or TXT", desc: "ClipStack Pro exports your clipboard history to JSON or TXT format. This gives you a portable, readable record of everything you've copied — useful for documentation, reviewing your work, or migrating clipboard data. Clipboardy has no export functionality, so your history is accessible only within the extension and is lost if you clear it or switch tools." },
+];
+
+const theirAdvantages = [
+  { title: "Fully Free with No Paid Tier", desc: "Clipboardy is free with all features included. ClipStack's free plan is functional (20 history items, search, 5 pins), but features like unlimited history, categories, and export are Pro only ($3.99 one-time). For users who just need basic clipboard recall and don't need advanced organization, Clipboardy's free all-in-one approach is straightforward." },
+  { title: "Simpler — No Decisions to Make", desc: "Clipboardy requires no setup choices. Install, copy things, see history. ClipStack's additional features (categories, pins, export) require more intentional use — you get more control, but also more to configure if you choose to. For users who prefer extensions that stay out of the way, a simpler tool has genuine value." },
+];
+
+const verdict = "ClipStack and Clipboardy both address the same core problem: your system clipboard only holds one thing at a time. Both auto-save what you copy and let you re-access it from the extension popup. The differences are in the features built on top. Clipboardy is simpler and completely free — install it, and clipboard history works. ClipStack adds fuzzy search, pinning, categories (Pro), and JSON export (Pro). The practical difference depends on how you use clipboard history. If you copy infrequently or mostly re-access the last few items, Clipboardy's simplicity serves well. If you copy many things throughout a workday and need to find specific clips from hours ago, ClipStack's search makes that retrieval fast rather than dependent on scrolling. Pinning is valuable for anyone who reuses the same text repeatedly — addresses, templates, reference codes, signatures — without wanting to re-copy from the source each time. ClipStack's Pro is a $3.99 one-time purchase, not a subscription — reasonable for a daily-use productivity tool.";
+
+const faq: ComparisonFaq[] = [
+  { question: "What is Clipboardy?", answer: "Clipboardy is a Chrome extension that saves your clipboard history and lets you access previously copied items from a browser popup. It's a simple, free clipboard manager focused on basic history recall." },
+  { question: "Does Clipboardy have search?", answer: "Clipboardy has limited or no fuzzy search functionality for clipboard history. ClipStack uses Fuse.js for real-time incremental fuzzy search — type a fragment of what you copied to find it instantly." },
+  { question: "Does ClipStack capture passwords from clipboard?", answer: "ClipStack captures all text-based clipboard content, including potentially sensitive text. Everything is stored only in chrome.storage.local on your device — nothing is transmitted externally. Clear history after copying sensitive data. Per-site exclusion is planned for a future release." },
+  { question: "Is ClipStack Pro worth it over the free plan?", answer: "The free plan (20 history items, fuzzy search, 5 pins) covers most casual use cases. Pro is worth considering if you need unlimited history for heavy copy workflows, categories to organize clips by project, or JSON export for portable records. At $3.99 one-time with no subscription, it's a low-cost decision." },
+  { question: "Can ClipStack and Clipboardy run at the same time?", answer: "You can have both installed, but they will both capture clipboard events. Running two clipboard managers simultaneously is generally not recommended, as it creates duplicate history and potential conflicts. Most users choose one." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="ClipStack vs Clipboardy — Fuzzy Search Clipboard Manager vs Basic History (2026)"
+  seoDescription="Clipboardy saves clipboard history but lacks search and pinning. ClipStack adds Fuse.js fuzzy search, pins, categories, and export. Full feature comparison."
+  seoKeywords="clipboardy alternative, clipboard manager chrome 2026, clipstack vs clipboardy, clipboard history search chrome extension, clipboard pin chrome"
+  h1="ClipStack vs Clipboardy"
+  intro="Clipboardy saves clipboard history — no search, no pinning, no organization. ClipStack does the same auto-capture and adds real-time fuzzy search, persistent pinning, category tags, and JSON export for users who need more than a scrollable list."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-13"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/clipstack-vs-clipboard-history-pro/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/clipstack.png" alt="ClipStack" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ClipStack vs Clipboard History Pro</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Search + pins vs basic history</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/clipstack/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/clipstack.png" alt="ClipStack" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ClipStack — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, history, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

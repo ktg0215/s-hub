@@ -1,0 +1,102 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "PaletteGrab",
+  icon: "/ext-icons/palettegrab.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/palettegrab",
+  users: "New",
+  rating: "—",
+  price: "Free / Pro $3.99",
+  extensionPageUrl: "/extensions/palettegrab/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "ColorPick Eyedropper",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/colorpick-eyedropper/ohcpnigalekghcmgcdcenkpelffpdolg",
+  users: "700,000+",
+  rating: "4.3 (3,000+)",
+  price: "Free",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Primary Purpose", ours: "Color picker + palette manager + developer export", theirs: "Color picker only", highlight: true },
+  { feature: "EyeDropper", ours: "Yes — Chrome native EyeDropper API, full browser window", theirs: "Yes — hover to pick colors", highlight: true },
+  { feature: "Color Formats", ours: "HEX / RGB / HSL — one-click copy each", theirs: "HEX / RGB — display", },
+  { feature: "Color Tray / History", ours: "10-color tray + 20-pick history", theirs: "Recent colors visible during hover", },
+  { feature: "Named Palettes", ours: "Yes — unlimited (Pro)", theirs: "No", highlight: true },
+  { feature: "CSS Custom Properties", ours: "Yes — export (Pro)", theirs: "No", highlight: true },
+  { feature: "Tailwind Config Export", ours: "Yes — export (Pro)", theirs: "No", highlight: true },
+  { feature: "SCSS Variables", ours: "Yes — export (Pro)", theirs: "No", highlight: true },
+  { feature: "Figma JSON Export", ours: "Yes — (Pro)", theirs: "No", highlight: true },
+  { feature: "Image Color Extraction", ours: "Yes — 5 dominant colors from URL (Pro)", theirs: "No", },
+  { feature: "Popup Interface", ours: "Yes — full popup with tray, history, palettes", theirs: "Minimal — overlay tooltip", },
+  { feature: "Privacy", ours: "100% local — no external calls", theirs: "Local", },
+  { feature: "Price", ours: "Free / Pro $3.99 one-time", theirs: "Free — all features", },
+  { feature: "Best For", ours: "Developers and designers who need exports for Tailwind, CSS, or Figma", theirs: "Quick one-off color lookup with minimal interface", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Palette Management — ColorPick Eyedropper Has None", desc: "ColorPick Eyedropper does one thing: shows the color under your cursor and lets you copy the HEX. There's no way to save a set of colors, name a palette, or recall colors from a previous session. PaletteGrab's 10-color tray and 20-pick history provide session persistence in the free tier. Pro adds unlimited named palettes — organize colors by project, client, or design system, and return to any palette later. If you're building a design system or working on multiple projects, ColorPick Eyedropper requires you to manually record colors elsewhere. PaletteGrab keeps them organized in the extension." },
+  { title: "Developer Export Formats That Close the Workflow Gap", desc: "ColorPick Eyedropper gives you a color code. PaletteGrab Pro gives you the code in the format your tools expect. CSS custom properties export produces `--color-primary: #3B82F6;` declarations ready to paste into a stylesheet. Tailwind config export produces a `colors` block for tailwind.config.js. SCSS variables produce `$variable: value` pairs. Figma JSON export is formatted for Figma's color token import. The time saved per project isn't copying a HEX code — it's not manually reformatting that code six times for six different uses. PaletteGrab eliminates those reformatting steps." },
+  { title: "Figma Integration — Bring Web Colors Into Your Design File", desc: "Designers frequently need to match colors from a live website inside a Figma file. The usual workflow involves picking the color, copying HEX, switching to Figma, and manually entering the value into a color style. PaletteGrab Pro's Figma JSON export produces a file you can import directly — pick a palette of colors from a live site, export once, and have them all in Figma at once. ColorPick Eyedropper has no Figma integration." },
+  { title: "Image Color Extraction", desc: "PaletteGrab Pro can extract 5 dominant colors from any image URL. Paste the URL of a product photo, brand asset, or design reference and get an instant palette — without manually inspecting the image pixel by pixel. ColorPick Eyedropper only works on colors rendered in the browser window — it doesn't analyze images by URL." },
+  { title: "Persistent Color Tray and History", desc: "ColorPick Eyedropper shows colors while the eyedropper is active, but once you dismiss the overlay there's no accessible history. PaletteGrab keeps your 10 most recent colors in the tray and your last 20 picks in history — accessible from the popup without re-inspecting anything. For workflows where you pick multiple colors in sequence and then use them, this persistence matters." },
+];
+
+const theirAdvantages = [
+  { title: "Zero-Configuration Simplicity", desc: "ColorPick Eyedropper requires no setup. Click the extension icon, hover over any color on the page, and the color code appears. There are no palettes to manage, no preferences to configure, no Pro features to consider. For users who need an occasional quick color reference and don't need anything more, this simplicity is genuinely valuable — there's nothing to learn and nothing to manage." },
+  { title: "No Permission Overhead", desc: "ColorPick Eyedropper is a minimal extension with minimal permissions. Users who prefer extensions that request as few permissions as possible may prefer a simpler tool. PaletteGrab uses chrome.storage.local for history and palette persistence, which requires the storage permission." },
+  { title: "Completely Free for All Use Cases", desc: "ColorPick Eyedropper is fully free. PaletteGrab's core eyedropper and color copying are free, but palette management, CSS/Tailwind/Figma exports, and image extraction require Pro ($3.99 one-time)." },
+];
+
+const verdict = "ColorPick Eyedropper is the right tool if you need to occasionally look up a color code and don't need anything else. It's simple, fast, and free — open it, hover, copy, done. PaletteGrab is the right tool if you work with colors as part of a development or design workflow: building a palette across a session, exporting to Tailwind config or CSS variables, or importing into Figma. The free tiers of both cover basic color picking. The difference emerges when you need to do something with the color after picking it. ColorPick Eyedropper's answer is \"copy and paste.\" PaletteGrab Pro's answer is \"export in the exact format your tool expects, with all your session's colors at once.\"";
+
+const faq: ComparisonFaq[] = [
+  { question: "What is ColorPick Eyedropper?", answer: "ColorPick Eyedropper is a Chrome extension that lets you hover over any element on a webpage to see its color. It shows the color value in a small tooltip overlay and lets you copy the HEX code. It doesn't have palette management or developer export features." },
+  { question: "Can ColorPick Eyedropper save colors between sessions?", answer: "ColorPick Eyedropper shows colors while the eyedropper is active but does not maintain a persistent color history you can access later. PaletteGrab saves a 10-color tray and 20-pick history accessible from the popup at any time." },
+  { question: "Does PaletteGrab work the same way as ColorPick Eyedropper?", answer: "For basic color picking, yes — both let you click a button, hover over a color, and copy it. PaletteGrab adds palette management and export features that ColorPick Eyedropper doesn't have." },
+  { question: "Is PaletteGrab free to use?", answer: "The eyedropper, HEX/RGB/HSL copy, 10-color tray, and 20-pick history are free with no time limit. Pro ($3.99 one-time) adds named palettes, CSS/Tailwind/SCSS/Figma export, and image color extraction." },
+  { question: "Which is better for Figma workflows?", answer: "PaletteGrab Pro is significantly more useful for Figma workflows. It exports palettes as Figma-compatible JSON for direct import. ColorPick Eyedropper requires manually entering each color into Figma." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="PaletteGrab vs ColorPick Eyedropper — Palette Manager vs Simple Picker (2026)"
+  seoDescription="ColorPick Eyedropper is a simple color picker with no palette management. PaletteGrab adds named palettes, Tailwind/CSS/Figma export, and history. Compare features."
+  seoKeywords="colorpick eyedropper alternative, color picker chrome extension palette, palettegrab vs colorpick, tailwind color export chrome extension, figma color picker chrome"
+  h1="PaletteGrab vs ColorPick Eyedropper"
+  intro="ColorPick Eyedropper is a minimal color picker — hover, see the color, copy the HEX. PaletteGrab adds what ColorPick Eyedropper doesn't have: a persistent color tray, named palette management, and export to Tailwind config, CSS variables, SCSS, and Figma."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-13"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/palettegrab-vs-colorzilla/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/palettegrab.png" alt="PaletteGrab" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PaletteGrab vs ColorZilla</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">MV3 vs MV2 classic</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/palettegrab/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/palettegrab.png" alt="PaletteGrab" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PaletteGrab — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, exports, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>
