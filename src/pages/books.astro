@@ -26,6 +26,45 @@ const faq = [
 ];
 
 const totalPaid = books.filter((b) => b.price > 0).reduce((sum, b) => sum + b.price, 0);
+
+const itemListSchema = {
+  "@context": "https://schema.org",
+  "@type": "ItemList",
+  "name": "Chrome拡張・個人開発 書籍シリーズ",
+  "description": "18本のChrome拡張開発から得た知見を体系化した4冊シリーズ",
+  "url": "https://dev-tools-hub.xyz/books/",
+  "numberOfItems": books.length,
+  "itemListElement": books.map((book, i) => ({
+    "@type": "ListItem",
+    "position": i + 1,
+    "item": {
+      "@type": "Book",
+      "name": book.title,
+      "description": book.tagline,
+      "url": `https://dev-tools-hub.xyz/books/${book.slug}/`,
+      "inLanguage": "ja",
+      "bookFormat": "EBook",
+      "author": { "@type": "Person", "name": "ktg", "url": "https://zenn.dev/ktg" },
+      "offers": {
+        "@type": "Offer",
+        "price": book.price,
+        "priceCurrency": "JPY",
+        "availability": "https://schema.org/InStock",
+        "url": book.zennUrl
+      }
+    }
+  }))
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faq.map((item) => ({
+    "@type": "Question",
+    "name": item.q,
+    "acceptedAnswer": { "@type": "Answer", "text": item.a }
+  }))
+};
 const colorMap: Record<string, string> = {
   sky: 'bg-sky-50 border-sky-200 text-sky-700',
   amber: 'bg-amber-50 border-amber-200 text-amber-700',
@@ -46,6 +85,10 @@ const dotMap: Record<string, string> = {
   keywords="Chrome拡張 本, 個人開発 書籍, Zenn books, Chrome extension 入門, 個人開発 収益化"
   lang="ja"
 >
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(itemListSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />
+  </Fragment>
   <div class="max-w-4xl mx-auto px-6 py-16">
 
     <!-- Hero -->
