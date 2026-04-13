@@ -1,0 +1,103 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "FurimaPro",
+  icon: "/ext-icons/furimapro.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/furimapro/iblgdofhffoamgcmiflnaefbkigihbil",
+  users: "New",
+  rating: "—",
+  price: "Free / Pro ¥1,480",
+  extensionPageUrl: "/extensions/furimapro/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Manual Listing (No Tool)",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "",
+  users: "—",
+  rating: "—",
+  price: "Free",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Listing Description Entry", ours: "One-click template insert", theirs: "Type from scratch every listing", highlight: true },
+  { feature: "Template Library", ours: "Yes — unlimited (Pro), 3 (Free)", theirs: "No — copy-paste from notes app or memory", highlight: true },
+  { feature: "Profit Calculation", ours: "Auto: sale price − 10% commission − shipping", theirs: "Mental math or open a separate calculator", highlight: true },
+  { feature: "Mercari Commission Rate", ours: "10% applied automatically", theirs: "Must remember and calculate manually" },
+  { feature: "Rakuraku Mercari Bin Rates", ours: "Built-in (Nekoposu through 160-size)", theirs: "Look up the table each time", highlight: true },
+  { feature: "Yuyu Mercari Bin Rates", ours: "Built-in (Yu-Packet through 100-size)", theirs: "Look up the table each time", highlight: true },
+  { feature: "Net Profit Visibility", ours: "Real-time display before listing", theirs: "Post-sale calculation or estimate", highlight: true },
+  { feature: "Profit Margin Display", ours: "Yes — shown alongside net profit", theirs: "No — requires manual calculation" },
+  { feature: "Monthly Sales Tracking", ours: "Yes — revenue, cost, profit totals (Pro)", theirs: "Separate spreadsheet or no tracking" },
+  { feature: "Monthly Profit Graph", ours: "Yes — seasonal pattern visibility (Pro)", theirs: "No" },
+  { feature: "CSV Export for Tax Filing", ours: "Yes — tax-ready format (Pro)", theirs: "Manual ledger or separate spreadsheet" },
+  { feature: "Data Storage", ours: "100% local — chrome.storage.local", theirs: "No data stored" },
+  { feature: "Account Required", ours: "No account, no login", theirs: "No account needed" },
+  { feature: "Mercari ToS Risk", ours: "None — manual insert, no automation", theirs: "None" },
+  { feature: "Time per Listing", ours: "~15 seconds (template + profit check)", theirs: "2–5 minutes per listing", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Stop Rewriting the Same Description 50 Times a Month", desc: "If you sell clothing, you write the same condition language for every item: fabric care instructions, measurement notes, no-return policy. If you sell electronics, the same disclaimer about factory resets and compatibility. FurimaPro's template library lets you save those standard blocks once and insert any of them with a single click directly into Mercari's description field. The template includes item condition, shipping method, and who pays shipping — the fields you're filling out identically across dozens of listings. Free plan covers 3 templates. Pro is unlimited." },
+  { title: "Know Your Real Profit Before You Click List", desc: "The manual approach to profit calculation: type the sale price into a separate calculator, subtract 10% commission, look up the shipping rate in a browser tab, subtract that number, wonder if you got the right size box. FurimaPro compresses this into two inputs — sale price and purchase cost — plus a shipping method selection. Mercari's 10% fee is applied automatically. Shipping rates for Rakuraku Mercari Bin (Nekoposu through 160-size) and Yuyu Mercari Bin (Yu-Packet through 100-size) are built in. Net profit and margin appear in real time while you're still on the listing form, so pricing decisions happen before the item goes live — not after you've already accepted an offer." },
+  { title: "Built-In Shipping Rate Table — No More Tab-Switching", desc: "The manual workflow for shipping cost: open a new tab, search for 'Rakuraku Mercari Bin 100-size price', read a chart, remember the number, close the tab, return to listing. This happens every time you're uncertain about a box size. FurimaPro eliminates this by embedding the current rate tables for both Rakuraku and Yuyu Mercari Bin directly into the profit calculator. Select the shipping method from a dropdown, and the rate is applied immediately." },
+  { title: "Monthly Profit Tracking Without a Separate Spreadsheet", desc: "Manual sellers who want to track profitability typically maintain a spreadsheet — one row per sale, columns for sale price, purchase cost, shipping, commission. FurimaPro Pro replaces this for Mercari-specific sales: log a sold item, and monthly totals for revenue, costs, and net profit are calculated automatically. The monthly graph shows seasonal patterns at a glance. CSV export produces a structured file with all columns needed for Japanese tax filing — useful at the end of the year when aggregating sales records." },
+];
+
+const theirAdvantages = [
+  { title: "Zero Setup", desc: "Manual listing requires no installation, no configuration, and no extension permissions. For sellers who list items very infrequently — say, fewer than five per month — the overhead of setting up templates may not be worth the time saved. The manual approach also works on any browser or device." },
+  { title: "Full Flexibility", desc: "Manual entry means every description is custom from scratch. For sellers who write highly unique, item-specific descriptions every time with no repetition, the template system offers no efficiency gain. FurimaPro's value scales with the degree of repetition in your listing workflow." },
+  { title: "No Extension Required", desc: "Some sellers prefer to keep their browser lightweight and avoid extensions out of privacy habit or performance concerns. Manual listing works identically everywhere without any dependency on a Chrome extension." },
+];
+
+const verdict = "The comparison between FurimaPro and doing everything manually isn't about features — it's about how many listings you do each month and how much repetition is in your workflow. If you list 5–10 items a month with highly varied descriptions and rarely need to check a shipping rate, manual is fine. If you list 20–50+ items a month and find yourself typing the same condition language repeatedly, opening a calculator to check profit, and looking up shipping rates in a separate tab, FurimaPro eliminates those friction points. The profit calculator alone is worth the install for anyone who is unsure about margins before pricing — knowing real profit before listing, not after, changes how you price. Pro adds the tracking and CSV export for sellers who want year-end tax data without maintaining a separate spreadsheet. The free plan — 3 templates + full profit calculator, no time limit — is a reasonable starting point to evaluate whether the workflow fits before any purchase.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Does FurimaPro automate Mercari listings?", answer: "No. FurimaPro has no automation features. You click a template to insert it into the description field, and you submit the listing yourself. There is no auto-listing, auto-pricing, or scraping. It's a productivity assistant — the same category as a clipboard manager or text expander." },
+  { question: "Does using FurimaPro violate Mercari's Terms of Service?", answer: "No. FurimaPro inserts text manually (you click the insert button) and doesn't automate any Mercari actions. It's functionally equivalent to copying text from a notes app and pasting it. There is no violation of Mercari's terms of service." },
+  { question: "What shipping rates does FurimaPro include?", answer: "FurimaPro includes built-in rates for Rakuraku Mercari Bin (Nekoposu, 60-size through 160-size) and Yuyu Mercari Bin (Yu-Packet, Yu-Packet Plus, 60-size through 100-size). Select the shipping method and box size, and the rate is applied automatically in the profit calculator." },
+  { question: "Is the free plan genuinely useful?", answer: "Yes. The free plan includes 3 listing templates and the full profit calculator with no time limit. You can evaluate whether the workflow matches your selling style before spending anything. Pro adds unlimited templates, monthly profit graphs, and CSV export." },
+  { question: "Where is my data stored?", answer: "All data — templates, sales records, profit logs — is stored in chrome.storage.local on your machine. Nothing is sent to any external server. No account is required, and nothing leaves your browser." },
+  { question: "What is the Pro price?", answer: "Pro is ¥1,480 (~$9.99) as a one-time payment — no subscription. Pay once and use indefinitely, including all future updates." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="FurimaPro vs Manual Mercari Listing — Template Library + Profit Calculator vs Doing It by Hand (2026)"
+  seoDescription="Stop rewriting Mercari descriptions from scratch. FurimaPro gives Mercari PC sellers one-click templates and a profit calculator with built-in Rakuraku/Yuyu Bin rates."
+  seoKeywords="furimapro vs manual, mercari listing tool, mercari profit calculator, mercari template extension, mercari seller chrome extension, rakuraku mercari bin calculator"
+  h1="FurimaPro vs Manual Mercari Listing"
+  intro="Most Mercari PC sellers write the same item condition disclaimers over and over, then open a separate calculator to check profit. FurimaPro replaces both: a one-click template library inserts your saved descriptions, and a built-in profit calculator handles Mercari's 10% commission and Rakuraku/Yuyu Bin shipping rates automatically."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-13"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/furimapro-vs-spreadsheet-tracking/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/furimapro.png" alt="FurimaPro" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FurimaPro vs Spreadsheet Tracking</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Built-in tracker vs Excel/Google Sheets</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/furimapro/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/furimapro.png" alt="FurimaPro" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FurimaPro — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, pricing, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

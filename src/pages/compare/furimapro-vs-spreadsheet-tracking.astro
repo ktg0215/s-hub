@@ -1,0 +1,105 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "FurimaPro",
+  icon: "/ext-icons/furimapro.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/furimapro/iblgdofhffoamgcmiflnaefbkigihbil",
+  users: "New",
+  rating: "—",
+  price: "Free / Pro ¥1,480",
+  extensionPageUrl: "/extensions/furimapro/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Excel / Google Sheets",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "",
+  users: "—",
+  rating: "—",
+  price: "Free (Sheets) / ¥1,284/mo (Excel 365)",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Profit Calculation", ours: "Auto — sale price, 10% commission, shipping built in", theirs: "Manual formula setup per spreadsheet", highlight: true },
+  { feature: "Mercari 10% Commission", ours: "Applied automatically — no formula needed", theirs: "Must build formula: =B2*0.9", highlight: true },
+  { feature: "Rakuraku Bin Rates", ours: "Built-in lookup by shipping method", theirs: "Manually enter or maintain a lookup table", highlight: true },
+  { feature: "Yuyu Bin Rates", ours: "Built-in lookup by shipping method", theirs: "Manually enter or maintain a lookup table", highlight: true },
+  { feature: "Real-Time Profit Preview", ours: "Yes — while you're on the Mercari listing form", theirs: "Only if you open the spreadsheet mid-listing", highlight: true },
+  { feature: "Monthly Revenue Totals", ours: "Automatic — summed from logged sales (Pro)", theirs: "=SUM() after manual data entry" },
+  { feature: "Monthly Profit Graph", ours: "Auto-generated from sales log (Pro)", theirs: "Build chart manually after data entry" },
+  { feature: "CSV Export", ours: "One-click, pre-structured for tax (Pro)", theirs: "File → Download As → CSV" },
+  { feature: "Tax-Ready Format", ours: "Columns match Japanese accountant needs (Pro)", theirs: "Requires manual column design" },
+  { feature: "Listing Template Library", ours: "Yes — one-click description insert", theirs: "No — not related to listing workflow", highlight: true },
+  { feature: "Context Switching", ours: "Stays in Mercari tab — no switching needed", theirs: "Open spreadsheet separately during listing", highlight: true },
+  { feature: "Data Entry", ours: "Sale price + cost + dropdown — 10 seconds", theirs: "Type into each spreadsheet cell manually", highlight: true },
+  { feature: "Setup Required", ours: "Install extension — no configuration", theirs: "Design spreadsheet structure from scratch" },
+  { feature: "Cross-Device Access", ours: "Chrome only (PC)", theirs: "Any device with Sheets/Excel access" },
+  { feature: "Collaboration", ours: "Single user — local storage only", theirs: "Shareable (Google Sheets)" },
+  { feature: "Custom Analysis", ours: "Predefined metrics only", theirs: "Fully customizable formulas and views", highlight: false },
+];
+
+const ourAdvantages = [
+  { title: "Profit Calculation at Listing Time — Not After the Fact", desc: "The spreadsheet workflow for profit is retrospective: you list, sell, then log the sale and calculate margin. FurimaPro integrates the profit calculation into the listing moment — enter sale price, purchase cost, and shipping method, and net profit appears immediately on the Mercari listing form. This changes the decision point. Instead of pricing based on instinct and calculating margin later, you know the exact profit before clicking List. This is particularly useful for items where shipping cost variance is meaningful — a ¥3,000 item on Rakuraku 60-size nets significantly more than on 100-size, and most sellers approximate those numbers rather than looking them up." },
+  { title: "Mercari's Costs Are Built In — No Formula Maintenance", desc: "A Mercari profit spreadsheet requires building and maintaining formulas for Mercari's 10% commission rate and shipping rate tables. Rakuraku Mercari Bin has 7 size tiers. Yuyu Mercari Bin has 4. When rates update, spreadsheet formulas need updating. FurimaPro embeds these rates directly and handles all the arithmetic. You pick a shipping method from a dropdown and the right rate applies — no formulas, no maintenance, no version of your spreadsheet becoming stale." },
+  { title: "Zero Context Switching During Listing", desc: "The spreadsheet profit workflow during listing: open a new tab, find the spreadsheet, enter the numbers, note the result, close the tab, return to Mercari. Every listing. FurimaPro shows profit in a small popup that lives in the browser toolbar — the calculation happens without leaving the listing form. For sellers doing 30–50 listings a session, eliminating this tab-switching adds up." },
+  { title: "Listing Template Library — Unrelated to Spreadsheets", desc: "A spreadsheet manages numbers — it can't help with the repetitive text work of writing descriptions. FurimaPro's template library handles that separately. Save your standard clothing condition language, electronics disclaimers, or handmade item policies once, then insert any of them into Mercari's description field with one click. No clipboard fumbling, no notes app tab. For sellers with repetitive description patterns across similar items, this is where the time savings are largest." },
+];
+
+const theirAdvantages = [
+  { title: "Fully Customizable Analysis", desc: "A spreadsheet is a blank canvas. You can track any metric you want — category breakdowns, platform comparisons across Mercari and Yahoo Auctions, purchase source analysis, seasonal trends. FurimaPro tracks the metrics it's designed for: monthly revenue, costs, profit, and margin. If your analysis needs go beyond those predefined views, a spreadsheet gives you complete flexibility." },
+  { title: "Cross-Device and Collaborative", desc: "Google Sheets works on any device and can be shared with an accountant, business partner, or spouse managing the household resale operation. FurimaPro stores data locally in Chrome on one machine. If you need your sales data accessible from multiple devices or shareable with another person, Google Sheets is the right tool." },
+  { title: "Long-Term Data Portability", desc: "A Google Sheets file with years of sales history is fully portable — export it, copy it, migrate it, share it. FurimaPro's data lives in chrome.storage.local. The CSV export gets data out, but the raw storage isn't directly accessible or transferable without the export step." },
+  { title: "Platform-Agnostic Tracking", desc: "If you sell on multiple platforms — Mercari, Yahoo Auctions, Rakuma — a spreadsheet can consolidate records from all of them in one place. FurimaPro is Mercari-only. For multi-platform sellers, a single spreadsheet may be more practical than platform-specific tools." },
+];
+
+const verdict = "FurimaPro and a spreadsheet are optimized for different moments in the seller workflow. A spreadsheet is better for post-sale analysis, multi-platform tracking, collaboration, and custom metrics. FurimaPro is better for the decision point at listing time — knowing real profit before pricing — and eliminating the context-switching and manual formula maintenance that a Mercari spreadsheet requires. The most practical setup for active Mercari sellers is both: FurimaPro for in-listing profit calculation and description templates, and a spreadsheet (or FurimaPro Pro's CSV export fed into a spreadsheet) for broader analysis. If forced to choose one, the question is: when do you want to think about profit? If the answer is 'while I'm listing,' FurimaPro wins. If the answer is 'monthly, from a consolidated view,' a spreadsheet wins.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Can FurimaPro replace my Mercari profit spreadsheet?", answer: "For basic monthly tracking it can. FurimaPro Pro logs sales and generates monthly totals for revenue, costs, and net profit, plus a monthly graph and CSV export. For custom analysis, multi-platform tracking, or collaboration, a spreadsheet is more flexible. Many sellers use both — FurimaPro for real-time profit checks during listing and CSV export into a spreadsheet for year-end accounting." },
+  { question: "Does FurimaPro include Rakuraku Mercari Bin shipping rates?", answer: "Yes. FurimaPro has built-in rates for Rakuraku Mercari Bin (Nekoposu through 160-size) and Yuyu Mercari Bin (Yu-Packet through 100-size). Select the shipping method from the dropdown and the correct rate is applied automatically in the profit calculator." },
+  { question: "How does the profit calculation work?", answer: "Enter the sale price, your purchase cost, and select the shipping method. FurimaPro subtracts Mercari's 10% commission and the shipping fee automatically. Net profit and margin are shown in real time." },
+  { question: "What does the CSV export look like?", answer: "FurimaPro Pro exports a CSV with columns for sale date, item name, sale price, purchase cost, shipping method, shipping fee, Mercari commission, and net profit. The column structure is designed for Japanese tax filing and is compatible with spreadsheet import without reformatting." },
+  { question: "Is a subscription required?", answer: "No. FurimaPro Pro is a one-time payment of ¥1,480 (~$9.99) — no monthly fee. The free plan includes 3 templates and the full profit calculator with no time limit." },
+  { question: "Does FurimaPro work with Mercari mobile?", answer: "No — FurimaPro is a Chrome extension for the Mercari PC web interface (jp.mercari.com). It does not work with the Mercari mobile app." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="FurimaPro vs Excel / Google Sheets — Mercari Profit Tracker Comparison (2026)"
+  seoDescription="FurimaPro calculates Mercari profit in real time during listing with built-in commission and shipping rates. Compare with managing a Mercari profit spreadsheet in Excel or Google Sheets."
+  seoKeywords="mercari profit tracker, mercari spreadsheet alternative, furimapro vs excel, mercari profit calculator chrome extension, mercari seller tools japan, rakuraku mercari bin calculator"
+  h1="FurimaPro vs Spreadsheet (Excel / Google Sheets)"
+  intro="Most Mercari sellers track profit in a spreadsheet — formulas for commission, manual rate lookups for shipping, separate tab during listing. FurimaPro Pro replaces the listing-time workflow: built-in Mercari commission, Rakuraku and Yuyu Bin rate tables, and monthly tracking with CSV export, all without leaving the Mercari listing form."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-13"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/furimapro-vs-manual-listing/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/furimapro.png" alt="FurimaPro" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FurimaPro vs Manual Listing</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Templates + profit calc vs doing it by hand</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/furimapro/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/furimapro.png" alt="FurimaPro" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FurimaPro — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, pricing, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>
