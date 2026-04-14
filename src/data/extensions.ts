@@ -281,4 +281,16 @@ export const categories: Category[] = [
       },
     ],
   },
+  {
+    title: "Legal & Compliance Tools",
+    extensions: [
+      {
+        name: "AdLegalCheck",
+        description: "EC広告・LPを開くだけで景表法・薬機法・ステマ規制のNGワードをリアルタイム検出。リスクスコアとハイライト表示で広告コンプライアンスを自動チェック。",
+        price: "Free / Pro $3.99/mo",
+        url: "/extensions/adlegalcheck/",
+        icon: "/ext-icons/adlegalcheck.png",
+      },
+    ],
+  },
 ];

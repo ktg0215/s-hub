@@ -1,0 +1,84 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "AdLegalCheck",
+  subtitle: "Ad Law Compliance Checker",
+  tagline: "EC広告・LPを開くだけで景表法・薬機法・ステマ規制のNGワードをリアルタイム検出。違反リスクをハイライト表示して広告コンプライアンスを自動チェック。",
+  price: "Free / Pro $3.99/mo",
+  chromeUrl: "https://chromewebstore.google.com/detail/eacmjlpcondhpifichlkahhpjofmicol",
+  status: "Published",
+  category: "Legal Tools",
+  lang: "JP/EN",
+  icon: "/ext-icons/adlegalcheck.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "AdLegalCheckは、Webページを閲覧しながらリアルタイムで広告法規制違反を検出するChrome拡張機能です。景品表示法（景表法）・薬機法・ステマ規制の3軸でNGワードをスキャンし、問題箇所を赤・黄・緑のハイライトで可視化。サイドパネルにはリスクスコア（0〜100）と検出ワードの一覧、違反理由・改善提案が表示されます。楽天・Yahoo!ショッピング・Amazonの商品ページ、健康・美容系LP、アフィリエイト記事など、消費者向けコンテンツのコンプライアンスチェックに最適。ページを開くだけで自動スキャンが走り、手動操作は不要。フリープランは月3ページ無料。Proは無制限＋CSVエクスポートで弁護士確認前の一次フィルタリングに活用できます。";
+
+const features = [
+  { title: "3軸コンプライアンスチェック", desc: "景品表示法（優良誤認・有利誤認）・薬機法・ステマ規制の3カテゴリで69語以上のNGワードDBをスキャン" },
+  { title: "リアルタイム・ハイライト表示", desc: "ページを開くだけで自動スキャン。高リスク（赤）・中リスク（黄）・低リスク（緑）で視覚的に識別" },
+  { title: "リスクスコア（0〜100）", desc: "ページ全体の法的リスクを0〜100でスコアリング。スコア70以上は要注意の目安" },
+  { title: "NGワード詳細 + 改善提案", desc: "各NGワードの違反理由・根拠法令・代替表現をサイドパネルで確認。どう直すかまでわかる" },
+  { title: "CSVエクスポート（Pro）", desc: "検出結果をCSVに出力して弁護士確認・チーム共有・監査記録として活用" },
+  { title: "SPA・動的ページ対応", desc: "楽天やYahoo!ショッピングなどSPA構成のECサイトでもURL変化を検知して再スキャン" },
+];
+
+const targetUsers = [
+  "EC店長・ショップ運営者：商品ページの薬機法・景表法違反を署名前に確認したい方",
+  "広告代理店・制作会社：クライアントの健康・美容系LPを月複数本チェックする担当者",
+  "アフィリエイター・ブロガー：薬機法グレーゾーンの自己確認が必要な方",
+  "コンプライアンス担当：複数サイトの広告表現を定期監査したい企業担当者",
+];
+
+const screenshots = [
+  "/screenshots/adlegalcheck/screenshot-01.png",
+  "/screenshots/adlegalcheck/screenshot-02.png",
+  "/screenshots/adlegalcheck/screenshot-03.png",
+];
+
+const relatedProducts = [
+  { name: "OnPageX", category: "SEO Tools", link: "/extensions/onpagex/", icon: "/ext-icons/onpagex.png" },
+  { name: "DataPick", category: "Productivity", link: "/extensions/datapick/", icon: "/ext-icons/datapick.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "AdLegalCheck",
+  description: "EC広告・LPの景表法・薬機法・ステマ規制NGワードをリアルタイム検出するChrome拡張機能。リスクスコアとハイライト表示で広告コンプライアンスを自動チェック。",
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/adlegalcheck",
+  downloadUrl: extension.chromeUrl,
+  featureList: "景表法チェック, 薬機法チェック, ステマ規制チェック, リアルタイムハイライト, リスクスコア, CSVエクスポート",
+};
+
+const faqItems = [
+  { question: "AdLegalCheckは無料ですか？", answer: "フリープランは月3ページまで無料でチェックできます。Proプラン（$3.99/月）で無制限チェックとCSVエクスポートが利用可能です。" },
+  { question: "どのようなNGワードを検出しますか？", answer: "景品表示法（優良誤認・有利誤認）のNGワード（「No.1」「業界最安値」「完全無料」など）、薬機法NGワード（「治る」「若返る」「痩せる」「がんに効く」など）、ステマ規制関連（「#PR」表記なし、口コミ偽装表現など）をデータベースから検出します。" },
+  { question: "すべての違反を検出できますか？", answer: "本ツールはキーワードベースの一次フィルタリングです。文脈・全体の文章表現・配置などを考慮した総合的な法的判断は専門家にご相談ください。本ツールの結果は参考情報です。" },
+  { question: "データはどこに送信されますか？", answer: "スキャン処理はすべてブラウザ内で完結します。ページのテキストデータは外部サーバーに送信されません。検出結果はchrome.storage.localにのみ保存されます。" },
+  { question: "楽天・Amazonの商品ページに対応していますか？", answer: "はい。楽天・Yahoo!ショッピング・Amazon・自社ECサイトなど、Chrome上で表示されるすべてのWebページに対応しています。SPA（シングルページアプリ）のURLナビゲーションにも対応しています。" },
+  { question: "CSVエクスポート機能はどう使いますか？", answer: "Proプランのサイドパネル内にCSVエクスポートボタンがあります。検出されたNGワード・リスクレベル・ページURL・スキャン日時が含まれたCSVファイルを出力できます。弁護士確認やチーム内共有にご活用ください。" },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="AdLegalCheck - 景表法・薬機法・ステマ規制NGワード自動検出 | 広告コンプライアンスChrome拡張"
+  seoDescription="EC広告・LPを開くだけで景表法・薬機法・ステマ規制のNGワードをリアルタイム検出。リスクスコアとハイライト表示で広告コンプライアンスを自動チェックするChrome拡張機能。無料で月3ページ。"
+  seoKeywords="景表法 チェック, 薬機法 NGワード, ステマ規制, 広告コンプライアンス, EC 薬機法, LP 景表法, 広告審査 ツール, Chrome拡張, adlegalcheck, 広告表現 チェック, 違反表現 検出"
+/>

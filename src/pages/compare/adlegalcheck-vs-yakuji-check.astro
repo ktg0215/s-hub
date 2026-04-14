@@ -1,0 +1,99 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "AdLegalCheck",
+  icon: "/ext-icons/adlegalcheck.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/eacmjlpcondhpifichlkahhpjofmicol",
+  users: "New",
+  rating: "—",
+  price: "Free / Pro $3.99/mo",
+  extensionPageUrl: "/extensions/adlegalcheck/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "薬事法チェッカー（手動）",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "",
+  users: "—",
+  rating: "—",
+  price: "Free",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "リアルタイム検出", ours: "ページを開くだけで自動スキャン", theirs: "テキストを手動でコピー→貼り付けチェック", highlight: true },
+  { feature: "景表法 NGワード検出", ours: "25語（優良誤認・有利誤認・No.1系）", theirs: "ツールによる（網羅性は限定的）", highlight: true },
+  { feature: "薬機法 NGワード検出", ours: "29語（効能効果・若返り・疾患名等）", theirs: "ツールによる", highlight: true },
+  { feature: "ステマ規制チェック", ours: "15語（PR表記なし・口コミ偽装等）", theirs: "対応なし（多くの手動ツールにない）", highlight: true },
+  { feature: "3軸同時チェック", ours: "景表法・薬機法・ステマを1回で検出", theirs: "通常は薬機法のみ、法軸別に複数ツール必要" },
+  { feature: "ハイライト表示", ours: "NGワードをページ上で赤/黄/緑ハイライト", theirs: "なし（テキストのみ結果表示）", highlight: true },
+  { feature: "リスクスコア（0〜100）", ours: "ページ全体のリスクを数値化", theirs: "なし" },
+  { feature: "改善提案", ours: "各NGワードに代替表現を提示", theirs: "なし（NG判定のみ）", highlight: true },
+  { feature: "CSVエクスポート", ours: "Pro：NGワード・URL・日時をCSV出力", theirs: "なし" },
+  { feature: "SPA対応", ours: "URL変化を検知して自動再スキャン", theirs: "ページ遷移後は手動で再入力" },
+  { feature: "プライバシー", ours: "ページテキストは外部送信なし（ローカル処理）", theirs: "ツールによりサーバー送信あり" },
+  { feature: "対象ページ", ours: "あらゆるWebページ（Chrome上）", theirs: "テキストボックスに貼り付けた範囲のみ" },
+];
+
+const ourAdvantages = [
+  { title: "ページを開くだけ — コピペ不要のゼロフリクションチェック", desc: "手動チェックツールの共通の欠点は、テキストをコピーしてツールのテキストボックスに貼り付けるという手順にある。楽天の商品ページを1ページチェックするだけで、説明文・特徴タブ・成分表などを分割してコピーし、複数回貼り付けて確認するという作業が発生する。AdLegalCheckはページを開いた瞬間にコンテンツ全体を自動スキャンし、ハイライトを直接ページ上に表示する。テキストを一切コピーする必要がない。月10〜20本のLPをチェックする代理店担当者にとって、この差は1ページあたり2〜3分の節約に直結する。" },
+  { title: "3軸同時チェック — 景表法・薬機法・ステマを1回で", desc: "多くの薬事法チェッカーは薬機法NGワード（医薬品的効能効果の標榜）に特化しており、景品表示法の優良誤認（「No.1」「業界最安値」）や有利誤認（「今だけ半額」の根拠不明）、2023年施行のステマ規制（「#PR」なし・口コミ偽装）は別のツールで確認する必要がある。AdLegalCheckは3法令を1回のスキャンで同時チェックし、カテゴリ別にフィルタリングして表示できる。1ページに3種類の違反リスクが混在しているケース（健康食品LP）では特に効果が大きい。" },
+  { title: "NGワード単体ではなく「どう直すか」まで提示", desc: "既存の薬事法チェッカーの多くは「この表現はNG」という判定を返すだけで、代替表現を提示しないものが多い。AdLegalCheckは検出した各NGワードに対して根拠法令・違反理由・改善提案（代替表現例）を一緒に表示する。「痩せる」→「スタイルアップをサポート」のような置き換え例が即座に確認できるため、ライターがその場で修正できる。法令確認のためにGuidelineを開きに行く時間が省ける。" },
+  { title: "リスクスコアで優先度を判断できる", desc: "複数ページを並行して管理している場合、どのページから修正に着手すべきかの優先度判断が難しい。AdLegalCheckのリスクスコア（0〜100）はページ全体のNGワード密度とリスクレベルを数値化する。スコア70以上のページを優先的に弁護士確認に回す、スコア30未満のページはそのままPublishするという運用が可能になる。" },
+];
+
+const theirAdvantages = [
+  { title: "拡張機能インストール不要", desc: "手動チェックツールはWebサービスとして提供されているものが多く、Chromeの拡張機能権限（全サイトへのコンテンツスクリプト注入）が不要。情報セキュリティポリシーの厳しい企業環境では拡張機能インストールが禁止されているケースがあり、そういった環境ではWebベースのチェッカーが唯一の選択肢になる。" },
+  { title: "チェック履歴・エビデンス管理（一部ツール）", desc: "Webサービス型の薬事チェッカーにはアカウント管理・チェック履歴保存・承認フロー機能を持つ高機能なものがある（月額数千円〜）。チームでの承認ワークフローや監査証跡が必要なケースでは、こうしたツールに優位性がある。AdLegalCheckのCSVエクスポートは個人・小規模チームには十分だが、エンタープライズの承認フローには向かない。" },
+  { title: "特定業界の専門語彙対応（一部ツール）", desc: "薬機法のグレーゾーン表現は業界ごとに異なる。一部の専門ツールはコスメ・サプリ・医療機器・食品の業界別NGリストを持ち、業界特有の表現に対応している。AdLegalCheckは汎用69語のデータベースであり、業界特化型ツールの専門語彙網羅性には及ばない。" },
+];
+
+const verdict = "ページを開いたら自動でチェックされる体験は、月に複数本のLPや商品ページを扱う制作者・運営者にとって手動チェックとは根本的に異なる運用に変わる。手動チェックは「確認しようと思ったときだけ動く」受動的なフロー。AdLegalCheckは「どのページを見ていても常にチェックが走っている」能動的なフロー。フリープラン（月3ページ）で動線を試してみて、現在のLPチェック作業のどの部分が変わるか確かめることを推奨する。薬機法のグレーゾーン表現のすべてをカバーするわけではないため、最終的な法的判断は専門家への確認を継続することが前提だが、一次フィルタリングの時間コストは大幅に削減できる。";
+
+const faq: ComparisonFaq[] = [
+  { question: "AdLegalCheckはすべての薬機法違反を検出できますか？", answer: "いいえ。AdLegalCheckはキーワードベースの検出です。「若返り」「病気が治る」などの直接的なNGワードは検出できますが、文脈・ニュアンス・間接的表現については網羅できません。最終的な法的判断は弁護士や薬機法専門家にご相談ください。本ツールは一次フィルタリングのためのツールです。" },
+  { question: "景表法の「優良誤認」とは何を検出しますか？", answer: "「No.1」「業界最安値」「日本初」「完全無料」など、客観的な根拠なしに使用すると優良誤認を生じさせる恐れのある表現を検出します。これらの表現自体が違法なのではなく、合理的な根拠がない場合に問題になります。" },
+  { question: "ステマ規制の検出とは？", answer: "2023年10月施行のステマ規制（景品表示法第5条第3号）に関連する表現パターンを検出します。「#PR」「広告」の表記なしに事業者依頼の口コミに見せかけた表現などが対象です。" },
+  { question: "医薬品・医療機器メーカーの広告にも使えますか？", answer: "使用自体は可能ですが、医薬品・医療機器の広告規制は薬機法の中でも特に複雑で、一般消費者向け広告の禁止・媒体規制・特定疾病への言及制限など、NGワード検出だけでは対応できない規制が多くあります。専門の薬事コンサルタントとの連携をお勧めします。" },
+  { question: "チェック結果は証拠として使えますか？", answer: "AdLegalCheckの検出結果はCSVエクスポート（Pro）で記録できますが、法的な証拠書類として使用することは想定していません。コンプライアンス上の記録・弁護士への相談資料としての活用はできます。" },
+];
+---
+
+<ComparisonLayout
+  seoTitle="AdLegalCheck vs 薬事法チェッカー（手動） — リアルタイム自動検出 vs コピペチェック比較（2026）"
+  seoDescription="景表法・薬機法・ステマ規制を1回のスキャンで同時チェック。ページを開くだけでNGワードをハイライト表示するAdLegalCheckと、テキストを手動で貼り付ける薬事法チェッカーを比較。"
+  seoKeywords="adlegalcheck vs 薬事法チェッカー, 薬機法 自動チェック, 景表法 NG ワード 検出, 広告コンプライアンス ツール 比較, LP 薬機法チェック Chrome拡張"
+  h1="AdLegalCheck vs 薬事法チェッカー（手動）"
+  intro="手動の薬事法チェッカーはテキストをコピーして貼り付けるフロー。AdLegalCheckはページを開いた瞬間に景表法・薬機法・ステマ規制の3軸を同時スキャンして直接ハイライト表示する。EC運営者・LP制作者のコンプライアンスチェック時間を大幅に短縮する。"
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-14"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/adlegalcheck-vs-manual-review/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/adlegalcheck.png" alt="AdLegalCheck" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">AdLegalCheck vs 手動確認（弁護士相談）</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">一次フィルタ vs 都度専門家確認</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/adlegalcheck/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/adlegalcheck.png" alt="AdLegalCheck" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">AdLegalCheck — 詳細・ダウンロード</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">機能・価格・FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>

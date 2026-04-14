@@ -1,0 +1,99 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "AdLegalCheck",
+  icon: "/ext-icons/adlegalcheck.png",
+  chromeUrl: "https://chromewebstore.google.com/detail/eacmjlpcondhpifichlkahhpjofmicol",
+  users: "New",
+  rating: "—",
+  price: "Free / Pro $3.99/mo",
+  extensionPageUrl: "/extensions/adlegalcheck/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "手動確認（弁護士・薬事コンサル相談）",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "",
+  users: "—",
+  rating: "—",
+  price: "1回1〜3万円〜",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "1ページあたりのコスト", ours: "無料（月3ページ） / $3.99/mo（無制限）", theirs: "弁護士確認：1〜3万円/回、薬事コンサル：月3〜10万円〜", highlight: true },
+  { feature: "チェック所要時間", ours: "自動スキャン：数秒", theirs: "弁護士回答待ち：1〜5営業日", highlight: true },
+  { feature: "景表法チェック", ours: "NGワード25語をリアルタイム検出", theirs: "文脈・全体表現を含む包括的チェック可" },
+  { feature: "薬機法チェック", ours: "NGワード29語をリアルタイム検出", theirs: "業界別グレーゾーン・広告媒体規制まで対応可", highlight: false },
+  { feature: "ステマ規制チェック", ours: "15語を検出", theirs: "口コミ全体・開示方法の包括的確認可" },
+  { feature: "改善提案", ours: "各NGワードに代替表現を即時提示", theirs: "修正案の提示・法的アドバイス付き" },
+  { feature: "法的責任・お墨付き", ours: "なし（参考ツール）", theirs: "専門家の判断として法的根拠あり", highlight: true },
+  { feature: "グレーゾーン判断", ours: "不可（キーワードベース）", theirs: "可（文脈・業界慣行・判例を踏まえた判断）", highlight: true },
+  { feature: "対応速度", ours: "即時（ページロード時に自動）", theirs: "スケジュール調整 + 1〜5営業日待ち" },
+  { feature: "毎日の監視", ours: "常時監視（ページを開くたびに自動スキャン）", theirs: "都度依頼が必要" },
+  { feature: "CSVエクスポート", ours: "Pro：NGワード・URL・日時の記録出力", theirs: "確認書・意見書として発行可能（別途費用）" },
+  { feature: "スケールアウト", ours: "月間何百ページでも同一コスト", theirs: "ページ数に比例してコスト増大" },
+];
+
+const ourAdvantages = [
+  { title: "コストが100〜1000倍違う — 月複数本のLP運営者の現実", desc: "弁護士に広告表現を1本確認してもらう費用は最低でも1〜3万円。薬事コンサルタントへの月次顧問契約は月3〜10万円以上が相場。EC担当者が月に5〜10本のバナー・LP・商品ページをリリースするとして、全件を専門家確認に回すとそれだけで月15〜30万円のコストになる。現実には「重要なもの以外は確認しない」という判断になり、確認漏れのリスクが常に残る。AdLegalCheckのProプランは$3.99/月（約620円）で無制限チェック。月複数本を扱う運営者にとって、全件一次フィルタリングを行ったうえで判定スコアの高いものだけ専門家確認に絞るという運用が現実的になる。" },
+  { title: "リリース前の5分チェック → 弁護士に回すかどうかの判断ができる", desc: "手動確認のフローでは「このLPを弁護士に見せるべきかどうか」の判断自体が難しい。全件見せるほど予算もなく、全件見せないと不安という状況になる。AdLegalCheckのリスクスコア（0〜100）を使えば、スコア60以上のLPは弁護士確認、スコア40未満はそのままPublishという運用ルールを設定できる。弁護士確認の件数を絞ることでコントロールが効くようになる。" },
+  { title: "本番公開後のページも常時監視できる", desc: "弁護士確認は基本的にリリース前の事前確認。しかしECサイトでは定期的な文言変更・季節キャンペーン追加・UGC（ユーザー生成コンテンツ）の混入など、リリース後にコンテンツが変化するケースがある。AdLegalCheckはページを開くたびに再スキャンするため、変更後のページにNGワードが混入していれば即座に検出できる。定期的にチェックしたいページをブックマークから開くだけの運用で、継続的なモニタリングが可能になる。" },
+  { title: "チーム内の認識統一ツールとして機能する", desc: "広告コンプライアンスの問題の多くは、ライター・デザイナー・プランナーが薬機法・景表法のNGワードを「知らなかった」から発生する。AdLegalCheckを全チームメンバーがインストールし、ドラフト段階でNGワードがハイライトされる状態にすることで、制作段階での自主チェック文化が醸成される。専門家に頼る前に自分でチェックする習慣がチームに根付く。" },
+];
+
+const theirAdvantages = [
+  { title: "法的責任のある判断を得られる", desc: "AdLegalCheckはAIや辞書ベースの参考ツールであり、法的な責任を持つ判断は提供できない。万一の行政指導・是正命令の際に「弁護士が確認した」という記録が必要なケースでは、専門家の確認書・意見書が不可欠。規制が厳しい医薬品・医療機器・食品・特定商取引法の対象サービスでは、専門家確認は省略できない。" },
+  { title: "業界固有のグレーゾーン判断", desc: "薬機法のグレーゾーン表現は業界・媒体・ターゲット・文脈によって判断が変わる。コスメ「うるおいを与える」は機能性表示食品と一般食品では扱いが異なり、医療機器と雑貨品の区分け（医療機器該当性）は専門的判断が必要。AdLegalCheckの汎用キーワードDBでは業界別のこうした判断はカバーできない。" },
+  { title: "事前相談で設計段階から違反を防ぐ", desc: "薬事コンサルタントとの顧問契約では、LP制作の設計段階から「この訴求はどの範囲まで言えるか」の相談ができる。事後的な表現チェックではなく、プロモーション戦略自体のコンプライアンス設計が可能になる。AdLegalCheckは完成したページの確認ツールであり、設計段階の相談機能はない。" },
+];
+
+const verdict = "AdLegalCheckと専門家確認は対立するものではなく、一次フィルタリング（AdLegalCheck）→精査（専門家）という2段階フローで組み合わせるのが現実的な運用になる。月複数本のLP・商品ページを制作・運営しているEC担当者や代理店にとって、全件を専門家に回す費用はない。一方で、スコアの高い高リスクページだけ専門家確認に絞るためには、まず全件を一次フィルタリングするツールが必要になる。AdLegalCheckのProプランが月620円で全件一次チェックを可能にし、弁護士費用を「本当に必要な件数」に絞る管理コストを下げる。完全な法的判断の代替にはならないが、見落とし防止と費用最適化のバランスを取る実務ツールとして機能する。";
+
+const faq: ComparisonFaq[] = [
+  { question: "AdLegalCheckを使えば弁護士確認は不要ですか？", answer: "いいえ。AdLegalCheckはキーワードベースの一次フィルタリングツールです。法的な責任を持つ判断は提供できません。薬機法・景表法の最終判断は弁護士・薬事コンサルタントへの確認を継続することをお勧めします。AdLegalCheckは「どのページを優先的に専門家確認に回すか」の判断材料として使用してください。" },
+  { question: "行政指導を受けた場合にAdLegalCheckの結果を使えますか？", answer: "AdLegalCheckの結果は法的な証拠書類ではありません。行政指導・是正命令への対応には弁護士・行政書士などの専門家にご相談ください。" },
+  { question: "月何本のLPから使う価値がありますか？", answer: "月3本以上のLP・商品ページのコンプライアンスチェックが必要な場合、Proプランが費用対効果を発揮します。月3本以下であれば無料プランで対応できます。" },
+  { question: "薬機法以外の規制（特商法・金融商品取引法等）は対応していますか？", answer: "現時点では景表法・薬機法・ステマ規制の3軸のみ対応しています。特商法（特定商取引法）・金融商品取引法・食品表示法などへの対応は今後のアップデートで検討予定です。" },
+  { question: "フリープランで何ができますか？", answer: "月3ページまで全機能（リアルタイムスキャン・ハイライト表示・NGワード詳細・改善提案・リスクスコア）を無料で使用できます。4ページ目以降はProへのアップグレードが必要です。" },
+];
+---
+
+<ComparisonLayout
+  seoTitle="AdLegalCheck vs 手動確認（弁護士・薬事コンサル） — 自動一次フィルタ vs 専門家確認の使い分け（2026）"
+  seoDescription="月複数本のLP・商品ページを持つEC運営者・代理店向け。AdLegalCheckで全件一次フィルタリング→高リスクページのみ弁護士確認に絞る2段階コンプライアンスフロー。"
+  seoKeywords="adlegalcheck vs 弁護士確認, 広告 薬機法 自動チェック, 景表法 コンプライアンス ツール, LP 広告審査 コスト削減, 薬事コンサル 代替"
+  h1="AdLegalCheck vs 手動確認（弁護士・薬事コンサル相談）"
+  intro="弁護士への広告確認は1回1〜3万円。AdLegalCheckのProプランは月620円で無制限チェック。全件を専門家確認に回す予算はないが、見落としも困る — そのギャップを埋める一次フィルタリングとしての位置づけ。"
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-14"
+>
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/adlegalcheck-vs-yakuji-check/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/adlegalcheck.png" alt="AdLegalCheck" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">AdLegalCheck vs 薬事法チェッカー（手動）</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">自動スキャン vs コピペチェック</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/adlegalcheck/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/adlegalcheck.png" alt="AdLegalCheck" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">AdLegalCheck — 詳細・ダウンロード</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">機能・価格・FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>
