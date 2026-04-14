@@ -291,6 +291,25 @@ export const categories: Category[] = [
         url: "/extensions/adlegalcheck/",
         icon: "/ext-icons/adlegalcheck.png",
       },
+      {
+        name: "ToritekiCheck",
+        description: "取適法（旧下請法）の取引条件をAIでチェック。支払サイト違反・手形払い・必須記載事項の欠落・禁止行為を右クリック一発で3段階リスク判定。月5回無料。",
+        price: "Free / Pro ¥980/mo",
+        url: "/extensions/toritekicheck/",
+        icon: "/ext-icons/toritekicheck.png",
+      },
+    ],
+  },
+  {
+    title: "E-Commerce Tools",
+    extensions: [
+      {
+        name: "FurimaPro",
+        description: "メルカリ出品を効率化するAIテンプレートツール。カテゴリ別の最適化タイトル・説明文テンプレートで出品作業を大幅短縮。月5件無料。",
+        price: "Free / Pro ¥980/mo",
+        url: "/extensions/furimapro/",
+        icon: "/ext-icons/furimapro.png",
+      },
     ],
   },
 ];

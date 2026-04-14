@@ -1,0 +1,72 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "FurimaPro",
+  subtitle: "Mercari Listing Optimizer",
+  tagline: "Bulk-generate optimized Mercari listings with AI-powered title & description templates. Save hours on listing creation. Free: 5 listings/month. Pro: unlimited.",
+  price: "Free / Pro ¥980/mo",
+  status: "Available",
+  category: "E-Commerce",
+  lang: "JA",
+  icon: "/ext-icons/furimapro.png",
+  rating: 5.0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "FurimaPro accelerates Mercari listing creation by providing AI-optimized title and description templates tailored for each product category. Select a template, customize the key fields, and generate a polished listing in seconds. The side panel UI keeps the template editor alongside the active Mercari tab so you never lose context. Free plan includes 5 template-assisted listings per month. Pro unlocks unlimited listings, advanced templates, and CSV batch export.";
+
+const features = [
+  { title: "AI-Optimized Templates", desc: "Category-specific templates (fashion, electronics, books, etc.) designed to maximize search visibility on Mercari" },
+  { title: "Side Panel UI", desc: "Template editor opens alongside Mercari — no tab switching required" },
+  { title: "Batch Listing (Pro)", desc: "Export multiple listings to CSV for bulk upload" },
+  { title: "Title Keyword Optimizer", desc: "Suggests high-traffic keywords for each category based on Mercari search trends" },
+  { title: "Price Advisor", desc: "Suggests competitive price ranges based on similar sold listings" },
+  { title: "One-Click Copy", desc: "Copy title and description to clipboard with a single click, ready to paste" },
+];
+
+const targetUsers = [
+  "Mercari power sellers listing 10+ items per week",
+  "Casual sellers wanting to write better titles without research",
+  "Resellers managing inventory across multiple categories",
+  "Anyone who spends too long writing individual listing descriptions",
+];
+
+const screenshots = [
+  "/screenshots/furimapro/screenshot-01.png",
+  "/screenshots/furimapro/screenshot-02.png",
+  "/screenshots/furimapro/screenshot-03.png",
+];
+
+const relatedProducts = [
+  { name: "DataPick", category: "Data Extraction", link: "/extensions/datapick/", icon: "/ext-icons/datapick.webp" },
+  { name: "ClipStack", category: "Productivity", link: "/extensions/clipstack/", icon: "/ext-icons/clipstack.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "FurimaPro",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "JPY" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/furimapro",
+  featureList: "AI-Optimized Templates, Side Panel UI, Batch Listing, Title Keyword Optimizer, Price Advisor, One-Click Copy",
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="FurimaPro - Mercari Listing Optimizer | AI Templates for Sellers"
+  seoDescription="Generate optimized Mercari listings in seconds with AI-powered templates. FurimaPro helps sellers write better titles and descriptions to increase sales."
+  cws_url="https://chromewebstore.google.com/detail/furimapro/YOUR_ID_HERE"
+/>

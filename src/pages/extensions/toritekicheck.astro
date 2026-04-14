@@ -1,0 +1,72 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "ToritekiCheck",
+  subtitle: "取適法（旧下請法）取引条件チェッカー",
+  tagline: "Select any contract text, right-click, and Claude AI instantly flags payment term violations, prohibited payment methods, missing required clauses, and unfair practices under Japan's Toriteki-ho. Free: 5 checks/month.",
+  price: "Free / Pro ¥980/mo",
+  status: "Available",
+  category: "Legal & Compliance",
+  lang: "JA/EN",
+  icon: "/ext-icons/toritekicheck.png",
+  rating: 5.0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "ToritekiCheck uses Claude Haiku AI to analyze business contracts and purchase orders for compliance with Japan's Toriteki-ho (特定受託事業者に係る取引の適正化等に関する法律), which took effect January 2026. The law protects freelancers and subcontractors from unfair business practices. Select text on any webpage, right-click → 'Check Trade Law', and the side panel shows a 3-level risk assessment (🔴High / 🟡Medium / 🟢Low) with specific recommendations for each issue found. Uses your own Anthropic API key — no data is sent to S-Hub. Free plan includes 5 checks per month.";
+
+const features = [
+  { title: "Payment Term Check", desc: "Detects payment periods exceeding the 60-day legal limit — the most common Toriteki-ho violation" },
+  { title: "Bill Payment Detection", desc: "Flags promissory note and factoring payment methods, which are prohibited under the law" },
+  { title: "Required Clause Check", desc: "Verifies that item name, quantity, unit price, delivery date, and payment method are all specified" },
+  { title: "Prohibited Act Scanner", desc: "Identifies clauses that may constitute buying-down, refusal to accept, unauthorized returns, or unfair price reductions" },
+  { title: "3-Level Risk Display", desc: "Results shown as 🔴High / 🟡Medium / 🟢Low with specific recommendations for each finding" },
+  { title: "Export Results", desc: "Download the full analysis as a text file for record-keeping or sharing with legal counsel" },
+];
+
+const targetUsers = [
+  "Purchasing managers at SMEs reviewing vendor contracts for Toriteki-ho compliance",
+  "Freelancers checking client contracts before signing",
+  "Legal and compliance teams performing routine contract audits",
+  "Business owners who issue purchase orders to subcontractors",
+];
+
+const screenshots = [
+  "/screenshots/toritekicheck/screenshot-01.png",
+  "/screenshots/toritekicheck/screenshot-02.png",
+  "/screenshots/toritekicheck/screenshot-03.png",
+];
+
+const relatedProducts = [
+  { name: "AdLegalCheck", category: "Legal & Compliance", link: "/extensions/adlegalcheck/", icon: "/ext-icons/adlegalcheck.png" },
+  { name: "DataPick", category: "Data Extraction", link: "/extensions/datapick/", icon: "/ext-icons/datapick.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "ToritekiCheck",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "JPY" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/toritekicheck",
+  featureList: "Payment Term Check, Bill Payment Detection, Required Clause Check, Prohibited Act Scanner, Risk Display, Export Results",
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="ToritekiCheck - 取適法チェッカー | AI Contract Compliance for Japan's Toriteki-ho"
+  seoDescription="AI-powered checker for Japan's Toriteki-ho (2026). Detects payment term violations, required clause omissions, and prohibited practices in business contracts. Free: 5 checks/month."
+  cws_url="https://chromewebstore.google.com/detail/toritekicheck/fgekhmlbbfnopifjmnaeenanckhkbeej"
+/>
