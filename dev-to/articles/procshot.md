@@ -290,6 +290,6 @@ The free tier gives you 5 guides per month with HTML and Markdown export. Pro ad
 
 *Other tools I've built:*
 
-{% embed https://chromewebstore.google.com/detail/jmpmfbheoclfmceceihjpcjlabakkdde %}
+**[PageMemo – Web Page Notes](https://chromewebstore.google.com/detail/jmpmfbheoclfmceceihjpcjlabakkdde)**
 
-{% embed https://chromewebstore.google.com/detail/snippetvault/gnnmjklohcoaiheikefoifiekcnndcdi %}
+**[SnippetVault – Code Snippet Manager](https://chromewebstore.google.com/detail/snippetvault/gnnmjklohcoaiheikefoifiekcnndcdi)**
