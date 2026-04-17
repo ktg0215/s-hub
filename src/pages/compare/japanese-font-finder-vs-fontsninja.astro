@@ -1,0 +1,103 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+const ours: ComparisonProduct = {
+  name: "Japanese Font Finder",
+  icon: "/ext-icons/japanese-font-finder.webp",
+  chromeUrl: "https://chromewebstore.google.com/detail/japanese-font-finder/ageolfjmheacenbkgiahlkhkogcnocip",
+  users: "30+",
+  rating: "5.0 (1)",
+  price: "Free",
+  extensionPageUrl: "/extensions/japanese-font-finder/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "Fonts Ninja",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/fonts-ninja/eljapbgkmlngdpckoiiibecpemleclhh",
+  users: "400,000+",
+  rating: "4.4 (900+)",
+  price: "Free (Premium available)",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Japanese Font Detection", ours: "Yes — 150+ fonts (Gothic / Mincho)", theirs: "Limited — often shows fallback name", highlight: true },
+  { feature: "Font Weight Display", ours: "Yes (exact weight value)", theirs: "Yes (with premium)" },
+  { feature: "Full CSS Information", ours: "Yes — font-family, size, weight, line-height, letter-spacing", theirs: "Partial — family and size only (free tier)", highlight: true },
+  { feature: "Color Information", ours: "Yes (HEX, RGB, HSL)", theirs: "No", highlight: true },
+  { feature: "Font Detection Method", ours: "Hover / Click", theirs: "Hover / Click" },
+  { feature: "Web Font Service Detection", ours: "Yes — Google Fonts, Adobe Fonts, TypeSquare, FONTPLUS", theirs: "Yes — Google Fonts, Adobe Fonts, Typekit", highlight: true },
+  { feature: "Copy CSS to Clipboard", ours: "Yes (one-click)", theirs: "Limited (premium)", highlight: true },
+  { feature: "Font Bookmarking", ours: "Yes", theirs: "Yes (core feature)" },
+  { feature: "Export (JSON / CSV)", ours: "Yes", theirs: "No", highlight: true },
+  { feature: "Font Preview / Try On Page", ours: "No", theirs: "Yes (premium)" },
+  { feature: "Japanese UI", ours: "Yes", theirs: "No (English only)", highlight: true },
+  { feature: "Privacy", ours: "100% local — no data sent", theirs: "Local processing" },
+  { feature: "Price", ours: "Fully Free", theirs: "Freemium (premium features locked)", highlight: true },
+];
+
+const ourAdvantages = [
+  { title: "Accurate Japanese Font Identification", desc: "Detects 150+ Japanese fonts including Yu Gothic, Yu Mincho, Hiragino, Meiryo, Noto Sans JP, and Noto Serif JP. Fonts Ninja frequently returns the generic fallback name (e.g., 'sans-serif') for Japanese typography, making it unreliable for CJK web projects." },
+  { title: "Complete CSS Details — Always Free", desc: "Shows font-family, size, weight, line-height, letter-spacing, and color in one panel — without a paywall. Fonts Ninja restricts full CSS data to its premium subscription." },
+  { title: "Color Detection", desc: "Displays text color in HEX, RGB, and HSL. Fonts Ninja has no color detection feature, requiring a separate DevTools session for color values." },
+  { title: "CSV / JSON Export", desc: "Export your full font collection as JSON or CSV — ideal for design system documentation and font audits across multiple pages. Fonts Ninja offers no export functionality." },
+  { title: "Zero Cost, Zero Limits", desc: "All features — detection, CSS copying, bookmarking, and export — are completely free with no premium tier or usage limits." },
+];
+
+const theirAdvantages = [
+  { title: "Font Preview (Try Fonts Live)", desc: "Fonts Ninja's standout feature: apply any discovered font directly onto the current page to preview how it looks. Useful for design exploration and rapid font selection." },
+  { title: "Larger Catalog & Discovery", desc: "Links to font purchases and foundry pages for discovered fonts, making it useful as a font discovery and licensing tool beyond just identification." },
+  { title: "Established User Base", desc: "With 400k+ users and years of community trust, Fonts Ninja is a well-known tool in the design community and often recommended in design blogs." },
+  { title: "Chrome & Firefox Support", desc: "Available on both Chrome and Firefox, while Japanese Font Finder is Chrome-only." },
+];
+
+const verdict = "Fonts Ninja excels at font preview and discovery for Western typography — its live \"try font\" feature is genuinely useful for designers exploring typefaces. However, for Japanese typography work, it falls short: CJK font detection is unreliable, full CSS details require a paid subscription, and there is no color detection or export. Japanese Font Finder was built specifically to fill this gap — providing accurate Gothic/Mincho identification, complete CSS output, color information, and export features entirely for free. If your work involves Japanese websites, Japanese Font Finder is the more reliable and cost-effective choice.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Why does Fonts Ninja fail to identify Japanese fonts correctly?", answer: "Fonts Ninja was designed primarily for Western font ecosystems. Japanese web fonts use complex font-family stacks with multiple fallbacks (e.g., 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif). When the primary Japanese font isn't recognized, Fonts Ninja often reports the generic fallback rather than the actual Japanese font in use." },
+  { question: "Is Japanese Font Finder really completely free?", answer: "Yes. There is no premium tier, no usage limit, and no feature locked behind a paywall. Font detection, CSS copying, bookmarking, and JSON/CSV export are all free." },
+  { question: "Can Japanese Font Finder also preview fonts like Fonts Ninja?", answer: "Not currently. Font preview (applying a discovered font to the live page) is a Fonts Ninja-specific feature. Japanese Font Finder focuses on accurate identification and complete CSS output rather than design exploration." },
+  { question: "Does Japanese Font Finder work for non-Japanese sites?", answer: "Yes. It detects fonts on any webpage — English, Chinese, Korean, or any other language. The advantage over Fonts Ninja is specifically in CJK typography accuracy." },
+  { question: "Do I need to pay for Fonts Ninja to get full font information?", answer: "Yes. The free version of Fonts Ninja shows limited information. Full CSS properties, weight details, and advanced features require a premium subscription. Japanese Font Finder provides all of this for free." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="Japanese Font Finder vs Fonts Ninja — Compared (2026)"
+  seoDescription="Compare Japanese Font Finder and Fonts Ninja. Which is better for identifying Japanese fonts? Features, pricing, and accuracy compared."
+  seoKeywords="fonts ninja alternative, japanese font identifier, best font detector chrome extension, identify japanese font on webpage, fonts ninja vs japanese font finder"
+  h1="Japanese Font Finder vs Fonts Ninja"
+  intro="Both tools identify fonts on webpages — but one is optimized for Japanese typography and completely free, while the other locks key features behind a paywall and struggles with CJK fonts."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-18"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/compare/japanese-font-finder-vs-whatfont/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/japanese-font-finder.webp" alt="Japanese Font Finder" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Japanese Font Finder vs WhatFont</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Font detection comparison</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+      <a href="/extensions/japanese-font-finder/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/japanese-font-finder.webp" alt="Japanese Font Finder" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Japanese Font Finder — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>
