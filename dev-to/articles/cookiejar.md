@@ -1,5 +1,5 @@
 ---
-title: "EditThisCookie Got Removed — So I Built a Modern Cookie Editor for Chrome"
+title: "Best Cookie Editor for Chrome in 2026 - EditThisCookie Alternative"
 published: true
 tags: ["chromeextension","webdev","privacy","testing"]
 series: null

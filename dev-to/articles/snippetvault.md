@@ -1,5 +1,5 @@
 ---
-title: "I Built a VS Code-Style Snippet Manager That Lives in Your Browser"
+title: "Best Chrome Extension for Code Snippets - VS Code-Style Snippet Manager"
 published: true
 tags: ["chromeextension","snippets","productivity","webdev"]
 series: null

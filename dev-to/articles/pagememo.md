@@ -1,5 +1,5 @@
 ---
-title: "I Built a Chrome Extension That Lets You Leave Notes on Any Webpage"
+title: "How to Take Notes on Any Web Page Without Leaving It - Free Chrome Extension"
 published: true
 tags: ["chromeextension","notes","productivity","webdev"]
 series: null

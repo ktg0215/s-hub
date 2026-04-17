@@ -1,5 +1,5 @@
 ---
-title: "Scraping Japan's Largest Real Estate Site with a Chrome Extension: Building an Automated Property Scoring Engine"
+title: "How to Scrape Japan Real Estate Data with a Chrome Extension - SUUMO Automation"
 published: true
 tags: ["chromeextension","realestate","javascript","webdev"]
 series: null

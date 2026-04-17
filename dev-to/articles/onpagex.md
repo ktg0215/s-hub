@@ -1,5 +1,5 @@
 ---
-title: "I Built a One-Click SEO Analyzer Chrome Extension with Scoring, Schema Detection, and SERP Preview"
+title: "Free Chrome Extension for SEO Analysis - Page Score, Schema Detection and SERP Preview"
 published: true
 tags: ["chromeextension","seo","webdev","html"]
 series: null

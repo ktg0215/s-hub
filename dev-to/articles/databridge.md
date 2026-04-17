@@ -1,5 +1,5 @@
 ---
-title: "I Built a Chrome Extension That Transfers Data Between Web Pages Visually"
+title: "How to Transfer Data Between Web Pages Without Copy-Paste - Free Chrome Extension"
 published: true
 tags: ["chromeextension","automation","productivity","forms"]
 series: null

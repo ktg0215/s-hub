@@ -1,5 +1,5 @@
 ---
-title: "Send Web Data Directly to Google Sheets — No Code, No Python, No IMPORTXML"
+title: "How to Scrape Any Website to Google Sheets - Free No-Code Chrome Extension"
 published: true
 tags: ["chromeextension","googlesheets","webscraping","nocode"]
 series: null
