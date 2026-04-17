@@ -1,6 +1,6 @@
 ---
 title: "I Built a Chrome Extension That Automatically Creates Step-by-Step Guides from Your Browser Actions"
-published: false
+published: true
 tags: ["chromeextension","documentation","productivity","tutorial"]
 series: null
 canonical_url: null

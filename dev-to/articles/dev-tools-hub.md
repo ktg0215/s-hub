@@ -4,9 +4,9 @@ published: false
 tags: ["webdev", "javascript", "productivity", "opensource"]
 series: null
 canonical_url: null
-publish_date: "2026-04-16"
+publish_date: "2026-04-26"
 main_image: "https://dev-tools-hub.xyz/screenshots/procshot/screenshot-01.png"
-devto_id: "3397773"
+devto_id: null
 ---
 
 Every developer has a collection of bookmarked utility sites. A JSON formatter here, a Base64 encoder there, a regex tester somewhere else. Each one has its own UI quirks, cookie consent banners, and data handling policies. Some send your input to a server. Some inject ads between your paste and the output.

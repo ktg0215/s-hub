@@ -1,6 +1,6 @@
 ---
 title: "I Built a Chrome Extension That Lets You Leave Notes on Any Webpage"
-published: false
+published: true
 tags: ["chromeextension","notes","productivity","webdev"]
 series: null
 canonical_url: null

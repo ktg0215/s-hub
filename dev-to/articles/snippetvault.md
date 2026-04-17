@@ -1,6 +1,6 @@
 ---
 title: "I Built a VS Code-Style Snippet Manager That Lives in Your Browser"
-published: false
+published: true
 tags: ["chromeextension","snippets","productivity","webdev"]
 series: null
 canonical_url: null
