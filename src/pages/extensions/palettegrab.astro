@@ -56,6 +56,13 @@ const softwareSchema = {
   url: "https://dev-tools-hub.xyz/extensions/palettegrab/",
   featureList: "EyeDropper API, HEX/RGB/HSL Copy, Color Tray, Named Palettes, CSS/Tailwind/Figma Export, Pick History",
 };
+
+const faqItems = [
+  { question: "Is PaletteGrab free?", answer: "Yes. The free plan includes full color picking and palette management. Pro ($3.99 one-time) adds additional export formats and palette sharing." },
+  { question: "How do I install PaletteGrab?", answer: "Click 'Add to Chrome' on the Chrome Web Store. After installation, click the PaletteGrab icon on any webpage and use the eyedropper to pick colors." },
+  { question: "Does PaletteGrab collect my data?", answer: "No. PaletteGrab stores all palettes and pick history locally in your browser. No data is sent to external servers." },
+  { question: "What export formats does PaletteGrab support?", answer: "PaletteGrab exports to CSS custom properties, Tailwind config (JavaScript), SCSS variables, and Figma JSON — covering the main design and development workflows." },
+];
 ---
 
 <ExtensionLayout
@@ -66,6 +73,7 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
   seoTitle="PaletteGrab - Color Picker & Palette Manager | ColorZilla MV3 Alternative"
   seoDescription="Pick any color from any webpage with Chrome's EyeDropper API. Build named palettes. Export to CSS variables, Tailwind config, or Figma JSON. MV3 color picker."
   seoKeywords="color picker chrome extension, eyedropper, palette manager, css variables, tailwind colors, figma export, mv3 color picker, colorzilla alternative"

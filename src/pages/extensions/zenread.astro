@@ -61,6 +61,13 @@ const softwareSchema = {
   screenshot: "https://dev-tools-hub.xyz/screenshots/zenread/screenshot-01.png",
   featureList: "Reader Mode, 3 Themes, Font Customization, Text-to-Speech, Highlights, Reading Stats",
 };
+
+const faqItems = [
+  { question: "Is ZenRead free?", answer: "Yes. ZenRead is completely free with all reader mode and text-to-speech features included." },
+  { question: "How do I install ZenRead?", answer: "Click 'Add to Chrome' on the Chrome Web Store. After installation, navigate to any article and click the ZenRead icon to activate distraction-free reader mode." },
+  { question: "Does ZenRead collect my data?", answer: "No. ZenRead processes articles locally in your browser. No reading history or content is sent to external servers." },
+  { question: "Does ZenRead work on all websites?", answer: "ZenRead uses Readability.js for article extraction and works on most news sites, blogs, and long-form content pages. Some sites with heavy JavaScript may require refreshing the page first." },
+];
 ---
 
 <ExtensionLayout
@@ -71,6 +78,7 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
   seoTitle="ZenRead - Distraction-Free Reader Mode | Chrome Extension"
   seoDescription="Remove ads and clutter for distraction-free reading. Customizable themes, fonts, and text-to-speech. Free Chrome extension."
   seoKeywords="reader mode, distraction-free reading, text-to-speech, chrome extension, reading, ad-free reading"

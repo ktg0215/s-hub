@@ -61,6 +61,13 @@ const softwareSchema = {
   screenshot: "https://dev-tools-hub.xyz/screenshots/onpagex/screenshot-01.png",
   featureList: "Instant SEO Score, SERP Preview, Schema Validation, Heading Structure, Image & Link Audit, Export & History",
 };
+
+const faqItems = [
+  { question: "Is OnPageX free?", answer: "Yes, the core SEO analysis features are free. Pro unlocks advanced analysis rules, custom scoring, bulk page checking, and PDF/JSON export." },
+  { question: "How do I install OnPageX?", answer: "Click 'Add to Chrome' on the Chrome Web Store. Once installed, navigate to any webpage and click the OnPageX icon to instantly audit the page." },
+  { question: "Does OnPageX collect my data?", answer: "No. OnPageX analyzes pages entirely within your browser. No browsing data is sent to external servers." },
+  { question: "What does OnPageX analyze?", answer: "OnPageX checks meta tags (title, description, OG), heading structure (H1–H6), structured data (Schema.org), images (alt text, size), and internal/external links — all in a single click." },
+];
 ---
 
 <ExtensionLayout
@@ -71,6 +78,7 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
   seoTitle="OnPageX - SEO Meta Analyzer & On-Page Audit | Chrome Extension"
   seoDescription="Analyze SEO meta tags, headings, schemas, images, and links with one click. Get an instant SEO score with SERP preview and actionable recommendations."
   seoKeywords="seo analyzer, meta tags, chrome extension, on-page seo, schema validation, serp preview, seo audit, heading structure"

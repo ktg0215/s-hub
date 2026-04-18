@@ -56,6 +56,13 @@ const softwareSchema = {
   url: "https://dev-tools-hub.xyz/extensions/toritekicheck/",
   featureList: "Payment Term Check, Bill Payment Detection, Required Clause Check, Prohibited Act Scanner, Risk Display, Export Results",
 };
+
+const faqItems = [
+  { question: "ToritekiCheckは無料ですか？", answer: "無料プランでは月5回までチェックできます。Pro（¥980/月）では無制限にチェック可能です。" },
+  { question: "ToritekiCheckのインストール方法は？", answer: "ChromeウェブストアでToritekiCheckを検索し「Chromeに追加」をクリックします。インストール後、設定でAnthropicのAPIキーを入力してご利用ください。" },
+  { question: "データは収集されますか？", answer: "いいえ。契約書テキストはご自身のAnthropicアカウントのAPIに直接送信されます。S-Hubのサーバーにデータが保存されることはありません。" },
+  { question: "取適法（特定受託事業者法）とは何ですか？", answer: "2026年1月に施行されたフリーランス・下請け事業者を不当な取引から守る法律です。ToritekiCheckは契約書を解析し、支払い条件違反・禁止行為・必須条項の欠落を自動検出します。" },
+];
 ---
 
 <ExtensionLayout
@@ -66,6 +73,7 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
   seoTitle="ToritekiCheck - 取適法チェッカー | AI Contract Compliance for Japan's Toriteki-ho"
   seoDescription="AI-powered checker for Japan's Toriteki-ho (2026). Detects payment term violations, required clause omissions, and prohibited practices in business contracts. Free: 5 checks/month."
   cws_url="https://chromewebstore.google.com/detail/toritekicheck/fgekhmlbbfnopifjmnaeenanckhkbeej"

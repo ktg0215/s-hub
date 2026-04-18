@@ -62,6 +62,13 @@ const softwareSchema = {
   screenshot: "https://dev-tools-hub.xyz/screenshots/databridge/screenshot-01.png",
   featureList: "Visual Element Selection, Number-Based Matching, One-Click Transfer, Template System, Notepad Mode, Smart Selector Generation, Export & Import, Multi-Language & Dark Mode",
 };
+
+const faqItems = [
+  { question: "Is DataBridge free?", answer: "The free plan includes 10 templates and 30 data transfer actions per month. Pro ($6/mo or $39 lifetime) unlocks unlimited templates and actions." },
+  { question: "How do I install DataBridge?", answer: "Click 'Add to Chrome' on the Chrome Web Store. After installation, open any webpage, click the DataBridge icon, and follow the visual mapping guide." },
+  { question: "Does DataBridge collect my data?", answer: "No. DataBridge operates entirely within your browser. No page content or personal data is sent to external servers." },
+  { question: "Which websites does DataBridge work on?", answer: "DataBridge works on any standard webpage. It uses CSS selector generation to map source and target elements, so it supports virtually any form or data-entry interface." },
+];
 ---
 
 <ExtensionLayout
@@ -72,6 +79,7 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
   seoTitle="DataBridge - Visual Data Transfer Between Web Pages | Chrome Extension"
   seoDescription="Transfer data between web pages with visual element mapping. Match source and target elements by number, transfer with one click. Free Chrome extension."
   seoKeywords="data transfer, web automation, form filler, copy paste, chrome extension, data entry, element mapping, web data transfer"

@@ -65,6 +65,13 @@ const softwareSchema = {
   screenshot: "https://dev-tools-hub.xyz/screenshots/Pagememo/screenshot-01.png",
   featureList: "URL-Linked Notes, Rich Text Editor, Category Management, Full-Text Search, Theme Support, Export/Import",
 };
+
+const faqItems = [
+  { question: "Is PageMemo free?", answer: "Yes. PageMemo is completely free with all features included." },
+  { question: "How do I install PageMemo?", answer: "Click 'Add to Chrome' on the Chrome Web Store. After installation, open any webpage and click the PageMemo icon in the side panel to start taking notes." },
+  { question: "Does PageMemo collect my data?", answer: "No. All notes are stored locally on your device. Nothing is synced to external servers." },
+  { question: "Will my notes appear automatically when I revisit a page?", answer: "Yes. PageMemo links notes to the URL of the page you're viewing. When you revisit that URL, your notes automatically appear in the side panel." },
+];
 ---
 
 <ExtensionLayout
@@ -76,6 +83,7 @@ const softwareSchema = {
   relatedProducts={relatedProducts}
   keyboardShortcuts={keyboardShortcuts}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
   seoTitle="PageMemo - URL-Linked Local Notes | Chrome Extension"
   seoDescription="Take notes linked to any URL that auto-appear when you revisit pages. Rich text editor with categories and full-text search. All data stored locally."
   seoKeywords="page notes, url notes, web annotations, chrome extension, productivity, local notes, web notes"
