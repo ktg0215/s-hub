@@ -2,8 +2,8 @@
 title: "How I Cross-Promote 18 Chrome Extensions Without Annoying Users"
 published: false
 publish_date: "2026-04-30"
-devto_id: null
-tags: ["chrome", "javascript", "webdev", "productivity"]
+devto_id: "3519738"
+tags: ["chrome","javascript","webdev","productivity"]
 ---
 
 I publish Chrome extensions as a solo developer. I currently have 18 live extensions across two Chrome Web Store accounts, with more in development.

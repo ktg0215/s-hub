@@ -2,8 +2,8 @@
 title: "Manifest V3 Migration: The Gotchas Nobody Warned Me About"
 published: false
 publish_date: "2026-05-04"
-devto_id: null
-tags: ["chrome", "javascript", "webdev", "tutorial"]
+devto_id: "3519755"
+tags: ["chrome","javascript","webdev","tutorial"]
 ---
 
 When Google announced the Manifest V3 deadline, the developer community had a lot to say — most of it negative. The service worker model was rightly criticized as a regression for ad blockers and complex extensions.

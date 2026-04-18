@@ -2,8 +2,8 @@
 title: "I Built a Scroll Position Memory Extension That Actually Works on SPAs"
 published: false
 publish_date: "2026-04-22"
-devto_id: null
-tags: ["chrome", "javascript", "webdev", "productivity"]
+devto_id: "3519761"
+tags: ["chrome","javascript","webdev","productivity"]
 ---
 
 Every browser has a native scroll restoration feature. It's called `scroll-restoration` in the History API, it's enabled by default, and it mostly doesn't work on modern web apps.

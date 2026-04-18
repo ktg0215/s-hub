@@ -2,8 +2,8 @@
 title: "CWS Listing SEO: What Actually Moved the Needle After Publishing 18 Extensions"
 published: false
 publish_date: "2026-05-02"
-devto_id: null
-tags: ["chrome", "javascript", "webdev", "productivity"]
+devto_id: "3519739"
+tags: ["chrome","javascript","webdev","productivity"]
 ---
 
 Chrome Web Store SEO is poorly documented. Google's official guidance is sparse. There's no Ahrefs for CWS search ranking. Most advice comes from forum posts that are 3-4 years old and may or may not still apply.

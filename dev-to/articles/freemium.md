@@ -2,8 +2,8 @@
 title: "Real Numbers: Freemium Chrome Extension Monetization After 6 Months"
 published: false
 publish_date: "2026-05-06"
-devto_id: null
-tags: ["chrome", "javascript", "webdev", "productivity"]
+devto_id: "3519745"
+tags: ["chrome","javascript","webdev","productivity"]
 ---
 
 I've been publishing Chrome extensions for about a year. Six months ago I started adding freemium monetization to my extensions using ExtensionPay. Here are the actual numbers and what I've learned.

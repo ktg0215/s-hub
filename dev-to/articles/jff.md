@@ -1,9 +1,9 @@
 ---
 title: "I Built a Font Inspector Chrome Extension That Actually Identifies Japanese Fonts"
-published: false
+published: true
 publish_date: "2026-04-18"
-devto_id: null
-tags: ["chrome", "javascript", "webdev", "css"]
+devto_id: "3519753"
+tags: ["chrome","javascript","webdev","css"]
 ---
 
 There is a specific frustration that every frontend developer knows: you open a Japanese website, see a beautiful typeface, open DevTools, and `font-family` gives you `"Hiragino Kaku Gothic ProN", "Noto Sans JP", "Meiryo", sans-serif`. Which of those is actually rendering?

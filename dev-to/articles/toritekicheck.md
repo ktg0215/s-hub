@@ -2,8 +2,8 @@
 title: "I Built a Chrome Extension That Checks Japanese Subscription Terms with AI"
 published: false
 publish_date: "2026-05-05"
-devto_id: null
-tags: ["chrome", "javascript", "webdev", "japan"]
+devto_id: "3519762"
+tags: ["chrome","javascript","webdev","japan"]
 ---
 
 Japanese subscription services have a problem with terms and conditions.

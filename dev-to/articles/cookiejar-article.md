@@ -2,8 +2,8 @@
 title: "Building a Cookie Manager Chrome Extension: What I Learned From the MV3 Transition"
 published: false
 publish_date: "2026-05-08"
-devto_id: null
-tags: ["chrome", "javascript", "webdev", "tutorial"]
+devto_id: "3519735"
+tags: ["chrome","javascript","webdev","tutorial"]
 ---
 
 Cookie management extensions are one of the oldest categories in the Chrome Web Store. EditThisCookie has been around since 2011 and still has millions of users. The category is established, the use cases are well-understood, and it's a good study in how to migrate a conceptually simple tool to Manifest V3.

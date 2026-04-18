@@ -2,8 +2,8 @@
 title: "I Built a Chrome Extension That Maps and Transfers Data Between Web Pages Visually"
 published: false
 publish_date: "2026-04-20"
-devto_id: null
-tags: ["chrome", "javascript", "webdev", "productivity"]
+devto_id: "3519743"
+tags: ["chrome","javascript","webdev","productivity"]
 ---
 
 The most common complaint I hear from office workers who do data entry: "I have to copy from System A and paste into System B, field by field, a hundred times a day."
