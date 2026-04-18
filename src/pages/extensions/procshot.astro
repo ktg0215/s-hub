@@ -61,6 +61,26 @@ const softwareSchema = {
   screenshot: "https://dev-tools-hub.xyz/screenshots/procshot/screenshot-01.png",
   featureList: "Auto-Record Actions, Smart Step Descriptions, Screenshot Annotations, Multi-Format Export, Guide Management, Page Navigation Detection",
 };
+
+const definition = "Procshot is a free Chrome extension that automatically records your browser actions — clicks, text inputs, and page navigations — and generates step-by-step guides with annotated screenshots. It requires no screen recording software or third-party uploads; all processing runs locally and exports as PDF, Markdown, or HTML.";
+
+const howToSteps = [
+  "Install Procshot from the Chrome Web Store.",
+  "Click the Procshot icon in your toolbar to open the sidebar panel.",
+  "Click 'Start Recording' — Procshot captures every click and input automatically.",
+  "Perform the workflow you want to document across any website.",
+  "Click 'Stop Recording' when finished.",
+  "Review the auto-generated steps and add annotations (arrows, highlights, blur) if needed.",
+  "Export as PDF, Markdown, or HTML to share your guide instantly.",
+];
+
+const faqItems = [
+  { question: "What makes Procshot different from Loom or screen recorders?", answer: "Procshot records browser actions (clicks, inputs, page transitions) and auto-generates step-by-step guides with annotated screenshots — not video. The output is immediately usable as documentation without any editing, ideal for SOPs, onboarding docs, and support materials." },
+  { question: "What formats can I export guides?", answer: "You can export as PDF (with Japanese font support), Markdown, or HTML with bundled images. PDF export is ideal for sharing, while Markdown works great for GitHub wikis and documentation sites." },
+  { question: "How many guides can I create for free?", answer: "The free plan includes 5 guides per month. Procshot Pro removes all limits with a $3.99/month subscription." },
+  { question: "Does Procshot collect my data?", answer: "No. Screenshots and guide content are stored locally on your device. No content is transmitted to external servers." },
+  { question: "Does it work on all websites?", answer: "Procshot works on all standard webpages and captures events regardless of the site framework (React, Vue, plain HTML). Some sites with very strict Content Security Policy may have limitations." },
+];
 ---
 
 <ExtensionLayout
@@ -71,6 +91,9 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  definition={definition}
+  howToSteps={howToSteps}
   seoTitle="Procshot - Auto-Generate Step-by-Step Guides | Free Chrome Extension"
   seoDescription="Auto-record browser actions to create step-by-step guides with annotated screenshots. Export as PDF, Markdown, or HTML. Save 90% documentation time."
   seoKeywords="step-by-step guide, screenshot documentation, browser recording, sop creator, chrome extension, workflow documentation, process documentation"

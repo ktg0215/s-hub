@@ -46,10 +46,23 @@ const relatedProducts = [
   { name: "DataPick", category: "Productivity", link: "/extensions/datapick/", icon: "/ext-icons/datapick.webp" },
 ];
 
+const definition = "Japanese Font Finder is a free Chrome extension that identifies fonts on any webpage instantly, with specialized support for 150+ Japanese fonts including Yu Gothic, Hiragino Kaku Gothic ProN, Meiryo, Noto Sans JP, and Noto Serif JP. It detects the actual rendered font — not just the CSS declaration — and shows font-family, size, weight, line-height, letter-spacing, and text color in one click. All processing is 100% local with no data sent to any server.";
+
+const howToSteps = [
+  "Install Japanese Font Finder from the Chrome Web Store — it's free.",
+  "Navigate to any webpage with text you want to inspect.",
+  "Click the Japanese Font Finder icon in your Chrome toolbar to activate detection mode.",
+  "Hover over any text element to see the font name, size, weight, and color information instantly.",
+  "Click the element to copy the CSS font-family declaration to your clipboard.",
+  "Use the popup panel to view your detection history or scan all fonts used on the current page.",
+];
+
 const faqItems = [
-  { question: "日本語フォントも正確に検出できますか？", answer: "はい。游ゴシック、游明朝、ヒラギノ、メイリオ、Noto Sans JPなど主要な日本語フォントに完全対応しています。" },
-  { question: "Webフォントサービスも検出できますか？", answer: "Google Fonts、Adobe Fonts、TypeSquare、FONTPLUSの4つのWebフォントサービスを自動検出します。" },
-  { question: "無料ですか？", answer: "はい、Japanese Font Finderは完全無料です。" },
+  { question: "Does it detect Japanese fonts accurately?", answer: "Yes. Japanese Font Finder supports 150+ Japanese fonts including Yu Gothic, Yu Mincho, Hiragino Kaku Gothic ProN, Meiryo, and Noto Sans JP. Unlike general-purpose tools, it resolves the actual rendered font rather than the CSS fallback list, so it correctly identifies which font the browser is using." },
+  { question: "Why do other font tools show 'sans-serif' for Japanese fonts?", answer: "Most font detection tools read the CSS font-family declaration directly, which lists all fallbacks. Japanese font stacks often have 3-5 fallbacks (e.g. 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif). Japanese Font Finder resolves the actual rendered font using document.fonts API, showing the font truly in use." },
+  { question: "Does it work with web font services like Google Fonts?", answer: "Yes. It automatically detects fonts loaded from Google Fonts, Adobe Fonts, TypeSquare, and FONTPLUS." },
+  { question: "Is my browsing data collected?", answer: "No. All font detection runs locally in your browser. No data is sent to any external server." },
+  { question: "Can I export the fonts I find?", answer: "Yes. You can export your font collection as JSON or CSV — useful for design documentation and font audits across multiple pages." },
 ];
 
 const softwareSchema = {
@@ -64,7 +77,8 @@ const softwareSchema = {
   url: "https://dev-tools-hub.xyz/extensions/japanese-font-finder/",
   downloadUrl: extension.chromeUrl,
   screenshot: "https://dev-tools-hub.xyz/screenshots/japanese-font-finder/resized_1280x800_1.png",
-  featureList: "フォント名の検出, 詳細情報の取得, 日本語フォント特化, Webフォントサービス検出, ブックマーク機能, ページ全体スキャン",
+  featureList: "Japanese Font Detection, Full CSS Info, Color Detection (HEX/RGB/HSL), Web Font Service Detection, Font Bookmarking, Page Font Scan, JSON/CSV Export",
+  isAccessibleForFree: true,
 };
 ---
 
@@ -77,6 +91,8 @@ const softwareSchema = {
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
   faqItems={faqItems}
+  definition={definition}
+  howToSteps={howToSteps}
   seoTitle="Japanese Font Finder - Webフォント検出Chrome拡張 | 日本語フォント検索"
   seoDescription="Webページ上のフォントを瞬時に検出する無料Chrome拡張機能。游ゴシック、ヒラギノ、Noto Sans JP対応。フォントサイズ・カラーコードも取得。"
   seoKeywords="font finder, フォント検索, 日本語フォント, Chrome拡張機能, Webフォント, 游ゴシック, ヒラギノ, Noto Sans JP, フォント検出"
