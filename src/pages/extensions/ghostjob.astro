@@ -1,0 +1,91 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "GhostJob",
+  subtitle: "Detect Fake Job Listings Before You Apply",
+  tagline: "Detect fake job listings before you apply.",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Career / Job Search",
+  lang: "EN",
+  icon: "/ext-icons/ghostjob.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "GhostJob analyzes job listings on LinkedIn, Indeed, and other platforms to flag postings that show signs of being ghost jobs — positions that are no longer actively being filled but remain posted. By analyzing posting age, repost count, company hiring signals, and historical patterns, GhostJob assigns a ghost job score to each listing so you can prioritize real opportunities and stop wasting time on applications that go nowhere.";
+
+const features = [
+  { title: "Real-time Ghost Job Score", desc: "Each listing gets a ghost job likelihood score displayed inline — see risky postings at a glance" },
+  { title: "Multi-signal Red Flag Detection", desc: "Analyzes posting age, repost count, and company-level hiring freeze signals together" },
+  { title: "Works on LinkedIn, Indeed & Glassdoor", desc: "GhostJob integrates directly into the job listing interfaces of the three largest job boards" },
+  { title: "One-click Skip Ghost Jobs", desc: "Filter out high-score ghost jobs from your search results with a single toggle" },
+  { title: "Detailed Signal Breakdown", desc: "Click any score badge to see exactly which signals contributed — posting age, repost frequency, company signals" },
+];
+
+const targetUsers = [
+  "Active job seekers spending hours on applications that go unanswered",
+  "Career changers who need to maximize every application attempt",
+  "Recruiters vetting job boards for legitimate open positions",
+  "Anyone frustrated by sending applications into a black hole",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "DataPick", category: "Productivity", link: "/extensions/datapick/", icon: "/ext-icons/datapick.webp" },
+  { name: "OnPageX", category: "SEO", link: "/extensions/onpagex/", icon: "/ext-icons/onpagex.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "GhostJob",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/ghostjob/",
+  featureList: "Ghost job score, Red flag detection, LinkedIn/Indeed/Glassdoor support, One-click filter, Signal breakdown",
+};
+
+const definition = "GhostJob is a Chrome extension that detects fake or abandoned job listings on LinkedIn, Indeed, and Glassdoor. It assigns a ghost job likelihood score to each posting based on multiple signals including posting age, repost frequency, and company hiring patterns — all analysis happens locally without transmitting your job search data.";
+
+const howToSteps = [
+  "Install GhostJob from the Chrome Web Store.",
+  "Browse to LinkedIn, Indeed, or Glassdoor job search results.",
+  "GhostJob automatically analyzes each visible listing and displays a score badge.",
+  "Click any badge to see the detailed signal breakdown for that listing.",
+  "Use the toggle in the toolbar popup to filter out high ghost-job-score listings.",
+  "Focus your time and energy on listings with low ghost job scores.",
+  "Pro users can view company hiring trend history for additional context.",
+];
+
+const faqItems = [
+  { question: "What is GhostJob?", answer: "A Chrome extension that detects fake or abandoned job listings on major job boards before you waste time applying." },
+  { question: "Is GhostJob free?", answer: "Yes, 20 scans/day free. Pro is $5/mo for unlimited scans, company hiring trend history, and the ability to export flagged listings." },
+  { question: "How does GhostJob detect ghost jobs?", answer: "It analyzes posting age, repost frequency, company signals, and historical hiring patterns. Each signal is weighted and combined into a single ghost job likelihood score." },
+  { question: "Which job sites does GhostJob support?", answer: "LinkedIn, Indeed, and Glassdoor, with more platforms planned. GhostJob integrates directly into each site's search interface." },
+  { question: "Is my job search data private?", answer: "Yes. All analysis happens locally in your browser. No data about your job search activity is sent to external servers." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  definition={definition}
+  howToSteps={howToSteps}
+  seoTitle="GhostJob - Detect Fake Job Listings Before You Apply | Chrome Extension"
+  seoDescription="GhostJob scores job listings on LinkedIn, Indeed, and Glassdoor for ghost job signals — posting age, reposts, company hiring freezes. Stop applying to jobs that don't exist. 20 scans/day free."
+  seoKeywords="ghost jobs, fake job listings, job search, linkedin jobs, indeed, glassdoor, job board chrome extension, job hunting"
+/>

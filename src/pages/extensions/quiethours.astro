@@ -1,0 +1,91 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "QuietHours",
+  subtitle: "Block Distractions During Focus Time",
+  tagline: "Block distractions during focus time. Syncs with your calendar.",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Productivity",
+  lang: "EN",
+  icon: "/ext-icons/quiethours.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "QuietHours connects to your Google Calendar and automatically blocks distracting sites during focus events — no manual scheduling needed. When your focus time ends, everything returns to normal. Set up once, then let your calendar drive your productivity. QuietHours reads your focus events via OAuth and activates your custom blocklist automatically, so you can stay in the zone without willpower battles.";
+
+const features = [
+  { title: "Auto-sync with Google Calendar", desc: "Automatically detects focus events on your calendar and activates blocking without any manual input" },
+  { title: "Custom Blocklist Per Focus Type", desc: "Create different blocklists for different focus event types — deep work, meetings, study sessions" },
+  { title: "Breathing Pause Before Unblocking", desc: "A brief pause before unblocking gives you a moment to decide if you really want to browse" },
+  { title: "Weekly Focus Stats Dashboard", desc: "Track your focus streaks, blocked attempts, and total focused hours each week" },
+  { title: "Chrome Notifications", desc: "Get notified when focus time starts and ends so you're never caught off guard" },
+];
+
+const targetUsers = [
+  "Remote workers who schedule deep work blocks in Google Calendar",
+  "Students using time-blocking techniques for study sessions",
+  "Freelancers managing client focus time across multiple projects",
+  "Anyone who wants their calendar to enforce their productivity goals",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "FocusGuard", category: "Productivity", link: "/extensions/focusguard/", icon: "/ext-icons/focusguard.png" },
+  { name: "Procshot", category: "Productivity", link: "/extensions/procshot/", icon: "/ext-icons/procshot.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "QuietHours",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/quiethours/",
+  featureList: "Auto-sync with Google Calendar, Custom blocklist per focus type, Breathing pause before unblocking, Weekly focus stats dashboard, Chrome notifications",
+};
+
+const definition = "QuietHours is a Chrome extension that syncs with Google Calendar to automatically block distracting websites during focus events. It requires no manual scheduling — the extension reads your calendar via OAuth and activates your custom blocklist the moment a focus event begins.";
+
+const howToSteps = [
+  "Install QuietHours from the Chrome Web Store.",
+  "Click the QuietHours icon and connect your Google Calendar via OAuth.",
+  "Create blocklists for each focus event type (deep work, study, etc.).",
+  "Add your distracting sites to each blocklist.",
+  "Create focus events in Google Calendar as usual.",
+  "QuietHours automatically blocks sites when focus events begin.",
+  "When your focus event ends, all sites are unblocked automatically.",
+];
+
+const faqItems = [
+  { question: "What is QuietHours?", answer: "An extension that syncs with Google Calendar to automatically block distracting sites during focus events." },
+  { question: "Is QuietHours free?", answer: "Yes, free for up to 3 calendar events/day and 10 blocked sites. Pro is $5/mo for unlimited events, unlimited sites, and weekly stats reports." },
+  { question: "How does QuietHours connect to Google Calendar?", answer: "It uses OAuth to read your calendar events tagged as focus time. QuietHours only requests read-only calendar access." },
+  { question: "Does QuietHours collect my calendar data?", answer: "No. Calendar data is read locally and never sent to any server. All blocking logic runs entirely in your browser." },
+  { question: "Can I customize the blocklist?", answer: "Yes, you can create different blocklists for different focus event types — for example, one blocklist for deep work and another for study sessions." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  definition={definition}
+  howToSteps={howToSteps}
+  seoTitle="QuietHours - Block Distractions During Focus Time | Chrome Extension"
+  seoDescription="QuietHours syncs with Google Calendar to automatically block distracting sites during focus events. No manual scheduling needed — your calendar drives your productivity."
+  seoKeywords="focus blocker, google calendar sync, distraction blocker, productivity chrome extension, site blocker, focus time, calendar blocking"
+/>

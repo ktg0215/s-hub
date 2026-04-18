@@ -312,4 +312,64 @@ export const categories: Category[] = [
       },
     ],
   },
+  {
+    title: "Productivity (Coming Soon)",
+    extensions: [
+      {
+        name: "QuietHours",
+        description: "Block distracting sites automatically during Google Calendar focus events. No manual scheduling — your calendar drives your productivity.",
+        price: "Free / Pro $5/mo",
+        url: "/extensions/quiethours/",
+        icon: "/ext-icons/quiethours.png",
+        status: "coming-soon",
+      },
+      {
+        name: "InboxSLA",
+        description: "Color-coded SLA badges in Gmail and deadline alerts before client reply windows expire. Set custom SLA hours per client domain.",
+        price: "Free / Pro $6/mo",
+        url: "/extensions/inboxsla/",
+        icon: "/ext-icons/inboxsla.png",
+        status: "coming-soon",
+      },
+    ],
+  },
+  {
+    title: "Travel",
+    extensions: [
+      {
+        name: "EntryCheck",
+        description: "Visa requirements, entry rules, and travel advisories for 190+ countries — right in your browser. Filter by passport nationality.",
+        price: "Free / Pro $4/mo",
+        url: "/extensions/entrycheck/",
+        icon: "/ext-icons/entrycheck.png",
+        status: "coming-soon",
+      },
+    ],
+  },
+  {
+    title: "Career & Job Search",
+    extensions: [
+      {
+        name: "GhostJob",
+        description: "Detect fake and abandoned job listings on LinkedIn, Indeed, and Glassdoor before you apply. Real-time ghost job scores with signal breakdown.",
+        price: "Free / Pro $5/mo",
+        url: "/extensions/ghostjob/",
+        icon: "/ext-icons/ghostjob.png",
+        status: "coming-soon",
+      },
+    ],
+  },
+  {
+    title: "Education & Learning",
+    extensions: [
+      {
+        name: "LectureLoop",
+        description: "Auto-generate flashcards from YouTube lecture transcripts. Spaced repetition review and Anki export. Works on any video with captions.",
+        price: "Free / Pro $7/mo",
+        url: "/extensions/lectureloop/",
+        icon: "/ext-icons/lectureloop.png",
+        status: "coming-soon",
+      },
+    ],
+  },
 ];

@@ -1,0 +1,91 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "EntryCheck",
+  subtitle: "Visa & Entry Requirements, One Click Away",
+  tagline: "Visa & entry requirements, one click away.",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Travel",
+  lang: "EN",
+  icon: "/ext-icons/entrycheck.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "EntryCheck shows visa requirements, entry rules, and travel advisories for any country — right in your browser, without leaving the tab you're researching. Whether you're booking flights, planning an itinerary, or comparing destinations, EntryCheck delivers up-to-date entry requirements for 190+ countries based on your passport nationality. No more switching between government sites or outdated travel blogs.";
+
+const features = [
+  { title: "Visa Requirements for 190+ Countries", desc: "Instant access to visa-on-arrival, e-visa, and embassy visa requirements for every destination" },
+  { title: "Entry Rules by Passport Nationality", desc: "Filter requirements based on your passport — see exactly what applies to you" },
+  { title: "Real-time Travel Advisory Display", desc: "Government-sourced travel advisories displayed alongside entry requirements" },
+  { title: "Side Panel for Quick Reference", desc: "Open EntryCheck in Chrome's side panel to reference requirements while browsing booking sites" },
+  { title: "Offline Cache for Recent Lookups", desc: "Recently viewed countries are cached so you can reference them without an internet connection" },
+];
+
+const targetUsers = [
+  "Frequent travelers planning international trips",
+  "Digital nomads comparing entry requirements across destinations",
+  "Travel agents looking up visa requirements for clients",
+  "Anyone booking international flights who needs quick entry requirement confirmation",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "DataPick", category: "Productivity", link: "/extensions/datapick/", icon: "/ext-icons/datapick.webp" },
+  { name: "ZenRead", category: "Productivity", link: "/extensions/zenread/", icon: "/ext-icons/ZenRead.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "EntryCheck",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/entrycheck/",
+  featureList: "Visa requirements for 190+ countries, Entry rules by passport nationality, Real-time travel advisory, Side panel, Offline cache",
+};
+
+const definition = "EntryCheck is a Chrome extension that shows visa requirements, entry rules, and travel advisories for any country directly in your browser. It covers 190+ countries with data updated weekly from official government sources, and supports all 195 UN-recognized nationalities.";
+
+const howToSteps = [
+  "Install EntryCheck from the Chrome Web Store.",
+  "Click the EntryCheck icon in your toolbar.",
+  "Set your passport nationality in Settings.",
+  "Type any country name or click a destination in the popup.",
+  "View visa requirements, entry rules, and travel advisories instantly.",
+  "Open the side panel to keep EntryCheck visible while browsing booking sites.",
+  "Recently viewed countries are cached for offline access.",
+];
+
+const faqItems = [
+  { question: "What is EntryCheck?", answer: "A Chrome extension that shows visa and entry requirements for any country directly in your browser." },
+  { question: "Is EntryCheck free?", answer: "Yes, 10 lookups/month free. Pro is $4/mo for unlimited lookups, multi-country comparison, and email alerts when requirements change." },
+  { question: "How current is the entry requirement data?", answer: "Data is updated weekly from official government sources including embassy websites and foreign ministry advisories." },
+  { question: "Does EntryCheck work offline?", answer: "Recently viewed countries are cached for offline access, so you can reference them without an internet connection." },
+  { question: "Which passports does EntryCheck support?", answer: "All 195 UN-recognized nationalities. Set your passport once in settings and all results are filtered to your specific requirements." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  definition={definition}
+  howToSteps={howToSteps}
+  seoTitle="EntryCheck - Visa & Entry Requirements, One Click Away | Chrome Extension"
+  seoDescription="EntryCheck shows visa requirements, entry rules, and travel advisories for 190+ countries directly in your browser. Filter by passport nationality. 10 lookups/month free."
+  seoKeywords="visa requirements, entry requirements, travel advisory, passport checker, chrome extension, visa checker, international travel"
+/>
