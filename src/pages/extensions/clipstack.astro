@@ -56,6 +56,13 @@ const softwareSchema = {
   url: "https://dev-tools-hub.xyz/extensions/clipstack/",
   featureList: "Auto-Save Clipboard, Fuzzy Search, Pin Clips, One-Click Recopy, Unlimited History, Export TXT/JSON",
 };
+
+const faqItems = [
+  { question: "Is ClipStack free?", answer: "Yes. The free plan saves your last 20 clipboard items. Pro ($3.99 one-time) unlocks unlimited history and bulk export as TXT or JSON." },
+  { question: "How do I install ClipStack?", answer: "Click 'Add to Chrome' on the Chrome Web Store page. ClipStack works immediately after installation — no sign-in required." },
+  { question: "Does ClipStack collect my data?", answer: "No. All clipboard data is stored locally on your device using chrome.storage.local. Nothing is sent to any external server." },
+  { question: "How does fuzzy search work?", answer: "ClipStack uses Fuse.js for incremental fuzzy search. Just type a few characters from any past clip to find it instantly — no exact match needed." },
+];
 ---
 
 <ExtensionLayout
@@ -66,6 +73,7 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
   seoTitle="ClipStack - Clipboard History Manager | Fuzzy Search & Pin Clips"
   seoDescription="Auto-save clipboard history with fuzzy search powered by Fuse.js. Pin clips, recopy in one click. Free: 20 items. Pro: unlimited + export. Privacy-first."
   seoKeywords="clipboard history manager, clipboard extension, copy history, fuzzy search clipboard, pin clipboard, clipboard manager chrome"

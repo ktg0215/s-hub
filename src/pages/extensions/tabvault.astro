@@ -65,6 +65,13 @@ const softwareSchema = {
   screenshot: "https://dev-tools-hub.xyz/screenshots/TabVault/screenshot-01.png",
   featureList: "Stash (Quick Save), Quick Switcher, Crash Recovery, Auto Backup, Tab Group Preservation, Lazy Loading",
 };
+
+const faqItems = [
+  { question: "Is TabVault free?", answer: "The core tab stashing and crash recovery features are free. Pro ($5 one-time) adds unlimited saved sessions, advanced backup options, and priority support." },
+  { question: "How do I install TabVault?", answer: "Click 'Add to Chrome' on the Chrome Web Store. After installation, use the keyboard shortcut to stash your current tabs instantly and switch between sessions with the Quick Switcher." },
+  { question: "Does TabVault collect my data?", answer: "No. TabVault stores all session data locally in your browser. No tab URLs or session data are sent to external servers." },
+  { question: "Will TabVault recover my tabs after a crash?", answer: "Yes. TabVault automatically backs up your open tabs at regular intervals. If Chrome crashes, open TabVault and restore your last saved session in one click." },
+];
 ---
 
 <ExtensionLayout
@@ -76,6 +83,7 @@ const softwareSchema = {
   relatedProducts={relatedProducts}
   keyboardShortcuts={keyboardShortcuts}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
   seoTitle="TabVault - Smart Tab Session Manager | Chrome Extension for Developers"
   seoDescription="Stash tabs, switch sessions instantly, and auto-recover from browser crashes. Developer-focused tab session manager with Quick Switcher and tab group support."
   seoKeywords="tab manager, session manager, chrome extension, developer tools, tab groups, tab stash, crash recovery"

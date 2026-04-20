@@ -56,6 +56,13 @@ const softwareSchema = {
   url: "https://dev-tools-hub.xyz/extensions/furimapro/",
   featureList: "AI-Optimized Templates, Side Panel UI, Batch Listing, Title Keyword Optimizer, Price Advisor, One-Click Copy",
 };
+
+const faqItems = [
+  { question: "FurimaProは無料ですか？", answer: "無料プランでは月5件までテンプレートを使用できます。Pro（¥980/月）に登録すると無制限のリスティング作成、上位テンプレート、CSVバッチ出力が利用可能です。" },
+  { question: "FurimaProのインストール方法は？", answer: "ChromeウェブストアでFurimaProを検索し「Chromeに追加」をクリックします。インストール後、メルカリの商品ページを開いてアイコンをクリックするとサイドパネルが起動します。" },
+  { question: "データは収集されますか？", answer: "いいえ。FurimaProはすべての処理をブラウザ内で完結します。商品情報や個人データが外部サーバーに送信されることはありません。" },
+  { question: "どのカテゴリの商品に対応していますか？", answer: "ファッション・家電・フィギュア・本・コスメなど、メルカリの主要カテゴリ向けにテンプレートを用意しています。" },
+];
 ---
 
 <ExtensionLayout
@@ -66,6 +73,7 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
   seoTitle="FurimaPro - Mercari Listing Optimizer | AI Templates for Sellers"
   seoDescription="Generate optimized Mercari listings in seconds with AI-powered templates. FurimaPro helps sellers write better titles and descriptions to increase sales."
   cws_url="https://chromewebstore.google.com/detail/furimapro/YOUR_ID_HERE"

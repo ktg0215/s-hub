@@ -1,5 +1,5 @@
 ---
-title: "I Built a Chrome Extension to Remove X/Twitter's Algorithmic Feed and Reclaim My Timeline"
+title: "How to Remove X/Twitter Algorithmic Feed - Free Chronological Timeline Extension"
 published: true
 tags: ["chromeextension","twitter","productivity","mentalhealth"]
 series: null

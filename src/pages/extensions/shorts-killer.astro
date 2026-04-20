@@ -48,11 +48,22 @@ const relatedProducts = [
   { name: "TVer Plus", category: "Media", link: "/extensions/tver-plus/", icon: "/ext-icons/tver-plus.webp" },
 ];
 
+const definition = "Shorts Killer is a free Chrome and Edge extension that completely removes YouTube Shorts from your browsing experience. It hides Shorts from the homepage, search results, channel pages, and sidebar, and automatically redirects away from Shorts URLs — so you can focus on long-form video content without distraction.";
+
+const howToSteps = [
+  "Install Shorts Killer from the Chrome Web Store or Microsoft Edge Add-ons.",
+  "Go to YouTube — Shorts will no longer appear in your Home feed immediately.",
+  "Click the Shorts Killer icon in your toolbar to customize which page types to block (Home, Search, Channel, Video).",
+  "Use Alt+Shift+S to quickly toggle blocking on/off with a keyboard shortcut.",
+  "Check the popup to see how many Shorts you've blocked in total.",
+];
+
 const faqItems = [
-  { question: "Does Shorts Killer completely remove YouTube Shorts?", answer: "Yes. Shorts Killer hides Shorts from your Home feed, Search results, Channel pages, and the sidebar. It also auto-redirects you away from Shorts URLs." },
-  { question: "Is Shorts Killer free?", answer: "Yes, Shorts Killer is completely free with no ads or in-app purchases." },
-  { question: "Does it work on Microsoft Edge?", answer: "Yes, Shorts Killer is available for both Chrome and Microsoft Edge browsers." },
-  { question: "Can I toggle Shorts blocking on specific pages?", answer: "Yes, you can control blocking per page type (Home, Search, Channel, Video) individually from the popup." },
+  { question: "Does Shorts Killer completely remove YouTube Shorts?", answer: "Yes. Shorts Killer removes Shorts from the YouTube homepage, search results, channel pages, and sidebar. It also auto-redirects you away from Shorts URLs so you can't accidentally land on a Shorts page." },
+  { question: "Can I control which pages block Shorts?", answer: "Yes. You can toggle Shorts blocking independently for Home, Search, Channel, and Video pages from the popup. This lets you, for example, keep Shorts in search results while removing them from the homepage." },
+  { question: "Will it affect my regular YouTube videos?", answer: "No. Shorts Killer only removes Shorts content. Regular videos, playlists, channels, subscriptions, and YouTube Music are completely unaffected." },
+  { question: "Is Shorts Killer free?", answer: "Yes, Shorts Killer is completely free with no ads, no premium tier, and no in-app purchases." },
+  { question: "Does it work on Microsoft Edge?", answer: "Yes. Shorts Killer is available for both Chrome and Microsoft Edge. The same extension works identically on both browsers." },
 ];
 
 const softwareSchema = {
@@ -81,6 +92,8 @@ const softwareSchema = {
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
   faqItems={faqItems}
+  definition={definition}
+  howToSteps={howToSteps}
   seoTitle="Shorts Killer - Block & Hide YouTube Shorts | Free Chrome Extension"
   seoDescription="Free Chrome & Edge extension to block YouTube Shorts completely. Page-specific controls, block counter, keyboard shortcuts. Rated 5.0 by 10+ users."
   seoKeywords="block youtube shorts, youtube shorts remover, hide youtube shorts, youtube shorts blocker, chrome extension, digital wellbeing"

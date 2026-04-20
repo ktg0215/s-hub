@@ -59,6 +59,13 @@ const softwareSchema = {
   url: "https://dev-tools-hub.xyz/extensions/snscrosspost/",
   featureList: "4-Platform Publishing, API-Based Reliability, Character Counter, Hashtag Templates, Connection Status, 8-Language Support",
 };
+
+const faqItems = [
+  { question: "Is SNSCrossPost free?", answer: "Yes. SNSCrossPost is completely free with no API costs. All platform integrations are included at no charge." },
+  { question: "How do I install SNSCrossPost?", answer: "Click 'Add to Chrome' on the Chrome Web Store. After installation, open the extension, connect your social accounts, compose your post, and publish to all platforms at once." },
+  { question: "Does SNSCrossPost collect my data?", answer: "No. SNSCrossPost does not store your post content on external servers. Platform connections use official APIs (Bluesky AT Protocol, Meta Graph API) directly from your browser." },
+  { question: "Which platforms does SNSCrossPost support?", answer: "SNSCrossPost supports X (Twitter), Threads, Bluesky, and LinkedIn. It uses native API integration for Bluesky and Threads, and DOM-based posting for X and LinkedIn." },
+];
 ---
 
 <ExtensionLayout
@@ -70,6 +77,7 @@ const softwareSchema = {
   relatedProducts={relatedProducts}
   supportedServices={supportedServices}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
   seoTitle="SNSCrossPost - Post to X, Threads, Bluesky & LinkedIn at Once"
   seoDescription="Post to X, Threads, Bluesky, and LinkedIn simultaneously with one click. Free multi-platform social media publishing Chrome extension."
   seoKeywords="cross-post, social media, multi-platform, twitter, threads, bluesky, linkedin, chrome extension, social media manager"

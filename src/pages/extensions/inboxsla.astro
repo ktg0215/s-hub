@@ -1,0 +1,91 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "InboxSLA",
+  subtitle: "Never Miss a Client Reply Deadline Again",
+  tagline: "Never miss a client reply deadline again.",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Email / Productivity",
+  lang: "EN",
+  icon: "/ext-icons/inboxsla.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "InboxSLA injects color-coded SLA badges into your Gmail inbox and alerts you before client reply deadlines expire. Set custom SLA hours per client domain — the extension handles the rest. Green means you're on time, orange means the deadline is approaching, and red means action is needed now. InboxSLA checks your inbox every 5 minutes in the background, so deadlines never slip through the cracks.";
+
+const features = [
+  { title: "Color-coded Badges in Gmail", desc: "Green, orange, and red SLA badges appear directly in your Gmail inbox thread list — no sidebar needed" },
+  { title: "Per-client SLA Configuration", desc: "Set different SLA hours for each client domain — 4 hours for VIP clients, 24 hours for standard accounts" },
+  { title: "Chrome Notifications Before Deadlines", desc: "Get notified before SLAs expire so you have time to respond rather than scramble after the fact" },
+  { title: "Side Panel with Urgency Ranking", desc: "View all pending replies ranked by urgency in the Chrome side panel — your SLA command center" },
+  { title: "Background Monitoring Every 5 Minutes", desc: "InboxSLA silently monitors your inbox in the background and updates badge colors as deadlines approach" },
+];
+
+const targetUsers = [
+  "Freelancers managing client email response commitments",
+  "Customer support teams with guaranteed reply windows",
+  "Account managers tracking multiple client communication SLAs",
+  "Anyone who has made a promise to reply within a certain timeframe",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "SnapReply for Gmail", category: "Productivity", link: "/extensions/snapreply/", icon: "/ext-icons/snapreply.png" },
+  { name: "Procshot", category: "Productivity", link: "/extensions/procshot/", icon: "/ext-icons/procshot.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "InboxSLA",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/inboxsla/",
+  featureList: "Color-coded SLA badges in Gmail, Per-client SLA configuration, Chrome notifications, Side panel urgency ranking, Background monitoring every 5 minutes",
+};
+
+const definition = "InboxSLA is a Chrome extension for Gmail that adds color-coded reply deadline badges to your inbox and sends Chrome notifications before client SLAs expire. You configure SLA hours per client domain, and the extension monitors your inbox every 5 minutes to keep badge colors current.";
+
+const howToSteps = [
+  "Install InboxSLA from the Chrome Web Store.",
+  "Open Gmail — InboxSLA activates automatically on mail.google.com.",
+  "Click the InboxSLA icon in your toolbar to open the popup.",
+  "Click 'Add Client', enter the domain (e.g. acme.com) and your SLA hours.",
+  "InboxSLA immediately starts monitoring threads from that domain.",
+  "Color-coded badges appear in your Gmail inbox — green, orange, or red.",
+  "Click the side panel icon to see all pending replies ranked by urgency.",
+];
+
+const faqItems = [
+  { question: "What is InboxSLA?", answer: "A Gmail extension that adds reply deadline badges to your inbox and alerts you before SLAs expire." },
+  { question: "Is InboxSLA free?", answer: "Yes, free for up to 3 clients and 10 alerts/month. Pro is $6/mo for unlimited clients, unlimited alerts, and a weekly report." },
+  { question: "Does InboxSLA read my emails?", answer: "No. It only reads sender domain metadata visible in the inbox thread list. Email content is never accessed or transmitted." },
+  { question: "Which email clients does InboxSLA support?", answer: "Gmail only (mail.google.com). InboxSLA injects directly into the Gmail interface." },
+  { question: "How do I set up a client SLA?", answer: "Open the popup, click 'Add Client', enter the domain (e.g. acme.com) and SLA hours. Done. InboxSLA starts monitoring immediately." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  definition={definition}
+  howToSteps={howToSteps}
+  seoTitle="InboxSLA - Never Miss a Client Reply Deadline | Gmail Chrome Extension"
+  seoDescription="InboxSLA adds color-coded SLA badges to Gmail and alerts you before client reply deadlines expire. Set custom SLA hours per client domain. Free for 3 clients."
+  seoKeywords="gmail sla, email deadline, reply deadline, client email, gmail extension, inbox management, email productivity, chrome extension"
+/>

@@ -1,5 +1,5 @@
 ---
-title: "I Built a Chrome Extension That Automatically Creates Step-by-Step Guides from Your Browser Actions"
+title: "How to Auto-Generate Step-by-Step Browser Guides - Free Screenshot Extension"
 published: true
 tags: ["chromeextension","documentation","productivity","tutorial"]
 series: null

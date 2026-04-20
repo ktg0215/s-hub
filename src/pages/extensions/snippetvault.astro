@@ -64,6 +64,13 @@ const softwareSchema = {
   screenshot: "https://dev-tools-hub.xyz/screenshots/SnippetVault/resized_1280x800_25.png",
   featureList: "Slash Commands, Syntax Highlighting, Fuzzy Search, Category Management, Usage Statistics, Clipboard Integration",
 };
+
+const faqItems = [
+  { question: "Is SnippetVault free?", answer: "Yes. SnippetVault is completely free with all snippet management and slash command features included." },
+  { question: "How do I install SnippetVault?", answer: "Click 'Add to Chrome' on the Chrome Web Store. After installation, save your first snippet in the popup. Then type '/' in any text field on the web to trigger the snippet picker." },
+  { question: "Does SnippetVault collect my data?", answer: "No. All snippets are stored locally on your device using Chrome's storage API. No code is sent to external servers." },
+  { question: "Does the slash command work on all websites?", answer: "SnippetVault's slash command works in most standard text input fields and contenteditable areas across the web, including GitHub, Notion, and Linear." },
+];
 ---
 
 <ExtensionLayout
@@ -75,6 +82,7 @@ const softwareSchema = {
   relatedProducts={relatedProducts}
   keyboardShortcuts={keyboardShortcuts}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
   seoTitle="SnippetVault - Code Snippet Manager with Slash Commands | Chrome Extension"
   seoDescription="Developer-focused code snippet manager. Insert snippets instantly with slash commands in any text field. Syntax highlighting and fuzzy search."
   seoKeywords="code snippets, snippet manager, slash commands, developer tools, chrome extension, code templates"

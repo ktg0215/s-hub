@@ -1,5 +1,5 @@
 ---
-title: "I Built a Cross-Platform Price Comparison Tool for Retail Arbitrage"
+title: "Best Chrome Extension for Retail Arbitrage - Amazon vs Mercari Price Comparison"
 published: true
 tags: ["chromeextension","ecommerce","productivity","javascript"]
 series: null

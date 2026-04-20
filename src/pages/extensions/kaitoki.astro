@@ -61,6 +61,13 @@ const softwareSchema = {
   screenshot: "https://dev-tools-hub.xyz/screenshots/kaitoki/screenshot-01.png",
   featureList: "価格履歴グラフ, 3大EC横断比較, ポイント実質価格, 値下げアラート, 自動追跡, ポイント設定カスタマイズ",
 };
+
+const faqItems = [
+  { question: "Kaitokiは無料ですか？", answer: "はい、Kaitokiは完全無料です。インストールするだけでフル機能をご利用いただけます。" },
+  { question: "Kaitokiのインストール方法は？", answer: "ChromeウェブストアでKaitokiを検索し「Chromeに追加」をクリックします。インストール後は楽天・Yahoo!ショッピング・Amazonの商品ページを開くだけで自動的に価格が記録されます。" },
+  { question: "データは収集されますか？", answer: "いいえ。価格データはすべてブラウザのローカルストレージに保存されます。外部サーバーへの送信は行いません。" },
+  { question: "対応しているECサイトはどれですか？", answer: "楽天市場・Yahoo!ショッピング・Amazonの3大ECサイトに対応しています。各サイトのポイント還元率を加味した実質価格も計算できます。" },
+];
 ---
 
 <ExtensionLayout
@@ -71,6 +78,7 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
   seoTitle="Kaitoki(買い得記) - 楽天・Yahoo!・Amazon 価格追跡ツール | 無料Chrome拡張"
   seoDescription="楽天・Yahoo!・Amazonの価格を自動追跡し、履歴グラフ・EC横断比較・ポイント実質価格計算・値下げアラートで最安値を見逃さない無料Chrome拡張機能。"
   seoKeywords="価格比較, 価格追跡, 楽天, Yahoo, Amazon, ポイント計算, 値下げアラート, chrome拡張機能, 買い得記, 最安値"

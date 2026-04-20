@@ -1,5 +1,5 @@
 ---
-title: "I Built a Free Invoice OCR Chrome Extension — No Cloud, No Signup"
+title: "How to OCR Invoices for Free - Chrome Extension with No Cloud Upload"
 published: true
 tags: ["chromeextension","ocr","pdf","productivity"]
 series: null

@@ -1,0 +1,91 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "LectureLoop",
+  subtitle: "Turn Any YouTube Lecture into Flashcards Instantly",
+  tagline: "Turn any YouTube lecture into flashcards instantly.",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Education / Learning",
+  lang: "EN",
+  icon: "/ext-icons/lectureloop.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "LectureLoop watches YouTube lectures with you and automatically generates flashcards from key concepts — so you can review and retain what you learn, without any manual note-taking. It extracts key terms, definitions, and concepts from video transcripts and turns them into reviewable flashcards. Schedule reviews with spaced repetition or export to Anki to integrate with your existing study system.";
+
+const features = [
+  { title: "Auto-generated Flashcards from Transcripts", desc: "Extracts key concepts and definitions from YouTube lecture transcripts and formats them as flashcards" },
+  { title: "Spaced Repetition Review Scheduler", desc: "Built-in SRS scheduler surfaces cards at the optimal time for long-term retention" },
+  { title: "Export to Anki Format", desc: "Export any flashcard set as an Anki-compatible .apkg file to integrate with your existing Anki decks" },
+  { title: "Works on Any YouTube Video with Captions", desc: "Compatible with both auto-generated and manually added closed captions on any YouTube video" },
+  { title: "AI Concept Extraction", desc: "Identifies the most important terms and definitions from the lecture — not just random sentences" },
+];
+
+const targetUsers = [
+  "University students supplementing lecture recordings with active recall",
+  "Self-learners working through YouTube course playlists",
+  "Language learners using YouTube immersion to build vocabulary",
+  "Anyone who watches educational YouTube videos and wants to retain more",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "ZenRead", category: "Productivity", link: "/extensions/zenread/", icon: "/ext-icons/ZenRead.webp" },
+  { name: "ReadMark", category: "Productivity", link: "/extensions/readmark/", icon: "/ext-icons/ReadMark.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "LectureLoop",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/lectureloop/",
+  featureList: "Auto-generated flashcards from YouTube transcripts, Spaced repetition scheduler, Anki export, Works on any captioned video, AI concept extraction",
+};
+
+const definition = "LectureLoop is a Chrome extension that automatically generates flashcards from YouTube lecture videos using transcript analysis and AI concept extraction. It works on any YouTube video with closed captions and includes a spaced repetition review scheduler and Anki export for Pro users.";
+
+const howToSteps = [
+  "Install LectureLoop from the Chrome Web Store.",
+  "Navigate to any YouTube video with captions (auto-generated or manual).",
+  "LectureLoop detects the video and shows a 'Generate Flashcards' button.",
+  "Click 'Generate Flashcards' — LectureLoop analyzes the transcript and extracts key concepts.",
+  "Review the generated flashcard set and remove any cards you don't want.",
+  "Use the built-in review mode with spaced repetition to study the cards.",
+  "Pro users can export to Anki format for integration with existing decks.",
+];
+
+const faqItems = [
+  { question: "What is LectureLoop?", answer: "A Chrome extension that automatically creates flashcards from YouTube lecture videos using transcript analysis." },
+  { question: "Is LectureLoop free?", answer: "Yes, 5 flashcard sets/month (20 cards each) free. Pro is $7/mo for unlimited sets, unlimited cards, Anki export, and spaced repetition scheduling." },
+  { question: "Does LectureLoop work on all YouTube videos?", answer: "It works on any YouTube video that has closed captions — either auto-generated or manually added. Videos without any captions are not supported." },
+  { question: "Can I export flashcards to Anki?", answer: "Yes, Anki export (.apkg format) is available on the Pro plan. Free users can review cards within LectureLoop's built-in interface." },
+  { question: "How accurate are the generated flashcards?", answer: "Accuracy depends on caption quality. LectureLoop extracts key terms and definitions from the transcript. Auto-generated captions may contain errors that affect card quality." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  definition={definition}
+  howToSteps={howToSteps}
+  seoTitle="LectureLoop - Turn YouTube Lectures into Flashcards Instantly | Chrome Extension"
+  seoDescription="LectureLoop auto-generates flashcards from YouTube lecture transcripts. Spaced repetition review, Anki export, and AI concept extraction. 5 sets/month free."
+  seoKeywords="youtube flashcards, lecture flashcards, anki export, spaced repetition, chrome extension, study tool, youtube learning, active recall"
+/>

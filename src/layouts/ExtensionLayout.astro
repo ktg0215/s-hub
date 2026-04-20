@@ -53,6 +53,8 @@ interface Props {
   faqItems?: { question: string; answer: string }[];
   ctaTitle?: string;
   ctaDescription?: string;
+  definition?: string;
+  howToSteps?: string[];
 }
 
 const {
@@ -74,6 +76,8 @@ const {
   faqItems,
   ctaTitle = "Ready to Get Started?",
   ctaDescription = `Install ${extension.name} now.`,
+  definition,
+  howToSteps,
 } = Astro.props;
 
 const isFree = extension.price === 'Free' || extension.price === '無料';
@@ -362,6 +366,27 @@ const faqSchema = faqItems && faqItems.length > 0 ? {
         {overview}
       </p>
     </section>
+
+    <!-- What is / How to (AI SEO) -->
+    {definition && (
+      <section class="px-6 py-8 max-w-4xl mx-auto">
+        <h2 class="text-xl font-semibold text-zinc-900 mb-3">What is {extension.name}?</h2>
+        <p class="text-zinc-600 text-sm leading-relaxed">{definition}</p>
+        {howToSteps && howToSteps.length > 0 && (
+          <div class="mt-6">
+            <h3 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// how to use</h3>
+            <ol class="space-y-2.5">
+              {howToSteps.map((step, i) => (
+                <li class="flex items-start gap-3 text-zinc-600 text-sm">
+                  <span class="font-mono text-[10px] text-sky-600 bg-sky-50 border border-sky-100 rounded px-2 py-0.5 flex-shrink-0 mt-0.5 min-w-[28px] text-center">{i + 1}</span>
+                  <span class="leading-relaxed">{step}</span>
+                </li>
+              ))}
+            </ol>
+          </div>
+        )}
+      </section>
+    )}
 
     <!-- Supported Services (optional) -->
     {supportedServices && supportedServices.length > 0 && (

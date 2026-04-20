@@ -1,5 +1,5 @@
 ---
-title: "I Built a Gmail Template Extension — Here's What I Learned Fighting Gmail's DOM"
+title: "How to Use Email Templates in Gmail - Free Chrome Extension"
 published: true
 tags: ["chromeextension","gmail","productivity","javascript"]
 series: null

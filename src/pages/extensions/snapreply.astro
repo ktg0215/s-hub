@@ -61,6 +61,13 @@ const softwareSchema = {
   screenshot: "https://dev-tools-hub.xyz/screenshots/snapreply/screenshot-01.png",
   featureList: "Template Variables, Shortcut Keywords, Folder Organization, Insert Position Control, Usage Statistics, Import & Export",
 };
+
+const faqItems = [
+  { question: "Is SnapReply for Gmail free?", answer: "Yes, the core template features are free. Pro unlocks rich text editing, unlimited templates, advanced analytics, and priority support." },
+  { question: "How do I install SnapReply for Gmail?", answer: "Click 'Add to Chrome' on the Chrome Web Store. After installation, open Gmail and click the SnapReply icon within the compose window to access your templates." },
+  { question: "Does SnapReply collect my email data?", answer: "No. SnapReply stores all templates locally in your browser. No email content or template data is sent to external servers." },
+  { question: "How do template variables work?", answer: "Use double curly braces like {{name}} or {{company}} in your templates. When you insert a template, SnapReply prompts you to fill in the variables before inserting the finalized text." },
+];
 ---
 
 <ExtensionLayout
@@ -71,6 +78,7 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
   seoTitle="SnapReply for Gmail - Quick Email Templates | Chrome Extension"
   seoDescription="Quick email templates for Gmail with variable placeholders. Save, manage, and insert templates with keyboard shortcuts. Track usage statistics."
   seoKeywords="gmail templates, email templates, chrome extension, gmail productivity, quick reply, email automation, gmail shortcuts"

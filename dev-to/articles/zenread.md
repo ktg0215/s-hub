@@ -1,5 +1,5 @@
 ---
-title: "I Built a Reader Mode Extension for Chrome Because It Still Doesn't Have One"
+title: "How to Add Reader Mode to Chrome - Free Distraction-Free Extension"
 published: true
 tags: ["chromeextension","reading","productivity","webdev"]
 series: null

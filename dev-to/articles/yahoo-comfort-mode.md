@@ -1,5 +1,5 @@
 ---
-title: "I Built a Chrome Extension to Filter Low-Quality News on Yahoo Japan"
+title: "How to Block Low-Quality News on Yahoo Japan - Free Chrome Extension"
 published: true
 tags: ["chromeextension","japan","productivity","ux"]
 series: null

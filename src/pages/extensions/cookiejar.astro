@@ -61,6 +61,13 @@ const softwareSchema = {
   screenshot: "https://dev-tools-hub.xyz/screenshots/cookiejar/screenshot-01.png",
   featureList: "Smart Auto-Categorization, Privacy Score, Multi-Format Export, Cookie Profile Switching, Auto-Cleanup Schedules, Storage Management",
 };
+
+const faqItems = [
+  { question: "Is CookieJar free?", answer: "Yes, the core features are free. Pro ($4.99/mo) adds auto-cleanup schedules, encrypted cookie profile switching, and full localStorage/sessionStorage/IndexedDB management." },
+  { question: "How do I install CookieJar?", answer: "Click 'Add to Chrome' on the Chrome Web Store. CookieJar is a Manifest V3 extension and works immediately after installation — no sign-in required." },
+  { question: "Does CookieJar collect my data?", answer: "No. CookieJar is completely client-side and does not use external APIs. All cookie data stays in your browser." },
+  { question: "Is CookieJar a good EditThisCookie alternative?", answer: "Yes. CookieJar was designed as a modern MV3 replacement for EditThisCookie, with additional features like privacy scores and smart auto-categorization of cookies." },
+];
 ---
 
 <ExtensionLayout
@@ -71,6 +78,7 @@ const softwareSchema = {
   screenshots={screenshots}
   relatedProducts={relatedProducts}
   softwareSchema={softwareSchema}
+  faqItems={faqItems}
   seoTitle="CookieJar - Cookie Editor & Manager | EditThisCookie Alternative"
   seoDescription="View, edit, create, delete, export and import cookies. MV3 cookie editor with smart auto-categorization, privacy scores, and multi-format export."
   seoKeywords="cookie editor, cookie manager, chrome extension, privacy, developer tools, editthiscookie alternative, mv3 cookie editor"
