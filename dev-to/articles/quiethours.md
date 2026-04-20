@@ -1,93 +1,107 @@
 ---
-title: "I Built a Chrome Extension That Automatically Silences Distractions During Focus Hours — Quiethours"
+title: "Building a Local-Only Focus Time Protector for Google Calendar"
 published: false
-publish_date: "2026-05-15"
-devto_id: ""
-tags: ["chrome", "javascript", "webdev", "productivity"]
+publish_date: "2026-05-16"
+tags: ["chrome","javascript","webdev","productivity"]
+devto_id: "3527737"
 ---
 
-Deep work is expensive to enter and cheap to destroy. One notification sound at the wrong moment can cost you 20 minutes of recovery time.
+Clockwise shut down its free plan. Most focus-time tools for Google Calendar require OAuth access and sync your calendar to their servers. I wanted something simpler: define quiet hours locally, and have the extension visually mark those blocks on my calendar — no cloud, no account, no data leaving my browser.
 
-I already use Google Calendar to block focus time on my schedule — but Chrome keeps firing alerts from Slack, Gmail, and news sites regardless. The fix should be automatic: if I'm in a "Focus" block, silence everything.
+That's [Quiethours](https://chromewebstore.google.com/detail/okdmecodmihlgbkeacmebdikolofccfa). Here's how it works technically.
 
-So I built **Quiethours**.
+## Architecture: Pure DOM Overlay
 
-## What It Does
+The extension doesn't use the Google Calendar API. It doesn't need OAuth. It just injects a content script on `calendar.google.com` and overlays colored blocks on the existing calendar grid.
 
-Quiethours is a Chrome extension that syncs with your Google Calendar focus events and automatically:
-
-- **Blocks distracting sites** during your focus windows
-- **Mutes browser notifications** for the duration of your scheduled blocks
-- **Shows the active focus rule** in the popup so you always know your current status
-
-You register rules once (day of week, start/end time, which sites to block), and the extension handles the rest. No manual toggling.
-
-## Technical Implementation
-
-Built with **WXT + React + TypeScript** — WXT is a Chrome Extension build framework with first-class MV3 support, TypeScript out of the box, and HMR during development.
-
-**Rule evaluation runs in the Service Worker** via `chrome.alarms`, checking every minute:
+The approach: find the time-slot cells in the calendar DOM, identify which ones fall within the user's quiet hours, and inject a semi-transparent overlay element.
 
 ```typescript
-export function getActiveRule(rules: FocusRule[]): FocusRule | null {
-  const now = new Date();
-  const day = now.getDay();
-  const hhmm = `${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}`;
-  return rules.find(r =>
-    r.enabled &&
-    r.dayOfWeek.includes(day) &&
-    hhmm >= r.startTime &&
-    hhmm < r.endTime
-  ) ?? null;
+function injectQuietOverlays(rules: QuietRule[]) {
+  const timeSlots = document.querySelectorAll('[data-time]');
+  timeSlots.forEach(slot => {
+    const timeAttr = slot.getAttribute('data-time'); // e.g. "10:00"
+    if (!timeAttr) return;
+
+    const [hours, minutes] = timeAttr.split(':').map(Number);
+    const totalMinutes = hours * 60 + minutes;
+
+    for (const rule of rules) {
+      if (isWithinRule(totalMinutes, rule)) {
+        applyOverlay(slot as HTMLElement, rule);
+        break;
+      }
+    }
+  });
 }
 ```
 
-String comparison on `HH:MM` avoids timezone edge cases that often trip up time-range logic.
+## Rule Configuration
 
-**The permissions footprint is minimal:**
-
-```json
-"permissions": ["storage", "alarms", "notifications"],
-"host_permissions": ["https://calendar.google.com/*"]
-```
-
-No broad `<all_urls>` permission — the extension only touches your Calendar page and the sites you explicitly add to the block list.
-
-**Theme and language are persisted in `chrome.storage.local`** and applied immediately on popup mount:
+Each rule specifies the days and time range:
 
 ```typescript
-const [r, s, user] = await Promise.all([
-  getRules(),
-  getSettings(),
-  extpay.getUser().catch(() => ({ paid: false })),
-]);
-applyTheme(s.theme ?? 'dark', document.documentElement);
-setLang(detectLang());
+interface QuietRule {
+  id: string;
+  label: string;       // e.g. "Deep Work"
+  startTime: string;   // "09:00"
+  endTime: string;     // "12:00"
+  days: number[];      // [1,2,3,4,5] = Mon–Fri
+  color: string;       // hex color for the overlay
+}
 ```
 
-## Free vs. Pro Tiers
+Rules are stored in `chrome.storage.local`. The freemium limit is 1 rule for free.
 
-| Feature | Free | Pro ($5/mo) |
-|---------|------|-------------|
-| Focus rules | 1 | Unlimited |
-| Blocked sites | 10 | Unlimited |
-| Weekly focus stats | — | ✓ |
+## Reacting to Calendar View Changes
 
-Monetization is handled by **ExtensionPay** — a payment layer built for Chrome Extensions that lets users pay without leaving the browser. Checking paid status is a single async call:
+Google Calendar has multiple views: day, week, month, schedule. Each renders the time-slot grid differently. The extension uses a `MutationObserver` to detect when the main calendar content changes and re-runs the overlay injection:
 
 ```typescript
-const user = await extpay.getUser();
-const isPro = user.paid ?? false;
+const calendarObserver = new MutationObserver(debounce(() => {
+  clearOverlays();
+  injectQuietOverlays(cachedRules);
+}, 200));
+
+calendarObserver.observe(
+  document.querySelector('[data-view-id]') ?? document.body,
+  { childList: true, subtree: true }
+);
 ```
 
-## What I Learned
+The `debounce` prevents thrashing — Calendar fires many DOM mutations during navigation animations.
 
-The hardest part wasn't the technical implementation — it was deciding the Free tier limit. Too restrictive and users don't get value. Too generous and no one upgrades.
+## Notification Reminders via `chrome.alarms`
 
-One rule + ten blocked sites turned out to be the right balance: it's genuinely useful for someone with a single daily focus block, but clearly limiting for anyone doing structured deep work across multiple projects.
+The extension uses `chrome.alarms` to fire a reminder notification 15 minutes before a quiet block starts. The Service Worker registers alarms when rules change:
 
----
+```typescript
+async function scheduleAlarms(rules: QuietRule[]) {
+  await chrome.alarms.clearAll();
 
-**Chrome Web Store:** https://chromewebstore.google.com/detail/okdmecodmihlgbkeacmebdikolofccfa
+  const today = new Date().getDay(); // 0 = Sunday
+  for (const rule of rules) {
+    if (!rule.days.includes(today)) continue;
 
-If you spend any part of your day trying to do focused work, give it a try — and let me know what features you'd want next.
+    const [h, m] = rule.startTime.split(':').map(Number);
+    const alarmTime = new Date();
+    alarmTime.setHours(h, m - 15, 0, 0);
+
+    if (alarmTime > new Date()) {
+      chrome.alarms.create(`quiethours_${rule.id}`, {
+        when: alarmTime.getTime(),
+      });
+    }
+  }
+}
+```
+
+MV3 service workers don't stay alive, but `chrome.alarms` persists across SW restarts — the alarm fires the SW back into life when it's needed.
+
+## Why No OAuth
+
+The most common question I got during testing: "Why doesn't it sync with my actual calendar events?" The answer is intentional: the overlay approach means the extension works with whatever is displayed on screen, requires no permissions beyond `storage` and `alarms`, and doesn't need the `https://www.googleapis.com/auth/calendar` scope.
+
+The tradeoff: if you have a real meeting during your quiet hours, the overlay appears over it. That's actually fine — you still know the block exists, and the meeting takes visual priority. The overlay is semi-transparent.
+
+[Install Quiethours from Chrome Web Store →](https://chromewebstore.google.com/detail/okdmecodmihlgbkeacmebdikolofccfa)

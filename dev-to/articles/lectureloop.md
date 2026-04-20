@@ -1,108 +1,127 @@
 ---
-title: "I Built a Chrome Extension That Turns YouTube Lectures into AI Study Notes and Flashcards — LectureLoop"
+title: "Building an AI Flashcard Generator for YouTube Lectures"
 published: false
-publish_date: "2026-05-27"
-devto_id: ""
-tags: ["chrome", "javascript", "webdev", "ai"]
+publish_date: "2026-05-20"
+tags: ["chrome","javascript","ai","webdev"]
+devto_id: "3527734"
 ---
 
-I watch a lot of educational content on YouTube — conference talks, university lectures, programming tutorials. The problem: I retain almost none of it.
+Watching a 2-hour lecture at 1.5x is fine. Retaining it isn't. Most students re-watch the same 20 minutes three times instead of reviewing structured notes. I built [LectureLoop](https://chromewebstore.google.com/detail/dkfjdnchkngbkeocblinimimiddfnkbg) to extract key points from YouTube lectures and turn them into flashcards — exportable to Anki.
 
-Taking notes manually while watching breaks the flow. Copy-pasting captions into ChatGPT after the fact is tedious. What I wanted was something that works *while* I watch, in the same window.
+## Architecture Overview
 
-So I built **LectureLoop**.
+The extension has three main parts:
+1. A **content script** that injects a button onto YouTube video pages
+2. A **side panel** that displays the generated summary and flashcards
+3. A **background service worker** that handles the LLM API call via a Vercel proxy
 
-## What It Does
+The LLM call routes through a Vercel serverless function so the API key never appears in the extension bundle.
 
-LectureLoop is a Chrome extension that opens a side panel next to YouTube, extracts the video's captions, and uses GPT-4o-mini to generate:
+## Getting the Transcript
 
-- **Key point summaries** — concise bullet points from the lecture
-- **Flashcards** — Q&A pairs for active recall practice
-- **Processed video history** — a log of everything you've summarized this month
-
-The side panel appears in the browser chrome alongside YouTube, so you're not switching tabs or losing your place in the video.
-
-## Architecture
-
-```
-LectureLoop/
-├── content.ts       # YouTube caption extraction + video ID detection
-├── background.ts    # AI proxy calls + storage management
-├── popup/           # Usage stats + video history
-├── sidepanel/       # Summary + flashcard display
-└── lib/
-    ├── constants.ts # FREE_LIMITS, VERCEL_PROXY_URL
-    └── storage.ts   # Processed video persistence
-```
-
-### Caption Extraction
-
-YouTube exposes captions via an internal timedtext API. The content script extracts the current video ID and fetches the caption track:
+YouTube provides auto-generated transcripts for most videos. The content script fetches the transcript via YouTube's internal timedtext API:
 
 ```typescript
-// Detect video changes in YouTube's SPA
-const videoId = new URLSearchParams(location.search).get('v');
-if (videoId && videoId !== lastVideoId) {
-  lastVideoId = videoId;
-  chrome.runtime.sendMessage({ type: 'VIDEO_CHANGED', videoId });
+async function fetchTranscript(videoId: string): Promise<TranscriptLine[]> {
+  const infoUrl = `https://www.youtube.com/watch?v=${videoId}`;
+  const resp = await fetch(infoUrl);
+  const html = await resp.text();
+
+  // Extract the captionTracks JSON from the ytInitialPlayerResponse
+  const match = html.match(/"captionTracks":\s*(\[.*?\])/);
+  if (!match) throw new Error('No captions available');
+
+  const tracks: CaptionTrack[] = JSON.parse(match[1]);
+  const enTrack = tracks.find(t => t.languageCode === 'en') ?? tracks[0];
+
+  const xmlResp = await fetch(enTrack.baseUrl);
+  const xml = await xmlResp.text();
+  return parseTranscriptXml(xml);
 }
 ```
 
-For SPA navigation detection, I combine `MutationObserver` with `popstate` event listening — YouTube updates the URL without a full page reload, so you need both.
+The transcript XML contains `<text start="..." dur="...">` elements. The extension parses these into timestamped lines and passes them to the summarizer.
 
-### The AI Proxy
+## Summarization via Claude
 
-API keys in browser extensions are a security anti-pattern — they're trivially extractable from the extension package. Instead, LectureLoop routes all AI calls through a Vercel serverless function that holds the key server-side:
+The Vercel proxy receives the transcript and calls the Anthropic API:
 
 ```typescript
-// lib/constants.ts
-export const VERCEL_PROXY_URL =
-  'https://s-hub-dashboard-beta.vercel.app/api/llm/chat';
+// api/summarize.ts (Vercel)
+export default async function handler(req: Request) {
+  const { transcript, videoTitle } = await req.json();
 
-// background.ts
-const res = await fetch(VERCEL_PROXY_URL, {
-  method: 'POST',
-  body: JSON.stringify({
-    model: 'gpt-4o-mini',
-    messages: [
-      { role: 'system', content: SUMMARIZE_SYSTEM_PROMPT },
-      { role: 'user', content: transcript },
-    ],
-  }),
+  const prompt = `
+You are a study assistant. Given the following transcript from a YouTube lecture titled "${videoTitle}", extract:
+1. A 3–5 sentence summary
+2. 8–12 key concepts as flashcard Q&A pairs
+3. 5 important timestamps with what happens at each
+
+Transcript:
+${transcript.slice(0, 12000)} // Truncate to fit context window
+
+Respond in JSON format: { summary, flashcards: [{front, back}], timestamps: [{sec, label}] }
+  `;
+
+  const response = await anthropic.messages.create({
+    model: 'claude-haiku-4-5-20251001',
+    max_tokens: 1024,
+    messages: [{ role: 'user', content: prompt }],
+  });
+
+  return Response.json(JSON.parse(response.content[0].text));
+}
+```
+
+Using `claude-haiku-4-5-20251001` keeps latency and cost low for this use case — the summaries don't need deep reasoning, just reliable extraction.
+
+## Timestamp Navigation
+
+The side panel displays the extracted timestamps as clickable links. Clicking a timestamp sends a message to the content script, which sets `video.currentTime`:
+
+```typescript
+// content.ts
+chrome.runtime.onMessage.addListener((msg) => {
+  if (msg.type === 'JUMP_TO_TIMESTAMP' && typeof msg.sec === 'number') {
+    const video = document.querySelector('video');
+    if (video) video.currentTime = msg.sec;
+  }
 });
+
+// sidepanel/App.tsx
+const jumpToTimestamp = (sec: number) => {
+  chrome.tabs.query({ active: true, currentWindow: true }, (tabs) => {
+    const tabId = tabs[0]?.id;
+    if (tabId) chrome.tabs.sendMessage(tabId, { type: 'JUMP_TO_TIMESTAMP', sec });
+  });
+};
 ```
 
-This also lets me add rate limiting and abuse prevention on the server side without shipping extension updates.
+Note: this avoids `chrome.scripting.executeScript`, which requires the `scripting` permission. Messaging the content script instead only needs `tabs`, which the extension already uses to read the current video URL.
 
-### Side Panel Communication
+## Anki Export
 
-MV3's `chrome.sidePanel` API can't be controlled directly from content scripts. The solution is a message bus through the background Service Worker:
+Anki's import format is straightforward — a tab-separated text file with Front and Back columns:
 
+```typescript
+function exportToAnki(flashcards: Flashcard[]): void {
+  const lines = flashcards.map(fc =>
+    `${fc.front.replace(/\t/g, ' ')}\t${fc.back.replace(/\t/g, ' ')}`
+  );
+  const blob = new Blob([lines.join('\n')], { type: 'text/plain' });
+  const url = URL.createObjectURL(blob);
+
+  chrome.downloads.download({
+    url,
+    filename: `lectureloop-export-${Date.now()}.txt`,
+  });
+}
 ```
-content.ts  →  background.ts  →  sidepanel
-              (message router)
-```
 
-When the content script detects a new video, it messages `background.ts`. Background updates storage and the side panel subscribes to `chrome.storage.onChanged` to re-render. Clean separation, no direct cross-context calls.
+The user imports this file into Anki via File → Import. The extension doesn't need Anki installed or any Anki API access.
 
-## Free vs. Pro Tiers
+## Freemium Limits
 
-| Feature | Free | Pro ($7/mo) |
-|---------|------|-------------|
-| Videos / month | 3 | Unlimited |
-| Flashcard generation | Limited | Unlimited |
-| Export to Markdown | — | ✓ |
+Free tier: 3 videos per month. Pro: unlimited. The limit is enforced client-side via `chrome.storage.local` with a monthly reset counter — the Vercel proxy also enforces it via the ExtPay token attached to each request.
 
-Three free videos/month lets users verify the quality of summaries before committing. The real value driver is flashcard generation — once you've used spaced repetition to actually retain lecture content, the $7 price is an easy sell.
-
-## Lessons from the Build
-
-**The hardest bug** was the side panel not updating when the video changed. Root cause: the side panel's `chrome.storage.onChanged` listener wasn't firing because the panel had been opened before the extension was fully initialized. Fix: always call `getStorageData()` on panel mount to hydrate state, and treat storage events as incremental updates only.
-
-**Caption availability is inconsistent.** Auto-generated captions exist for most English videos but are absent for many non-English lectures. I'm working on a fallback that uses the transcript from the video description when captions aren't available.
-
----
-
-**Chrome Web Store:** https://chromewebstore.google.com/detail/dkfjdnchkngbkeocblinimimiddfnkbg
-
-If you learn from YouTube videos and want better retention without changing your workflow, give LectureLoop a try.
+[Install LectureLoop from Chrome Web Store →](https://chromewebstore.google.com/detail/dkfjdnchkngbkeocblinimimiddfnkbg)
