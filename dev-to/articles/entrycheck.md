@@ -2,8 +2,8 @@
 title: "I Built a Chrome Extension That Checks Visa Requirements for 190+ Countries Without Leaving Your Tab — EntryCheck"
 published: false
 publish_date: "2026-05-18"
-devto_id: ""
-tags: ["chrome", "javascript", "webdev", "travel"]
+devto_id: "3532587"
+tags: ["chrome","javascript","webdev","travel"]
 ---
 
 Every time I plan a multi-country trip, I end up in the same annoying loop: open the foreign ministry website, navigate three layers of dropdowns, find the right passport/destination combination, then repeat for each country in my itinerary.

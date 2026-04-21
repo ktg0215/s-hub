@@ -1,6 +1,6 @@
 ---
 title: "I Built a Chrome Extension That Maps and Transfers Data Between Web Pages Visually"
-published: false
+published: true
 publish_date: "2026-04-20"
 devto_id: "3519743"
 tags: ["chrome","javascript","webdev","productivity"]

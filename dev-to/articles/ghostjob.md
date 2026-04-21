@@ -2,8 +2,8 @@
 title: "I Built a Chrome Extension That Scores Job Listings for Ghost Job Risk — GhostJob"
 published: false
 publish_date: "2026-05-24"
-devto_id: ""
-tags: ["chrome", "javascript", "webdev", "career"]
+devto_id: "3532588"
+tags: ["chrome","javascript","webdev","career"]
 ---
 
 Ghost jobs are real, and they're wasting job seekers' time at scale.

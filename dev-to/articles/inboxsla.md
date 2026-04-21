@@ -2,8 +2,8 @@
 title: "I Built a Chrome Extension That Tracks Email Response SLAs So You Never Miss a Client Deadline — InboxSLA"
 published: false
 publish_date: "2026-05-21"
-devto_id: ""
-tags: ["chrome", "javascript", "webdev", "productivity"]
+devto_id: "3532590"
+tags: ["chrome","javascript","webdev","productivity"]
 ---
 
 Freelancers and small agencies live and die by response time. A client expects a reply within 24 hours. Another one within 4. You agreed to these terms — but nothing in Gmail actually enforces them.
