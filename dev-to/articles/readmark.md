@@ -1,6 +1,6 @@
 ---
 title: "I Built a Scroll Position Memory Extension That Actually Works on SPAs"
-published: false
+published: true
 publish_date: "2026-04-22"
 devto_id: "3519761"
 tags: ["chrome","javascript","webdev","productivity"]
