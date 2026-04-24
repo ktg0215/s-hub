@@ -39,7 +39,7 @@ export const comparisonsByExtension: Record<string, { slug: string; theirs: stri
     { slug: "japanese-font-finder-vs-whatfont", theirs: "WhatFont", desc: "Japanese font support vs Western-only" },
   ],
   procshot: [
-    { slug: "procshot-vs-scribe", theirs: "Scribe", desc: "Free exports vs $23/month" },
+    { slug: "procshot-vs-scribe", theirs: "Scribe", desc: "Local-first vs $23/month cloud tool" },
   ],
   cookiejar: [
     { slug: "cookiejar-vs-editthiscookie", theirs: "EditThisCookie", desc: "MV3-ready vs removed from Chrome" },

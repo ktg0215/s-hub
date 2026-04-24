@@ -8,7 +8,7 @@ const ours: ComparisonProduct = {
   chromeUrl: "https://chromewebstore.google.com/detail/%E6%89%8B%E9%A0%86%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3-%E6%89%8B%E9%A0%86%E6%9B%B8%E3%83%BB%E6%93%8D%E4%BD%9C%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB%E8%87%AA%E5%8B%95%E4%BD%9C%E6%88%90/ieblehdloggcpmkncplccjofeoakhkll",
   users: "100+",
   rating: "New",
-  price: "Free",
+  price: "Free / Pro $9/mo",
   extensionPageUrl: "/extensions/procshot/",
 };
 
@@ -23,10 +23,10 @@ const theirs: ComparisonProduct = {
 };
 
 const rows: ComparisonRow[] = [
-  { feature: "Price", ours: "100% Free — all features included", theirs: "Free tier limited; Pro from $23/seat/mo", highlight: true },
-  { feature: "PDF Export", ours: "Yes (free, Japanese font supported)", theirs: "Pro plan only ($23/mo)", highlight: true },
-  { feature: "Markdown Export", ours: "Yes (free)", theirs: "Pro plan only", highlight: true },
-  { feature: "HTML Export", ours: "Yes (free, bundled images)", theirs: "Pro plan only", highlight: true },
+  { feature: "Price", ours: "Free (2 guides/mo) + Pro $9/mo (unlimited)", theirs: "Free tier limited; Pro from $23/seat/mo", highlight: true },
+  { feature: "PDF Export", ours: "Yes (free tier, Japanese font supported)", theirs: "Pro plan only ($23/mo)", highlight: true },
+  { feature: "Markdown Export", ours: "Yes (free tier)", theirs: "Not available", highlight: true },
+  { feature: "HTML Export", ours: "Yes (free tier, bundled images)", theirs: "Pro plan only", highlight: true },
   { feature: "Data Processing", ours: "100% local — nothing leaves your browser", theirs: "Cloud-based (data uploaded to Scribe servers)", highlight: true },
   { feature: "Screenshot Annotations", ours: "Built-in: boxes, arrows, text, blur", theirs: "Basic editing; advanced redaction on Pro", highlight: true },
   { feature: "Auto-Record Actions", ours: "Yes", theirs: "Yes" },
@@ -40,11 +40,11 @@ const rows: ComparisonRow[] = [
 ];
 
 const ourAdvantages = [
-  { title: "Completely Free", desc: "Every feature — PDF, Markdown, HTML export, annotations, guide management — is free with no hidden paywalls. Scribe locks exports and advanced editing behind a $23/month Pro plan." },
-  { title: "Local-First Privacy", desc: "All data processing happens in your browser. Screenshots, steps, and guide content never leave your machine. Scribe uploads everything to their cloud servers." },
-  { title: "Full Export Freedom", desc: "Export to PDF (with Japanese font support), Markdown, or self-contained HTML bundles at no cost. With Scribe free tier, you can only share via link — no downloads." },
-  { title: "Built-In Annotation Tools", desc: "Add boxes, arrows, text labels, and blur effects directly to screenshots without leaving the extension. Scribe's free tier offers only basic text editing." },
-  { title: "Japanese Language Support", desc: "Full Japanese UI and PDF export with proper font rendering. Ideal for Japanese-speaking teams creating bilingual documentation." },
+  { title: "Local-First Privacy", desc: "All data processing happens in your browser. Screenshots, steps, and guide content never leave your machine. Scribe uploads everything to their cloud servers — a dealbreaker for internal tools, admin dashboards, or anything with sensitive data." },
+  { title: "Markdown Export on the Free Tier", desc: "Procshot exports to Markdown free — paste straight into Notion, Confluence, Linear, or GitHub Wiki. Scribe doesn't offer Markdown export at any price tier." },
+  { title: "Embedded CJK Fonts in PDF", desc: "Procshot PDFs render Japanese, Chinese, and Korean correctly via embedded fonts. Scribe's PDFs render CJK characters as □□□ — making them unusable for global teams." },
+  { title: "Built-In Annotation Tools", desc: "Add boxes, arrows, text labels, and blur effects directly to screenshots without leaving the extension. Scribe's free tier offers only basic text editing; full annotation requires Pro." },
+  { title: "8-Language UI Out of the Box", desc: "Procshot ships with EN/JA/KO/ES/FR/DE/ZH/PT-BR at install. Scribe is English-first with patchy localization. If your team isn't English-primary, this removes a real adoption barrier." },
 ];
 
 const theirAdvantages = [
@@ -54,20 +54,20 @@ const theirAdvantages = [
   { title: "Team Collaboration", desc: "Built-in cloud workspace for teams to share, organize, and maintain a central library of guides with access controls and analytics." },
 ];
 
-const verdict = "If your organization needs enterprise-grade collaboration, desktop app capture, and AI-polished descriptions, Scribe's paid plans deliver. But for individuals, small teams, and anyone who values privacy, Procshot is the clear winner — you get full export capabilities (PDF, Markdown, HTML), built-in annotation tools, and complete data privacy, all without paying a cent. Scribe's free tier is severely limited: no exports, no advanced editing, no offline access. Procshot gives you everything Scribe charges $23/month for, completely free.";
+const verdict = "If your organization needs enterprise-grade collaboration, desktop app capture, and AI-polished descriptions, Scribe's paid plans deliver. But for individuals, small teams, and anyone who values privacy, Procshot is the clear winner — 100% local processing, Markdown export, embedded CJK fonts in PDF, and 8-language UI that Scribe doesn't match at any price. Procshot's free tier (2 guides/month) covers the core recording + export flow; Pro at $9/month removes the limit for teams that document regularly — still a fraction of Scribe's $23/seat/mo with structural differences Scribe can't close.";
 
 const faq: ComparisonFaq[] = [
-  { question: "Is Procshot really free with no limits?", answer: "Yes. Procshot includes all features — auto-recording, screenshot annotations, PDF/Markdown/HTML export, and guide management — completely free. There are no premium tiers, seat limits, or hidden paywalls." },
+  { question: "Is Procshot free?", answer: "The free plan allows 2 guides per month with full access to auto-recording, annotations, and PDF/Markdown/HTML export. Pro ($9/month) removes the monthly limit and unlocks all PDF templates plus custom branding. No credit card required to start." },
   { question: "Can I switch from Scribe to Procshot?", answer: "Absolutely. Install Procshot, start recording your workflows, and export guides in your preferred format. Since Procshot stores everything locally, your existing Scribe guides won't transfer automatically, but re-recording a workflow takes minutes." },
   { question: "Is my data safe with Procshot?", answer: "Yes. Procshot processes everything locally in your browser. No screenshots, step descriptions, or guide content is ever sent to external servers. This makes it ideal for documenting workflows involving sensitive or confidential information." },
   { question: "Does Procshot work for desktop applications?", answer: "Procshot currently captures browser-based workflows only. If you need to document desktop applications like Photoshop or Excel, Scribe's Pro plan supports desktop capture. For browser-based documentation, Procshot is the more cost-effective choice." },
-  { question: "Which is better for team documentation?", answer: "For large teams needing a shared cloud library with access controls, Scribe's paid plans are purpose-built. For individuals and small teams who can share exported files via email, Slack, or shared drives, Procshot delivers the same documentation quality at zero cost." },
+  { question: "Which is better for team documentation?", answer: "For large teams needing a shared cloud library with access controls, Scribe's paid plans are purpose-built. For individuals and small teams who can share exported files via email, Slack, or shared drives, Procshot delivers comparable documentation quality at a fraction of the per-seat cost." },
 ];
 ---
 
 <ComparisonLayout
   seoTitle="Procshot vs Scribe — Documentation Tools Compared"
-  seoDescription="Compare Procshot and Scribe. Free PDF, Markdown, and HTML exports with local privacy vs Scribe at $23/month."
+  seoDescription="Compare Procshot and Scribe. Local-first privacy, Markdown export, embedded Japanese fonts, 8-language UI vs Scribe at $23/month."
   seoKeywords="scribe alternative, free step by step guide creator, auto screenshot documentation tool, process documentation chrome extension, procshot vs scribe"
   h1="Procshot vs Scribe"
   intro="Two approaches to automatic process documentation: fully free with local privacy vs freemium with cloud-powered AI. Here's how they compare in 2026."

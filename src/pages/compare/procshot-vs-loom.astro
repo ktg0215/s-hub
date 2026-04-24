@@ -8,7 +8,7 @@ const ours: ComparisonProduct = {
   chromeUrl: "https://chromewebstore.google.com/detail/%E6%89%8B%E9%A0%86%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3-%E6%89%8B%E9%A0%86%E6%9B%B8%E3%83%BB%E6%93%8D%E4%BD%9C%E3%83%9E%E3%83%8B%E3%82%A2%E3%83%AB%E8%87%AA%E5%8B%95%E4%BD%9C%E6%88%90/ieblehdloggcpmkncplccjofeoakhkll",
   users: "100+",
   rating: "New",
-  price: "Free / Pro $3.99/mo",
+  price: "Free / Pro $9/mo",
   extensionPageUrl: "/extensions/procshot/",
 };
 
@@ -28,7 +28,7 @@ const rows: ComparisonRow[] = [
   { feature: "PDF Export", ours: "Yes — free", theirs: "No", highlight: true },
   { feature: "Markdown Export", ours: "Yes — free", theirs: "No", highlight: true },
   { feature: "Time to Consume", ours: "Scan in 30 seconds", theirs: "Watch full video (same duration as task)", highlight: true },
-  { feature: "Price", ours: "Free (5 guides/mo) + $3.99/mo Pro", theirs: "Free (25 videos total); Business $12.50/user/mo", highlight: true },
+  { feature: "Price", ours: "Free (2 guides/mo) + Pro $9/mo (unlimited)", theirs: "Free (25 videos total); Business $12.50/user/mo", highlight: true },
   { feature: "Account Required", ours: "No", theirs: "Yes", highlight: true },
   { feature: "Data Storage", ours: "100% local — browser only", theirs: "Cloud-hosted on Loom servers", highlight: true },
   { feature: "Voice / Video Narration", ours: "No", theirs: "Yes — screen + camera + mic", },
@@ -60,7 +60,7 @@ const faq: ComparisonFaq[] = [
   { question: "Is Procshot a replacement for Loom?", answer: "Not directly — they produce different outputs. Loom records video for one-time async communication. Procshot generates step-by-step text guides for reusable documentation. If your use case is 'show someone how to do something they'll repeat regularly,' Procshot's text guide is more practical. If it's 'record a quick explanation to send to a colleague,' Loom is better suited." },
   { question: "Can Procshot export video like Loom?", answer: "No. Procshot captures browser actions and outputs structured text guides with screenshots — not video. It does not record screen video or audio." },
   { question: "Which is better for onboarding new team members?", answer: "Both work for onboarding, in different ways. Procshot is better for step-by-step process documentation that new members follow on their own — like an interactive SOP. Loom is better for personal walkthroughs where context, tone, and nuance matter. Many onboarding programs use both." },
-  { question: "Is Loom free?", answer: "Loom has a free plan limited to 25 videos (5 minutes each). After that, Business plan is $12.50/user/month. Procshot's free tier allows 5 guides per month with no video duration limit on the documentation process." },
+  { question: "Is Loom free?", answer: "Loom has a free plan limited to 25 videos (5 minutes each). After that, Business plan is $12.50/user/month. Procshot's free tier allows 2 guides per month; Pro at $9/month removes the limit and has no video duration to worry about." },
   { question: "Can I use Procshot to create documentation from an existing Loom video?", answer: "Not directly — Procshot records live browser workflows, not video playback. However, you can watch a Loom video, then re-execute the workflow in your browser with Procshot recording to generate a text guide from the same process." },
 ];
 ---
@@ -88,7 +88,7 @@ const faq: ComparisonFaq[] = [
         <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
         <div>
           <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot vs Scribe</h3>
-          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Free vs $23/mo comparison</p>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Local-first vs $23/mo cloud tool</p>
         </div>
         <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
       </a>

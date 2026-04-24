@@ -8,7 +8,7 @@ const ours: ComparisonProduct = {
   chromeUrl: "https://chromewebstore.google.com/detail/%E6%89%8B%E9%A0%86%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3-%E6%89%8B%E9%A0%86%E6%9B%B8%E3%83%BB%E6%93%8D%E4%BD%9C%E3%83%9E%E3%83%8B%E3%82%A2%E3%83%AB%E8%87%AA%E5%8B%95%E4%BD%9C%E6%88%90/ieblehdloggcpmkncplccjofeoakhkll",
   users: "100+",
   rating: "New",
-  price: "Free / Pro $3.99/mo",
+  price: "Free / Pro $9/mo",
   extensionPageUrl: "/extensions/procshot/",
 };
 
@@ -23,7 +23,7 @@ const theirs: ComparisonProduct = {
 };
 
 const rows: ComparisonRow[] = [
-  { feature: "Price", ours: "Free tier + $3.99/mo Pro", theirs: "Free tier (5 guides); Pro from $16/user/mo", highlight: true },
+  { feature: "Price", ours: "Free (2 guides/mo) + Pro $9/mo (unlimited)", theirs: "Free tier (5 guides total); Pro from $16/user/mo", highlight: true },
   { feature: "PDF Export", ours: "Yes — free", theirs: "Pro plan only", highlight: true },
   { feature: "Markdown Export", ours: "Yes — free", theirs: "No", highlight: true },
   { feature: "HTML Export", ours: "Yes — free, bundled images", theirs: "No", highlight: true },
@@ -34,7 +34,7 @@ const rows: ComparisonRow[] = [
   { feature: "Auto-Record Actions", ours: "Yes", theirs: "Yes" },
   { feature: "Team Workspace", ours: "Export & share files", theirs: "Built-in (Pro)", },
   { feature: "Embed in Notion / Confluence", ours: "Via HTML or Markdown export", theirs: "Native embed support (Pro)", },
-  { feature: "Guide Limit (Free)", ours: "5 guides/month", theirs: "5 guides total", highlight: true },
+  { feature: "Guide Limit (Free)", ours: "2 guides/month", theirs: "5 guides total", highlight: true },
   { feature: "Japanese Language", ours: "Yes (UI & PDF export)", theirs: "UI only (English output)", highlight: true },
   { feature: "Offline Use", ours: "Yes — all processing local", theirs: "No — requires internet connection", highlight: true },
 ];
@@ -42,7 +42,7 @@ const rows: ComparisonRow[] = [
 const ourAdvantages = [
   { title: "Truly Local — No Account, No Cloud", desc: "Procshot processes everything inside your browser. No sign-in, no cloud upload, no third-party server receives your workflow data. Tango requires an account and stores all guides in their cloud, which matters if you're documenting internal or confidential workflows." },
   { title: "Full Export in the Free Tier", desc: "PDF, Markdown, and self-contained HTML exports are all free in Procshot. Tango's free tier caps you at 5 guides total and withholds PDF export entirely — a hard limit that forces a Pro upgrade for any ongoing use." },
-  { title: "More Affordable Pro Tier", desc: "Procshot Pro is $3.99/month. Tango Pro runs $16/user/month — more than 4× the price for comparable single-user documentation workflows." },
+  { title: "More Affordable Pro Tier", desc: "Procshot Pro is $9/month. Tango Pro runs $16/user/month — nearly 2× the price, and scales per-seat for teams. For single-user or small-team documentation workflows, Procshot keeps costs bounded." },
   { title: "Markdown & HTML Export", desc: "Procshot exports to Markdown (ideal for developer wikis, GitHub Pages, or Obsidian) and self-contained HTML. Tango does not offer Markdown export at any price tier." },
   { title: "Works Offline", desc: "Because Procshot is entirely local, it works without an internet connection. Tango's cloud dependency means it cannot record or access guides offline." },
 ];
@@ -54,10 +54,10 @@ const theirAdvantages = [
   { title: "Team Collaboration", desc: "Tango's Pro plan includes a shared workspace where teams can organize, update, and version-control guides centrally." },
 ];
 
-const verdict = "If AI-generated step text and native Confluence embeds are priorities, Tango's Pro plan is purpose-built for team documentation workflows. But for individual users, small teams, and anyone who needs PDF or Markdown export without a subscription — or who is documenting sensitive internal workflows that should never leave the browser — Procshot is the stronger choice. The free tier difference is stark: Tango's free tier caps at 5 guides for life, while Procshot allows 5 per month with full export capabilities.";
+const verdict = "If AI-generated step text and native Confluence embeds are priorities, Tango's Pro plan is purpose-built for team documentation workflows. But for individual users, small teams, and anyone who needs Markdown export or who is documenting sensitive internal workflows that should never leave the browser, Procshot is the stronger choice. The free tier difference matters: Tango caps at 5 guides for life, while Procshot allows 2 per month with full export capabilities. For ongoing use, Procshot Pro at $9/mo is a flat cost versus Tango's $16/user/mo that scales with your team.";
 
 const faq: ComparisonFaq[] = [
-  { question: "Does Tango have a free plan?", answer: "Tango has a free tier limited to 5 guides total (not per month) with restricted export options. After 5 guides, you must upgrade to Pro at $16/user/month. Procshot's free tier allows 5 guides per month." },
+  { question: "Does Tango have a free plan?", answer: "Tango has a free tier limited to 5 guides total (not per month) with restricted export options. After 5 guides, you must upgrade to Pro at $16/user/month. Procshot's free tier allows 2 guides per month; Pro ($9/mo) removes the limit." },
   { question: "Can Procshot replace Tango for team documentation?", answer: "For individual use and small teams who share files externally, yes. Procshot lacks Tango's built-in team workspace, but PDF, HTML, and Markdown exports can be shared via Slack, email, or any file storage tool. For large teams needing a centralized guide library with version control, Tango's Pro tier has advantages." },
   { question: "Does Procshot use AI like Tango?", answer: "Procshot uses DOM-based text extraction to generate step descriptions — it reads the page structure to identify actions. Tango uses AI (GPT-powered) to generate more natural-sounding text. Procshot's output is accurate and structured; Tango's may read more naturally for non-technical audiences." },
   { question: "Is my data private with Procshot?", answer: "Yes. All processing happens locally in your browser. No guide content, screenshots, or workflow data is sent to any server. This makes Procshot suitable for documenting internal tools, private dashboards, and confidential workflows." },
@@ -88,7 +88,7 @@ const faq: ComparisonFaq[] = [
         <img src="/ext-icons/procshot.png" alt="Procshot" class="w-9 h-9 rounded-lg" />
         <div>
           <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">Procshot vs Scribe</h3>
-          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Free vs $23/mo comparison</p>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Local-first vs $23/mo cloud tool</p>
         </div>
         <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
       </a>
