@@ -170,6 +170,13 @@ export const categories: Category[] = [
         icon: "/ext-icons/Arbitra.webp",
       },
       {
+        name: "PricePulse JP",
+        description: "Track price history on Amazon.co.jp, Rakuten, Yahoo! Shopping & Mercari. Get alerts when prices drop. Fully local, no account needed.",
+        price: "Free / Pro $4.99/mo",
+        url: "/extensions/pricepulse-jp/",
+        icon: "/ext-icons/pricepulse-jp.png",
+      },
+      {
         name: "Kaitoki",
         description: "楽天・Yahoo!・Amazonの価格を自動追跡。価格履歴グラフ、EC横断比較、ポイント実質価格計算、値下げアラート機能搭載。",
         price: "Free",
@@ -329,6 +336,14 @@ export const categories: Category[] = [
         price: "Free / Pro $6/mo",
         url: "/extensions/inboxsla/",
         icon: "/ext-icons/inboxsla.png",
+        status: "coming-soon",
+      },
+      {
+        name: "FormFill Vault",
+        description: "Autofill addresses, invoices, and business info with encrypted profiles. AES-256 local encryption. No cloud sync.",
+        price: "Free / Pro $3.99/mo",
+        url: "/extensions/formfill-vault/",
+        icon: "/ext-icons/formfill-vault.png",
         status: "coming-soon",
       },
     ],
