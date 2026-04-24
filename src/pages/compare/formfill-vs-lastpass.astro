@@ -34,7 +34,7 @@ const rows: ComparisonRow[] = [
   { feature: "Multi-profile separation", ours: "3 free / unlimited Pro", theirs: "Unlimited Identities across plans" },
   { feature: "Japanese postal code autofill", ours: "Built-in local dictionary", theirs: "Not a documented feature (2026-04時点)", highlight: true },
   { feature: "Encryption standard", ours: "AES-256-GCM (Web Crypto API)", theirs: "AES-256 (per LastPass docs)" },
-  { feature: "Data location", ours: "IndexedDB (browser local only)", theirs: "LastPass cloud vault" },
+  { feature: "Data location", ours: "chrome.storage.local (browser local, encrypted)", theirs: "LastPass cloud vault" },
   { feature: "Offline functionality", ours: "100% — no network calls for profile data", theirs: "Cached vault — periodic sync required" },
   { feature: "Export format", ours: "Encrypted JSON (AES-GCM)", theirs: "CSV / encrypted export (varies by plan)" },
   { feature: "Free tier profiles", ours: "3 profiles", theirs: "Identity count varies — check current LastPass Free terms" },
@@ -44,7 +44,7 @@ const rows: ComparisonRow[] = [
 const ourAdvantages = [
   { title: "Built for Business Info, Not Passwords", desc: "FormFill Vault deliberately stays out of the password-manager lane. Instead it focuses on the rich business profiles — invoice fields, company registration data, multiple shipping addresses, tax identifiers — that password managers typically treat as a secondary feature. Use FormFill Vault alongside LastPass, not instead of it." },
   { title: "Japanese Postal Code Autocomplete Out of the Box", desc: "A built-in local postal code dictionary ships with the extension. Type 7 digits, the address fields populate — no external API call, no account, no configuration. LastPass's Identity feature does not offer native Japanese postal code autocomplete (2026-04時点、LastPass 公開ドキュメント確認)." },
-  { title: "Profile Data Stays in Your Browser", desc: "FormFill Vault stores all profile data in IndexedDB, encrypted with AES-256-GCM via the Web Crypto API. No cloud vault, no sync — which means no vendor to trust beyond your own browser. LastPass uses a cloud vault model which is appropriate for passwords; FormFill Vault chose the opposite trade-off for business data." },
+  { title: "Profile Data Stays in Your Browser", desc: "FormFill Vault stores all profile data in chrome.storage.local, encrypted with AES-256-GCM via the Web Crypto API. No cloud vault, no sync — which means no vendor to trust beyond your own browser. LastPass uses a cloud vault model which is appropriate for passwords; FormFill Vault chose the opposite trade-off for business data." },
   { title: "Multi-Profile Workflow as a First-Class Concept", desc: "Personal, work, and side-project profiles are separated at the UX level, not tacked on. For people who juggle a day job, a side hustle, and personal shipping addresses, switching contexts is one click rather than Identity-picker + manual verification." },
   { title: "100% Offline After Install", desc: "FormFill Vault makes no network requests for profile data or autofill. This matters when working in restricted environments — corporate networks with strict outbound rules, air-gapped workstations, or just flaky internet. Password managers with cloud vaults require periodic sync to stay current." },
 ];
