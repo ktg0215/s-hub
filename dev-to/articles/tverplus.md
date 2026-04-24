@@ -1,6 +1,6 @@
 ---
 title: "I Built a Chrome Extension That Adds Playback Speed and Picture-in-Picture to Japan's Free Streaming Service"
-published: false
+published: true
 publish_date: "2026-04-24"
 devto_id: "3519763"
 tags: ["chrome","javascript","webdev","japan"]
