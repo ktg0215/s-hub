@@ -1,0 +1,103 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+// TODO(pvw50to1): replace placeholder icon/screenshots once assets ship.
+// Launch target: 2026-05-10.
+// CWS ID: TBD (acetsowp implementation in progress, 2026-04-24).
+
+const extension = {
+  name: "FormFill Vault",
+  subtitle: "Business Info Autofill with Local Encryption",
+  tagline: "Autofill addresses, invoices, and business info with encrypted profiles. AES-256 local. No cloud sync. Free tier available.",
+  price: "Free / Pro $3.99/mo",
+  status: "Coming Soon",
+  chromeUrl: "https://chromewebstore.google.com/",
+  category: "Productivity",
+  lang: "EN",
+  icon: "/ext-icons/compare/placeholder.svg",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "FormFill Vault is a Chrome extension for autofilling business forms with encrypted profiles. It focuses on one specific job: filling the same addresses, invoice fields, and company information into web forms, fast, without sending anything to a server. It is deliberately NOT a password manager — passwords are out of scope by design. FormFill Vault pairs with your existing password manager (LastPass, 1Password, Bitwarden), handling the business-data half of autofill that password managers typically don't cover well: rich profiles, Japanese postal code autocomplete, and multi-context separation for people who work across several projects.";
+
+const features = [
+  { title: "Multi-Profile Support", desc: "Separate profiles for personal, work, and side-project contexts — switch with one click, no manual copy-paste" },
+  { title: "Japanese Postal Code Autocomplete", desc: "Built-in postal code dictionary — type 7 digits, get the full address instantly. No external API dependency" },
+  { title: "AES-256-GCM Local Encryption", desc: "Profile data encrypted with Web Crypto API. Keys generated and stored on your device only — never transmitted anywhere" },
+  { title: "Heuristic Field Detection", desc: "Matches form fields via name / id / placeholder attributes. Works on standard HTML forms on any website" },
+  { title: "Encrypted Export / Import", desc: "Back up profiles as encrypted JSON. Transfer between devices or reinstall without losing data" },
+  { title: "100% Offline", desc: "No network requests for profile data at any point. Full functionality without internet connection" },
+];
+
+const targetUsers = [
+  "E-commerce sellers (メルカリ / Amazon / 楽天) filling repeat shipping and tax information",
+  "Business account holders working with invoice forms, vendor portals, and procurement systems",
+  "Side-hustle filers handling tax forms, invoicing, and expense claims across multiple contexts",
+  "Registration-heavy roles in recruitment, onboarding, and enterprise account setup",
+];
+
+const screenshots = [
+  "/ext-icons/compare/placeholder.svg",
+  "/ext-icons/compare/placeholder.svg",
+  "/ext-icons/compare/placeholder.svg",
+  "/ext-icons/compare/placeholder.svg",
+  "/ext-icons/compare/placeholder.svg",
+];
+
+const relatedProducts = [
+  { name: "InvoiceChecker", category: "Legal & Compliance", link: "/extensions/invoice-checker/", icon: "/ext-icons/invoice-checker.png" },
+  { name: "AdLegalCheck", category: "Legal & Compliance", link: "/extensions/adlegalcheck/", icon: "/ext-icons/adlegalcheck.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "FormFill Vault",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/formfill-vault/",
+  downloadUrl: extension.chromeUrl,
+  featureList: "Multi-Profile Support, Japanese Postal Code Autocomplete, AES-256-GCM Local Encryption, Heuristic Field Detection, Encrypted Export / Import, 100% Offline",
+};
+
+const definition = "FormFill Vault is a Chrome extension that autofills business forms — addresses, invoices, company information — using encrypted profiles stored entirely in your browser. It uses the Web Crypto API (AES-256-GCM) for local encryption, never transmits profile data to external servers, and ships with a built-in Japanese postal code dictionary. It is not a password manager and is designed to complement, not replace, tools like LastPass or 1Password.";
+
+const howToSteps = [
+  "Install FormFill Vault from the Chrome Web Store.",
+  "Click the FormFill Vault icon in your toolbar to open the profile manager.",
+  "Create your first profile (e.g. 'Personal', 'Work', or 'Side Project').",
+  "Fill in your business info once: address, phone, email, company name, invoice fields.",
+  "Navigate to any form on any site. Click the FormFill Vault icon and pick a profile.",
+  "Matching fields fill instantly. Edit manually if the form has unusual field names.",
+];
+
+const faqItems = [
+  { question: "Is FormFill Vault a password manager?", answer: "No — and that's deliberate. Passwords are out of scope. FormFill Vault handles business-data autofill: addresses, invoice fields, company information. Pair it with your existing password manager (LastPass, 1Password, Bitwarden) for a complete autofill experience." },
+  { question: "How many profiles can I create on the free plan?", answer: "The free plan allows 3 profiles — typically 'Personal', 'Work', and 'Side Project'. Pro ($3.99/month) removes the limit. All features (encryption, Japanese postal code autocomplete, export/import) are available on the free tier." },
+  { question: "Is my profile data encrypted?", answer: "Yes. All profile data is encrypted with AES-256-GCM via the Web Crypto API. Encryption keys are generated and stored on your device only — they are never transmitted to any server." },
+  { question: "Does FormFill Vault work offline?", answer: "Yes, completely. Once installed, FormFill Vault makes no network requests for profile data or autofill operations. Postal code lookup uses a built-in local dictionary — no external API calls." },
+  { question: "Does Japanese postal code autocomplete really work without an external API?", answer: "Yes. The postal code dictionary ships with the extension as static data. Type a 7-digit postal code and the address fields populate instantly — no internet connection required." },
+  { question: "What happens if I lose my device? Can I recover my profiles?", answer: "You can export encrypted profiles as JSON for backup. Store the backup file somewhere safe (personal cloud storage, encrypted USB). When you reinstall FormFill Vault on a new device, import the JSON to restore your profiles." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  definition={definition}
+  howToSteps={howToSteps}
+  seoTitle="FormFill Vault — Business Info Autofill with Local Encryption | Chrome Extension"
+  seoDescription="Autofill addresses, invoices, and business info with encrypted profiles. AES-256 local encryption, Japanese postal code autocomplete, no cloud. Free tier available."
+  seoKeywords="form autofill chrome extension, business info autofill, encrypted form autofill, 日本 住所 自動入力, 郵便番号 自動入力, 業務 フォーム 自動入力, address autofill"
+/>

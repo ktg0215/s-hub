@@ -1,0 +1,99 @@
+---
+import ComparisonLayout from '../../layouts/ComparisonLayout.astro';
+import type { ComparisonRow, ComparisonProduct, ComparisonFaq } from '../../data/comparisons';
+
+// Source notes for competitor data: 2026-04時点、LastPass 公式サイト (www.lastpass.com) および公開ドキュメントより。
+// Pricing and feature tiers may change — review before each major update.
+
+const ours: ComparisonProduct = {
+  name: "FormFill Vault",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/",
+  users: "Coming Soon",
+  rating: "New",
+  price: "Free / Pro $3.99/mo",
+  extensionPageUrl: "/extensions/formfill-vault/",
+};
+
+const theirs: ComparisonProduct = {
+  name: "LastPass",
+  icon: "/ext-icons/compare/placeholder.svg",
+  chromeUrl: "https://chromewebstore.google.com/detail/lastpass-free-password-ma/hdokiejnpimakedhajhdlcegeplioahd",
+  users: "10,000,000+",
+  rating: "4.5 (30,000+)",
+  price: "Free / Premium $3/mo, Families $4/mo (2026-04時点)",
+  badge: "Established password manager",
+};
+
+const rows: ComparisonRow[] = [
+  { feature: "Primary purpose", ours: "Business info autofill (addresses, invoices, company data)", theirs: "Password manager (logins, 2FA, credentials)", highlight: true },
+  { feature: "Password storage", ours: "Out of scope — by design", theirs: "Core feature", highlight: true },
+  { feature: "2FA / TOTP codes", ours: "Out of scope", theirs: "Supported (Premium+)" },
+  { feature: "Login autofill", ours: "Out of scope", theirs: "Core feature" },
+  { feature: "Business profile autofill", ours: "Core feature — rich multi-field profiles", theirs: "Basic 'Identities' (2026-04時点、LastPass docs)" },
+  { feature: "Multi-profile separation", ours: "3 free / unlimited Pro", theirs: "Unlimited Identities across plans" },
+  { feature: "Japanese postal code autofill", ours: "Built-in local dictionary", theirs: "Not a documented feature (2026-04時点)", highlight: true },
+  { feature: "Encryption standard", ours: "AES-256-GCM (Web Crypto API)", theirs: "AES-256 (per LastPass docs)" },
+  { feature: "Data location", ours: "IndexedDB (browser local only)", theirs: "LastPass cloud vault" },
+  { feature: "Offline functionality", ours: "100% — no network calls for profile data", theirs: "Cached vault — periodic sync required" },
+  { feature: "Export format", ours: "Encrypted JSON (AES-GCM)", theirs: "CSV / encrypted export (varies by plan)" },
+  { feature: "Free tier profiles", ours: "3 profiles", theirs: "Identity count varies — check current LastPass Free terms" },
+  { feature: "Pro pricing", ours: "$3.99/mo", theirs: "Premium $3/mo, Families $4/mo (2026-04時点)" },
+];
+
+const ourAdvantages = [
+  { title: "Built for Business Info, Not Passwords", desc: "FormFill Vault deliberately stays out of the password-manager lane. Instead it focuses on the rich business profiles — invoice fields, company registration data, multiple shipping addresses, tax identifiers — that password managers typically treat as a secondary feature. Use FormFill Vault alongside LastPass, not instead of it." },
+  { title: "Japanese Postal Code Autocomplete Out of the Box", desc: "A built-in local postal code dictionary ships with the extension. Type 7 digits, the address fields populate — no external API call, no account, no configuration. LastPass's Identity feature does not offer native Japanese postal code autocomplete (2026-04時点、LastPass 公開ドキュメント確認)." },
+  { title: "Profile Data Stays in Your Browser", desc: "FormFill Vault stores all profile data in IndexedDB, encrypted with AES-256-GCM via the Web Crypto API. No cloud vault, no sync — which means no vendor to trust beyond your own browser. LastPass uses a cloud vault model which is appropriate for passwords; FormFill Vault chose the opposite trade-off for business data." },
+  { title: "Multi-Profile Workflow as a First-Class Concept", desc: "Personal, work, and side-project profiles are separated at the UX level, not tacked on. For people who juggle a day job, a side hustle, and personal shipping addresses, switching contexts is one click rather than Identity-picker + manual verification." },
+  { title: "100% Offline After Install", desc: "FormFill Vault makes no network requests for profile data or autofill. This matters when working in restricted environments — corporate networks with strict outbound rules, air-gapped workstations, or just flaky internet. Password managers with cloud vaults require periodic sync to stay current." },
+];
+
+const theirAdvantages = [
+  { title: "Comprehensive Password Management", desc: "LastPass is a mature password manager with password generation, login autofill, 2FA / TOTP support, secure notes, and breach monitoring — features FormFill Vault explicitly does not offer. For password management, LastPass (or an equivalent) is the appropriate tool." },
+  { title: "Cross-Device Sync via Cloud Vault", desc: "LastPass syncs credentials across desktop, mobile, and other browsers via their cloud vault. FormFill Vault is browser-local only (cloud sync is on the FormFill Vault roadmap but not yet shipped as of 2026-04)." },
+  { title: "Massive User Base and Integrations", desc: "10M+ Chrome users, native mobile apps, and broad third-party integrations give LastPass an ecosystem advantage. FormFill Vault is a young solo-developed project scoped to one specific job." },
+  { title: "Team and Enterprise Plans", desc: "LastPass offers team, business, and enterprise tiers with shared vaults, admin controls, and SSO integration. FormFill Vault does not have team plans today — Pro is single-user." },
+];
+
+const verdict = "FormFill Vault and LastPass do not compete — they complement each other. LastPass (or another password manager) handles passwords, 2FA, and login autofill. FormFill Vault handles the rich business-data autofill that password managers treat as a secondary feature: addresses, invoice fields, company information, and — for Japanese users — native postal code autocomplete. If you already use LastPass for passwords and find yourself hand-typing the same shipping address for the twentieth time this month, FormFill Vault fills that gap. If you're looking for a password manager, LastPass or a peer product is the right call.";
+
+const faq: ComparisonFaq[] = [
+  { question: "Can FormFill Vault replace LastPass?", answer: "No. FormFill Vault does not store passwords, manage 2FA codes, or autofill logins. It is a complement to a password manager, not a replacement. Most users who need business-info autofill also need a password manager, and using both is the intended workflow." },
+  { question: "Why not just use LastPass's Identity feature?", answer: "LastPass Identities support address and contact info autofill, which works well for basic profiles. FormFill Vault goes deeper for business-specific workflows: richer profile schemas, multi-context separation (personal / work / side project) as a first-class feature, Japanese postal code autocomplete out of the box, and fully offline operation. For standard consumer autofill, Identities may be sufficient — for business form workflows, FormFill Vault was built for that case." },
+  { question: "Is my data safe with FormFill Vault?", answer: "All profile data is encrypted with AES-256-GCM using the Web Crypto API. Encryption keys are generated and stored on your device — they are never transmitted to any server. No profile data or autofill content leaves your browser. Safety claims should always be evaluated against your own threat model; if you need third-party security audits, FormFill Vault is a new solo-developed project and does not yet have external audits (2026-04時点)." },
+  { question: "Does LastPass have Japanese postal code autofill?", answer: "As of 2026-04, the public LastPass documentation does not describe native Japanese postal code autocomplete as a feature of Identities. Users documenting Japanese addresses with LastPass typically enter them manually. FormFill Vault ships a built-in postal code dictionary that resolves 7-digit codes to full addresses without an external API call." },
+  { question: "What happens to my FormFill Vault profiles if I switch browsers or devices?", answer: "FormFill Vault supports encrypted JSON export and import. Export your profiles from the current device, store the encrypted JSON file securely (personal cloud storage, encrypted USB, etc.), and import on the new device. Cloud sync across devices is on the roadmap but not yet shipped." },
+];
+---
+
+<ComparisonLayout
+  seoTitle="FormFill Vault vs LastPass — Business Form Autofill vs Password Manager"
+  seoDescription="FormFill Vault fills business forms with encrypted profiles. LastPass manages passwords. Complementary tools — here's how they differ."
+  seoKeywords="formfill vault vs lastpass, lastpass alternative for forms, business info autofill vs password manager, form autofill chrome extension, encrypted address autofill"
+  h1="FormFill Vault vs LastPass"
+  intro="A password manager and a business-form autofill tool overlap less than they appear. Here's where FormFill Vault fits alongside LastPass, and where they stay firmly out of each other's lane."
+  ours={ours}
+  theirs={theirs}
+  rows={rows}
+  ourAdvantages={ourAdvantages}
+  theirAdvantages={theirAdvantages}
+  verdict={verdict}
+  faq={faq}
+  publishDate="2026-04-24"
+>
+  <!-- Related Comparisons -->
+  <section class="px-6 py-8 max-w-4xl mx-auto">
+    <h2 class="font-mono text-[11px] text-zinc-400 tracking-wide mb-4">// related comparisons</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+      <a href="/extensions/formfill-vault/" class="product-card group p-4 flex items-center gap-3">
+        <img src="/ext-icons/compare/placeholder.svg" alt="FormFill Vault" class="w-9 h-9 rounded-lg" />
+        <div>
+          <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">FormFill Vault — Full Details</h3>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Features, screenshots, FAQ</p>
+        </div>
+        <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
+      </a>
+    </div>
+  </section>
+</ComparisonLayout>
