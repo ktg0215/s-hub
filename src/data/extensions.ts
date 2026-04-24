@@ -93,7 +93,7 @@ export const categories: Category[] = [
       {
         name: "DataPick",
         description: "Extract data from any website with just a few clicks. Export to CSV, Excel, or Google Sheets.",
-        price: "Free Trial / $3.99/mo",
+        price: "Free / Pro $19 (one-time)",
         url: "/extensions/datapick/",
         icon: "/ext-icons/datapick.webp",
       },
