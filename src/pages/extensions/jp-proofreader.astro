@@ -1,0 +1,26 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "JP-Proofreader Lite",
+  subtitle: "Japanese Text Proofreader",
+  tagline: "Grammar, style, and readability suggestions for Japanese text — works in any text field in your browser.",
+  price: "Free / Pro",
+  status: "Coming Soon",
+  category: "Productivity",
+  lang: "JA",
+  icon: "/ext-icons/jp-proofreader.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "JP-Proofreader Lite is coming soon. Get instant Japanese proofreading suggestions without leaving your browser.";
+const features = [
+  { title: "Coming Soon", desc: "This extension is currently under development." },
+];
+const targetUsers = ["Japanese writers", "Business professionals writing in Japanese"];
+const useCases = [{ scenario: "Writing", workflow: "Proofread Japanese text inline while typing" }];
+const faq = [];
+---
+<ExtensionLayout extension={extension} overview={overview} features={features} targetUsers={targetUsers} useCases={useCases} faq={faq} screenshots={[]} relatedProducts={[]} softwareSchema={{}} seoTitle="JP-Proofreader Lite — Japanese Text Proofreader | Chrome Extension" seoDescription="Grammar, style, and readability suggestions for Japanese text in your browser." seoKeywords="日本語 校正 chrome拡張, japanese proofreader extension, 文章校正" />

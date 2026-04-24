@@ -1,0 +1,26 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "TabTriage",
+  subtitle: "Smart Tab Organizer",
+  tagline: "Group, prioritize, and declutter browser tabs with one click. Stop drowning in open tabs.",
+  price: "Free / Pro",
+  status: "Coming Soon",
+  category: "Productivity",
+  lang: "EN",
+  icon: "/ext-icons/tabtriage.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "TabTriage is coming soon. Organize your browser tabs intelligently and reclaim your focus.";
+const features = [
+  { title: "Coming Soon", desc: "This extension is currently under development." },
+];
+const targetUsers = ["Power users with many tabs open", "Productivity-focused professionals"];
+const useCases = [{ scenario: "Tab management", workflow: "Auto-group tabs by domain or topic" }];
+const faq = [];
+---
+<ExtensionLayout extension={extension} overview={overview} features={features} targetUsers={targetUsers} useCases={useCases} faq={faq} screenshots={[]} relatedProducts={[]} softwareSchema={{}} seoTitle="TabTriage — Smart Tab Organizer | Chrome Extension" seoDescription="Group, prioritize, and declutter browser tabs with one click." seoKeywords="tab organizer chrome extension, tab manager, browser tab groups" />

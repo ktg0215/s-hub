@@ -1,0 +1,26 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "PricePulse JP",
+  subtitle: "Japanese Price Comparison",
+  tagline: "Compare prices across Amazon JP, Rakuten, and Yahoo Shopping in one click — without leaving the page.",
+  price: "Free / Pro",
+  status: "Coming Soon",
+  category: "Shopping",
+  lang: "EN/JA",
+  icon: "/ext-icons/pricepulse-jp.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "PricePulse JP is coming soon. Compare prices across major Japanese e-commerce platforms instantly.";
+const features = [
+  { title: "Coming Soon", desc: "This extension is currently under development." },
+];
+const targetUsers = ["Online shoppers in Japan", "Price-conscious consumers"];
+const useCases = [{ scenario: "Shopping", workflow: "Compare prices across platforms without switching tabs" }];
+const faq = [];
+---
+<ExtensionLayout extension={extension} overview={overview} features={features} targetUsers={targetUsers} useCases={useCases} faq={faq} screenshots={[]} relatedProducts={[]} softwareSchema={{}} seoTitle="PricePulse JP — Japanese Price Comparison | Chrome Extension" seoDescription="Compare prices across Amazon JP, Rakuten, and Yahoo Shopping in one click." seoKeywords="price comparison japan, amazon rakuten 価格比較, 最安値 chrome拡張" />
