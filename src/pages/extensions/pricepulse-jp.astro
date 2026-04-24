@@ -3,24 +3,83 @@ import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
 
 const extension = {
   name: "PricePulse JP",
-  subtitle: "Japanese Price Comparison",
-  tagline: "Compare prices across Amazon JP, Rakuten, and Yahoo Shopping in one click — without leaving the page.",
-  price: "Free / Pro",
-  status: "Coming Soon",
-  category: "Shopping",
-  lang: "EN/JA",
+  subtitle: "Price History Tracker for Japan",
+  tagline: "Track price history on Amazon.co.jp, Rakuten, Yahoo! Shopping & Mercari. Get alerts when prices drop. Fully local, no account needed.",
+  price: "Free / Pro $4.99/mo",
+  status: "Available",
+  chromeUrl: "",
+  category: "E-commerce Tools",
+  lang: "EN/JP",
   icon: "/ext-icons/pricepulse-jp.png",
   rating: 0,
   reviewCount: 0,
   userCount: 0,
 };
 
-const overview = "PricePulse JP is coming soon. Compare prices across major Japanese e-commerce platforms instantly.";
+const overview = "PricePulse JP is a Keepa-style price tracker for Japan's four biggest shopping sites: Amazon.co.jp, Rakuten Ichiba, Yahoo! Shopping, and Mercari. It automatically records every price it sees when you visit a product page, builds a chart of the price history, and sends you a browser notification when the price drops below your target. Everything is stored locally on your device using IndexedDB — no account, no cloud, no sign-in required.";
+
 const features = [
-  { title: "Coming Soon", desc: "This extension is currently under development." },
+  { title: "4-Site Price Tracking", desc: "Automatically tracks prices on Amazon.co.jp, Rakuten Ichiba, Yahoo! Shopping, and Mercari with a single click" },
+  { title: "Keepa-Style Price Charts", desc: "View full price history in a clean chart powered by Recharts — spot seasonal patterns and identify the true low" },
+  { title: "Price Drop Alerts", desc: "Set a target price and receive an instant browser notification when the price falls below it" },
+  { title: "3-Hour Background Refresh", desc: "Prices update automatically every 3 hours via Chrome alarms — no need to revisit the product page" },
+  { title: "Quick-Launch Links", desc: "One-click shortcuts to all four supported shopping sites directly from the popup" },
+  { title: "CSV Export (Pro)", desc: "Export your full price history to CSV for spreadsheet analysis — Pro feature" },
 ];
-const targetUsers = ["Online shoppers in Japan", "Price-conscious consumers"];
-const useCases = [{ scenario: "Shopping", workflow: "Compare prices across platforms without switching tabs" }];
-const faq = [];
+
+const targetUsers = [
+  "Bargain hunters waiting for the right price on Amazon.co.jp or Rakuten",
+  "Mercari and Yahoo! Shopping buyers tracking secondhand item prices",
+  "Shoppers who want Keepa-style history without paying a subscription",
+  "Privacy-conscious users who want tracking without a cloud account",
+];
+
+const screenshots = [
+  "/screenshots/pricepulse-jp/screenshot-01.png",
+  "/screenshots/pricepulse-jp/screenshot-02.png",
+  "/screenshots/pricepulse-jp/screenshot-03.png",
+  "/screenshots/pricepulse-jp/screenshot-04.png",
+  "/screenshots/pricepulse-jp/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "Arbitra", category: "E-commerce Tools", link: "/extensions/arbitra/", icon: "/ext-icons/Arbitra.webp" },
+  { name: "CookieJar", category: "Developer Tools", link: "/extensions/cookiejar/", icon: "/ext-icons/cookiejar.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "PricePulse JP",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/pricepulse-jp/",
+  screenshot: "https://dev-tools-hub.xyz/screenshots/pricepulse-jp/screenshot-01.png",
+  featureList: "4-Site Price Tracking, Price Charts, Price Drop Alerts, Background Refresh, Quick-Launch Links, CSV Export",
+};
+
+const faqItems = [
+  { question: "Which sites does PricePulse JP support?", answer: "PricePulse JP tracks prices on Amazon.co.jp, Rakuten Ichiba, Yahoo! Shopping, and Mercari JP. Just visit any product page on these sites and click the PricePulse button to start tracking." },
+  { question: "Is PricePulse JP free?", answer: "Yes. The free plan lets you track up to 5 items with full price history charts and drop notifications. Pro ($4.99/mo) raises the limit to 100 items and adds CSV export." },
+  { question: "Does PricePulse JP send my data to the cloud?", answer: "No. All price history is stored locally in your browser's IndexedDB. The only external calls are aggregated GA4 analytics events — product URLs are never sent." },
+  { question: "How often does PricePulse JP check prices?", answer: "Prices are refreshed every 3 hours via a Chrome alarm that runs in the background, even when you are not visiting the product page." },
+  { question: "Is PricePulse JP similar to Keepa?", answer: "PricePulse JP provides a Keepa-style price history chart for Japanese e-commerce sites that Keepa does not cover, including Rakuten, Yahoo! Shopping, and Mercari." },
+];
 ---
-<ExtensionLayout extension={extension} overview={overview} features={features} targetUsers={targetUsers} useCases={useCases} faq={faq} screenshots={[]} relatedProducts={[]} softwareSchema={{}} seoTitle="PricePulse JP — Japanese Price Comparison | Chrome Extension" seoDescription="Compare prices across Amazon JP, Rakuten, and Yahoo Shopping in one click." seoKeywords="price comparison japan, amazon rakuten 価格比較, 最安値 chrome拡張" />
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="PricePulse JP - Price History Tracker for Amazon, Rakuten, Yahoo, Mercari"
+  seoDescription="Track price history on Amazon.co.jp, Rakuten, Yahoo! Shopping & Mercari. Get instant drop alerts. Keepa-style charts, fully local, no account needed."
+  seoKeywords="price tracker japan, amazon.co.jp price history, rakuten price tracker, yahoo shopping price, mercari price history, keepa alternative japan, chrome extension"
+/>
