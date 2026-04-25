@@ -1,0 +1,75 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "FontExplorer",
+  subtitle: "Web Font Inspector",
+  tagline: "Instantly see every font used on any webpage. Live preview with custom text, 1-click CSS copy, and automatic Google Fonts links. Works with all languages including CJK.",
+  price: "Free",
+  status: "Available",
+  category: "Developer Tools",
+  lang: "EN/JA",
+  icon: "/ext-icons/fontexplorer.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "FontExplorer scans any webpage and lists every font detected — using document.fonts (FontFaceSet API) combined with getComputedStyle on DOM elements. Results are sorted by usage count so you immediately see the primary fonts. For each font you get: a live preview rendered in that actual font, the element count and HTML tags where it's used, a 1-click CSS snippet (font-family + font-weight + font-style), weight and style variants detected on the page (400, 500, 700, italic), and a direct link to the Google Fonts specimen page when applicable. The preview text input lets you type any text — including Japanese, Chinese, Arabic, or any other script — and see all fonts render it simultaneously for quick comparison. Completely free.";
+
+const features = [
+  { title: "Font Discovery", desc: "Uses document.fonts API and getComputedStyle on up to 2000 DOM elements to find every loaded font" },
+  { title: "Live Preview", desc: "Type any text (including CJK scripts) in the preview field and all detected fonts render it instantly" },
+  { title: "1-Click CSS Copy", desc: "Copies a ready-to-paste font-family snippet including detected weight and style to your clipboard" },
+  { title: "Google Fonts Links", desc: "Automatically detects Google Fonts from <link> tags and known font list — shows G↗ to open the specimen page" },
+  { title: "Weight & Style Variants", desc: "Shows which weights (400, 500, 700) and styles (italic) are actually loaded on the page" },
+  { title: "All Languages", desc: "Works with Latin, Japanese, Chinese, Korean, Arabic and all Unicode scripts — unlike Japan-only alternatives" },
+];
+
+const targetUsers = [
+  "Web designers identifying fonts used on competitor or inspiration sites",
+  "Frontend developers checking which fonts are loaded and their weights",
+  "Content creators researching typography combinations",
+  "Design students studying real-world font usage",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "DomainInfo", category: "Developer Tools", link: "/extensions/domaininfo/", icon: "/ext-icons/domaininfo.png" },
+  { name: "MetaPreview", category: "Developer Tools", link: "/extensions/metapreview/", icon: "/ext-icons/metapreview.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "FontExplorer",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/fontexplorer/",
+  featureList: "Font Discovery, Live Preview, CSS Copy, Google Fonts Links, Weight Variants, All Languages",
+};
+
+const faqItems = [
+  { question: "Is FontExplorer free?", answer: "Yes, FontExplorer is completely free with no subscription required." },
+  { question: "How does it detect fonts?", answer: "FontExplorer uses two methods: the browser's document.fonts (FontFaceSet) API to find loaded font faces, and window.getComputedStyle() on DOM elements to see which fonts are actually applied where. Results are combined and deduplicated." },
+  { question: "Does it work with Japanese and CJK fonts?", answer: "Yes. FontExplorer detects all Unicode fonts including Noto Sans JP, Hiragino Kaku Gothic, and any CJK web font. You can also type Japanese text in the preview field to compare fonts." },
+  { question: "How does Google Fonts detection work?", answer: "FontExplorer checks <link> tags on the page for fonts.googleapis.com URLs and parses the family names. It also matches against a curated list of popular Google Fonts. When a match is found, the G↗ button links to fonts.google.com/specimen/FontName." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="FontExplorer - Web Font Inspector | CSS Copy & Google Fonts Links"
+  seoDescription="Detect every font on any webpage instantly. Live preview, 1-click CSS copy, Google Fonts links, weight/style variants. Works with all languages including CJK."
+  seoKeywords="font inspector, web fonts, css font-family, google fonts, font detector, chrome extension, typography, font finder"
+/>

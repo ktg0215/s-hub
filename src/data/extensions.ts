@@ -301,6 +301,13 @@ export const categories: Category[] = [
         icon: "/ext-icons/metapreview.png",
       },
       {
+        name: "FontExplorer",
+        description: "Detect every font on any webpage. Live preview with custom text, 1-click CSS copy, and Google Fonts links. Works with all languages including CJK.",
+        price: "Free",
+        url: "/extensions/fontexplorer/",
+        icon: "/ext-icons/fontexplorer.png",
+      },
+      {
         name: "SnippetVault",
         description: "Developer-focused code snippet manager. Insert snippets instantly with slash commands in any text field.",
         price: "Free",
