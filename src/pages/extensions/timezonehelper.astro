@@ -1,0 +1,75 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "TimezoneHelper",
+  subtitle: "World Clock for Remote Teams",
+  tagline: "See the current time in 500+ timezones instantly. Hover any date on any page to convert across all your registered timezones. Free: 5 zones. Pro: unlimited.",
+  price: "Free / Pro $2.99/mo",
+  status: "Available",
+  category: "Productivity",
+  lang: "EN/JA",
+  icon: "/ext-icons/timezonehelper.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "TimezoneHelper shows you the current time across multiple timezones in a single popup — updated live every second. Add any of 500+ IANA timezones by searching city name or region, with a live time preview before you add. The popup supports 12-hour and 24-hour display and shows a friendly 'different day' indicator when a timezone is on a different calendar day than your local time. The content script watches for ISO 8601 datetime strings and timezone abbreviations (PST, JST, CET, IST, etc.) on any webpage — hover to see all your registered timezones' equivalent times in a clean tooltip. Free plan includes up to 5 timezones. Pro ($2.99/month via ExtPay) unlocks unlimited timezones.";
+
+const features = [
+  { title: "Live 1-Second Clock", desc: "All timezones update every second — always accurate, no refresh needed" },
+  { title: "500+ Timezone Search", desc: "Search from every IANA timezone by city, region, or abbreviation with live time preview" },
+  { title: "Hover to Convert", desc: "Content script detects ISO 8601 dates and TZ abbreviations on any page — hover for instant conversion" },
+  { title: "12h / 24h Toggle", desc: "Switch between AM/PM and 24-hour format with one tap, applies to all timezones instantly" },
+  { title: "Different Day Indicator", desc: "Amber highlight when a timezone is on a different calendar day — no more scheduling confusion" },
+  { title: "Pro: Unlimited Timezones", desc: "Free plan supports 5 timezones. Upgrade to Pro for unlimited — ideal for global teams" },
+];
+
+const targetUsers = [
+  "Remote teams working across multiple countries",
+  "International freelancers scheduling calls with clients",
+  "Developers reading timestamps in logs and GitHub releases",
+  "Recruiters and HR teams managing global candidates",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "ClipStack", category: "Productivity", link: "/extensions/clipstack/", icon: "/ext-icons/clipstack.png" },
+  { name: "PagePilot", category: "Productivity", link: "/extensions/pagepilot/", icon: "/ext-icons/pagepilot.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "TimezoneHelper",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "2.99", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/timezonehelper/",
+  featureList: "Live 1-Second Clock, 500+ Timezone Search, Hover to Convert, 12h/24h Toggle, Different Day Indicator, Unlimited Pro Timezones",
+};
+
+const faqItems = [
+  { question: "Is TimezoneHelper free?", answer: "Yes, the free plan supports up to 5 timezones with all core features — live clock, hover conversion, and 24h/12h toggle. Pro ($2.99/month) unlocks unlimited timezones." },
+  { question: "How does hover conversion work?", answer: "TimezoneHelper's content script scans every page for ISO 8601 datetime strings (e.g. 2024-01-15T14:30Z) and timezone abbreviations (PST, JST, CET, etc.). Hover over them to see all your registered timezones." },
+  { question: "Does it work offline?", answer: "Yes. All timezone calculations use the browser's built-in Intl API — no network request needed for the clock or hover conversion." },
+  { question: "What timezone formats are supported for hover?", answer: "ISO 8601 (e.g. 2024-01-15T14:30Z), and abbreviations: UTC, GMT, EST, EDT, CST, CDT, MST, MDT, PST, PDT, IST, JST, KST, HKT, SGT, CET, CEST, BST, AEST, AEDT, WIB, ICT." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="TimezoneHelper - World Clock for Remote Teams | Chrome Extension"
+  seoDescription="See current time across 500+ timezones instantly. Hover any ISO date on any page for instant conversion. Free: 5 timezones, Pro: unlimited."
+  seoKeywords="timezone, world clock, remote team, time converter, chrome extension, iso 8601, timezone hover, international time"
+/>

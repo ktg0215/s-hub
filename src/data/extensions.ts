@@ -148,6 +148,13 @@ export const categories: Category[] = [
         url: "/extensions/pagepilot/",
         icon: "/ext-icons/pagepilot.png",
       },
+      {
+        name: "TimezoneHelper",
+        description: "See the current time in 500+ timezones instantly. Hover any date on any page for instant conversion across all your registered timezones.",
+        price: "Free / Pro $2.99/mo",
+        url: "/extensions/timezonehelper/",
+        icon: "/ext-icons/timezonehelper.png",
+      },
     ],
   },
   {
