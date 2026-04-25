@@ -1,10 +1,11 @@
 ---
 title: "Auto-Replay Lecture Segments in Your Browser — Building a Chrome Extension for Focused Learning"
 description: "How I built a Chrome extension that extracts key timestamps from YouTube lectures and lets you jump back to any moment, using YouTube's transcript API and the HTML5 video API."
-tags: ["chromeextension", "javascript", "learning", "productivity"]
+tags: ["chromeextension","javascript","learning","productivity"]
 published: false
 publish_date: "2026-06-02"
 canonical_url: ""
+devto_id: "3550215"
 ---
 
 The standard advice for watching long lecture videos is to take notes. The actual behavior is to watch at 1.5x, zone out for ten minutes, and then re-watch the same section three times. LectureLoop is my attempt to break that pattern.

@@ -1,10 +1,11 @@
 ---
 title: "Ghost Jobs Are Wasting Your Time — I Built a Chrome Extension to Detect Them"
 description: "How I detect fake job listings using posting age, description vagueness, and duplicate signals in a Chrome MV3 extension. No API keys needed."
-tags: ["chromeextension", "javascript", "career", "buildinpublic"]
+tags: ["chromeextension","javascript","career","buildinpublic"]
 published: false
 publish_date: "2026-05-19"
 canonical_url: ""
+devto_id: "3550213"
 ---
 
 A ghost job is a job listing that exists but isn't actively hiring. The company posted it months ago, probably isn't reviewing applications, and might not even have a live opening. Estimates put ghost job listings at anywhere from 20% to 40% of what you see on LinkedIn and Indeed on any given day.

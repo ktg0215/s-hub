@@ -1,10 +1,11 @@
 ---
 title: "I Built a Price History Tracker for Japan's 4 Major E-Commerce Sites (Amazon.co.jp, Rakuten, Yahoo!, Mercari)"
 description: "How I scraped price data from 4 different site structures, built a local price history DB with IndexedDB, and created drop alerts — all in a Chrome MV3 extension."
-tags: ["chromeextension", "javascript", "webdev", "buildinpublic"]
+tags: ["chromeextension","javascript","webdev","buildinpublic"]
 published: false
 publish_date: "2026-05-12"
 canonical_url: ""
+devto_id: "3550218"
 ---
 
 Keepa tracks Amazon price history. It works well for Amazon.com. For Amazon.co.jp it has gaps — delayed updates, missing products, no Rakuten/Yahoo!/Mercari support at all.

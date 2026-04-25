@@ -5,6 +5,7 @@ tags: ["chrome","javascript","webdev","tutorial"]
 published: false
 publish_date: "2026-05-14"
 canonical_url: ""
+devto_id: "3550214"
 ---
 
 YouTube is a single-page application. The page never fully reloads when you click a video. The URL changes, the DOM updates, but `DOMContentLoaded` fires exactly once — when Chrome first loads the tab.
