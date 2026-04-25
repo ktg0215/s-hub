@@ -1,0 +1,85 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "TabOrganizer",
+  subtitle: "Tab Group Manager for Chrome",
+  tagline: "Organize your browser tabs into color-coded groups. Auto-detect same-domain tabs, collapse clutter, and save your entire layout as a named session.",
+  price: "Free / Pro",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Productivity",
+  lang: "EN/JP",
+  icon: "/ext-icons/tab-organizer.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "TabOrganizer brings order to a chaotic browser. It surfaces all your current Chrome tab groups in a clean popup, lets you create new groups with a name and one of 9 colors, and automatically suggests grouping when you have 2 or more tabs open from the same domain. Collapse all groups to focus, expand them to navigate, and — with Pro — save your entire layout as a named session and restore it later with one click.";
+
+const features = [
+  { title: "Color-Coded Tab Groups", desc: "Create named tab groups with 9 color options. Groups appear in your Chrome tab bar exactly as configured." },
+  { title: "Auto-Group Suggestions", desc: "TabOrganizer detects when you have 2+ tabs open from the same domain and suggests grouping them — with a 'Group all' shortcut." },
+  { title: "Collapse / Expand All", desc: "Collapse all groups at once to clear visual noise, then expand them when you're ready to switch context." },
+  { title: "Session Save & Restore (Pro)", desc: "Save your current tab group layout as a named session. Restore it anytime — great for switching between projects." },
+  { title: "Unlimited Groups (Pro)", desc: "Free plan includes up to 3 groups. Pro unlocks unlimited groups and up to 20 saved sessions." },
+  { title: "Zero External Requests", desc: "All tab data stays in your browser. No cloud sync, no account required." },
+];
+
+const targetUsers = [
+  "Developers juggling multiple projects across dozens of tabs",
+  "Researchers who open many tabs from the same site",
+  "Anyone who wants to reduce browser clutter without closing tabs",
+  "Power users who switch between work, research, and personal browsing",
+];
+
+const screenshots = [
+  "/screenshots/tab-organizer/screenshot-01.png",
+  "/screenshots/tab-organizer/screenshot-02.png",
+  "/screenshots/tab-organizer/screenshot-03.png",
+  "/screenshots/tab-organizer/screenshot-04.png",
+  "/screenshots/tab-organizer/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "TabVault", category: "Productivity", link: "/extensions/tabvault/", icon: "/ext-icons/tabvault.png" },
+  { name: "FocusGuard", category: "Productivity", link: "/extensions/focusguard/", icon: "/ext-icons/focusguard.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "TabOrganizer",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/tab-organizer/",
+  screenshot: "https://dev-tools-hub.xyz/screenshots/tab-organizer/screenshot-01.png",
+  featureList: "Color-coded tab groups, Auto-group suggestions, Collapse/expand all, Session save & restore, Unlimited groups",
+};
+
+const faqItems = [
+  { question: "What is TabOrganizer?", answer: "TabOrganizer is a Chrome extension that lets you create, manage, and collapse color-coded tab groups from a simple popup. It also auto-suggests grouping when you have multiple tabs from the same domain." },
+  { question: "Is TabOrganizer free?", answer: "Yes. The free plan lets you create up to 3 tab groups with full color and auto-group support. Pro unlocks unlimited groups and session save/restore." },
+  { question: "What does the session save feature do?", answer: "With Pro, you can save your current tab group layout — all groups, their colors, and the URLs inside — as a named session. You can restore it with one click, even after closing those tabs." },
+  { question: "How does auto-group work?", answer: "TabOrganizer scans your open tabs and suggests grouping any tabs that share the same domain (e.g., 4 GitHub tabs). You can accept each suggestion individually or group all at once." },
+  { question: "Does TabOrganizer sync across devices?", answer: "No. Tab groups are local to your current browser window. Session data is stored in Chrome's local storage and is not synced across devices or browsers." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="TabOrganizer - Tab Group Manager for Chrome"
+  seoDescription="Organize browser tabs into color-coded groups. Auto-detect same-domain tabs, collapse clutter, and save your layout as a session. Free and Pro plans."
+  seoKeywords="tab organizer chrome, tab groups chrome extension, manage browser tabs, chrome tab manager, tab grouping extension, session saver chrome"
+/>
