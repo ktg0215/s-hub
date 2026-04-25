@@ -1,0 +1,83 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "CSS Inspector",
+  subtitle: "Computed CSS Viewer with CSS Variable Toggle",
+  tagline: "Click any element to inspect its computed CSS — Layout, Typography, Colors, and Spacing in one panel. Toggle between resolved values and raw CSS variable references.",
+  price: "Free",
+  status: "Available",
+  category: "Developer Tools",
+  lang: "EN/JA",
+  icon: "/ext-icons/CSSInspector.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "CSS Inspector adds a one-click element picker to any page. Click the toolbar icon, then click any element — a panel shows the computed CSS organized into four categories: Layout (display, position, flex/grid, overflow), Typography (font-family, size, weight, line-height), Colors (foreground, background, border, box-shadow with inline swatches), and Spacing (margin, padding, border width, border-radius). A toggle switches between resolved computed values and the raw CSS variable reference — so you can see both what the browser applied and which design token drove it. The last inspected element persists across popup opens.";
+
+const features = [
+  { title: "Element Picker", desc: "Click the Pick Element button, then click any DOM element. A purple highlight shows the hovered element before you click" },
+  { title: "4 CSS Categories", desc: "Layout, Typography, Colors, and Spacing tabs — each showing only non-trivial properties to avoid noise" },
+  { title: "CSS Variable Toggle", desc: "Switch between Actual (resolved computed value) and CSS Var (raw var() reference) to trace design tokens" },
+  { title: "Inline Color Swatches", desc: "Color properties show a small color swatch next to each value for instant visual reference" },
+  { title: "Element Breadcrumb", desc: "Shows the tag name, ID, and class list of the inspected element at the top of the panel" },
+  { title: "Persistent State", desc: "The last inspected element's data persists across popup open/close cycles via chrome.storage.local" },
+];
+
+const targetUsers = [
+  "Front-end developers debugging why a component's layout doesn't match the design",
+  "Designers verifying computed font sizes, colors, and spacing on live pages",
+  "QA engineers checking CSS variable values in production vs staging",
+  "Anyone who needs to inspect computed CSS without opening DevTools",
+];
+
+const screenshots = [
+  "/screenshots/css-inspector/screenshot-01.png",
+  "/screenshots/css-inspector/screenshot-02.png",
+  "/screenshots/css-inspector/screenshot-03.png",
+  "/screenshots/css-inspector/screenshot-04.png",
+  "/screenshots/css-inspector/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "Viewport Inspector", category: "Developer Tools", link: "/extensions/viewport-inspector/", icon: "/ext-icons/ViewportInspector.png" },
+  { name: "Storage Inspector", category: "Developer Tools", link: "/extensions/storage-inspector/", icon: "/ext-icons/StorageInspector.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "CSS Inspector",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/css-inspector/",
+  featureList: "Element Picker, Computed CSS, Layout Tab, Typography Tab, Colors Tab, Spacing Tab, CSS Variable Toggle",
+};
+
+const faqItems = [
+  { question: "How do I inspect an element?", answer: "Click the CSS Inspector toolbar icon to open the popup, then click 'Pick Element'. Move your mouse over the page — a purple highlight shows the hovered element. Click to select it. The popup immediately shows the computed CSS." },
+  { question: "What does the CSS Var toggle do?", answer: "When set to 'Actual', the popup shows the final resolved computed value (e.g., rgb(99, 102, 241)). When set to 'CSS Var', properties that were set using a CSS variable show the raw var() reference (e.g., var(--primary)) so you can trace which design token applies." },
+  { question: "Why do some properties not appear?", answer: "CSS Inspector filters out properties with trivial values (none, normal, auto) to reduce noise — except for structural properties like display, position, overflow, and box-sizing which always appear." },
+  { question: "Does it work on all websites?", answer: "Yes. CSS Inspector uses a content script that runs on every page. It reads computed styles via window.getComputedStyle and raw values from inline styles and stylesheets." },
+  { question: "Is CSS Inspector free?", answer: "Yes, completely free. No Pro plan, no account, no data sent anywhere." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="CSS Inspector - Computed CSS Viewer with CSS Variable Toggle | Chrome Extension"
+  seoDescription="Click any element to inspect its computed CSS. Layout, Typography, Colors, and Spacing tabs. Toggle between resolved values and CSS variable references. Free Chrome extension."
+  seoKeywords="css inspector chrome extension, computed styles viewer, css variables debugger, devtools alternative, element css viewer, computed css extension"
+/>

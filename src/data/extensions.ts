@@ -168,6 +168,13 @@ export const categories: Category[] = [
         icon: "/ext-icons/ViewportInspector.png",
       },
       {
+        name: "CSS Inspector",
+        description: "Click any element to inspect its computed CSS — Layout, Typography, Colors, and Spacing in one panel. Toggle between CSS variable references and resolved actual values.",
+        price: "Free",
+        url: "/extensions/css-inspector/",
+        icon: "/ext-icons/CSSInspector.png",
+      },
+      {
         name: "PageSpeed Badge",
         description: "See LCP, FCP, and CLS scores for any webpage in real time. Color-coded badge on the toolbar icon — green ✓, amber ~, or red ✗. Click for full metrics breakdown.",
         price: "Free",
