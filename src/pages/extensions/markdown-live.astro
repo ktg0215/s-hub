@@ -1,0 +1,83 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "MarkdownLive",
+  subtitle: "Real-Time Markdown Editor in Chrome Side Panel",
+  tagline: "Write Markdown in the left pane — see rendered HTML in the right pane, live. Export as HTML, download as .md, or copy HTML to clipboard. Auto-saves locally.",
+  price: "Free",
+  status: "Available",
+  category: "Developer Tools",
+  lang: "EN/JA",
+  icon: "/ext-icons/MarkdownLive.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "MarkdownLive opens as a Chrome side panel — a persistent panel that stays open while you browse any website. The left pane is a plain-text editor where you write Markdown. The right pane shows the rendered HTML preview, updated in real time as you type. Built-in Markdown parser supports headings (h1–h6), bold, italic, strikethrough, inline code, fenced code blocks, ordered and unordered lists, blockquotes, horizontal rules, and links. Three export actions in the toolbar: Copy HTML copies the rendered HTML to clipboard; Save .md downloads the Markdown source; Export HTML downloads a standalone HTML file with embedded CSS. Your content auto-saves to localStorage every 500ms — no work is ever lost.";
+
+const features = [
+  { title: "Live Split-Panel Preview", desc: "Left pane is the editor, right pane is the rendered preview. Updates as you type with zero delay" },
+  { title: "Built-in Markdown Parser", desc: "No external dependencies. Supports headings, bold, italic, strikethrough, code blocks, lists, blockquotes, links, and images" },
+  { title: "Three Export Options", desc: "Copy HTML to clipboard, download as .md file, or export a standalone HTML file with embedded styles" },
+  { title: "Auto-Save to localStorage", desc: "500ms debounce auto-save. Your content survives panel closes, browser refreshes, and restarts" },
+  { title: "Word & Character Count", desc: "Live word count and character count shown in the stats bar, updated 150ms after each keystroke" },
+  { title: "Chrome Side Panel", desc: "Stays open while you browse any webpage. Useful for taking notes alongside documentation or reference material" },
+];
+
+const targetUsers = [
+  "Developers writing README files or documentation while viewing related code or websites",
+  "Writers drafting blog posts in Markdown while referencing source material",
+  "Students taking structured notes alongside course material or textbooks",
+  "Anyone who needs a quick Markdown editor without switching apps or browser tabs",
+];
+
+const screenshots = [
+  "/screenshots/markdown-live/screenshot-01.png",
+  "/screenshots/markdown-live/screenshot-02.png",
+  "/screenshots/markdown-live/screenshot-03.png",
+  "/screenshots/markdown-live/screenshot-04.png",
+  "/screenshots/markdown-live/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "CSS Inspector", category: "Developer Tools", link: "/extensions/css-inspector/", icon: "/ext-icons/CSSInspector.png" },
+  { name: "Storage Inspector", category: "Developer Tools", link: "/extensions/storage-inspector/", icon: "/ext-icons/StorageInspector.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "MarkdownLive",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/markdown-live/",
+  featureList: "Markdown Editor, Live Preview, Copy HTML, Save Markdown, Export HTML, Auto-Save, Word Count, Side Panel",
+};
+
+const faqItems = [
+  { question: "Does it use an external Markdown library?", answer: "No. MarkdownLive has a built-in Markdown parser with zero external dependencies. The entire extension is under 14 kB." },
+  { question: "Where is my content stored?", answer: "Your content is saved to localStorage via the extension's storage. It never leaves your device — no servers, no accounts, no uploads." },
+  { question: "Can I use it alongside any website?", answer: "Yes. MarkdownLive opens as a Chrome side panel, which stays visible while you browse any webpage. Click the toolbar icon to toggle it." },
+  { question: "What Markdown syntax is supported?", answer: "Headings h1–h6, bold (**text**), italic (*text*), strikethrough (~~text~~), inline code (`code`), fenced code blocks (```), ordered and unordered lists, blockquotes (> text), horizontal rules (---), and links ([text](url))." },
+  { question: "Is MarkdownLive free?", answer: "Yes, completely free. All features included — no Pro plan, no account required." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="MarkdownLive - Real-Time Markdown Editor Chrome Side Panel"
+  seoDescription="Write Markdown in the left pane, see live HTML preview on the right. Chrome side panel editor with auto-save, word count, Copy HTML, save .md, export HTML. Free."
+  seoKeywords="markdown editor chrome extension, live markdown preview, chrome side panel markdown, markdown to html, real-time markdown, markdown viewer extension"
+/>
