@@ -1,0 +1,84 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "ReadingMode",
+  subtitle: "Clean Article Reader",
+  tagline: "Transform any article into a focused, distraction-free reading view. Three themes (Dark/Light/Sepia), adjustable font size, line height, and column width — all from an in-reader toolbar.",
+  price: "Free",
+  status: "Available",
+  category: "Productivity",
+  lang: "EN/JA/KO/ES",
+  icon: "/ext-icons/ReadingMode.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "ReadingMode transforms any article page into a clean, focused reading experience with a single click. It extracts the main content from the page — stripping ads, sidebars, pop-ups, and navigation — and presents it in a full-screen reading view. A sticky toolbar at the top lets you adjust font size, switch between Dark, Light, and Sepia themes, and change the column width, all without leaving the reading view. When you're done, click 'Exit reading mode' to return to the original page exactly as it was. ReadingMode differs from side-panel readers: it takes over the full browser viewport for complete immersion while still being one click to enter or exit.";
+
+const features = [
+  { title: "Full-Page Reading View", desc: "Replaces the page with a clean centered column — no ads, no sidebars, no pop-ups" },
+  { title: "3 Themes: Dark / Light / Sepia", desc: "Dark (navy) for night reading, Light (white) for daytime clarity, Sepia (warm paper) for extended sessions" },
+  { title: "In-Reader Toolbar", desc: "Font size ±, theme switcher, and column width controls are always visible inside the reading view" },
+  { title: "Typography Controls", desc: "Font size 14–26px, line height 1.4–2.2, column width 500–960px — adjust for any comfort level" },
+  { title: "Smart Content Extraction", desc: "Finds the article body using semantic tags (article, main) with a scored-fallback for any page structure" },
+  { title: "One-Click Exit", desc: "The ← Exit button restores the original page exactly — no reload, no lost scroll position" },
+];
+
+const targetUsers = [
+  "Readers who get distracted by ads and sidebars on news and blog sites",
+  "Students reading long academic articles online who need to focus",
+  "Non-native readers who benefit from a cleaner layout for language comprehension",
+  "Night readers who want a proper dark mode for article content",
+  "Anyone who prefers the book-like experience of a clean text column",
+];
+
+const screenshots = [
+  "/screenshots/readingmode/screenshot-1.png",
+  "/screenshots/readingmode/screenshot-2.png",
+  "/screenshots/readingmode/screenshot-3.png",
+  "/screenshots/readingmode/screenshot-4.png",
+  "/screenshots/readingmode/screenshot-5.png",
+];
+
+const relatedProducts = [
+  { name: "ZenRead", category: "Productivity", link: "/extensions/zenread/", icon: "/ext-icons/ZenRead.webp" },
+  { name: "ReadMark", category: "Productivity", link: "/extensions/readmark/", icon: "/ext-icons/ReadMark.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "ReadingMode",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/readingmode/",
+  featureList: "Dark Mode, Light Mode, Sepia Mode, Font Size Control, Column Width, Content Extraction",
+};
+
+const faqItems = [
+  { question: "How is ReadingMode different from ZenRead?", answer: "ZenRead uses a side panel reader that opens alongside the page. ReadingMode takes over the full browser viewport, replacing the page with an immersive full-screen reading view. Both approaches have their uses — ReadingMode is better for complete focus, ZenRead is better when you want to reference the original page." },
+  { question: "What happens to the original page?", answer: "ReadingMode overlays the reading view without modifying the original page. When you click 'Exit reading mode', the original page is fully restored — no reload needed." },
+  { question: "Does it work on every website?", answer: "It works on most article-style pages. ReadingMode uses a fallback extraction strategy: semantic tags (article, main), then scored DOM candidates, then collected paragraphs. Very dynamic or single-page apps may not extract correctly." },
+  { question: "Can I adjust the reading experience?", answer: "Yes. From both the popup and the in-reader toolbar you can change: font size (14–26px), line height (1.4–2.2), column width (500–960px), and theme (Dark/Light/Sepia). Settings sync instantly to the reading view." },
+  { question: "Is ReadingMode free?", answer: "Yes, completely free with no Pro plan." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="ReadingMode - Clean Article Reader | Dark, Light & Sepia Themes"
+  seoDescription="Transform any article into a focused reading view. Dark, Light, Sepia themes. Adjust font size, line height, column width from an in-reader toolbar. Free Chrome extension."
+  seoKeywords="reading mode chrome extension, clean article reader, dark mode reader, distraction free reading, reader view chrome, article reading extension"
+/>
