@@ -273,6 +273,13 @@ export const categories: Category[] = [
     title: "Developer Tools",
     extensions: [
       {
+        name: "DomainInfo",
+        description: "1-click website inspector: CDN, server, tech stack, security headers scorecard, and DNS records. Free.",
+        price: "Free",
+        url: "/extensions/domaininfo/",
+        icon: "/ext-icons/domaininfo.png",
+      },
+      {
         name: "SnippetVault",
         description: "Developer-focused code snippet manager. Insert snippets instantly with slash commands in any text field.",
         price: "Free",

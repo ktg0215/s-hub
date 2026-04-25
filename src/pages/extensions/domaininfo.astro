@@ -1,0 +1,75 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "DomainInfo",
+  subtitle: "Website Tech Stack Inspector",
+  tagline: "Instantly see any website's CDN, server, tech stack, security headers, and DNS records — all in one popup. No DevTools, no terminal.",
+  price: "Free",
+  status: "Available",
+  category: "Developer Tools",
+  lang: "EN/JA",
+  icon: "/ext-icons/domaininfo.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "DomainInfo is a one-click website inspector for developers, security researchers, and curious web users. Click the extension icon on any page and instantly see the CDN provider (Cloudflare, Vercel, Netlify, AWS CloudFront, Fastly, Akamai, Azure), web server (nginx, Apache, IIS, LiteSpeed, Caddy), tech stack detected from response headers (Next.js, PHP, ASP.NET, Rails, WordPress, Shopify), a security header scorecard (HSTS, CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy), and DNS A/AAAA records via Google's DoH API. Everything is captured passively from response headers as you browse — no active scanning, no external requests except for DNS. Completely free.";
+
+const features = [
+  { title: "CDN Detection", desc: "Identifies Cloudflare, Vercel, Netlify, AWS CloudFront, Fastly, Akamai, Azure CDN and more from response headers" },
+  { title: "Server & Tech Stack", desc: "Detects nginx, Apache, IIS, PHP, ASP.NET, Next.js, Rails, WordPress, Shopify and more from HTTP headers" },
+  { title: "Security Scorecard", desc: "Checks 6 critical security headers: HSTS, CSP, X-Frame-Options, X-Content-Type-Options, Referrer-Policy, and HTTPS" },
+  { title: "DNS Lookup", desc: "Resolves A (IPv4) and AAAA (IPv6) records via Google DoH — no command line needed" },
+  { title: "Passive Capture", desc: "Headers captured as you browse — no active scanning or additional requests to the target site" },
+  { title: "Completely Free", desc: "All features available for free, no subscription or account required" },
+];
+
+const targetUsers = [
+  "Developers profiling unfamiliar codebases or competitor sites",
+  "Security researchers doing quick header audits",
+  "Marketers researching competitor tech stacks",
+  "Students learning how websites are built and protected",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "PagePilot", category: "Productivity", link: "/extensions/pagepilot/", icon: "/ext-icons/pagepilot.png" },
+  { name: "TimezoneHelper", category: "Productivity", link: "/extensions/timezonehelper/", icon: "/ext-icons/timezonehelper.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "DomainInfo",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/domaininfo/",
+  featureList: "CDN Detection, Server Detection, Tech Stack, Security Scorecard, DNS Lookup",
+};
+
+const faqItems = [
+  { question: "Is DomainInfo free?", answer: "Yes, DomainInfo is completely free. All features — CDN detection, tech stack, security headers, and DNS lookup — are available with no subscription." },
+  { question: "How does it detect CDN and tech stack?", answer: "DomainInfo captures HTTP response headers as your browser loads pages. The background service worker listens for headers via chrome.webRequest.onHeadersReceived and stores them. When you open the popup, it analyzes those stored headers." },
+  { question: "Does it make additional requests to websites?", answer: "No. CDN, server, and tech stack detection is purely from headers already received by your browser. Only DNS lookup makes an external request — to Google's DoH API (dns.google), not to the target website." },
+  { question: "Why don't I see any data?", answer: "DomainInfo captures headers when the page loads. If you installed it after opening a page, try refreshing the page so DomainInfo can capture the headers." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="DomainInfo - Website Tech Stack Inspector | CDN, Security & DNS"
+  seoDescription="1-click website inspector: detect CDN (Cloudflare, Vercel, AWS), server (nginx, Apache), tech stack, security headers scorecard, and DNS records."
+  seoKeywords="website inspector, cdn detector, tech stack, nginx, cloudflare, security headers, dns lookup, chrome extension, developer tools"
+/>
