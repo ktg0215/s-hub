@@ -1,0 +1,83 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "Storage Inspector",
+  subtitle: "localStorage, sessionStorage & Cookie Viewer",
+  tagline: "Browse, edit, and delete localStorage, sessionStorage, and cookies for any webpage — without opening DevTools. Inline editing with JSON pretty-print.",
+  price: "Free",
+  status: "Available",
+  category: "Developer Tools",
+  lang: "EN/JA",
+  icon: "/ext-icons/StorageInspector.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "Storage Inspector gives you instant access to a page's localStorage, sessionStorage, and cookies from a single popup — no DevTools required. A 3-tab interface shows all stored keys and values. Click any entry to expand it and edit the value inline. JSON values are detected automatically and displayed with proper indentation. Use the copy button to grab any value to clipboard, or the delete button to remove an entry. A search filter narrows results across all three storage types. Cookies show Secure and HttpOnly flags alongside domain, path, and expiry date.";
+
+const features = [
+  { title: "3-Tab Interface", desc: "Switch between localStorage, sessionStorage, and Cookies in a single 460px popup" },
+  { title: "Inline Editing", desc: "Click any entry to expand it and edit the value. Hit Save to write back to the page immediately" },
+  { title: "JSON Auto Pretty-Print", desc: "JSON values are detected and displayed with syntax-highlighted indentation. Edit as formatted text" },
+  { title: "One-Click Copy", desc: "⎘ button copies the raw value to clipboard. Useful for copying tokens or complex JSON structures" },
+  { title: "Cookie Flags", desc: "Secure and HttpOnly flags are highlighted in green and amber. Domain, path, and expiry are shown on expand" },
+  { title: "Search Filter", desc: "Filter by key name or value across all storage types. Shows match count in real time" },
+];
+
+const targetUsers = [
+  "Front-end developers debugging authentication, session state, or feature flags",
+  "QA engineers checking form wizard state or cart data without opening DevTools",
+  "Web developers inspecting cookies and security flags during security reviews",
+  "Anyone who needs quick access to browser storage during development or testing",
+];
+
+const screenshots = [
+  "/screenshots/storage-inspector/screenshot-1.png",
+  "/screenshots/storage-inspector/screenshot-2.png",
+  "/screenshots/storage-inspector/screenshot-3.png",
+  "/screenshots/storage-inspector/screenshot-4.png",
+  "/screenshots/storage-inspector/screenshot-5.png",
+];
+
+const relatedProducts = [
+  { name: "PageSpeed Badge", category: "Developer Tools", link: "/extensions/pagespeed-badge/", icon: "/ext-icons/PageSpeedBadge.png" },
+  { name: "SmartSelect", category: "Productivity", link: "/extensions/smartselect/", icon: "/ext-icons/SmartSelect.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Storage Inspector",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/storage-inspector/",
+  featureList: "localStorage, sessionStorage, Cookies, Inline Editing, JSON Pretty-Print, Search Filter",
+};
+
+const faqItems = [
+  { question: "Do I still need to open DevTools?", answer: "No. Storage Inspector shows all localStorage, sessionStorage, and cookie data directly in the extension popup. No DevTools required." },
+  { question: "Can I edit values from the popup?", answer: "Yes. Click any entry to expand it and edit the value inline. For localStorage and sessionStorage, the Save button writes back to the page immediately. Cookie editing is not supported (cookies use browser flags that can't be modified via extension)." },
+  { question: "Does it work on every website?", answer: "Yes, for any website you're viewing. localStorage and sessionStorage are read via a content script. Cookies are read via the chrome.cookies API which works on all allowed URLs." },
+  { question: "Is Storage Inspector free?", answer: "Yes, completely free with no Pro plan." },
+  { question: "Does the extension send my data anywhere?", answer: "No. All storage access happens locally in your browser. No data is transmitted to any server." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="Storage Inspector - localStorage & Cookie Viewer | Chrome Extension"
+  seoDescription="Browse, edit, and delete localStorage, sessionStorage, and cookies without DevTools. Inline editing, JSON pretty-print, cookie security flags, search filter. Free."
+  seoKeywords="localstorage viewer chrome extension, cookie inspector, devtools alternative, browser storage editor, sessionstorage viewer, chrome storage extension"
+/>

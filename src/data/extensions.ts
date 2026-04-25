@@ -133,6 +133,13 @@ export const categories: Category[] = [
         icon: "/ext-icons/ZenRead.webp",
       },
       {
+        name: "Storage Inspector",
+        description: "Browse, edit, and delete localStorage, sessionStorage, and cookies without DevTools. 3-tab popup with inline editing, JSON pretty-print, copy, search filter.",
+        price: "Free",
+        url: "/extensions/storage-inspector/",
+        icon: "/ext-icons/StorageInspector.png",
+      },
+      {
         name: "PageSpeed Badge",
         description: "See LCP, FCP, and CLS scores for any webpage in real time. Color-coded badge on the toolbar icon — green ✓, amber ~, or red ✗. Click for full metrics breakdown.",
         price: "Free",
