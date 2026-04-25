@@ -505,6 +505,13 @@ export const categories: Category[] = [
         url: "/extensions/sitemapper/",
         icon: "/ext-icons/SiteMapper.png",
       },
+      {
+        name: "PasswordStrength",
+        description: "Real-time inline password strength meter on any login or signup form. Scores length, variety, and flags common passwords. No popup needed.",
+        price: "Free",
+        url: "/extensions/password-strength/",
+        icon: "/ext-icons/PasswordStrength.png",
+      },
     ],
   },
   {
