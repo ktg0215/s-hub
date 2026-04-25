@@ -1,0 +1,71 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "FocusPlaylist",
+  subtitle: "Background Music for Deep Work",
+  tagline: "Play YouTube playlists as background music while you work — without switching tabs.",
+  price: "Free",
+  status: "Available",
+  chromeUrl: "",
+  edgeUrl: "",
+  category: "Productivity",
+  lang: "EN",
+  icon: "/ext-icons/FocusPlaylist.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "FocusPlaylist lets you play any YouTube playlist as ambient background music while you stay focused on other tabs. Choose from three built-in focus playlists — lo-fi beats, classical, or nature sounds — or add your own YouTube playlist URL. Control playback directly from the popup without ever leaving your work.";
+
+const features = [
+  { title: "Background Playback", desc: "Music plays in a background tab so you never lose focus on your current work. No tab switching required." },
+  { title: "Built-in Playlists", desc: "Three curated playlists included out of the box: lo-fi hip-hop, classical concentration, and nature soundscapes." },
+  { title: "Custom Playlists", desc: "Add any YouTube playlist URL with a custom name and emoji. Your personal music library lives in the extension." },
+  { title: "One-Click Control", desc: "Play and stop directly from the popup. Current playlist name and status are always visible at a glance." },
+];
+
+const targetUsers = [
+  "Remote workers who need background music to focus",
+  "Students studying with ambient sound",
+  "Anyone who keeps switching tabs to manage YouTube music",
+  "People who find silence distracting while working",
+];
+
+const screenshots = [
+  "/screenshots/focusplaylist/screenshot-1.png",
+  "/screenshots/focusplaylist/screenshot-2.png",
+  "/screenshots/focusplaylist/screenshot-3.png",
+  "/screenshots/focusplaylist/screenshot-4.png",
+  "/screenshots/focusplaylist/screenshot-5.png",
+];
+
+const relatedProducts = [
+  { name: "MeetingLink", category: "Productivity", link: "/extensions/meetinglink/", icon: "/ext-icons/MeetingLink.png" },
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: extension.name,
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="FocusPlaylist — Background YouTube Music for Chrome"
+  seoDescription="Play YouTube playlists as background music while you work. Built-in lo-fi, classical & nature playlists plus custom URLs. Free Chrome extension."
+  seoKeywords="youtube background music, focus music, lo-fi, ambient music, chrome extension, productivity, playlist"
+/>

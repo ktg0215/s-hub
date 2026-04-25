@@ -351,6 +351,27 @@ export const categories: Category[] = [
         url: "/extensions/furimapro/",
         icon: "/ext-icons/furimapro.png",
       },
+      {
+        name: "MeetingLink",
+        description: "Auto-detect Zoom, Google Meet & Teams links on any page. Find and save meeting links, join in one click.",
+        price: "Free",
+        url: "/extensions/meetinglink/",
+        icon: "/ext-icons/MeetingLink.png",
+      },
+      {
+        name: "FocusPlaylist",
+        description: "Play YouTube playlists as background music while you work. One click to start Lo-Fi, White Noise, or Deep Focus.",
+        price: "Free",
+        url: "/extensions/focusplaylist/",
+        icon: "/ext-icons/FocusPlaylist.png",
+      },
+      {
+        name: "LinkPreview",
+        description: "Hover over any link to preview the page title, description, and image — without opening it. Lightweight 10KB.",
+        price: "Free",
+        url: "/extensions/linkpreview/",
+        icon: "/ext-icons/LinkPreview.png",
+      },
     ],
   },
   {

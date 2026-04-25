@@ -1,0 +1,71 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "MeetingLink",
+  subtitle: "Quick Meeting Launcher",
+  tagline: "Find and join Zoom, Google Meet & Teams links on any page — one click.",
+  price: "Free",
+  status: "Available",
+  chromeUrl: "",
+  edgeUrl: "",
+  category: "Productivity",
+  lang: "EN",
+  icon: "/ext-icons/MeetingLink.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "MeetingLink automatically scans any page — emails, Notion docs, Slack, Google Calendar — and surfaces every Zoom, Google Meet, and Microsoft Teams link. No more hunting through long email threads for that one meeting URL. Open the popup, see all detected links, and join in one click.";
+
+const features = [
+  { title: "Auto-Detect Meeting Links", desc: "Scans <a> tags and plain text on any page to find Zoom, Google Meet, and Teams URLs automatically." },
+  { title: "Save Frequently Used Links", desc: "Star any detected link to bookmark it. Your recurring standups and 1:1s are always one click away in the Saved tab." },
+  { title: "All Three Platforms", desc: "Works with zoom.us, meet.google.com, and teams.microsoft.com links — including bare URLs not wrapped in anchor tags." },
+  { title: "No Account Required", desc: "Free to use, no sign-up needed. Just install and open the popup on any page with meeting invitations." },
+];
+
+const targetUsers = [
+  "Remote workers with back-to-back video calls",
+  "Anyone who receives meeting links via email or docs",
+  "Teams using multiple video conferencing platforms",
+  "People who lose meeting links in long email threads",
+];
+
+const screenshots = [
+  "/screenshots/meetinglink/screenshot-1.png",
+  "/screenshots/meetinglink/screenshot-2.png",
+  "/screenshots/meetinglink/screenshot-3.png",
+  "/screenshots/meetinglink/screenshot-4.png",
+  "/screenshots/meetinglink/screenshot-5.png",
+];
+
+const relatedProducts = [
+  { name: "FocusPlaylist", category: "Productivity", link: "/extensions/focusplaylist/", icon: "/ext-icons/FocusPlaylist.png" },
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: extension.name,
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="MeetingLink — Quick Meeting Launcher for Chrome"
+  seoDescription="Auto-detect Zoom, Google Meet & Teams links on any page. Find, save, and join meeting links in one click. Free Chrome extension."
+  seoKeywords="zoom link detector, google meet, microsoft teams, meeting link, chrome extension, video call"
+/>

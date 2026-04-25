@@ -1,0 +1,65 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "LinkPreview",
+  subtitle: "Hover to Peek",
+  tagline: "Hover over any link to instantly preview the page title, description, and image — without opening it.",
+  price: "Free",
+  status: "Available",
+  chromeUrl: "",
+  edgeUrl: "",
+  category: "Productivity",
+  lang: "EN",
+  icon: "/ext-icons/LinkPreview.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "LinkPreview shows a lightweight preview card whenever you hover over a link — displaying the page title, meta description, and Open Graph image. No more opening tabs just to check if a link is worth reading. Works on any website and fetches metadata in the background so the card appears without slowing down your browsing.";
+
+const features = [
+  { title: "Instant Hover Preview", desc: "A compact card appears after 600ms of hovering, showing the page title, description, and hero image. No click needed." },
+  { title: "Works on Any Site", desc: "Detects links across all websites — news articles, docs, social feeds, search results, and more." },
+  { title: "Background Fetching", desc: "Metadata is fetched by the service worker, not the page script. Zero impact on page performance and no CORS issues." },
+  { title: "Smart Caching", desc: "Preview data is cached for 10 minutes so repeated hovers on the same link are instant." },
+];
+
+const targetUsers = [
+  "Researchers who open dozens of tabs to check sources",
+  "Anyone who wants to triage links before reading",
+  "News readers scanning through article feeds",
+  "Developers reviewing documentation and references",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "MeetingLink", category: "Productivity", link: "/extensions/meetinglink/", icon: "/ext-icons/MeetingLink.png" },
+  { name: "FocusPlaylist", category: "Productivity", link: "/extensions/focusplaylist/", icon: "/ext-icons/FocusPlaylist.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: extension.name,
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="LinkPreview — Hover to Peek at Any Link for Chrome"
+  seoDescription="Hover over any link to preview the page title, description, and image instantly. No tab switching. Free Chrome extension."
+  seoKeywords="link preview, hover preview, open graph, peek link, chrome extension, productivity, tab management"
+/>
