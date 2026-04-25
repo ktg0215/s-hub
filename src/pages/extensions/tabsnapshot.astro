@@ -1,0 +1,75 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "TabSnapshot",
+  subtitle: "Tab Screenshot & Export",
+  tagline: "Capture open tabs with full screenshots, title, and URL. Export as a self-contained HTML report or print to PDF. Capture one tab or all tabs at once.",
+  price: "Free",
+  status: "Available",
+  category: "Productivity",
+  lang: "EN/JA",
+  icon: "/ext-icons/tabsnapshot.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "TabSnapshot lets you capture screenshots of your open browser tabs along with their titles, URLs, and favicons — then export them as a report. Click 'Capture Active Tab' to snapshot the current page, or 'Capture All Tabs' to cycle through all open tabs automatically (up to 20). Results are displayed in a 2-column grid. Click 'Export HTML' to download a self-contained .html file with all screenshots embedded as base64 — open it offline, share it, or archive it. Click 'Print / PDF' to open the browser print dialog and save as PDF. Session history is stored locally and keeps your last 10 capture sessions. Free, no server.";
+
+const features = [
+  { title: "Capture Active Tab", desc: "One click to screenshot the current page with title, URL, and favicon" },
+  { title: "Capture All Tabs", desc: "Automatically cycles through all open tabs and captures up to 20 screenshots" },
+  { title: "HTML Export", desc: "Exports a self-contained .html file with all screenshots embedded as base64 — no server needed" },
+  { title: "Print / PDF", desc: "Opens browser print dialog with a print-optimized layout — select 'Save as PDF' as destination" },
+  { title: "Session History", desc: "Keeps your last 10 capture sessions stored locally. Re-export any previous session at any time" },
+  { title: "Copy Individual URLs", desc: "Hover any snapshot to reveal a URL copy button — convenient for quick reference" },
+];
+
+const targetUsers = [
+  "Researchers documenting reference pages for a project",
+  "Developers capturing bug reproduction steps with visual context",
+  "Support engineers documenting browser state for bug reports",
+  "Anyone creating visual records of web sessions",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "PagePilot", category: "Productivity", link: "/extensions/pagepilot/", icon: "/ext-icons/pagepilot.png" },
+  { name: "Procshot", category: "Productivity", link: "/extensions/procshot/", icon: "/ext-icons/procshot.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "TabSnapshot",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/tabsnapshot/",
+  featureList: "Tab Screenshot, Capture All Tabs, HTML Export, PDF Print, Session History",
+};
+
+const faqItems = [
+  { question: "Is TabSnapshot free?", answer: "Yes, completely free. No subscription, no API key required." },
+  { question: "How does capturing all tabs work?", answer: "TabSnapshot uses Chrome's tabs.captureVisibleTab() API, which requires the tab to be visible. TabSnapshot briefly switches to each tab, captures a screenshot, then returns to the original tab." },
+  { question: "What is in the HTML export?", answer: "A self-contained .html file with all screenshots embedded as base64 JPEG. It includes the page title, URL, and capture timestamp for each tab. You can open it offline, print it, or share it." },
+  { question: "Where is the data stored?", answer: "All session data is stored in chrome.storage.local on your device. Nothing is sent to any server. The last 10 sessions are kept automatically." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="TabSnapshot - Tab Screenshot & HTML/PDF Export | Chrome Extension"
+  seoDescription="Capture open browser tabs with screenshots, title, and URL. Export as self-contained HTML or print to PDF. Capture one tab or all tabs at once. Free."
+  seoKeywords="tab screenshot, screen capture, html export, pdf export, chrome extension, tab manager, web archive"
+/>

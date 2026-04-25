@@ -175,6 +175,13 @@ export const categories: Category[] = [
         icon: "/ext-icons/CSSInspector.png",
       },
       {
+        name: "MarkdownLive",
+        description: "Real-time Markdown editor in a Chrome side panel. Split view: Markdown on the left, HTML preview on the right. Copy HTML, save .md, or export standalone HTML. Auto-saves locally.",
+        price: "Free",
+        url: "/extensions/markdown-live/",
+        icon: "/ext-icons/MarkdownLive.png",
+      },
+      {
         name: "PageSpeed Badge",
         description: "See LCP, FCP, and CLS scores for any webpage in real time. Color-coded badge on the toolbar icon — green ✓, amber ~, or red ✗. Click for full metrics breakdown.",
         price: "Free",
@@ -224,6 +231,13 @@ export const categories: Category[] = [
         price: "Free",
         url: "/extensions/grammarhelper/",
         icon: "/ext-icons/grammarhelper.png",
+      },
+      {
+        name: "TabSnapshot",
+        description: "Capture open tabs with screenshots, title, and URL. Export as self-contained HTML or print to PDF. Capture one tab or all tabs at once. Free.",
+        price: "Free",
+        url: "/extensions/tabsnapshot/",
+        icon: "/ext-icons/tabsnapshot.png",
       },
     ],
   },
