@@ -1,0 +1,65 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "SiteMapper",
+  subtitle: "Sitemap Visualizer",
+  tagline: "Fetch and visualize any site's sitemap.xml. Browse URLs, see priorities and last-modified dates, copy all in one click.",
+  price: "Free",
+  status: "Available",
+  chromeUrl: "",
+  edgeUrl: "",
+  category: "Developer Tools",
+  lang: "EN",
+  icon: "/ext-icons/SiteMapper.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "SiteMapper fetches the current site's sitemap.xml (or sitemap index) directly from the background service worker and displays all URLs in a clean, searchable list. See each URL's path, last-modified date, and priority score at a glance. Filter by keyword, then copy all matching URLs to your clipboard with one click — perfect for SEO audits and site reviews.";
+
+const features = [
+  { title: "Auto-Detect Sitemap", desc: "Checks sitemap.xml, sitemap_index.xml, and the robots.txt Sitemap: directive automatically. No manual URL entry needed." },
+  { title: "Priority & Last-Modified", desc: "Each URL shows its priority score (color-coded) and last-modified date so you can quickly identify stale or high-value pages." },
+  { title: "Sitemap Index Support", desc: "For large sites with sitemap indexes, SiteMapper fetches the index and loads URLs from the first child sitemap for preview." },
+  { title: "Copy All URLs", desc: "Filter URLs with the search box, then click 'Copy N URLs' to copy every matching URL to your clipboard, one per line." },
+];
+
+const targetUsers = [
+  "SEO professionals auditing site structure",
+  "Developers checking sitemap coverage before deployment",
+  "Content managers verifying page indexability",
+  "Anyone who needs a quick URL inventory of a site",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "BookmarkHub", category: "Productivity", link: "/extensions/bookmarkhub/", icon: "/ext-icons/BookmarkHub.png" },
+  { name: "PrivacyGuard", category: "Wellbeing", link: "/extensions/privacyguard/", icon: "/ext-icons/PrivacyGuard.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: extension.name,
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="SiteMapper — Visualize Any Site's Sitemap for Chrome"
+  seoDescription="Fetch sitemap.xml, browse all URLs with priorities and dates, filter and copy in one click. Free Chrome extension for SEO professionals."
+  seoKeywords="sitemap, sitemap.xml, seo, url list, site structure, chrome extension, developer tools"
+/>

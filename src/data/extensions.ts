@@ -463,6 +463,13 @@ export const categories: Category[] = [
         url: "/extensions/bookmarkhub/",
         icon: "/ext-icons/BookmarkHub.png",
       },
+      {
+        name: "SiteMapper",
+        description: "Fetch and visualize any site's sitemap.xml. Browse URLs, view last-modified dates and priorities, copy all URLs in one click.",
+        price: "Free",
+        url: "/extensions/sitemapper/",
+        icon: "/ext-icons/SiteMapper.png",
+      },
     ],
   },
   {
