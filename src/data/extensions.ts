@@ -491,6 +491,13 @@ export const categories: Category[] = [
         url: "/extensions/sitemapper/",
         icon: "/ext-icons/SiteMapper.png",
       },
+      {
+        name: "PasswordStrength",
+        description: "Real-time password strength meter on any site. Weak/Fair/Strong/Very Strong indicator with tips to improve. Lightweight 11KB.",
+        price: "Free",
+        url: "/extensions/passwordstrength/",
+        icon: "/ext-icons/PasswordStrength.png",
+      },
     ],
   },
   {
