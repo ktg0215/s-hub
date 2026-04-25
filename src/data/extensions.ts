@@ -280,6 +280,13 @@ export const categories: Category[] = [
         icon: "/ext-icons/domaininfo.png",
       },
       {
+        name: "MetaPreview",
+        description: "Preview how your page looks on Twitter/X, Facebook, LinkedIn, and Slack. Audit OG tags for missing images, wrong ratios, and short descriptions.",
+        price: "Free",
+        url: "/extensions/metapreview/",
+        icon: "/ext-icons/metapreview.png",
+      },
+      {
         name: "SnippetVault",
         description: "Developer-focused code snippet manager. Insert snippets instantly with slash commands in any text field.",
         price: "Free",

@@ -1,0 +1,75 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "MetaPreview",
+  subtitle: "SNS Share Preview Inspector",
+  tagline: "See exactly how your page looks when shared on Twitter/X, Facebook, LinkedIn, and Slack. Audit OG tags and get instant warnings for missing or problematic meta tags.",
+  price: "Free",
+  status: "Available",
+  category: "Developer Tools",
+  lang: "EN/JA",
+  icon: "/ext-icons/metapreview.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "MetaPreview lets you instantly preview how any webpage will look when shared on social media. Click the extension icon to see live preview cards for Twitter/X (supporting both summary and summary_large_image formats), Facebook (Open Graph 1.91:1 format), LinkedIn, and Slack unfurl format — all rendered from the page's actual meta tags. The Issues tab automatically audits your Open Graph tags: missing og:image, images that are too small or have wrong aspect ratios, titles that are too short or long, missing descriptions, and absent twitter:card tags. The Raw Tags tab displays every detected meta value for complete debugging visibility. Completely free.";
+
+const features = [
+  { title: "Twitter/X Preview", desc: "Supports both summary and summary_large_image card formats, detected automatically from twitter:card" },
+  { title: "Facebook OGP Preview", desc: "Renders og:image at the 1.91:1 aspect ratio Facebook uses, with og:title and og:description" },
+  { title: "LinkedIn & Slack Preview", desc: "LinkedIn card format and Slack unfurl (blue-border) format, side by side" },
+  { title: "OG Issues Audit", desc: "Automatically detects missing images, wrong aspect ratios, short titles/descriptions, and missing twitter:card" },
+  { title: "Raw Tags View", desc: "Shows all detected meta tag values — og:*, twitter:*, canonical, description — for complete visibility" },
+  { title: "Completely Free", desc: "All preview platforms and audit features available for free, no account required" },
+];
+
+const targetUsers = [
+  "Web developers testing OG meta tags during development",
+  "Content creators and bloggers checking share previews",
+  "SEO specialists auditing meta tag implementation",
+  "Marketing teams verifying social media card appearance",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "DomainInfo", category: "Developer Tools", link: "/extensions/domaininfo/", icon: "/ext-icons/domaininfo.png" },
+  { name: "PagePilot", category: "Productivity", link: "/extensions/pagepilot/", icon: "/ext-icons/pagepilot.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "MetaPreview",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/metapreview/",
+  featureList: "Twitter/X Preview, Facebook OGP, LinkedIn Preview, Slack Unfurl, OG Issues Audit, Raw Tags View",
+};
+
+const faqItems = [
+  { question: "Is MetaPreview free?", answer: "Yes, MetaPreview is completely free. All preview platforms (Twitter, Facebook, LinkedIn, Slack) and OG audit features are available at no cost." },
+  { question: "How does it read meta tags?", answer: "MetaPreview uses a content script injected into the page that reads document.querySelector() for all meta tags — og:*, twitter:*, canonical, description, and more. No external requests are made." },
+  { question: "Does the preview show the actual og:image?", answer: "Yes. If the page has a valid og:image URL, MetaPreview renders it directly in the preview card, matching each platform's aspect ratio." },
+  { question: "What issues does it detect?", answer: "Missing og:image or twitter:card, images smaller than 600×315px, unusual aspect ratios (not ~1.91:1), titles under 20 or over 70 characters, and descriptions under 50 or over 200 characters." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="MetaPreview - SNS Share Preview Inspector | OG Tag Audit"
+  seoDescription="Preview how your page looks on Twitter/X, Facebook, LinkedIn, Slack. Audit OG tags for missing images, wrong ratios, short descriptions. Free Chrome extension."
+  seoKeywords="og tags, open graph, twitter card, social preview, meta tags, facebook preview, linkedin preview, slack unfurl, chrome extension, seo"
+/>
