@@ -50,6 +50,13 @@ export const categories: Category[] = [
         url: "/extensions/palettegrab/",
         icon: "/ext-icons/palettegrab.png",
       },
+      {
+        name: "ColorThief",
+        description: "Right-click any image to extract an 8-color palette. Copy as HEX, RGB, HSL, or Figma JSON. K-means++ clustering runs entirely in your browser.",
+        price: "Free",
+        url: "/extensions/colorthief/",
+        icon: "/ext-icons/colorthief.png",
+      },
     ],
   },
   {

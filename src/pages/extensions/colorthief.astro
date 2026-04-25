@@ -1,0 +1,75 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "ColorThief",
+  subtitle: "Image Color Palette Extractor",
+  tagline: "Right-click any image to extract an 8-color palette. Copy as HEX, RGB, HSL, or Figma JSON. K-means++ runs entirely in your browser — no server, no API key.",
+  price: "Free",
+  status: "Available",
+  category: "Design Tools",
+  lang: "EN/JA",
+  icon: "/ext-icons/colorthief.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "ColorThief adds 'Extract Color Palette' to the browser right-click context menu on any image. Click it and ColorThief loads the image into a canvas element, samples the pixels, runs k-means++ color clustering, and returns the 8 most dominant colors — all inside your browser with no external requests. The popup shows a color grid with individual click-to-copy swatches and a Copy All button. Switch between HEX, RGB, HSL, and Figma JSON formats (0–1 float values). The Figma format is ready to paste directly into Figma's Fill or plugin JSON inputs. Completely free.";
+
+const features = [
+  { title: "Right-Click Extraction", desc: "Context menu on any image — works on photos, logos, illustrations, product images, on any website" },
+  { title: "K-Means++ Clustering", desc: "K-means++ initialization for accurate dominant color selection. Runs entirely in-browser via Canvas API" },
+  { title: "8 Dominant Colors", desc: "Returns 8 colors sorted by pixel coverage — the most dominant color is always first" },
+  { title: "4 Copy Formats", desc: "HEX (#RRGGBB), RGB (rgb(r,g,b)), HSL (hsl(h,s%,l%)), and Figma JSON (0–1 float values)" },
+  { title: "Copy All Button", desc: "Copies all 8 colors at once, newline-separated, in your selected format — ready for Figma, Tailwind, or CSS" },
+  { title: "Completely Free", desc: "No API key, no server, no account. All processing happens locally in your browser." },
+];
+
+const targetUsers = [
+  "UI/UX designers extracting brand colors from reference images",
+  "Frontend developers matching design system colors from assets",
+  "Content creators building consistent color palettes",
+  "Figma users wanting a quick way to import image colors",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "PaletteGrab", category: "Design Tools", link: "/extensions/palettegrab/", icon: "/ext-icons/palettegrab.png" },
+  { name: "FontExplorer", category: "Developer Tools", link: "/extensions/fontexplorer/", icon: "/ext-icons/fontexplorer.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "ColorThief",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/colorthief/",
+  featureList: "Right-Click Extraction, K-Means++ Clustering, 8 Dominant Colors, HEX/RGB/HSL/Figma Formats, Copy All",
+};
+
+const faqItems = [
+  { question: "Is ColorThief free?", answer: "Yes, completely free. No API key, no account, no subscription required." },
+  { question: "How does color extraction work?", answer: "ColorThief loads the image into an HTML canvas, reads the pixel data, and runs k-means++ clustering to find the 8 most dominant colors. Everything runs inside your browser — no data is sent to any server." },
+  { question: "What is Figma JSON format?", answer: "Figma represents colors as RGB values between 0 and 1 (not 0–255). ColorThief's Figma format outputs {\"r\": 0.xxx, \"g\": 0.xxx, \"b\": 0.xxx} which you can paste directly into Figma's Fill panel or use in Figma plugin scripts." },
+  { question: "Does it work on all websites?", answer: "ColorThief works on most websites. Cross-origin images may not be extractable due to browser CORS restrictions — in that case, the image would need to include appropriate CORS headers." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="ColorThief - Image Color Palette Extractor | HEX RGB HSL Figma"
+  seoDescription="Right-click any image to extract an 8-color palette. Copy as HEX, RGB, HSL, or Figma JSON. K-means++ color quantization in your browser. Free."
+  seoKeywords="color palette, image colors, hex color, figma, color extractor, chrome extension, design tools, k-means, color picker"
+/>
