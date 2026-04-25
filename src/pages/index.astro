@@ -77,6 +77,32 @@ const softwareListSchema = {
     <script type="application/ld+json" set:html={JSON.stringify(webSiteSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(softwareListSchema)} />
   </Fragment>
+
+  <!-- Product Hunt launch banner (visible until 2026-04-30) -->
+  <div id="ph-banner" class="hidden w-full bg-amber-50 border-b border-amber-200">
+    <div class="max-w-5xl mx-auto px-6 py-2.5 flex items-center justify-center gap-3 flex-wrap">
+      <span class="text-sm text-amber-800 font-medium">
+        🚀 Procshot is launching on Product Hunt on April 29!
+      </span>
+      <a
+        href="https://www.producthunt.com/products/procshot-2?launch=procshot-2"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-1.5 text-xs font-semibold bg-amber-600 hover:bg-amber-700 text-white px-3 py-1 rounded-full transition-colors"
+      >
+        <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M13.604 8.4h-3.405V12h3.405c.995 0 1.801-.806 1.801-1.8S14.6 8.4 13.604 8.4zM12 0C5.373 0 0 5.372 0 12c0 6.627 5.373 12 12 12s12-5.373 12-12c0-6.628-5.373-12-12-12zm1.604 14.4h-3.405V18H7.8V6h5.804c2.319 0 4.2 1.881 4.2 4.2 0 2.319-1.881 4.2-4.2 4.2z"/></svg>
+        Vote on Product Hunt
+      </a>
+    </div>
+  </div>
+  <script>
+    // Show banner only before 2026-04-30
+    if (new Date() < new Date('2026-04-30')) {
+      const banner = document.getElementById('ph-banner');
+      if (banner) banner.classList.remove('hidden');
+    }
+  </script>
+
   <Hero />
   <ProductSection />
 
