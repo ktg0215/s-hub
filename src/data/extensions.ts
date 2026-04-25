@@ -442,6 +442,13 @@ export const categories: Category[] = [
         url: "/extensions/privacyguard/",
         icon: "/ext-icons/PrivacyGuard.png",
       },
+      {
+        name: "BookmarkHub",
+        description: "Browse your bookmarks as visual cards with favicons. Real-time search, folder tabs, one-click open. Free: 50 bookmarks. Pro: unlimited.",
+        price: "Free / Pro $3.99/mo",
+        url: "/extensions/bookmarkhub/",
+        icon: "/ext-icons/BookmarkHub.png",
+      },
     ],
   },
   {

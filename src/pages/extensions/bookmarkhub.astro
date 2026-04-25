@@ -1,0 +1,65 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "BookmarkHub",
+  subtitle: "Visual Bookmark Manager",
+  tagline: "Browse your bookmarks as visual cards with favicons. Real-time search, folder tabs, and one-click open.",
+  price: "Free / Pro $3.99/mo",
+  status: "Available",
+  chromeUrl: "",
+  edgeUrl: "",
+  category: "Productivity",
+  lang: "EN",
+  icon: "/ext-icons/BookmarkHub.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "BookmarkHub replaces the built-in bookmarks panel with a clean card grid view. Every bookmark shows its favicon, title, and domain at a glance. Search across all your bookmarks in real time, browse by folder using the tab bar, and open any bookmark in one click. The free plan shows up to 50 bookmarks. Pro unlocks your full library.";
+
+const features = [
+  { title: "Card Grid View", desc: "Every bookmark is displayed as a card with its favicon, title, and domain. Browse visually instead of scanning a plain text list." },
+  { title: "Real-Time Search", desc: "Type any keyword to instantly filter across bookmark titles and URLs. Results update on every keystroke — no Enter required." },
+  { title: "Folder Tabs", desc: "Your bookmark folders appear as tabs at the top of the popup. Switch between folders to browse specific collections." },
+  { title: "Google Favicon API", desc: "Favicons are fetched via Google's S2 Favicon API so every card has a recognizable icon, even for sites you haven't visited recently." },
+];
+
+const targetUsers = [
+  "Power users with hundreds of bookmarks to navigate",
+  "Researchers who save many pages per project",
+  "Anyone who finds the default bookmarks UI too slow",
+  "People who organize links into many folders",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "PrivacyGuard", category: "Wellbeing", link: "/extensions/privacyguard/", icon: "/ext-icons/PrivacyGuard.png" },
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: extension.name,
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "3.99", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="BookmarkHub — Visual Bookmark Manager for Chrome"
+  seoDescription="Browse bookmarks as visual cards with favicons. Real-time search, folder tabs, one-click open. Free up to 50 bookmarks. Chrome extension."
+  seoKeywords="bookmark manager, visual bookmarks, bookmark search, favicon, chrome extension, productivity"
+/>
