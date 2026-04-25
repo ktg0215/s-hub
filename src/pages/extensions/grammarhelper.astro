@@ -1,0 +1,75 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "GrammarHelper",
+  subtitle: "Grammar & Spell Check",
+  tagline: "Right-click any selected text to check grammar and spelling via LanguageTool. Get color-coded issues with 1-click fix suggestions. Supports 8 languages. Free, no API key.",
+  price: "Free",
+  status: "Available",
+  category: "Productivity",
+  lang: "EN/JA",
+  icon: "/ext-icons/grammarhelper.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "GrammarHelper adds 'Check Grammar' to the browser right-click context menu when you select text. It sends your selected text to the free LanguageTool API (no account or API key required) and shows results in a popup. Issues are color-coded: red for spelling mistakes, amber for grammar errors, blue for style suggestions. Each card shows the error in context, a description, and clickable fix suggestions. Click a suggestion to apply it — the text updates live and remaining issue offsets recalculate automatically. Once all issues are fixed or dismissed, copy the corrected text with one button. Also supports paste-and-check flow directly in the popup for text that isn't on a webpage.";
+
+const features = [
+  { title: "Right-Click Context Menu", desc: "Select any text on any page, right-click, and choose 'Check Grammar' — no toolbar clicks needed" },
+  { title: "Color-Coded Issues", desc: "Red = spelling, amber = grammar, blue = style. Severity is immediately obvious at a glance" },
+  { title: "1-Click Fix", desc: "Click any suggestion to apply it. Text updates live and remaining issue offsets recalculate automatically" },
+  { title: "8 Languages", desc: "Auto-detect or manually select: English (US/UK), Japanese, German, French, Spanish, Portuguese (BR)" },
+  { title: "Paste & Check", desc: "Type or paste text directly into the popup for quick checks without needing to select text on a page" },
+  { title: "Free, No API Key", desc: "Uses LanguageTool's free public API. No account, no API key, no limits for normal usage" },
+];
+
+const targetUsers = [
+  "Non-native English speakers writing emails, documents, or posts",
+  "Professionals proofreading content before sending",
+  "Students checking essays and assignments",
+  "Content creators polishing social media posts",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "PagePilot", category: "Productivity", link: "/extensions/pagepilot/", icon: "/ext-icons/pagepilot.png" },
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "GrammarHelper",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/grammarhelper/",
+  featureList: "Grammar Check, Spell Check, Style Suggestions, 8 Languages, 1-Click Fix, Free API",
+};
+
+const faqItems = [
+  { question: "Is GrammarHelper free?", answer: "Yes. GrammarHelper uses LanguageTool's free public API — no account, no API key, and no subscription required." },
+  { question: "Which languages are supported?", answer: "English (US and UK), Japanese, German, French, Spanish, Portuguese (Brazil), plus auto-detect mode that identifies the language automatically." },
+  { question: "Is my text sent to a server?", answer: "Yes — your text is sent to api.languagetool.org for grammar checking. This is LanguageTool's public API. Text is not stored; it's processed in real-time." },
+  { question: "How do I use it?", answer: "Select any text on a webpage, right-click, and choose 'Check Grammar'. The popup opens with color-coded issues and fix suggestions. You can also paste text directly into the popup's text area." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="GrammarHelper - Grammar & Spell Check Chrome Extension | LanguageTool"
+  seoDescription="Right-click selected text for instant grammar and spell check via LanguageTool. Color-coded issues, 1-click fix suggestions, 8 languages. Free, no API key."
+  seoKeywords="grammar check, spell check, languagetool, chrome extension, grammar helper, writing assistant, proofreading, english grammar"
+/>

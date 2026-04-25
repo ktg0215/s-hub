@@ -211,6 +211,13 @@ export const categories: Category[] = [
         url: "/extensions/timezonehelper/",
         icon: "/ext-icons/timezonehelper.png",
       },
+      {
+        name: "GrammarHelper",
+        description: "Right-click selected text for instant grammar and spell check via LanguageTool. Color-coded issues, 1-click fix, 8 languages. Free, no API key.",
+        price: "Free",
+        url: "/extensions/grammarhelper/",
+        icon: "/ext-icons/grammarhelper.png",
+      },
     ],
   },
   {
