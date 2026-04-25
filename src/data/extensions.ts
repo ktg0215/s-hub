@@ -182,6 +182,20 @@ export const categories: Category[] = [
         icon: "/ext-icons/MarkdownLive.png",
       },
       {
+        name: "SpeedDialX",
+        description: "Custom new tab speed dial page. Pin your favorite sites in a grid, drag to rearrange, search Google instantly. Free: 12 sites. Pro: unlimited + custom image background.",
+        price: "Free / Pro $2.99/mo",
+        url: "/extensions/speed-dial-x/",
+        icon: "/ext-icons/SpeedDialX.png",
+      },
+      {
+        name: "Tab Manager",
+        description: "All your tabs in one list. Search, switch, and close tabs. Detects duplicate URLs and removes them in one click. No clutter, no groups — just a clean tab list.",
+        price: "Free",
+        url: "/extensions/tab-manager/",
+        icon: "/ext-icons/TabManager.png",
+      },
+      {
         name: "PageSpeed Badge",
         description: "See LCP, FCP, and CLS scores for any webpage in real time. Color-coded badge on the toolbar icon — green ✓, amber ~, or red ✗. Click for full metrics breakdown.",
         price: "Free",

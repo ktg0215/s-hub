@@ -1,0 +1,82 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "SpeedDialX",
+  subtitle: "Custom New Tab Speed Dial Page",
+  tagline: "Replace the new tab with your favorite sites in a grid. Drag to rearrange, add and remove dials, search Google instantly. Free: 12 sites. Pro: unlimited + custom backgrounds.",
+  price: "Free / Pro $2.99/mo",
+  status: "Available",
+  category: "Productivity",
+  lang: "EN/JA",
+  icon: "/ext-icons/SpeedDialX.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "SpeedDialX replaces Chrome's new tab page with a clean speed dial grid. Your most-used sites are one click away — no need to remember URLs or dig through bookmarks. Add any site by entering its name and URL; the favicon is fetched automatically via Google's favicon service. Rearrange dials by dragging and dropping. The search bar at the top searches Google by default — type and press Enter to search, or enter a URL directly to navigate. Background colors and gradients are customizable from a preset palette. Free tier includes 12 speed dials. Pro ($2.99/mo) unlocks unlimited dials and custom image backgrounds.";
+
+const features = [
+  { title: "Speed Dial Grid", desc: "Your favorite sites in a clean card grid. Favicon auto-loaded via Google's service. Click to navigate instantly" },
+  { title: "Drag & Drop Sorting", desc: "Rearrange dials by dragging and dropping — no buttons or menus needed" },
+  { title: "Google Search Bar", desc: "Type a search query and press Enter to search Google, or enter a URL to navigate directly" },
+  { title: "Add / Edit / Remove", desc: "Add sites by name and URL, edit existing dials, or remove them with the × button on hover" },
+  { title: "Background Customization", desc: "Choose from preset solid colors or gradients. Pro adds custom image backgrounds via URL" },
+  { title: "Free: 12 Sites / Pro: Unlimited", desc: "12 speed dials free. Pro ($2.99/mo) removes the limit and adds custom image background support" },
+];
+
+const targetUsers = [
+  "Power users who open dozens of tabs daily and want their key sites one click away",
+  "Developers who want quick access to GitHub, Vercel, Linear, and their usual tools on each new tab",
+  "Anyone who finds Chrome's default new tab page unhelpful and wants a faster alternative",
+];
+
+const screenshots = [
+  "/screenshots/speed-dial-x/screenshot-01.png",
+  "/screenshots/speed-dial-x/screenshot-02.png",
+  "/screenshots/speed-dial-x/screenshot-03.png",
+  "/screenshots/speed-dial-x/screenshot-04.png",
+  "/screenshots/speed-dial-x/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "ClipStack", category: "Productivity", link: "/extensions/clipstack/", icon: "/ext-icons/clipstack.png" },
+  { name: "Tab Manager", category: "Productivity", link: "/extensions/tab-manager/", icon: "/ext-icons/TabManager.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "SpeedDialX",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/speed-dial-x/",
+  featureList: "Speed Dial Grid, Drag and Drop, Google Search, Add Edit Remove Sites, Background Customization, Pro Unlimited",
+};
+
+const faqItems = [
+  { question: "Will it replace my existing new tab page?", answer: "Yes. SpeedDialX uses chrome_url_overrides to replace Chrome's new tab page. You can remove the extension at any time to restore the default." },
+  { question: "How many sites can I add for free?", answer: "The free tier allows 12 speed dials. Upgrading to Pro ($2.99/month) removes the limit entirely." },
+  { question: "What does Pro include?", answer: "Pro includes unlimited speed dials and custom image backgrounds (enter any image URL as your new tab background). All other features are free." },
+  { question: "How is the search bar configured?", answer: "By default the search bar queries Google. Type a search query and press Enter, or enter a full URL (with or without https://) to navigate directly." },
+  { question: "Are my sites saved locally?", answer: "Yes. All dial data and background settings are stored in chrome.storage.local — no servers, no sync, no account." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="SpeedDialX - Custom New Tab Speed Dial | Chrome Extension"
+  seoDescription="Replace Chrome's new tab with a speed dial grid. 12 free sites, drag to rearrange, Google search bar, background customization. Pro: unlimited + image backgrounds."
+  seoKeywords="speed dial chrome extension, new tab page chrome, custom new tab extension, speed dial replacement, quick access tabs, new tab sites grid"
+/>

@@ -1,0 +1,76 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "Tab Manager",
+  subtitle: "All-Tab List with Duplicate Detection",
+  tagline: "See all open tabs in one popup. Search by title or URL, click to switch, close with one click, and remove duplicate tabs in bulk.",
+  price: "Free",
+  status: "Available",
+  category: "Productivity",
+  lang: "EN/JA",
+  icon: "/ext-icons/TabManager.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "Tab Manager shows every open tab across all windows in a single searchable list. Each row displays the tab's favicon, title, URL, and whether it is the active tab or pinned. A search filter narrows results instantly as you type — filtering by both title and URL. Click any row to switch to that tab and bring its window into focus. The × button on each row closes that tab without leaving the popup. Duplicate URL detection highlights tabs that share the same URL with an amber 'dup' badge. A single 'Close Duplicates' button removes all but the first occurrence of each URL, cleaning up your tab bar in one click.";
+
+const features = [
+  { title: "Full Tab List", desc: "Every open tab across all windows in a single scrollable popup. Favicon, title, URL, active/pinned state visible at a glance" },
+  { title: "Search Filter", desc: "Type to filter tabs by title or URL in real time. Useful when you have 30+ tabs open" },
+  { title: "One-Click Switch", desc: "Click any tab row to switch to that tab and bring its window into focus" },
+  { title: "Close Tabs", desc: "Hover any tab to reveal the × button. Click to close that tab without leaving the popup" },
+  { title: "Duplicate Detection", desc: "Tabs sharing the same URL get an amber 'dup' badge. Filter button shows only duplicates" },
+  { title: "Bulk Duplicate Removal", desc: "Close Duplicates button removes all duplicate tabs at once, keeping one copy of each URL" },
+];
+
+const targetUsers = [
+  "Developers and researchers who regularly have 20+ tabs open and need to find specific tabs quickly",
+  "Anyone who ends up with duplicate tabs from bookmark-opening habits",
+  "Users who want a clean tab list without installing a full session manager",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "SpeedDialX", category: "Productivity", link: "/extensions/speed-dial-x/", icon: "/ext-icons/SpeedDialX.png" },
+  { name: "ClipStack", category: "Productivity", link: "/extensions/clipstack/", icon: "/ext-icons/clipstack.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Tab Manager",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/tab-manager/",
+  featureList: "Tab List, Search Filter, Switch Tab, Close Tab, Duplicate Detection, Bulk Remove Duplicates",
+};
+
+const faqItems = [
+  { question: "Does it show tabs from all windows?", answer: "Yes. Tab Manager lists all open tabs across every Chrome window in a single popup." },
+  { question: "How does duplicate detection work?", answer: "Tabs are compared by full URL. If two or more tabs share the same URL, they are flagged with an amber 'dup' badge. The Close Duplicates button removes all but the first occurrence of each URL." },
+  { question: "Can I search across both title and URL?", answer: "Yes. The search filter matches against the tab title and the full URL simultaneously." },
+  { question: "Does it support keyboard navigation?", answer: "The search input is focused when the popup opens, so you can type immediately to filter." },
+  { question: "Is Tab Manager free?", answer: "Yes, completely free. No Pro plan, no account required." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="Tab Manager - All Tabs List with Duplicate Detection | Chrome Extension"
+  seoDescription="See all open tabs in one popup. Search, switch, close, and remove duplicate tabs. One-click duplicate cleanup. Free Chrome extension."
+  seoKeywords="tab manager chrome extension, duplicate tab finder, all tabs list, tab switcher, close duplicate tabs, chrome tab organizer"
+/>
