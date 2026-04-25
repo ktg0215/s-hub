@@ -133,6 +133,13 @@ export const categories: Category[] = [
         icon: "/ext-icons/ZenRead.webp",
       },
       {
+        name: "Request Monitor",
+        description: "Monitor XHR and fetch requests for the current tab in real time. Method/status color coding, duration, size, URL filter, XHR/Fetch type filter. No DevTools needed.",
+        price: "Free",
+        url: "/extensions/request-monitor/",
+        icon: "/ext-icons/RequestMonitor.png",
+      },
+      {
         name: "Storage Inspector",
         description: "Browse, edit, and delete localStorage, sessionStorage, and cookies without DevTools. 3-tab popup with inline editing, JSON pretty-print, copy, search filter.",
         price: "Free",

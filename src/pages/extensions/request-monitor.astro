@@ -1,0 +1,83 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "Request Monitor",
+  subtitle: "Real-time API & Network Request Viewer",
+  tagline: "Monitor XHR and fetch requests for the current tab in real time. Method and status color coding, duration, size — without opening DevTools.",
+  price: "Free",
+  status: "Available",
+  category: "Developer Tools",
+  lang: "EN/JA",
+  icon: "/ext-icons/RequestMonitor.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "Request Monitor captures every network request made by the current browser tab and shows them in a live-updating popup. It uses Chrome's webRequest API to record request method, URL, status code, type (XHR/fetch/script/etc.), response duration, and content-length. The popup refreshes every second while open and keeps the most recent 100 requests per tab. Method colors (GET green, POST blue, PUT amber, DELETE red) and status colors (2xx green, 3xx blue, 4xx/5xx red) let you scan for problems instantly. Use the URL search filter or the All/XHR/Fetch buttons to focus on the traffic that matters. Click any row to expand it and copy the full URL for use in Postman, curl, or other tools.";
+
+const features = [
+  { title: "Live 1-second Polling", desc: "The popup auto-refreshes every second while open — see new requests appear in real time without clicking Refresh" },
+  { title: "Method Color Coding", desc: "GET=green, POST=blue, PUT=amber, DELETE=red, PATCH=purple — scan the method column at a glance" },
+  { title: "Status Color Coding", desc: "2xx=green, 3xx=blue, 4xx/5xx=red — immediately spot failed or redirected requests" },
+  { title: "XHR / Fetch Filter", desc: "Toggle between All, XHR-only, or Fetch-only to hide static assets and focus on API calls" },
+  { title: "URL Search Filter", desc: "Type any substring to filter the list by URL. Combine with the type filter for precision" },
+  { title: "Expand & Copy URL", desc: "Click any row to see the full URL, duration, and size — plus a ⎘ Copy URL button for Postman/curl" },
+];
+
+const targetUsers = [
+  "Front-end developers debugging API integrations without opening DevTools",
+  "QA engineers monitoring which requests fire during user flows",
+  "Mobile testers using Chrome on desktop to proxy traffic inspection",
+  "Anyone who wants a quick network overview without the full DevTools panel",
+];
+
+const screenshots = [
+  "/screenshots/request-monitor/screenshot-1.png",
+  "/screenshots/request-monitor/screenshot-2.png",
+  "/screenshots/request-monitor/screenshot-3.png",
+  "/screenshots/request-monitor/screenshot-4.png",
+  "/screenshots/request-monitor/screenshot-5.png",
+];
+
+const relatedProducts = [
+  { name: "Storage Inspector", category: "Developer Tools", link: "/extensions/storage-inspector/", icon: "/ext-icons/StorageInspector.png" },
+  { name: "PageSpeed Badge", category: "Developer Tools", link: "/extensions/pagespeed-badge/", icon: "/ext-icons/PageSpeedBadge.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Request Monitor",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/request-monitor/",
+  featureList: "Live Polling, Method Colors, Status Colors, XHR Filter, Fetch Filter, URL Search, Copy URL",
+};
+
+const faqItems = [
+  { question: "Is Request Monitor free?", answer: "Yes, completely free with no Pro plan." },
+  { question: "Does it capture requests that happened before I opened the popup?", answer: "Yes. Request Monitor records requests in the background from the moment a tab loads. When you open the popup, you see all captured requests (up to 100) since the last navigation." },
+  { question: "Will it slow down my browser?", answer: "No. The webRequest listener adds negligible overhead — it only stores the URL, method, status, and timing metadata, not the response body." },
+  { question: "Does it capture POST body or response data?", answer: "No. Request Monitor only captures what the webRequest API provides: URL, method, status code, headers for content-length, and timing. Response bodies are never read." },
+  { question: "Does it work on every website?", answer: "Yes. It captures requests from any tab on any URL." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="Request Monitor - Real-time API Request Viewer | Chrome Extension"
+  seoDescription="Monitor XHR and fetch requests in real time without DevTools. Method/status color coding, URL filter, XHR/Fetch filter, copy URL. Free Chrome extension."
+  seoKeywords="network request monitor chrome extension, api request viewer, xhr monitor, fetch request logger, devtools alternative network, http request monitor chrome"
+/>
