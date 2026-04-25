@@ -1,0 +1,81 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "ImageResizer",
+  subtitle: "Resize & Download Any Image from the Web",
+  tagline: "Right-click any image to resize and download it. Set width, height, quality, and format (PNG/WebP/JPEG). Processed entirely in your browser — no uploads, no server.",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Developer Tools",
+  lang: "EN/JP",
+  icon: "/ext-icons/image-resizer.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "ImageResizer adds a 'Resize & Download image' option to your right-click context menu on any image. Configure your target dimensions, output format, and quality in the popup once, then right-click any image to instantly resize and download it. Everything runs locally in your browser via the Canvas API — no file is ever sent to a server.";
+
+const features = [
+  { title: "Right-Click to Resize", desc: "Right-click any image on any webpage and choose 'Resize & Download image' — no need to save first or open a separate tool." },
+  { title: "Width & Height Controls", desc: "Set exact pixel dimensions. With aspect ratio lock enabled, the other dimension is calculated automatically." },
+  { title: "Aspect Ratio Lock", desc: "Keep the original proportions intact while resizing, or unlock to stretch to any target size." },
+  { title: "Format Selector", desc: "Export as PNG (lossless), WebP (modern, compact), or JPEG (widely compatible) with a single click." },
+  { title: "Quality Slider", desc: "For WebP and JPEG, dial the quality from 10% to 100% to balance file size and visual fidelity." },
+  { title: "100% Local Processing", desc: "Uses the browser Canvas API. No image data is uploaded anywhere — fully private and works offline." },
+];
+
+const targetUsers = [
+  "Developers grabbing web images at a specific size for mockups or docs",
+  "Designers quickly resizing assets without opening an editor",
+  "Content creators optimizing images before uploading to CMS or social media",
+  "Anyone who needs a quick format conversion without a dedicated app",
+];
+
+const screenshots = [
+  "/screenshots/image-resizer/screenshot-01.png",
+];
+
+const relatedProducts = [
+  { name: "FaviconDownloader", category: "Developer Tools", link: "/extensions/favicon-downloader/", icon: "/ext-icons/favicon-downloader.png" },
+  { name: "CodeSnapshot", category: "Developer Tools", link: "/extensions/code-snapshot/", icon: "/ext-icons/code-snapshot.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "ImageResizer",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/image-resizer/",
+  featureList: "Right-click resize, Width/height controls, Aspect ratio lock, PNG/WebP/JPEG export, Quality slider, Local Canvas API processing",
+};
+
+const faqItems = [
+  { question: "How do I resize an image?", answer: "Right-click any image on a webpage and select 'Resize & Download image'. The image is resized according to your settings in the popup and downloaded automatically." },
+  { question: "Is ImageResizer free?", answer: "Yes, completely free with no usage limits." },
+  { question: "Does ImageResizer upload my images anywhere?", answer: "No. All processing happens locally in your browser using the Canvas API. Your images never leave your device." },
+  { question: "Can I resize images from any website?", answer: "ImageResizer works on most images. Cross-origin images are fetched through the extension context which bypasses CORS restrictions, so most web images are supported." },
+  { question: "What output formats are supported?", answer: "PNG (lossless), WebP (modern and compact), and JPEG (widely compatible). For WebP and JPEG you can also set the quality level." },
+  { question: "Does aspect ratio lock affect both width and height?", answer: "Yes. When enabled and you set both dimensions, ImageResizer scales the image to fit inside that box while preserving the original ratio." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="ImageResizer - Resize & Download Any Web Image Instantly"
+  seoDescription="Right-click any image to resize and download it as PNG, WebP, or JPEG. Set dimensions, quality, and aspect ratio. Free Chrome extension — 100% local, no uploads."
+  seoKeywords="image resizer chrome extension, resize image from web, download resized image, chrome image downloader, convert image format browser, resize image without upload"
+/>
