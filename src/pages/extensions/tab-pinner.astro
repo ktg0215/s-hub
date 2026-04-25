@@ -1,0 +1,76 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "TabPinner",
+  subtitle: "Save & Restore Tab Sessions",
+  tagline: "Pin tabs into named groups and restore them any time. Save your research tabs, work sessions, or project sets in one click. Free: 10 pins. Pro: unlimited + auto-restore.",
+  price: "Free / Pro $2.99/mo",
+  status: "Available",
+  category: "Productivity",
+  lang: "EN/JA",
+  icon: "/ext-icons/TabPinner.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "TabPinner lets you save a snapshot of your current browser tabs as a named group and restore them at any time. Open a new tab session for a project, then pin it with one click — the group saves all URLs from the current window. Later, click the group name in the popup to reopen all tabs at once. Each pinned group shows the number of tabs saved. The free tier supports up to 10 pinned groups. Pro ($2.99/month) removes the limit and adds auto-restore on browser startup so your last session opens automatically.";
+
+const features = [
+  { title: "One-Click Pin", desc: "Click '+ Pin tabs' to save all current window tabs as a named group. The group is stored locally and persists across restarts" },
+  { title: "Named Groups", desc: "Each pin group is named automatically by timestamp or page title. Rename groups to organize by project or topic" },
+  { title: "Restore Any Group", desc: "Click any pinned group to reopen all its saved tabs in new windows or the current window" },
+  { title: "Free: 10 Pins", desc: "The free tier allows up to 10 pinned tab groups — enough for most users to cover ongoing projects" },
+  { title: "Pro: Unlimited + Auto-Restore", desc: "Pro ($2.99/mo) removes the 10-pin limit and adds auto-restore on startup — your last session opens automatically when Chrome launches" },
+  { title: "Local Storage Only", desc: "All pinned groups are stored in chrome.storage.local. No account, no cloud sync, no data sent anywhere" },
+];
+
+const targetUsers = [
+  "Researchers who keep reference tabs for active projects and want to restore them without bookmarks",
+  "Developers who work on multiple projects and want to switch tab sets quickly",
+  "Anyone who frequently closes and reopens the same set of tabs",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "Tab Manager", category: "Productivity", link: "/extensions/tab-manager/", icon: "/ext-icons/TabManager.png" },
+  { name: "SpeedDialX", category: "Productivity", link: "/extensions/speed-dial-x/", icon: "/ext-icons/SpeedDialX.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "TabPinner",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/tab-pinner/",
+  featureList: "Pin Tab Groups, Restore Sessions, Named Groups, Free 10 Pins, Pro Unlimited, Auto-Restore",
+};
+
+const faqItems = [
+  { question: "How do I pin my current tabs?", answer: "Click the TabPinner toolbar icon to open the popup, then click '+ Pin tabs'. All tabs in the current window are saved as a new pinned group." },
+  { question: "How do I restore a pinned group?", answer: "Open the popup and click on any group name. TabPinner opens all saved URLs from that group in new tabs." },
+  { question: "What is the free tier limit?", answer: "The free tier allows up to 10 pinned tab groups. Each group can contain any number of tabs." },
+  { question: "What does Pro include?", answer: "Pro ($2.99/month) removes the 10-group limit (unlimited groups) and adds auto-restore: your last pinned session opens automatically when Chrome starts." },
+  { question: "Is my data sent anywhere?", answer: "No. All pinned groups are stored in chrome.storage.local — only on your device. No servers, no accounts required." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="TabPinner - Save & Restore Tab Sessions | Chrome Extension"
+  seoDescription="Pin your current tabs into named groups and restore them any time. Free: 10 pin groups. Pro: unlimited + auto-restore on startup. Chrome tab session manager."
+  seoKeywords="tab session manager chrome, save tabs extension, restore tabs, pin tab groups, tab saver chrome extension, session restore chrome"
+/>
