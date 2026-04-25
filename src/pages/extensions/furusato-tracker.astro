@@ -1,0 +1,86 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "FurusatoTracker",
+  subtitle: "ふるさと納税 管理・追跡",
+  tagline: "複数ポータルの寄付を一元管理。楽天・ふるなびを自動検知し、控除上限の残額をリアルタイムで把握。",
+  price: "Free / Pro ¥1,480",
+  status: "Available",
+  chromeUrl: "",
+  category: "Productivity",
+  lang: "JP/EN",
+  icon: "/ext-icons/furusato-tracker.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "FurusatoTracker は、ふるさと納税の複数ポータル横断管理と寄付上限残高トラッキングのChrome拡張機能です。楽天ふるさと納税・ふるなびの寄付完了ページを自動検知して記録し、年収・家族構成から控除上限額を自動計算します。すべてのデータはローカルに保存され、アカウント作成は不要です。Pro版では確定申告用CSVエクスポート・年間レポート・年末リマインダーが使えます。";
+
+const features = [
+  { title: "寄付を自動検知・記録", desc: "楽天ふるさと納税・ふるなびの注文完了ページを検知して、金額・自治体を自動で記録します" },
+  { title: "控除上限 かんたん計算", desc: "年収と家族構成を入力するだけで、ふるさと納税の控除上限額を総務省早見表ベースで即計算" },
+  { title: "控除上限 残額をリアルタイム表示", desc: "寄付するたびに残額が更新。上限ギリギリまで使い切れるよう残額を常に把握できます" },
+  { title: "複数ポータル横断管理", desc: "楽天・ふるなびの寄付を一つの画面で管理。ポータル別・自治体別で絞り込み・ソートも可能" },
+  { title: "確定申告用CSVエクスポート（Pro）", desc: "ワンクリックで寄付履歴をCSV出力。確定申告・ワンストップ特例申請の書類作成をサポート" },
+  { title: "年末リマインダー（Pro）", desc: "12月の締め切り前に残額と通知をChromeで自動送信。控除上限を使い残すことなく活用できます" },
+];
+
+const targetUsers = [
+  "ふるさと納税を楽天とふるなびなど複数サイトで利用している方",
+  "控除上限をエクセルや手帳で手動管理していて面倒に感じている方",
+  "確定申告やワンストップ特例で寄付履歴をまとめたい方",
+  "年末に「まだ余裕があったのに使い切れなかった」を防ぎたい方",
+];
+
+const screenshots = [
+  "/screenshots/furusato-tracker/screenshot-01.png",
+  "/screenshots/furusato-tracker/screenshot-02.png",
+  "/screenshots/furusato-tracker/screenshot-03.png",
+  "/screenshots/furusato-tracker/screenshot-04.png",
+  "/screenshots/furusato-tracker/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "Arbitra", category: "E-commerce Tools", link: "/extensions/arbitra/", icon: "/ext-icons/Arbitra.webp" },
+  { name: "PricePulse JP", category: "E-commerce Tools", link: "/extensions/pricepulse-jp/", icon: "/ext-icons/pricepulse-jp.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "FurusatoTracker",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "JPY" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/furusato-tracker/",
+  screenshot: "https://dev-tools-hub.xyz/screenshots/furusato-tracker/screenshot-01.png",
+  featureList: "Auto-detect donations, Tax deduction limit calculator, Multi-portal management, CSV export, Year-end reminder",
+  inLanguage: "ja",
+};
+
+const faqItems = [
+  { question: "どのポータルサイトに対応していますか？", answer: "楽天ふるさと納税とふるなびの注文完了ページを自動検知します。その他のポータル（さとふる・ふるさとチョイス等）は手動追加で記録できます。" },
+  { question: "控除上限の計算は正確ですか？", answer: "総務省の早見表をベースにした概算値です。正確な税額は年収・控除の状況によって異なるため、税務署または税理士にご確認ください。" },
+  { question: "データはどこに保存されますか？", answer: "すべての寄付データはお使いのデバイスの chrome.storage.local に保存されます。外部サーバーへの送信は一切ありません。アカウント作成も不要です。" },
+  { question: "無料版とProの違いは？", answer: "無料版は寄付記録3自治体まで（控除上限計算・自動検知は無制限）。Pro（¥1,480買い切り）は記録無制限＋確定申告用CSVエクスポート＋年間レポート＋年末リマインダーが使えます。" },
+  { question: "ふるさと納税の確定申告に使えますか？", answer: "Pro版のCSVエクスポートで寄付履歴（日付・自治体・金額）を出力できます。確定申告書類の作成やワンストップ特例申請のサポートにご活用いただけます。" },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="FurusatoTracker - ふるさと納税 管理・寄付自動記録 Chrome拡張"
+  seoDescription="楽天・ふるなびの寄付を自動検知。控除上限をリアルタイム管理。確定申告用CSVエクスポート対応。ふるさと納税を賢く使い切るChrome拡張機能。"
+  seoKeywords="ふるさと納税 管理, 控除上限 計算, 楽天ふるさと納税, ふるなび, 寄付 自動記録, chrome拡張, 確定申告"
+/>

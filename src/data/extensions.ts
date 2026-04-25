@@ -177,6 +177,13 @@ export const categories: Category[] = [
         icon: "/ext-icons/pricepulse-jp.png",
       },
       {
+        name: "FurusatoTracker",
+        description: "複数ポータルの寄付を一元管理。楽天ふるさと納税・ふるなびの寄付を自動検知し、控除上限の残額をリアルタイムで把握できます。",
+        price: "Free / Pro ¥1,480",
+        url: "/extensions/furusato-tracker/",
+        icon: "/ext-icons/furusato-tracker.png",
+      },
+      {
         name: "Kaitoki",
         description: "楽天・Yahoo!・Amazonの価格を自動追跡。価格履歴グラフ、EC横断比較、ポイント実質価格計算、値下げアラート機能搭載。",
         price: "Free",
