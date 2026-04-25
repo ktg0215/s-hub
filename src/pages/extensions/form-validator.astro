@@ -1,0 +1,81 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "FormValidator",
+  subtitle: "Real-Time Form Validation on Any Website",
+  tagline: "Validates form fields as you type — required fields, email format, URL format, number range, and character limits. Error messages appear inline below each field. Works on any website.",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Productivity",
+  lang: "EN/JP",
+  icon: "/ext-icons/form-validator.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "FormValidator adds real-time client-side validation to every form you encounter while browsing. When you leave a field, FormValidator checks it against the applicable rules and injects a clear error message directly below the input if something is wrong. The error disappears as soon as you fix it. Six independent validation rules can be toggled on or off individually from the popup, and a global toggle disables the extension on sites where you don't want it.";
+
+const features = [
+  { title: "Required Field Check", desc: "Detects the HTML `required` attribute and shows an error immediately when a required field is left empty." },
+  { title: "Email Format Validation", desc: "Validates type='email' and autocomplete='email' fields against the user@domain.tld pattern." },
+  { title: "URL Format Validation", desc: "Checks type='url' fields — confirms the value is a parseable URL before you submit." },
+  { title: "Number Range Check", desc: "Validates number fields against their min and max attributes, catching out-of-range values before submission." },
+  { title: "Character Length Limits", desc: "Enforces minlength and maxlength constraints with live feedback as you type." },
+  { title: "Dynamic Form Support", desc: "A MutationObserver watches for newly added fields so FormValidator works correctly on single-page apps and dynamic forms." },
+];
+
+const targetUsers = [
+  "Power users who want to catch form errors before submitting",
+  "Developers testing form validation behavior on live sites",
+  "QA testers verifying that validation logic fires correctly",
+  "Anyone who has submitted a form with a typo and had to start over",
+];
+
+const screenshots = [
+  "/screenshots/form-validator/screenshot-01.png",
+];
+
+const relatedProducts = [
+  { name: "JSONFormatter", category: "Developer Tools", link: "/extensions/json-formatter/", icon: "/ext-icons/json-formatter.png" },
+  { name: "FaviconDownloader", category: "Developer Tools", link: "/extensions/favicon-downloader/", icon: "/ext-icons/favicon-downloader.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "FormValidator",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/form-validator/",
+  featureList: "Required field check, Email validation, URL validation, Number range, Min/max length, MutationObserver for SPAs",
+};
+
+const faqItems = [
+  { question: "Does FormValidator work on all websites?", answer: "FormValidator runs on all pages by default. It attaches to any input, textarea, or select element and validates on blur." },
+  { question: "Is FormValidator free?", answer: "Yes, completely free with no usage limits." },
+  { question: "Can I disable FormValidator on specific sites?", answer: "Use the popup's global toggle to disable validation instantly. Your setting is saved and persists across sessions." },
+  { question: "Does FormValidator replace the website's own validation?", answer: "No. FormValidator adds an extra layer of client-side feedback. The website's native validation still runs as before." },
+  { question: "Does it work on single-page apps like React or Vue?", answer: "Yes. FormValidator uses a MutationObserver to detect dynamically added form fields, so it works on SPAs that render forms after page load." },
+  { question: "Can I turn off individual rules?", answer: "Yes. Each of the six rules (required, email, URL, number, minLength, maxLength) has its own toggle in the popup." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="FormValidator - Real-Time Form Validation Chrome Extension"
+  seoDescription="Validates form fields as you type on any website. Required fields, email, URL, number range, and character limits. Inline error messages. Free Chrome extension."
+  seoKeywords="form validation chrome extension, real-time form validator browser, email validation extension, required field checker chrome, inline form error messages, browser form validation"
+/>

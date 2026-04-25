@@ -1,0 +1,81 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "HistorySearch",
+  subtitle: "Full-Text Search Across Your Entire Browser History",
+  tagline: "Search all your visited pages by title and URL. Filter by today, this week, this month, or all time. Click any result to reopen it instantly.",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Productivity",
+  lang: "EN/JP",
+  icon: "/ext-icons/history-search.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "HistorySearch gives you a fast, searchable interface for your entire Chrome browsing history. Type any keyword and get instant results filtered by title and URL across all pages you've ever visited. Date filter tabs let you narrow the scope to today, the last 7 days, the last 30 days, or your full history. Each result shows the page title, URL, last visit date, and a favicon for quick identification.";
+
+const features = [
+  { title: "Full-Text Search", desc: "Searches both page titles and URLs simultaneously. Find any page you've visited, even if you only remember a word from the title." },
+  { title: "Date Filters", desc: "Four quick filters — Today, This Week (7 days), This Month (30 days), and All Time — narrow results without typing a date range." },
+  { title: "Instant Results", desc: "Results update as you type with a 250ms debounce. No button to press, no page to load." },
+  { title: "Favicon Thumbnails", desc: "Each result shows the site's favicon for visual context — spot the right tab at a glance." },
+  { title: "Click to Reopen", desc: "Click any result row or the Open button to reopen the page in a new tab immediately." },
+  { title: "Copy URL", desc: "Copy any result URL to the clipboard with one click — useful for sharing or referencing links." },
+];
+
+const targetUsers = [
+  "Anyone who struggles to find pages they visited days ago",
+  "Researchers who browse extensively and need to retrieve sources",
+  "Developers who visited a documentation page and can't find it again",
+  "Power users who want faster access to their history than Chrome's built-in Ctrl+H page",
+];
+
+const screenshots = [
+  "/screenshots/history-search/screenshot-01.png",
+];
+
+const relatedProducts = [
+  { name: "SearchHistory", category: "Productivity", link: "/extensions/search-history/", icon: "/ext-icons/search-history.png" },
+  { name: "TabOrganizer", category: "Productivity", link: "/extensions/tab-organizer/", icon: "/ext-icons/tab-organizer.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "HistorySearch",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/history-search/",
+  featureList: "Full-text history search, Date filters, Instant results, Favicon thumbnails, Click to open, Copy URL",
+};
+
+const faqItems = [
+  { question: "What is the difference between HistorySearch and SearchHistory?", answer: "SearchHistory extracts search queries specifically from Google, Yahoo, and Bing URLs. HistorySearch searches across all visited page titles and URLs — it finds any page, not just search engine queries." },
+  { question: "Is HistorySearch free?", answer: "Yes, completely free with no usage limits." },
+  { question: "How far back does HistorySearch search?", answer: "Chrome stores up to 90 days of history by default. The 'All Time' filter searches everything Chrome has retained." },
+  { question: "Does HistorySearch upload my history anywhere?", answer: "No. All searching happens locally using the chrome.history API. Your browsing data never leaves your device." },
+  { question: "What does the 'This Week' filter cover?", answer: "This Week returns results from the past 7 days. This Month covers the past 30 days." },
+  { question: "Can I open results in the same tab instead of a new one?", answer: "In the current version, results always open in a new tab to avoid disrupting your current page." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="HistorySearch - Search Your Entire Browser History by Title & URL"
+  seoDescription="Full-text search across all visited pages by title and URL. Filter by today, this week, this month, or all time. Click to reopen instantly. Free Chrome extension."
+  seoKeywords="browser history search chrome extension, search chrome history full text, find visited pages chrome, history search extension, chrome history by title URL, search all browsing history"
+/>
