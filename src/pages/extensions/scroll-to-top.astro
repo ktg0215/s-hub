@@ -1,0 +1,81 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "ScrollToTop",
+  subtitle: "Floating Scroll Button for Long Pages",
+  tagline: "Adds a floating button to any page. Single click scrolls to the top, double-click scrolls to the bottom. Choose from three styles and two positions. Shadow DOM — zero style conflicts.",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Productivity",
+  lang: "EN/JP",
+  icon: "/ext-icons/scroll-to-top.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "ScrollToTop adds a small floating button to every page after you scroll past a configurable threshold. Single-click scrolls you smoothly back to the top. Double-click jumps to the bottom — useful for comment sections, footers, or the end of long documents. The button is rendered inside a closed Shadow DOM so it never inherits or conflicts with page styles, regardless of how aggressively a site applies CSS resets.";
+
+const features = [
+  { title: "Single Click → Top", desc: "Click once to smoothly scroll back to the very top of the page from anywhere." },
+  { title: "Double-Click → Bottom", desc: "Double-click the same button to jump to the bottom of the page — useful for comments, footers, or end-of-document navigation." },
+  { title: "Three Button Styles", desc: "Round (44px circle FAB), Minimal (36px square with frosted glass), and Arrow (40px rounded rectangle). Pick what fits your browsing style." },
+  { title: "Two Positions", desc: "Bottom right or bottom left. Flip the position when a site's own UI occupies the default corner." },
+  { title: "Configurable Threshold", desc: "Set how many pixels you need to scroll before the button appears — default 300px, adjustable from 50 to 2000." },
+  { title: "Shadow DOM Isolation", desc: "Rendered inside a closed Shadow DOM so the button is completely immune to page CSS. Works on every site, no exceptions." },
+];
+
+const targetUsers = [
+  "Anyone who reads long articles and wants a quick way back to the top",
+  "Users navigating pages with comment sections who jump between top and bottom",
+  "Researchers browsing lengthy documents or wiki-style pages",
+  "Power users who want smooth keyboard-free page navigation",
+];
+
+const screenshots = [
+  "/screenshots/scroll-to-top/screenshot-01.png",
+];
+
+const relatedProducts = [
+  { name: "FormValidator", category: "Productivity", link: "/extensions/form-validator/", icon: "/ext-icons/form-validator.png" },
+  { name: "HistorySearch", category: "Productivity", link: "/extensions/history-search/", icon: "/ext-icons/history-search.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "ScrollToTop",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/scroll-to-top/",
+  featureList: "Scroll to top, Scroll to bottom, Three styles, Two positions, Configurable threshold, Shadow DOM isolation",
+};
+
+const faqItems = [
+  { question: "How does double-click work?", answer: "If you click the button twice within 220ms, ScrollToTop detects it as a double-click and scrolls to the bottom instead of the top." },
+  { question: "Is ScrollToTop free?", answer: "Yes, completely free with no usage limits." },
+  { question: "Why does ScrollToTop use Shadow DOM?", answer: "Shadow DOM isolates the button's styles from the host page. Without it, page-level CSS resets can break the button's appearance. Closed Shadow DOM means the button looks consistent on every site." },
+  { question: "Can I change when the button appears?", answer: "Yes. Set the threshold in pixels from the popup — the button appears only after you've scrolled that far down the page." },
+  { question: "Does the button appear on every website?", answer: "Yes. ScrollToTop runs on all pages. The button only becomes visible once you scroll past the configured threshold, so it stays hidden on short pages." },
+  { question: "What is the Minimal style?", answer: "A compact 36px square with a frosted glass effect. It's the most unobtrusive style — visible enough to click but subtle enough to stay out of the way." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="ScrollToTop - Floating Scroll Button Chrome Extension"
+  seoDescription="Adds a floating scroll-to-top button on long pages. Single click to top, double-click to bottom. Three styles, two positions, Shadow DOM isolation. Free Chrome extension."
+  seoKeywords="scroll to top chrome extension, floating back to top button, scroll button browser extension, smooth scroll top chrome, back to top floating button, scroll to bottom extension"
+/>
