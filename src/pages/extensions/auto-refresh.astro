@@ -1,0 +1,85 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "AutoRefresh",
+  subtitle: "Page Auto Reload for Chrome",
+  tagline: "Automatically reload any page at a set interval. Tab-specific timers, SVG countdown display, and quick presets. Perfect for dashboards and monitoring.",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Productivity",
+  lang: "EN/JP",
+  icon: "/ext-icons/auto-refresh.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "AutoRefresh replaces the F5 key for pages you need to keep current. Set an interval — 30 seconds, 5 minutes, or any custom value — click Start, and the extension handles the rest. An SVG ring countdown shows exactly how much time remains before the next reload. Each tab gets its own independent timer stored via chrome.alarms, so timers survive Service Worker restarts and are automatically cleaned up when tabs close.";
+
+const features = [
+  { title: "SVG Countdown Ring", desc: "A smooth animated ring shows exactly how long until the next reload, with the time displayed in the center." },
+  { title: "5 Quick Presets", desc: "30 seconds, 1 minute, 5 minutes, 15 minutes, and 30 minutes cover the most common monitoring needs." },
+  { title: "Custom Interval", desc: "Enter any number of seconds for a fully custom reload interval — from 5 seconds to hours." },
+  { title: "Tab-Specific Timers", desc: "Each tab has its own independent timer. Start AutoRefresh on multiple tabs simultaneously without interference." },
+  { title: "MV3-Persistent via chrome.alarms", desc: "Timers use chrome.alarms and survive Service Worker restarts — the reload keeps happening even if the SW goes dormant." },
+  { title: "Auto-Cleanup", desc: "Timers are automatically cancelled and removed when you close the tab. No orphaned alarms." },
+];
+
+const targetUsers = [
+  "Developers watching server logs or CI dashboards",
+  "Traders and investors monitoring price pages",
+  "IT teams keeping status pages visible on monitors",
+  "Sports fans following live scoreboards",
+];
+
+const screenshots = [
+  "/screenshots/auto-refresh/screenshot-01.png",
+  "/screenshots/auto-refresh/screenshot-02.png",
+  "/screenshots/auto-refresh/screenshot-03.png",
+  "/screenshots/auto-refresh/screenshot-04.png",
+  "/screenshots/auto-refresh/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "WebRSS", category: "Productivity", link: "/extensions/web-rss/", icon: "/ext-icons/web-rss.png" },
+  { name: "TextStats", category: "Productivity", link: "/extensions/text-stats/", icon: "/ext-icons/text-stats.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "AutoRefresh",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/auto-refresh/",
+  screenshot: "https://dev-tools-hub.xyz/screenshots/auto-refresh/screenshot-01.png",
+  featureList: "SVG countdown ring, 5 presets, custom interval, tab-specific timers, MV3 persistent alarms, auto-cleanup",
+};
+
+const faqItems = [
+  { question: "How does AutoRefresh work?", answer: "AutoRefresh uses Chrome's alarm API (chrome.alarms) to schedule periodic page reloads. The popup shows a countdown ring indicating when the next reload will happen." },
+  { question: "Will AutoRefresh keep working if I open other tabs?", answer: "Yes. Each tab has its own independent timer. Opening other tabs does not affect running timers." },
+  { question: "What happens if the Service Worker goes dormant?", answer: "Timers use chrome.alarms, which are stored by Chrome itself and fire regardless of the Service Worker state. The reload will still happen even if the SW is dormant." },
+  { question: "What is the minimum interval?", answer: "The minimum interval is 5 seconds. There is no maximum — you can set hours if needed." },
+  { question: "Is AutoRefresh free?", answer: "Yes, completely free with no usage limits or Pro tier." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="AutoRefresh - Auto Page Reload Chrome Extension | Countdown Timer"
+  seoDescription="Automatically reload any webpage at a set interval. SVG countdown display, 5 presets, custom seconds, per-tab timers. Free Chrome extension for dashboards and monitoring."
+  seoKeywords="auto refresh chrome extension, page auto reload, automatic page refresh, reload timer chrome, dashboard auto update, monitor page chrome"
+/>

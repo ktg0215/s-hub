@@ -1,0 +1,80 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "FaviconDownloader",
+  subtitle: "Download All Favicons from Any Website",
+  tagline: "Detect and download PNG, ICO, SVG, and Apple Touch icons from any website. Preview all sizes in the popup and download individually or all at once.",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Developer Tools",
+  lang: "EN/JP",
+  icon: "/ext-icons/favicon-downloader.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "FaviconDownloader scans every page you visit for embedded favicon references — <link rel='icon'> tags, Apple Touch icon declarations, and the standard /favicon.ico fallback — and shows them all in a clean popup with image previews. You can see the declared size, format (PNG, ICO, SVG, WebP), and source type for each icon, then download them individually or grab all at once with a single button.";
+
+const features = [
+  { title: "Automatic Detection", desc: "Finds all favicon sources: <link rel='icon'>, <link rel='apple-touch-icon'>, and the /favicon.ico fallback." },
+  { title: "Live Image Previews", desc: "Each favicon renders as a thumbnail in the popup so you can see exactly what you're downloading before you click." },
+  { title: "Format Labels", desc: "PNG, ICO, SVG, and WebP are labeled with color-coded badges so you always know the format at a glance." },
+  { title: "Size & Source Info", desc: "Declared sizes (16x16, 32x32, 192x192, etc.) and source type (link tag, apple-touch, favicon.ico) are shown per entry." },
+  { title: "Download All", desc: "Click 'Download All' to grab every detected favicon at once with auto-generated filenames." },
+  { title: "Copy URL", desc: "Copy any favicon's URL to your clipboard with one click — useful for referencing in code or design tools." },
+];
+
+const targetUsers = [
+  "Web designers referencing competitor or client favicon sets",
+  "Developers checking what favicon sizes a site ships",
+  "Brand designers collecting icon assets for audits",
+  "Anyone who needs a site's favicon for a presentation or mockup",
+];
+
+const screenshots = [
+  "/screenshots/favicon-downloader/screenshot-01.png",
+];
+
+const relatedProducts = [
+  { name: "CodeSnapshot", category: "Developer Tools", link: "/extensions/code-snapshot/", icon: "/ext-icons/code-snapshot.png" },
+  { name: "DataBridge", category: "Developer Tools", link: "/extensions/databridge/", icon: "/ext-icons/databridge.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "FaviconDownloader",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/favicon-downloader/",
+  featureList: "Automatic favicon detection, Live previews, Format labels, Download all, Copy URL",
+};
+
+const faqItems = [
+  { question: "What types of favicons does FaviconDownloader detect?", answer: "FaviconDownloader finds favicons from three sources: <link rel='icon'> and <link rel='shortcut icon'> tags, <link rel='apple-touch-icon'> tags, and the /favicon.ico path." },
+  { question: "Is FaviconDownloader free?", answer: "Yes, completely free with no usage limits." },
+  { question: "Can I download SVG favicons?", answer: "Yes. FaviconDownloader detects SVG favicons declared in link tags and downloads them as .svg files." },
+  { question: "What does 'Download All' do?", answer: "It downloads every detected favicon at once using chrome.downloads. Files are named favicon-1.png, favicon-2.ico, etc. based on their format." },
+  { question: "Why does FaviconDownloader show /favicon.ico even if a site doesn't have one?", answer: "FaviconDownloader always includes /favicon.ico as a fallback entry since most browsers check this path automatically. If the file doesn't exist, the download will fail gracefully." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="FaviconDownloader - Download All Favicons from Any Website"
+  seoDescription="Detect PNG, ICO, SVG, and Apple Touch icons from any website. Preview all sizes, download individually or all at once. Free Chrome extension for developers and designers."
+  seoKeywords="favicon downloader chrome extension, download favicon from website, extract favicon chrome, favicon grabber, site icon downloader, apple touch icon download"
+/>
