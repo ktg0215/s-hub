@@ -1,106 +1,119 @@
 ---
-title: "I Built a Chrome Extension That Tracks Email Response SLAs So You Never Miss a Client Deadline — InboxSLA"
+title: "I Applied SLA Concepts to My Email Inbox — Here's What I Learned Building the Chrome Extension"
+description: "Tracking response time deadlines for emails in Gmail using Chrome MV3, DOM mutation observers, and a color-coded urgency system."
+tags: ["chromeextension", "javascript", "productivity", "gmail"]
 published: false
-publish_date: "2026-05-21"
+publish_date: "2026-05-26"
 devto_id: "3532590"
-tags: ["chrome","javascript","webdev","productivity"]
 ---
 
-Freelancers and small agencies live and die by response time. A client expects a reply within 24 hours. Another one within 4. You agreed to these terms — but nothing in Gmail actually enforces them.
+I used to work in B2B SaaS customer support where every incoming email had an SLA timer attached. Green meant you had time, orange meant it was getting close, red meant someone was already frustrated. The system was brutally effective at preventing things from slipping through.
 
-CRMs are overkill for solo operators. Reminder apps require manual setup for every thread. What I wanted was something that sits inside Gmail and silently watches for me.
+Then I switched jobs and suddenly all those SLA tools were gone. Just an inbox full of emails, no urgency signals, no way to tell at a glance which thread had been waiting the longest.
 
-So I built **InboxSLA**.
+So I built **InboxSLA** — a Chrome extension that brings response-time deadlines to Gmail.
 
-## What It Does
+## The Core Idea
 
-InboxSLA is a Chrome extension that monitors your Gmail inbox for reply deadlines. You register clients by domain (e.g., `acme.com`) and set an SLA window in hours. The extension then:
+You define clients by email domain and assign each one an SLA in hours. InboxSLA scans your inbox and injects colored badges onto thread rows:
 
-- **Detects incoming threads** from registered domains via a content script
-- **Tracks elapsed time** since the last message you received
-- **Flags threads as Approaching (orange) or Overdue (red)** in real time
-- **Shows a dashboard** in the popup and side panel with all active threads and their status
+- 🟢 **Green**: thread is within SLA (hours remaining shown)
+- 🟠 **Orange**: approaching the deadline (configurable threshold, default 2h)
+- 🔴 **Red "OVERDUE"**: the clock has run out
 
-No manual logging. No third-party data sync. Everything runs locally in your browser.
+The SLA values are fully per-client. A freelancer might set 48h for long-term retainers. An agency handling fast-turnaround support might use 4h.
 
-## Architecture
+## The Hard Part: Gmail Is a SPA
 
-```
-InboxSLA/
-├── content.ts          # Gmail thread detection via MutationObserver
-├── background.ts       # 5-minute alarm loop for SLA checks
-├── popup/              # Client list + thread status dashboard
-├── sidepanel/          # Expanded thread view while Gmail is open
-└── lib/
-    ├── storage.ts      # Client + TrackedThread persistence
-    └── constants.ts    # FREE_LIMITS, SLA_APPROACHING_THRESHOLD_MS
-```
+Gmail doesn't reload the page when you navigate between labels or open threads. The DOM updates in place, which means `DOMContentLoaded` won't catch anything after the initial load.
 
-**The content script** detects new emails by observing Gmail's DOM:
+The fix is `MutationObserver`, watching for list changes:
 
 ```typescript
-const msg: TrackedThread = {
-  id: threadId,
-  from: senderEmail,
-  subject: subjectText,
-  receivedAt: Date.now(),
-};
-chrome.runtime.sendMessage({ type: 'THREAD_DETECTED', thread: msg });
+const observer = new MutationObserver(() => {
+  scheduleRefresh(); // debounced to 300ms
+});
+observer.observe(document.body, { childList: true, subtree: true });
 ```
 
-**The background Service Worker** runs on a 5-minute alarm and checks every tracked thread against its client's SLA:
+The debounce matters a lot. Gmail makes constant small DOM changes while you type in the search box, hover over items, or auto-save a draft. Without throttling, the observer fires hundreds of times per second. I debounce to 300ms and skip re-scans if the thread list container hash hasn't changed.
+
+## Extracting Email Metadata From an Obfuscated DOM
+
+Gmail's CSS class names are auto-generated and change between A/B test variants. Rather than trusting class selectors alone, I use a multi-strategy fallback for sender extraction:
 
 ```typescript
-function getSlaStatus(thread: TrackedThread, client: Client): 'overdue' | 'approaching' | 'ok' {
-  const slaMs = client.slaHours * 60 * 60 * 1000;
-  const remaining = slaMs - (Date.now() - thread.receivedAt);
-  if (remaining <= 0) return 'overdue';
-  if (remaining <= SLA_APPROACHING_THRESHOLD_MS) return 'approaching'; // 2 hours
-  return 'ok';
+const senderEl =
+  row.querySelector('[email]') ??
+  row.querySelector('.yW span[email]') ??
+  row.querySelector('.bA4 span[email]') ??
+  row.querySelector('[data-hovercard-id]');
+```
+
+The `[email]` attribute selector is the most stable — Google uses it internally across many Gmail builds. CSS fallbacks handle variants.
+
+For timestamps, the `title` attribute on the time element is the most reliable source:
+
+```typescript
+const timeEl =
+  row.querySelector('.xW.xY span[title]') ??
+  row.querySelector('td.xW span[title]');
+const title = timeEl?.getAttribute('title') ?? '';
+const parsed = new Date(title).getTime();
+```
+
+Gmail formats this as a full date string ("Mon, Apr 21, 2026, 9:34 AM") in most views. If parsing fails, I fall back to `Date.now()` — conservative, assumes the thread just arrived. Getting this right across inbox view, All Mail, and search results required handling six different string formats.
+
+## Badge Injection Without Breaking Gmail
+
+Two failure modes to guard against when injecting elements into a live SPA you don't own:
+
+**Duplicate badges**: Gmail sometimes re-renders list items without fully removing them from the DOM. I tag each badge with `data-inboxsla-badge` and check before injecting:
+
+```typescript
+const BADGE_ATTR = 'data-inboxsla-badge';
+let badge = row.querySelector(`[${BADGE_ATTR}]`) as HTMLElement | null;
+if (!badge) {
+  badge = document.createElement('span');
+  badge.setAttribute(BADGE_ATTR, '1');
+  row.appendChild(badge);
 }
+// Update in-place regardless
+badge.style.background = bg;
+badge.textContent = text;
 ```
 
-The 2-hour approaching threshold gives you a heads-up before the actual deadline — so you can reply before the timer hits zero, not after.
+**Stale state**: When you open a thread and return to the list, elapsed time has changed. I re-compute badge state on each observer cycle and update `style.background` and `textContent` in-place rather than removing and re-injecting — keeps Gmail's own event listeners intact.
 
-**Domain-based client matching** keeps things simple: if the email domain matches a registered client, it's tracked. This handles the common case where one client sends from multiple addresses (`billing@acme.com`, `john@acme.com`) without requiring per-address setup.
+## MV3: Content Script ↔ Background Service Worker
 
-## The Side Panel Integration
-
-MV3's `chrome.sidePanel` API lets the extension display a persistent panel alongside Gmail. Since content scripts can't directly control the side panel, I routed everything through the background script as a message bus:
-
-```
-content.ts → background.ts → sidepanel
-```
-
-It adds a layer of indirection, but each component stays focused on a single responsibility. The side panel subscribes to storage changes and re-renders without needing to poll.
-
-## Free vs. Pro Tiers
-
-| Feature | Free | Pro ($6/mo) |
-|---------|------|-------------|
-| Clients | 3 | Unlimited |
-| Alerts / month | 10 | Unlimited |
-| Thread export | — | ✓ (CSV) |
-
-Three clients is enough to validate whether the extension is useful for your workflow. Power users — agencies managing ten or more accounts — are the upgrade target.
-
-Limits are defined in a single constants file:
+Client configuration (which domains, which SLA hours) lives in `chrome.storage.local`. The content script requests it from the background service worker on load and caches locally:
 
 ```typescript
-export const FREE_LIMITS = {
-  maxClients: 3,
-  maxAlertsPerMonth: 10,
-} as const;
+// Content script
+const clients = await chrome.runtime.sendMessage({ type: 'GET_CLIENTS' });
+
+// Background SW
+chrome.runtime.onMessage.addListener((msg, _sender, respond) => {
+  if (msg.type === 'GET_CLIENTS') {
+    chrome.storage.local.get('clients').then(({ clients }) => {
+      respond(clients ?? []);
+    });
+    return true; // signal async response
+  }
+});
 ```
 
-Importing from this constant everywhere means changing the free tier is a one-file edit.
+The content script re-fetches only after a 5-minute cooldown, not on every mutation. Avoids hammering the background SW with round-trips during heavy DOM activity.
 
 ## What I'd Do Differently
 
-Gmail's DOM is brittle. Any update Google ships can break content script selectors. I've already had to patch selectors once. In v2, I'm planning to use Gmail's official Add-ons API for thread detection — more stable, but requires OAuth scope approval.
+Gmail's DOM is the main operational risk. Any update Google ships can break selectors. I've already patched once. Long-term, the Gmail Add-ons API would be more stable for thread detection — but it requires OAuth scope approval and a server-side component, which felt like overkill for an MVP.
+
+For now: integration tests against a saved snapshot of Gmail's HTML catch selector regressions before each release.
 
 ---
 
-**Chrome Web Store:** https://chromewebstore.google.com/detail/fooenikjagbabhodgpohljldfbpggagi
+**Chrome Web Store:** https://chromewebstore.google.com/detail/inboxsla/fooenikjagbabhodgpohljldfbpggagi
 
-If you manage client email and have ever missed a reply window, this is for you.
+If you manage client email and have ever let a thread sit longer than you meant to, this is for you.
