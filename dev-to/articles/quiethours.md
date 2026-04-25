@@ -1,107 +1,120 @@
 ---
-title: "Building a Local-Only Focus Time Protector for Google Calendar"
+title: "Auto-Block Focus Time in Google Calendar — Building a Schedule-Based Chrome Extension"
+description: "Using chrome.alarms and MutationObserver to inject focus-time overlays on Google Calendar without OAuth or cloud sync."
+tags: ["chromeextension", "javascript", "productivity", "notifications"]
 published: false
-publish_date: "2026-05-16"
-tags: ["chrome","javascript","webdev","productivity"]
+publish_date: "2026-06-16"
 devto_id: "3527737"
 ---
 
-Clockwise shut down its free plan. Most focus-time tools for Google Calendar require OAuth access and sync your calendar to their servers. I wanted something simpler: define quiet hours locally, and have the extension visually mark those blocks on my calendar — no cloud, no account, no data leaving my browser.
+Most focus-time tools for Google Calendar require OAuth access and sync your calendar data to their servers. Clockwise shut down its free tier. Reclaim is expensive. I wanted something simpler: define quiet hours locally, and have the extension visually block those times on my calendar — no cloud, no account, no data leaving my browser.
 
 That's [Quiethours](https://chromewebstore.google.com/detail/okdmecodmihlgbkeacmebdikolofccfa). Here's how it works technically.
 
 ## Architecture: Pure DOM Overlay
 
-The extension doesn't use the Google Calendar API. It doesn't need OAuth. It just injects a content script on `calendar.google.com` and overlays colored blocks on the existing calendar grid.
+Quiethours doesn't call the Google Calendar API. It injects a content script on `calendar.google.com` and paints colored overlay blocks directly onto the calendar grid.
 
-The approach: find the time-slot cells in the calendar DOM, identify which ones fall within the user's quiet hours, and inject a semi-transparent overlay element.
-
-```typescript
-function injectQuietOverlays(rules: QuietRule[]) {
-  const timeSlots = document.querySelectorAll('[data-time]');
-  timeSlots.forEach(slot => {
-    const timeAttr = slot.getAttribute('data-time'); // e.g. "10:00"
-    if (!timeAttr) return;
-
-    const [hours, minutes] = timeAttr.split(':').map(Number);
-    const totalMinutes = hours * 60 + minutes;
-
-    for (const rule of rules) {
-      if (isWithinRule(totalMinutes, rule)) {
-        applyOverlay(slot as HTMLElement, rule);
-        break;
-      }
-    }
-  });
-}
-```
-
-## Rule Configuration
-
-Each rule specifies the days and time range:
+Each focus rule stores:
 
 ```typescript
-interface QuietRule {
+interface FocusRule {
   id: string;
-  label: string;       // e.g. "Deep Work"
-  startTime: string;   // "09:00"
-  endTime: string;     // "12:00"
-  days: number[];      // [1,2,3,4,5] = Mon–Fri
-  color: string;       // hex color for the overlay
+  dayOfWeek: DayOfWeek[];  // [1,2,3,4,5] = Mon–Fri
+  startTime: string;        // 'HH:MM' 24h
+  endTime: string;
+  label: string;
+  color: string;            // hex overlay color
+  enabled: boolean;
 }
 ```
 
-Rules are stored in `chrome.storage.local`. The freemium limit is 1 rule for free.
+Rules live in `chrome.storage.local`. No server, no OAuth, no calendar scope.
 
-## Reacting to Calendar View Changes
+## Injecting Overlays on the Calendar Grid
 
-Google Calendar has multiple views: day, week, month, schedule. Each renders the time-slot grid differently. The extension uses a `MutationObserver` to detect when the main calendar content changes and re-runs the overlay injection:
+Google Calendar renders a time-slot grid for the day and week views. The content script queries the grid container and injects `<div>` overlay elements positioned to span the correct time range.
+
+The tricky part is finding the right container across Google Calendar's different views (day, week, month, schedule). I poll for the container with `setInterval` until it appears — Google Calendar hydrates the DOM asynchronously after navigation:
 
 ```typescript
-const calendarObserver = new MutationObserver(debounce(() => {
-  clearOverlays();
-  injectQuietOverlays(cachedRules);
-}, 200));
-
-calendarObserver.observe(
-  document.querySelector('[data-view-id]') ?? document.body,
-  { childList: true, subtree: true }
-);
+const waitForCalendar = setInterval(() => {
+  const root =
+    document.querySelector('[data-view-toggle]') ??
+    document.querySelector('div[role="main"]');
+  if (root) {
+    clearInterval(waitForCalendar);
+    observer.observe(root, { childList: true, subtree: false });
+    injectOverlays();
+  }
+}, 500);
 ```
 
-The `debounce` prevents thrashing — Calendar fires many DOM mutations during navigation animations.
+`subtree: false` here matters for performance — watching only the immediate children of the calendar root avoids triggering on every event card render inside the grid.
 
-## Notification Reminders via `chrome.alarms`
+## Reacting to View Changes
 
-The extension uses `chrome.alarms` to fire a reminder notification 15 minutes before a quiet block starts. The Service Worker registers alarms when rules change:
+Google Calendar is a SPA. When you navigate from week view to day view, the DOM swaps out without a page reload. The `MutationObserver` detects these changes and re-injects overlays:
 
 ```typescript
-async function scheduleAlarms(rules: QuietRule[]) {
-  await chrome.alarms.clearAll();
+const observer = new MutationObserver(() => {
+  removeOverlays();
+  injectOverlays();
+});
+```
 
-  const today = new Date().getDay(); // 0 = Sunday
-  for (const rule of rules) {
-    if (!rule.days.includes(today)) continue;
+`removeOverlays()` clears all elements tagged with the extension's data attribute before re-injecting. This prevents duplicate overlays when the calendar re-renders existing time slots.
 
-    const [h, m] = rule.startTime.split(':').map(Number);
-    const alarmTime = new Date();
-    alarmTime.setHours(h, m - 15, 0, 0);
+## `chrome.alarms` for Periodic Rule Checks
 
-    if (alarmTime > new Date()) {
-      chrome.alarms.create(`quiethours_${rule.id}`, {
-        when: alarmTime.getTime(),
+The background service worker runs a 1-minute recurring alarm to check whether a focus block is currently active:
+
+```typescript
+chrome.alarms.create(ALARM_NAME, { periodInMinutes: 1 });
+
+chrome.alarms.onAlarm.addListener(async (alarm) => {
+  if (alarm.name !== ALARM_NAME) return;
+  const [rules, settings] = await Promise.all([getRules(), getSettings()]);
+  const active = getActiveRule(rules);
+
+  if (active && _prevActiveRuleId !== active.id) {
+    // Focus block just started
+    _prevActiveRuleId = active.id;
+    if (settings.notificationsEnabled) {
+      chrome.notifications.create({
+        type: 'basic',
+        iconUrl: chrome.runtime.getURL('icons/icon128.png'),
+        title: `🌙 Focus time started`,
+        message: `${active.label} — ${active.startTime} to ${active.endTime}`,
       });
     }
+    await incrementUsageCount(); // for review-prompt threshold
+  } else if (!active && _prevActiveRuleId) {
+    // Focus block just ended
+    _prevActiveRuleId = null;
   }
-}
+});
 ```
 
-MV3 service workers don't stay alive, but `chrome.alarms` persists across SW restarts — the alarm fires the SW back into life when it's needed.
+`_prevActiveRuleId` is an in-memory variable in the service worker. MV3 service workers can be killed and restarted at any time, so this variable resets on each SW startup. In practice this means the "just started" notification might re-fire after a SW restart if a focus block is already active — acceptable behavior for a 1-minute alarm loop.
 
 ## Why No OAuth
 
-The most common question I got during testing: "Why doesn't it sync with my actual calendar events?" The answer is intentional: the overlay approach means the extension works with whatever is displayed on screen, requires no permissions beyond `storage` and `alarms`, and doesn't need the `https://www.googleapis.com/auth/calendar` scope.
+The most common question: "Why doesn't it read my real calendar events?"
 
-The tradeoff: if you have a real meeting during your quiet hours, the overlay appears over it. That's actually fine — you still know the block exists, and the meeting takes visual priority. The overlay is semi-transparent.
+The overlay approach means:
+- Zero permissions beyond `storage` and `alarms`
+- No `https://www.googleapis.com/auth/calendar` scope required
+- Works with any Google Calendar layout without needing API access
+
+The tradeoff: if you have a real meeting during a focus block, the overlay appears over it. That's intentional — the block is semi-transparent so the meeting is still visible underneath.
+
+## The 1-Minute Alarm and MV3 Lifecycle
+
+MV3 service workers are terminated when idle. `chrome.alarms` is one of the few APIs that reliably wakes the SW back up when needed. The 1-minute granularity is fine for this use case — if a focus block starts at 9:00, the notification fires at 9:00 or 9:01 depending on when the alarm last ticked.
+
+For exact-minute precision you'd need the service worker to stay alive or use a content script polling approach. For focus-time reminders, ±1 minute is acceptable.
+
+---
 
 [Install Quiethours from Chrome Web Store →](https://chromewebstore.google.com/detail/okdmecodmihlgbkeacmebdikolofccfa)

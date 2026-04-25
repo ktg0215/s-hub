@@ -1,88 +1,101 @@
 ---
-title: "I Built a Chrome Extension That Checks Visa Requirements for 190+ Countries Without Leaving Your Tab — EntryCheck"
+title: "I Built a Visa Requirement Overlay for Google Flights — Here's How the Chrome Extension Works"
+description: "Injecting visa requirement badges on Google Flights using a local JSON matrix, MutationObserver, and multi-selector destination extraction."
+tags: ["chromeextension", "javascript", "webdev", "travel"]
 published: false
-publish_date: "2026-05-18"
+publish_date: "2026-06-09"
 devto_id: "3532587"
-tags: ["chrome","javascript","webdev","travel"]
 ---
 
-Every time I plan a multi-country trip, I end up in the same annoying loop: open the foreign ministry website, navigate three layers of dropdowns, find the right passport/destination combination, then repeat for each country in my itinerary.
+Every time I plan a multi-country trip, I end up in the same loop: open the foreign ministry website, navigate three layers of dropdowns, find the right passport/destination combination, then repeat for every country on the itinerary.
 
-There's no reason this should require multiple tabs and five minutes of clicking. So I built **EntryCheck**.
+There's no reason this should require multiple tabs and five minutes of clicking. So I built **EntryCheck** — a Chrome extension that injects visa requirement badges directly onto Google Flights results.
 
-## What It Does
+## The Core Idea
 
-EntryCheck is a Chrome extension that gives you instant visa and entry requirement lookups directly in your browser popup. Select your nationality, pick a destination, and see:
+EntryCheck overlays colored status badges on flight destination cards while you browse Google Flights. You set your nationality once in the popup; the extension takes care of the rest.
 
-- **Visa status**: Visa-free / Visa on Arrival / eVisa / Visa required / Not admitted
-- **Maximum stay duration** in days
-- **Key entry conditions** and notes
-- **Color-coded badges** for at-a-glance scanning
+The five statuses:
+- 🟢 **Visa-free** — enter without a visa
+- 🟡 **Visa on Arrival** — get a stamp at the border
+- 🔵 **eVisa** — apply online before you fly
+- 🟠 **Visa required** — apply at an embassy
+- 🔴 **Not admitted** — entry is prohibited
 
-It also injects requirement overlays on Google Flights and Booking.com pages when it detects destination information — so you get visa data without leaving the booking flow.
+## Local JSON Matrix, Zero API Calls
 
-## Technical Highlights
-
-The extension is built with **WXT + React + TypeScript** and covers 190+ passport/destination combinations via a local JSON dataset. No external API calls for basic lookups — everything resolves client-side.
+The visa data lives in a local `visa-matrix.json` file bundled with the extension — 190+ passport/destination combinations, structured as a two-level lookup:
 
 ```typescript
-export type VisaStatus =
-  | 'visa_free'
-  | 'visa_on_arrival'
-  | 'e_visa'
-  | 'visa_required'
-  | 'not_admitted';
-
 export async function getVisaRequirement(
-  nationality: string,
-  destination: string
+  passport: string,
+  destination: string,
 ): Promise<VisaRequirement | null> {
-  const key = `${nationality}_${destination}`;
-  return VISA_DATA[key] ?? null;
+  const matrix = await loadVisaMatrix(); // lazy-loaded, cached after first call
+  const result = matrix[passport.toUpperCase()]?.[destination.toUpperCase()];
+  if (result) return result;
+  // EU block: if destination is an EU member, use the EU entry
+  if (isEUCountry(destination)) return matrix[passport.toUpperCase()]?.['EU'] ?? null;
+  return null;
 }
 ```
 
-Keeping the dataset local means the extension works offline and has zero latency on lookups.
+Lazy-loading prevents the 200KB JSON from blocking the content script at startup. The first lookup pays the parse cost; every subsequent lookup hits the cached object.
 
-**The content script** runs on `google.com/travel/*` and `booking.com/*`, using `MutationObserver` to watch for destination changes in the SPA and inject a badge when a match is found:
+No external API means no latency, no rate limits, and the extension works offline — useful in airports.
+
+## The Hard Part: Google Flights Is a SPA
+
+Google Flights is a single-page app. Destination names appear, change, and disappear without a full page reload, so `DOMContentLoaded` fires once and then nothing.
+
+The fix is `MutationObserver` with a 500ms debounce:
 
 ```typescript
-observer = new MutationObserver(() => {
-  const destination = extractDestination();
-  if (destination && destination !== lastDestination) {
-    lastDestination = destination;
-    injectBadge(destination);
-  }
+const observer = new MutationObserver(() => {
+  if (debounceTimer) clearTimeout(debounceTimer);
+  debounceTimer = setTimeout(() => injectBadges(nationality), 500);
 });
 observer.observe(document.body, { childList: true, subtree: true });
 ```
 
-Always call `observer.disconnect()` on cleanup — forgetting this is a common memory leak source in content scripts.
+Debouncing matters here. Google Flights fires dozens of micro-mutations per second during search animations and autocomplete. Without throttling, you'd call `injectBadges()` hundreds of times for a single search.
 
-## Free vs. Pro Tiers
+## Extracting Destination Text From an Obfuscated DOM
 
-| Feature | Free | Pro ($4/mo) |
-|---------|------|-------------|
-| Monthly lookups | 10 | Unlimited |
-| Multi-country comparison | — | ✓ |
-| Requirement change alerts | — | ✓ (email) |
+Google's DOM uses auto-generated class names that change between A/B test variants. I use a multi-selector waterfall with a fallback chain:
 
-The usage counter lives in `chrome.storage.local` and resets on the 1st of each month. When a Free user hits the cap, a paywall modal explains what they get by upgrading — no hard block, just a clear prompt.
+```typescript
+const selectors = [
+  '[jsname="ik4t5"]',           // flight destination text (most stable)
+  '[role="listitem"] h2',       // Travel explore cards
+  '[role="listitem"] h3',
+  '[aria-label*="Flight to"]',  // aria-label match
+  '[data-destination-name]',   // data attribute variant
+];
+```
 
-The $4/month price point was intentional: lower than a cup of coffee, and the value prop for frequent travelers is obvious. If you're planning a multi-destination trip and need to compare visa requirements across 5 countries at once, $4 is nothing.
+Each matched element is tagged with `data-entrycheck-injected` after processing to skip it on the next observer cycle — otherwise the badge would be re-injected on every DOM mutation.
 
-## Why "No External API for Basic Lookups"
+## Country Name → ISO Code
 
-I considered using a live travel API, but the tradeoffs weren't worth it:
+Destination text comes as human-readable names ("Japan", "Paris", "United States"). The visa matrix uses ISO 3166-1 alpha-2 codes ("JP", "FR", "US"). The `countryNameToCode` function maps between them using a bundled dictionary.
 
-1. **Latency** — any round-trip adds delay to what should be an instant lookup
-2. **Offline use** — airport WiFi is unreliable; the extension should work regardless
-3. **Cost** — most travel data APIs charge per call, which doesn't pair well with a low-priced subscription
+Partial matches help here: Google sometimes shows city names instead of countries ("Tokyo" → "JP", "Paris" → "FR"). The dictionary maps both.
 
-The downside is that the dataset needs periodic updates when visa agreements change. I'm planning a webhook-based update system for Pro users to get notified when a requirement in their saved destinations changes.
+## Cleanup
+
+Always disconnect observers when they're no longer needed:
+
+```typescript
+window.addEventListener('unload', () => {
+  observer.disconnect();
+});
+```
+
+Forgetting this is the most common memory leak in content scripts. With `subtree: true` watching `document.body`, a persistent observer accumulates a lot of internal bookkeeping.
 
 ---
 
 **Chrome Web Store:** https://chromewebstore.google.com/detail/gfbdmeieifamgheecbmdpadniofodkfa
 
-Travel researchers, digital nomads, or anyone who's ever spent 20 minutes figuring out whether they need a visa — give it a try.
+If you book international travel and have ever spent 20 minutes figuring out whether you need a visa, give it a try.
