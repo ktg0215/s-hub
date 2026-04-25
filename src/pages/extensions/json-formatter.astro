@@ -1,0 +1,81 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "JSONFormatter",
+  subtitle: "Interactive JSON Viewer for Raw JSON Pages",
+  tagline: "Automatically formats raw JSON pages into a collapsible, syntax-highlighted tree. Search keys and values, copy individual values, and collapse deep nests — all in your browser.",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Developer Tools",
+  lang: "EN/JP",
+  icon: "/ext-icons/json-formatter.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "JSONFormatter detects when your browser opens a raw JSON URL and replaces the plain text with a fully interactive tree view. Keys are color-coded blue, strings green, numbers orange, and booleans red — following the Catppuccin Mocha palette. Any object or array can be collapsed with one click, and count badges ({n} / [n]) keep context when sections are hidden. A toolbar provides search, Collapse All, Expand All, and Copy JSON buttons.";
+
+const features = [
+  { title: "Auto-Detection", desc: "Automatically activates on any page with a JSON content type or a raw JSON <pre> block — no manual toggling needed." },
+  { title: "Collapsible Tree", desc: "Click any ▼ toggle to collapse an object or array. Count badges show {n} keys or [n] items so you never lose track of what's hidden." },
+  { title: "Syntax Highlighting", desc: "Keys in blue, strings in green, numbers in orange, booleans and null in red — based on the Catppuccin Mocha color scheme." },
+  { title: "Search", desc: "Type in the search box to highlight all matching keys and values across the full tree instantly." },
+  { title: "Copy Buttons", desc: "Hover over any value to reveal a copy button. Use Copy JSON in the toolbar to copy the entire formatted document." },
+  { title: "Collapse All / Expand All", desc: "Instantly collapse the entire tree to see just top-level keys, or expand everything with a single toolbar button." },
+];
+
+const targetUsers = [
+  "Developers inspecting REST API responses directly in the browser",
+  "Backend engineers reading raw JSON config or data files",
+  "QA testers verifying API payloads without extra tooling",
+  "Anyone who regularly works with JSON URLs and wants readable output",
+];
+
+const screenshots = [
+  "/screenshots/json-formatter/screenshot-01.png",
+];
+
+const relatedProducts = [
+  { name: "FaviconDownloader", category: "Developer Tools", link: "/extensions/favicon-downloader/", icon: "/ext-icons/favicon-downloader.png" },
+  { name: "CodeSnapshot", category: "Developer Tools", link: "/extensions/code-snapshot/", icon: "/ext-icons/code-snapshot.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "JSONFormatter",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/json-formatter/",
+  featureList: "Auto JSON detection, Collapsible tree, Syntax highlighting, Search, Copy buttons, Collapse All / Expand All",
+};
+
+const faqItems = [
+  { question: "When does JSONFormatter activate?", answer: "JSONFormatter activates automatically when you navigate to a URL that returns a JSON content type, or when the page body contains a raw JSON string in a <pre> tag." },
+  { question: "Is JSONFormatter free?", answer: "Yes, completely free with no usage limits." },
+  { question: "What color scheme does JSONFormatter use?", answer: "JSONFormatter uses the Catppuccin Mocha dark palette: blue for keys, green for strings, orange for numbers, and red for booleans and null." },
+  { question: "Can I search inside the JSON?", answer: "Yes. Type any keyword in the search box to highlight all matching keys and values across the entire tree." },
+  { question: "Does JSONFormatter modify the original JSON?", answer: "No. JSONFormatter only changes how the page is displayed in your browser. The underlying JSON data is not altered." },
+  { question: "Does it work on JSON files opened locally?", answer: "JSONFormatter works on JSON pages loaded in Chrome, including local file:// URLs if you grant the permission in extension settings." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="JSONFormatter - Interactive JSON Tree Viewer for Chrome"
+  seoDescription="Automatically formats raw JSON pages into a collapsible syntax-highlighted tree. Search keys and values, copy individual items, collapse deep nests. Free Chrome extension."
+  seoKeywords="json formatter chrome extension, json viewer browser, format json page chrome, json tree view extension, json syntax highlight browser, raw json pretty print"
+/>
