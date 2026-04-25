@@ -1,0 +1,80 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "CodeSnapshot",
+  subtitle: "Beautiful Code Images from Your Browser",
+  tagline: "Select code on any page, right-click, and save it as a beautiful image. Carbon.now.sh style — six themes, font size, padding, and macOS window chrome.",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Developer Tools",
+  lang: "EN/JP",
+  icon: "/ext-icons/code-snapshot.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "CodeSnapshot adds a 'Save code as image' option to Chrome's right-click context menu. Select any code on a webpage — from GitHub, Stack Overflow, documentation, or anywhere — right-click, and the extension renders it as a polished PNG using the Canvas API. Choose from six themes (Dark, Light, Ocean, Sunset, Midnight, Forest), adjust font size (12/14/16px), padding, and toggle the macOS-style window chrome with traffic lights. No external services — everything renders locally in your browser.";
+
+const features = [
+  { title: "Right-Click to Save", desc: "Select any code text on any webpage, right-click, and choose 'Save code as image'. The PNG downloads immediately." },
+  { title: "6 Beautiful Themes", desc: "Dark, Light, Ocean, Sunset, Midnight, and Forest — each with a matching gradient background and code color palette." },
+  { title: "macOS Window Chrome", desc: "Toggle the traffic-light title bar to give your screenshots a professional look familiar to developers everywhere." },
+  { title: "Canvas API — No Dependencies", desc: "All rendering happens locally via the Canvas API. No external services, no network requests, no watermarks." },
+  { title: "Popup Theme Picker", desc: "Change your preferred theme, font size, padding, and window style from the popup. Settings persist across sessions." },
+  { title: "Completely Free", desc: "All themes and features are free with no usage limits." },
+];
+
+const targetUsers = [
+  "Developers sharing code snippets on Twitter, Bluesky, or LinkedIn",
+  "Technical writers creating documentation with code examples",
+  "Teachers and educators explaining code in presentations",
+  "Anyone who wants to share code beautifully without copy-pasting into Carbon",
+];
+
+const screenshots = [
+  "/screenshots/code-snapshot/screenshot-01.png",
+];
+
+const relatedProducts = [
+  { name: "TextStats", category: "Productivity", link: "/extensions/text-stats/", icon: "/ext-icons/text-stats.png" },
+  { name: "Procshot", category: "Developer Tools", link: "/extensions/procshot/", icon: "/ext-icons/procshot.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "CodeSnapshot",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/code-snapshot/",
+  featureList: "Right-click to save, 6 themes, macOS window chrome, Canvas API rendering, Popup theme picker, Completely free",
+};
+
+const faqItems = [
+  { question: "How do I use CodeSnapshot?", answer: "Select any code text on a webpage, right-click to open the context menu, and choose 'Save code as image'. The PNG file downloads immediately to your browser's download folder." },
+  { question: "Does CodeSnapshot work on GitHub and Stack Overflow?", answer: "Yes. CodeSnapshot works on any webpage where you can select text, including GitHub, Stack Overflow, documentation sites, and your own local dev tools." },
+  { question: "Does it send my code to a server?", answer: "No. All rendering uses the Canvas API in your browser. Your code never leaves your device." },
+  { question: "Is CodeSnapshot free?", answer: "Yes, all features including all 6 themes are completely free with no usage limits." },
+  { question: "How is this different from Carbon (carbon.now.sh)?", answer: "Carbon requires opening a separate website. CodeSnapshot works directly from the right-click menu on any page — faster for quick snippets, with no copy-pasting needed." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="CodeSnapshot - Save Code as Beautiful Images | Chrome Extension"
+  seoDescription="Select code, right-click, save as a beautiful PNG. 6 themes including dark and light. macOS window chrome. No external services. Free Chrome extension for developers."
+  seoKeywords="code screenshot chrome extension, save code as image, carbon now sh alternative, code image generator, beautiful code snippet chrome, developer screenshot tool"
+/>
