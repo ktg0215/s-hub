@@ -1,10 +1,11 @@
 ---
 title: "I Launched on Product Hunt, Got Zero Votes, and Did It Again Seven Weeks Later"
 description: "What actually changes when you turn a 0-vote PH launch into a proper do-over: onboarding, i18n, stability, and why I didn't change the price."
-tags: ["indiehacking", "producthunt", "chromeextension", "buildinpublic"]
+tags: ["indiehacking","producthunt","chromeextension","buildinpublic"]
 published: false
 publish_date: "2026-04-29"
 canonical_url: ""
+devto_id: "3550219"
 ---
 
 I launched Procshot on Product Hunt on a Friday. March 6th. It got zero votes.

@@ -5,6 +5,7 @@ tags: ["chrome","javascript","webdev","data"]
 published: false
 publish_date: "2026-05-23"
 canonical_url: ""
+devto_id: "3550210"
 ---
 
 Most Chrome extensions that need data fall into one of two patterns: they call an external API, or they store a small amount of user-specific data locally. [EntryCheck](https://chromewebstore.google.com/detail/gfbdmeieifamgheecbmdpadniofodkfa) does neither. It bundles a static dataset of visa requirements for 190+ passport/destination combinations directly into the extension and resolves every lookup client-side with zero network requests.
