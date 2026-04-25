@@ -1,0 +1,71 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "DownloadMap",
+  subtitle: "Find All Downloads",
+  tagline: "Scan any page for downloadable files — PDFs, ZIPs, videos, and more. One-click download or grab them all at once.",
+  price: "Free",
+  status: "Available",
+  chromeUrl: "",
+  edgeUrl: "",
+  category: "Productivity",
+  lang: "EN",
+  icon: "/ext-icons/DownloadMap.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "DownloadMap automatically scans the current page for every downloadable file link — PDFs, ZIP archives, videos, audio files, spreadsheets, Word documents, and more. Open the popup to see a full list organized by file type. Download any file individually with one click, or check multiple files and download them all at once.";
+
+const features = [
+  { title: "Auto-Scan on Open", desc: "As soon as you open the popup, DownloadMap has already scanned the page and listed every downloadable link it found." },
+  { title: "Bulk Download", desc: "Select multiple files with checkboxes and click 'Download' once to queue them all simultaneously in your browser." },
+  { title: "Filter by Type", desc: "When a page has many files, use the filter tabs to show only PDFs, only videos, only archives, and so on." },
+  { title: "20+ File Formats", desc: "Detects PDF, ZIP, RAR, 7Z, MP4, MOV, MP3, WAV, DOCX, XLSX, CSV, PNG, EPUB, APK, and many more extensions plus download-attribute links." },
+];
+
+const targetUsers = [
+  "Researchers downloading papers from academic databases",
+  "Professionals grabbing docs and reports from company portals",
+  "Developers collecting release archives from project pages",
+  "Anyone who needs to batch-download files from a resource page",
+];
+
+const screenshots = [
+  "/screenshots/downloadmap/screenshot-01.png",
+  "/screenshots/downloadmap/screenshot-02.png",
+  "/screenshots/downloadmap/screenshot-03.png",
+  "/screenshots/downloadmap/screenshot-04.png",
+  "/screenshots/downloadmap/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "LinkPreview", category: "Productivity", link: "/extensions/linkpreview/", icon: "/ext-icons/LinkPreview.png" },
+  { name: "MeetingLink", category: "Productivity", link: "/extensions/meetinglink/", icon: "/ext-icons/MeetingLink.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: extension.name,
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="DownloadMap — Find & Bulk Download Files on Any Page"
+  seoDescription="Auto-detect PDFs, ZIPs, videos, docs and more on any webpage. Download individually or all at once. Free Chrome extension."
+  seoKeywords="download manager, pdf downloader, bulk download, file finder, chrome extension, productivity"
+/>

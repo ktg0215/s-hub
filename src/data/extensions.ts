@@ -400,6 +400,20 @@ export const categories: Category[] = [
         url: "/extensions/linkpreview/",
         icon: "/ext-icons/LinkPreview.png",
       },
+      {
+        name: "DownloadMap",
+        description: "Scan any page for downloadable files — PDFs, ZIPs, videos, docs, and more. One-click download or grab them all at once.",
+        price: "Free",
+        url: "/extensions/downloadmap/",
+        icon: "/ext-icons/DownloadMap.png",
+      },
+      {
+        name: "EmojiPicker",
+        description: "Search and copy any emoji in seconds. Press Alt+Shift+E to open, type to search, click to copy. Includes recent history.",
+        price: "Free",
+        url: "/extensions/emojipicker/",
+        icon: "/ext-icons/EmojiPicker.png",
+      },
     ],
   },
   {

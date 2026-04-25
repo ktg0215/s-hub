@@ -1,0 +1,65 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "EmojiPicker",
+  subtitle: "Quick Emoji Search & Copy",
+  tagline: "Search and copy any emoji in seconds. Press Alt+Shift+E to open, type to search, click to copy.",
+  price: "Free",
+  status: "Available",
+  chromeUrl: "",
+  edgeUrl: "",
+  category: "Productivity",
+  lang: "EN",
+  icon: "/ext-icons/EmojiPicker.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "EmojiPicker puts the full emoji library at your fingertips without leaving your current tab. Press Alt+Shift+E to open the popup instantly, type any keyword to search across all emoji names and tags, and click to copy to your clipboard. Your recently used emojis are always one click away in the Recent tab.";
+
+const features = [
+  { title: "Instant Search", desc: "Type 'smile', 'fire', 'party', or any keyword to filter the emoji grid in real time. Searches across emoji names and synonyms." },
+  { title: "Recent History", desc: "Your last 30 used emojis appear in the Recent tab so your go-to emojis are always one click away." },
+  { title: "Category Tabs", desc: "Browse by Smileys, Gestures, Hearts, Animals, Food, Activities, Objects, and Symbols — over 400 emojis organized." },
+  { title: "Keyboard Shortcut", desc: "Press Alt+Shift+E to open from anywhere, without leaving your document, email, or chat window." },
+];
+
+const targetUsers = [
+  "Anyone who uses emojis frequently in writing or chat",
+  "Marketers and social media managers",
+  "Developers writing docs, comments, or changelogs",
+  "Teams communicating in Slack, Notion, or email",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "DownloadMap", category: "Productivity", link: "/extensions/downloadmap/", icon: "/ext-icons/DownloadMap.png" },
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: extension.name,
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="EmojiPicker — Quick Emoji Search & Copy for Chrome"
+  seoDescription="Search and copy any emoji instantly with Alt+Shift+E. 400+ emojis, instant search, recent history. Free Chrome extension."
+  seoKeywords="emoji picker, emoji search, copy emoji, clipboard, chrome extension, productivity, keyboard shortcut"
+/>
