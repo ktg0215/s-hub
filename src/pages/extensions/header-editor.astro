@@ -1,0 +1,83 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "Header Editor",
+  subtitle: "Custom HTTP Request Headers",
+  tagline: "Add custom HTTP request headers to any website automatically. Set Authorization tokens, override Content-Type, inject debug headers — all via URL patterns with no DevTools needed.",
+  price: "Free / Pro $3.99/mo",
+  status: "Available",
+  category: "Developer Tools",
+  lang: "EN/JA",
+  icon: "/ext-icons/HeaderEditor.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "Header Editor uses Chrome's declarativeNetRequest API to inject custom HTTP request headers into any matching request — automatically, on every page load. Define a rule with a header name, value, operation (Set/Append/Remove), and a URL pattern. Rules are applied by the browser itself before the request leaves your machine. Toggle rules on and off without deleting them — perfect for switching between dev and production auth tokens. The free plan supports up to 5 rules. Pro ($3.99/month) removes the limit entirely.";
+
+const features = [
+  { title: "declarativeNetRequest — No Content Script", desc: "Headers are injected by the Chrome browser engine itself, not a content script. This means no page-side code execution, maximum compatibility" },
+  { title: "3 Operations: Set / Append / Remove", desc: "Set overwrites the header, Append adds alongside existing values, Remove strips the header entirely from the request" },
+  { title: "URL Pattern Targeting", desc: "Use wildcard patterns to target all sites (*), a domain (*://*.example.com/*), or a specific API path" },
+  { title: "Instant Toggle", desc: "Enable or disable any rule with one click. Changes apply immediately to all subsequent requests — no reload needed" },
+  { title: "Edit in Place", desc: "Click Edit on any rule to update the name, URL pattern, header, or value without recreating it from scratch" },
+  { title: "Free 5 Rules / Pro Unlimited", desc: "Start free with 5 rules. Upgrade to Pro for unlimited rules and all future features" },
+];
+
+const targetUsers = [
+  "Front-end developers testing APIs that require authentication headers",
+  "QA engineers injecting debug identifiers (X-Test-User, X-Feature-Flag) into requests",
+  "Backend developers overriding Content-Type or Accept headers during integration testing",
+  "DevOps engineers pinning API versions via custom headers during staged rollouts",
+];
+
+const screenshots = [
+  "/screenshots/header-editor/screenshot-1.png",
+  "/screenshots/header-editor/screenshot-2.png",
+  "/screenshots/header-editor/screenshot-3.png",
+  "/screenshots/header-editor/screenshot-4.png",
+  "/screenshots/header-editor/screenshot-5.png",
+];
+
+const relatedProducts = [
+  { name: "Request Monitor", category: "Developer Tools", link: "/extensions/request-monitor/", icon: "/ext-icons/RequestMonitor.png" },
+  { name: "Storage Inspector", category: "Developer Tools", link: "/extensions/storage-inspector/", icon: "/ext-icons/StorageInspector.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Header Editor",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/header-editor/",
+  featureList: "Set Headers, Append Headers, Remove Headers, URL Pattern, Toggle Rules, declarativeNetRequest",
+};
+
+const faqItems = [
+  { question: "How does Header Editor inject headers?", answer: "It uses Chrome's declarativeNetRequest API with modifyHeaders rules. This means the browser engine handles the injection — no content script runs on the page. Rules persist across page loads and browser restarts." },
+  { question: "Does it affect HTTPS requests?", answer: "Yes. declarativeNetRequest operates at the network layer before the request leaves the browser, regardless of protocol." },
+  { question: "Will sites know I'm modifying headers?", answer: "The server receives the modified headers as part of the normal HTTP request. There's no indication from the browser that the headers were injected by an extension." },
+  { question: "Is Header Editor free?", answer: "The free plan supports up to 5 header rules. Pro ($3.99/month) removes the limit for unlimited rules." },
+  { question: "Can I target only a specific subdomain?", answer: "Yes. Use URL patterns like *://api.example.com/* to target a specific subdomain, or *://*.example.com/* to match all subdomains of a domain." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="Header Editor - Custom HTTP Request Headers | Chrome Extension"
+  seoDescription="Add custom HTTP request headers to any site. Set Authorization tokens, override Content-Type, inject debug headers per URL pattern. declarativeNetRequest. Free: 5 rules, Pro: unlimited."
+  seoKeywords="custom request headers chrome, authorization header extension, modify http headers chrome, declarativenetrequest headers, api header injection chrome extension"
+/>

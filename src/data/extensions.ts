@@ -133,6 +133,13 @@ export const categories: Category[] = [
         icon: "/ext-icons/ZenRead.webp",
       },
       {
+        name: "Header Editor",
+        description: "Add custom HTTP request headers to any site. Set Authorization tokens, Content-Type, or debug headers per URL pattern. Uses declarativeNetRequest. Free: 5 rules. Pro: unlimited.",
+        price: "Free / Pro $3.99/mo",
+        url: "/extensions/header-editor/",
+        icon: "/ext-icons/HeaderEditor.png",
+      },
+      {
         name: "Request Monitor",
         description: "Monitor XHR and fetch requests for the current tab in real time. Method/status color coding, duration, size, URL filter, XHR/Fetch type filter. No DevTools needed.",
         price: "Free",
