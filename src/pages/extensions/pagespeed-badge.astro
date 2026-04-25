@@ -1,0 +1,84 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "PageSpeed Badge",
+  subtitle: "Core Web Vitals Monitor",
+  tagline: "See LCP, FCP, CLS, and TTFB scores for any webpage in real time. Color-coded toolbar badge tells you instantly — green ✓ Good, amber ~ Needs work, red ✗ Poor.",
+  price: "Free",
+  status: "Available",
+  category: "Developer Tools",
+  lang: "EN/JA/KO/ES",
+  icon: "/ext-icons/PageSpeedBadge.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "PageSpeed Badge automatically measures Core Web Vitals on every webpage you visit using the browser's native PerformanceObserver API — the same API used by Google Lighthouse. LCP (Largest Contentful Paint), FCP (First Contentful Paint), CLS (Cumulative Layout Shift), and TTFB (Time to First Byte) are collected as they become available. The toolbar icon updates with a color-coded badge: ✓ green for Good, ~ amber for Needs Improvement, ✗ red for Poor, following Google's official thresholds. Click the icon to open a detailed popup with all four metrics, progress bars showing how far each metric is from its threshold, and a quick reference guide. No external requests, no sampling — all measurements happen locally in your browser.";
+
+const features = [
+  { title: "Real-time PerformanceObserver", desc: "Measures LCP, FCP, CLS, and TTFB using the native PerformanceObserver API — no page reload required" },
+  { title: "Color-coded Toolbar Badge", desc: "✓ green = Good, ~ amber = Needs Improvement, ✗ red = Poor — see performance at a glance without opening the popup" },
+  { title: "Detailed Metrics Popup", desc: "Click the icon for a full breakdown: value, progress bar, and individual rating for each metric" },
+  { title: "Google's Official Thresholds", desc: "LCP ≤2.5s, FCP ≤1.8s, CLS ≤0.1 — the same standards used by Lighthouse and Google Search Console" },
+  { title: "Per-tab Tracking", desc: "Each browser tab has independent metrics. Navigate and compare without interference between tabs" },
+  { title: "Fully Local — No Requests", desc: "All measurements stay in your browser. No data is sent to any server, no sampling, no account needed" },
+];
+
+const targetUsers = [
+  "Front-end developers who want instant performance feedback while coding",
+  "SEO specialists who need to check Core Web Vitals on client sites",
+  "QA engineers monitoring performance regressions during development",
+  "Product managers who want to see how their pages perform in real conditions",
+  "Anyone curious about why a webpage feels slow or jittery",
+];
+
+const screenshots = [
+  "/screenshots/pagespeed-badge/screenshot-1.png",
+  "/screenshots/pagespeed-badge/screenshot-2.png",
+  "/screenshots/pagespeed-badge/screenshot-3.png",
+  "/screenshots/pagespeed-badge/screenshot-4.png",
+  "/screenshots/pagespeed-badge/screenshot-5.png",
+];
+
+const relatedProducts = [
+  { name: "SmartSelect", category: "Productivity", link: "/extensions/smartselect/", icon: "/ext-icons/SmartSelect.png" },
+  { name: "QuickDict", category: "Productivity", link: "/extensions/quickdict/", icon: "/ext-icons/QuickDict.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "PageSpeed Badge",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/pagespeed-badge/",
+  featureList: "LCP, FCP, CLS, TTFB, PerformanceObserver, Color Badge, Google Thresholds",
+};
+
+const faqItems = [
+  { question: "Is PageSpeed Badge free?", answer: "Yes, completely free with no Pro plan. All features are available to everyone." },
+  { question: "How does it measure Core Web Vitals?", answer: "It uses the browser's native PerformanceObserver API to collect metrics as they naturally occur while you browse. This is the same method used by Google's Lighthouse and Chrome DevTools." },
+  { question: "Is this the same as Google Lighthouse?", answer: "PageSpeed Badge measures real-user metrics (field data) in your browser session. Lighthouse simulates a load from scratch. The thresholds are the same, but the numbers may differ because they measure different things." },
+  { question: "Does it slow down my browser?", answer: "No. PerformanceObserver is a lightweight browser API designed to have near-zero performance impact. The extension itself has no heavy dependencies." },
+  { question: "Can I see metrics for all open tabs?", answer: "Each tab has its own independent metrics. The toolbar badge always shows the metrics for the currently active tab." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="PageSpeed Badge - Core Web Vitals Monitor | Chrome Extension"
+  seoDescription="See LCP, FCP, CLS, and TTFB for any webpage in real time. Color-coded toolbar badge. Based on Google's official thresholds. 100% free, no account needed."
+  seoKeywords="core web vitals chrome extension, LCP FCP CLS monitor, pagespeed monitor, lighthouse alternative, web performance badge, cwv badge"
+/>

@@ -133,6 +133,13 @@ export const categories: Category[] = [
         icon: "/ext-icons/ZenRead.webp",
       },
       {
+        name: "PageSpeed Badge",
+        description: "See LCP, FCP, and CLS scores for any webpage in real time. Color-coded badge on the toolbar icon — green ✓, amber ~, or red ✗. Click for full metrics breakdown.",
+        price: "Free",
+        url: "/extensions/pagespeed-badge/",
+        icon: "/ext-icons/PageSpeedBadge.png",
+      },
+      {
         name: "SmartSelect",
         description: "Select any text to instantly search Google, Wikipedia, or translate with DeepL. Add your own custom URL actions. Floating action bar with shadow DOM.",
         price: "Free / Pro $2.99/mo",
