@@ -1,0 +1,80 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "WebRSS",
+  subtitle: "RSS Feed Detector for Chrome",
+  tagline: "Automatically detects RSS and Atom feeds embedded in any webpage. Copy URL, open feed, or save feeds to your list. Badge shows feed count.",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Productivity",
+  lang: "EN/JP",
+  icon: "/ext-icons/web-rss.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "WebRSS scans every page you visit for embedded RSS and Atom feeds — the standard link tags that most blogs, news sites, and podcasts include in their HTML. When it finds feeds, it updates the toolbar badge with the count so you always know at a glance whether a site has a subscribable feed. Open the popup to see all detected feeds, copy their URLs to paste into your RSS reader, or save them to your persistent feed list for later reference.";
+
+const features = [
+  { title: "Automatic Feed Detection", desc: "Detects RSS and Atom feeds from <link rel=\"alternate\"> tags on every page you visit. Works with blogs, news sites, podcasts, and more." },
+  { title: "Toolbar Badge Counter", desc: "The extension icon badge shows the number of feeds found on the current page — red badge for RSS, purple for Atom." },
+  { title: "Copy Feed URL", desc: "Copy any feed URL to your clipboard with one click and paste it into your preferred RSS reader (Feedly, Inoreader, NetNewsWire, etc.)." },
+  { title: "Open Feed Directly", desc: "Click Open to view the raw feed XML in a new tab — useful for verifying feed contents before subscribing." },
+  { title: "Saved Feeds List", desc: "Save feeds to a persistent list and access them from the Saved tab. Remove feeds when no longer needed." },
+  { title: "Completely Free", desc: "All features are free with no limits. No account required." },
+];
+
+const targetUsers = [
+  "RSS readers who want to quickly check if a site has a subscribable feed",
+  "News junkies who aggregate content from multiple sites",
+  "Developers building RSS aggregators or feed parsers",
+  "Anyone who uses Feedly, Inoreader, or another RSS reader regularly",
+];
+
+const screenshots = [
+  "/screenshots/web-rss/screenshot-01.png",
+];
+
+const relatedProducts = [
+  { name: "ReadMark", category: "Productivity", link: "/extensions/readmark/", icon: "/ext-icons/readmark.png" },
+  { name: "PageMemo", category: "Productivity", link: "/extensions/pagememo/", icon: "/ext-icons/pagememo.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "WebRSS",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/web-rss/",
+  featureList: "RSS Atom feed detection, Badge counter, Copy URL, Open feed, Saved feeds list",
+};
+
+const faqItems = [
+  { question: "How does WebRSS detect RSS feeds?", answer: "WebRSS scans the page's HTML for <link rel=\"alternate\"> tags with RSS, Atom, or XML MIME types. These are standard tags that most sites with feeds include automatically." },
+  { question: "Which RSS readers work with WebRSS?", answer: "WebRSS copies the feed URL to your clipboard, so it works with any RSS reader: Feedly, Inoreader, NetNewsWire, Reeder, NewsBlur, and others. Just copy the URL and paste it into your reader's subscribe dialog." },
+  { question: "Is WebRSS free?", answer: "Yes, WebRSS is completely free with no usage limits or Pro tier." },
+  { question: "What's the difference between RSS and Atom feeds?", answer: "Both are XML-based feed formats used to distribute content. RSS is more common; Atom is a slightly newer standard. WebRSS detects both and labels them in the popup." },
+  { question: "Does WebRSS read my browsing history?", answer: "No. WebRSS only scans the current page's HTML for feed link tags. It does not access your browsing history or read page content." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="WebRSS - RSS Feed Detector Chrome Extension"
+  seoDescription="Automatically detect RSS and Atom feeds on any webpage. Badge shows feed count. Copy URL to any RSS reader or save feeds for later. Free Chrome extension."
+  seoKeywords="rss feed detector chrome, find rss feed extension, atom feed finder, rss subscribe chrome extension, feedly chrome helper, rss reader chrome"
+/>

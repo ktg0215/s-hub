@@ -1,0 +1,85 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "TextStats",
+  subtitle: "Word Count & Reading Time",
+  tagline: "Instant word count, character count, and reading time for selected text or the full page. Floating badge on selection. Japanese-aware.",
+  price: "Free",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Productivity",
+  lang: "EN/JP",
+  icon: "/ext-icons/text-stats.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "TextStats adds two layers of text analysis to your browser. First, a floating badge: whenever you select text on any page, a small badge appears above your selection showing word count, character count, and estimated reading time — then disappears after 4 seconds without any interaction. Second, a popup: click the extension icon to get a full breakdown of the current page (characters, words, paragraphs, links, images, and reading time), with a one-click copy button. TextStats is fully Japanese-aware, counting CJK characters individually at 500 characters per minute.";
+
+const features = [
+  { title: "Floating Badge on Selection", desc: "Select any text and a badge instantly appears showing word count, character count, and reading time. Disappears after 4 seconds." },
+  { title: "Full Page Stats Popup", desc: "Click the icon to get 6 stats for the entire page: characters, words, paragraphs, links, images, and reading time." },
+  { title: "Japanese (CJK) Aware", desc: "CJK characters are counted individually at 500 CPM. Latin text uses 200 WPM. Mixed text combines both calculations." },
+  { title: "Copy Stats", desc: "One click copies all stats as a plain-text block to your clipboard — ready to paste into a document or Slack." },
+  { title: "Zero Configuration", desc: "No settings, no accounts, no permissions beyond activeTab. Install and it works everywhere immediately." },
+  { title: "Completely Free", desc: "All features are free with no usage limits or Pro tier." },
+];
+
+const targetUsers = [
+  "Writers tracking article length and reading time",
+  "Content editors checking page word counts",
+  "Japanese content creators monitoring character counts",
+  "Researchers estimating how long a page will take to read",
+];
+
+const screenshots = [
+  "/screenshots/text-stats/screenshot-01.png",
+  "/screenshots/text-stats/screenshot-02.png",
+  "/screenshots/text-stats/screenshot-03.png",
+  "/screenshots/text-stats/screenshot-04.png",
+  "/screenshots/text-stats/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "CopyEnhancer", category: "Productivity", link: "/extensions/copy-enhancer/", icon: "/ext-icons/copy-enhancer.png" },
+  { name: "SnippetVault", category: "Productivity", link: "/extensions/snippetvault/", icon: "/ext-icons/snippetvault.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "TextStats",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/text-stats/",
+  screenshot: "https://dev-tools-hub.xyz/screenshots/text-stats/screenshot-01.png",
+  featureList: "Floating badge on selection, Full page stats, Japanese CJK aware, Copy stats, Zero configuration, Completely free",
+};
+
+const faqItems = [
+  { question: "What does the floating badge show?", answer: "When you select text on any webpage, TextStats shows a small badge above your selection with the word count, character count, and estimated reading time. It disappears automatically after 4 seconds." },
+  { question: "How does TextStats handle Japanese text?", answer: "Japanese, Chinese, and Korean (CJK) characters are counted individually — each character counts as one word. Reading speed is calculated at 500 characters per minute for CJK text and 200 words per minute for Latin text." },
+  { question: "Is TextStats free?", answer: "Yes, TextStats is completely free with no usage limits, no Pro tier, and no ads." },
+  { question: "What does the popup show?", answer: "The popup shows 6 stats for the current page: character count, word count, paragraph count, link count, image count, and estimated reading time. You can copy all stats to your clipboard with one click." },
+  { question: "Does TextStats need any special permissions?", answer: "TextStats uses the activeTab and scripting permissions to read the current page's text content when you open the popup. It does not read your pages in the background or send any content to servers." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="TextStats - Word Count & Reading Time Chrome Extension"
+  seoDescription="Instant word count, character count, and reading time for selected text or the full page. Floating badge on selection. Japanese CJK aware. Free Chrome extension."
+  seoKeywords="word count chrome extension, reading time extension, character count, text statistics, japanese word count, floating word counter, page word count chrome"
+/>
