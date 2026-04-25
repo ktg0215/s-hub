@@ -1,0 +1,80 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "SearchHistory",
+  subtitle: "Search Query Manager for Chrome",
+  tagline: "Browse, search, and bookmark your Google, Yahoo, Bing, and DuckDuckGo search history — all in one popup.",
+  price: "Free / Pro $2.99/mo",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Productivity",
+  lang: "EN/JP",
+  icon: "/ext-icons/search-history.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "SearchHistory turns Chrome's hidden search history into a useful tool. It reads your browser history, extracts the search queries you typed on Google, Yahoo!, Bing, and DuckDuckGo, and displays them in a clean popup with relative timestamps. Search within your history to find a past query instantly, bookmark frequent searches with one click, and re-run any search directly from the popup. Pro users get unlimited history depth and CSV export.";
+
+const features = [
+  { title: "Multi-Engine Support", desc: "Extracts search queries from Google, Yahoo!, Bing, and DuckDuckGo. Queries are deduplicated and sorted by recency." },
+  { title: "Instant Filter", desc: "Type in the search box to filter your history in real time — find any past search in under a second." },
+  { title: "Bookmark Searches", desc: "Star any query to save it to your bookmarks tab. Bookmarks persist across sessions via Chrome storage." },
+  { title: "Re-Run with One Click", desc: "Click the arrow button on any result to open the search in a new tab, using the original engine." },
+  { title: "Unlimited History (Pro)", desc: "Free plan shows the last 50 unique queries. Pro unlocks the full history depth." },
+  { title: "CSV Export (Pro)", desc: "Export your full search history to CSV with query, engine, URL, and timestamp columns." },
+];
+
+const targetUsers = [
+  "Researchers who need to find a search they ran days ago",
+  "Power users who want to track their own search patterns",
+  "Writers and analysts who reference past queries frequently",
+  "Anyone who has lost a search term they know they typed before",
+];
+
+const screenshots = [
+  "/screenshots/search-history/screenshot-01.png",
+];
+
+const relatedProducts = [
+  { name: "TabOrganizer", category: "Productivity", link: "/extensions/tab-organizer/", icon: "/ext-icons/tab-organizer.png" },
+  { name: "ReadMark", category: "Productivity", link: "/extensions/readmark/", icon: "/ext-icons/readmark.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "SearchHistory",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/search-history/",
+  featureList: "Multi-engine search history, Instant filter, Bookmark searches, Re-run searches, Unlimited history, CSV export",
+};
+
+const faqItems = [
+  { question: "What search engines does SearchHistory support?", answer: "SearchHistory supports Google, Yahoo!, Bing, and DuckDuckGo. It extracts the query parameter from matching URLs in your browser history." },
+  { question: "Is SearchHistory free?", answer: "Yes. The free plan shows your last 50 unique search queries with full filter and bookmark support. Pro ($2.99/mo) unlocks unlimited history and CSV export." },
+  { question: "Does SearchHistory track my searches in real time?", answer: "No. SearchHistory reads your existing Chrome browser history on demand when you open the popup. It does not monitor your browsing in the background." },
+  { question: "Does SearchHistory send my history to a server?", answer: "No. All data stays in your browser. The only external calls are aggregated GA4 analytics events — your search queries are never transmitted." },
+  { question: "How is SearchHistory different from Chrome's built-in history?", answer: "Chrome's history shows full URLs. SearchHistory extracts and deduplicates just the search queries, lets you filter them instantly, and lets you bookmark and re-run them with a single click." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="SearchHistory - Browse & Bookmark Your Google, Yahoo, Bing Search History"
+  seoDescription="Find past searches instantly. SearchHistory extracts your Google, Yahoo, Bing search queries and lets you filter, bookmark, and re-run them from a popup."
+  seoKeywords="search history chrome extension, google search history manager, find past searches chrome, search query bookmark, bing yahoo search history, browser history search"
+/>

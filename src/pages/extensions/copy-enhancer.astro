@@ -1,0 +1,85 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "CopyEnhancer",
+  subtitle: "Clean & Format Copied Text",
+  tagline: "Strip HTML, fix whitespace, convert to Markdown, format JSON, or change case — all from your clipboard in seconds.",
+  price: "Free / Pro",
+  status: "Coming Soon",
+  chromeUrl: "",
+  category: "Productivity",
+  lang: "EN/JP",
+  icon: "/ext-icons/copy-enhancer.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "CopyEnhancer cleans up text the moment you copy it. Paste messy web text into the popup — or click 'Read Clipboard' to load it automatically — choose a transform mode, and copy the result. Free users get four modes: Clean (strips HTML tags and collapses whitespace), UPPER, lower, and Title Case. Pro unlocks Markdown conversion (turns rich HTML into clean Markdown syntax) and JSON pretty-printing.";
+
+const features = [
+  { title: "Clean Mode", desc: "Strip HTML tags, decode entities (&amp;, &lt;, etc.), and collapse extra whitespace and blank lines into clean plain text." },
+  { title: "Case Conversion", desc: "Instantly switch between UPPERCASE, lowercase, and Title Case with a single click." },
+  { title: "HTML → Markdown (Pro)", desc: "Convert h1–h4, bold, italic, code, links, and lists from HTML to proper Markdown syntax." },
+  { title: "JSON Pretty-Print (Pro)", desc: "Take minified or compressed JSON from an API response or config and format it with proper indentation." },
+  { title: "Read Clipboard", desc: "Click 'Read Clipboard' to load the current clipboard contents automatically — no manual paste required." },
+  { title: "Instant Preview", desc: "Results appear immediately as you type or switch modes. Copy with one click — the button turns green to confirm." },
+];
+
+const targetUsers = [
+  "Developers copying JSON from API responses who need readable output",
+  "Writers pasting content from websites that need HTML stripped",
+  "Note-takers converting web content to Markdown for Obsidian or Notion",
+  "Anyone who frequently copies messy text and needs it cleaned up fast",
+];
+
+const screenshots = [
+  "/screenshots/copy-enhancer/screenshot-01.png",
+  "/screenshots/copy-enhancer/screenshot-02.png",
+  "/screenshots/copy-enhancer/screenshot-03.png",
+  "/screenshots/copy-enhancer/screenshot-04.png",
+  "/screenshots/copy-enhancer/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "DataBridge", category: "Developer Tools", link: "/extensions/databridge/", icon: "/ext-icons/databridge.png" },
+  { name: "SnippetVault", category: "Productivity", link: "/extensions/snippetvault/", icon: "/ext-icons/snippetvault.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "CopyEnhancer",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/copy-enhancer/",
+  screenshot: "https://dev-tools-hub.xyz/screenshots/copy-enhancer/screenshot-01.png",
+  featureList: "Clean mode, Case conversion, HTML to Markdown, JSON pretty-print, Read clipboard, Instant preview",
+};
+
+const faqItems = [
+  { question: "What does CopyEnhancer do?", answer: "CopyEnhancer transforms text you copy from the web. You can strip HTML tags, fix whitespace, change case, convert HTML to Markdown, or format minified JSON — all from a lightweight popup." },
+  { question: "Is CopyEnhancer free?", answer: "Yes. Clean mode, UPPER, lower, and Title Case are free forever. Pro ($2.99/mo) adds HTML→Markdown conversion and JSON pretty-printing." },
+  { question: "How does it read my clipboard?", answer: "CopyEnhancer uses the Chrome clipboard API (clipboardRead permission) only when you click the 'Read Clipboard' button. Nothing is read automatically in the background." },
+  { question: "What HTML tags does the Markdown mode convert?", answer: "CopyEnhancer converts h1–h4 headings, bold (strong/b), italic (em/i), inline code, anchor links, list items, paragraphs, and line breaks to their Markdown equivalents." },
+  { question: "Does CopyEnhancer send my clipboard data anywhere?", answer: "No. All processing happens locally in your browser. No text is ever sent to a server." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="CopyEnhancer - Clean & Format Copied Text | Strip HTML, Markdown, JSON"
+  seoDescription="Clean up copied text instantly. Strip HTML tags, fix whitespace, convert to Markdown, pretty-print JSON, or change case. Free Chrome extension."
+  seoKeywords="clipboard text cleaner, strip html chrome extension, copy paste text formatter, html to markdown extension, json formatter chrome, text case converter"
+/>
