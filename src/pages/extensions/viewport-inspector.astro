@@ -1,0 +1,83 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "Viewport Inspector",
+  subtitle: "Real-Time Viewport Width & Breakpoint Tracker",
+  tagline: "See the current viewport width in the toolbar badge — color-coded by Tailwind CSS breakpoint. Resize and watch it update instantly. No DevTools needed.",
+  price: "Free",
+  status: "Available",
+  category: "Developer Tools",
+  lang: "EN/JA",
+  icon: "/ext-icons/ViewportInspector.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "Viewport Inspector puts the current viewport width directly into the Chrome toolbar badge, color-coded to match the active Tailwind CSS breakpoint. xs is gray, sm is green, md is blue, lg is amber, xl is purple, and 2xl is red. Resize the browser window and the badge updates immediately. Click the icon to open a detailed popup showing width, height, Device Pixel Ratio, scroll X/Y, and total document dimensions. A breakpoint progress bar shows how far you are between Tailwind thresholds and how many pixels remain to the next one. No configuration required — install and it works on any page.";
+
+const features = [
+  { title: "Toolbar Width Badge", desc: "The toolbar icon badge always shows the current viewport width in pixels. Instant, always visible, no popup needed" },
+  { title: "Tailwind Breakpoint Colors", desc: "Badge color matches the active Tailwind CSS breakpoint: xs=gray, sm=green, md=blue, lg=amber, xl=purple, 2xl=red" },
+  { title: "Breakpoint Progress Bar", desc: "Visual bar shows progress between breakpoints with pixel-accurate distance to the next threshold" },
+  { title: "Width & Height", desc: "Popup displays both viewport width and height in large monospace numbers for quick reading" },
+  { title: "Device Pixel Ratio", desc: "DPR indicator shows display density — useful for debugging HiDPI and Retina display rendering" },
+  { title: "Scroll & Document Size", desc: "Scroll X/Y position and total document width/height help debug overflow, sticky headers, and scroll depth" },
+];
+
+const targetUsers = [
+  "Front-end developers testing responsive layouts without leaving the browser tab",
+  "Designers checking Tailwind breakpoint behavior during development",
+  "QA engineers verifying mobile/tablet viewport behavior across breakpoints",
+  "Anyone building responsive web apps with Tailwind CSS or custom media queries",
+];
+
+const screenshots = [
+  "/screenshots/viewport-inspector/screenshot-01.png",
+  "/screenshots/viewport-inspector/screenshot-02.png",
+  "/screenshots/viewport-inspector/screenshot-03.png",
+  "/screenshots/viewport-inspector/screenshot-04.png",
+  "/screenshots/viewport-inspector/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "Storage Inspector", category: "Developer Tools", link: "/extensions/storage-inspector/", icon: "/ext-icons/StorageInspector.png" },
+  { name: "Request Monitor", category: "Developer Tools", link: "/extensions/request-monitor/", icon: "/ext-icons/RequestMonitor.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Viewport Inspector",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/viewport-inspector/",
+  featureList: "Viewport Width, Tailwind Breakpoints, Device Pixel Ratio, Scroll Position, Document Size, Toolbar Badge",
+};
+
+const faqItems = [
+  { question: "Which breakpoints does it show?", answer: "Viewport Inspector tracks the six standard Tailwind CSS breakpoints: xs (0px), sm (640px), md (768px), lg (1024px), xl (1280px), and 2xl (1536px). The toolbar badge color changes to match the active breakpoint." },
+  { question: "Does it work on all websites?", answer: "Yes. Viewport Inspector uses a content script that runs on every page. The badge updates immediately as you resize the window." },
+  { question: "Can I use it with frameworks other than Tailwind?", answer: "Yes. The breakpoint thresholds match Tailwind defaults, but the width numbers shown are accurate for any responsive layout. The breakpoint coloring is Tailwind-specific." },
+  { question: "How often does the popup update?", answer: "The popup polls every 300ms. Resize the window while the popup is open and the numbers update in real time." },
+  { question: "Is Viewport Inspector free?", answer: "Yes, completely free. No Pro plan, no account required, no data sent anywhere." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="Viewport Inspector - Tailwind Breakpoint Badge | Chrome Extension"
+  seoDescription="See the current viewport width in the toolbar badge, color-coded by Tailwind CSS breakpoint. Width, height, DPR, scroll position, document size. Free Chrome extension."
+  seoKeywords="viewport width chrome extension, tailwind breakpoint inspector, responsive design tool, viewport badge, DPR indicator, screen size checker"
+/>

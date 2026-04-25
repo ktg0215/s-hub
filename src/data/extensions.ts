@@ -161,6 +161,13 @@ export const categories: Category[] = [
         icon: "/ext-icons/StorageInspector.png",
       },
       {
+        name: "Viewport Inspector",
+        description: "Real-time viewport width badge in the toolbar — color matches the active Tailwind CSS breakpoint. Click for width, height, DPR, scroll position, and document size.",
+        price: "Free",
+        url: "/extensions/viewport-inspector/",
+        icon: "/ext-icons/ViewportInspector.png",
+      },
+      {
         name: "PageSpeed Badge",
         description: "See LCP, FCP, and CLS scores for any webpage in real time. Color-coded badge on the toolbar icon — green ✓, amber ~, or red ✗. Click for full metrics breakdown.",
         price: "Free",
