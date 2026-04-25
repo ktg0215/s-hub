@@ -1,0 +1,84 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "ScreenNote",
+  subtitle: "Sticky Notes for Any Webpage",
+  tagline: "Attach personal sticky notes to any webpage. They reappear automatically every time you visit — drag, collapse, and choose from 5 colors. Free: 5 notes. Pro: unlimited.",
+  price: "Free / Pro $3.99/mo",
+  status: "Available",
+  category: "Productivity",
+  lang: "EN/JA/KO/ES",
+  icon: "/ext-icons/ScreenNote.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "ScreenNote lets you attach personal sticky notes to any webpage. The note appears automatically in the bottom-right corner every time you visit that page — no need to remember where you left off. You can drag the note anywhere on the page, collapse it to a header bar to stay out of the way, and choose from 5 pastel colors. Notes match either this exact page or every page on the same domain — perfect for site-wide reminders like coupon codes or login instructions. All notes are stored locally on your device using chrome.storage.local. Nothing is sent to any server. Free plan supports up to 5 notes. Pro plan removes the cap entirely.";
+
+const features = [
+  { title: "Auto-Show on Page Load", desc: "Your note appears automatically every time you visit the saved page — no manual action needed" },
+  { title: "Drag to Any Position", desc: "Move the floating note anywhere on the page. Position is remembered across sessions" },
+  { title: "Collapse to Header Bar", desc: "Click the collapse button to minimize the note to a slim header so it doesn't block content" },
+  { title: "Exact Page or Domain Match", desc: "Save a note for one specific URL, or make it appear across an entire domain like amazon.co.jp/*" },
+  { title: "5 Pastel Note Colors", desc: "Choose from yellow, green, blue, pink, or purple to color-code your notes at a glance" },
+  { title: "Fully Local Storage", desc: "All notes are stored in chrome.storage.local — no account required, no data leaves your device" },
+];
+
+const targetUsers = [
+  "Researchers who want to annotate reference pages with their own context",
+  "Shoppers who want reminders on product pages (coupon codes, price thresholds)",
+  "Developers who annotate documentation pages with project-specific notes",
+  "Students tracking reading progress or questions on textbook pages",
+  "Anyone who needs a persistent reminder on a page they visit regularly",
+];
+
+const screenshots = [
+  "/screenshots/screennote/screenshot-1.png",
+  "/screenshots/screennote/screenshot-2.png",
+  "/screenshots/screennote/screenshot-3.png",
+  "/screenshots/screennote/screenshot-4.png",
+  "/screenshots/screennote/screenshot-5.png",
+];
+
+const relatedProducts = [
+  { name: "ReadMark", category: "Productivity", link: "/extensions/readmark/", icon: "/ext-icons/ReadMark.webp" },
+  { name: "ClipStack", category: "Productivity", link: "/extensions/clipstack/", icon: "/ext-icons/clipstack.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "ScreenNote",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/screennote/",
+  featureList: "Auto-Show Notes, Drag to Position, Collapse, Domain Match, 5 Colors, Local Storage",
+};
+
+const faqItems = [
+  { question: "Is ScreenNote free?", answer: "Yes. The free plan lets you create up to 5 sticky notes. Pro ($3.99/month) removes the cap so you can add notes to as many pages as you like." },
+  { question: "Will my note disappear when I close the browser?", answer: "No. Notes are saved to chrome.storage.local and persist indefinitely across browser sessions until you delete them." },
+  { question: "Can I show the same note on every page of a website?", answer: "Yes. Set the match mode to 'All of [domain]' and the note will appear on every page of that domain — for example, on all pages of amazon.co.jp." },
+  { question: "Does ScreenNote send my notes anywhere?", answer: "No. All notes are stored locally on your device. Nothing is sent to any server, and no account is required." },
+  { question: "Can I move the note so it doesn't block the page?", answer: "Yes. Drag the note header to move it anywhere on the page. You can also collapse it to a slim title bar that stays out of the way." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="ScreenNote - Sticky Notes for Any Webpage | Chrome Extension"
+  seoDescription="Attach sticky notes to any webpage. Notes appear automatically every visit. Drag, collapse, 5 colors. Exact or domain-wide matching. Free: 5 notes. Pro: unlimited."
+  seoKeywords="sticky notes chrome extension, webpage annotations, page notes, browser sticky notes, url notes, site reminders chrome"
+/>

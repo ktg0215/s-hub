@@ -133,6 +133,13 @@ export const categories: Category[] = [
         icon: "/ext-icons/ZenRead.webp",
       },
       {
+        name: "ScreenNote",
+        description: "Attach sticky notes to any webpage. Notes appear automatically every time you visit. Drag, collapse, 5 colors. Free: 5 notes. Pro: unlimited.",
+        price: "Free / Pro $3.99/mo",
+        url: "/extensions/screennote/",
+        icon: "/ext-icons/ScreenNote.png",
+      },
+      {
         name: "PageMemo",
         description: "URL-linked notes that auto-appear when you revisit pages. Rich text editor with categories and full-text search.",
         price: "Free",
