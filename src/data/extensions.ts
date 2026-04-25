@@ -133,6 +133,13 @@ export const categories: Category[] = [
         icon: "/ext-icons/ZenRead.webp",
       },
       {
+        name: "SmartSelect",
+        description: "Select any text to instantly search Google, Wikipedia, or translate with DeepL. Add your own custom URL actions. Floating action bar with shadow DOM.",
+        price: "Free / Pro $2.99/mo",
+        url: "/extensions/smartselect/",
+        icon: "/ext-icons/SmartSelect.png",
+      },
+      {
         name: "ScreenNote",
         description: "Attach sticky notes to any webpage. Notes appear automatically every time you visit. Drag, collapse, 5 colors. Free: 5 notes. Pro: unlimited.",
         price: "Free / Pro $3.99/mo",

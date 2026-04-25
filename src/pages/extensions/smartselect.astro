@@ -1,0 +1,84 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "SmartSelect",
+  subtitle: "Floating Action Bar for Selected Text",
+  tagline: "Select any text on any webpage to instantly search Google, Wikipedia, translate with DeepL, copy, or generate citations. Add unlimited custom URL actions with Pro.",
+  price: "Free / Pro $2.99/mo",
+  status: "Available",
+  category: "Productivity",
+  lang: "EN/JA/KO/ES",
+  icon: "/ext-icons/SmartSelect.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "SmartSelect adds a floating action bar every time you select text on a webpage. The bar appears just above your selection with up to 5 actions: Google Search, Wikipedia, DeepL Translate, Copy, and Copy as Citation. Actions open in a new tab so your reading context is preserved. The bar uses Shadow DOM to avoid visual conflicts with any website. It auto-hides after 4 seconds of inactivity, disappears on scroll, and can be dismissed with Escape. Free plan includes 3 core actions. Pro unlocks DeepL, citation copy, and the ability to add custom URL actions using any URL template with a {text} placeholder.";
+
+const features = [
+  { title: "Instant Action Bar", desc: "Highlights text and an action bar appears above the selection — no click, no right-click menu needed" },
+  { title: "5 Built-in Actions", desc: "Google Search, Wikipedia, DeepL Translate, Copy text, and Copy as formatted citation" },
+  { title: "Copy as Citation", desc: "Auto-generates a citation with the quote, page title, URL, and access date — ready to paste" },
+  { title: "Custom URL Actions (Pro)", desc: "Add your own actions using URL templates. Use {text} as a placeholder for any search engine or tool" },
+  { title: "Shadow DOM — Zero Conflicts", desc: "The action bar lives in a Shadow DOM so it never clashes with page styles or z-index issues" },
+  { title: "Configurable Trigger", desc: "Choose between on mouse-release or double-click as the trigger mode from the popup settings" },
+];
+
+const targetUsers = [
+  "Researchers who constantly look up terms, translate, or copy references",
+  "Students who need to cite sources from webpages quickly and accurately",
+  "Non-native readers who highlight text to translate on-the-fly with DeepL",
+  "Writers and journalists collecting quotes with source attribution",
+  "Power users who want to extend the bar with custom search engines or dictionaries",
+];
+
+const screenshots = [
+  "/screenshots/smartselect/screenshot-1.png",
+  "/screenshots/smartselect/screenshot-2.png",
+  "/screenshots/smartselect/screenshot-3.png",
+  "/screenshots/smartselect/screenshot-4.png",
+  "/screenshots/smartselect/screenshot-5.png",
+];
+
+const relatedProducts = [
+  { name: "QuickDict", category: "Productivity", link: "/extensions/quickdict/", icon: "/ext-icons/QuickDict.png" },
+  { name: "ClipStack", category: "Productivity", link: "/extensions/clipstack/", icon: "/ext-icons/clipstack.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "SmartSelect",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/smartselect/",
+  featureList: "Google Search, Wikipedia, DeepL Translate, Copy, Citation Copy, Custom URL Actions",
+};
+
+const faqItems = [
+  { question: "Is SmartSelect free?", answer: "Yes. The free plan includes Google Search, Wikipedia, and Copy. Pro ($2.99/month) adds DeepL Translate, Copy as Citation, and unlimited custom URL actions." },
+  { question: "How do custom URL actions work?", answer: "In the popup, add a label and a URL template containing {text}. When you click the action, {text} is replaced with your selected text. Example: https://www.merriam-webster.com/dictionary/{text}" },
+  { question: "Will the action bar break pages?", answer: "No. The bar is built with Shadow DOM and never shares styles with the page. It cannot interfere with page layout, z-index, or event handlers." },
+  { question: "Does SmartSelect send my selected text anywhere?", answer: "No data is sent to SmartSelect's servers. When you click an action, your text is sent directly to the destination (Google, Wikipedia, etc.) the same way as if you typed it manually." },
+  { question: "Can I change when the bar appears?", answer: "Yes. In the popup settings you can switch between 'On release' (appears when you lift the mouse after selecting) and 'Double-click' trigger mode." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="SmartSelect - Search, Translate & Copy Selected Text | Chrome Extension"
+  seoDescription="Select any text to instantly search Google, Wikipedia, DeepL or copy as a citation. Add custom URL actions. Shadow DOM floating bar. Free / Pro $2.99/mo."
+  seoKeywords="text selection search chrome extension, selected text google search, deepl chrome extension, wikipedia lookup extension, copy citation chrome, floating action bar"
+/>
