@@ -1,0 +1,65 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "PrivacyGuard",
+  subtitle: "Tracker Visualizer",
+  tagline: "See which trackers are loaded on any page — Google Analytics, Facebook Pixel, HotJar & 55+ more. Visualize, not block.",
+  price: "Free",
+  status: "Available",
+  chromeUrl: "",
+  edgeUrl: "",
+  category: "Wellbeing",
+  lang: "EN",
+  icon: "/ext-icons/PrivacyGuard.png",
+  rating: 0,
+  reviewCount: 0,
+};
+
+const overview = "PrivacyGuard scans any page and shows you exactly which tracking scripts are loaded — without blocking anything. See Google Analytics, Facebook Pixel, HotJar session recorders, advertising pixels, A/B testing tools, and 55+ more trackers organized by category. The toolbar badge shows the count at a glance. Open the popup for a full breakdown with categories and source URLs.";
+
+const features = [
+  { title: "55+ Tracker Database", desc: "Classifies Google Analytics, Facebook Pixel, HotJar, Mixpanel, Segment, Amplitude, Criteo, LinkedIn Insight, TikTok Pixel, Sentry, and dozens more into 12 categories." },
+  { title: "Toolbar Badge Count", desc: "The extension badge shows the tracker count for the current page in real time — red for high, amber for moderate, green for clean." },
+  { title: "Category Breakdown", desc: "Trackers are grouped by type: Analytics, Advertising, Session Recording, Social, Support/Chat, Marketing, Error Tracking, A/B Testing, and more." },
+  { title: "Visualize, Not Block", desc: "PrivacyGuard never interferes with page functionality. It only observes and reports — making it safe to use alongside uBlock Origin or other blockers." },
+];
+
+const targetUsers = [
+  "Privacy-conscious users who want transparency",
+  "Developers auditing their own site's tracking stack",
+  "Marketers checking competitor analytics setups",
+  "Anyone curious about what data companies collect",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "EmojiPicker", category: "Productivity", link: "/extensions/emojipicker/", icon: "/ext-icons/EmojiPicker.png" },
+  { name: "ZenRead", category: "Productivity", link: "/extensions/zenread/", icon: "/ext-icons/ZenRead.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: extension.name,
+  description: extension.tagline,
+  applicationCategory: "BrowserApplication",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+};
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  seoTitle="PrivacyGuard — See Which Trackers Load on Any Page"
+  seoDescription="Visualize Google Analytics, Facebook Pixel, HotJar & 55+ trackers on any website. Badge count + category breakdown. Free Chrome extension."
+  seoKeywords="privacy, tracker detection, google analytics, facebook pixel, hotjar, tracker visualizer, chrome extension"
+/>

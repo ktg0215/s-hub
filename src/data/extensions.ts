@@ -428,6 +428,13 @@ export const categories: Category[] = [
         url: "/extensions/emojipicker/",
         icon: "/ext-icons/EmojiPicker.png",
       },
+      {
+        name: "PrivacyGuard",
+        description: "See which trackers load on any page — Google Analytics, Facebook Pixel, HotJar & 55+ more. Visualize, not block.",
+        price: "Free",
+        url: "/extensions/privacyguard/",
+        icon: "/ext-icons/PrivacyGuard.png",
+      },
     ],
   },
   {
