@@ -498,6 +498,13 @@ export const categories: Category[] = [
         url: "/extensions/passwordstrength/",
         icon: "/ext-icons/PasswordStrength.png",
       },
+      {
+        name: "TabPinner",
+        description: "Save tab sessions as named groups and restore them any time. Free: 10 pins. Pro: unlimited + auto-restore on startup.",
+        price: "Free / Pro $2.99/mo",
+        url: "/extensions/tabpinner/",
+        icon: "/ext-icons/TabPinner.png",
+      },
     ],
   },
   {
