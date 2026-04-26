@@ -3,8 +3,8 @@ import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
 
 const extension = {
   name: "DataPick",
-  subtitle: "No-code Web Scraping",
-  tagline: "Extract data from any website without writing a single line of code",
+  subtitle: "No-code Web Scraping with Sidebar UI",
+  tagline: "Extract data from any website without writing a single line of code. Persistent sidebar panel, comparison table modal, and reusable scraping recipes.",
   price: "$19 One-time",
   status: "Available",
   chromeUrl: "https://chromewebstore.google.com/detail/epoehadeccangbpjldlbkapnakndbpkf",
@@ -16,16 +16,17 @@ const extension = {
   userCount: 83,
 };
 
-const overview = "Tired of copying and pasting data from websites one by one? DataPick lets you scrape any website with just a few clicks. Simply click on the data you want, and DataPick automatically finds all similar elements on the page. Export your data to CSV, Excel, or Google Sheets instantly. No coding skills required.";
+const overview = "Tired of copying and pasting data from websites one by one? DataPick v1.3 lets you scrape any website with just a few clicks. A persistent sidebar panel (340px, anchored to the right edge) stays open as you browse — click on the data you want, and DataPick automatically finds all similar elements on the page. The comparison table modal lets you review and clean extracted data before export. Save your selection setup as a named recipe and replay it on the same site any time. Export to CSV, Excel, JSON, or directly to Google Sheets. No coding skills required.";
 
 const features = [
-  { title: "Point & Click Selection", desc: "Simply click on the data you want to extract" },
-  { title: "Smart Element Detection", desc: "Automatically finds all similar items on the page" },
-  { title: "Multiple Export Options", desc: "CSV, Excel, JSON, and Google Sheets" },
-  { title: "Live Data Preview", desc: "See your extracted data in real-time before exporting" },
-  { title: "Save Scraping Recipes", desc: "Save your setup and reuse it anytime" },
-  { title: "Multi-page Scraping (Pro)", desc: "Follow pagination automatically" },
-  { title: "Duplicate Detection (Pro)", desc: "Automatically skip duplicate rows" },
+  { title: "Persistent Sidebar Panel", desc: "340px panel anchored to the right edge — stays open as you browse and navigate between pages" },
+  { title: "Point & Click Selection", desc: "Click on one example item; DataPick detects all matching elements on the page automatically" },
+  { title: "Comparison Table Modal", desc: "Review all extracted data in a full-screen modal table before export — clean, reorder, and deselect rows" },
+  { title: "Save Scraping Recipes", desc: "Save your selection setup as a named recipe and replay it on the same site any time, no reconfiguration needed" },
+  { title: "Multiple Export Options", desc: "CSV, Excel (XLSX), JSON, and direct Google Sheets export" },
+  { title: "Live Data Preview", desc: "See your extracted data in real-time in the sidebar as you click" },
+  { title: "Multi-page Scraping (Pro)", desc: "Follow pagination links automatically to collect data across all pages in a single session" },
+  { title: "Duplicate Detection (Pro)", desc: "Automatically skip duplicate rows when scraping paginated or overlapping data" },
 ];
 
 const targetUsers = [
@@ -54,10 +55,10 @@ const definition = "DataPick is a Chrome extension that extracts structured data
 const howToSteps = [
   "Install DataPick from the Chrome Web Store.",
   "Navigate to the webpage containing the data you want to extract.",
-  "Click the DataPick icon to open the extraction panel.",
+  "Click the DataPick icon — a 340px sidebar panel opens on the right side of the page.",
   "Click on one example item in the list (a product, a row, a card) — DataPick detects all similar elements automatically.",
-  "Review the live preview of extracted data in the panel.",
-  "Click Export and choose CSV, JSON, Excel, or Google Sheets.",
+  "Open the comparison table modal to review, clean, and confirm your extracted rows.",
+  "Click Export and choose CSV, JSON, Excel, or Google Sheets. Optionally save the setup as a recipe for next time.",
 ];
 
 const faqItems = [
@@ -80,7 +81,7 @@ const softwareSchema = {
   url: "https://dev-tools-hub.xyz/extensions/datapick/",
   downloadUrl: extension.chromeUrl,
   screenshot: "https://dev-tools-hub.xyz/screenshots/datapick/screenshot-01.png",
-  featureList: "Point & Click Selection, Smart Element Detection, Multiple Export Options, Live Data Preview, Save Scraping Recipes, Multi-page Scraping, Duplicate Detection",
+  featureList: "Sidebar Panel, Point & Click Selection, Comparison Table Modal, Save Scraping Recipes, Multiple Export Options, Live Data Preview, Multi-page Scraping, Duplicate Detection",
 };
 ---
 
@@ -96,7 +97,7 @@ const softwareSchema = {
   definition={definition}
   howToSteps={howToSteps}
   seoTitle="DataPick - No-Code Web Scraping Tool | Chrome Extension"
-  seoDescription="Extract data from any website without coding. Point-and-click scraping with CSV, Excel, and Google Sheets export. Save scraping recipes and reuse them."
+  seoDescription="Extract data from any website without coding. Persistent sidebar panel, comparison table modal, reusable scraping recipes. Export to CSV, Excel, or Google Sheets. $19 one-time."
   seoKeywords="web scraping, data extraction, no-code scraper, csv export, chrome extension, google sheets export, scraping tool, web data"
   ctaTitle="Start Extracting Data"
   ctaDescription="Point, click, and export — web scraping made simple."
