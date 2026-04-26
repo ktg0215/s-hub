@@ -1,6 +1,6 @@
 ---
 title: "I Built 20 Free Browser-Based Developer Tools — No Signup, No Server, No Tracking"
-published: false
+published: true
 tags: ["webdev","javascript","productivity","opensource"]
 series: null
 canonical_url: null
