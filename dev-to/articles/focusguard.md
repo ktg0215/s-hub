@@ -1,9 +1,9 @@
 ---
 title: "I Built a Focus Extension with Breathing Exercises Instead of Hard Blocks"
-published: false
+published: true
 publish_date: "2026-04-28"
 devto_id: "3482018"
-tags: ["chrome", "javascript", "webdev", "productivity"]
+tags: ["chrome","javascript","webdev","productivity"]
 ---
 
 Most site-blocker extensions work the same way: add a domain to a list, and visiting that domain shows a wall. A lock. Maybe a counter of how many minutes you've "wasted" today.
