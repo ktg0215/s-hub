@@ -2,7 +2,7 @@
 title: "I Launched on Product Hunt, Got Zero Votes, and Did It Again Seven Weeks Later"
 description: "What actually changes when you turn a 0-vote PH launch into a proper do-over: onboarding, i18n, stability, and why I didn't change the price."
 tags: ["indiehacking","producthunt","chromeextension","buildinpublic"]
-published: false
+published: true
 publish_date: "2026-04-29"
 canonical_url: ""
 devto_id: "3550219"
