@@ -1,6 +1,6 @@
 ---
 title: "How I Cross-Promote 18 Chrome Extensions Without Annoying Users"
-published: false
+published: true
 publish_date: "2026-04-30"
 devto_id: "3519738"
 tags: ["chrome","javascript","webdev","productivity"]
