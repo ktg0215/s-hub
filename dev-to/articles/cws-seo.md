@@ -1,6 +1,6 @@
 ---
 title: "CWS Listing SEO: What Actually Moved the Needle After Publishing 18 Extensions"
-published: false
+published: true
 publish_date: "2026-05-02"
 devto_id: "3519739"
 tags: ["chrome","javascript","webdev","productivity"]
