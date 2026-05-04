@@ -1,6 +1,6 @@
 ---
 title: "Manifest V3 Migration: The Gotchas Nobody Warned Me About"
-published: false
+published: true
 publish_date: "2026-05-04"
 devto_id: "3519755"
 tags: ["chrome","javascript","webdev","tutorial"]
