@@ -2,7 +2,7 @@
 title: "I Built a Chrome Extension That Auto-Fills Any Form — Encrypted, No Cloud"
 description: "How I implemented AES-256 encrypted local storage for sensitive form data in a Chrome MV3 extension, with one-click autofill and import/export."
 tags: ["chromeextension","webdev","productivity","javascript"]
-published: false
+published: true
 publish_date: "2026-05-05"
 canonical_url: ""
 devto_id: "3550212"

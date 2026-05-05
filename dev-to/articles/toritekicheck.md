@@ -1,6 +1,6 @@
 ---
 title: "I Built a Chrome Extension That Checks Japanese Subscription Terms with AI"
-published: false
+published: true
 publish_date: "2026-05-05"
 devto_id: "3519762"
 tags: ["chrome","javascript","webdev","japan"]
