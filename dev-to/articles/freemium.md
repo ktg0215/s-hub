@@ -1,6 +1,6 @@
 ---
 title: "Real Numbers: Freemium Chrome Extension Monetization After 6 Months"
-published: false
+published: true
 publish_date: "2026-05-06"
 devto_id: "3519745"
 tags: ["chrome","javascript","webdev","productivity"]
