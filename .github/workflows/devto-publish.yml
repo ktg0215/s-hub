@@ -26,6 +26,9 @@ jobs:
       - name: Publish scheduled articles
         env:
           DEVTO_API_KEY: ${{ secrets.DEVTO_API_KEY }}
+          # marketing_events upsert (Phase 2-A 経路 2) — secrets 未設定なら silent skip
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node dev-to/publish.mjs
 
       - name: Commit updated frontmatter

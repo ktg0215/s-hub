@@ -135,6 +135,62 @@ async function updateArticle(id, meta, body, publish) {
 }
 
 /**
+ * marketing_events テーブルに upsert (Phase 2-A 経路 2 — Dev.to publish hook)
+ * SUPABASE_URL / SUPABASE_SERVICE_ROLE_KEY が未設定なら silent skip。
+ * external_id = devto-{devto_id} で UNIQUE 制約により冪等。
+ */
+async function upsertMarketingEventDevto({ devtoId, articleSlug, title, tags, publishedAt }) {
+  const supabaseUrl = (process.env.SUPABASE_URL || "").replace(/\/$/, "");
+  const key = process.env.SUPABASE_SERVICE_ROLE_KEY || "";
+  if (!supabaseUrl || !key) {
+    console.log("    [marketing_events] env 未設定 — skip");
+    return;
+  }
+  const eventTime = (publishedAt instanceof Date ? publishedAt : new Date()).toISOString();
+  const eventDate = eventTime.slice(0, 10);
+  const url = `https://dev.to/${articleSlug}`;
+  const externalId = `devto-${devtoId}`;
+  const body = {
+    event_date: eventDate,
+    event_time: eventTime,
+    channel: "devto",
+    action_type: "article",
+    extension_id: null, // Dev.to 記事は基本横断的、必要なら手動で extension_id を後付け
+    url,
+    external_id: externalId,
+    metadata: {
+      devto_id: devtoId,
+      title,
+      tags: Array.isArray(tags) ? tags : [],
+      source: "homepage/dev-to/publish.mjs",
+    },
+  };
+  try {
+    const res = await fetch(
+      `${supabaseUrl}/rest/v1/marketing_events?on_conflict=channel,external_id`,
+      {
+        method: "POST",
+        headers: {
+          apikey: key,
+          Authorization: `Bearer ${key}`,
+          "Content-Type": "application/json",
+          Prefer: "resolution=merge-duplicates,return=minimal",
+        },
+        body: JSON.stringify(body),
+      },
+    );
+    if (res.ok) {
+      console.log(`    [marketing_events] ✅ upsert OK: ${externalId}`);
+    } else {
+      const t = await res.text();
+      console.error(`    [marketing_events] ⚠️ upsert ${res.status}: ${t.slice(0, 200)}`);
+    }
+  } catch (e) {
+    console.error(`    [marketing_events] upsert exception: ${e.message}`);
+  }
+}
+
+/**
  * 記事公開時にBluesky/Threads向けのSNS投稿下書きをコンソールに出力
  * タイトル + リンク + タグをスレッド形式に変換
  */
@@ -215,6 +271,16 @@ async function main() {
         // SNS投稿下書き自動生成
         const devtoUrl = result?.url || `https://dev.to/ktg/${meta.devto_id}`;
         generateSnsPost(meta.title, devtoUrl, meta.tags || []);
+
+        // marketing_events upsert (Phase 2-A 経路 2)
+        const slug = result?.slug || meta.devto_id;
+        await upsertMarketingEventDevto({
+          devtoId: meta.devto_id,
+          articleSlug: result?.path?.replace(/^\//, "") || `ktg/${slug}`,
+          title: meta.title,
+          tags: meta.tags || [],
+          publishedAt: result?.published_at ? new Date(result.published_at) : new Date(),
+        });
       } else if (meta.published) {
         // Already published, skip (no need to sync every day)
         console.log("    -> Already published, skipping.");
