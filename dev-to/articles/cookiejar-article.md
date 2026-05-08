@@ -1,6 +1,6 @@
 ---
 title: "Building a Cookie Manager Chrome Extension: What I Learned From the MV3 Transition"
-published: false
+published: true
 publish_date: "2026-05-08"
 devto_id: "3519735"
 tags: ["chrome","javascript","webdev","tutorial"]
