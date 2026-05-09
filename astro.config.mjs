@@ -2,6 +2,7 @@
 import { defineConfig } from 'astro/config';
 import tailwindcss from '@tailwindcss/vite';
 import sitemap from '@astrojs/sitemap';
+import { EnumChangefreq } from 'sitemap';
 
 // https://astro.build/config
 export default defineConfig({
@@ -17,7 +18,7 @@ export default defineConfig({
       serialize(item) {
         if (item.url === 'https://dev-tools-hub.xyz/' || item.url === 'https://dev-tools-hub.xyz') {
           item.priority = 1.0;
-          item.changefreq = 'daily';
+          item.changefreq = EnumChangefreq.DAILY;
         } else if (item.url.includes('/extensions/')) {
           item.priority = 0.8;
         }
