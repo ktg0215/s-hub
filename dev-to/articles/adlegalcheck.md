@@ -1,9 +1,9 @@
 ---
 title: "I Built a Chrome Extension That Catches Japanese Ad Law Violations in Real Time"
-published: false
+published: true
 publish_date: "2026-05-10"
 devto_id: "3515923"
-tags: ["chrome", "javascript", "webdev", "japan"]
+tags: ["chrome","javascript","webdev","japan"]
 ---
 
 Japanese advertising law is a minefield.
