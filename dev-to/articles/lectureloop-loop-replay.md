@@ -2,7 +2,7 @@
 title: "Detecting YouTube SPA Navigation in a Chrome Extension Content Script"
 description: "How to reliably run code on every new YouTube video — not just on the first page load — using MutationObserver and a URL change guard."
 tags: ["chrome","javascript","webdev","tutorial"]
-published: false
+published: true
 publish_date: "2026-05-14"
 canonical_url: ""
 devto_id: "3550214"
