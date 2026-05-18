@@ -1,7 +1,7 @@
 ---
 title: "How to Avoid Chrome Web Store 'Red Nickel' Rejection: What I Found After Auditing 18 Extensions"
 published: false
-publish_date: "2026-05-18"
+publish_date: "2026-05-19"
 devto_id: null
 tags: ["chrome","javascript","webdev","productivity"]
 ---
