@@ -192,7 +192,7 @@ Not a replacement for a lawyer — the disclaimer is built into the UI. But catc
 - Support for 特定商取引法 (e-commerce disclosure requirements)
 - Batch scanning via CSV upload (Pro roadmap)
 
-The extension is live on the Chrome Web Store.
+The extension is live on the Chrome Web Store: https://chromewebstore.google.com/detail/eacmjlpcondhpifichlkahhpjofmicol
 
 ---
 
