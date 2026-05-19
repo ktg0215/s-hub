@@ -152,7 +152,7 @@ The gentle intervention model is less satisfying to build than a hard blocker. H
 
 But the goal isn't to feel powerful. The goal is to actually work. The gentle approach survives long enough to become a habit, which is what matters.
 
-FocusGuard is on the Chrome Web Store.
+FocusGuard is on the Chrome Web Store: https://chromewebstore.google.com/detail/flckiddekikkjfhgleabigdpjijpcaln
 
 ---
 
