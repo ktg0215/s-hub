@@ -106,6 +106,13 @@ Cross-promotion works when it answers the question "what else can help me with w
 
 The onboarding screen converts at 8% not because users are gullible but because the recommended extensions are actually useful to someone who just installed a related tool. The relevance makes the difference.
 
+## Extensions mentioned in this article
+
+- Procshot: https://chromewebstore.google.com/detail/ieblehdloggcpmkncplccjofeoakhkll
+- ReadMark: https://chromewebstore.google.com/detail/inejhohffndeacbihghjcobndpoejdfn
+- FocusGuard: https://chromewebstore.google.com/detail/flckiddekikkjfhgleabigdpjijpcaln
+- DataBridge: https://chromewebstore.google.com/detail/gbjklhkdilhnnfgikfcnahaijacnhfce
+
 ---
 
 *I write about solo Chrome extension development at dev-tools-hub.xyz.*
