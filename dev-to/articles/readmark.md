@@ -174,7 +174,9 @@ This null-guard is easy to overlook and causes silent failures. The extension ap
 
 ## What's Live
 
-ReadMark v1.1 is on the Chrome Web Store. The SPA support works on Next.js, React Router, Vue Router, and Nuxt. Frameworks that use hash-based routing (`/#/path`) work out of the box since those trigger `hashchange` events which are caught separately.
+ReadMark v1.1 is on the Chrome Web Store: https://chromewebstore.google.com/detail/inejhohffndeacbihghjcobndpoejdfn
+
+The SPA support works on Next.js, React Router, Vue Router, and Nuxt. Frameworks that use hash-based routing (`/#/path`) work out of the box since those trigger `hashchange` events which are caught separately.
 
 ---
 
