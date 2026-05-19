@@ -147,7 +147,7 @@ It's designed to be minimal — no branding, no settings pane, just the controls
 
 I want to be clear about what this extension doesn't do: it does not remove ads, bypass DRM, download content, or do anything that would affect TVer's revenue. The whole point of TVer is that it's ad-supported free TV. The extension just adds quality-of-life playback controls that most streaming services already provide.
 
-The extension is available on the Chrome Web Store.
+The extension is available on the Chrome Web Store: https://chromewebstore.google.com/detail/ddhjonpmonmjgohicdipicodpmndnjll
 
 ---
 
