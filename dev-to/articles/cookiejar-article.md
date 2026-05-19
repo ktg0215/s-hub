@@ -187,7 +187,7 @@ Cookie managers are a good test case for MV3 constraints because they need real-
 
 The key constraint: anything that needs to be "always on" has to be driven by an open UI (popup, side panel, or new tab page). If your background monitoring logic is important even when no UI is open, you need to rethink the architecture for MV3 — the service worker model simply doesn't support persistent background processes.
 
-CookieJar is on the Chrome Web Store.
+CookieJar is on the Chrome Web Store: https://chromewebstore.google.com/detail/lhngfkchfepfjjdfhimconagoejemofg
 
 ---
 
