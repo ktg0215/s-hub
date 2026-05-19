@@ -156,7 +156,7 @@ The 3-analysis-per-month limit is intentionally generous for casual users. Most 
 
 This is different from productivity tools where the free limit needs to be tight enough to create upgrade pressure. For an occasional-use utility, being too restrictive hurts word-of-mouth without gaining proportional upgrades.
 
-ToritekiCheck is live on the Chrome Web Store.
+ToritekiCheck is live on the Chrome Web Store: https://chromewebstore.google.com/detail/fgekhmlbbfnopifjmnaeenanckhkbeej
 
 ---
 
