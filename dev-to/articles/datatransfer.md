@@ -167,7 +167,7 @@ DataBridge works best for repetitive, structured workflows: copying order data f
 
 It doesn't work well for pages with heavy client-side routing that replaces the DOM on navigation (the mapped selectors become stale). That's a known limitation I'm working on for a future version using MutationObserver to reattach selectors after navigation.
 
-The extension is live on the Chrome Web Store.
+The extension is live on the Chrome Web Store: https://chromewebstore.google.com/detail/gbjklhkdilhnnfgikfcnahaijacnhfce
 
 ---
 
