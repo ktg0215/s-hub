@@ -2,7 +2,7 @@
 title: "Ghost Jobs Are Wasting Your Time — I Built a Chrome Extension to Detect Them"
 description: "How I detect fake job listings using posting age, description vagueness, and duplicate signals in a Chrome MV3 extension. No API keys needed."
 tags: ["chromeextension","javascript","career","buildinpublic"]
-published: false
+published: true
 publish_date: "2026-05-19"
 canonical_url: ""
 devto_id: "3550213"
