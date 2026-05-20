@@ -1,8 +1,8 @@
 ---
 title: "How to detect ghost jobs in 2026 — a developer's guide"
-published: false
+published: true
 publish_date: "2026-05-20"
-devto_id: null
+devto_id: "3710733"
 tags: ["webdev","chrome","javascript","career"]
 description: "Nearly 4 in 10 hiring managers admit posting jobs with no plan to fill them. Here are the four signals I use to detect ghost jobs from a Chrome extension — with code."
 ---
