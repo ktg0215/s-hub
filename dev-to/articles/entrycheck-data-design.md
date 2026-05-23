@@ -2,7 +2,7 @@
 title: "190 Countries, Zero API Calls: Shipping Static Data in a Chrome Extension"
 description: "How I structured and bundled a 190-country visa requirements matrix into a Chrome extension without hitting any external API at runtime."
 tags: ["chrome","javascript","webdev","data"]
-published: false
+published: true
 publish_date: "2026-05-23"
 canonical_url: ""
 devto_id: "3550210"
