@@ -1,8 +1,8 @@
 ---
 title: "I Applied SLA Concepts to My Email Inbox — Here's What I Learned Building the Chrome Extension"
 description: "Tracking response time deadlines for emails in Gmail using Chrome MV3, DOM mutation observers, and a color-coded urgency system."
-tags: ["chromeextension", "javascript", "productivity", "gmail"]
-published: false
+tags: ["chromeextension","javascript","productivity","gmail"]
+published: true
 publish_date: "2026-05-26"
 devto_id: "3532590"
 ---
