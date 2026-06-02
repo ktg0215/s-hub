@@ -2,7 +2,7 @@
 title: "Auto-Replay Lecture Segments in Your Browser — Building a Chrome Extension for Focused Learning"
 description: "How I built a Chrome extension that extracts key timestamps from YouTube lectures and lets you jump back to any moment, using YouTube's transcript API and the HTML5 video API."
 tags: ["chromeextension","javascript","learning","productivity"]
-published: false
+published: true
 publish_date: "2026-06-02"
 canonical_url: ""
 devto_id: "3550215"
