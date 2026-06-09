@@ -1,8 +1,8 @@
 ---
 title: "I Built a Visa Requirement Overlay for Google Flights — Here's How the Chrome Extension Works"
 description: "Injecting visa requirement badges on Google Flights using a local JSON matrix, MutationObserver, and multi-selector destination extraction."
-tags: ["chromeextension", "javascript", "webdev", "travel"]
-published: false
+tags: ["chromeextension","javascript","webdev","travel"]
+published: true
 publish_date: "2026-06-09"
 devto_id: "3532587"
 ---
