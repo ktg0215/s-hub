@@ -1,0 +1,119 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Uninstall survey — fired by chrome.runtime.setUninstallURL from the @shub helper.
+// URL: https://dev-tools-hub.xyz/uninstall?ext={slug}&v={version}
+//
+// Order constraint (deploy-timing, not handled here): this page must be LIVE in
+// prod before any extension ships a setUninstallURL pointing at it — otherwise
+// uninstalling users hit a 404. That is a release-sequencing concern.
+//
+// Measurement is GA4 only (no DB). The global gtag() + the G-H97K0NSECJ config
+// are already loaded by Layout.astro, so we just call gtag(..., { send_to:
+// 'G-H97K0NSECJ' }) — no extra config tag here.
+
+const reasons = [
+  { key: 'too_complex', ja: '使い方が複雑だった', en: 'Too complex' },
+  { key: 'found_better', ja: 'もっと良いものを見つけた', en: 'Found something better' },
+  { key: 'not_useful', ja: '思ったほど役に立たなかった', en: 'Not useful enough' },
+  { key: 'temporary', ja: '一時的に外しただけ', en: 'Just temporary' },
+  { key: 'other', ja: 'その他', en: 'Other' },
+];
+---
+
+<Layout
+  title="Uninstall — S-Hub"
+  description="S-Hub extension uninstall survey. Tell us why in one tap (optional)."
+  lang="ja"
+  noindex={true}
+>
+  <div class="container mx-auto px-6 py-24 max-w-xl min-h-[60vh]">
+    <a href="/" class="inline-flex items-center gap-1 text-xs font-mono text-zinc-400 hover:text-sky-500 transition-colors mb-8">
+      &larr; back
+    </a>
+
+    <h1 class="font-mono text-[11px] text-zinc-400 mb-6 tracking-wide">// uninstall</h1>
+
+    <div class="product-card p-8">
+      <!-- Survey -->
+      <div id="survey">
+        <p class="text-sm font-semibold text-zinc-900 mb-1">
+          アンインストールありがとうございました。
+        </p>
+        <p class="text-sm text-zinc-600 leading-relaxed mb-6">
+          差し支えなければ理由を教えてください（任意・ワンタップ）。<br />
+          <span class="text-zinc-400">Why did you uninstall? (optional)</span>
+        </p>
+
+        <div class="flex flex-col gap-2.5">
+          {reasons.map((r) => (
+            <button
+              type="button"
+              data-reason={r.key}
+              class="reason-btn text-left rounded-md border border-zinc-200 bg-white px-4 py-3 text-sm text-zinc-800 transition-colors hover:border-sky-300 hover:bg-sky-50/60 focus:outline-none focus:ring-2 focus:ring-sky-200"
+            >
+              <span class="block font-medium">{r.ja}</span>
+              <span class="block text-[11px] text-zinc-400">{r.en}</span>
+            </button>
+          ))}
+        </div>
+      </div>
+
+      <!-- Thank-you state (hidden until a reason is chosen) -->
+      <div id="thanks" class="hidden text-center py-4">
+        <p class="text-sm font-semibold text-zinc-900 mb-2">ありがとうございました 🙏</p>
+        <p class="text-sm text-zinc-600 leading-relaxed mb-6">
+          フィードバックは今後の改善に活かします。<br />
+          <span class="text-zinc-400">Thanks — your feedback helps us improve.</span>
+        </p>
+        <a
+          href="/"
+          class="inline-flex items-center justify-center rounded-md border border-zinc-200 bg-white px-5 py-2.5 text-sm font-medium text-zinc-800 transition-colors hover:border-sky-300 hover:bg-sky-50/60"
+        >
+          S-Hub に戻る / Back to site
+        </a>
+      </div>
+
+      <div class="mt-6 pt-5 border-t border-zinc-100">
+        <a href="/" class="text-xs font-mono text-zinc-400 hover:text-sky-500 transition-colors">
+          閉じる / close
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      var ext = params.get('ext') || 'unknown';
+      var version = params.get('v') || 'unknown';
+
+      function fire(name, extra) {
+        if (typeof window.gtag !== 'function') return;
+        var payload = { send_to: 'G-H97K0NSECJ', extension: ext, version: version };
+        if (extra) {
+          for (var k in extra) {
+            if (Object.prototype.hasOwnProperty.call(extra, k)) payload[k] = extra[k];
+          }
+        }
+        window.gtag('event', name, payload);
+      }
+
+      // On load: record the uninstall (install -> uninstall funnel, one property).
+      fire('extension_uninstalled');
+
+      var survey = document.getElementById('survey');
+      var thanks = document.getElementById('thanks');
+      var buttons = document.querySelectorAll('.reason-btn');
+
+      Array.prototype.forEach.call(buttons, function (btn) {
+        btn.addEventListener('click', function () {
+          var reason = btn.getAttribute('data-reason') || 'other';
+          fire('uninstall_reason', { reason: reason });
+          if (survey) survey.classList.add('hidden');
+          if (thanks) thanks.classList.remove('hidden');
+        });
+      });
+    })();
+  </script>
+</Layout>
