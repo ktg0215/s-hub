@@ -1,0 +1,62 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { cwsSlugs, getCwsUrl } from '../../data/cws-links';
+
+// Attribution redirect: /go/{slug}?utm_source=&utm_medium=&utm_campaign=
+// Fires GA4 `outbound_to_cws` (to the G-H97K0NSECJ extension property, already
+// configured in Layout.astro), then redirects to the CWS detail URL.
+//
+// Only known slugs (from cws-links.ts) are built — unknown slugs simply don't
+// exist (Astro returns the site 404), so no runtime "unknown slug" handling is
+// needed. Measurement is GA4 only (no DB).
+
+export function getStaticPaths() {
+  return cwsSlugs.map((slug) => ({
+    params: { slug },
+    props: { cwsUrl: getCwsUrl(slug)! },
+  }));
+}
+
+interface Props {
+  cwsUrl: string;
+}
+
+const { slug } = Astro.params;
+const { cwsUrl } = Astro.props;
+---
+
+<Layout
+  title="Redirecting… — S-Hub"
+  description="Redirecting to the Chrome Web Store."
+  lang="ja"
+  noindex={true}
+>
+  <div class="container mx-auto px-6 py-32 max-w-md min-h-[50vh] text-center">
+    <h1 class="font-mono text-[11px] text-zinc-400 mb-6 tracking-wide">// redirect</h1>
+    <p class="text-sm text-zinc-700 mb-2">リダイレクト中…</p>
+    <p class="text-sm text-zinc-400 mb-8">Redirecting to the Chrome Web Store…</p>
+    <a
+      href={cwsUrl}
+      class="inline-flex items-center justify-center rounded-md border border-zinc-200 bg-white px-5 py-2.5 text-sm font-medium text-zinc-800 transition-colors hover:border-sky-300 hover:bg-sky-50/60"
+    >
+      自動で移動しない場合はこちら / Continue →
+    </a>
+  </div>
+
+  <script is:inline define:vars={{ slug, cwsUrl }}>
+    (function () {
+      var params = new URLSearchParams(window.location.search);
+      if (typeof window.gtag === 'function') {
+        window.gtag('event', 'outbound_to_cws', {
+          send_to: 'G-H97K0NSECJ',
+          slug: slug,
+          utm_source: params.get('utm_source') || '',
+          utm_medium: params.get('utm_medium') || '',
+          utm_campaign: params.get('utm_campaign') || '',
+        });
+      }
+      // Replace so the redirect page doesn't pollute the back button.
+      window.location.replace(cwsUrl);
+    })();
+  </script>
+</Layout>
