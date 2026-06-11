@@ -13,7 +13,13 @@ export default defineConfig({
       changefreq: 'weekly',
       priority: 0.7,
       lastmod: new Date(),
-      filter: (page) => !page.includes('/privacy') && !page.includes('/terms'),
+      // M1 ハブの utility ページ (uninstall 着地 / go リダイレクト) は sitemap から除外
+      // (両ページは noindex 済・検索インデックス対象外)。
+      filter: (page) =>
+        !page.includes('/privacy') &&
+        !page.includes('/terms') &&
+        !page.includes('/uninstall') &&
+        !page.includes('/go/'),
       entryLimit: 50000,
       serialize(item) {
         if (item.url === 'https://dev-tools-hub.xyz/' || item.url === 'https://dev-tools-hub.xyz') {
