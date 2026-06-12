@@ -211,7 +211,7 @@ export const categories: Category[] = [
       },
       {
         name: "ScreenNote",
-        description: "Attach sticky notes to any webpage. Notes appear automatically every time you visit. Drag, collapse, 5 colors. Free: 5 notes. Pro: unlimited.",
+        description: "Attach sticky notes to any webpage. Notes appear automatically every time you visit. Drag, collapse, 5 colors. Free: 5 notes. Pro: unlimited. (PageMemo へ統合予定 / merging into PageMemo)",
         price: "Free / Pro $3.99/mo",
         url: "/extensions/screennote/",
         icon: "/ext-icons/ScreenNote.png",
@@ -510,13 +510,6 @@ export const categories: Category[] = [
         price: "Free",
         url: "/extensions/password-strength/",
         icon: "/ext-icons/PasswordStrength.png",
-      },
-      {
-        name: "TabPinner",
-        description: "Save tab sessions as named groups and restore them any time. Free: 10 pins. Pro: unlimited + auto-restore on startup.",
-        price: "Free / Pro $2.99/mo",
-        url: "/extensions/tabpinner/",
-        icon: "/ext-icons/TabPinner.png",
       },
     ],
   },
