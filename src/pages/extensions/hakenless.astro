@@ -1,0 +1,83 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "Hakenless",
+  subtitle: "Indeed派遣・SES求人フィルタ",
+  tagline: "Indeed（日本）の検索結果から派遣・無期雇用派遣（SES）を自動で非表示。派遣会社50社プリセットの一括ブロックとNGキーワードで、応募したい正社員求人だけを表示します。",
+  price: "Free / Pro $4.99/mo",
+  status: "Available",
+  chromeUrl: "https://chromewebstore.google.com/detail/hakenless/fneapeopohcbjidcpnbjcmnjfocejpfj",
+  category: "Job Search",
+  lang: "JA",
+  icon: "/ext-icons/hakenless.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "Hakenless（ハケンレス）は、Indeed（日本）の求人検索結果から派遣・無期雇用派遣（常用型派遣・SES）求人を自動で非表示にする Chrome 拡張です。派遣会社のプリセット50社以上を会社名で一括ブロックし、「正社員」表記でも実態が派遣・SES の求人をヒューリスティックで判定して隠します。NGキーワードや応募済みの求人も非表示にでき、応募したい正社員求人だけにリストを絞り込めます。処理はすべてブラウザ内（端末）で完結し、求人データや個人情報を外部サーバーへ送信しません。無料プランは自作の派遣会社リスト3社・NGキーワード5件まで。Pro（月額 $4.99 / 年額 $39）でリスト・キーワードが無制限になります。現在は Indeed（日本）に対応、リクナビNEXT・マイナビ転職・doda は順次対応予定です。";
+
+const features = [
+  { title: "派遣会社の一括ブロック", desc: "主要50社以上をプリセット。会社名の正規化部分一致でブロック。無料は自作リスト3社、Proで無制限" },
+  { title: "無期雇用派遣（SES）の自動判定", desc: "「正社員」表記でも常用型派遣・SES の実態を持つ求人をヒューリスティックで検出して非表示。正社員単独では誤発火しない設計" },
+  { title: "NGキーワード・応募済み非表示", desc: "気になる語を含む求人や、応募済みの求人を非表示。無料はNGキーワード5件、Proで無制限" },
+  { title: "Indeed（日本）対応", desc: "Indeed JP の検索結果でリアルタイムにフィルタ。リクナビNEXT・マイナビ転職・doda は順次対応予定" },
+  { title: "完全ローカル処理", desc: "求人データ・設定はすべて端末内に保存。外部サーバーへの送信なし。匿名の利用イベントのみ送信（求人内容は含まない）" },
+  { title: "ワンクリック再フィルタ", desc: "ポップアップから現在のページを即座に再フィルタ。このページで何件を非表示にしたかを表示" },
+];
+
+const targetUsers = [
+  "正社員の求人を探していて、Indeed の派遣求人を毎回スクロールで飛ばしている人",
+  "「正社員」表記でも実態が SES・常用型派遣の求人を見分けたい転職活動者",
+  "特定の派遣会社の求人をまとめて除外したい人",
+  "Indeed の標準フィルタでは絞り込みきれず、求人リストのノイズを減らしたい人",
+];
+
+const screenshots = [
+  "/screenshots/hakenless/screenshot-01.png",
+  "/screenshots/hakenless/screenshot-02.png",
+  "/screenshots/hakenless/screenshot-03.png",
+  "/screenshots/hakenless/screenshot-04.png",
+  "/screenshots/hakenless/screenshot-05.png",
+];
+
+const relatedProducts = [
+  { name: "GhostJob", category: "Career & Job Search", link: "/extensions/ghostjob/", icon: "/ext-icons/ghostjob.png" },
+  { name: "ReadMark", category: "Productivity", link: "/extensions/readmark/", icon: "/ext-icons/ReadMark.webp" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "Hakenless",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/hakenless/",
+  featureList: "派遣会社の一括ブロック, 無期雇用派遣（SES）の自動判定, NGキーワード・応募済み非表示, Indeed（日本）対応, 完全ローカル処理, ワンクリック再フィルタ",
+};
+
+const faqItems = [
+  { question: "Hakenlessは無料ですか？", answer: "無料で利用できます。無料プランでは自作の派遣会社リスト3社・NGキーワード5件まで登録でき、派遣会社プリセット50社以上のブロックと無期雇用派遣（SES）の自動判定は無料で使えます。Pro（月額 $4.99 / 年額 $39）でリスト・キーワードが無制限になります。" },
+  { question: "どの求人サイトに対応していますか？", answer: "現在は Indeed（日本）に対応しています。リクナビNEXT・マイナビ転職・doda は順次対応予定です。" },
+  { question: "「正社員」と書かれた派遣・SES求人も見分けられますか？", answer: "はい。明示的な「無期雇用派遣」「常用型派遣」の表記に加え、「正社員」表記でも派遣会社が雇用主・SES文脈といった条件をヒューリスティックで判定して非表示にします。誤検出を抑えるため、正社員表記だけでは非表示にしません。" },
+  { question: "求人データや個人情報は収集されますか？", answer: "いいえ。Hakenless はすべての処理をブラウザ内（端末）で完結します。求人データや個人情報を外部サーバーへ送信・収集することはありません。製品改善のための匿名の利用イベント（どの機能が使われたか／求人内容は含まない）のみ送信します。" },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="派遣・SES求人を非表示 — Hakenless | Indeed派遣・無期雇用派遣フィルタ"
+  seoDescription="Indeed（日本）の検索結果から派遣・無期雇用派遣（SES）を自動で非表示にする Chrome 拡張 Hakenless。派遣会社50社の一括ブロックとNGキーワードで、正社員求人だけに絞り込み。"
+  seoKeywords="Indeed 派遣 非表示, 派遣 求人 除外, 無期雇用派遣 非表示, SES 求人 フィルタ, Indeed 正社員だけ, 求人フィルタ Chrome拡張, Hakenless"
+/>

@@ -559,6 +559,14 @@ export const categories: Category[] = [
     title: "Career & Job Search",
     extensions: [
       {
+        name: "Hakenless",
+        description: "Indeed（日本）の検索結果から派遣・無期雇用派遣（SES）を自動で非表示。派遣会社50社プリセットの一括ブロックとNGキーワードで、正社員求人だけに絞り込み。",
+        price: "Free / Pro $4.99/mo",
+        priceNote: "Yearly: $39/yr",
+        url: "/extensions/hakenless/",
+        icon: "/ext-icons/hakenless.png",
+      },
+      {
         name: "GhostJob",
         description: "Detect fake and abandoned job listings on LinkedIn, Indeed, and Glassdoor before you apply. Real-time ghost job scores with signal breakdown.",
         price: "Free / Pro $5/mo",
