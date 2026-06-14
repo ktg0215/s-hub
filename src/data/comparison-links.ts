@@ -29,9 +29,6 @@ export const comparisonsByExtension: Record<string, { slug: string; theirs: stri
   readmark: [
     { slug: "readmark-vs-liner", theirs: "Liner", desc: "Reading progress vs AI highlighting" },
   ],
-  tabvault: [
-    { slug: "tabvault-vs-onetab", theirs: "OneTab", desc: "Developer workspaces vs simple tab saving" },
-  ],
   onpagex: [
     { slug: "onpagex-vs-detailed-seo-extension", theirs: "Detailed SEO Extension", desc: "Scoring system vs raw meta data" },
   ],

@@ -203,20 +203,6 @@ export const categories: Category[] = [
         icon: "/ext-icons/PageSpeedBadge.png",
       },
       {
-        name: "SmartSelect",
-        description: "Select any text to instantly search Google, Wikipedia, or translate with DeepL. Add your own custom URL actions. Floating action bar with shadow DOM.",
-        price: "Free / Pro $2.99/mo",
-        url: "/extensions/smartselect/",
-        icon: "/ext-icons/SmartSelect.png",
-      },
-      {
-        name: "ScreenNote",
-        description: "Attach sticky notes to any webpage. Notes appear automatically every time you visit. Drag, collapse, 5 colors. Free: 5 notes. Pro: unlimited. (PageMemo へ統合予定 / merging into PageMemo)",
-        price: "Free / Pro $3.99/mo",
-        url: "/extensions/screennote/",
-        icon: "/ext-icons/ScreenNote.png",
-      },
-      {
         name: "PageMemo",
         description: "URL-linked notes that auto-appear when you revisit pages. Rich text editor with categories and full-text search.",
         price: "Free",
@@ -377,13 +363,6 @@ export const categories: Category[] = [
         url: "/extensions/snippetvault/",
         icon: "/ext-icons/SnippetVault.png",
         status: "coming-soon",
-      },
-      {
-        name: "TabVault",
-        description: "Developer-focused tab session manager with Stash, Quick Switcher, and crash recovery.",
-        price: "Free / Pro $5",
-        url: "/extensions/tabvault/",
-        icon: "/ext-icons/TabVault.png",
       },
       {
         name: "CookieJar",
