@@ -40,3 +40,25 @@ export const cwsSlugs: CwsSlug[] = Object.keys(cwsIds) as CwsSlug[];
 export function getCwsUrl(slug: string): string | undefined {
   return (cwsLinks as Record<string, string>)[slug];
 }
+
+/** UTM params forwarded by the /go attribution hub to GA4 (`outbound_to_cws`). */
+export interface GoUtm {
+  source?: string;
+  medium?: string;
+  campaign?: string;
+}
+
+/**
+ * Build an attribution-hub URL (/go/<slug>?utm_*) for a known slug.
+ * The /go page fires GA4 `outbound_to_cws` then redirects to the CWS detail URL.
+ * Returns undefined for unknown slugs so callers can fall back to the raw CWS URL.
+ */
+export function getGoUrl(slug: string, utm: GoUtm = {}): string | undefined {
+  if (!(slug in cwsLinks)) return undefined;
+  const params = new URLSearchParams();
+  if (utm.source) params.set('utm_source', utm.source);
+  if (utm.medium) params.set('utm_medium', utm.medium);
+  if (utm.campaign) params.set('utm_campaign', utm.campaign);
+  const qs = params.toString();
+  return `/go/${slug}${qs ? `?${qs}` : ''}`;
+}
