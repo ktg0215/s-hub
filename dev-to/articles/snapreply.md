@@ -1,7 +1,7 @@
 ---
-title: "How to Use Email Templates in Gmail - Free Chrome Extension"
+title: "I Reply to 30 Emails a Day. Gmail Templates Cut the Time in Half."
 published: true
-tags: ["chromeextension","gmail","productivity","javascript"]
+tags: ["chrome","gmail","productivity","indiehacker"]
 series: null
 canonical_url: null
 publish_date: "2026-03-30"

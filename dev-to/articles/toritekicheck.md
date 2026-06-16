@@ -1,9 +1,9 @@
 ---
-title: "I Built a Chrome Extension That Checks Japanese Subscription Terms with AI"
+title: "Japan's Subscription Laws Changed in 2024. Here's How to Check Terms Instantly With AI."
 published: true
 publish_date: "2026-05-05"
 devto_id: "3519762"
-tags: ["chrome","javascript","webdev","japan"]
+tags: ["chrome","japan","indiehacker","buildinpublic"]
 ---
 
 Japanese subscription services have a problem with terms and conditions.

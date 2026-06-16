@@ -1,7 +1,7 @@
 ---
-title: "How to Block Low-Quality News on Yahoo Japan - Free Chrome Extension"
+title: "Yahoo Japan's Homepage Is 70% Clickbait. This Chrome Extension Filters It."
 published: true
-tags: ["chromeextension","japan","productivity","ux"]
+tags: ["chrome","japan","productivity","buildinpublic"]
 series: null
 canonical_url: null
 publish_date: "2026-04-08"

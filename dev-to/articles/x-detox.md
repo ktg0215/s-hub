@@ -1,7 +1,7 @@
 ---
-title: "How to Remove X/Twitter Algorithmic Feed - Free Chronological Timeline Extension"
+title: "X's Algorithm Killed My Focus. Here's the Chrome Extension I Built to Fix It."
 published: true
-tags: ["chromeextension","twitter","productivity","mentalhealth"]
+tags: ["chrome","buildinpublic","indiehacker","productivity"]
 series: null
 canonical_url: null
 publish_date: "2026-04-06"

@@ -1,9 +1,9 @@
 ---
-title: "I Built a Chrome Extension That Adds Playback Speed and Picture-in-Picture to Japan's Free Streaming Service"
+title: "TVer Has No Playback Speed Control. I Fixed It With a Chrome Extension."
 published: true
 publish_date: "2026-04-24"
 devto_id: "3519763"
-tags: ["chrome","javascript","webdev","japan"]
+tags: ["chrome","japan","buildinpublic","indiehacker"]
 ---
 
 TVer is Japan's official free streaming platform — catch-up TV for every major broadcaster. It's the legal, ad-supported way to watch NHK, TBS, Fuji TV, and others without a cable subscription.
