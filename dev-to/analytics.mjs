@@ -70,11 +70,13 @@ async function getPublishedArticles() {
 function extractReferrers(raw) {
   if (!raw) return [];
   if (Array.isArray(raw)) return raw;
-  // 形式変化: オブジェクトラッパーから配列を取り出す
-  console.warn(`    [WARN] referrers is not an array. keys: ${JSON.stringify(Object.keys(raw)).slice(0, 120)}`);
+  // API changed from bare array → {domains:[...]} wrapper — extract known key first
   const candidate =
-    raw.referrers ?? raw.result ?? raw.data ?? raw.top_referrers ??
+    raw.domains ?? raw.referrers ?? raw.result ?? raw.data ?? raw.top_referrers ??
     Object.values(raw).find((v) => Array.isArray(v));
+  if (!candidate) {
+    console.warn(`    [WARN] referrers: unknown format. keys: ${JSON.stringify(Object.keys(raw)).slice(0, 120)}`);
+  }
   return Array.isArray(candidate) ? candidate : [];
 }
 
