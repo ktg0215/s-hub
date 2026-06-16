@@ -63,6 +63,28 @@ async function getPublishedArticles() {
   return articles.filter(a => a.published);
 }
 
+/**
+ * /analytics/referrers レスポンスは配列だったが undocumented API のため形式変化あり。
+ * 配列・オブジェクトラッパー両形式に対応して配列を返す。
+ */
+function extractReferrers(raw) {
+  if (!raw) return [];
+  if (Array.isArray(raw)) return raw;
+  // 形式変化: オブジェクトラッパーから配列を取り出す
+  console.warn(`    [WARN] referrers is not an array. keys: ${JSON.stringify(Object.keys(raw)).slice(0, 120)}`);
+  const candidate =
+    raw.referrers ?? raw.result ?? raw.data ?? raw.top_referrers ??
+    Object.values(raw).find((v) => Array.isArray(v));
+  return Array.isArray(candidate) ? candidate : [];
+}
+
+/** 各 referrer エントリは {domain, count} 想定だが field 名変化にも対応 */
+function formatReferrer(r) {
+  const domain = r.domain ?? r.name ?? r.url ?? r.source ?? "unknown";
+  const count = r.count ?? r.page_views ?? r.views ?? 0;
+  return `${domain}(${count})`;
+}
+
 async function getArticleAnalytics(articleId) {
   // undocumented analytics endpoints (used by Dev.to dashboard internally)
   const [totals, referrers] = await Promise.all([
@@ -105,9 +127,12 @@ async function main() {
       // Analytics API fields (undocumented, may be null)
       total_views: totals?.page_views || null,
       total_reactions: totals?.reactions || null,
-      top_referrers: referrers
-        ? referrers.slice(0, 5).map(r => `${r.domain}(${r.count})`).join(", ")
-        : null,
+      top_referrers: (() => {
+        const list = extractReferrers(referrers);
+        return list.length > 0
+          ? list.slice(0, 5).map(formatReferrer).join(", ")
+          : null;
+      })(),
       collected_at: today,
     };
     report.push(entry);
