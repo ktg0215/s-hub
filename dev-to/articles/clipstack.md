@@ -169,7 +169,7 @@ The 5-second window avoids treating rapid copy→paste→copy of the same text a
 
 ClipStack is live on the Chrome Web Store — clipboard history that doesn't silently eat itself.
 
-{% embed https://chromewebstore.google.com/detail/clipstack-clipboard-history/placeholder %}
+{% embed https://chromewebstore.google.com/detail/clipboard-manager-text-sn/lkdcdpbenhhgncjfdfhnbfdenbkkihhk %}
 
 What storage approach are you using for unbounded extension data? Curious if anyone's tried Cache API as an alternative to IndexedDB.
 
