@@ -1,8 +1,8 @@
 ---
 title: "Auto-Block Focus Time in Google Calendar — Building a Schedule-Based Chrome Extension"
 description: "Using chrome.alarms and MutationObserver to inject focus-time overlays on Google Calendar without OAuth or cloud sync."
-tags: ["chromeextension", "javascript", "productivity", "notifications"]
-published: false
+tags: ["chromeextension","javascript","productivity","notifications"]
+published: true
 publish_date: "2026-06-16"
 devto_id: "3527737"
 ---

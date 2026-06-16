@@ -5,7 +5,7 @@ tags: ["chrome","mv3","buildinpublic","indiehacker"]
 series: null
 canonical_url: null
 publish_date: "2026-06-17"
-devto_id: null
+devto_id: "3918164"
 ---
 
 I built ClipStack to capture and search clipboard history across browser tabs. It worked fine for the first week. Then users with heavy workflows started reporting that their oldest entries were silently disappearing — not on crash, not on refresh, just gone. The extension was eating its own history.
