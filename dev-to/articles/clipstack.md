@@ -1,6 +1,6 @@
 ---
 title: "I Built a Clipboard History Extension. chrome.storage Hit Its Limit. Here's What I Learned."
-published: false
+published: true
 tags: ["chrome","mv3","buildinpublic","indiehacker"]
 series: null
 canonical_url: null
