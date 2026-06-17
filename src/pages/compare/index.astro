@@ -93,6 +93,29 @@ const categories = [
       </section>
     ))}
 
+    <section class="mb-10">
+      <h2 class="font-mono text-[11px] text-zinc-400 tracking-wider uppercase mb-4">// email api comparisons</h2>
+      <p class="text-zinc-500 text-[15px] leading-relaxed max-w-2xl mb-4">
+        Comparing transactional email providers instead? Our StackPulse project tracks free tiers, pricing, and limits across email APIs — always current.
+      </p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <a href="https://stackpulse.dev-tools-hub.xyz/alternatives/sendgrid" target="_blank" rel="noopener noreferrer" class="group border border-zinc-200 rounded-lg p-4 flex items-center gap-3 hover:border-zinc-300 hover:bg-zinc-50/50 transition-all">
+          <div class="min-w-0">
+            <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">SendGrid alternatives &amp; transactional email API comparison</h3>
+            <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">free tiers &amp; pricing compared</p>
+          </div>
+          <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors shrink-0">→</span>
+        </a>
+        <a href="https://stackpulse.dev-tools-hub.xyz/free/transactional-email" target="_blank" rel="noopener noreferrer" class="group border border-zinc-200 rounded-lg p-4 flex items-center gap-3 hover:border-zinc-300 hover:bg-zinc-50/50 transition-all">
+          <div class="min-w-0">
+            <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">best free transactional-email tiers, ranked</h3>
+            <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">ranked by monthly volume</p>
+          </div>
+          <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors shrink-0">→</span>
+        </a>
+      </div>
+    </section>
+
     <footer class="mt-16 pt-8 border-t border-zinc-100">
       <p class="text-zinc-400 text-[13px] text-center">
         {categories.reduce((sum, cat) => sum + cat.items.length, 0)} comparisons across {categories.length} categories — updated March 2026
