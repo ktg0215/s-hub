@@ -11,6 +11,15 @@ const SITES = [
     siteUrl: 'sc-domain:reshapic.dev-tools-hub.xyz',
     sitemaps: ['https://reshapic.dev-tools-hub.xyz/sitemap.xml'],
   },
+  {
+    // StackPulse (CompanySaas pSEO). Subdomain on Vercel; submitted to its own
+    // URL-prefix property (verified, siteFullUser). Re-pinged on every S-hub deploy
+    // to keep the sitemap out of the "never downloaded / isPending" limbo it sat in
+    // after the 2026-06-04 one-shot manual submit. See companysaas eng ADR
+    // 2026-06-17-gsc-stackpulse-discovery.
+    siteUrl: 'https://stackpulse.dev-tools-hub.xyz/',
+    sitemaps: ['https://stackpulse.dev-tools-hub.xyz/sitemap.xml'],
+  },
 ];
 
 // Note: Each sitemap is submitted only to its own domain property.
