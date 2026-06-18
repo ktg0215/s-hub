@@ -3,27 +3,27 @@ import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
 
 const extension = {
   name: "PageMemo",
-  subtitle: "URL-Linked Local Notes",
-  tagline: "Take notes linked to any URL. Your memos auto-appear when you revisit the page.",
+  subtitle: "URL-Linked Sticky Notes for Chrome",
+  tagline: "Stick notes directly on pages. Auto-appear when you revisit — no searching, no account.",
   price: "Free",
-  status: "Coming Soon",
   category: "Productivity",
   lang: "EN",
   icon: "/ext-icons/Pagememo.png",
   rating: 0,
   reviewCount: 0,
   userCount: 6,
+  storeLink: "https://chromewebstore.google.com/detail/jmpmfbheoclfmceceihjpcjlabakkdde",
 };
 
-const overview = "A Chrome extension that automatically displays notes linked to URLs. When you revisit a webpage, your previous notes appear automatically in the side panel. Features a Tiptap-based rich text editor with bold, italic, headings, lists, task lists, and more. All notes are stored locally on your device.";
+const overview = "PageMemo links notes to the exact URL you're visiting. Revisit any page and your notes appear automatically in the side panel — no search, no clipboard paste. The new Sticky Note mode pins annotations directly to page elements so they stay in context when you come back. URL matching can be set per-note: path, exact URL, or domain — so research notes for a specific Google Search Console query don't bleed into unrelated pages. All data stays on your device.";
 
 const features = [
-  { title: "URL-Linked Notes", desc: "Save notes tied to page URLs. Auto-displayed when you revisit the page" },
-  { title: "Rich Text Editor", desc: "Tiptap-based editor with bold, headings, lists, task lists, and more" },
-  { title: "Category Management", desc: "Organize notes with custom categories and color coding" },
-  { title: "Full-Text Search", desc: "Search across all note contents with category filtering" },
-  { title: "Theme Support", desc: "Light, Dark, and System-follow themes" },
-  { title: "Export/Import", desc: "Backup via JSON or Markdown. Easy migration between devices" },
+  { title: "Sticky Note Mode", desc: "Pin annotations to any element on the page. Still there when you come back — even after a reload" },
+  { title: "URL-Linked Notes", desc: "Notes auto-appear the moment you revisit a URL. No searching, no copy-paste" },
+  { title: "Smart URL Matching", desc: "Choose path, exact URL, or domain scope per note. GSC users: keep query-specific notes separate" },
+  { title: "Rich Text Editor", desc: "Bold, italic, headings, bullet lists, task checkboxes, and blockquotes" },
+  { title: "Category & Tags", desc: "Organize notes with custom categories and color labels. Filter from the notes list" },
+  { title: "Local Only", desc: "No account, no sync. All notes stored on your device. Export to JSON or Markdown anytime" },
 ];
 
 const keyboardShortcuts = [
@@ -33,10 +33,11 @@ const keyboardShortcuts = [
 ];
 
 const targetUsers = [
-  "Researchers who want per-page notes while browsing",
-  "Developers adding personal annotations to technical docs",
-  "Online learners taking notes on course pages",
-  "Privacy-conscious users who prefer local-only storage",
+  "Researchers who want notes that follow them back to a page",
+  "SEO analysts using Google Search Console — keep query-specific notes separate",
+  "Developers annotating documentation, GitHub issues, or Stack Overflow answers",
+  "Online learners who take notes while watching course pages",
+  "Privacy-conscious users who prefer local-only, no-account storage",
 ];
 
 const screenshots = [
@@ -63,14 +64,15 @@ const softwareSchema = {
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
   url: "https://dev-tools-hub.xyz/extensions/pagememo/",
   screenshot: "https://dev-tools-hub.xyz/screenshots/Pagememo/screenshot-01.png",
-  featureList: "URL-Linked Notes, Rich Text Editor, Category Management, Full-Text Search, Theme Support, Export/Import",
+  featureList: "Sticky Note Mode, URL-Linked Notes, Smart URL Matching, Rich Text Editor, Category Management, Local-Only Storage",
 };
 
 const faqItems = [
-  { question: "Is PageMemo free?", answer: "Yes. PageMemo is completely free with all features included." },
-  { question: "How do I install PageMemo?", answer: "Click 'Add to Chrome' on the Chrome Web Store. After installation, open any webpage and click the PageMemo icon in the side panel to start taking notes." },
-  { question: "Does PageMemo collect my data?", answer: "No. All notes are stored locally on your device. Nothing is synced to external servers." },
-  { question: "Will my notes appear automatically when I revisit a page?", answer: "Yes. PageMemo links notes to the URL of the page you're viewing. When you revisit that URL, your notes automatically appear in the side panel." },
+  { question: "Is PageMemo free?", answer: "Yes. PageMemo is completely free with all features included — no account required." },
+  { question: "What is Sticky Note mode?", answer: "Sticky Note mode lets you pin an annotation directly to a specific element on the page. Unlike the side panel, the note appears on the page itself and stays anchored to that element when you return." },
+  { question: "How does URL matching work?", answer: "Each note has its own matching scope: Path (matches all pages at that path), Exact URL (only this precise URL including query string), or Domain (all pages on the site). Exact URL is useful for tools like Google Search Console where each query has its own URL." },
+  { question: "Does PageMemo collect my data?", answer: "No. All notes are stored locally on your device using Chrome's storage API. Nothing is synced to external servers." },
+  { question: "Will my notes appear automatically when I revisit a page?", answer: "Yes. PageMemo links each note to its URL and auto-displays it in the side panel when you navigate back to that page." },
 ];
 ---
 
@@ -84,7 +86,7 @@ const faqItems = [
   keyboardShortcuts={keyboardShortcuts}
   softwareSchema={softwareSchema}
   faqItems={faqItems}
-  seoTitle="PageMemo - URL-Linked Local Notes | Chrome Extension"
-  seoDescription="Take notes linked to any URL that auto-appear when you revisit pages. Rich text editor with categories and full-text search. All data stored locally."
-  seoKeywords="page notes, url notes, web annotations, chrome extension, productivity, local notes, web notes"
+  seoTitle="PageMemo - Sticky Notes for Any Web Page | Chrome Extension"
+  seoDescription="Stick notes directly on web pages. Notes auto-appear when you revisit the URL — no account, no sync. New: Sticky Note mode and smart URL matching. Free."
+  seoKeywords="page notes, sticky notes chrome extension, url linked notes, web annotations, local notes, productivity, google search console notes"
 />
