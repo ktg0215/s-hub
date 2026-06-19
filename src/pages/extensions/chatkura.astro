@@ -1,0 +1,78 @@
+---
+import ExtensionLayout from '../../layouts/ExtensionLayout.astro';
+
+const extension = {
+  name: "ChatKura",
+  subtitle: "AI Chat Workspace",
+  tagline: "Organize conversations and prompts from ChatGPT, Claude, Gemini, and more in one place. Full-text search, prompt templates with variables, folder organization — all stored locally.",
+  price: "Free / Pro $4.99/mo",
+  status: "Available",
+  chromeUrl: "https://chromewebstore.google.com/detail/chatkura/mphjhpgjbohckopcgilcihkmkjljnpih",
+  category: "Productivity",
+  lang: "EN/JA",
+  icon: "/ext-icons/chatkura.png",
+  rating: 0,
+  reviewCount: 0,
+  userCount: 0,
+};
+
+const overview = "ChatKura is a local-first workspace for anyone using multiple AI services. Paste conversations and prompts from ChatGPT, Claude, Gemini, Perplexity, or any other AI tool — then organize them with folders, search across everything instantly, and reuse prompts with variable placeholders. All data is stored on your device using IndexedDB and chrome.storage.local. Nothing is sent to external servers. Free plan saves up to 30 items. Pro unlocks unlimited storage and folder organization.";
+
+const features = [
+  { title: "Multi-AI Conversation Library", desc: "Paste and save conversations from ChatGPT, Claude, Gemini, Perplexity, and 10+ other AI services in one searchable place" },
+  { title: "Full-Text Search", desc: "Token-based AND search with title-priority ranking — find any saved conversation or prompt in seconds" },
+  { title: "Prompt Templates with Variables", desc: "Define reusable prompts with {{variable}} placeholders and fill them in before copying to any AI chat" },
+  { title: "Folder Organization", desc: "Create folders, move items between them, and switch views with chip navigation" },
+  { title: "Pin & Bookmark", desc: "Pin your most-used prompts so they stay at the top regardless of recency" },
+  { title: "Fully Local — Zero Data Transmission", desc: "All conversations and prompts stay on your device. No account required, no server sync, complete privacy" },
+];
+
+const targetUsers = [
+  "Power AI users who switch between ChatGPT, Claude, Gemini, and want one place to track everything",
+  "Prompt engineers who maintain reusable prompt libraries with variable slots",
+  "Developers and researchers who need to search across hundreds of past AI conversations",
+  "Teams that share AI workflows and want to reuse proven prompts without rewriting them",
+];
+
+const screenshots: string[] = [];
+
+const relatedProducts = [
+  { name: "PromptStash", category: "Productivity", link: "/extensions/promptstash/", icon: "/ext-icons/promptstash.webp" },
+  { name: "ClipStack", category: "Productivity", link: "/extensions/clipstack/", icon: "/ext-icons/clipstack.png" },
+];
+
+const softwareSchema = {
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  name: "ChatKura",
+  description: extension.tagline,
+  applicationCategory: "BrowserExtension",
+  operatingSystem: "Chrome",
+  offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+  author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
+  url: "https://dev-tools-hub.xyz/extensions/chatkura/",
+  featureList: "Multi-AI conversation library, Full-text search, Prompt templates with variables, Folder organization, Pin & bookmark, Local storage",
+};
+
+const faqItems = [
+  { question: "Which AI services does ChatKura support?", answer: "ChatKura works with any AI service — ChatGPT, Claude, Gemini, Perplexity, and more. You manually paste conversations into the extension, so it works regardless of what the AI provider's interface looks like." },
+  { question: "Is ChatKura free?", answer: "Yes. The free plan saves up to 30 items with 3 folders. Pro ($4.99/month or $39/year) unlocks unlimited items and unlimited folders." },
+  { question: "How does ChatKura store my data?", answer: "All conversations and prompts are stored locally on your device — conversations use IndexedDB for large text support, and settings use chrome.storage.local. Nothing is sent to external servers. Your data stays private." },
+  { question: "How do prompt variables work?", answer: "Write a prompt with {{variable_name}} placeholders. When you reuse it, ChatKura extracts the variables and shows an inline form to fill them in before copying the completed prompt to your clipboard." },
+  { question: "Can I organize conversations by AI service?", answer: "Yes. When you save an item you can tag it by source (ChatGPT, Claude, etc.) and assign it to a folder. You can then filter by folder using the chip navigation at the top of the panel." },
+];
+---
+
+<ExtensionLayout
+  extension={extension}
+  overview={overview}
+  features={features}
+  targetUsers={targetUsers}
+  screenshots={screenshots}
+  relatedProducts={relatedProducts}
+  softwareSchema={softwareSchema}
+  faqItems={faqItems}
+  seoTitle="ChatKura - AI Chat Workspace | Organize ChatGPT, Claude & Gemini Conversations"
+  seoDescription="Save and organize AI conversations and prompts from ChatGPT, Claude, Gemini and more. Full-text search, prompt templates with variables, folder organization. 100% local storage."
+  seoKeywords="ai chat organizer, chatgpt prompt manager, claude conversation organizer, ai workspace chrome extension, prompt library extension, ai chat history"
+/>

@@ -84,6 +84,13 @@ export const categories: Category[] = [
         icon: "/ext-icons/clipstack.png",
       },
       {
+        name: "ChatKura",
+        description: "Organize conversations and prompts from ChatGPT, Claude, Gemini, and more in one place. Full-text search, prompt templates with variables, folder organization. 100% local.",
+        price: "Free / Pro $4.99/mo",
+        url: "/extensions/chatkura/",
+        icon: "/ext-icons/chatkura.png",
+      },
+      {
         name: "PromptStash",
         description: "Save, organize, and reuse AI prompts effortlessly. Works with ChatGPT, Claude, Gemini, and 16+ other AI services.",
         price: "Free Trial / $3.99/mo",
