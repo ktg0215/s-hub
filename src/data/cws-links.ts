@@ -62,3 +62,27 @@ export function getGoUrl(slug: string, utm: GoUtm = {}): string | undefined {
   const qs = params.toString();
   return `/go/${slug}${qs ? `?${qs}` : ''}`;
 }
+
+/**
+ * ③v2 LP attribution: CTA リンクを s-hub-dashboard /api/track/install 経由にルーティング。
+ * server-side で lp_install_clicks に記録 → CWS へ 302 リダイレクト。
+ * 不明 slug や本番 URL 未設定時は undefined を返す (呼び元は getGoUrl / chromeUrl にフォールバック)。
+ *
+ * 拡張コード・決済導線 無変更。
+ */
+const TRACK_BASE = 'https://s-hub-dashboard-beta.vercel.app/api/track/install';
+
+export interface TrackParams {
+  channel?: string;   // default 'lp'
+  campaign?: string;
+  ref?: string;       // referrer path (PII-free)
+}
+
+export function getTrackUrl(slug: string, trackParams: TrackParams = {}): string | undefined {
+  if (!(slug in cwsLinks)) return undefined;
+  const params = new URLSearchParams({ ext: slug });
+  if (trackParams.channel) params.set('channel', trackParams.channel);
+  if (trackParams.campaign) params.set('campaign', trackParams.campaign);
+  if (trackParams.ref) params.set('ref', trackParams.ref);
+  return `${TRACK_BASE}?${params.toString()}`;
+}

@@ -1,7 +1,7 @@
 ---
 import Layout from './Layout.astro';
 import { comparisonsByExtension } from '../data/comparison-links';
-import { getGoUrl } from '../data/cws-links';
+import { getGoUrl, getTrackUrl } from '../data/cws-links';
 
 interface Feature {
   title: string;
@@ -88,9 +88,15 @@ const {
   howToSteps,
 } = Astro.props;
 
-// Route the "Add to Chrome" CTA through the /go attribution hub when an
-// attribution slug is provided; fall back to the raw CWS URL otherwise.
+// ③v2 LP attribution: server-side click tracking → CWS redirect.
+// Priority: getTrackUrl (DB 記録) > getGoUrl (GA4 のみ) > raw chromeUrl
 const installUrl =
+  (extension.goSlug &&
+    getTrackUrl(extension.goSlug, {
+      channel: 'lp',
+      campaign: `${extension.goSlug}_install`,
+      ref: Astro.url.pathname,
+    })) ||
   (extension.goSlug &&
     getGoUrl(extension.goSlug, {
       source: 'homepage',
