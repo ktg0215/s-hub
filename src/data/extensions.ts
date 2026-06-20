@@ -254,7 +254,7 @@ export const categories: Category[] = [
       {
         name: "Rakuten Sellers Analytics",
         description: "Professional analytics tool for Rakuten sellers to boost sales and market insights.",
-        price: "$12.99/mo",
+        price: "¥1,980/月",
         url: "/extensions/rakuten-sellers-analytics/",
         icon: "/ext-icons/rakuten-sellers-analytics.webp",
       },
