@@ -5,7 +5,7 @@ tags: ["chrome","javascript","mv3","buildinpublic"]
 series: null
 canonical_url: null
 publish_date: "2026-06-29"
-devto_id: null
+devto_id: "3960056"
 ---
 
 [Procshot](https://chromewebstore.google.com/detail/procshot/ieblehdloggcpmkncplccjofeoakhkll) generates numbered step-by-step guides from browser screenshots. The core mechanic: each screenshot gets a sequence number automatically, so screenshot 1, screenshot 2, screenshot 3 come out labeled without any manual numbering.

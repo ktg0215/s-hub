@@ -5,7 +5,7 @@ tags: ["webdev","css","javascript","fonts"]
 series: null
 canonical_url: null
 publish_date: "2026-06-27"
-devto_id: null
+devto_id: "3960053"
 ---
 
 `getComputedStyle(element).fontFamily` returns the CSS declaration: `"Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans JP", sans-serif`. That's not the font that rendered. It's a priority list. The browser picks the first one that's available and contains a glyph for the character being rendered.

@@ -5,7 +5,7 @@ tags: ["chrome","javascript","webdev","indiehacker"]
 series: null
 canonical_url: null
 publish_date: "2026-06-24"
-devto_id: null
+devto_id: "3960033"
 ---
 
 Japanese e-commerce is fragmented. The same product — a vintage camera, a game console, a brand bag — can vary by ¥5,000–¥30,000 between Amazon.co.jp, Rakuten, Mercari, and Yahoo! Auctions. Finding the delta requires opening four tabs and cross-referencing manually.

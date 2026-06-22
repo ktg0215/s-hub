@@ -5,7 +5,7 @@ tags: ["chrome","javascript","ai","webdev"]
 series: null
 canonical_url: null
 publish_date: "2026-06-30"
-devto_id: null
+devto_id: "3960057"
 ---
 
 If you're building a Chrome extension that works with AI chat platforms — prompt injection, session export, UI customization — you need to know which platform the user is on before you do anything. A content script that injects a prompt into ChatGPT's textarea will silently fail on Claude, which has a completely different DOM.

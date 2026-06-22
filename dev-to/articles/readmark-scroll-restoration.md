@@ -1,11 +1,11 @@
 ---
 title: "Browser Scroll Restoration Is Broken on SPAs. Here's How a Chrome Extension Fixes It."
-published: false
+published: true
 tags: ["chrome","javascript","webdev","productivity"]
 series: null
 canonical_url: null
 publish_date: "2026-06-21"
-devto_id: null
+devto_id: "3960060"
 ---
 
 Chrome has had scroll restoration support since 2015. You can even control it: `history.scrollRestoration = 'manual'`. But if you've ever tried to reliably restore a user's position on a React or Next.js app, you know it doesn't work the way you'd expect.

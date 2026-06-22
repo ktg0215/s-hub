@@ -1,11 +1,12 @@
 ---
 title: "5 Cookie Tricks for Debugging Auth Issues in Chrome (No More Creating Test Accounts)"
-published: false
+published: true
 tags: ["webdev","chrome","testing","javascript"]
 series: null
 canonical_url: null
 publish_date: "2026-06-19"
 main_image: "https://dev-tools-hub.xyz/screenshots/cookiejar/screenshot-01.png"
+devto_id: "3960038"
 ---
 
 Debugging authentication in web apps is painful. You need to test the same flow as five different user types — new visitor, returning user, admin, expired session, logged-out — and the easiest way is to constantly create new accounts or clear all your cookies and start over.
