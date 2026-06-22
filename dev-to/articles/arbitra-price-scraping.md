@@ -226,6 +226,6 @@ This gives real user failure data rather than relying on manual testing.
 
 The full extension — cross-referencing prices across Amazon.co.jp, Rakuten Ichiba, Yahoo! Shopping, and Mercari — is available free on the Chrome Web Store:
 
-{% embed https://chromewebstore.google.com/detail/arbitra/bincnlodgkpmmihbdoknndbncjfghpcj %}
+**[→ Try Arbitra on Chrome Web Store](https://chromewebstore.google.com/detail/bincnlodgkpmmihbdoknndbncjfghpcj)**
 
 What's the most frustrating part of DOM scraping you've dealt with? For me it's infinite scroll on Yahoo! Auctions — the price data is there but pagination makes clean extraction a mess.
