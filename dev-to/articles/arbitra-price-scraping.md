@@ -1,6 +1,6 @@
 ---
 title: "Scraping Prices Without an API: Chrome Content Script Patterns for Japanese E-Commerce"
-published: false
+published: true
 tags: ["chrome","javascript","webdev","indiehacker"]
 series: null
 canonical_url: null
