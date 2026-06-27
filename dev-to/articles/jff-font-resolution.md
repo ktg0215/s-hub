@@ -1,6 +1,6 @@
 ---
 title: "How to Detect Which Font Is Actually Rendering in a Browser (Not Just the CSS Stack)"
-published: false
+published: true
 tags: ["webdev","css","javascript","fonts"]
 series: null
 canonical_url: null
