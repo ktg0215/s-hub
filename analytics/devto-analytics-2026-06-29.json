@@ -1,0 +1,2214 @@
+[
+  {
+    "id": 3960053,
+    "title": "How to Detect Which Font Is Actually Rendering in a Browser (Not Just the CSS Stack)",
+    "slug": "how-to-detect-which-font-is-actually-rendering-in-a-browser-not-just-the-css-stack-12cd",
+    "url": "https://dev.to/ktg0215/how-to-detect-which-font-is-actually-rendering-in-a-browser-not-just-the-css-stack-12cd",
+    "published_at": "2026-06-27T15:17:35.963Z",
+    "page_views_count": 30,
+    "public_reactions_count": 2,
+    "comments_count": 1,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 30,
+      "average_read_time_in_seconds": 236,
+      "total_read_time_in_seconds": 7080
+    },
+    "total_reactions": {
+      "total": 2,
+      "like": 2,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 2
+    },
+    "top_referrers": "(28), dev.to(2)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3960033,
+    "title": "Scraping Prices Without an API: Chrome Content Script Patterns for Japanese E-Commerce",
+    "slug": "scraping-prices-without-an-api-chrome-content-script-patterns-for-japanese-e-commerce-13k8",
+    "url": "https://dev.to/ktg0215/scraping-prices-without-an-api-chrome-content-script-patterns-for-japanese-e-commerce-13k8",
+    "published_at": "2026-06-24T16:22:13.556Z",
+    "page_views_count": 16,
+    "public_reactions_count": 2,
+    "comments_count": 1,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 16,
+      "average_read_time_in_seconds": 63,
+      "total_read_time_in_seconds": 1008
+    },
+    "total_reactions": {
+      "total": 3,
+      "like": 2,
+      "readinglist": 1,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 2
+    },
+    "top_referrers": "0.1(10), dev.to(2)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3960060,
+    "title": "Browser Scroll Restoration Is Broken on SPAs. Here's How a Chrome Extension Fixes It.",
+    "slug": "browser-scroll-restoration-is-broken-on-spas-heres-how-a-chrome-extension-fixes-it-578p",
+    "url": "https://dev.to/ktg0215/browser-scroll-restoration-is-broken-on-spas-heres-how-a-chrome-extension-fixes-it-578p",
+    "published_at": "2026-06-22T06:45:33.869Z",
+    "page_views_count": 21,
+    "public_reactions_count": 1,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 21,
+      "average_read_time_in_seconds": 15,
+      "total_read_time_in_seconds": 315
+    },
+    "total_reactions": {
+      "total": 1,
+      "like": 1,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 1
+    },
+    "top_referrers": "dev.to(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3960038,
+    "title": "5 Cookie Tricks for Debugging Auth Issues in Chrome (No More Creating Test Accounts)",
+    "slug": "5-cookie-tricks-for-debugging-auth-issues-in-chrome-no-more-creating-test-accounts-43b5",
+    "url": "https://dev.to/ktg0215/5-cookie-tricks-for-debugging-auth-issues-in-chrome-no-more-creating-test-accounts-43b5",
+    "published_at": "2026-06-22T06:42:49.045Z",
+    "page_views_count": 28,
+    "public_reactions_count": 3,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 28,
+      "average_read_time_in_seconds": 36,
+      "total_read_time_in_seconds": 1008
+    },
+    "total_reactions": {
+      "total": 3,
+      "like": 3,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 3
+    },
+    "top_referrers": "dev.to(12)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3956606,
+    "title": "Browser Scroll Restoration Is Broken on SPAs. Here's How a Chrome Extension Fixes It.",
+    "slug": "browser-scroll-restoration-is-broken-on-spas-heres-how-a-chrome-extension-fixes-it-53j5",
+    "url": "https://dev.to/ktg0215/browser-scroll-restoration-is-broken-on-spas-heres-how-a-chrome-extension-fixes-it-53j5",
+    "published_at": "2026-06-21T15:54:21.030Z",
+    "page_views_count": 10,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 10,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3956584,
+    "title": "5 Cookie Tricks for Debugging Auth Issues in Chrome (No More Creating Test Accounts)",
+    "slug": "5-cookie-tricks-for-debugging-auth-issues-in-chrome-no-more-creating-test-accounts-1ol3",
+    "url": "https://dev.to/ktg0215/5-cookie-tricks-for-debugging-auth-issues-in-chrome-no-more-creating-test-accounts-1ol3",
+    "published_at": "2026-06-21T15:51:36.814Z",
+    "page_views_count": 46,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 46,
+      "average_read_time_in_seconds": 455,
+      "total_read_time_in_seconds": 20930
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "(45), inoreader.com(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3949948,
+    "title": "5 Cookie Tricks for Debugging Auth Issues in Chrome (No More Creating Test Accounts)",
+    "slug": "5-cookie-tricks-for-debugging-auth-issues-in-chrome-no-more-creating-test-accounts-oi4",
+    "url": "https://dev.to/ktg0215/5-cookie-tricks-for-debugging-auth-issues-in-chrome-no-more-creating-test-accounts-oi4",
+    "published_at": "2026-06-20T15:45:37.081Z",
+    "page_views_count": 12,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 12,
+      "average_read_time_in_seconds": 30,
+      "total_read_time_in_seconds": 360
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "(12)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3941959,
+    "title": "5 Cookie Tricks for Debugging Auth Issues in Chrome (No More Creating Test Accounts)",
+    "slug": "5-cookie-tricks-for-debugging-auth-issues-in-chrome-no-more-creating-test-accounts-h26",
+    "url": "https://dev.to/ktg0215/5-cookie-tricks-for-debugging-auth-issues-in-chrome-no-more-creating-test-accounts-h26",
+    "published_at": "2026-06-19T16:31:57.370Z",
+    "page_views_count": 19,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 19,
+      "average_read_time_in_seconds": 63,
+      "total_read_time_in_seconds": 1197
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "instagram.com(10)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3918164,
+    "title": "I Built a Clipboard History Extension. chrome.storage Hit Its Limit. Here's What I Learned.",
+    "slug": "i-built-a-clipboard-history-extension-chromestorage-hit-its-limit-heres-what-i-learned-4o6g",
+    "url": "https://dev.to/ktg0215/i-built-a-clipboard-history-extension-chromestorage-hit-its-limit-heres-what-i-learned-4o6g",
+    "published_at": "2026-06-17T16:54:24.542Z",
+    "page_views_count": 0,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 5,
+    "total_views": {
+      "total": 0,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3527737,
+    "title": "Auto-Block Focus Time in Google Calendar — Building a Schedule-Based Chrome Extension",
+    "slug": "auto-block-focus-time-in-google-calendar-building-a-schedule-based-chrome-extension-4h1d",
+    "url": "https://dev.to/ktg0215/auto-block-focus-time-in-google-calendar-building-a-schedule-based-chrome-extension-4h1d",
+    "published_at": "2026-06-16T18:29:36.869Z",
+    "page_views_count": 12,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 12,
+      "average_read_time_in_seconds": 23,
+      "total_read_time_in_seconds": 276
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3532587,
+    "title": "I Built a Visa Requirement Overlay for Google Flights — Here's How the Chrome Extension Works",
+    "slug": "i-built-a-visa-requirement-overlay-for-google-flights-heres-how-the-chrome-extension-works-20o7",
+    "url": "https://dev.to/ktg0215/i-built-a-visa-requirement-overlay-for-google-flights-heres-how-the-chrome-extension-works-20o7",
+    "published_at": "2026-06-09T16:32:24.709Z",
+    "page_views_count": 18,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 18,
+      "average_read_time_in_seconds": 248,
+      "total_read_time_in_seconds": 4464
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "newsblur.com(8)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3807077,
+    "title": "Building a Japanese-First Subscription Tracker PWA (Next.js 15 + Supabase + Serwist)",
+    "slug": "building-a-japanese-first-subscription-tracker-pwa-nextjs-15-supabase-serwist-jng",
+    "url": "https://dev.to/ktg0215/building-a-japanese-first-subscription-tracker-pwa-nextjs-15-supabase-serwist-jng",
+    "published_at": "2026-06-03T03:26:03.983Z",
+    "page_views_count": 0,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 0,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3550215,
+    "title": "Auto-Replay Lecture Segments in Your Browser — Building a Chrome Extension for Focused Learning",
+    "slug": "auto-replay-lecture-segments-in-your-browser-building-a-chrome-extension-for-focused-learning-3g6j",
+    "url": "https://dev.to/ktg0215/auto-replay-lecture-segments-in-your-browser-building-a-chrome-extension-for-focused-learning-3g6j",
+    "published_at": "2026-06-02T18:06:27.793Z",
+    "page_views_count": 12,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 12,
+      "average_read_time_in_seconds": 45,
+      "total_read_time_in_seconds": 540
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3772215,
+    "title": "Building a Japanese-First Read-Later PWA: From Pocket Shutdown to Launch",
+    "slug": "building-a-japanese-first-read-later-pwa-from-pocket-shutdown-to-launch-4lcm",
+    "url": "https://dev.to/ktg0215/building-a-japanese-first-read-later-pwa-from-pocket-shutdown-to-launch-4lcm",
+    "published_at": "2026-05-28T15:31:28.523Z",
+    "page_views_count": 2,
+    "public_reactions_count": 0,
+    "comments_count": 1,
+    "reading_time_minutes": 2,
+    "total_views": {
+      "total": 2,
+      "average_read_time_in_seconds": 45,
+      "total_read_time_in_seconds": 90
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3532590,
+    "title": "I Applied SLA Concepts to My Email Inbox — Here's What I Learned Building the Chrome Extension",
+    "slug": "i-applied-sla-concepts-to-my-email-inbox-heres-what-i-learned-building-the-chrome-extension-3dmh",
+    "url": "https://dev.to/ktg0215/i-applied-sla-concepts-to-my-email-inbox-heres-what-i-learned-building-the-chrome-extension-3dmh",
+    "published_at": "2026-05-26T17:27:53.438Z",
+    "page_views_count": 0,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 0,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3550210,
+    "title": "190 Countries, Zero API Calls: Shipping Static Data in a Chrome Extension",
+    "slug": "190-countries-zero-api-calls-shipping-static-data-in-a-chrome-extension-597i",
+    "url": "https://dev.to/ktg0215/190-countries-zero-api-calls-shipping-static-data-in-a-chrome-extension-597i",
+    "published_at": "2026-05-23T15:01:23.798Z",
+    "page_views_count": 20,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 20,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3710733,
+    "title": "How to detect ghost jobs in 2026 — a developer's guide",
+    "slug": "how-to-detect-ghost-jobs-in-2026-a-developers-guide-3ckd",
+    "url": "https://dev.to/ktg0215/how-to-detect-ghost-jobs-in-2026-a-developers-guide-3ckd",
+    "published_at": "2026-05-20T16:52:37.077Z",
+    "page_views_count": 28,
+    "public_reactions_count": 2,
+    "comments_count": 0,
+    "reading_time_minutes": 7,
+    "total_views": {
+      "total": 28,
+      "average_read_time_in_seconds": 105,
+      "total_read_time_in_seconds": 2940
+    },
+    "total_reactions": {
+      "total": 2,
+      "like": 2,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 2
+    },
+    "top_referrers": "google.com(20), (6), dev.to(2)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3550213,
+    "title": "Ghost Jobs Are Wasting Your Time — I Built a Chrome Extension to Detect Them",
+    "slug": "ghost-jobs-are-wasting-your-time-i-built-a-chrome-extension-to-detect-them-1pm6",
+    "url": "https://dev.to/ktg0215/ghost-jobs-are-wasting-your-time-i-built-a-chrome-extension-to-detect-them-1pm6",
+    "published_at": "2026-05-19T16:51:32.034Z",
+    "page_views_count": 32,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 32,
+      "average_read_time_in_seconds": 30,
+      "total_read_time_in_seconds": 960
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "claude.ai(11)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3694892,
+    "title": "How to Avoid Chrome Web Store 'Red Nickel' Rejection: What I Found After Auditing 18 Extensions",
+    "slug": "how-to-avoid-chrome-web-store-red-nickel-rejection-what-i-found-after-auditing-18-extensions-gbg",
+    "url": "https://dev.to/ktg0215/how-to-avoid-chrome-web-store-red-nickel-rejection-what-i-found-after-auditing-18-extensions-gbg",
+    "published_at": "2026-05-19T16:50:36.487Z",
+    "page_views_count": 22,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 5,
+    "total_views": {
+      "total": 22,
+      "average_read_time_in_seconds": 113,
+      "total_read_time_in_seconds": 2486
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "claude.ai(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3550214,
+    "title": "Detecting YouTube SPA Navigation in a Chrome Extension Content Script",
+    "slug": "detecting-youtube-spa-navigation-in-a-chrome-extension-content-script-2fi8",
+    "url": "https://dev.to/ktg0215/detecting-youtube-spa-navigation-in-a-chrome-extension-content-script-2fi8",
+    "published_at": "2026-05-14T16:11:12.383Z",
+    "page_views_count": 34,
+    "public_reactions_count": 0,
+    "comments_count": 1,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 34,
+      "average_read_time_in_seconds": 109,
+      "total_read_time_in_seconds": 3706
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "(33), bing.com(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3550218,
+    "title": "I Built a Price History Tracker for Japan's 4 Major E-Commerce Sites (Amazon.co.jp, Rakuten, Yahoo!, Mercari)",
+    "slug": "i-built-a-price-history-tracker-for-japans-4-major-e-commerce-sites-amazoncojp-rakuten-3f6c",
+    "url": "https://dev.to/ktg0215/i-built-a-price-history-tracker-for-japans-4-major-e-commerce-sites-amazoncojp-rakuten-3f6c",
+    "published_at": "2026-05-12T16:20:43.524Z",
+    "page_views_count": 30,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 30,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "google.com(20)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3515923,
+    "title": "I Built a Chrome Extension That Catches Japanese Ad Law Violations in Real Time",
+    "slug": "i-built-a-chrome-extension-that-catches-japanese-ad-law-violations-in-real-time-3ele",
+    "url": "https://dev.to/ktg0215/i-built-a-chrome-extension-that-catches-japanese-ad-law-violations-in-real-time-3ele",
+    "published_at": "2026-05-10T14:52:48.211Z",
+    "page_views_count": 21,
+    "public_reactions_count": 1,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 21,
+      "average_read_time_in_seconds": 15,
+      "total_read_time_in_seconds": 315
+    },
+    "total_reactions": {
+      "total": 1,
+      "like": 1,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 1
+    },
+    "top_referrers": "dev.to(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3513448,
+    "title": "I Built a Chrome Extension That Remembers Where You Stopped Reading",
+    "slug": "i-built-a-chrome-extension-that-remembers-where-you-stopped-reading-1m5l",
+    "url": "https://dev.to/ktg0215/i-built-a-chrome-extension-that-remembers-where-you-stopped-reading-1m5l",
+    "published_at": "2026-05-10T09:00:00.000Z",
+    "page_views_count": 0,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 0,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3519735,
+    "title": "Building a Cookie Manager Chrome Extension: What I Learned From the MV3 Transition",
+    "slug": "building-a-cookie-manager-chrome-extension-what-i-learned-from-the-mv3-transition-3h95",
+    "url": "https://dev.to/ktg0215/building-a-cookie-manager-chrome-extension-what-i-learned-from-the-mv3-transition-3h95",
+    "published_at": "2026-05-08T15:22:08.737Z",
+    "page_views_count": 10,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 10,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3482042,
+    "title": "Building a Cookie Editor Chrome Extension — Why I Built CookieJar After EditThisCookie Died",
+    "slug": "building-a-cookie-editor-chrome-extension-why-i-built-cookiejar-after-editthiscookie-died-4o00",
+    "url": "https://dev.to/ktg0215/building-a-cookie-editor-chrome-extension-why-i-built-cookiejar-after-editthiscookie-died-4o00",
+    "published_at": "2026-05-08T00:00:00.000Z",
+    "page_views_count": 32,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 32,
+      "average_read_time_in_seconds": 23,
+      "total_read_time_in_seconds": 736
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "dev.to(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3519745,
+    "title": "Real Numbers: Freemium Chrome Extension Monetization After 6 Months",
+    "slug": "real-numbers-freemium-chrome-extension-monetization-after-6-months-5hga",
+    "url": "https://dev.to/ktg0215/real-numbers-freemium-chrome-extension-monetization-after-6-months-5hga",
+    "published_at": "2026-05-06T16:03:03.390Z",
+    "page_views_count": 125,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 125,
+      "average_read_time_in_seconds": 543,
+      "total_read_time_in_seconds": 67875
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "google.com(10), dev.to(2), claude.ai(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3482041,
+    "title": "Monetizing Chrome Extensions with Freemium — Real Numbers from 7 Paid Extensions",
+    "slug": "monetizing-chrome-extensions-with-freemium-real-numbers-from-7-paid-extensions-5cj",
+    "url": "https://dev.to/ktg0215/monetizing-chrome-extensions-with-freemium-real-numbers-from-7-paid-extensions-5cj",
+    "published_at": "2026-05-06T00:00:00.000Z",
+    "page_views_count": 65,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 65,
+      "average_read_time_in_seconds": 33,
+      "total_read_time_in_seconds": 2145
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "dev.to(1), google.com(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3519762,
+    "title": "Japan's Subscription Laws Changed in 2024. Here's How to Check Terms Instantly With AI.",
+    "slug": "i-built-a-chrome-extension-that-checks-japanese-subscription-terms-with-ai-1mkf",
+    "url": "https://dev.to/ktg0215/i-built-a-chrome-extension-that-checks-japanese-subscription-terms-with-ai-1mkf",
+    "published_at": "2026-05-05T16:00:45.780Z",
+    "page_views_count": 10,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 10,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3550212,
+    "title": "I Built a Chrome Extension That Auto-Fills Any Form — Encrypted, No Cloud",
+    "slug": "i-built-a-chrome-extension-that-auto-fills-any-form-encrypted-no-cloud-3l90",
+    "url": "https://dev.to/ktg0215/i-built-a-chrome-extension-that-auto-fills-any-form-encrypted-no-cloud-3l90",
+    "published_at": "2026-05-05T15:59:09.888Z",
+    "page_views_count": 10,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 10,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3513458,
+    "title": "I Built an AI-Powered Japanese Trade Law Compliance Checker as a Chrome Extension",
+    "slug": "i-built-an-ai-powered-japanese-trade-law-compliance-checker-as-a-chrome-extension-1bk8",
+    "url": "https://dev.to/ktg0215/i-built-an-ai-powered-japanese-trade-law-compliance-checker-as-a-chrome-extension-1bk8",
+    "published_at": "2026-05-05T09:00:00.000Z",
+    "page_views_count": 10,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 10,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3519755,
+    "title": "Manifest V3 Migration: The Gotchas Nobody Warned Me About",
+    "slug": "manifest-v3-migration-the-gotchas-nobody-warned-me-about-2imh",
+    "url": "https://dev.to/ktg0215/manifest-v3-migration-the-gotchas-nobody-warned-me-about-2imh",
+    "published_at": "2026-05-04T16:04:09.731Z",
+    "page_views_count": 112,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 112,
+      "average_read_time_in_seconds": 900,
+      "total_read_time_in_seconds": 100800
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "(102), google.com(10)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3482040,
+    "title": "Manifest V3 Migration Pitfalls — Lessons from 17 Chrome Extensions",
+    "slug": "manifest-v3-migration-pitfalls-lessons-from-17-chrome-extensions-2j3h",
+    "url": "https://dev.to/ktg0215/manifest-v3-migration-pitfalls-lessons-from-17-chrome-extensions-2j3h",
+    "published_at": "2026-05-04T00:00:00.000Z",
+    "page_views_count": 110,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 110,
+      "average_read_time_in_seconds": 69,
+      "total_read_time_in_seconds": 7590
+    },
+    "total_reactions": {
+      "total": 1,
+      "like": 0,
+      "readinglist": 1,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 1
+    },
+    "top_referrers": "bing.com(10), duckduckgo.com(10), dev.to(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3519739,
+    "title": "CWS Listing SEO: What Actually Moved the Needle After Publishing 18 Extensions",
+    "slug": "cws-listing-seo-what-actually-moved-the-needle-after-publishing-18-extensions-37i1",
+    "url": "https://dev.to/ktg0215/cws-listing-seo-what-actually-moved-the-needle-after-publishing-18-extensions-37i1",
+    "published_at": "2026-05-02T14:47:08.457Z",
+    "page_views_count": 24,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 24,
+      "average_read_time_in_seconds": 83,
+      "total_read_time_in_seconds": 1992
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3482039,
+    "title": "Chrome Web Store SEO: How I Optimized 17 Extensions for Search",
+    "slug": "chrome-web-store-seo-how-i-optimized-17-extensions-for-search-2maj",
+    "url": "https://dev.to/ktg0215/chrome-web-store-seo-how-i-optimized-17-extensions-for-search-2maj",
+    "published_at": "2026-05-02T00:00:00.000Z",
+    "page_views_count": 49,
+    "public_reactions_count": 1,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 49,
+      "average_read_time_in_seconds": 220,
+      "total_read_time_in_seconds": 10780
+    },
+    "total_reactions": {
+      "total": 1,
+      "like": 1,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 1
+    },
+    "top_referrers": "(24), claude.ai(12), google.com(11), dev.to(2)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3519738,
+    "title": "How I Cross-Promote 18 Chrome Extensions Without Annoying Users",
+    "slug": "how-i-cross-promote-18-chrome-extensions-without-annoying-users-1oa3",
+    "url": "https://dev.to/ktg0215/how-i-cross-promote-18-chrome-extensions-without-annoying-users-1oa3",
+    "published_at": "2026-04-30T15:48:07.005Z",
+    "page_views_count": 26,
+    "public_reactions_count": 1,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 26,
+      "average_read_time_in_seconds": 665,
+      "total_read_time_in_seconds": 17290
+    },
+    "total_reactions": {
+      "total": 1,
+      "like": 1,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 1
+    },
+    "top_referrers": "yandex.ru(10), dev.to(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3482038,
+    "title": "I Added Cross-Promotion to 18 Chrome Extensions — Here's What Happened",
+    "slug": "i-added-cross-promotion-to-18-chrome-extensions-heres-what-happened-57ac",
+    "url": "https://dev.to/ktg0215/i-added-cross-promotion-to-18-chrome-extensions-heres-what-happened-57ac",
+    "published_at": "2026-04-30T00:00:00.000Z",
+    "page_views_count": 52,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 52,
+      "average_read_time_in_seconds": 60,
+      "total_read_time_in_seconds": 3120
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "dev.to(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3550219,
+    "title": "I Launched on Product Hunt, Got Zero Votes, and Did It Again Seven Weeks Later",
+    "slug": "i-launched-on-product-hunt-got-zero-votes-and-did-it-again-seven-weeks-later-ooa",
+    "url": "https://dev.to/ktg0215/i-launched-on-product-hunt-got-zero-votes-and-did-it-again-seven-weeks-later-ooa",
+    "published_at": "2026-04-29T15:58:32.150Z",
+    "page_views_count": 52,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 52,
+      "average_read_time_in_seconds": 30,
+      "total_read_time_in_seconds": 1560
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "google.com(11)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3482018,
+    "title": "I Built a Focus Extension with Breathing Exercises Instead of Hard Blocks",
+    "slug": "i-built-a-focus-extension-with-breathing-exercises-instead-of-hard-blocks-13bh",
+    "url": "https://dev.to/ktg0215/i-built-a-focus-extension-with-breathing-exercises-instead-of-hard-blocks-13bh",
+    "published_at": "2026-04-28T16:08:44.169Z",
+    "page_views_count": 10,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 10,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3482021,
+    "title": "How to Block Distracting Sites — Free Chrome Extension with Breathing Exercises",
+    "slug": "how-to-block-distracting-sites-free-chrome-extension-with-breathing-exercises-38e8",
+    "url": "https://dev.to/ktg0215/how-to-block-distracting-sites-free-chrome-extension-with-breathing-exercises-38e8",
+    "published_at": "2026-04-28T00:00:00.000Z",
+    "page_views_count": 31,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 31,
+      "average_read_time_in_seconds": 15,
+      "total_read_time_in_seconds": 465
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "google.com(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3519744,
+    "title": "20 Developer Tools That Run in Your Browser — No Signup, No Server, No Tracking",
+    "slug": "i-built-20-free-browser-based-developer-tools-no-signup-no-server-no-tracking-157o",
+    "url": "https://dev.to/ktg0215/i-built-20-free-browser-based-developer-tools-no-signup-no-server-no-tracking-157o",
+    "published_at": "2026-04-26T14:43:49.222Z",
+    "page_views_count": 60,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 6,
+    "total_views": {
+      "total": 60,
+      "average_read_time_in_seconds": 392,
+      "total_read_time_in_seconds": 23520
+    },
+    "total_reactions": {
+      "total": 1,
+      "like": 0,
+      "readinglist": 1,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 1
+    },
+    "top_referrers": "dev.to(3)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3397773,
+    "title": "20 Free Developer Tools in Your Browser — No Signup Required",
+    "slug": "20-free-developer-tools-in-your-browser-no-signup-required-4jgj",
+    "url": "https://dev.to/ktg0215/20-free-developer-tools-in-your-browser-no-signup-required-4jgj",
+    "published_at": "2026-04-26T00:00:00.000Z",
+    "page_views_count": 0,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 1,
+    "total_views": {
+      "total": 0,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3519763,
+    "title": "TVer Has No Playback Speed Control. I Fixed It With a Chrome Extension.",
+    "slug": "i-built-a-chrome-extension-that-adds-playback-speed-and-picture-in-picture-to-japans-free-5bbo",
+    "url": "https://dev.to/ktg0215/i-built-a-chrome-extension-that-adds-playback-speed-and-picture-in-picture-to-japans-free-5bbo",
+    "published_at": "2026-04-24T15:11:00.889Z",
+    "page_views_count": 20,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 20,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "google.com(10)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3315270,
+    "title": "TVer Plus: Adding Playback Speed and PiP to Japan's Free Streaming Service",
+    "slug": "tver-plus-adding-playback-speed-and-pip-to-japans-free-streaming-service-3gp3",
+    "url": "https://dev.to/ktg0215/tver-plus-adding-playback-speed-and-pip-to-japans-free-streaming-service-3gp3",
+    "published_at": "2026-04-24T09:00:00.000Z",
+    "page_views_count": 20,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 20,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3519761,
+    "title": "I Built a Scroll Position Memory Extension That Actually Works on SPAs",
+    "slug": "i-built-a-scroll-position-memory-extension-that-actually-works-on-spas-3fjd",
+    "url": "https://dev.to/ktg0215/i-built-a-scroll-position-memory-extension-that-actually-works-on-spas-3fjd",
+    "published_at": "2026-04-22T15:16:02.347Z",
+    "page_views_count": 46,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 46,
+      "average_read_time_in_seconds": 335,
+      "total_read_time_in_seconds": 15410
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "google.fr(10), duckduckgo.com(10)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3315272,
+    "title": "I Built a Chrome Extension That Remembers Where You Stopped Reading",
+    "slug": "i-built-a-chrome-extension-that-remembers-where-you-stopped-reading-2k6o",
+    "url": "https://dev.to/ktg0215/i-built-a-chrome-extension-that-remembers-where-you-stopped-reading-2k6o",
+    "published_at": "2026-04-22T09:00:00.000Z",
+    "page_views_count": 22,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 22,
+      "average_read_time_in_seconds": 105,
+      "total_read_time_in_seconds": 2310
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "bing.com(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3519743,
+    "title": "Stop Copy-Pasting Between Web Forms. This Chrome Extension Automates Data Transfer.",
+    "slug": "i-built-a-chrome-extension-that-maps-and-transfers-data-between-web-pages-visually-afl",
+    "url": "https://dev.to/ktg0215/i-built-a-chrome-extension-that-maps-and-transfers-data-between-web-pages-visually-afl",
+    "published_at": "2026-04-20T15:16:38.886Z",
+    "page_views_count": 20,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 20,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3392099,
+    "title": "I Built a Chrome Extension That Transfers Data Between Web Pages Visually",
+    "slug": "how-to-copy-data-between-web-pages-no-code-chrome-extension-1j9a",
+    "url": "https://dev.to/ktg0215/how-to-copy-data-between-web-pages-no-code-chrome-extension-1j9a",
+    "published_at": "2026-04-20T00:00:00.000Z",
+    "page_views_count": 21,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 8,
+    "total_views": {
+      "total": 21,
+      "average_read_time_in_seconds": 15,
+      "total_read_time_in_seconds": 315
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "bsky.app(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3519753,
+    "title": "I Built a Font Inspector Chrome Extension That Actually Identifies Japanese Fonts",
+    "slug": "i-built-a-font-inspector-chrome-extension-that-actually-identifies-japanese-fonts-50bd",
+    "url": "https://dev.to/ktg0215/i-built-a-font-inspector-chrome-extension-that-actually-identifies-japanese-fonts-50bd",
+    "published_at": "2026-04-18T14:40:39.895Z",
+    "page_views_count": 42,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 4,
+    "total_views": {
+      "total": 42,
+      "average_read_time_in_seconds": 683,
+      "total_read_time_in_seconds": 28686
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "google.com(10)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3392101,
+    "title": "I Built a Chrome Extension That Identifies Japanese Fonts on Any Web Page",
+    "slug": "how-to-identify-japanese-fonts-on-any-website-free-chrome-extension-1ck4",
+    "url": "https://dev.to/_350df62777eb55e1/how-to-identify-japanese-fonts-on-any-website-free-chrome-extension-1ck4",
+    "published_at": "2026-04-18T00:00:00.000Z",
+    "page_views_count": 0,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 9,
+    "total_views": {
+      "total": 0,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3507685,
+    "title": "How to Transfer Data Between Web Pages Without Copy-Paste ? Free Chrome Extension",
+    "slug": "i-built-a-chrome-extension-that-transfers-data-between-web-pages-visually-2pmp",
+    "url": "https://dev.to/ktg0215/i-built-a-chrome-extension-that-transfers-data-between-web-pages-visually-2pmp",
+    "published_at": "2026-04-16T01:31:56.054Z",
+    "page_views_count": 42,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 8,
+    "total_views": {
+      "total": 42,
+      "average_read_time_in_seconds": 23,
+      "total_read_time_in_seconds": 966
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "google.com(20), dev.to(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3392102,
+    "title": "Free Chrome Extension for SEO Analysis ? Page Score, Schema Detection and SERP Preview",
+    "slug": "best-free-on-page-seo-checker-for-chrome-one-click-analysis-3i10",
+    "url": "https://dev.to/_350df62777eb55e1/best-free-on-page-seo-checker-for-chrome-one-click-analysis-3i10",
+    "published_at": "2026-04-16T00:00:00.000Z",
+    "page_views_count": 0,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 9,
+    "total_views": {
+      "total": 0,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3392103,
+    "title": "How to Take Notes on Any Web Page Without Leaving It ? Free Chrome Extension",
+    "slug": "how-to-take-notes-on-any-web-page-free-chrome-extension-57am",
+    "url": "https://dev.to/ktg0215/how-to-take-notes-on-any-web-page-free-chrome-extension-57am",
+    "published_at": "2026-04-14T00:00:00.000Z",
+    "page_views_count": 0,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 1,
+    "total_views": {
+      "total": 0,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3392104,
+    "title": "How to Auto-Generate Step-by-Step Browser Guides ? Free Screenshot Extension",
+    "slug": "how-to-create-step-by-step-guides-automatically-free-chrome-extension-2mk2",
+    "url": "https://dev.to/ktg0215/how-to-create-step-by-step-guides-automatically-free-chrome-extension-2mk2",
+    "published_at": "2026-04-12T00:00:00.000Z",
+    "page_views_count": 10,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 9,
+    "total_views": {
+      "total": 10,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3392105,
+    "title": "Best Chrome Extension for Code Snippets ? VS Code-Style Snippet Manager",
+    "slug": "how-to-save-code-snippets-from-any-website-chrome-extension-3ddm",
+    "url": "https://dev.to/ktg0215/how-to-save-code-snippets-from-any-website-chrome-extension-3ddm",
+    "published_at": "2026-04-10T00:00:00.000Z",
+    "page_views_count": 10,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 7,
+    "total_views": {
+      "total": 10,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": null,
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3392107,
+    "title": "Yahoo Japan's Homepage Is 70% Clickbait. This Chrome Extension Filters It.",
+    "slug": "i-built-a-chrome-extension-to-filter-low-quality-news-on-yahoo-japan-fdb",
+    "url": "https://dev.to/ktg0215/i-built-a-chrome-extension-to-filter-low-quality-news-on-yahoo-japan-fdb",
+    "published_at": "2026-04-08T10:00:56.865Z",
+    "page_views_count": 31,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 7,
+    "total_views": {
+      "total": 31,
+      "average_read_time_in_seconds": 15,
+      "total_read_time_in_seconds": 465
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "(31)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3392098,
+    "title": "How to Scrape Japan Real Estate Data with a Chrome Extension ? SUUMO Automation",
+    "slug": "scraping-japans-largest-real-estate-site-with-a-chrome-extension-building-an-automated-property-n8",
+    "url": "https://dev.to/ktg0215/scraping-japans-largest-real-estate-site-with-a-chrome-extension-building-an-automated-property-n8",
+    "published_at": "2026-04-07T09:59:23.597Z",
+    "page_views_count": 50,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 10,
+    "total_views": {
+      "total": 50,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "google.com(20), android.googlequicksearchbox(10)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3392106,
+    "title": "X's Algorithm Killed My Focus. Here's the Chrome Extension I Built to Fix It.",
+    "slug": "i-built-a-chrome-extension-to-remove-xtwitters-algorithmic-feed-and-reclaim-my-timeline-o2e",
+    "url": "https://dev.to/ktg0215/i-built-a-chrome-extension-to-remove-xtwitters-algorithmic-feed-and-reclaim-my-timeline-o2e",
+    "published_at": "2026-04-06T10:01:28.883Z",
+    "page_views_count": 20,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 10,
+    "total_views": {
+      "total": 20,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "(20)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3392093,
+    "title": "Best Chrome Extension for Retail Arbitrage ? Amazon vs Mercari Price Comparison",
+    "slug": "i-built-a-cross-platform-price-comparison-tool-for-retail-arbitrage-5fpc",
+    "url": "https://dev.to/ktg0215/i-built-a-cross-platform-price-comparison-tool-for-retail-arbitrage-5fpc",
+    "published_at": "2026-04-05T09:30:56.300Z",
+    "page_views_count": 77,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 10,
+    "total_views": {
+      "total": 77,
+      "average_read_time_in_seconds": 32,
+      "total_read_time_in_seconds": 2464
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "google.com(10), dev.to(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3392111,
+    "title": "How to Scrape Any Website to Google Sheets ? Free No-Code Chrome Extension",
+    "slug": "send-web-data-directly-to-google-sheets-no-code-no-python-no-importxml-29ed",
+    "url": "https://dev.to/ktg0215/send-web-data-directly-to-google-sheets-no-code-no-python-no-importxml-29ed",
+    "published_at": "2026-04-03T09:44:42.175Z",
+    "page_views_count": 20,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 7,
+    "total_views": {
+      "total": 20,
+      "average_read_time_in_seconds": 0,
+      "total_read_time_in_seconds": 0
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "threads.com(10)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3392112,
+    "title": "How to OCR Invoices for Free ? Chrome Extension with No Cloud Upload",
+    "slug": "i-built-a-free-invoice-ocr-chrome-extension-no-cloud-no-signup-3cii",
+    "url": "https://dev.to/ktg0215/i-built-a-free-invoice-ocr-chrome-extension-no-cloud-no-signup-3cii",
+    "published_at": "2026-04-01T10:00:08.325Z",
+    "page_views_count": 48,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 9,
+    "total_views": {
+      "total": 48,
+      "average_read_time_in_seconds": 246,
+      "total_read_time_in_seconds": 11808
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "dev.to(1), google.com(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3392116,
+    "title": "I Reply to 30 Emails a Day. Gmail Templates Cut the Time in Half.",
+    "slug": "i-built-a-gmail-template-extension-heres-what-i-learned-fighting-gmails-dom-4f0b",
+    "url": "https://dev.to/ktg0215/i-built-a-gmail-template-extension-heres-what-i-learned-fighting-gmails-dom-4f0b",
+    "published_at": "2026-03-30T10:08:29.293Z",
+    "page_views_count": 73,
+    "public_reactions_count": 0,
+    "comments_count": 1,
+    "reading_time_minutes": 7,
+    "total_views": {
+      "total": 73,
+      "average_read_time_in_seconds": 75,
+      "total_read_time_in_seconds": 5475
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "google.com(20)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3392110,
+    "title": "Best Cookie Editor for Chrome in 2026 ? EditThisCookie Alternative",
+    "slug": "editthiscookie-got-removed-so-i-built-a-modern-cookie-editor-for-chrome-1kjj",
+    "url": "https://dev.to/ktg0215/editthiscookie-got-removed-so-i-built-a-modern-cookie-editor-for-chrome-1kjj",
+    "published_at": "2026-03-28T09:28:17.142Z",
+    "page_views_count": 74,
+    "public_reactions_count": 1,
+    "comments_count": 0,
+    "reading_time_minutes": 7,
+    "total_views": {
+      "total": 74,
+      "average_read_time_in_seconds": 19,
+      "total_read_time_in_seconds": 1406
+    },
+    "total_reactions": {
+      "total": 1,
+      "like": 1,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 1
+    },
+    "top_referrers": "(43), duckduckgo.com(20), google.com(10), dev.to(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3392118,
+    "title": "How to Add Reader Mode to Chrome — Free Distraction-Free Extension",
+    "slug": "i-built-a-reader-mode-extension-for-chrome-because-it-still-doesnt-have-one-5eg8",
+    "url": "https://dev.to/_350df62777eb55e1/i-built-a-reader-mode-extension-for-chrome-because-it-still-doesnt-have-one-5eg8",
+    "published_at": "2026-03-26T01:59:23.726Z",
+    "page_views_count": 76,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 8,
+    "total_views": {
+      "total": 76,
+      "average_read_time_in_seconds": 70,
+      "total_read_time_in_seconds": 5320
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "google.com(11), duckduckgo.com(10), dev.to(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3355268,
+    "title": "DataPick: Click-to-Extract Web Data Without Writing Scraper Code",
+    "slug": "datapick-click-to-extract-web-data-without-writing-scraper-code-4p5i",
+    "url": "https://dev.to/ktg0215/datapick-click-to-extract-web-data-without-writing-scraper-code-4p5i",
+    "published_at": "2026-03-15T15:37:17.737Z",
+    "page_views_count": 12,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 1,
+    "total_views": {
+      "total": 12,
+      "average_read_time_in_seconds": 15,
+      "total_read_time_in_seconds": 180
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "dev.to(2)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3315266,
+    "title": "DataPick: Click-to-Extract Web Data Without Writing Scraper Code",
+    "slug": "datapick-click-to-extract-web-data-without-writing-scraper-code-4pmj",
+    "url": "https://dev.to/ktg0215/datapick-click-to-extract-web-data-without-writing-scraper-code-4pmj",
+    "published_at": "2026-03-15T15:34:31.843Z",
+    "page_views_count": 2,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 1,
+    "total_views": {
+      "total": 2,
+      "average_read_time_in_seconds": 15,
+      "total_read_time_in_seconds": 30
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "dev.to(2)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3315269,
+    "title": "Rakuten Sellers: A Research Tool for Japan's Second-Largest E-Commerce Platform",
+    "slug": "rakuten-sellers-a-research-tool-for-japans-second-largest-e-commerce-platform-30m3",
+    "url": "https://dev.to/ktg0215/rakuten-sellers-a-research-tool-for-japans-second-largest-e-commerce-platform-30m3",
+    "published_at": "2026-03-15T15:29:41.898Z",
+    "page_views_count": 3,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 1,
+    "total_views": {
+      "total": 3,
+      "average_read_time_in_seconds": 15,
+      "total_read_time_in_seconds": 45
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "dev.to(2)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3315268,
+    "title": "PromptStash: Save and Reuse Your AI Prompts Across Every Chat Interface",
+    "slug": "promptstash-save-and-reuse-your-ai-prompts-across-every-chat-interface-pfa",
+    "url": "https://dev.to/ktg0215/promptstash-save-and-reuse-your-ai-prompts-across-every-chat-interface-pfa",
+    "published_at": "2026-03-09T01:17:45.866Z",
+    "page_views_count": 19,
+    "public_reactions_count": 1,
+    "comments_count": 2,
+    "reading_time_minutes": 2,
+    "total_views": {
+      "total": 19,
+      "average_read_time_in_seconds": 28,
+      "total_read_time_in_seconds": 532
+    },
+    "total_reactions": {
+      "total": 2,
+      "like": 1,
+      "readinglist": 1,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 2
+    },
+    "top_referrers": "dev.to(4)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3315264,
+    "title": "How to Remove YouTube Shorts from Your Feed ? Free Chrome Extension",
+    "slug": "shortskiller-how-i-built-a-chrome-extension-to-remove-youtube-shorts-from-my-browser-bbc",
+    "url": "https://dev.to/ktg0215/shortskiller-how-i-built-a-chrome-extension-to-remove-youtube-shorts-from-my-browser-bbc",
+    "published_at": "2026-03-08T16:01:36.095Z",
+    "page_views_count": 12,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 2,
+    "total_views": {
+      "total": 12,
+      "average_read_time_in_seconds": 15,
+      "total_read_time_in_seconds": 180
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "dev.to(1)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3248432,
+    "title": "Solo Chrome Extension Development: Why I Ship Often Over Perfectly",
+    "slug": "as-a-solo-developer-im-choosing-quantity-over-quality-heres-why-4i75",
+    "url": "https://dev.to/ktg0215/as-a-solo-developer-im-choosing-quantity-over-quality-heres-why-4i75",
+    "published_at": "2026-03-05T03:10:17.718Z",
+    "page_views_count": 13,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 1,
+    "total_views": {
+      "total": 13,
+      "average_read_time_in_seconds": 50,
+      "total_read_time_in_seconds": 650
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "dev.to(2)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3248444,
+    "title": "Are Indie Dev Ideas Running Out? Surviving in a Market Full of Competitors",
+    "slug": "are-indie-dev-ideas-running-out-surviving-in-a-market-full-of-competitors-4p6b",
+    "url": "https://dev.to/ktg0215/are-indie-dev-ideas-running-out-surviving-in-a-market-full-of-competitors-4p6b",
+    "published_at": "2026-03-05T03:09:53.692Z",
+    "page_views_count": 47,
+    "public_reactions_count": 2,
+    "comments_count": 0,
+    "reading_time_minutes": 1,
+    "total_views": {
+      "total": 47,
+      "average_read_time_in_seconds": 89,
+      "total_read_time_in_seconds": 4183
+    },
+    "total_reactions": {
+      "total": 2,
+      "like": 1,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 1,
+      "fire": 0,
+      "unique_reactors": 1
+    },
+    "top_referrers": "duckduckgo.com(10), dev.to(5)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3248443,
+    "title": "When Anyone Can Build Software, What's the Point of Being an Indie Developer?",
+    "slug": "when-anyone-can-build-software-whats-the-point-of-being-an-indie-developer-24ig",
+    "url": "https://dev.to/ktg0215/when-anyone-can-build-software-whats-the-point-of-being-an-indie-developer-24ig",
+    "published_at": "2026-03-05T03:09:17.362Z",
+    "page_views_count": 23,
+    "public_reactions_count": 1,
+    "comments_count": 0,
+    "reading_time_minutes": 1,
+    "total_views": {
+      "total": 23,
+      "average_read_time_in_seconds": 145,
+      "total_read_time_in_seconds": 3335
+    },
+    "total_reactions": {
+      "total": 1,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 1,
+      "fire": 0,
+      "unique_reactors": 1
+    },
+    "top_referrers": "dev.to(6)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3281815,
+    "title": "I Built 17 Chrome Extensions as a Solo Developer — Here's What I Learned",
+    "slug": "i-built-17-chrome-extensions-as-a-solo-developer-heres-what-i-learned-22h0",
+    "url": "https://dev.to/ktg0215/i-built-17-chrome-extensions-as-a-solo-developer-heres-what-i-learned-22h0",
+    "published_at": "2026-02-24T16:43:13.594Z",
+    "page_views_count": 190,
+    "public_reactions_count": 1,
+    "comments_count": 0,
+    "reading_time_minutes": 6,
+    "total_views": {
+      "total": 190,
+      "average_read_time_in_seconds": 492,
+      "total_read_time_in_seconds": 93480
+    },
+    "total_reactions": {
+      "total": 1,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 1,
+      "unique_reactors": 1
+    },
+    "top_referrers": "google.com(11), claude.ai(10), bing.com(10), dev.to(4)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3248446,
+    "title": "Automate Your Release Announcements: GitHub Release 4 Social Platforms with n8n",
+    "slug": "automate-your-release-announcements-github-release-4-social-platforms-with-n8n-1okd",
+    "url": "https://dev.to/ktg0215/automate-your-release-announcements-github-release-4-social-platforms-with-n8n-1okd",
+    "published_at": "2026-02-18T17:06:18.186Z",
+    "page_views_count": 33,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 1,
+    "total_views": {
+      "total": 33,
+      "average_read_time_in_seconds": 15,
+      "total_read_time_in_seconds": 495
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "dev.to(2)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3248457,
+    "title": "I Built a Chrome Extension That Remembers Where You Stopped Reading on Any Web Page",
+    "slug": "i-built-a-chrome-extension-that-remembers-where-you-stopped-reading-on-any-web-page-4ja3",
+    "url": "https://dev.to/ktg0215/i-built-a-chrome-extension-that-remembers-where-you-stopped-reading-on-any-web-page-4ja3",
+    "published_at": "2026-02-18T17:05:51.568Z",
+    "page_views_count": 72,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 1,
+    "total_views": {
+      "total": 72,
+      "average_read_time_in_seconds": 15,
+      "total_read_time_in_seconds": 1080
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "dev.to(2)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3248452,
+    "title": "I Built a No-Code Web Scraping Chrome Extension — Click to Extract Data",
+    "slug": "i-built-a-no-code-web-scraping-chrome-extension-click-to-extract-data-42lc",
+    "url": "https://dev.to/ktg0215/i-built-a-no-code-web-scraping-chrome-extension-click-to-extract-data-42lc",
+    "published_at": "2026-02-17T15:14:54.450Z",
+    "page_views_count": 5,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 1,
+    "total_views": {
+      "total": 5,
+      "average_read_time_in_seconds": 15,
+      "total_read_time_in_seconds": 75
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "dev.to(5)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3248447,
+    "title": "YouTube Shorts Were Stealing My Time, So I Built a Chrome Extension to Kill Them",
+    "slug": "youtube-shorts-were-stealing-my-time-so-i-built-a-chrome-extension-to-kill-them-10f4",
+    "url": "https://dev.to/ktg0215/youtube-shorts-were-stealing-my-time-so-i-built-a-chrome-extension-to-kill-them-10f4",
+    "published_at": "2026-02-16T15:52:19.985Z",
+    "page_views_count": 28,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 1,
+    "total_views": {
+      "total": 28,
+      "average_read_time_in_seconds": 21,
+      "total_read_time_in_seconds": 588
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "dev.to(6)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3248436,
+    "title": "The Indie Developer's Marketing Problem Nobody Talks About — You Can't Analyze Zero",
+    "slug": "the-indie-developers-marketing-problem-nobody-talks-about-you-cant-analyze-zero-19b4",
+    "url": "https://dev.to/ktg0215/the-indie-developers-marketing-problem-nobody-talks-about-you-cant-analyze-zero-19b4",
+    "published_at": "2026-02-16T15:51:49.136Z",
+    "page_views_count": 15,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 1,
+    "total_views": {
+      "total": 15,
+      "average_read_time_in_seconds": 15,
+      "total_read_time_in_seconds": 225
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "dev.to(5)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3248431,
+    "title": "I Can't Code, But I Built 6 Chrome Extensions in a Week Using AI — Here's My Exact Workflow",
+    "slug": "i-cant-code-but-i-built-6-chrome-extensions-in-a-week-using-ai-heres-my-exact-workflow-1ok4",
+    "url": "https://dev.to/ktg0215/i-cant-code-but-i-built-6-chrome-extensions-in-a-week-using-ai-heres-my-exact-workflow-1ok4",
+    "published_at": "2026-02-12T16:17:54.814Z",
+    "page_views_count": 3,
+    "public_reactions_count": 0,
+    "comments_count": 0,
+    "reading_time_minutes": 2,
+    "total_views": {
+      "total": 3,
+      "average_read_time_in_seconds": 15,
+      "total_read_time_in_seconds": 45
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "dev.to(3)",
+    "collected_at": "2026-06-29"
+  },
+  {
+    "id": 3248429,
+    "title": "I Started Indie Development with AI — Building Was Easy, Selling Was 100x Harder",
+    "slug": "i-started-indie-development-with-ai-building-was-easy-selling-was-100x-harder-42kg",
+    "url": "https://dev.to/ktg0215/i-started-indie-development-with-ai-building-was-easy-selling-was-100x-harder-42kg",
+    "published_at": "2026-02-12T01:51:02.182Z",
+    "page_views_count": 181,
+    "public_reactions_count": 0,
+    "comments_count": 1,
+    "reading_time_minutes": 3,
+    "total_views": {
+      "total": 181,
+      "average_read_time_in_seconds": 50,
+      "total_read_time_in_seconds": 9050
+    },
+    "total_reactions": {
+      "total": 0,
+      "like": 0,
+      "readinglist": 0,
+      "unicorn": 0,
+      "exploding_head": 0,
+      "raised_hands": 0,
+      "fire": 0,
+      "unique_reactors": 0
+    },
+    "top_referrers": "google.com(50), brave.com(10), dev.to(5), chatgpt.com(1)",
+    "collected_at": "2026-06-29"
+  }
+]
