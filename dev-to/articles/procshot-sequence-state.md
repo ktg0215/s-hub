@@ -1,6 +1,6 @@
 ---
 title: "Maintaining State Across Separate Screenshots: How Procshot Sequences Steps Automatically"
-published: false
+published: true
 tags: ["chrome","javascript","mv3","buildinpublic"]
 series: null
 canonical_url: null
