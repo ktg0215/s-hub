@@ -1,6 +1,6 @@
 ---
 title: "Detecting Which AI Chat Platform You're On: URL and DOM Patterns for ChatGPT, Claude, Gemini, and Copilot"
-published: false
+published: true
 tags: ["chrome","javascript","ai","webdev"]
 series: null
 canonical_url: null
