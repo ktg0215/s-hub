@@ -66,7 +66,7 @@ Everything above is free. CookieJar Pro ($4.99/month, or $29.99 one-time) adds a
 
 ## Install
 
-CookieJar is free and needs no account. Your cookies and saved profiles stay in your browser — CookieJar has no server of its own and never uploads your cookie data.
+CookieJar is free and needs no CookieJar account. Your cookies and saved profiles never leave your browser — they're stored only in local browser storage, and CookieJar never uploads them.
 
 → **Install free:** https://dev-tools-hub.xyz/extensions/cookiejar/?utm_source=devto&utm_campaign=edit-cookies-chrome
 
