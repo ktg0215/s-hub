@@ -213,9 +213,53 @@ function generateSnsPost(title, url, tags) {
   console.log("=".repeat(50) + "\n");
 }
 
+/**
+ * タイトル正規化（大小文字・連続空白を吸収して title 照合を安定させる）。
+ */
+function normalizeTitle(t) {
+  return String(t || "").trim().toLowerCase().replace(/\s+/g, " ");
+}
+
+/**
+ * mass-sweep 防止 guard。
+ * Dev.to 上の既存記事（published + draft 両方）を normalizedTitle -> id で索引する。
+ * GET /api/articles/me/all は認証ユーザーの全記事（下書き含む）を返す（公開のみの
+ * 公開 API と違い draft も見える）。frontmatter の devto_id が commit-back 失敗等で
+ * 失われても、同一 title の既存記事があれば Step 1 が新規作成せず id を再利用でき、
+ * 重複 draft/再 publish を構造的に防止する。取得失敗時は空 Map（＝従来挙動）で継続。
+ * 同一 title が複数ある場合は最小 id（最古）を採用して基準を安定させる。
+ */
+async function fetchExistingArticleMap() {
+  const map = new Map();
+  const perPage = 1000;
+  for (let page = 1; page <= 20; page++) {
+    let batch;
+    try {
+      batch = await apiCall("GET", `https://dev.to/api/articles/me/all?page=${page}&per_page=${perPage}`);
+    } catch (e) {
+      console.warn(`    [dedup-guard] existing-article fetch failed (page ${page}): ${e.message}`);
+      break;
+    }
+    if (!Array.isArray(batch) || batch.length === 0) break;
+    for (const a of batch) {
+      if (a && a.title && a.id != null) {
+        const key = normalizeTitle(a.title);
+        const prev = map.get(key);
+        if (prev == null || a.id < prev) map.set(key, a.id);
+      }
+    }
+    if (batch.length < perPage) break;
+  }
+  return map;
+}
+
 async function main() {
   const today = new Date().toISOString().slice(0, 10);
   console.log(`[${today}] Dev.to Scheduled Publisher started`);
+
+  // mass-sweep 防止 guard: 既存 Dev.to 記事の title->id 索引を先に取得。
+  const existingByTitle = await fetchExistingArticleMap();
+  console.log(`[dedup-guard] indexed ${existingByTitle.size} existing Dev.to article title(s)`);
 
   const files = fs.readdirSync(ARTICLES_DIR).filter(f => f.endsWith(".md")).sort();
   console.log(`Found ${files.length} article(s)`);
@@ -249,13 +293,26 @@ async function main() {
     try {
       // Step 1: Create draft if no devto_id
       if (!meta.devto_id) {
-        console.log("    -> Creating draft on Dev.to...");
-        const result = await createArticle(meta, body);
-        meta.devto_id = result.id;
-        writeFrontmatter(filePath, meta, body);
-        changed = true;
-        console.log(`    -> Created draft (id: ${result.id})`);
-        synced++;
+        // mass-sweep 防止 guard: 同一 title の記事が既に Dev.to に存在すれば新規作成せず
+        // その id を再利用する（frontmatter state 消失時の重複作成を防止）。
+        const existingId = existingByTitle.get(normalizeTitle(meta.title));
+        if (existingId != null) {
+          meta.devto_id = existingId;
+          writeFrontmatter(filePath, meta, body);
+          changed = true;
+          console.log(`    -> Reused existing Dev.to article (id: ${existingId}) [dedup guard]`);
+          synced++;
+        } else {
+          console.log("    -> Creating draft on Dev.to...");
+          const result = await createArticle(meta, body);
+          meta.devto_id = result.id;
+          // 作成直後に索引へも反映（同一 run 内の同題重複も防ぐ保険）。
+          existingByTitle.set(normalizeTitle(meta.title), result.id);
+          writeFrontmatter(filePath, meta, body);
+          changed = true;
+          console.log(`    -> Created draft (id: ${result.id})`);
+          synced++;
+        }
       }
 
       // Step 2: Publish if publish_date has arrived and not yet published
@@ -269,14 +326,15 @@ async function main() {
         published++;
 
         // SNS投稿下書き自動生成
-        const devtoUrl = result?.url || `https://dev.to/ktg/${meta.devto_id}`;
+        // fallback URL の username は 'ktg0215'（正）。旧 'ktg' は誤ハンドルで到達不能URLだった。
+        const devtoUrl = result?.url || `https://dev.to/ktg0215/${meta.devto_id}`;
         generateSnsPost(meta.title, devtoUrl, meta.tags || []);
 
         // marketing_events upsert (Phase 2-A 経路 2)
         const slug = result?.slug || meta.devto_id;
         await upsertMarketingEventDevto({
           devtoId: meta.devto_id,
-          articleSlug: result?.path?.replace(/^\//, "") || `ktg/${slug}`,
+          articleSlug: result?.path?.replace(/^\//, "") || `ktg0215/${slug}`,
           title: meta.title,
           tags: meta.tags || [],
           publishedAt: result?.published_at ? new Date(result.published_at) : new Date(),

@@ -31,7 +31,11 @@ jobs:
           SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
         run: node dev-to/publish.mjs
 
+      # if: always() — publish.mjs が per-article エラーで exit 1 しても frontmatter の
+      # write-back（devto_id/published）を必ず commit/push する。これが無いと exit 1 で本 step が
+      # スキップされ、作成済 draft の id が永続せず次回 run で重複作成/再publish される（6/18-21 実証）。
       - name: Commit updated frontmatter
+        if: always()
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
