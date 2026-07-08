@@ -1,12 +1,12 @@
 ---
 title: "How to Edit Cookies in Chrome After EditThisCookie Broke (MV3 Guide)"
-published: false
+published: true
 tags: ["chrome","webdev","productivity","devtools"]
 series: null
 canonical_url: "https://dev-tools-hub.xyz/blog/how-to-edit-cookies-in-chrome"
 description: "Edit cookies in Chrome after EditThisCookie broke on Manifest V3 — the built-in DevTools way and a faster MV3-native option."
 publish_date: "2026-07-08"
-devto_id: null
+devto_id: "4098711"
 ---
 
 If you're a web developer or QA engineer, you probably had **EditThisCookie** pinned to your toolbar for years. And then one day it stopped updating — or stopped loading entirely. The reason is **Manifest V3 (MV3)**: Chrome retired the old Manifest V2 extension platform, and cookie editors that weren't rebuilt for MV3 got left behind.
