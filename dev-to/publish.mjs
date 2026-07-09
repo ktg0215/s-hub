@@ -317,6 +317,14 @@ async function main() {
 
       // Step 2: Publish if publish_date has arrived and not yet published
       if (meta.publish_date && meta.publish_date <= today && !meta.published) {
+        // image-guard (ADR 2026-07-08-image-cadence): ブログ公開は main_image 必須。無ければ
+        // この記事の publish のみ skip（run 全体は継続・exit1 にしない）。Step 1 の draft 作成は
+        // 上で完了済で main_image 無しでも可（下書きは許容・公開時のみ画像を強制）。
+        if (!meta.main_image) {
+          console.log(`    [image-guard] skipped: no main_image`);
+          skipped++;
+          continue;
+        }
         console.log("    -> Publishing...");
         const result = await updateArticle(meta.devto_id, meta, body, true);
         meta.published = true;

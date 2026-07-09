@@ -11,6 +11,9 @@ const blog = defineCollection({
     date: z.coerce.date(),
     tags: z.array(z.string()).optional(),
     draft: z.boolean().optional(),
+    // hero/OG 画像（ADR 2026-07-08-image-cadence）。任意: 無ければ Layout の
+    // デフォルト OG (/images/og-image.png) に fallback（build fail させない・[slug] で warn）。
+    image: z.string().optional(),
   }),
 });
 

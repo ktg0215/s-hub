@@ -14,6 +14,14 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
+// og-guard (ADR 2026-07-08-image-cadence): 記事に image があれば OG に使い、無ければ
+// Layout のデフォルト OG に fallback（build は落とさない）＋ build ログに warn。
+if (!post.data.image) {
+  // console.log (stdout) を使う: Astro build のビルドログ(stdout)に確実に出し、CI で
+  // 画像欠落を検知可能にする（console.warn は stderr でCI stdout capture に載らず monitoring 目的を満たさない）。
+  console.log(`[og-guard] blog post "${post.id}" has no image - falling back to default OG`);
+}
+
 const dateFmt = new Intl.DateTimeFormat('ja-JP', {
   year: 'numeric',
   month: 'long',
@@ -24,6 +32,7 @@ const dateFmt = new Intl.DateTimeFormat('ja-JP', {
 <Layout
   title={`${post.data.title} — S-Hub Blog`}
   description={post.data.description}
+  ogImage={post.data.image}
   lang="ja"
   ogType="article"
 >
