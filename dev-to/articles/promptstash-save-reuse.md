@@ -7,7 +7,7 @@ canonical_url: "https://dev-tools-hub.xyz/blog/how-to-save-and-reuse-chatgpt-pro
 main_image: "https://raw.githubusercontent.com/ktg0215/s-hub/main/marketing-assets/covers/promptstash-cover-en.png"
 description: "Stop retyping prompts into ChatGPT, Claude & Gemini — save them once and insert with one click, using a free Chrome extension."
 publish_date: "2026-07-11"
-devto_id: null
+devto_id: "4107662"
 ---
 
 If you use ChatGPT, Claude, or Gemini for real work, you've rewritten the same prompt more times than you'd like to admit — the code-review prompt, the "explain this stack trace" prompt, the commit-message prompt. Retyping them is slow, and the good versions get buried in chat history.
