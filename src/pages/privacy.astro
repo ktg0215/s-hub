@@ -3,28 +3,52 @@ import Layout from '../layouts/Layout.astro';
 
 const sections = [
   {
-    title: "1. Data Collection",
-    content: "Our Chrome extensions collect minimal, anonymous usage data through Google Analytics 4 (GA4) to improve functionality. This includes: extension install/update events, feature usage counts, and error reports. No personally identifiable information (PII) is collected."
+    title: "1. Diagnostic data we collect (all extensions)",
+    content: "Every S-Hub extension sends a small amount of anonymous diagnostic data so we can fix bugs and see which features are used. This is:",
+    bullets: [
+      "Anonymous usage events via Google Analytics 4 — installs, updates, feature-usage counts, and paywall interactions.",
+      "Error reports — the extension's name and version, the error type and stack trace, the domain where the error happened, and your browser/user-agent string."
+    ],
+    paras: [
+      "These reports contain metadata only. They do not include the content you work with — no page text, no cookie values, no form input, no email content, no screenshots, and no information that identifies you personally."
+    ]
   },
   {
-    title: "2. Local Storage",
-    content: "Extension settings and user preferences are stored locally on your device using Chrome's storage API. This data never leaves your browser unless you explicitly choose to export it."
+    title: "2. What stays on your device",
+    content: "Your settings, saved items, and the content each extension works with — for example saved prompts, reading positions, captured screenshots, or edited cookies — are stored locally in your browser using Chrome's storage API.",
+    paras: [
+      "This data stays on your device, except when you explicitly export or sync it, or when an extension sends it to a third-party service to do its job (see section 4)."
+    ]
   },
   {
-    title: "3. No Account Required",
-    content: "Our extensions do not require account creation, login, or any personal information to function. Premium features are managed through ExtensionPay, which handles payment processing separately."
+    title: "3. No account required",
+    content: "Our extensions don't require sign-up or login. Premium features are handled by ExtensionPay, which processes payments separately — we don't receive or store your payment details."
   },
   {
-    title: "4. Third-Party Services",
-    content: "Some extensions may interact with third-party websites (e.g., SUUMO, Amazon, Gmail) to provide functionality. We do not collect, store, or transmit any data from these services to our servers."
+    title: "4. Extensions that use external services",
+    content: "A few extensions send data to a third-party service because their core feature depends on it. In each case the data goes to the named service — not to an S-Hub server:",
+    table: {
+      headers: ["Extension", "What it sends", "Where it goes", "Why"],
+      rows: [
+        ["請求書よみとり (Invoice Reader)", "The invoice page image and text — only when you enable AI extraction", "OpenAI, using your own OpenAI API key; and Japan's National Tax Agency invoice lookup", "Read invoice fields (OpenAI Vision); verify registration numbers"],
+        ["GrammarHelper", "The text you check", "LanguageTool", "Grammar and spelling suggestions"],
+        ["DomainInfo", "The domain name you look up", "Google Public DNS", "Retrieve DNS records"],
+        ["DataPick", "The table data you choose to export", "Your own Google Sheets (via your Google sign-in)", "Export extracted data to your spreadsheet"],
+        ["LectureLoop", "Video context from the page you're on", "YouTube", "Provide transcript/summary features on YouTube"]
+      ]
+    },
+    paras: [
+      "Invoice Reader — AI extraction is optional. It runs only if you turn it on and supply your own OpenAI API key. When enabled, the invoice image and text are sent to OpenAI with your key to read the fields. If no key is set, the feature is off and nothing is sent. S-Hub's servers and keys are never involved in this.",
+      "If you don't use these specific features, no such data is sent."
+    ]
   },
   {
-    title: "5. Data Sharing",
-    content: "We do not sell, trade, or share any user data with third parties. Anonymous analytics data is used solely for improving our extensions."
+    title: "5. Data sharing",
+    content: "We don't sell, rent, or trade your data. The anonymous diagnostics in section 1 are used only to maintain and improve the extensions."
   },
   {
     title: "6. Changes",
-    content: "We may update this Privacy Policy from time to time. Continued use of our extensions after changes constitutes acceptance of the updated policy."
+    content: "We may update this policy from time to time. The \"last updated\" date above reflects the current version."
   },
   {
     title: "7. Contact",
@@ -36,7 +60,7 @@ const sections = [
 
 <Layout
   title="Privacy Policy — S-Hub Chrome Extensions"
-  description="Privacy policy for S-Hub Chrome extensions. Learn how we handle your data with minimal collection and maximum transparency."
+  description="Privacy policy for S-Hub Chrome extensions. Learn how we handle your data with minimal collection and transparent disclosure of every external service."
   lang="en"
   noindex={true}
 >
@@ -48,25 +72,63 @@ const sections = [
     <h1 class="font-mono text-[11px] text-zinc-400 mb-6 tracking-wide">// privacy policy</h1>
 
     <div class="product-card p-8 space-y-8">
-      <p class="text-sm text-zinc-500">Last updated: April 10, 2026</p>
+      <p class="text-sm text-zinc-500">Last updated: July 10, 2026</p>
 
       {sections.map((section, idx) => (
         <div class="fade-in" style={`animation-delay: ${idx * 80}ms`}>
           <h2 class="text-sm font-semibold text-zinc-900 mb-2">
             {section.title}
           </h2>
-          <p class="text-sm text-zinc-600 leading-relaxed">
-            {section.hasEmail ? (
-              <>
-                Questions about this Privacy Policy? Contact us at{" "}
-                <a href="mailto:ktg.shota@gmail.com" class="text-sky-500 hover:text-sky-600 transition-colors">
-                  ktg.shota@gmail.com
-                </a>
-              </>
-            ) : (
-              section.content
-            )}
-          </p>
+
+          {section.hasEmail ? (
+            <p class="text-sm text-zinc-600 leading-relaxed">
+              Questions about this Privacy Policy? Contact us at{" "}
+              <a href="mailto:ktg.shota@gmail.com" class="text-sky-500 hover:text-sky-600 transition-colors">
+                ktg.shota@gmail.com
+              </a>
+            </p>
+          ) : (
+            <>
+              {section.content && (
+                <p class="text-sm text-zinc-600 leading-relaxed">{section.content}</p>
+              )}
+
+              {section.bullets && (
+                <ul class="mt-2 space-y-1.5 list-disc pl-5">
+                  {section.bullets.map((b) => (
+                    <li class="text-sm text-zinc-600 leading-relaxed">{b}</li>
+                  ))}
+                </ul>
+              )}
+
+              {section.table && (
+                <div class="mt-3 -mx-2 overflow-x-auto">
+                  <table class="w-full text-left text-xs border-collapse">
+                    <thead>
+                      <tr>
+                        {section.table.headers.map((h) => (
+                          <th class="border-b border-zinc-200 px-2 py-2 font-semibold text-zinc-700 whitespace-nowrap">{h}</th>
+                        ))}
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {section.table.rows.map((row) => (
+                        <tr class="align-top">
+                          {row.map((cell) => (
+                            <td class="border-b border-zinc-100 px-2 py-2 text-zinc-600 leading-relaxed">{cell}</td>
+                          ))}
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              )}
+
+              {section.paras && section.paras.map((p) => (
+                <p class="mt-3 text-sm text-zinc-600 leading-relaxed">{p}</p>
+              ))}
+            </>
+          )}
         </div>
       ))}
     </div>
