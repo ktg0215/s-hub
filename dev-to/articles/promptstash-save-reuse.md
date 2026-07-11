@@ -1,6 +1,6 @@
 ---
 title: "How to Save and Reuse Your ChatGPT Prompts (Chrome Extension)"
-published: false
+published: true
 tags: ["ai","chatgpt","productivity","webdev"]
 series: null
 canonical_url: "https://dev-tools-hub.xyz/blog/how-to-save-and-reuse-chatgpt-prompts"
