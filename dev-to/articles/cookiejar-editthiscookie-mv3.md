@@ -6,6 +6,7 @@ series: null
 canonical_url: "https://dev-tools-hub.xyz/blog/how-to-edit-cookies-in-chrome"
 description: "Edit cookies in Chrome after EditThisCookie broke on Manifest V3 — the built-in DevTools way and a faster MV3-native option."
 publish_date: "2026-07-08"
+main_image: "https://raw.githubusercontent.com/ktg0215/s-hub/main/marketing-assets/covers/cookiejar-cover-b-en.png"
 devto_id: "4098711"
 ---
 
