@@ -121,5 +121,35 @@ const fullOgImage = ogImage.startsWith('http') ? ogImage : `${siteUrl}${ogImage}
       <slot />
     </main>
     <Footer />
+    <script is:inline>
+      // ③v2 UTM attribution: 着地 URL の utm_* を /api/track/install CTA へ実行時付与する。
+      // SSG では build 時に訪問者 UTM が不明なため、クライアント側で捕捉→リンクに付与する。
+      // sessionStorage で回遊中も保持（着地ページ以外で install しても attribution が残る）。
+      (function () {
+        try {
+          var KEYS = ['utm_source', 'utm_medium', 'utm_campaign'];
+          var qs = new URLSearchParams(window.location.search);
+          var utm = {};
+          KEYS.forEach(function (k) {
+            var v = qs.get(k);
+            if (v) {
+              utm[k] = v;
+              try { sessionStorage.setItem('shub_' + k, v); } catch (e) {}
+            } else {
+              try { var s = sessionStorage.getItem('shub_' + k); if (s) utm[k] = s; } catch (e) {}
+            }
+          });
+          if (!Object.keys(utm).length) return;
+          var links = document.querySelectorAll('a[href*="/api/track/install"]');
+          links.forEach(function (a) {
+            try {
+              var u = new URL(a.href, window.location.origin);
+              KEYS.forEach(function (k) { if (utm[k] && !u.searchParams.get(k)) u.searchParams.set(k, utm[k]); });
+              a.href = u.toString();
+            } catch (e) {}
+          });
+        } catch (e) {}
+      })();
+    </script>
   </body>
 </html>

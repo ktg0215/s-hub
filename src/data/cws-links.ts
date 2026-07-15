@@ -76,6 +76,12 @@ export interface TrackParams {
   channel?: string;   // default 'lp'
   campaign?: string;
   ref?: string;       // referrer path (PII-free)
+  // ③v2 UTM: 着地元 UTM。SSG では build 時に不明なため通常は空 →
+  // クライアント側 utm-forward スクリプトが着地 URL から実行時に付与する。
+  // 明示的に build 時に既知の UTM を持つ呼び元向けに forward も可能にしておく。
+  utmSource?: string;
+  utmMedium?: string;
+  utmCampaign?: string;
 }
 
 export function getTrackUrl(slug: string, trackParams: TrackParams = {}): string | undefined {
@@ -84,5 +90,8 @@ export function getTrackUrl(slug: string, trackParams: TrackParams = {}): string
   if (trackParams.channel) params.set('channel', trackParams.channel);
   if (trackParams.campaign) params.set('campaign', trackParams.campaign);
   if (trackParams.ref) params.set('ref', trackParams.ref);
+  if (trackParams.utmSource) params.set('utm_source', trackParams.utmSource);
+  if (trackParams.utmMedium) params.set('utm_medium', trackParams.utmMedium);
+  if (trackParams.utmCampaign) params.set('utm_campaign', trackParams.utmCampaign);
   return `${TRACK_BASE}?${params.toString()}`;
 }
