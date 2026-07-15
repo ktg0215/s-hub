@@ -22,14 +22,18 @@ jobs:
           fi
           echo "Ping successful (status $STATUS - project is alive)"
 
-      - name: Ping Rakuten Sellers Analytics Supabase
-        run: |
-          STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
-            "https://klclgwaommhzawzcrflo.supabase.co/rest/v1/" \
-            -H "apikey: ${{ secrets.RAKUTEN_SUPABASE_ANON_KEY }}")
-          echo "Rakuten Analytics Supabase response: $STATUS"
-          if [ "$STATUS" -eq 000 ]; then
-            echo "::error::Rakuten Analytics Supabase is unreachable (project may be paused)"
-            exit 1
-          fi
-          echo "Ping successful (status $STATUS - project is alive)"
+      # ── Rakuten Sellers Analytics keep-alive DISABLED 2026-07-15 (§1-78) ──
+      # v2.0.23 store-live 後、live Supabase egress を全除去済。free-tier を自然
+      # pause させるため ping を停止（可逆・PAUSE disposition・DROP は CEO 手番 defer）。
+      # 再開時は下の step のコメントを外すこと。
+      # - name: Ping Rakuten Sellers Analytics Supabase
+      #   run: |
+      #     STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+      #       "https://klclgwaommhzawzcrflo.supabase.co/rest/v1/" \
+      #       -H "apikey: ${{ secrets.RAKUTEN_SUPABASE_ANON_KEY }}")
+      #     echo "Rakuten Analytics Supabase response: $STATUS"
+      #     if [ "$STATUS" -eq 000 ]; then
+      #       echo "::error::Rakuten Analytics Supabase is unreachable (project may be paused)"
+      #       exit 1
+      #     fi
+      #     echo "Ping successful (status $STATUS - project is alive)"
