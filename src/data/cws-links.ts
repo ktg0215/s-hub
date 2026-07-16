@@ -12,7 +12,8 @@ export type CwsSlug =
   | 'readmark'
   | 'promptstash'
   | 'rakuten'
-  | 'jff';
+  | 'jff'
+  | 'cookiejar';
 
 /** Chrome Web Store extension IDs keyed by S-Hub slug. */
 export const cwsIds: Record<CwsSlug, string> = {
@@ -21,6 +22,7 @@ export const cwsIds: Record<CwsSlug, string> = {
   promptstash: 'ocgkponbnolpgobllplcamfobolbjbcj',
   rakuten: 'dlldcmoekdpakieophgmngnalkiljndc',
   jff: 'ageolfjmheacenbkgiahlkhkogcnocip',
+  cookiejar: 'lhngfkchfepfjjdfhimconagoejemofg',
 };
 
 const CWS_BASE = 'https://chromewebstore.google.com/detail';
