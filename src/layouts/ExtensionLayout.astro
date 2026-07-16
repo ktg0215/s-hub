@@ -579,4 +579,22 @@ const faqSchema = faqItems && faqItems.length > 0 ? {
       </section>
     )}
   </div>
+
+  {/* Q1 attribution: 訪問者 URL の ?ref=cj-* を install-CTA の channel に上書き（analytics 裁定: channel=ref token）。
+      guard: ref 無し or /^cj-/ 非マッチ時は上書きせず既存 channel（'lp' 等）を保全。utm_source は別列（platform）で従来どおり。 */}
+  <script is:inline>
+    (function () {
+      try {
+        var ref = new URLSearchParams(window.location.search).get('ref');
+        if (!ref || !/^cj-/.test(ref)) return;
+        document.querySelectorAll('a[href*="/api/track/install"]').forEach(function (a) {
+          try {
+            var u = new URL(a.getAttribute('href'), window.location.origin);
+            u.searchParams.set('channel', ref);
+            a.setAttribute('href', u.toString());
+          } catch (e) {}
+        });
+      } catch (e) {}
+    })();
+  </script>
 </Layout>
