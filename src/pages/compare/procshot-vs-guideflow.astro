@@ -8,7 +8,7 @@ const ours: ComparisonProduct = {
   chromeUrl: "https://chromewebstore.google.com/detail/%E6%89%8B%E9%A0%86%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3-%E6%89%8B%E9%A0%86%E6%9B%B8%E3%83%BB%E6%93%8D%E4%BD%9C%E3%83%9E%E3%83%8B%E3%82%A2%E3%83%AB%E8%87%AA%E5%8B%95%E4%BD%9C%E6%88%90/ieblehdloggcpmkncplccjofeoakhkll",
   users: "100+",
   rating: "New",
-  price: "Free / Pro $9/mo",
+  price: "Free / Pro $4.99/mo",
   extensionPageUrl: "/extensions/procshot/",
 };
 
@@ -23,7 +23,7 @@ const theirs: ComparisonProduct = {
 };
 
 const rows: ComparisonRow[] = [
-  { feature: "Price", ours: "Free (2 guides/mo) + Pro $9/mo (unlimited)", theirs: "Free (3 demos total); Starter $20/mo", highlight: true },
+  { feature: "Price", ours: "Free (5 guides/mo) + Pro $4.99/mo (unlimited)", theirs: "Free (3 demos total); Starter $20/mo", highlight: true },
   { feature: "Output Type", ours: "Step-by-step static guide (PDF/MD/HTML)", theirs: "Interactive clickable demo", highlight: true },
   { feature: "PDF Export", ours: "Yes — free", theirs: "No", highlight: true },
   { feature: "Markdown Export", ours: "Yes — free", theirs: "No", highlight: true },
@@ -41,9 +41,9 @@ const rows: ComparisonRow[] = [
 
 const ourAdvantages = [
   { title: "Static Guides You Actually Own", desc: "Procshot exports to PDF, Markdown, and self-contained HTML files that live on your machine. Guideflow hosts demos on their servers — when your plan lapses or the service changes, your demos may become inaccessible." },
-  { title: "More Affordable Pro Tier", desc: "Procshot Pro is $9/month. Guideflow's Starter plan is $20/month — more than 2× the price, and that's before Guideflow's seat-based team pricing kicks in. For documentation that doesn't require interactive walkthroughs, Procshot covers the same job at significantly lower cost." },
+  { title: "More Affordable Pro Tier", desc: "Procshot Pro is $4.99/month. Guideflow's Starter plan is $20/month — 4× the price, and that's before Guideflow's seat-based team pricing kicks in. For documentation that doesn't require interactive walkthroughs, Procshot covers the same job at significantly lower cost." },
   { title: "No Account, No Cloud", desc: "Procshot requires no sign-in and sends no data externally. This matters when documenting internal tools, sensitive dashboards, or proprietary workflows. Guideflow requires account creation and cloud storage by design." },
-  { title: "Renewable Free Tier", desc: "Guideflow allows 3 demos for life on the free plan before forcing an upgrade. Procshot allows 2 guides per month on the free plan — the monthly reset means free users can keep creating indefinitely at a steady pace without ever hitting a permanent wall." },
+  { title: "Renewable Free Tier", desc: "Guideflow allows 3 demos for life on the free plan before forcing an upgrade. Procshot allows 5 guides per month on the free plan — the monthly reset means free users can keep creating indefinitely at a steady pace without ever hitting a permanent wall." },
   { title: "Portable Formats for Any Team", desc: "PDF and Markdown guides can be sent via email, uploaded to Confluence, embedded in Notion (via Markdown import), or committed to a Git repository. Guideflow's output is a hosted link, not a transferable file." },
 ];
 
@@ -59,7 +59,7 @@ const faq: ComparisonFaq[] = [
   { question: "What's the main difference between Procshot and Guideflow?", answer: "Procshot creates static step-by-step guides with screenshots — like a formatted PDF or Markdown document. Guideflow creates interactive clickable demos that users can walk through as if using the real product. Both auto-capture browser workflows, but the output and intended use case are different." },
   { question: "Can Guideflow export to PDF like Procshot?", answer: "No. Guideflow's output is a hosted interactive demo, not a downloadable document. There is no PDF or Markdown export option in any Guideflow plan. Procshot's PDF, Markdown, and HTML exports are available on the free plan." },
   { question: "Is Procshot good for customer onboarding?", answer: "Procshot is best for internal documentation, SOPs, and how-to guides. For customer-facing onboarding that embeds on your website or product dashboard, Guideflow's interactive format creates a better user experience." },
-  { question: "How many guides can I create for free?", answer: "Procshot allows 2 guides per month on the free plan (the count resets monthly). Guideflow allows 3 demos total across the lifetime of the free account — after that, the Starter plan at $20/month is required. Procshot Pro at $9/month removes the limit." },
+  { question: "How many guides can I create for free?", answer: "Procshot allows 5 guides per month on the free plan (the count resets monthly). Guideflow allows 3 demos total across the lifetime of the free account — after that, the Starter plan at $20/month is required. Procshot Pro at $4.99/month removes the limit." },
   { question: "Can I use Procshot and Guideflow together?", answer: "Yes. A common workflow: use Procshot to create internal documentation (PDF/Markdown for your team), and use Guideflow to create an interactive demo for your website or sales team. They serve different audiences and don't conflict." },
 ];
 ---

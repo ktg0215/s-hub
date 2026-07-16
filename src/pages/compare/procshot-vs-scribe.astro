@@ -8,7 +8,7 @@ const ours: ComparisonProduct = {
   chromeUrl: "https://chromewebstore.google.com/detail/%E6%89%8B%E9%A0%86%E3%82%AD%E3%83%A3%E3%83%97%E3%83%81%E3%83%A3-%E6%89%8B%E9%A0%86%E6%9B%B8%E3%83%BB%E6%93%8D%E4%BD%9C%E3%83%9E%E3%83%8B%E3%83%A5%E3%82%A2%E3%83%AB%E8%87%AA%E5%8B%95%E4%BD%9C%E6%88%90/ieblehdloggcpmkncplccjofeoakhkll",
   users: "100+",
   rating: "New",
-  price: "Free / Pro $9/mo",
+  price: "Free / Pro $4.99/mo",
   extensionPageUrl: "/extensions/procshot/",
 };
 
@@ -23,7 +23,7 @@ const theirs: ComparisonProduct = {
 };
 
 const rows: ComparisonRow[] = [
-  { feature: "Price", ours: "Free (2 guides/mo) + Pro $9/mo (unlimited)", theirs: "Free tier limited; Pro from $23/seat/mo", highlight: true },
+  { feature: "Price", ours: "Free (5 guides/mo) + Pro $4.99/mo (unlimited)", theirs: "Free tier limited; Pro from $23/seat/mo", highlight: true },
   { feature: "PDF Export", ours: "Yes (free tier, Japanese font supported)", theirs: "Pro plan only ($23/mo)", highlight: true },
   { feature: "Markdown Export", ours: "Yes (free tier)", theirs: "Not available", highlight: true },
   { feature: "HTML Export", ours: "Yes (free tier, bundled images)", theirs: "Pro plan only", highlight: true },
@@ -54,10 +54,10 @@ const theirAdvantages = [
   { title: "Team Collaboration", desc: "Built-in cloud workspace for teams to share, organize, and maintain a central library of guides with access controls and analytics." },
 ];
 
-const verdict = "If your organization needs enterprise-grade collaboration, desktop app capture, and AI-polished descriptions, Scribe's paid plans deliver. But for individuals, small teams, and anyone who values privacy, Procshot is the clear winner — 100% local processing, Markdown export, embedded CJK fonts in PDF, and 8-language UI that Scribe doesn't match at any price. Procshot's free tier (2 guides/month) covers the core recording + export flow; Pro at $9/month removes the limit for teams that document regularly — still a fraction of Scribe's $23/seat/mo with structural differences Scribe can't close.";
+const verdict = "If your organization needs enterprise-grade collaboration, desktop app capture, and AI-polished descriptions, Scribe's paid plans deliver. But for individuals, small teams, and anyone who values privacy, Procshot is the clear winner — 100% local processing, Markdown export, embedded CJK fonts in PDF, and 8-language UI that Scribe doesn't match at any price. Procshot's free tier (5 guides/month) covers the core recording + export flow; Pro at $4.99/month removes the limit for teams that document regularly — still a fraction of Scribe's $23/seat/mo with structural differences Scribe can't close.";
 
 const faq: ComparisonFaq[] = [
-  { question: "Is Procshot free?", answer: "The free plan allows 2 guides per month with full access to auto-recording, annotations, and PDF/Markdown/HTML export. Pro ($9/month) removes the monthly limit and unlocks all PDF templates plus custom branding. No credit card required to start." },
+  { question: "Is Procshot free?", answer: "The free plan allows 5 guides per month with full access to auto-recording, annotations, and PDF/Markdown/HTML export. Pro ($4.99/month) removes the monthly limit and unlocks all PDF templates plus custom branding. No credit card required to start." },
   { question: "Can I switch from Scribe to Procshot?", answer: "Absolutely. Install Procshot, start recording your workflows, and export guides in your preferred format. Since Procshot stores everything locally, your existing Scribe guides won't transfer automatically, but re-recording a workflow takes minutes." },
   { question: "Is my data safe with Procshot?", answer: "Yes. Procshot processes everything locally in your browser. No screenshots, step descriptions, or guide content is ever sent to external servers. This makes it ideal for documenting workflows involving sensitive or confidential information." },
   { question: "Does Procshot work for desktop applications?", answer: "Procshot currently captures browser-based workflows only. If you need to document desktop applications like Photoshop or Excel, Scribe's Pro plan supports desktop capture. For browser-based documentation, Procshot is the more cost-effective choice." },

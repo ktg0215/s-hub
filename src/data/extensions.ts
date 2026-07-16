@@ -128,7 +128,7 @@ export const categories: Category[] = [
       {
         name: "Procshot",
         description: "Auto-record browser actions to create step-by-step guides with screenshots. Export as PDF, Markdown, or HTML.",
-        price: "Free / Pro $9/mo",
+        price: "Free / Pro $4.99/mo",
         url: "/extensions/procshot/",
         icon: "/ext-icons/procshot.png",
       },
