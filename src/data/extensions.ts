@@ -34,7 +34,7 @@ export const categories: Category[] = [
       {
         name: "FocusGuard",
         description: "Block distracting sites and boost productivity with a Pomodoro timer. Gentle but effective site blocking.",
-        price: "Free Trial / $3.99/mo",
+        price: "Free / Pro $5/mo",
         url: "/extensions/focusguard/",
         icon: "/ext-icons/focusguard.png",
       },
@@ -107,14 +107,14 @@ export const categories: Category[] = [
       {
         name: "DataPick",
         description: "Extract data from any website with just a few clicks. Export to CSV, Excel, or Google Sheets.",
-        price: "Free / Pro $19 (one-time)",
+        price: "Free / Pro $19 lifetime or $4.99/mo",
         url: "/extensions/datapick/",
         icon: "/ext-icons/datapick.webp",
       },
       {
         name: "DataBridge",
         description: "Transfer data between web pages with visual element mapping. Match elements by number and transfer with one click.",
-        price: "Free / Pro $6",
+        price: "Free / Pro $6/mo or $39 lifetime",
         url: "/extensions/databridge/",
         icon: "/ext-icons/databridge.webp",
       },
@@ -320,7 +320,7 @@ export const categories: Category[] = [
       {
         name: "OnPageX",
         description: "Analyze SEO meta tags, headings, schemas, images, and links with one click. Score your on-page SEO instantly.",
-        price: "Free / Pro",
+        price: "Free / Pro $9.99 lifetime",
         url: "/extensions/onpagex/",
         icon: "/ext-icons/onpagex.png",
       },
