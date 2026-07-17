@@ -93,7 +93,7 @@ export const categories: Category[] = [
       {
         name: "PromptStash",
         description: "Save, organize, and reuse AI prompts effortlessly. Works with ChatGPT, Claude, Gemini, and 16+ other AI services.",
-        price: "Free Trial / $3.99/mo",
+        price: "Free (10 prompts) / Pro $5.99/mo",
         url: "/extensions/promptstash/",
         icon: "/ext-icons/promptstash.webp",
       },

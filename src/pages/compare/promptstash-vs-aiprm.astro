@@ -8,7 +8,7 @@ const ours: ComparisonProduct = {
   chromeUrl: "https://chromewebstore.google.com/detail/promptstash-ai-prompt-man/ocgkponbnolpgobllplcamfobolbjbcj",
   users: "50+",
   rating: "4.9 (12)",
-  price: "$5 one-time",
+  price: "Free (10 prompts) / Pro $5.99/mo",
   extensionPageUrl: "/extensions/promptstash/",
 };
 
@@ -31,7 +31,7 @@ const rows: ComparisonRow[] = [
   { feature: "Prompt Chains", ours: "Yes", theirs: "No", highlight: true },
   { feature: "Supported AI Services", ours: "19+ (ChatGPT, Claude, Gemini, etc.)", theirs: "1 (ChatGPT only)", highlight: true },
   { feature: "Data Storage", ours: "100% local (browser only)", theirs: "Cloud account required", highlight: true },
-  { feature: "Price (personal prompts)", ours: "$5 one-time", theirs: "Plus $9/mo or Pro $29/mo for private prompts", highlight: true },
+  { feature: "Price (personal prompts)", ours: "Free (10 prompts) / Pro $5.99/mo", theirs: "Plus $9/mo or Pro $29/mo for private prompts", highlight: true },
   { feature: "Account Required", ours: "No", theirs: "Yes — AIPRM account", highlight: true },
   { feature: "Keyboard Shortcut", ours: "Yes — Ctrl+Shift+P", theirs: "No", },
   { feature: "Import / Export", ours: "Yes — JSON", theirs: "Limited", },
@@ -41,7 +41,7 @@ const rows: ComparisonRow[] = [
 
 const ourAdvantages = [
   { title: "Works on Claude, Gemini, Perplexity — AIPRM Is ChatGPT Only", desc: "AIPRM's 1 million users and 5,000+ community prompts are exclusively for ChatGPT. Every prompt in AIPRM's library is designed for ChatGPT's interface and cannot be accessed on Claude, Gemini, Perplexity, or any other AI service. PromptStash works across 19+ AI services. If your workflow involves more than ChatGPT, AIPRM's library is inaccessible where you need it most." },
-  { title: "Your Personal Prompts — AIPRM Requires Paid Plan", desc: "AIPRM's free tier gives access to public community prompts, but saving your own private prompts requires the Plus plan ($9/month) or Pro plan ($29/month). Personal prompt management — the core use case for storing your own workflows — costs $108–$348/year on AIPRM. PromptStash's $5 one-time purchase includes personal prompt management as its primary feature." },
+  { title: "Your Personal Prompts — AIPRM Requires Paid Plan", desc: "AIPRM's free tier gives access to public community prompts, but saving your own private prompts requires the Plus plan ($9/month) or Pro plan ($29/month). Personal prompt management — the core use case for storing your own workflows — costs $108–$348/year on AIPRM. PromptStash Pro ($5.99/month — about a third less than AIPRM Plus) includes personal prompt management as its primary feature." },
   { title: "No Account, No Cloud, No Data to AIPRM Servers", desc: "AIPRM requires account creation and stores your saved prompts and usage in their cloud. PromptStash requires no account and stores everything locally in your browser. For proprietary workflows, confidential processes, or sensitive prompt engineering, local storage is meaningfully more private." },
   { title: "Slash Commands — AIPRM Uses a Sidebar", desc: "AIPRM adds a sidebar to ChatGPT's interface for browsing and selecting prompts. PromptStash uses a slash command overlay that appears directly in the chat input when you type '/'. For users who know their prompts well and want to insert them without navigating a sidebar, PromptStash's slash command approach is faster." },
   { title: "Prompt Chains Not Available in AIPRM", desc: "PromptStash's prompt chain feature lets you define a sequence of prompts to run in order — essential for structured multi-step workflows. AIPRM has no equivalent chain execution feature." },
@@ -59,7 +59,7 @@ const verdict = "AIPRM and PromptStash serve fundamentally different prompt mana
 const faq: ComparisonFaq[] = [
   { question: "What is AIPRM?", answer: "AIPRM is a Chrome extension that adds a community prompt library to ChatGPT. Users can browse 5,000+ public prompts organized by category, use them directly in ChatGPT, and (in paid tiers) save their own private prompts. It has 1M+ Chrome users." },
   { question: "Can AIPRM work on Claude or Gemini?", answer: "No. AIPRM exclusively integrates with ChatGPT. Its sidebar, community library, and prompt insertion features are built specifically for ChatGPT's interface. PromptStash works across 19+ AI services including Claude, Gemini, Perplexity, and more." },
-  { question: "Is AIPRM free?", answer: "AIPRM's free tier provides access to public community prompts in ChatGPT. Saving your own private prompts and accessing AIPRM's more advanced features requires the Plus plan ($9/month) or Pro plan ($29/month). PromptStash costs $5 once for personal prompt management." },
+  { question: "Is AIPRM free?", answer: "AIPRM's free tier provides access to public community prompts in ChatGPT. Saving your own private prompts and accessing AIPRM's more advanced features requires the Plus plan ($9/month) or Pro plan ($29/month). PromptStash Pro is $5.99/month — about a third less than AIPRM Plus — and the free plan holds 10 prompts with no account." },
   { question: "Do I need AIPRM if I have my own well-developed prompt library?", answer: "AIPRM's core value is its community library — it's most useful for users who want to borrow proven prompts rather than build their own. If you've developed your own effective prompt workflows, PromptStash's personal library management, cross-platform support, and slash commands serve that use case better." },
   { question: "Can I use both AIPRM and PromptStash?", answer: "Yes — they don't conflict. AIPRM adds ChatGPT-specific community prompts in ChatGPT. PromptStash manages your personal prompts across all AI services. Some users use AIPRM for discovering new prompt techniques in ChatGPT and PromptStash for deploying their refined personal workflows everywhere." },
 ];
@@ -67,7 +67,7 @@ const faq: ComparisonFaq[] = [
 
 <ComparisonLayout
   seoTitle="PromptStash vs AIPRM — Personal Prompt Library vs Community Prompt Marketplace (2026)"
-  seoDescription="AIPRM is a ChatGPT-only community prompt library. PromptStash manages your personal prompts across 19+ AI services with slash commands and $5 one-time pricing."
+  seoDescription="AIPRM is a ChatGPT-only community prompt library. PromptStash manages your personal prompts across 19+ AI services with slash commands, a free 10-prompt plan, and Pro at $5.99/month."
   seoKeywords="aiprm alternative, aiprm for claude, aiprm for gemini, personal ai prompt manager, prompt manager all ai services chrome extension, promptstash vs aiprm"
   h1="PromptStash vs AIPRM"
   intro="AIPRM gives you 5,000+ community-curated prompts inside ChatGPT. PromptStash manages your personal prompts across 19+ AI services with slash commands and variable templates. Here's which fits your workflow."

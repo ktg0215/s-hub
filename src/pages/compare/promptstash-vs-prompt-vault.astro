@@ -8,7 +8,7 @@ const ours: ComparisonProduct = {
   chromeUrl: "https://chromewebstore.google.com/detail/promptstash-ai-prompt-man/ocgkponbnolpgobllplcamfobolbjbcj",
   users: "50+",
   rating: "4.9 (12)",
-  price: "$5 one-time",
+  price: "Free (10 prompts) / Pro $5.99/mo",
   extensionPageUrl: "/extensions/promptstash/",
 };
 
@@ -34,7 +34,7 @@ const rows: ComparisonRow[] = [
   { feature: "Search by Name / Tag", ours: "Yes", theirs: "Yes", },
   { feature: "Data Storage", ours: "100% local (browser only)", theirs: "Local storage", },
   { feature: "Import / Export", ours: "Yes — JSON", theirs: "Yes", },
-  { feature: "Price", ours: "$5 one-time", theirs: "Free / Pro pricing varies", highlight: true },
+  { feature: "Price", ours: "Free (10 prompts) / Pro $5.99/mo", theirs: "Free / Pro pricing varies", highlight: true },
   { feature: "Pin / Favorite Prompts", ours: "Yes — up to 10 pins", theirs: "Yes", },
   { feature: "Offline Access", ours: "Yes", theirs: "Yes", },
 ];
@@ -48,25 +48,25 @@ const ourAdvantages = [
 ];
 
 const theirAdvantages = [
-  { title: "Free Tier Available", desc: "Prompt Vault has a free tier for basic prompt storage. PromptStash is a paid extension at $5 one-time — there's no free version. For users who want to evaluate before paying, Prompt Vault's free tier reduces the commitment barrier." },
+  { title: "Free Tier Available", desc: "Prompt Vault has a free tier for basic prompt storage. PromptStash's free plan holds 10 prompts — if you need more than that without paying, Prompt Vault's free tier may suit you better." },
   { title: "Larger Established User Base", desc: "10,000+ users and more reviews indicate a longer track record and more community testing across different workflows and use cases." },
   { title: "Works Without AI Platform Context", desc: "Prompt Vault's copy-based approach works with any tool — AI services, email clients, documents, anywhere you paste text. PromptStash's slash command injection is specifically integrated with supported AI chat services." },
 ];
 
-const verdict = "Prompt Vault and PromptStash both manage prompt libraries effectively, but PromptStash's slash command system fundamentally changes how quickly you can use a saved prompt. The difference between 'open popup, find prompt, copy, switch back to chat, paste' and 'type /, search, press enter' adds up across dozens of daily prompt insertions. Add variable templates and prompt chains that Prompt Vault lacks, and PromptStash is the more capable tool for users who use prompts frequently. At $5 one-time, it's a small investment for a meaningfully faster daily workflow.";
+const verdict = "Prompt Vault and PromptStash both manage prompt libraries effectively, but PromptStash's slash command system fundamentally changes how quickly you can use a saved prompt. The difference between 'open popup, find prompt, copy, switch back to chat, paste' and 'type /, search, press enter' adds up across dozens of daily prompt insertions. Add variable templates and prompt chains that Prompt Vault lacks, and PromptStash is the more capable tool for users who use prompts frequently. At $5.99/month, it's a small cost for a meaningfully faster daily workflow.";
 
 const faq: ComparisonFaq[] = [
   { question: "What is Prompt Vault?", answer: "Prompt Vault is a Chrome extension for saving, organizing, and retrieving AI prompts. It offers folder organization, search, and a copy-to-clipboard workflow for inserting prompts into AI services. It has a free tier and a paid Pro plan." },
   { question: "What's the biggest difference between PromptStash and Prompt Vault?", answer: "The slash command system. PromptStash lets you type '/' inside any AI chat to instantly search and insert prompts without leaving the conversation. Prompt Vault requires opening the extension popup and manually copying text. For frequent prompt users, this difference in workflow friction is significant." },
   { question: "Does Prompt Vault have variable templates like PromptStash?", answer: "No. Prompt Vault stores static prompt text. PromptStash's {{variable}} system creates dynamic templates where you fill in values at insert time — allowing one template to cover many variations of a prompt." },
-  { question: "Is PromptStash worth $5 if Prompt Vault has a free tier?", answer: "For occasional prompt users who don't mind the copy-paste workflow, Prompt Vault's free tier may be sufficient. For users who insert prompts many times per day, PromptStash's slash commands, variable templates, and prompt chains save meaningful time daily. At $5 once, the payback period is measured in hours of use." },
+  { question: "Is PromptStash Pro worth $5.99/month if Prompt Vault has a free tier?", answer: "For occasional prompt users who don't mind the copy-paste workflow, Prompt Vault's free tier may be sufficient. For users who insert prompts many times per day, PromptStash's slash commands, variable templates, and prompt chains save meaningful time daily. At $5.99/month, the payback is measured in hours of use — and the free 10-prompt plan lets you check that before paying." },
   { question: "Can I import my prompts from Prompt Vault into PromptStash?", answer: "Not directly — the two extensions use different storage formats. You would need to manually copy prompts from Prompt Vault and recreate them in PromptStash, or export from Prompt Vault and restructure the data for PromptStash's JSON import format." },
 ];
 ---
 
 <ComparisonLayout
   seoTitle="PromptStash vs Prompt Vault — Slash Command Insert vs Copy-Paste Prompt Manager (2026)"
-  seoDescription="PromptStash vs Prompt Vault: slash commands insert prompts instantly in any AI chat vs manual copy-paste. Variable templates, prompt chains, and $5 one-time pricing."
+  seoDescription="PromptStash vs Prompt Vault: slash commands insert prompts instantly in any AI chat vs manual copy-paste. Variable templates, prompt chains, and a free 10-prompt plan."
   seoKeywords="prompt vault alternative, ai prompt manager slash command, prompt manager chrome extension 2026, best prompt organizer chatgpt, promptstash vs prompt vault"
   h1="PromptStash vs Prompt Vault"
   intro="Both manage AI prompt libraries — but PromptStash's slash command system inserts prompts directly in the chat without switching tabs. Plus variable templates and prompt chains that Prompt Vault doesn't offer. Here's the comparison."
@@ -102,7 +102,7 @@ const faq: ComparisonFaq[] = [
         <img src="/ext-icons/promptstash.webp" alt="PromptStash" class="w-9 h-9 rounded-lg" />
         <div>
           <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">PromptStash vs PromptBox</h3>
-          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$5 one-time vs $6.99/month</p>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">Free plan · Pro $5.99/mo</p>
         </div>
         <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
       </a>
