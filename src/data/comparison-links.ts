@@ -24,7 +24,7 @@ export const comparisonsByExtension: Record<string, { slug: string; theirs: stri
     { slug: "snapreply-vs-gmail-templates", theirs: "Gmail Templates", desc: "Variables and folders vs basic templates" },
   ],
   promptstash: [
-    { slug: "promptstash-vs-promptbox", theirs: "PromptBox", desc: "One-time pricing vs monthly subscription" },
+    { slug: "promptstash-vs-promptbox", theirs: "PromptBox", desc: "100% local & offline vs cloud-based" },
   ],
   readmark: [
     { slug: "readmark-vs-liner", theirs: "Liner", desc: "Reading progress vs AI highlighting" },
