@@ -8,7 +8,7 @@ const ours: ComparisonProduct = {
   chromeUrl: "https://chromewebstore.google.com/detail/readmark-save-reading-pos/inejhohffndeacbihghjcobndpoejdfn",
   users: "30+",
   rating: "5.0 (1)",
-  price: "Free / Pro $4.99 one-time",
+  price: "Free (10 bookmarks) / Pro $4.99/mo",
   extensionPageUrl: "/extensions/readmark/",
 };
 
@@ -28,7 +28,7 @@ const rows: ComparisonRow[] = [
   { feature: "Works on Private / Internal URLs", ours: "Yes — any URL your browser can open", theirs: "No — public articles only", highlight: true },
   { feature: "Account Required", ours: "No", theirs: "Yes", highlight: true },
   { feature: "Data Storage", ours: "100% local (browser only)", theirs: "Cloud (Matter servers)", highlight: true },
-  { feature: "Price", ours: "Free / $4.99 one-time", theirs: "Free (limited) / $7.99/month Plus", highlight: true },
+  { feature: "Price", ours: "Free / $4.99/mo", theirs: "Free (limited) / $7.99/month Plus", highlight: true },
   { feature: "AI Article Summary", ours: "No", theirs: "Yes — AI-generated summaries", },
   { feature: "Text-to-Speech / Audio", ours: "No", theirs: "Yes — listen to articles", },
   { feature: "Newsletter Inbox", ours: "No", theirs: "Yes — dedicated @matterapp.com address", },
@@ -43,7 +43,7 @@ const ourAdvantages = [
   { title: "Position Tracking — The Gap Matter Doesn't Fill", desc: "Matter is a sophisticated read-later app, but it doesn't track where you are within an article. If you were halfway through a 7,000-word essay and closed the app, Matter will return you to the beginning. ReadMark saves your exact scroll position and restores it — across sessions, across days. This is the one thing Matter users commonly miss." },
   { title: "Works on Private URLs and Internal Docs", desc: "Matter's core mechanism — save an article, Matter fetches and stores it — only works for publicly accessible content. ReadMark saves your position on any URL your browser can open: internal Confluence wikis, Notion pages, GitHub specs, paywalled content you're already subscribed to. If you work with internal documentation, ReadMark covers the gap." },
   { title: "No Account, No Cloud Dependency", desc: "ReadMark is installed and immediately useful — no account creation, no email address, no onboarding flow. Matter requires account creation. ReadMark stores data locally in your browser; if Matter's service changes, your library and notes in their cloud could be affected." },
-  { title: "Significantly Cheaper", desc: "Matter Plus costs $7.99/month — $95.88/year. ReadMark Pro is a $4.99 one-time purchase. If all you need is reading position tracking, the price difference is decisive." },
+  { title: "Significantly Cheaper", desc: "Matter Plus costs $7.99/month. ReadMark Pro is $4.99/month — well under two-thirds of Matter's price. If all you need is reading position tracking, not AI summaries and audio, the price difference is decisive." },
   { title: "Lightweight and Fast", desc: "ReadMark is a small, focused extension (~50KB) that doesn't add processing overhead to your browsing. Matter's AI-powered features require more background resources. If you value browser performance, ReadMark's lightweight footprint is a clear advantage." },
 ];
 
@@ -68,7 +68,7 @@ const faq: ComparisonFaq[] = [
 
 <ComparisonLayout
   seoTitle="ReadMark vs Matter — Reading Position Tracker vs AI Read-Later App (2026)"
-  seoDescription="ReadMark vs Matter: local position tracking on any URL vs AI summaries and audio playback. $4.99 one-time vs $7.99/month. Which reading tool fits your workflow?"
+  seoDescription="ReadMark vs Matter: local position tracking on any URL vs AI summaries and audio playback. $4.99/month vs $7.99/month. Which reading tool fits your workflow?"
   seoKeywords="matter app alternative, reading position chrome extension, matter vs readmark, read later app alternative, local reading tracker no subscription"
   h1="ReadMark vs Matter"
   intro="Matter brings AI summaries, audio playback, and newsletters to your reading queue. ReadMark saves your exact reading position on any URL — including private pages Matter can't access. Two tools, two different reading problems."
@@ -88,7 +88,7 @@ const faq: ComparisonFaq[] = [
         <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
         <div>
           <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Pocket</h3>
-          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">No ads, no account, one-time price</p>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">No ads, no account, local-first</p>
         </div>
         <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
       </a>
@@ -96,7 +96,7 @@ const faq: ComparisonFaq[] = [
         <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
         <div>
           <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Readwise Reader</h3>
-          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$4.99 one-time vs $7.99/mo</p>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$4.99/mo vs $7.99/mo</p>
         </div>
         <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
       </a>

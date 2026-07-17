@@ -8,7 +8,7 @@ const ours: ComparisonProduct = {
   chromeUrl: "https://chromewebstore.google.com/detail/readmark-save-reading-pos/inejhohffndeacbihghjcobndpoejdfn",
   users: "30+",
   rating: "5.0 (1)",
-  price: "Free / Pro $4.99 one-time",
+  price: "Free (10 bookmarks) / Pro $4.99/mo",
   extensionPageUrl: "/extensions/readmark/",
 };
 
@@ -24,7 +24,7 @@ const theirs: ComparisonProduct = {
 
 const rows: ComparisonRow[] = [
   { feature: "Primary Function", ours: "Save reading position on any URL", theirs: "Read-later + highlights + PKM integration", highlight: true },
-  { feature: "Price", ours: "Free / $4.99 one-time", theirs: "$7.99/month (no annual discount)", highlight: true },
+  { feature: "Price", ours: "Free / $4.99/mo", theirs: "$7.99/month (no annual discount)", highlight: true },
   { feature: "Exact Scroll Position Saved", ours: "Yes — auto-saved per URL", theirs: "No — reading progress tracked differently", highlight: true },
   { feature: "Works on Private / Internal URLs", ours: "Yes — any URL your browser can open", theirs: "No — public articles and saved content only", highlight: true },
   { feature: "Account Required", ours: "No", theirs: "Yes", highlight: true },
@@ -40,7 +40,7 @@ const rows: ComparisonRow[] = [
 ];
 
 const ourAdvantages = [
-  { title: "One-Time $4.99 vs $7.99 Every Month", desc: "This is the starkest difference. ReadMark Pro costs $4.99 once. Readwise Reader costs $7.99 every month — $95.88 per year. Over 12 months, Readwise costs 19× more than ReadMark. If your use case is reading position tracking and not the full PKM ecosystem, ReadMark delivers the specific feature you need at a fraction of the cost." },
+  { title: "$4.99/mo vs $7.99/mo", desc: "ReadMark Pro is $4.99/month. Readwise Reader costs $7.99/month with no annual discount — about 37% more. If your use case is reading position tracking and not the full PKM ecosystem, ReadMark delivers the specific feature you need at a lower monthly cost." },
   { title: "Works on Private and Internal URLs", desc: "Readwise Reader archives content it can fetch publicly. Your company's Confluence wiki, private Notion docs, internal dashboards, GitHub repos you're exploring — these don't exist to Readwise Reader. ReadMark saves your position on any URL your browser can open, making it the only option for developers and knowledge workers who read heavily from internal tools." },
   { title: "No Account, No Data in Readwise's Cloud", desc: "ReadMark has no account, no sign-in, and no data leaving your browser. All reading positions are stored locally in chrome.storage.local. Readwise Reader requires an account and syncs your highlights, reading history, and article content to their servers. For sensitive internal documentation, ReadMark's local-first architecture is the safer choice." },
   { title: "Exact Position Restoration — URL-by-URL", desc: "ReadMark's position tracking is URL-specific and automatic — every URL you revisit returns to exactly where you bookmarked. Readwise Reader tracks reading progress within its own reading view but doesn't restore your position on the original web page. For reading you do outside of a read-later app (documentation, forums, wikis), ReadMark provides continuity that Readwise doesn't." },
@@ -67,9 +67,9 @@ const faq: ComparisonFaq[] = [
 ---
 
 <ComparisonLayout
-  seoTitle="ReadMark vs Readwise Reader — $4.99 One-Time vs $7.99/Month Reading Tools (2026)"
+  seoTitle="ReadMark vs Readwise Reader — $4.99/mo vs $7.99/Month Reading Tools (2026)"
   seoDescription="ReadMark vs Readwise Reader: local position tracking on any URL vs full PKM reading platform. Compare pricing, privacy, and features to find your fit in 2026."
-  seoKeywords="readwise reader alternative, cheap read later app, reading position chrome extension, readwise vs readmark, one-time payment reading app"
+  seoKeywords="readwise reader alternative, cheap read later app, reading position chrome extension, readwise vs readmark, affordable reading position tracker"
   h1="ReadMark vs Readwise Reader"
   intro="Readwise Reader is the most feature-complete reading platform available — highlights, PKM sync, newsletters, spaced repetition. ReadMark is a focused position tracker that costs $4.99 once. Here's how to choose."
   ours={ours}
@@ -88,7 +88,7 @@ const faq: ComparisonFaq[] = [
         <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
         <div>
           <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Pocket</h3>
-          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">No ads, no account, one-time price</p>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">No ads, no account, local-first</p>
         </div>
         <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
       </a>

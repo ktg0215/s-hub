@@ -8,7 +8,7 @@ const ours: ComparisonProduct = {
   chromeUrl: "https://chromewebstore.google.com/detail/readmark-save-reading-pos/inejhohffndeacbihghjcobndpoejdfn",
   users: "30+",
   rating: "5.0 (1)",
-  price: "Free / Pro $4.99 one-time",
+  price: "Free (10 bookmarks) / Pro $4.99/mo",
   extensionPageUrl: "/extensions/readmark/",
 };
 
@@ -28,7 +28,7 @@ const rows: ComparisonRow[] = [
   { feature: "Exact Scroll Position Saved", ours: "Yes — auto-saved per URL", theirs: "No — marks article as read/unread only", highlight: true },
   { feature: "Account Required", ours: "No", theirs: "Yes (email account)", highlight: true },
   { feature: "Data Storage", ours: "100% local (browser only)", theirs: "Cloud (Instapaper servers)", highlight: true },
-  { feature: "Price", ours: "Free / $4.99 one-time Pro", theirs: "Free / $2.99/month Premium", highlight: true },
+  { feature: "Price", ours: "Free / $4.99/mo Pro", theirs: "Free / $2.99/month Premium", highlight: true },
   { feature: "Clean Article Reading View", ours: "No — opens original page", theirs: "Yes — stripped, typography-focused view", },
   { feature: "Highlights & Notes", ours: "No (planned v2.0)", theirs: "Yes — free tier included", },
   { feature: "Speed Read Mode", ours: "No", theirs: "Yes (Premium)", },
@@ -43,7 +43,7 @@ const ourAdvantages = [
   { title: "Actively Maintained in 2026", desc: "Instapaper's development has been minimal since its acquisition in 2016. The iOS app and core features work, but meaningful product updates are rare. ReadMark is actively developed — new versions ship regularly. If you're choosing a reading companion in 2026, you want a tool that responds to how the web has changed." },
   { title: "Works on Private and Internal URLs", desc: "Instapaper works by sending your article's URL to its server, which fetches and archives the content. This means it only works on publicly accessible pages. ReadMark doesn't fetch content at all — it saves your scroll position locally. Confluence wikis, private Notion pages, GitHub repositories, company intranets: ReadMark handles all of them. Instapaper cannot." },
   { title: "No Account Required", desc: "ReadMark works immediately after installation — no email, no password, no onboarding. Instapaper requires account creation before you can save anything. For a tool you use dozens of times a day, the friction of account management adds up." },
-  { title: "One-Time Payment vs Monthly Subscription", desc: "ReadMark Pro costs $4.99 once. Instapaper Premium costs $2.99 every month — $35.88 per year. Over two years, ReadMark costs 72% less. The Instapaper Premium features (speed read, full search, notes) are compelling, but for pure reading position tracking, the price-to-value ratio favors ReadMark significantly." },
+  { title: "No Account, No Cloud — Just Your Position", desc: "Instapaper Premium ($2.99/month) is a capable archiver, but it needs an account and stores your library on its servers. ReadMark takes a different path: no account, everything in local storage, and it works on any URL your browser opens — including private wikis and internal docs Instapaper can't fetch. Pick ReadMark for position tracking that stays on your machine, not for a cheaper archive." },
   { title: "100% Local — No Server Dependency Risk", desc: "Instapaper's value depends entirely on their servers staying online and their service remaining active. ReadMark stores everything in chrome.storage.local. There are no servers to go down, no company to get acquired, no service to shut down — your reading positions are yours." },
 ];
 
@@ -67,7 +67,7 @@ const faq: ComparisonFaq[] = [
 
 <ComparisonLayout
   seoTitle="ReadMark vs Instapaper — Modern Reading Position Tracker vs Classic Read-Later App (2026)"
-  seoDescription="ReadMark vs Instapaper: auto-saves scroll position on any URL vs archives public articles. No account required, $4.99 one-time vs $2.99/month. Which fits your reading in 2026?"
+  seoDescription="ReadMark vs Instapaper: auto-saves scroll position on any URL vs archives public articles. No account required, local-first, $4.99/month. Which fits your reading in 2026?"
   seoKeywords="instapaper alternative, reading position tracker chrome, save reading progress extension, instapaper vs readmark 2026, read later chrome extension no account"
   h1="ReadMark vs Instapaper"
   intro="Instapaper launched in 2008 to save public articles for clean reading. ReadMark launched in 2025 to save your exact place in any article or doc — including private pages Instapaper can't reach. Here's how they compare in 2026."
@@ -87,7 +87,7 @@ const faq: ComparisonFaq[] = [
         <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
         <div>
           <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Pocket</h3>
-          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">No ads, no account, one-time price</p>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">No ads, no account, local-first</p>
         </div>
         <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
       </a>

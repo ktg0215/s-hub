@@ -121,7 +121,7 @@ export const categories: Category[] = [
       {
         name: "ReadMark",
         description: "Automatically saves your reading position on any webpage. Never lose your place in long articles again.",
-        price: "Free Trial / $3.99/mo",
+        price: "Free (10 bookmarks) / Pro $4.99/mo",
         url: "/extensions/readmark/",
         icon: "/ext-icons/ReadMark.webp",
       },

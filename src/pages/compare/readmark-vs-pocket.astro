@@ -8,7 +8,7 @@ const ours: ComparisonProduct = {
   chromeUrl: "https://chromewebstore.google.com/detail/readmark-save-reading-pos/inejhohffndeacbihghjcobndpoejdfn",
   users: "30+",
   rating: "5.0 (1)",
-  price: "Free / Pro $4.99 one-time",
+  price: "Free (10 bookmarks) / Pro $4.99/mo",
   extensionPageUrl: "/extensions/readmark/",
 };
 
@@ -29,7 +29,7 @@ const rows: ComparisonRow[] = [
   { feature: "Account Required", ours: "No", theirs: "Yes (Mozilla account)", highlight: true },
   { feature: "Data Storage", ours: "100% local (chrome.storage.local)", theirs: "Cloud (Mozilla servers)", highlight: true },
   { feature: "Ads in Free Tier", ours: "None", theirs: "Yes — sponsored content in reading list", highlight: true },
-  { feature: "Price", ours: "Free / $4.99 one-time (Pro)", theirs: "Free (ads) / $4.99/month Premium", highlight: true },
+  { feature: "Price", ours: "Free / $4.99/mo (Pro)", theirs: "Free (ads) / $4.99/month Premium", highlight: true },
   { feature: "Article Clean Reading View", ours: "No — opens original page", theirs: "Yes — Pocket Reader removes clutter", },
   { feature: "Highlights & Annotations", ours: "No (planned v2.0)", theirs: "Yes (Premium only)", },
   { feature: "Text-to-Speech", ours: "No", theirs: "Yes (Premium)", },
@@ -41,9 +41,9 @@ const rows: ComparisonRow[] = [
 
 const ourAdvantages = [
   { title: "Works on Any URL — Including Private Pages", desc: "This is ReadMark's defining advantage. Pocket only saves public articles that can be fetched and archived by their server. ReadMark saves your scroll position on any URL your browser can open — internal Confluence wikis, private Notion pages, company dashboards, paywalled articles, GitHub documentation. Pocket cannot touch any of these." },
-  { title: "One-Time Payment vs Monthly Subscription", desc: "ReadMark Pro is a $4.99 one-time purchase. Pocket Premium costs $4.99 every month — that's $59.88 per year versus a single $4.99 payment. For reading position tracking, the ongoing subscription model is hard to justify." },
+  { title: "Same $4.99 — But No Ads and No Account", desc: "ReadMark Pro and Pocket Premium both cost $4.99/month, so this isn't about price. It's about what you get for it: Pocket's free tier mixes sponsored articles into your list and Premium requires a Mozilla account with your reading data in the cloud. ReadMark has no ads at any tier, needs no account, and keeps everything in local storage. Same price, fewer strings." },
   { title: "No Account, No Data on Mozilla's Servers", desc: "ReadMark requires no account and stores everything in your browser's local storage. Pocket requires a Mozilla account and sends your reading list — including article content and reading habits — to Mozilla's cloud. Since Mozilla's 2024 acquisition of Pocket, data policies have evolved. With ReadMark, there's nothing to worry about: your data never leaves your machine." },
-  { title: "No Ads, Ever", desc: "Pocket's free tier includes sponsored articles (ads) mixed into your reading list. ReadMark has no ads, no sponsored content, and no upsells beyond the optional one-time Pro upgrade." },
+  { title: "No Ads, Ever", desc: "Pocket's free tier includes sponsored articles (ads) mixed into your reading list. ReadMark has no ads, no sponsored content, and no upsells beyond the optional Pro upgrade." },
   { title: "Actual Position Tracking, Not Just 'Saved'", desc: "Pocket marks articles as saved or read — a binary state. It doesn't remember that you were 73% through a 6,000-word piece. ReadMark saves your exact scroll position and returns you to that paragraph when you reopen the page." },
 ];
 
@@ -60,7 +60,7 @@ const verdict = "Pocket and ReadMark serve fundamentally different reading workf
 const faq: ComparisonFaq[] = [
   { question: "Can Pocket save my reading position like ReadMark?", answer: "No. Pocket tracks whether you've saved or read an article, but it doesn't remember your scroll position within an article. If you were halfway through a 5,000-word piece, Pocket will reopen the article from the top. ReadMark saves your exact scroll position and returns you to that paragraph automatically." },
   { question: "Can ReadMark work with private or internal pages?", answer: "Yes — and this is ReadMark's key advantage over Pocket. ReadMark saves scroll position on any URL your browser can open: internal Confluence wikis, Notion pages, company intranets, GitHub documentation, paywalled articles. Pocket only works on public articles that its server can fetch and archive." },
-  { question: "Is Pocket free?", answer: "Pocket has a free tier that includes ads (sponsored articles in your reading list). Premium at $4.99/month removes ads and adds highlighting and text-to-speech. ReadMark's free tier has no ads. ReadMark Pro ($4.99 one-time) unlocks advanced features without any ongoing payment." },
+  { question: "Is Pocket free?", answer: "Pocket has a free tier that includes ads (sponsored articles in your reading list). Premium at $4.99/month removes ads and adds highlighting and text-to-speech. ReadMark's free tier has no ads and holds 10 bookmarks. ReadMark Pro ($4.99/month) unlocks unlimited bookmarks and advanced features — no account required." },
   { question: "Does ReadMark replace Pocket?", answer: "Not if you use Pocket for article archiving, clean reading view, or offline reading. Those are features ReadMark doesn't offer. ReadMark replaces Pocket if your primary use was tracking where you were in long articles — ReadMark does that better, for any URL, with no account required." },
   { question: "Is my reading data private with ReadMark?", answer: "Completely. ReadMark stores all data in chrome.storage.local — it never leaves your browser. There's no server, no account, no data retention policy to worry about. Your reading habits, positions, and URLs are only on your machine." },
 ];
@@ -68,7 +68,7 @@ const faq: ComparisonFaq[] = [
 
 <ComparisonLayout
   seoTitle="ReadMark vs Pocket — Local Reading Position Tracker vs Article Archiver (2026)"
-  seoDescription="ReadMark vs Pocket: save your reading position on any URL vs archive public articles. No account, no ads, $4.99 one-time vs $4.99/month. Compare features and use cases."
+  seoDescription="ReadMark vs Pocket: save your reading position on any URL vs archive public articles. No account, no ads, $4.99/mo — same price as Pocket Premium, fewer strings. Compare features and use cases."
   seoKeywords="pocket alternative, reading position chrome extension, save reading progress, pocket vs readmark, local reading tracker no account"
   h1="ReadMark vs Pocket"
   intro="Pocket archives public articles for later reading. ReadMark saves your scroll position on any page — including private wikis and internal docs that Pocket can't touch. Same reading problem, fundamentally different tools."
@@ -96,7 +96,7 @@ const faq: ComparisonFaq[] = [
         <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
         <div>
           <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Readwise Reader</h3>
-          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$4.99 one-time vs $7.99/mo</p>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$4.99/mo vs $7.99/mo</p>
         </div>
         <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
       </a>

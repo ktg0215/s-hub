@@ -8,7 +8,7 @@ const ours: ComparisonProduct = {
   chromeUrl: "https://chromewebstore.google.com/detail/readmark-save-reading-pos/inejhohffndeacbihghjcobndpoejdfn",
   users: "30+",
   rating: "5.0 (1)",
-  price: "Free / Pro $4.99",
+  price: "Free (10 bookmarks) / Pro $4.99/mo",
   extensionPageUrl: "/extensions/readmark/",
 };
 
@@ -35,7 +35,7 @@ const rows: ComparisonRow[] = [
   { feature: "Visual Position Marker", ours: "Yes — customizable", theirs: "No" , highlight: true },
   { feature: "Extension Size", ours: "Lightweight (~50 KB)", theirs: "Heavy (AI-powered)", highlight: true },
   { feature: "Privacy", ours: "No data leaves your browser", theirs: "Data synced to cloud servers", highlight: true },
-  { feature: "Price", ours: "Free / Pro $4.99 (one-time)", theirs: "Free / $9.99/month" },
+  { feature: "Price", ours: "Free / Pro $4.99/mo", theirs: "Free / $9.99/month" },
 ];
 
 const ourAdvantages = [
@@ -43,7 +43,7 @@ const ourAdvantages = [
   { title: "One-Click Resume", desc: "Return to any article and instantly jump back to your last reading position. Perfect for long-form articles, documentation, and research papers you read over multiple sessions." },
   { title: "100% Local & Private", desc: "All data stays in your browser. No account, no cloud sync, no tracking. Liner requires an account and sends data to their servers." },
   { title: "Lightweight & Fast", desc: "ReadMark is a tiny, focused extension that won't slow down your browser. Liner's AI features add significant overhead to every page load." },
-  { title: "One-Time Pricing", desc: "ReadMark Pro is a one-time $4.99 purchase. Liner Premium costs $9.99 every month — that's $120/year for features you may not need." },
+  { title: "Half the Monthly Price", desc: "ReadMark Pro is $4.99/month. Liner Premium costs $9.99/month — roughly double. For reading position tracking without the AI research suite, ReadMark covers the core job at about half the cost." },
 ];
 
 const theirAdvantages = [
@@ -57,7 +57,7 @@ const verdict = "ReadMark and Liner solve fundamentally different problems. If y
 
 const faq: ComparisonFaq[] = [
   { question: "Can Liner save my reading position like ReadMark?", answer: "No. Liner focuses on highlighting and AI summaries. It has no feature to remember where you stopped reading on a page. ReadMark is purpose-built for this — it automatically saves your scroll position and lets you resume with one click." },
-  { question: "Is ReadMark really free?", answer: "Yes. ReadMark's core features — automatic position saving, one-click resume, and multi-page tracking — are completely free. The optional Pro upgrade ($4.99 one-time) adds advanced features like custom markers and export." },
+  { question: "Is ReadMark really free?", answer: "Yes. ReadMark's core features — automatic position saving, one-click resume, and multi-page tracking — are completely free, up to 10 bookmarks. The optional Pro upgrade ($4.99/month) adds unlimited bookmarks and advanced features like custom markers and export." },
   { question: "Can I use ReadMark and Liner together?", answer: "Absolutely. They serve different purposes and don't conflict. Use ReadMark to track your reading progress and Liner (or any highlighter) to annotate and highlight text." },
   { question: "Does ReadMark work on long documentation sites?", answer: "Yes. ReadMark works on any web page — technical docs, blog posts, news articles, online novels, and research papers. It tracks each URL separately, so you can maintain reading positions across hundreds of pages." },
   { question: "Why would I choose ReadMark over Liner if Liner has more features?", answer: "More features isn't always better. Liner's AI tools add bloat, require an account, and cost $9.99/month. If your main need is 'remember where I stopped reading,' ReadMark does that perfectly with zero setup, zero accounts, and zero recurring fees — all while keeping your data private and local." },
@@ -87,7 +87,7 @@ const faq: ComparisonFaq[] = [
         <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
         <div>
           <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Pocket</h3>
-          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">No ads, no account, one-time price</p>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">No ads, no account, local-first</p>
         </div>
         <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
       </a>
@@ -103,7 +103,7 @@ const faq: ComparisonFaq[] = [
         <img src="/ext-icons/ReadMark.webp" alt="ReadMark" class="w-9 h-9 rounded-lg" />
         <div>
           <h3 class="text-[13px] font-medium text-zinc-900 group-hover:text-sky-600 transition-colors">ReadMark vs Readwise Reader</h3>
-          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$4.99 one-time vs $7.99/mo</p>
+          <p class="font-mono text-[9px] text-zinc-400 uppercase tracking-wider">$4.99/mo vs $7.99/mo</p>
         </div>
         <span class="font-mono text-xs text-zinc-300 ml-auto group-hover:text-sky-500 transition-colors">→</span>
       </a>
