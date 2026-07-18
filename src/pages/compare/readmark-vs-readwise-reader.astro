@@ -28,7 +28,7 @@ const rows: ComparisonRow[] = [
   { feature: "Exact Scroll Position Saved", ours: "Yes — auto-saved per URL", theirs: "No — reading progress tracked differently", highlight: true },
   { feature: "Works on Private / Internal URLs", ours: "Yes — any URL your browser can open", theirs: "No — public articles and saved content only", highlight: true },
   { feature: "Account Required", ours: "No", theirs: "Yes", highlight: true },
-  { feature: "Data Storage", ours: "100% local (browser only)", theirs: "Cloud (Readwise servers)", highlight: true },
+  { feature: "Data Storage", ours: "Local-first + Chrome-native sync (no 3rd-party server)", theirs: "Cloud (Readwise servers)", highlight: true },
   { feature: "Highlights & Annotations", ours: "No (planned v2.0)", theirs: "Yes — best-in-class", },
   { feature: "Obsidian / Logseq / Notion Sync", ours: "No", theirs: "Yes — native integrations", },
   { feature: "RSS / Newsletter Integration", ours: "No", theirs: "Yes — full reader with inbox", },
@@ -42,7 +42,7 @@ const rows: ComparisonRow[] = [
 const ourAdvantages = [
   { title: "$4.99/mo vs $7.99/mo", desc: "ReadMark Pro is $4.99/month. Readwise Reader costs $7.99/month with no annual discount — about 37% more. If your use case is reading position tracking and not the full PKM ecosystem, ReadMark delivers the specific feature you need at a lower monthly cost." },
   { title: "Works on Private and Internal URLs", desc: "Readwise Reader archives content it can fetch publicly. Your company's Confluence wiki, private Notion docs, internal dashboards, GitHub repos you're exploring — these don't exist to Readwise Reader. ReadMark saves your position on any URL your browser can open, making it the only option for developers and knowledge workers who read heavily from internal tools." },
-  { title: "No Account, No Data in Readwise's Cloud", desc: "ReadMark has no account, no sign-in, and no data leaving your browser. All reading positions are stored locally in chrome.storage.local. Readwise Reader requires an account and syncs your highlights, reading history, and article content to their servers. For sensitive internal documentation, ReadMark's local-first architecture is the safer choice." },
+  { title: "No Account, No Proprietary Cloud", desc: "ReadMark has no account and no sign-in. Reading positions are stored locally in chrome.storage.local; bookmarks sync through your own Chrome account, not a ReadMark server. Readwise Reader requires an account and syncs your highlights, reading history, and article content to their servers. For sensitive internal documentation, ReadMark's local-first architecture is the safer choice." },
   { title: "Exact Position Restoration — URL-by-URL", desc: "ReadMark's position tracking is URL-specific and automatic — every URL you revisit returns to exactly where you bookmarked. Readwise Reader tracks reading progress within its own reading view but doesn't restore your position on the original web page. For reading you do outside of a read-later app (documentation, forums, wikis), ReadMark provides continuity that Readwise doesn't." },
   { title: "Lightweight and Non-Intrusive", desc: "ReadMark is a small, focused extension that adds no overhead to your regular browsing. Readwise Reader's highlighter extension is more complex. If you want position tracking without adding a full reading platform to your workflow, ReadMark is the lighter tool." },
 ];

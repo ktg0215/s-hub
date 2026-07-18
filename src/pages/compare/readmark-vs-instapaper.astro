@@ -27,12 +27,12 @@ const rows: ComparisonRow[] = [
   { feature: "Works on Private / Internal URLs", ours: "Yes — any URL your browser can open", theirs: "No — public articles only", highlight: true },
   { feature: "Exact Scroll Position Saved", ours: "Yes — auto-saved per URL", theirs: "No — marks article as read/unread only", highlight: true },
   { feature: "Account Required", ours: "No", theirs: "Yes (email account)", highlight: true },
-  { feature: "Data Storage", ours: "100% local (browser only)", theirs: "Cloud (Instapaper servers)", highlight: true },
+  { feature: "Data Storage", ours: "Local-first + Chrome-native sync (no 3rd-party server)", theirs: "Cloud (Instapaper servers)", highlight: true },
   { feature: "Price", ours: "Free / $4.99/mo Pro", theirs: "Free / $2.99/month Premium", highlight: true },
   { feature: "Clean Article Reading View", ours: "No — opens original page", theirs: "Yes — stripped, typography-focused view", },
   { feature: "Highlights & Notes", ours: "No (planned v2.0)", theirs: "Yes — free tier included", },
   { feature: "Speed Read Mode", ours: "No", theirs: "Yes (Premium)", },
-  { feature: "Cross-Device Sync", ours: "No (local only)", theirs: "Yes — cloud sync across devices", },
+  { feature: "Cross-Device Sync", ours: "Yes — bookmarks sync via Chrome account (positions stay local)", theirs: "Yes — cloud sync across devices", },
   { feature: "Offline Reading", ours: "Position saved; page needs browser cache", theirs: "Yes — full article cached offline", },
   { feature: "Active Development (2026)", ours: "Yes — actively maintained", theirs: "Minimal — slow update cadence since 2016", highlight: true },
   { feature: "Works on Confluence / Notion / Wikis", ours: "Yes", theirs: "No", highlight: true },
@@ -43,8 +43,8 @@ const ourAdvantages = [
   { title: "Actively Maintained in 2026", desc: "Instapaper's development has been minimal since its acquisition in 2016. The iOS app and core features work, but meaningful product updates are rare. ReadMark is actively developed — new versions ship regularly. If you're choosing a reading companion in 2026, you want a tool that responds to how the web has changed." },
   { title: "Works on Private and Internal URLs", desc: "Instapaper works by sending your article's URL to its server, which fetches and archives the content. This means it only works on publicly accessible pages. ReadMark doesn't fetch content at all — it saves your scroll position locally. Confluence wikis, private Notion pages, GitHub repositories, company intranets: ReadMark handles all of them. Instapaper cannot." },
   { title: "No Account Required", desc: "ReadMark works immediately after installation — no email, no password, no onboarding. Instapaper requires account creation before you can save anything. For a tool you use dozens of times a day, the friction of account management adds up." },
-  { title: "No Account, No Cloud — Just Your Position", desc: "Instapaper Premium ($2.99/month) is a capable archiver, but it needs an account and stores your library on its servers. ReadMark takes a different path: no account, everything in local storage, and it works on any URL your browser opens — including private wikis and internal docs Instapaper can't fetch. Pick ReadMark for position tracking that stays on your machine, not for a cheaper archive." },
-  { title: "100% Local — No Server Dependency Risk", desc: "Instapaper's value depends entirely on their servers staying online and their service remaining active. ReadMark stores everything in chrome.storage.local. There are no servers to go down, no company to get acquired, no service to shut down — your reading positions are yours." },
+  { title: "No Account, No Proprietary Server", desc: "Instapaper Premium ($2.99/month) is a capable archiver, but it needs an Instapaper account and stores your library on its servers. ReadMark takes a different path: no account, no third-party server — bookmarks sync through Chrome's own account while reading positions stay in local storage on the device, and it works on any URL your browser opens, including private wikis and internal docs Instapaper can't fetch." },
+  { title: "No Proprietary Server — No Shutdown Risk", desc: "Instapaper's value depends entirely on their servers staying online and their service remaining active. ReadMark has no proprietary server: bookmarks sync via Chrome's own account and reading positions stay in local storage. There's no ReadMark company server to go down, get acquired, or shut off — your data doesn't depend on us staying in business." },
 ];
 
 const theirAdvantages = [

@@ -29,19 +29,19 @@ const rows: ComparisonRow[] = [
   { feature: "AI Summary / Copilot", ours: "No (focused tool)", theirs: "Yes (ChatGPT-powered)" },
   { feature: "YouTube Summary", ours: "No", theirs: "Yes" },
   { feature: "PDF Support", ours: "No", theirs: "Yes" },
-  { feature: "Data Storage", ours: "100% local (browser)", theirs: "Cloud (account required)", highlight: true },
+  { feature: "Data Storage", ours: "Local-first + Chrome-native sync (no 3rd-party server)", theirs: "Cloud (account required)", highlight: true },
   { feature: "Account Required", ours: "No", theirs: "Yes", highlight: true },
   { feature: "Multi-Page Tracking", ours: "Yes — unlimited URLs", theirs: "No (highlights only)", highlight: true },
   { feature: "Visual Position Marker", ours: "Yes — customizable", theirs: "No" , highlight: true },
   { feature: "Extension Size", ours: "Lightweight (~50 KB)", theirs: "Heavy (AI-powered)", highlight: true },
-  { feature: "Privacy", ours: "No data leaves your browser", theirs: "Data synced to cloud servers", highlight: true },
+  { feature: "Privacy", ours: "No 3rd-party server — Chrome-native sync only", theirs: "Data synced to cloud servers", highlight: true },
   { feature: "Price", ours: "Free / Pro $4.99/mo", theirs: "Free / $9.99/month" },
 ];
 
 const ourAdvantages = [
   { title: "Automatic Reading Position Saving", desc: "ReadMark's core feature — it remembers exactly where you stopped on every page. No manual action needed. Liner has no equivalent; it focuses on highlighting, not reading progress." },
   { title: "One-Click Resume", desc: "Return to any article and instantly jump back to your last reading position. Perfect for long-form articles, documentation, and research papers you read over multiple sessions." },
-  { title: "100% Local & Private", desc: "All data stays in your browser. No account, no cloud sync, no tracking. Liner requires an account and sends data to their servers." },
+  { title: "Local-First & Private", desc: "Reading positions stay in your browser; bookmarks sync through Chrome's own account. No ReadMark account, no third-party server, no tracking. Liner requires a Liner account and sends your data to their servers." },
   { title: "Lightweight & Fast", desc: "ReadMark is a tiny, focused extension that won't slow down your browser. Liner's AI features add significant overhead to every page load." },
   { title: "Half the Monthly Price", desc: "ReadMark Pro is $4.99/month. Liner Premium costs $9.99/month — roughly double. For reading position tracking without the AI research suite, ReadMark covers the core job at about half the cost." },
 ];

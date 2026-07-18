@@ -27,7 +27,7 @@ export const categories: Category[] = [
       {
         name: "X Detox",
         description: "Clean up your X (Twitter) experience by removing algorithms and distractions.",
-        price: "Free Trial / $3.99/mo",
+        price: "Free / Pro $9 (one-time)",
         url: "/extensions/x-detox/",
         icon: "/ext-icons/x-detox.png",
       },
@@ -429,8 +429,8 @@ export const categories: Category[] = [
     extensions: [
       {
         name: "FurimaPro",
-        description: "メルカリ出品を効率化するAIテンプレートツール。カテゴリ別の最適化タイトル・説明文テンプレートで出品作業を大幅短縮。月5件無料。",
-        price: "Free / Pro ¥980/mo",
+        description: "メルカリ出品を効率化するAIテンプレートツール。カテゴリ別の最適化タイトル・説明文テンプレートで出品作業を大幅短縮。無料でテンプレート3件まで。",
+        price: "Free / Pro $3.99 (one-time)",
         url: "/extensions/furimapro/",
         icon: "/ext-icons/furimapro.png",
       },
