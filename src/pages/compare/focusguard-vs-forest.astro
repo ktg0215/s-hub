@@ -35,7 +35,7 @@ const rows: ComparisonRow[] = [
   { feature: "Real Tree Planting (with coins)", ours: "No", theirs: "Yes — earned coins fund real tree planting", },
   { feature: "Deep Chrome Integration", ours: "Yes — native extension, session-synced blocking", theirs: "Limited — Chrome extension is not the core product", highlight: true },
   { feature: "Offline Use", ours: "Yes — fully local", theirs: "App: yes / Chrome extension: requires active session", },
-  { feature: "Data Privacy", ours: "100% local — no external calls", theirs: "Account-synced — data stored on Forest servers", highlight: true },
+  { feature: "Data Privacy", ours: "Local-first — no FocusGuard server", theirs: "Account-synced — data stored on Forest servers", highlight: true },
   { feature: "Price", ours: "Free Trial / Pro $3.99/mo", theirs: "Free (limited) / $1.99 app one-time + Chrome free", highlight: true },
 ];
 
@@ -44,7 +44,7 @@ const ourAdvantages = [
   { title: "Persistent Block Lists vs Per-Session Setup", desc: "FocusGuard maintains a configured block list that's active whenever you start a session — your sites are always ready. Forest's Chrome extension blocks sites during an active timer but doesn't maintain a persistent configured list in the same way. For users who block the same sites every day (YouTube, Reddit, social media), FocusGuard's configured list approach eliminates per-session setup." },
   { title: "Multiple Block Profiles for Different Contexts", desc: "FocusGuard Pro lets you create separate block profiles for work, study, and personal focus sessions with different site lists per context. Forest uses a single site list per session with no profile switching. For users who need different blocking configurations for different work types — a writer blocking everything, a developer blocking social media but needing Stack Overflow — FocusGuard's profiles serve this need." },
   { title: "Schedule-Based Automatic Blocking", desc: "FocusGuard Pro lets you set which hours of the day blocking is active — automatically enforced without starting a manual session. Forest requires you to manually start each focus session. For users who want blocking on during work hours without remembering to start a timer, FocusGuard's schedule support automates the habit." },
-  { title: "100% Local — Forest Syncs Data to Their Servers", desc: "FocusGuard stores all session data locally. Forest requires an account and syncs your focus history, forest, and coins to Forest's servers. For users who prefer not to create an account or share productivity data with a third-party service, FocusGuard's local-only approach is meaningfully different." },
+  { title: "Local-First — Forest Syncs Data to Their Servers", desc: "FocusGuard keeps your focus stats on the device and has no FocusGuard server; block settings sync through your own Chrome account. Forest requires an account and syncs your focus history, forest, and coins to Forest's servers. For users who prefer not to create a third-party account or store productivity data on someone else's servers, FocusGuard's local-first approach is meaningfully different." },
 ];
 
 const theirAdvantages = [

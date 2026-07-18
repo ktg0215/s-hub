@@ -55,7 +55,7 @@ const softwareSchema = {
 
 const faqItems = [
   { question: "Is ColorThief free?", answer: "Yes, completely free. No API key, no account, no subscription required." },
-  { question: "How does color extraction work?", answer: "ColorThief loads the image into an HTML canvas, reads the pixel data, and runs k-means++ clustering to find the 8 most dominant colors. Everything runs inside your browser — no data is sent to any server." },
+  { question: "How does color extraction work?", answer: "ColorThief loads the image into an HTML canvas, reads the pixel data, and runs k-means++ clustering to find the 8 most dominant colors. Everything runs inside your browser — no image or color data is sent to any external server." },
   { question: "What is Figma JSON format?", answer: "Figma represents colors as RGB values between 0 and 1 (not 0–255). ColorThief's Figma format outputs {\"r\": 0.xxx, \"g\": 0.xxx, \"b\": 0.xxx} which you can paste directly into Figma's Fill panel or use in Figma plugin scripts." },
   { question: "Does it work on all websites?", answer: "ColorThief works on most websites. Cross-origin images may not be extractable due to browser CORS restrictions — in that case, the image would need to include appropriate CORS headers." },
 ];

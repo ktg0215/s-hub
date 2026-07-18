@@ -47,7 +47,7 @@ const relatedProducts = [
   { name: "DataPick", category: "Productivity", link: "/extensions/datapick/", icon: "/ext-icons/datapick.webp" },
 ];
 
-const definition = "Japanese Font Finder is a free Chrome extension that identifies fonts on any webpage instantly, with specialized support for 150+ Japanese fonts including Yu Gothic, Hiragino Kaku Gothic ProN, Meiryo, Noto Sans JP, and Noto Serif JP. It detects the actual rendered font — not just the CSS declaration — and shows font-family, size, weight, line-height, letter-spacing, and text color in one click. All processing is 100% local with no data sent to any server.";
+const definition = "Japanese Font Finder is a free Chrome extension that identifies fonts on any webpage instantly, with specialized support for 150+ Japanese fonts including Yu Gothic, Hiragino Kaku Gothic ProN, Meiryo, Noto Sans JP, and Noto Serif JP. It detects the actual rendered font — not just the CSS declaration — and shows font-family, size, weight, line-height, letter-spacing, and text color in one click. All processing is 100% local, with no fonts or browsing data sent to any external server.";
 
 const howToSteps = [
   "Install Japanese Font Finder from the Chrome Web Store — it's free.",
@@ -62,7 +62,7 @@ const faqItems = [
   { question: "Does it detect Japanese fonts accurately?", answer: "Yes. Japanese Font Finder supports 150+ Japanese fonts including Yu Gothic, Yu Mincho, Hiragino Kaku Gothic ProN, Meiryo, and Noto Sans JP. Unlike general-purpose tools, it resolves the actual rendered font rather than the CSS fallback list, so it correctly identifies which font the browser is using." },
   { question: "Why do other font tools show 'sans-serif' for Japanese fonts?", answer: "Most font detection tools read the CSS font-family declaration directly, which lists all fallbacks. Japanese font stacks often have 3-5 fallbacks (e.g. 'Hiragino Kaku Gothic ProN', 'Yu Gothic', 'Meiryo', sans-serif). Japanese Font Finder resolves the actual rendered font using document.fonts API, showing the font truly in use." },
   { question: "Does it work with web font services like Google Fonts?", answer: "Yes. It automatically detects fonts loaded from Google Fonts, Adobe Fonts, TypeSquare, and FONTPLUS." },
-  { question: "Is my browsing data collected?", answer: "No. All font detection runs locally in your browser. No data is sent to any external server." },
+  { question: "Is my browsing data collected?", answer: "No. All font detection runs locally in your browser. No fonts or browsing data are sent to any external server." },
   { question: "Can I export the fonts I find?", answer: "Yes. You can export your font collection as JSON or CSV — useful for design documentation and font audits across multiple pages." },
 ];
 
