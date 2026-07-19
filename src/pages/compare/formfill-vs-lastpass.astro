@@ -36,7 +36,7 @@ const rows: ComparisonRow[] = [
   { feature: "Encryption standard", ours: "AES-256-GCM (Web Crypto API)", theirs: "AES-256 (per LastPass docs)" },
   { feature: "Data location", ours: "chrome.storage.local (browser local, encrypted)", theirs: "LastPass cloud vault" },
   { feature: "Offline functionality", ours: "100% — no network calls for profile data", theirs: "Cached vault — periodic sync required" },
-  { feature: "Export format", ours: "Encrypted JSON (AES-GCM)", theirs: "CSV / encrypted export (varies by plan)" },
+  { feature: "Export format", ours: "JSON (AES-GCM, key bundled — treat as plaintext)", theirs: "CSV / encrypted export (varies by plan)" },
   { feature: "Free tier profiles", ours: "3 profiles", theirs: "Identity count varies — check current LastPass Free terms" },
   { feature: "Pro pricing", ours: "$3.99/mo", theirs: "Premium $3/mo, Families $4/mo (2026-04時点)" },
 ];
@@ -63,7 +63,7 @@ const faq: ComparisonFaq[] = [
   { question: "Why not just use LastPass's Identity feature?", answer: "LastPass Identities support address and contact info autofill, which works well for basic profiles. FormFill Vault goes deeper for business-specific workflows: richer profile schemas, multi-context separation (personal / work / side project) as a first-class feature, Japanese postal code autocomplete out of the box, and fully offline operation. For standard consumer autofill, Identities may be sufficient — for business form workflows, FormFill Vault was built for that case." },
   { question: "Is my data safe with FormFill Vault?", answer: "All profile data is encrypted with AES-256-GCM using the Web Crypto API. Encryption keys are generated and stored on your device — they are never transmitted to any server. No profile data or autofill content leaves your browser. Safety claims should always be evaluated against your own threat model; if you need third-party security audits, FormFill Vault is a new solo-developed project and does not yet have external audits (2026-04時点)." },
   { question: "Does LastPass have Japanese postal code autofill?", answer: "As of 2026-04, the public LastPass documentation does not describe native Japanese postal code autocomplete as a feature of Identities. Users documenting Japanese addresses with LastPass typically enter them manually. FormFill Vault ships a built-in postal code dictionary that resolves 7-digit codes to full addresses without an external API call." },
-  { question: "What happens to my FormFill Vault profiles if I switch browsers or devices?", answer: "FormFill Vault supports encrypted JSON export and import. Export your profiles from the current device, store the encrypted JSON file securely (personal cloud storage, encrypted USB, etc.), and import on the new device. Cloud sync across devices is on the roadmap but not yet shipped." },
+  { question: "What happens to my FormFill Vault profiles if I switch browsers or devices?", answer: "FormFill Vault supports JSON export and import. Export your profiles from the current device, transfer the file, and import it on the new device. Note that the backup bundles its own decryption key, so treat the file like an unencrypted copy — avoid shared or cloud storage, and delete it after the restore. Cloud sync across devices is on the roadmap but not yet shipped." },
 ];
 ---
 

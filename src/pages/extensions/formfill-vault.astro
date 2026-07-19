@@ -27,7 +27,7 @@ const features = [
   { title: "Japanese Postal Code Autocomplete", desc: "Built-in postal code dictionary — type 7 digits, get the full address instantly. No external API dependency" },
   { title: "AES-256-GCM Local Encryption", desc: "Profile data encrypted with Web Crypto API. Keys generated and stored on your device only — never transmitted anywhere" },
   { title: "Heuristic Field Detection", desc: "Matches form fields via name / id / placeholder attributes. Works on standard HTML forms on any website" },
-  { title: "Encrypted Export / Import", desc: "Back up profiles as encrypted JSON. Transfer between devices or reinstall without losing data" },
+  { title: "Portable Backup / Restore", desc: "Move profiles between devices with a JSON backup. The file carries its own key — handle it like plaintext" },
   { title: "100% Offline", desc: "No network requests for profile data at any point. Full functionality without internet connection" },
 ];
 
@@ -62,7 +62,7 @@ const softwareSchema = {
   author: { "@type": "Organization", name: "S-Hub", url: "https://dev-tools-hub.xyz" },
   url: "https://dev-tools-hub.xyz/extensions/formfill-vault/",
   downloadUrl: extension.chromeUrl,
-  featureList: "Multi-Profile Support, Japanese Postal Code Autocomplete, AES-256-GCM Local Encryption, Heuristic Field Detection, Encrypted Export / Import, 100% Offline",
+  featureList: "Multi-Profile Support, Japanese Postal Code Autocomplete, AES-256-GCM Local Encryption, Heuristic Field Detection, Portable Backup / Restore, 100% Offline",
 };
 
 const definition = "FormFill Vault is a Chrome extension that autofills business forms — addresses, invoices, company information — using encrypted profiles stored entirely in your browser. It uses the Web Crypto API (AES-256-GCM) for local encryption, never transmits profile data to external servers, and ships with a built-in Japanese postal code dictionary. It is not a password manager and is designed to complement, not replace, tools like LastPass or 1Password.";
@@ -82,7 +82,7 @@ const faqItems = [
   { question: "Is my profile data encrypted?", answer: "Yes. All profile data is encrypted with AES-256-GCM via the Web Crypto API. Encryption keys are generated and stored on your device only — they are never transmitted to any server." },
   { question: "Does FormFill Vault work offline?", answer: "Yes, completely. Once installed, FormFill Vault makes no network requests for profile data or autofill operations. Postal code lookup uses a built-in local dictionary — no external API calls." },
   { question: "Does Japanese postal code autocomplete really work without an external API?", answer: "Yes. The postal code dictionary ships with the extension as static data. Type a 7-digit postal code and the address fields populate instantly — no internet connection required." },
-  { question: "What happens if I lose my device? Can I recover my profiles?", answer: "You can export encrypted profiles as JSON for backup. Store the backup file somewhere safe (personal cloud storage, encrypted USB). When you reinstall FormFill Vault on a new device, import the JSON to restore your profiles." },
+  { question: "What happens if I lose my device? Can I recover my profiles?", answer: "You can export your profiles as a JSON backup and import it on another device. Important: the backup file bundles its own decryption key, so anyone who obtains the file can read it. Treat it exactly like an unencrypted copy of your data — do not email it or leave it in shared or cloud storage. Keep it somewhere only you can reach, such as an encrypted USB drive or a password-protected archive, and delete it once the restore is finished." },
 ];
 ---
 

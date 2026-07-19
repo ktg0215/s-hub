@@ -33,7 +33,7 @@ const rows: ComparisonRow[] = [
   { feature: "Article Clean Reading View", ours: "No — opens original page", theirs: "Yes — Pocket Reader removes clutter", },
   { feature: "Highlights & Annotations", ours: "No (planned v2.0)", theirs: "Yes (Premium only)", },
   { feature: "Text-to-Speech", ours: "No", theirs: "Yes (Premium)", },
-  { feature: "Cross-Device Sync", ours: "Yes — bookmarks sync via Chrome account (positions stay local)", theirs: "Yes — via Mozilla cloud", },
+  { feature: "Cross-Device Sync", ours: "Yes — reading positions sync via your Chrome account (free and Pro)", theirs: "Yes — via Mozilla cloud", },
   { feature: "Works on Confluence / Notion / Wikis", ours: "Yes", theirs: "No", highlight: true },
   { feature: "Offline Reading", ours: "Position saved; page needs browser cache", theirs: "Yes — full article cached offline (Premium)", },
   { feature: "Open Source", ours: "No", theirs: "No", },
@@ -42,7 +42,7 @@ const rows: ComparisonRow[] = [
 const ourAdvantages = [
   { title: "Works on Any URL — Including Private Pages", desc: "This is ReadMark's defining advantage. Pocket only saves public articles that can be fetched and archived by their server. ReadMark saves your scroll position on any URL your browser can open — internal Confluence wikis, private Notion pages, company dashboards, paywalled articles, GitHub documentation. Pocket cannot touch any of these." },
   { title: "Same $4.99 — But No Ads and No Account", desc: "ReadMark Pro and Pocket Premium both cost $4.99/month, so this isn't about price. It's about what you get for it: Pocket's free tier mixes sponsored articles into your list and Premium requires a Mozilla account with your reading data in the cloud. ReadMark has no ads at any tier, needs no account, and keeps reading positions in local storage while syncing bookmarks through your own Chrome account. Same price, fewer strings." },
-  { title: "No Account, No Data on Mozilla's Servers", desc: "ReadMark requires no account. Reading positions stay in local storage on the device, and bookmarks sync through your own Chrome account — not a ReadMark server. Pocket requires a Mozilla account and sends your reading list — including article content and reading habits — to Mozilla's cloud. Since Mozilla's 2024 acquisition of Pocket, data policies have evolved. With ReadMark, your data never goes to a ReadMark server — there isn't one." },
+  { title: "No Account, No Data on Mozilla's Servers", desc: "ReadMark requires no account. Reading positions are saved in Chrome and sync through your own Chrome account — not a ReadMark server. Pocket requires a Mozilla account and sends your reading list — including article content and reading habits — to Mozilla's cloud. Since Mozilla's 2024 acquisition of Pocket, data policies have evolved. With ReadMark, your data never goes to a ReadMark server — there isn't one." },
   { title: "No Ads, Ever", desc: "Pocket's free tier includes sponsored articles (ads) mixed into your reading list. ReadMark has no ads, no sponsored content, and no upsells beyond the optional Pro upgrade." },
   { title: "Actual Position Tracking, Not Just 'Saved'", desc: "Pocket marks articles as saved or read — a binary state. It doesn't remember that you were 73% through a 6,000-word piece. ReadMark saves your exact scroll position and returns you to that paragraph when you reopen the page." },
 ];
@@ -62,7 +62,7 @@ const faq: ComparisonFaq[] = [
   { question: "Can ReadMark work with private or internal pages?", answer: "Yes — and this is ReadMark's key advantage over Pocket. ReadMark saves scroll position on any URL your browser can open: internal Confluence wikis, Notion pages, company intranets, GitHub documentation, paywalled articles. Pocket only works on public articles that its server can fetch and archive." },
   { question: "Is Pocket free?", answer: "Pocket has a free tier that includes ads (sponsored articles in your reading list). Premium at $4.99/month removes ads and adds highlighting and text-to-speech. ReadMark's free tier has no ads and holds 10 bookmarks. ReadMark Pro ($4.99/month) unlocks unlimited bookmarks and advanced features — no account required." },
   { question: "Does ReadMark replace Pocket?", answer: "Not if you use Pocket for article archiving, clean reading view, or offline reading. Those are features ReadMark doesn't offer. ReadMark replaces Pocket if your primary use was tracking where you were in long articles — ReadMark does that better, for any URL, with no account required." },
-  { question: "Is my reading data private with ReadMark?", answer: "Your reading positions, habits, and the URLs you track stay in local storage on the device. Bookmarks and settings sync through your own Chrome account — not a ReadMark server. There's no ReadMark account and no ReadMark server holding your reading data, and nothing is sold or shared." },
+  { question: "Is my reading data private with ReadMark?", answer: "Your reading positions and settings sync through your own Chrome account — not a ReadMark server. There's no ReadMark account, and nothing is sold or shared. The one exception is the optional ReadBox integration: if you connect it, ReadMark sends the page URL and title of saved items to ReadBox. Nothing is sent if you have not connected it." },
 ];
 ---
 

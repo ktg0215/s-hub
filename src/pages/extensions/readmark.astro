@@ -25,8 +25,8 @@ const features = [
   { title: "One-Click Restore", desc: "Return to your exact reading position instantly" },
   { title: "Smart Share Links", desc: "Generate links to specific text passages using Text Fragments" },
   { title: "Reading Streaks", desc: "Track consecutive reading days with achievement badges" },
-  { title: "Cross-Device Sync", desc: "Sync bookmarks across devices via Chrome account" },
-  { title: "Privacy First", desc: "Reading positions stored locally, no ReadMark server" },
+  { title: "Cross-Device Sync", desc: "Positions sync across devices via your Chrome account — free and Pro" },
+  { title: "Privacy First", desc: "No ReadMark account — positions sync through your own Chrome account" },
 ];
 
 const targetUsers = [
@@ -65,7 +65,7 @@ const softwareSchema = {
   featureList: "Auto-Save Positions, One-Click Restore, Smart Share Links, Reading Streaks, Cross-Device Sync, Privacy First",
 };
 
-const definition = "ReadMark is a free Chrome and Edge extension that automatically saves your scroll position on every webpage you visit. When you return to the same page — even after closing the tab or browser — it restores you to exactly where you left off, without any manual saving. All reading positions are stored locally on your device, with no reading data sent to a ReadMark server.";
+const definition = "ReadMark is a free Chrome and Edge extension that automatically saves your scroll position on every webpage you visit. When you return to the same page — even after closing the tab or browser — it restores you to exactly where you left off, without any manual saving. Reading positions are saved in Chrome and sync through your own Chrome account when Chrome sync is on — ReadMark runs no server of its own for them. If you connect the optional ReadBox integration, ReadMark sends the page URL and title of saved items to ReadBox.";
 
 const howToSteps = [
   "Install ReadMark from the Chrome Web Store or Microsoft Edge Add-ons.",
@@ -77,9 +77,9 @@ const howToSteps = [
 
 const faqItems = [
   { question: "How is ReadMark different from browser bookmarks?", answer: "ReadMark saves your exact scroll position along with the URL, so when you return to an article you left halfway through, it restores you to precisely where you stopped. Regular bookmarks only save the URL and always open from the top." },
-  { question: "Does ReadMark sync across devices?", answer: "Yes. ReadMark Pro includes cross-device sync via your Chrome account. The free version saves positions locally on your current device only." },
+  { question: "Does ReadMark sync across devices?", answer: "Yes — and it is not a Pro-only feature. Reading positions sync through your own Chrome account whenever Chrome sync is turned on, on both the free and Pro plans. Pro removes the 10-position limit; it does not add syncing." },
   { question: "How many reading positions can I save?", answer: "The free plan saves up to 10 bookmarks. ReadMark Pro ($4.99/month) removes the limit with unlimited saved positions." },
-  { question: "Does ReadMark collect my data?", answer: "No. ReadMark stores all reading positions locally on your device. No browsing data or reading history is sent to external servers." },
+  { question: "Does ReadMark collect my data?", answer: "ReadMark has no account and runs no server of its own for your reading data. Your positions are saved in Chrome and sync through your own Chrome account, which means they are handled by Google's Chrome sync rather than by us. The one exception is the optional ReadBox integration: if you connect it, ReadMark sends the page URL and title of saved items to ReadBox. Nothing is sent if you have not connected it, and page content and browsing history are never transmitted." },
   { question: "Does ReadMark work on all websites?", answer: "Yes. ReadMark automatically saves your scroll position on any standard webpage. When you close and reopen the same URL, it restores you to exactly where you left off." },
 ];
 ---
